@@ -1,0 +1,23 @@
+reg_array,field_array,reg_name,field_name,bits,addr,type,rst_val,attr,description
+,,DESC,module_type,7:0,0,ro,'0,,
+,,DESC,modue_subtype,15:8,0,ro,'0,,
+,,DESC,major_rev,19:16,0,ro,'0,,
+,,DESC,minor_rev,23:20,0,ro,'0,,
+,,PWR_EN,pwr_en,0:0,4,rw,'0,::locked[pwr_en_key==8'hAB],
+,,PWR_EN,pwr_en_key,31:24,4,rw,'0,::key,
+,,RST_CTRL,rst,0:0,8,rw,'0,::locked[rst_key==8'hAB],
+,,RST_CTRL,rst_sts_clr,1:1,8,rw_pulse,'0,::locked[rst_key==8'hAB],
+,,RST_CTRL,rst_key,31:24,8,rw,'0,::key,
+,,RST_STS,rst_sts,0:0,12,ro,'0,,
+,,CLK_CTRL,clk_sel,1:0,16,rw,'0,,0: clk_lf 1: clk_4mhz 2: clk_ahb 3: clk_apb
+,,CLK_CTRL,clk_div,10:8,16,rw,'0,,clk divide ratio for sample and hold logic
+,,STS,vref_rdy,0:0,20,ro,'0,,VREF is ready and stable
+,,VREF_CTRL,enable,0:0,24,rw,'0,,enable VREF Buffer
+,,VREF_CTRL,vref_mode,8:8,24,rw,'0,,0: 1.4V 1: 2.5V
+,,VREF_CTRL,sh_en,16:16,24,rw,'0,,enable sample and hold mode
+,,SH_CTRL,hold_cnt,15:0,28,rw,'0,,hold cycle count
+,,SH_CTRL,period_cnt,31:16,28,rw,'0,,total period count
+,,VREF_SPARE_CTRL,vref_cfg0,7:0,32,rw,'0,,
+,,VREF_SPARE_CTRL,vref_cfg1,15:8,32,rw,'0,,
+,,VREF_SPARE_STS,vref_sts0,7:0,36,ro,'0,,
+,,VREF_SPARE_STS,vref_sts1,15:8,36,ro,'0,,

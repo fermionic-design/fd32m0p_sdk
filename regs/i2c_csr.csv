@@ -1,0 +1,233 @@
+reg_array,field_array,reg_name,field_name,bits,addr,type,rst_val,attr,description
+,,DESC,module_type,7:0,0,ro,'0,,
+,,DESC,modue_subtype,15:8,0,ro,'0,,
+,,DESC,major_rev,19:16,0,ro,'0,,
+,,DESC,minor_rev,23:20,0,ro,'0,,
+,,PWR_EN,pwr_en,0:0,4,rw,'0,::locked[pwr_en_key==8'hAB],
+,,PWR_EN,pwr_en_key,31:24,4,rw,'0,::key,
+,,RST_CTRL,rst,0:0,8,rw,'0,::locked[rst_key==8'hAB],
+,,RST_CTRL,rst_sts_clr,1:1,8,rw_pulse,'0,::locked[rst_key==8'hAB],
+,,RST_CTRL,rst_key,31:24,8,rw,'0,::key,
+,,RST_STS,rst_sts,0:0,12,ro,'0,,
+,,CLK_CTRL,en_async_clk_req,0:0,16,rw,'0,,
+,,CLK_CTRL,clksel,1:1,16,rw,'0,,
+,,CLK_CTRL,clkdiv,4:2,16,rw,'0,,
+,,CLK_CTRL,hold_cnt,7:5,16,rw,7,,
+,,CLK_CTRL,setup_cnt,10:8,16,rw,2,,"Max for 32Mhz clk 250ns in standard mode. 
+0 : invalid
+1 : scl released at same clk cycle as ack/nack generated
+2 : scl released 1 clk cycle after ack/nack generated and so on"
+,,DBG_CTRL,run_on_halt,0:0,20,rw,'0,,
+,,DBG_CTRL,soft_stop,1:1,20,rw,'0,,
+,,MASTER_SCL_GEN,mst_scl_cnt_high_val,7:0,24,rw,16,,Max for 32Mhz clk 4us in standard mode
+,,MASTER_SCL_GEN,mst_scl_cnt_low_val,15:8,24,rw,16,,Max for 32Mhz clk 4.7us in standard mode
+,,MASTER_TIMING_CONSTRAINT,mst_scl_start_cnt,7:0,28,rw,16,,Max for 32Mhz clk 4us in standard mode (Start Hold time)
+,,MASTER_TIMING_CONSTRAINT,mst_sda_stop_cnt,15:8,28,rw,16,,Max for 32Mhz 4us (Stop Setup Time)
+,,MASTER_TIMING_CONSTRAINT,mst_stop_start_buffer_cnt,23:16,28,rw,16,,Max for 32Mhz 4.7us (Minimum time between stop and start)
+,,MASTER_TIMING_CONSTRAINT,mst_restart_setup_cnt,31:24,28,rw,16,,
+,,MASTER_CLKSTRETCH_CNT,mst_max_clkstretch_cnt,31:0,32,rw,40000,,max for 32Mhz 10ms (Maximum time for which master and clk stretch)
+,,SLAVE_CLKSTRETCH_CNT,slv_max_clkstretch_cnt,31:0,36,rw,100000,,Max for 32Mhz 25ms (Maximum time slave can clk stretch)
+,,SMBUS_TIMEOUT_CNT,smbus_timeout_cnt,31:0,40,rw,140000,,max for 32Mhz 35ms (Maximum time scl low allowed when external device is stretching)
+,,INTR_STS,intr_first,5:0,44,ro,'0,,
+,,INTR_EVENT,arb_lost,0:0,48,rw_w1c,'0,,
+,,INTR_EVENT,slv_gencall_intr,1:1,48,rw_w1c,'0,,
+,,INTR_EVENT,slv_start,2:2,48,rw_w1c,'0,,
+,,INTR_EVENT,slv_stop,3:3,48,rw_w1c,'0,,
+,,INTR_EVENT,tx_done,4:4,48,rw_w1c,'0,,1 byte transmission done
+,,INTR_EVENT,rx_done,5:5,48,rw_w1c,'0,,1 byte recieve done
+,,INTR_EVENT,smbus_timeout,6:6,48,rw_w1c,'0,,
+,,INTR_EVENT,clkstretch_timeout,7:7,48,rw_w1c,'0,,
+,,INTR_EVENT,pec_err,8:8,48,rw_w1c,'0,,
+,,INTR_EVENT,txfifo_empty,9:9,48,rw_w1c,'0,,
+,,INTR_EVENT,rxfifo_full,10:10,48,rw_w1c,'0,,
+,,INTR_EVENT,txfifo_half_full,11:11,48,rw_w1c,'0,,
+,,INTR_EVENT,rxfifo_half_full,12:12,48,rw_w1c,'0,,
+,,INTR_EVENT,mst_stop_intr,13:13,48,rw_w1c,'0,,
+,,INTR_EVENT,mst_start_intr,14:14,48,rw_w1c,'0,,
+,,INTR_EVENT,mst_nack,15:15,48,rw_w1c,'0,,
+,,INTR_EVENT,dma_done_rx,16:16,48,rw_w1c,'0,,
+,,INTR_EVENT,dma_done_tx,17:17,48,rw_w1c,'0,,
+,,INTR_EVENT,txfifo_almost_empty_intr,18:18,48,rw_w1c,'0,,
+,,INTR_EVENT,rxfifo_almost_full_intr,19:19,48,rw_w1c,'0,,
+,,INTR_EN_0,arb_lost_en,0:0,52,rw_me,'0,,
+,,INTR_EN_0,slv_gencall_intr_en,1:1,52,rw_me,'0,,
+,,INTR_EN_0,slv_start_en,2:2,52,rw_me,'0,,
+,,INTR_EN_0,slv_stop_en,3:3,52,rw_me,'0,,
+,,INTR_EN_0,tx_done_en,4:4,52,rw_me,'0,,
+,,INTR_EN_0,rx_done_en,5:5,52,rw_me,'0,,
+,,INTR_EN_0,smbus_timeout_en,6:6,52,rw_me,'0,,
+,,INTR_EN_0,clkstretch_timeout_en,7:7,52,rw_me,'0,,
+,,INTR_EN_0,pec_err_en,8:8,52,rw_me,'0,,
+,,INTR_EN_0,txfifo_empty_en,9:9,52,rw_me,'0,,
+,,INTR_EN_0,rxfifo_full_en,10:10,52,rw_me,'0,,
+,,INTR_EN_0,txfifo_half_full_en,11:11,52,rw_me,'0,,
+,,INTR_EN_0,rxfifo_half_full_en,12:12,52,rw_me,'0,,
+,,INTR_EN_0,mst_stop_intr_en,13:13,52,rw_me,'0,,
+,,INTR_EN_0,mst_start_intr_en,14:14,52,rw_me,'0,,
+,,INTR_EN_0,mst_nack_en,15:15,52,rw_me,'0,,
+,,INTR_EN_1,dma_done_rx_en,0:0,56,rw_me,'0,,
+,,INTR_EN_1,dma_done_tx_en,1:1,56,rw_me,'0,,
+,,INTR_EN_1,txfifo_almost_empty_intr_en,2:2,56,rw_me,'0,,
+,,INTR_EN_1,rxfifo_almost_full_intr_en,3:3,56,rw_me,'0,,
+,,INTR_NMI_EN_0,arb_lost_nmi_en,0:0,60,rw_me,'0,,
+,,INTR_NMI_EN_0,slv_gencall_intr_nmi_en,1:1,60,rw_me,'0,,
+,,INTR_NMI_EN_0,slv_start_nmi_en,2:2,60,rw_me,'0,,
+,,INTR_NMI_EN_0,slv_stop_nmi_en,3:3,60,rw_me,'0,,
+,,INTR_NMI_EN_0,tx_done_nmi_en,4:4,60,rw_me,'0,,
+,,INTR_NMI_EN_0,rx_done_nmi_en,5:5,60,rw_me,'0,,
+,,INTR_NMI_EN_0,smbus_timeout_nmi_en,6:6,60,rw_me,'0,,
+,,INTR_NMI_EN_0,clkstretch_timeout_nmi_en,7:7,60,rw_me,'0,,
+,,INTR_NMI_EN_0,pec_err_nmi_en,8:8,60,rw_me,'0,,
+,,INTR_NMI_EN_0,txfifo_empty_nmi_en,9:9,60,rw_me,'0,,
+,,INTR_NMI_EN_0,rxfifo_full_nmi_en,10:10,60,rw_me,'0,,
+,,INTR_NMI_EN_0,txfifo_half_full_nmi_en,11:11,60,rw_me,'0,,
+,,INTR_NMI_EN_0,rxfifo_half_full_nmi_en,12:12,60,rw_me,'0,,
+,,INTR_NMI_EN_0,mst_stop_intr_nmi_en,13:13,60,rw_me,'0,,
+,,INTR_NMI_EN_0,mst_start_intr_nmi_en,14:14,60,rw_me,'0,,
+,,INTR_NMI_EN_0,mst_nack_nmi_en,15:15,60,rw_me,'0,,
+,,INTR_NMI_EN_1,dma_done_rx_nmi_en,0:0,64,rw_me,'0,,
+,,INTR_NMI_EN_1,dma_done_tx_nmi_en,1:1,64,rw_me,'0,,
+,,INTR_NMI_EN_1,txfifo_almost_empty_intr_nmi_en,2:2,64,rw_me,'0,,
+,,INTR_NMI_EN_1,rxfifo_almost_full_intr_nmi_en,3:3,64,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_arb_lost_en,0:0,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_slv_gencall_intr_en,1:1,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_slv_start_en,2:2,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_slv_stop_en,3:3,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_tx_done_en,4:4,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_rx_done_en,5:5,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_smbus_timeout_en,6:6,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_clkstretch_timeout_en,7:7,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_pec_err_en,8:8,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_txfifo_empty_en,9:9,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_rxfifo_full_en,10:10,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_txfifo_half_full_en,11:11,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_rxfifo_half_full_en,12:12,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_mst_stop_intr_en,13:13,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_mst_start_intr_en,14:14,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_0,rx_dma_mst_nack_en,15:15,68,rw_me,'0,,
+,,RX_DMA_EVENT_EN_1,rx_dma_dma_done_rx_en,0:0,72,rw_me,'0,,
+,,RX_DMA_EVENT_EN_1,rx_dma_dma_done_tx_en,1:1,72,rw_me,'0,,
+,,RX_DMA_EVENT_EN_1,rx_dma_txfifo_almost_empty_intr_en,2:2,72,rw_me,'0,,
+,,RX_DMA_EVENT_EN_1,rx_dma_rxfifo_almost_full_intr_en,3:3,72,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_arb_lost_en,0:0,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_slv_gencall_intr_en,1:1,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_slv_start_en,2:2,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_slv_stop_en,3:3,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_tx_done_en,4:4,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_rx_done_en,5:5,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_smbus_timeout_en,6:6,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_clkstretch_timeout_en,7:7,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_pec_err_en,8:8,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_txfifo_empty_en,9:9,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_rxfifo_full_en,10:10,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_txfifo_half_full_en,11:11,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_rxfifo_half_full_en,12:12,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_mst_stop_intr_en,13:13,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_mst_start_intr_en,14:14,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_0,tx_dma_mst_nack_en,15:15,76,rw_me,'0,,
+,,TX_DMA_EVENT_EN_1,tx_dma_dma_done_rx_en,0:0,80,rw_me,'0,,
+,,TX_DMA_EVENT_EN_1,tx_dma_dma_done_tx_en,1:1,80,rw_me,'0,,
+,,TX_DMA_EVENT_EN_1,tx_dma_txfifo_almost_empty_intr_en,2:2,80,rw_me,'0,,
+,,TX_DMA_EVENT_EN_1,tx_dma_rxfifo_almost_full_intr_en,3:3,80,rw_me,'0,,
+,,INTR_SW_SET_0,arb_lost_sw_set,0:0,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,slv_gencall_intr_sw_set,1:1,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,slv_start_sw_set,2:2,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,slv_stop_sw_set,3:3,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,tx_done_sw_set,4:4,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,rx_done_sw_set,5:5,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,smbus_timeout_sw_set,6:6,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,clkstretch_timeout_sw_set,7:7,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,pec_err_sw_set,8:8,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,txfifo_empty_sw_set,9:9,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,rxfifo_full_sw_set,10:10,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,txfifo_half_full_sw_set,11:11,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,rxfifo_half_full_sw_set,12:12,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,mst_stop_intr_sw_set,13:13,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,mst_start_intr_sw_set,14:14,84,rw_pulse,'0,,
+,,INTR_SW_SET_0,mst_nack_sw_set,15:15,84,rw_pulse,'0,,
+,,INTR_SW_SET_1,dma_done_rx_sw_set,0:0,88,rw_pulse,'0,,
+,,INTR_SW_SET_1,dma_done_tx_sw_set,1:1,88,rw_pulse,'0,,
+,,INTR_SW_SET_1,txfifo_almost_empty_intr_sw_set,2:2,88,rw_pulse,'0,,
+,,INTR_SW_SET_1,rxfifo_almost_full_intr_sw_set,3:3,88,rw_pulse,'0,,
+,,SPARE_CTRL,cfg0,7:0,92,rw,'0,,
+,,SPARE_CTRL,cfg1,15:8,92,rw,'0,,
+,,SPARE_STS,sts0,7:0,96,ro,'0,,
+,,SPARE_STS,sts1,15:8,96,ro,'0,,
+,,GLITCH_FILTER_CFG,gf_width,2:0,100,rw,2,,Glitch filter width
+,,SLAVE_CTRL,slv_addr_mode,0:0,104,rw,'0,,"0 : 7 bit addressing  
+1 : 10 bit addressing"
+,,SLAVE_CTRL,slv_low_pwr_wakeup_en,1:1,104,rw,'0,,Enables wakeup from low power mode
+,,SLAVE_CTRL,slv_def_dev_addr_en,2:2,104,rw,'0,,Enables default device address matching
+,,SLAVE_CTRL,slv_alres_addr_en,3:3,104,rw,'0,,enables alert response addr match
+,,SLAVE_CTRL,slv_def_host_addr_en,4:4,104,rw,'0,,enables default host address match
+,,SLAVE_CTRL,slv_txtrig_at_txmode,5:5,104,rw,'0,,Tx trigger is generated only when fsm is in tx mode
+,,SLAVE_CTRL,slv_clkstretch_en,6:6,104,rw,'0,,Enables clk stretch feature
+,,SLAVE_CTRL,slv_gencall_en,7:7,104,rw,'0,,
+,,SLAVE_CTRL,slv_enable,8:8,104,rw,'0,,Enables the slave
+,,SLAVE_CTRL,slv_addr2_en,9:9,104,rw,'0,,Enables matching with addr2
+,,SLAVE_CTRL,slv_addr2_mask,16:10,104,rw,127,,"0 : Disables bit checking for particular bit  
+1 : Enables bit checking for particular bit"
+,,SLAVE_CTRL,slv_txwait_stale_fifo,17:17,104,rw,'0,,"1 : Gives tx fifo empty notification to fsm even if fifo is not actually empty, but the data is stale"
+,,SLAVE_CTRL,slv_txempty_intr_on_tx_req,18:18,104,rw,'0,,"1, generates txempty intr when tx is empty and clk stretching is taking place.  
+0, generates tx empty intr whenever fifo is empty"
+,,SLAVE_ADDR,slv_addr1,9:0,108,rw,'0,,
+,,SLAVE_ADDR,slv_addr2,25:16,108,rw,'0,,
+,,SLAVE_STS,slv_rx_req,0:0,112,ro,'0,,Clk stretching is going on and slave is waiting for rx fifo to be cleared
+,,SLAVE_STS,slv_tx_req,1:1,112,ro,'0,,clk stetching is going on and slv is waiting for data to be written into tx fifo
+,,SLAVE_STS,slv_addr2_sel,2:2,112,ro,'0,,addr matched with addr2
+,,SLAVE_STS,quick_cmd_sts,3:3,112,ro,'0,,quick command detected
+,,SLAVE_STS,quick_cmd_rw,4:4,112,ro,'0,,quick command r/w deteced
+,,SLAVE_STS,slv_addr_match,5:5,112,ro,'0,,
+,,SLAVE_STS,slv_stale_txfifo,6:6,112,ro,'0,,tx fifo is stale
+,,SLAVE_STS,slv_txmode,7:7,112,ro,'0,,slv is in tx mode
+,,SLAVE_STS,slv_rxmode,8:8,112,ro,'0,,slv is in rx mode
+,,SLAVE_STS,slv_busbsy,9:9,112,ro,'0,,slv is busy
+,,SLAVE_ACK_CFG,slv_auto_ack_en,0:0,116,rw,1,,Enables automatic ack for rx data
+,,SLAVE_ACK_CFG,slv_addr_auto_ack_en,1:1,116,rw,1,,Enables automatic ack for slv addr
+,,SLAVE_BYTE_ACK,slv_ackval,0:0,120,rw,'0,::write,Sw writes the ack val 0 or 1 in this register for addr and data
+,,FIFO_CTRL,rxfifo_en,0:0,124,rw,'0,,Enables rx fifo
+,,FIFO_CTRL,txfifo_en,1:1,124,rw,'0,,enables tx fifo
+,,FIFO_CTRL,rxfifo_flush,8:8,124,rw,'0,,flushes rx fifo
+,,FIFO_CTRL,txfifo_flush,16:16,124,rw,'0,,flushes tx fifo
+,,RXDATA[2],rxdata,9:0,128,ro,'0,::extern,
+,,TXDATA[2],txdata,7:0,136,rw,'0,::extern,
+,,FIFO_STS,txfifo_flush_sts,0:0,144,ro,'0,,
+,,FIFO_STS,rxfifo_flush_sts,1:1,144,ro,'0,,
+,,FIFO_STS,txfifo_empty_sts,2:2,144,ro,'0,,
+,,FIFO_STS,txfifo_almost_empty,3:3,144,ro,'0,,
+,,FIFO_STS,txfifo_full,4:4,144,ro,'0,,
+,,FIFO_STS,rxfifo_empty,5:5,144,ro,'0,,
+,,FIFO_STS,rxfifo_almost_full,6:6,144,ro,'0,,
+,,FIFO_STS,rxfifo_full_sts,7:7,144,ro,'0,,
+,,PEC_CTRL,pec_en,0:0,148,rw,'0,,
+,,PEC_STS,pec_error,0:0,152,ro,'0,,
+,,CRC_OUT_BYTE,slv_crc_out_byte,7:0,156,ro,'0,,
+,,CRC_OUT_BYTE,mst_crc_out_byte,15:8,156,ro,'0,,
+,,MASTER_CFG,mst_enable,0:0,160,rw,'0,,Enables the master
+,,MASTER_CFG,mst_clkstretch_en,1:1,160,rw,'0,,enables clk stretch feature in master
+,,MASTER_CFG,lpbk_mode,2:2,160,rw,'0,,enables loopback mode
+,,MASTER_CFG,mst_auto_ack_en,3:3,160,rw,'0,,"1 : Automatically Acknowledges the last rx byte based on what value is there in mst_Ackval 
+0 : Manually acknowledge the last byte based on what value is written to mst_Ackval register at the ack state, clk stretchong ios done till sw doesnt write onto this register"
+,,MASTER_CFG,mst_addr_mode,4:4,160,rw,'0,,"0 : 7 bit addressing 
+1: 10 bit addrresssing"
+,,MASTER_CFG,mst_slv_addr_cfg,14:5,160,rw,'0,,Configure the slave addr in which master wants to send data
+,,MASTER_CTRL,mst_cmd_vld,0:0,164,rw_pulse,'0,::write,"Valid for the master ctrl register, sw have to write this bit to indicate a start of new transaction"
+,,MASTER_CTRL,mst_burst_len,19:8,164,rw,'0,::write,Total bytes to be transfered
+,,MASTER_CTRL,mst_start,24:24,164,rw,'0,,1 : Generates start condition
+,,MASTER_CTRL,mst_dir,25:25,164,rw,'0,,0 : write 1 : Read
+,,MASTER_CTRL,mst_stop,26:26,164,rw,'0,,1 : Generates stop condition after burst length is transfered
+,,MASTER_CTRL,mst_rd_on_txempty,27:27,164,rw,'0,,1 : Enables tx transfers till tx fifo is emoty then does repeat start with read for the burst length specified
+,,MASTER_ACK_VAL,mst_ackval,0:0,168,rw,'0,::write,Ack val for last rx byte
+,,MASTER_STS,mst_busbsy,0:0,172,ro,'0,,
+,,MASTER_STS,mst_idle,1:1,172,ro,'0,,
+,,MASTER_STS,mst_arblost,2:2,172,ro,'0,,
+,,MASTER_STS,mst_tx_data_ack,3:3,172,ro,'0,,
+,,MASTER_STS,mst_tx_addr_ack,4:4,172,ro,'0,,
+,,MASTER_STS,mst_tx_nack,5:5,172,ro,'0,,
+,,MASTER_STS,mst_fsm_busy,6:6,172,ro,'0,,
+,,MASTER_STS,mst_word_cnt,18:7,172,ro,'0,,
+,,MASTER_MON,mst_sda_state,0:0,176,ro,'0,,
+,,MASTER_MON,mst_scl_state,1:1,176,ro,'0,,
+,,FSM_STATUS,mst_state,3:0,180,ro,'0,,
+,,FSM_STATUS,slv_state,7:4,180,ro,'0,,
+,,FSM_STATUS,slv_quick_cmd_state,10:8,180,ro,'0,,

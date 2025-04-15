@@ -1,0 +1,16 @@
+reg_array,field_array,reg_name,field_name,bits,addr,type,rst_val,attr,description
+,,TIMER_CTRL,tsetup2,1:0,0,rw,3,,CSB to PROGEN setup time
+,,TIMER_CTRL,tpas,2:2,0,rw,0,,ADDR[6:0] to PROGEN setup time
+,,TIMER_CTRL,tpah,4:3,0,rw,3,,ADDR[6:0] to PROGEN hold time(this time also includes tphold2 timing)
+,,TIMER_CTRL,tprogwh,15:5,0,rw,1280,,PROGEN pulse width high
+,,OTP_CTRL,otp_mode,0:0,4,rw,0,,"0 : program mode
+1 : sensing mode"
+,,OTP_CTRL,wr_start_addr,5:1,4,rw,0,,start address for programming otp
+,,OTP_CTRL,wr_end_addr,10:6,4,rw,255,,end address for programming otp
+,,OTP_EN,otp_wr_en,0:0,8,rw,0,,To start read write operation given with the programming
+,,OTP_STATUS,otp_wr_done,0:0,12,rw_w1c,0,,Indicates finishing of the transaction
+,,OTP[32],otp,7:0,16,rw,0,::extern,otp registers
+,,STS,wr_pstate,2:0,144,ro,'0,,fsm sts for otp writes
+,,STS,rd_pstate,6:3,144,ro,'0,,fsm sts for otp reads
+,,OTP_RD_EN,otp_rd_en,0:0,148,rw,0,,To start read operation given with the programming
+,,OTP_RD_STATUS,otp_rd_done,0:0,152,rw_w1c,0,,Indicates finishing of the transaction

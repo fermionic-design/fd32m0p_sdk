@@ -1,0 +1,78 @@
+reg_array,field_array,reg_name,field_name,bits,addr,type,rst_val,attr,description
+,,DESC,module_type,7:0,0,ro,'0,,
+,,DESC,modue_subtype,15:8,0,ro,'0,,
+,,DESC,major_rev,19:16,0,ro,'0,,
+,,DESC,minor_rev,23:20,0,ro,'0,,
+,,PWR_EN,pwr_en,0:0,4,rw,'0,::locked[pwr_en_key==8'h69],
+,,PWR_EN,pwr_en_key,31:24,4,rw,'0,::key,
+,,RST_CTRL,rst,0:0,8,rw,'0,::locked[rst_key==8'h69],
+,,RST_CTRL,rst_sts_clr,1:1,8,rw_pulse,'0,::locked[rst_key==8'h69],
+,,RST_CTRL,rst_key,31:24,8,rw,'0,::key,
+,,RST_STS,rst_sts,0:0,12,ro,'0,,
+,,CLK_CTRL,clk_en,0:0,16,rw,'0,,
+25_reg_array_start,,GEN_PUB_0,gen_pub_chan_id,3:0,20,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_1,gen_pub_chan_id,3:0,24,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_2,gen_pub_chan_id,3:0,28,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_3,gen_pub_chan_id,3:0,32,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_4,gen_pub_chan_id,3:0,36,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_5,gen_pub_chan_id,3:0,40,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_6,gen_pub_chan_id,3:0,44,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_7,gen_pub_chan_id,3:0,48,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_8,gen_pub_chan_id,3:0,52,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_9,gen_pub_chan_id,3:0,56,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_10,gen_pub_chan_id,3:0,60,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_11,gen_pub_chan_id,3:0,64,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_12,gen_pub_chan_id,3:0,68,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_13,gen_pub_chan_id,3:0,72,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_14,gen_pub_chan_id,3:0,76,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_15,gen_pub_chan_id,3:0,80,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_16,gen_pub_chan_id,3:0,84,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_17,gen_pub_chan_id,3:0,88,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_18,gen_pub_chan_id,3:0,92,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_19,gen_pub_chan_id,3:0,96,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_20,gen_pub_chan_id,3:0,100,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_21,gen_pub_chan_id,3:0,104,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_22,gen_pub_chan_id,3:0,108,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_PUB_23,gen_pub_chan_id,3:0,112,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_end,,GEN_PUB_24,gen_pub_chan_id,3:0,116,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_start,,GEN_SUB_0,gen_sub_chan_id,3:0,120,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_1,gen_sub_chan_id,3:0,124,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_2,gen_sub_chan_id,3:0,128,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_3,gen_sub_chan_id,3:0,132,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_4,gen_sub_chan_id,3:0,136,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_5,gen_sub_chan_id,3:0,140,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_6,gen_sub_chan_id,3:0,144,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_7,gen_sub_chan_id,3:0,148,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_8,gen_sub_chan_id,3:0,152,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_9,gen_sub_chan_id,3:0,156,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_10,gen_sub_chan_id,3:0,160,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_11,gen_sub_chan_id,3:0,164,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_12,gen_sub_chan_id,3:0,168,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_13,gen_sub_chan_id,3:0,172,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_14,gen_sub_chan_id,3:0,176,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_15,gen_sub_chan_id,3:0,180,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_16,gen_sub_chan_id,3:0,184,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_17,gen_sub_chan_id,3:0,188,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_18,gen_sub_chan_id,3:0,192,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_19,gen_sub_chan_id,3:0,196,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_20,gen_sub_chan_id,3:0,200,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_21,gen_sub_chan_id,3:0,204,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_22,gen_sub_chan_id,3:0,208,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_body,,GEN_SUB_23,gen_sub_chan_id,3:0,212,rw,'0,,0: Disconnect; 1-15: 15 channels
+25_reg_array_end,,GEN_SUB_24,gen_sub_chan_id,3:0,216,rw,'0,,0: Disconnect; 1-15: 15 channels
+16_reg_array_start,,DMA_PUB_0,dma_pub_event_id,5:0,220,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_1,dma_pub_event_id,5:0,224,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_2,dma_pub_event_id,5:0,228,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_3,dma_pub_event_id,5:0,232,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_4,dma_pub_event_id,5:0,236,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_5,dma_pub_event_id,5:0,240,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_6,dma_pub_event_id,5:0,244,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_7,dma_pub_event_id,5:0,248,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_8,dma_pub_event_id,5:0,252,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_9,dma_pub_event_id,5:0,256,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_10,dma_pub_event_id,5:0,260,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_11,dma_pub_event_id,5:0,264,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_12,dma_pub_event_id,5:0,268,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_13,dma_pub_event_id,5:0,272,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_body,,DMA_PUB_14,dma_pub_event_id,5:0,276,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
+16_reg_array_end,,DMA_PUB_15,dma_pub_event_id,5:0,280,rw,'0,,0: Disconnect; 1-x: x event ids: which event is connected to this dma channel

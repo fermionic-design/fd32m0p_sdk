@@ -1,0 +1,26 @@
+#include "CRC_REGS.h"
+
+static inline void CRC_PWR_EN_WRITE(CRC_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
+    registers->PWR_EN.packed_w =  + ((pwr_en<<CRC_PWR_EN_pwr_en_OFS)&CRC_PWR_EN_pwr_en_MASK) + ((pwr_en_key<<CRC_PWR_EN_pwr_en_key_OFS)&CRC_PWR_EN_pwr_en_key_MASK);
+}
+
+static inline void CRC_RST_CTRL_WRITE(CRC_REGS_s * registers, uint32_t rst, uint32_t rst_sts_clr, uint32_t rst_key) {
+    registers->RST_CTRL.packed_w =  + ((rst<<CRC_RST_CTRL_rst_OFS)&CRC_RST_CTRL_rst_MASK) + ((rst_sts_clr<<CRC_RST_CTRL_rst_sts_clr_OFS)&CRC_RST_CTRL_rst_sts_clr_MASK) + ((rst_key<<CRC_RST_CTRL_rst_key_OFS)&CRC_RST_CTRL_rst_key_MASK);
+}
+
+static inline void CRC_RST_STS_WRITE(CRC_REGS_s * registers, uint32_t rst_sts) {
+    registers->RST_STS.packed_w =  + ((rst_sts<<CRC_RST_STS_rst_sts_OFS)&CRC_RST_STS_rst_sts_MASK);
+}
+
+static inline void CRC_CRCCONFIG_WRITE(CRC_REGS_s * registers, uint32_t poly_type, uint32_t input_bit_rev, uint32_t output_bit_rev, uint32_t in_is_big_endian, uint32_t out_is_big_endian) {
+    registers->CRCCONFIG.packed_w =  + ((poly_type<<CRC_CRCCONFIG_poly_type_OFS)&CRC_CRCCONFIG_poly_type_MASK) + ((input_bit_rev<<CRC_CRCCONFIG_input_bit_rev_OFS)&CRC_CRCCONFIG_input_bit_rev_MASK) + ((output_bit_rev<<CRC_CRCCONFIG_output_bit_rev_OFS)&CRC_CRCCONFIG_output_bit_rev_MASK) + ((in_is_big_endian<<CRC_CRCCONFIG_in_is_big_endian_OFS)&CRC_CRCCONFIG_in_is_big_endian_MASK) + ((out_is_big_endian<<CRC_CRCCONFIG_out_is_big_endian_OFS)&CRC_CRCCONFIG_out_is_big_endian_MASK);
+}
+
+static inline void CRC_CRCSEED_WRITE(CRC_REGS_s * registers, uint32_t seed) {
+    registers->CRCSEED.packed_w =  + ((seed<<CRC_CRCSEED_seed_OFS)&CRC_CRCSEED_seed_MASK);
+}
+
+static inline void CRC_CRCRESULT_WRITE(CRC_REGS_s * registers, uint32_t result) {
+    registers->CRCRESULT.packed_w =  + ((result<<CRC_CRCRESULT_result_OFS)&CRC_CRCRESULT_result_MASK);
+}
+

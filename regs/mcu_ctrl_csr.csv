@@ -1,0 +1,118 @@
+reg_array,field_array,XZ,field_name,bits,addr,type,rst_val,attr,description
+,,DESC,module_type,7:0,0,ro,'0,,
+,,DESC,module_subtype,15:8,0,ro,'0,,
+,,DESC,major_rev,19:16,0,ro,'0,,
+,,DESC,minor_rev,23:20,0,ro,'0,,
+,,RST_CTRL,rst,0:0,4,rw,'0,::locked[rst_key==8'hAB],
+,,RST_CTRL,rst_sts_clr,1:1,4,rw_pulse,'0,::locked[rst_key==8'hAB],
+,,RST_CTRL,rst_key,31:24,4,rw,'0,::key,
+,,RST_STS,rst_sts,0:0,8,ro,'0,,
+,,CLK_CTRL,clk_en,0:0,12,rw,'0,,
+,,INTR_EVENT,bor,0:0,16,rw_w1c,'0,,
+,,INTR_EVENT,clk_lf_mon_fault,1:1,16,rw_w1c,'0,,
+,,INTR_EVENT,clk_32mhz_req,2:2,16,rw_w1c,'0,,
+,,INTR_EN,bor_en,0:0,20,rw_me,'0,,
+,,INTR_EN,clk_lf_mon_fault_en,1:1,20,rw_me,'0,,
+,,INTR_EN,clk_32mhz_req_en,2:2,20,rw_me,'0,,
+,,CLK_PWR_EN,hf_osc_pwr_en,0:0,24,rw,1,,
+,,CLK_PWR_EN,hf_xo_pwr_en,4:4,24,rw,'0,,
+,,CLK_PWR_EN,pll_pwr_en,8:8,24,rw,'0,,
+,,CLK_PWR_EN,lf_osc_pwr_en,12:12,24,rw,1,,
+,,CLK_PWR_EN,lf_xo_pwr_en,16:16,24,rw,'0,,
+,,ANA_CLK_EN,hf_osc_clk_en_ovrd_val,0:0,28,rw,'0,,software clock gate enable for clk_hf_osc
+,,ANA_CLK_EN,hf_osc_clk_en_ovrd_en,1:1,28,rw,'0,,
+,,ANA_CLK_EN,pll_clk_en_ovrd_val,4:4,28,rw,'0,,software clock gate enable for clk_pll
+,,ANA_CLK_EN,pll_clk_en_ovrd_en,5:5,28,rw,'0,,
+,,ANA_CLK_EN,hf_xo_or_ext_clk_ovrd_val,8:8,28,rw,'0,,software clock gate enable for clk_hf_xo_or_ext
+,,ANA_CLK_EN,hf_xo_or_ext_clk_ovrd_en,9:9,28,rw,'0,,
+,,HF_CLK_CTRL,use_clk_pll,0:0,32,rw,'0,,Set  '1' to select between clk_pll and clk_hf_xo_or_ext
+,,HF_CLK_CTRL,use_hf_osc,4:4,32,rw,1,,Set  '1' to select between clk_hf_osc
+,,HF_CLK_CTRL,hf_xo_or_ext_div,15:12,32,rw,'0,,Division value to get 4MHz clock from External HF clock selected
+,,HF_CLK_CTRL,use_precision_clk,16:16,32,rw,'0,,
+,,HF_CLK_CTRL,hf_xo_en,20:20,32,rw,'0,,
+,,HF_CLK_CTRL,hf_xo_or_ext_chng_time,27:24,32,rw,'0,,
+,,HF_CLK_CTRL,hf_osc_code_chng_time,31:28,32,rw,'0,,
+,,HF_OSC_CLK_CTRL,hf_osc_freq,3:0,36,rw,'0,,
+,,HF_OSC_CLK_CTRL,hf_osc_div1,7:4,36,rw,'0,,HF internal osciallator divided value
+,,HF_OSC_CLK_CTRL,hf_osc_div2,11:8,36,rw,'0,,HF internal osciallator divided value
+,,HF_OSC_CLK_CTRL,hf_osc_4mhz_in_stop,12:12,36,rw,'0,,HF internal osciallator frequency is forced to 4MHz in STOP mode
+,,HF_OSC_CLK_CTRL,hf_osc_disable_in_stop,13:13,36,rw,'0,,Disable HF internal oscillator in stop mode. HW will automatically select LF clock for clk_apb in stop mode when this bit is set.
+,,HF_OSC_CLK_CTRL,hf_osc_disable,14:14,36,rw,'0,,"Disable HF internal oscillator in RUN, SLEEP and STOP modes. HW will automatically select LF clock for clk_ahb & clk_apb in stop mode when this bit is set."
+,,LF_CLK_CTRL,lf_xo_en,0:0,40,rw,'0,,
+,,LF_CLK_CTRL,lf_osc_en,4:4,40,rw,1,,
+,,LF_CLK_CTRL,lf_clk_sel,9:8,40,rw,'0,,00: LFI_OSC 10:HS PLL 01: External LF clock from oscialltor 10: External clock from pin LFCLK_IN
+,,LF_CLK_CTRL,gate_clocks_in_stdby,12:12,40,rw,'0,,Gate LF and APB clock in Stand by mode
+,,LF_CLK_CTRL,lfosc_cfg0,23:16,40,rw,'0,,
+,,XO_CFG_STS,hf_xo_cfg0,7:0,44,rw,'0,,
+,,XO_CFG_STS,lf_xo_cfg0,15:8,44,rw,'0,,
+,,XO_CFG_STS,hf_xo_sts0,23:16,44,ro,'0,,
+,,XO_CFG_STS,lf_xo_sts0,31:24,44,ro,'0,,
+,,AHB_HCLK_CTRL,use_lf_clk,0:0,48,rw,'0,,0:High Frequency clock 1: Low frequency clock
+,,AHB_HCLK_CTRL,all_hf_clk_off,4:4,48,rw,'0,,
+,,AHB_HCLK_CTRL,only_hf_osc_on,8:8,48,rw,1,,
+,,APB_PCLK_CTRL,pclk_div,3:0,52,rw,'0,,
+,,CLK_4MHZ_CTRL,clk_4mhz_en,0:0,56,rw,1,,enable for clk_4mhz
+,,PWR_SM_OVRD_CTL,clk_ahb_ovrd_val,0:0,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_ahb_ovrd_en,1:1,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_apb_ovrd_val,4:4,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_apb_ovrd_en,5:5,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_4mhz_ovrd_val,8:8,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_4mhz_ovrd_en,9:9,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_lf_ovrd_val,12:12,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_lf_ovrd_en,13:13,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_cpu_ovrd_en,16:16,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,clk_cpu_ovrd_val,17:17,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,use_lf_clk_sm_ovrd_val,20:20,60,rw,'0,,
+,,PWR_SM_OVRD_CTL,use_lf_clk_sm_ovrd_en,21:21,60,rw,'0,,
+,,PLL_EN,pll_en,0:0,64,rw,'0,,
+,,PLL_EN,pll_mdiv_clk2x_en,4:4,64,rw,'0,,
+,,PLL_EN,pll_mdiv_clk0_en,8:8,64,rw,'0,,
+,,PLL_EN,pll_mdiv_clk1_en,16:16,64,rw,'0,,
+,,PLL_EN,pll_sw_cg_en,20:20,64,rw,'0,,
+,,PLL_EN,pll_cp_icfg,31:24,64,rw,'0,,
+,,PLL_CTRL1,pll_ref_sel,1:0,68,rw,'0,,0: HF crystal oscialltor 1: HF extetnal clock 2 3: HF oscillator
+,,PLL_CTRL1,pll_vco_freq,15:8,68,rw,'0,,
+,,PLL_CTRL1,pll_pfd_width_cfg,17:16,68,rw,'0,,
+,,PLL_CTRL1,pll_bw,25:24,68,rw,'0,,
+,,PLL_CTRL1,pll_freq_chng_time,31:28,68,rw,'0,,
+,,PLL_CTRL2,pll_mdiv_clk2x,3:0,72,rw,'0,,
+,,PLL_CTRL2,pll_mdiv_clk0,7:4,72,rw,'0,,
+,,PLL_CTRL2,pll_mdiv_clk1,11:8,72,rw,'0,,
+,,PLL_CTRL2,pll_pdiv,15:12,72,rw,'0,,
+,,PLL_CTRL2,pll_qdiv,31:16,72,rw,'0,,
+,,BLOCK_CLK_REQ,block_ip_clk_32mhz_req,23:0,76,rw,'0,,
+,,PMODE_CFG,low_power_mode,2:0,80,rw,'0,,2: STOP 3: STANDBY 4:SHUTDOWN
+,,AON_CTRL,aon_strb,0:0,84,rw,'0,,
+,,AON_CTRL,aon_addr,11:8,84,rw,'0,,
+,,AON_CTRL,aon_wdata,23:16,84,rw,'0,,
+,,AON_CTRL,aon_rdata,31:24,84,ro,'0,,
+,,GPAMPCTL,gpamp_pwr_en,0:0,88,rw,'0,,
+,,GPAMPCTL,gpamp_en,1:1,88,rw,'0,,
+,,GPAMPCTL,gpamp_out_en,2:2,88,rw,'0,,
+,,GPAMPCTL,gpamp_nchnl_sel,6:4,88,rw,'0,,
+,,GPAMPCTL,gpamp_pchnl_en,9:8,88,rw,'0,,
+,,GPAMPCTL,gpamp_rri,11:10,88,rw,'0,,
+,,GPAMPCTL,gpamp_chop_clk_freq,13:12,88,rw,'0,,
+,,GPAMPCTL,gpamp_chop_clk_mode,15:14,88,rw,'0,,
+,,GPAMPCTL,gpamp_cfg0,23:16,88,rw,'0,,
+,,GPAMPCTL,gpamp_cfg1,31:24,88,rw,'0,,
+,,GPAMPSTS,gpamp_sts0,7:0,92,ro,'0,,
+,,GPAMPSTS,gpamp_sts1,15:8,92,ro,'0,,
+,,PROCMONCTL,proc_mon_pwr_en,0:0,96,rw,'0,,
+,,PROCMONCTL,proc_mon_en,1:1,96,rw,'0,,
+,,MCU_SW_RST,sw_rst_lvl0,0:0,100,rw_pulse,'0,,soft reset equivalent to porz
+,,MCU_SW_RST,sw_rst_lvl1,1:1,100,rw_pulse,'0,,soft reset equivalent to borz
+,,MCU_SW_RST,sw_rst_lvl2,2:2,100,rw_pulse,'0,,soft reset equivalent to rst_n_sys
+,,MCU_SW_RST,sw_rst_lvl3,3:3,100,rw_pulse,'0,,soft reset equivalent to rst_n_cpu
+,,MCU_SW_RST,sw_rst_lvl4,4:4,100,rw_pulse,'0,,Reserved
+,,BOOT_CFG,boot_sel,0:0,104,ro,'0,,
+,,BOOT_CFG,fw_trigger,4:4,104,rw,'0,,
+,,BOR_MODE_SEL,bor_mode,0:0,108,rw,'0,::locked[bor_key==8'hAB],0: borz generates reset. 1: borz generated interrupt
+,,BOR_MODE_SEL,bor_key,31:24,108,rw,'0,::key,
+,,SPARE_CTRL,cfg0,7:0,112,rw,'0,,
+,,SPARE_CTRL,cfg1,15:8,112,rw,'0,,
+,,SPARE_STS,sts0,7:0,116,ro,'0,,
+,,SPARE_STS,sts1,15:8,116,ro,'0,,
+,,ANA_SPARE_STS,spare_in,15:0,120,ro,'0,,
+,,ANA_SPARE_OUT0,spare_out_0,31:0,124,rw,'0,,
+,,ANA_SPARE_OUT1,spare_out_1,31:0,128,rw,'0,,

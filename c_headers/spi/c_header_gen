@@ -1,0 +1,1 @@
+python3 $CMN_SCRIPTS_DIR/csv2cheader/csv2cheader.py SPI

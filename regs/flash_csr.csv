@@ -1,0 +1,48 @@
+reg_array,field_array,reg_name,field_name,bits,addr,type,rst_val,attr,description
+,,DESC,module_type,7:0,0,ro,'0,,
+,,DESC,modue_subtype,15:8,0,ro,'0,,
+,,DESC,major_rev,19:16,0,ro,'0,,
+,,DESC,minor_rev,23:20,0,ro,'0,,
+,,CLK_CTRL,clk_en,0:0,4,rw,'0,,
+,,FLASH_CTRL,clen,0:0,8,rw,0,Define test mode of cell current measurement,
+,,FLASH_CTRL,srl,1:1,8,rw,0,select default or shadow cell in clen/mrgn cp read operation,
+,,FLASH_CTRL,isavb,2:2,8,rw,1,"Option setting for Read operation 
+1 : High speed mode
+0: Low power mode",
+,,FLASH_CTRL,rdecc,3:3,8,rw,0,All ecc parity bits can be read by switching,
+,,FLASH_CTRL,cpecc,4:4,8,rw,0,"cp test enable input, active High
+1 : turn off ecc calculation
+0 : turn on ecc calculation",
+,,FLASH_STATUS,eced,0:0,12,ro,'0,Flag indicating that internal ecc has conducted or not,
+,,TIME_CTRL,tcsctrls,3:0,16,rw,3,"cs to read/write setup time
+max_value = 200ns",
+,,TIME_CTRL,tras,9:4,16,rw,9,"read to address setup time
+max_value=800ns",
+,,TIME_CTRL,eeprom_tras,17:10,16,rw,67,"read to address setup time for eeprom
+max_value = 3200ns",
+,,TIME_CTRL,trc,23:18,16,rw,8,"read cycle time
+max_value = 800ns",
+,,TIME_CTRL,eeprom_trc,31:24,16,rw,66,"read cycle time for eeprom
+max_value = 3200ns",
+,,TIME_CTRL_1,tadhr,0:0,20,rw,0,"address hold time for read
+max_value = 25ns",
+,,TIME_CTRL_1,rtw,8:1,20,rw,255,"read transaction wait timer
+max_value=200ns",
+,,TIME_CTRL_1,tads,9:9,20,rw,0,"Address/data setup time
+max_value = 25ns",
+,,TIME_CTRL_1,twpw,15:10,20,rw,10,"wr pulse width
+max_value = 200ns",
+,,TIME_CTRL_1,tpwcsh,19:16,20,rw,3,Hold time after cs fails(need 100ns),
+,,TIME_CTRL_2,twrc,3:0,24,rw,3,"write recovery time
+max_value = 200ns",
+,,TIME_CTRL_2,twes,21:4,24,rw,133333,"busy endurance specification
+max_value = 3.2ms",
+,,TIME_CTRL_2,tbr,25:22,24,rw,3,"busy reset time for cs
+max_value = 200ns",
+,,TIME_CTRL_2,wtw,31:26,24,rw,63,"write transaction wait timer
+max_value = 200ns",
+,,TIME_UPTD,flash_config_done,0:0,28,rw_we,0,bit to indicate timing register update by the software,
+,,HSIZE_CTRL,force_hsize_val,2:0,32,rw,2,Forcing hsize value from software,
+,,HSIZE_CTRL,force_hsize_en,3:3,32,rw,0,Enable for hsize value from software,
+,,STS,flash_pstate,4:0,36,ro,'0,Status register for flash fsm,
+,,ECED_STATUS,eced_sts,31:0,40,ro,'0,Status register for flash ECC,

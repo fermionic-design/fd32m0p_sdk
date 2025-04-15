@@ -1,0 +1,25 @@
+reg_array,field_array,reg_name,field_name,bits,addr,type,rst_val,attr,description
+,,PASSWD,passwd,31:0,0,rw,'0,,used to communicate a 32byte password
+,,PASSWD_VALID,passwd_valid,0:0,4,rw,'0,,posedge of this indicates passwd start subsequent passwd writes are used to authenticate the 32 byte passwd. To reattempt passwd authentication set this to 0 then 1.
+,,FACTORY_RESET,factory_reset,31:0,8,rw,'0,,
+,,FLASH_ERASE,flash_erase,31:0,12,rw,'0,,cmds to be sent to FLASH(TBD)
+,,TX_DATA,tx_data,31:0,16,rw,'0,,Write this to send data to CPU
+,,TX_FLAG,tx_empty,0:0,20,ro,'0,,indicates tx data read by cpu
+,,TX_FLAG,tx_flags,31:1,20,rw,'0,,generic flags can be used to communicate in implementation specific ways
+,,RX_DATA,rx_data,31:0,24,ro,'0,,data sent by the CPU
+,,RX_FLAG,rx_full,0:0,28,ro,'0,,indicates data sent by the CPU to the rx data reg
+,,RX_FLAG,rx_flags,31:1,28,ro,'0,,generic flags can be used to communicate in implementation specific ways
+,,PMCU,pmcu,31:0,32,rw,'0,,cmds to be sent to PMCU (TBD)
+,,SYSCTL,sysctl,31:0,36,rw,'0,,cmds to be sent to SYSCTL (TBD)
+,,DFT,test_mode,0:0,40,rw,'0,,test mode enable
+,,DFT,mbist_en,1:1,40,rw,'0,,mbist enable
+,,DFT,dft_reg,6:2,40,rw,'0,,dft reg
+,,MBIST_ROM_CFG,rom_start,0:0,44,rw,'0,,
+,,MBIST_ROM_STS0,rom_done,0:0,48,ro,'0,,
+,,MBIST_ROM_STS1,rom_crc,31:0,52,ro,'0,,
+,,MBIST_RAM_CFG0,ram_start,0:0,56,rw,'0,,
+,,MBIST_RAM_CFG0,ram_cmd,15:8,56,rw,'0,,
+,,MBIST_RAM_CFG1,ram_seed,31:0,60,rw,'0,,
+,,MBIST_RAM_STS0,ram_done,0:0,64,ro,'0,,
+,,MBIST_RAM_STS0,ram_sts,15:8,64,ro,'0,,
+,,MBIST_RAM_STS1,ram_sts_word,31:0,68,ro,'0,,
