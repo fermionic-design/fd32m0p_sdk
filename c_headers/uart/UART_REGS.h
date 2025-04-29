@@ -11,7 +11,7 @@ typedef struct UART_DESC_REG_s {
 } UART_DESC_REG_s;
 
 typedef union UART_DESC_u {
-    UART_DESC_REG_s DESC;
+    UART_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct UART_PWR_EN_REG_s {
 } UART_PWR_EN_REG_s;
 
 typedef union UART_PWR_EN_u {
-    UART_PWR_EN_REG_s PWR_EN;
+    UART_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -38,7 +38,7 @@ typedef struct UART_RST_CTRL_REG_s {
 } UART_RST_CTRL_REG_s;
 
 typedef union UART_RST_CTRL_u {
-    UART_RST_CTRL_REG_s RST_CTRL;
+    UART_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -49,7 +49,7 @@ typedef struct UART_RST_STS_REG_s {
 } UART_RST_STS_REG_s;
 
 typedef union UART_RST_STS_u {
-    UART_RST_STS_REG_s RST_STS;
+    UART_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -60,7 +60,7 @@ typedef struct UART_CLK_CTRL_REG_s {
 } UART_CLK_CTRL_REG_s;
 
 typedef union UART_CLK_CTRL_u {
-    UART_CLK_CTRL_REG_s CLK_CTRL;
+    UART_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -71,7 +71,7 @@ typedef struct UART_CLK_SEL_REG_s {
 } UART_CLK_SEL_REG_s;
 
 typedef union UART_CLK_SEL_u {
-    UART_CLK_SEL_REG_s CLK_SEL;
+    UART_CLK_SEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -82,7 +82,7 @@ typedef struct UART_CLK_DIV_REG_s {
 } UART_CLK_DIV_REG_s;
 
 typedef union UART_CLK_DIV_u {
-    UART_CLK_DIV_REG_s CLK_DIV;
+    UART_CLK_DIV_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -94,7 +94,7 @@ typedef struct UART_DBG_CTRL_REG_s {
 } UART_DBG_CTRL_REG_s;
 
 typedef union UART_DBG_CTRL_u {
-    UART_DBG_CTRL_REG_s DBG_CTRL;
+    UART_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -128,7 +128,7 @@ typedef struct UART_INTR_EVENT_REG_s {
 } UART_INTR_EVENT_REG_s;
 
 typedef union UART_INTR_EVENT_u {
-    UART_INTR_EVENT_REG_s INTR_EVENT;
+    UART_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -154,7 +154,7 @@ typedef struct UART_INTR_EN1_REG_s {
 } UART_INTR_EN1_REG_s;
 
 typedef union UART_INTR_EN1_u {
-    UART_INTR_EN1_REG_s INTR_EN1;
+    UART_INTR_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -172,7 +172,7 @@ typedef struct UART_INTR_EN2_REG_s {
 } UART_INTR_EN2_REG_s;
 
 typedef union UART_INTR_EN2_u {
-    UART_INTR_EN2_REG_s INTR_EN2;
+    UART_INTR_EN2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -198,7 +198,7 @@ typedef struct UART_INTR_NMI_EN1_REG_s {
 } UART_INTR_NMI_EN1_REG_s;
 
 typedef union UART_INTR_NMI_EN1_u {
-    UART_INTR_NMI_EN1_REG_s INTR_NMI_EN1;
+    UART_INTR_NMI_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -216,7 +216,7 @@ typedef struct UART_INTR_NMI_EN2_REG_s {
 } UART_INTR_NMI_EN2_REG_s;
 
 typedef union UART_INTR_NMI_EN2_u {
-    UART_INTR_NMI_EN2_REG_s INTR_NMI_EN2;
+    UART_INTR_NMI_EN2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -250,7 +250,7 @@ typedef struct UART_INTR_SW_SET_REG_s {
 } UART_INTR_SW_SET_REG_s;
 
 typedef union UART_INTR_SW_SET_u {
-    UART_INTR_SW_SET_REG_s INTR_SW_SET;
+    UART_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -276,7 +276,7 @@ typedef struct UART_DMA_RX_INTR_EN1_REG_s {
 } UART_DMA_RX_INTR_EN1_REG_s;
 
 typedef union UART_DMA_RX_INTR_EN1_u {
-    UART_DMA_RX_INTR_EN1_REG_s DMA_RX_INTR_EN1;
+    UART_DMA_RX_INTR_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -294,7 +294,7 @@ typedef struct UART_DMA_RX_INTR_EN2_REG_s {
 } UART_DMA_RX_INTR_EN2_REG_s;
 
 typedef union UART_DMA_RX_INTR_EN2_u {
-    UART_DMA_RX_INTR_EN2_REG_s DMA_RX_INTR_EN2;
+    UART_DMA_RX_INTR_EN2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -320,7 +320,7 @@ typedef struct UART_DMA_TX_INTR_EN1_REG_s {
 } UART_DMA_TX_INTR_EN1_REG_s;
 
 typedef union UART_DMA_TX_INTR_EN1_u {
-    UART_DMA_TX_INTR_EN1_REG_s DMA_TX_INTR_EN1;
+    UART_DMA_TX_INTR_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -338,7 +338,7 @@ typedef struct UART_DMA_TX_INTR_EN2_REG_s {
 } UART_DMA_TX_INTR_EN2_REG_s;
 
 typedef union UART_DMA_TX_INTR_EN2_u {
-    UART_DMA_TX_INTR_EN2_REG_s DMA_TX_INTR_EN2;
+    UART_DMA_TX_INTR_EN2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -349,7 +349,7 @@ typedef struct UART_INTR_STS_REG_s {
 } UART_INTR_STS_REG_s;
 
 typedef union UART_INTR_STS_u {
-    UART_INTR_STS_REG_s INTR_STS;
+    UART_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -362,7 +362,7 @@ typedef struct UART_UART_CLKCFG_REG_s {
 } UART_UART_CLKCFG_REG_s;
 
 typedef union UART_UART_CLKCFG_u {
-    UART_UART_CLKCFG_REG_s UART_CLKCFG;
+    UART_UART_CLKCFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -375,7 +375,7 @@ typedef struct UART_UART_FIFOLS_REG_s {
 } UART_UART_FIFOLS_REG_s;
 
 typedef union UART_UART_FIFOLS_u {
-    UART_UART_FIFOLS_REG_s UART_FIFOLS;
+    UART_UART_FIFOLS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -393,7 +393,7 @@ typedef struct UART_UART_FIFOSTS_REG_s {
 } UART_UART_FIFOSTS_REG_s;
 
 typedef union UART_UART_FIFOSTS_u {
-    UART_UART_FIFOSTS_REG_s UART_FIFOSTS;
+    UART_UART_FIFOSTS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -409,7 +409,7 @@ typedef struct UART_UART_CFG_REG_s {
 } UART_UART_CFG_REG_s;
 
 typedef union UART_UART_CFG_u {
-    UART_UART_CFG_REG_s UART_CFG;
+    UART_UART_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -420,7 +420,7 @@ typedef struct UART_UART_GFCTL_REG_s {
 } UART_UART_GFCTL_REG_s;
 
 typedef union UART_UART_GFCTL_u {
-    UART_UART_GFCTL_REG_s UART_GFCTL;
+    UART_UART_GFCTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -431,7 +431,7 @@ typedef struct UART_UART_TXDATA_REG_s {
 } UART_UART_TXDATA_REG_s;
 
 typedef union UART_UART_TXDATA_u {
-    UART_UART_TXDATA_REG_s UART_TXDATA;
+    UART_UART_TXDATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -442,7 +442,7 @@ typedef struct UART_UART_RXDATA_REG_s {
 } UART_UART_RXDATA_REG_s;
 
 typedef union UART_UART_RXDATA_u {
-    UART_UART_RXDATA_REG_s UART_RXDATA;
+    UART_UART_RXDATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -453,7 +453,7 @@ typedef struct UART_UART_BRDNUM_REG_s {
 } UART_UART_BRDNUM_REG_s;
 
 typedef union UART_UART_BRDNUM_u {
-    UART_UART_BRDNUM_REG_s UART_BRDNUM;
+    UART_UART_BRDNUM_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -464,7 +464,7 @@ typedef struct UART_UART_BRDDEN_REG_s {
 } UART_UART_BRDDEN_REG_s;
 
 typedef union UART_UART_BRDDEN_u {
-    UART_UART_BRDDEN_REG_s UART_BRDDEN;
+    UART_UART_BRDDEN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -488,7 +488,7 @@ typedef struct UART_UART_CTRL_REG_s {
 } UART_UART_CTRL_REG_s;
 
 typedef union UART_UART_CTRL_u {
-    UART_UART_CTRL_REG_s UART_CTRL;
+    UART_UART_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -499,7 +499,7 @@ typedef struct UART_UART_ADDR_REG_s {
 } UART_UART_ADDR_REG_s;
 
 typedef union UART_UART_ADDR_u {
-    UART_UART_ADDR_REG_s UART_ADDR;
+    UART_UART_ADDR_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -510,7 +510,7 @@ typedef struct UART_UART_ADDRMASK_REG_s {
 } UART_UART_ADDRMASK_REG_s;
 
 typedef union UART_UART_ADDRMASK_u {
-    UART_UART_ADDRMASK_REG_s UART_ADDRMASK;
+    UART_UART_ADDRMASK_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -523,7 +523,7 @@ typedef struct UART_STS_REG_s {
 } UART_STS_REG_s;
 
 typedef union UART_STS_u {
-    UART_STS_REG_s STS;
+    UART_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -535,7 +535,7 @@ typedef struct UART_FSM_STS_REG_s {
 } UART_FSM_STS_REG_s;
 
 typedef union UART_FSM_STS_u {
-    UART_FSM_STS_REG_s FSM_STS;
+    UART_FSM_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -577,414 +577,414 @@ typedef struct UART_REGS_s{
     volatile UART_FSM_STS_u FSM_STS;
 } UART_REGS_s;
 
-#define UART_DESC_module_type_OFS (0)
-#define UART_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define UART_DESC_module_subtype_OFS (8)
-#define UART_DESC_module_subtype_MASK ((uint32_t)0x0000FF00U)
-#define UART_DESC_major_rev_OFS (16)
-#define UART_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define UART_DESC_minor_rev_OFS (20)
-#define UART_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define UART_PWR_EN_pwr_en_OFS (0)
-#define UART_PWR_EN_pwr_en_MASK ((uint32_t)0x00000001U)
-#define UART_PWR_EN_pwr_en_key_OFS (24)
-#define UART_PWR_EN_pwr_en_key_MASK ((uint32_t)0xFF000000U)
-#define UART_RST_CTRL_rst_OFS (0)
-#define UART_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define UART_RST_CTRL_rst_sts_clr_OFS (1)
-#define UART_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define UART_RST_CTRL_rst_key_OFS (24)
-#define UART_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define UART_RST_STS_rst_sts_OFS (0)
-#define UART_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define UART_CLK_CTRL_clk_en_OFS (0)
-#define UART_CLK_CTRL_clk_en_MASK ((uint32_t)0x00000001U)
-#define UART_CLK_SEL_clk_sel_OFS (0)
-#define UART_CLK_SEL_clk_sel_MASK ((uint32_t)0x00000003U)
-#define UART_CLK_DIV_clk_div_OFS (0)
-#define UART_CLK_DIV_clk_div_MASK ((uint32_t)0x0000000FU)
-#define UART_DBG_CTRL_run_on_halt_OFS (0)
-#define UART_DBG_CTRL_run_on_halt_MASK ((uint32_t)0x00000001U)
-#define UART_DBG_CTRL_soft_stop_OFS (1)
-#define UART_DBG_CTRL_soft_stop_MASK ((uint32_t)0x00000002U)
-#define UART_INTR_EVENT_rcv_timeout_OFS (0)
-#define UART_INTR_EVENT_rcv_timeout_MASK ((uint32_t)0x00000001U)
-#define UART_INTR_EVENT_frame_err_OFS (1)
-#define UART_INTR_EVENT_frame_err_MASK ((uint32_t)0x00000002U)
-#define UART_INTR_EVENT_parity_err_OFS (2)
-#define UART_INTR_EVENT_parity_err_MASK ((uint32_t)0x00000004U)
-#define UART_INTR_EVENT_underflow_err_OFS (3)
-#define UART_INTR_EVENT_underflow_err_MASK ((uint32_t)0x00000008U)
-#define UART_INTR_EVENT_overflow_err_OFS (4)
-#define UART_INTR_EVENT_overflow_err_MASK ((uint32_t)0x00000010U)
-#define UART_INTR_EVENT_maj_vote_err_OFS (5)
-#define UART_INTR_EVENT_maj_vote_err_MASK ((uint32_t)0x00000020U)
-#define UART_INTR_EVENT_tx_fifo_almost_full_OFS (6)
-#define UART_INTR_EVENT_tx_fifo_almost_full_MASK ((uint32_t)0x00000040U)
-#define UART_INTR_EVENT_tx_fifo_full_OFS (7)
-#define UART_INTR_EVENT_tx_fifo_full_MASK ((uint32_t)0x00000080U)
-#define UART_INTR_EVENT_tx_fifo_almost_empty_OFS (8)
-#define UART_INTR_EVENT_tx_fifo_almost_empty_MASK ((uint32_t)0x00000100U)
-#define UART_INTR_EVENT_tx_fifo_empty_OFS (9)
-#define UART_INTR_EVENT_tx_fifo_empty_MASK ((uint32_t)0x00000200U)
-#define UART_INTR_EVENT_rx_fifo_almost_full_OFS (10)
-#define UART_INTR_EVENT_rx_fifo_almost_full_MASK ((uint32_t)0x00000400U)
-#define UART_INTR_EVENT_rx_fifo_full_OFS (11)
-#define UART_INTR_EVENT_rx_fifo_full_MASK ((uint32_t)0x00000800U)
-#define UART_INTR_EVENT_rx_fifo_almost_empty_OFS (12)
-#define UART_INTR_EVENT_rx_fifo_almost_empty_MASK ((uint32_t)0x00001000U)
-#define UART_INTR_EVENT_rx_fifo_empty_OFS (13)
-#define UART_INTR_EVENT_rx_fifo_empty_MASK ((uint32_t)0x00002000U)
-#define UART_INTR_EVENT_rcv_negedge_OFS (14)
-#define UART_INTR_EVENT_rcv_negedge_MASK ((uint32_t)0x00004000U)
-#define UART_INTR_EVENT_rcv_posedge_OFS (15)
-#define UART_INTR_EVENT_rcv_posedge_MASK ((uint32_t)0x00008000U)
-#define UART_INTR_EVENT_rx_int_OFS (16)
-#define UART_INTR_EVENT_rx_int_MASK ((uint32_t)0x00010000U)
-#define UART_INTR_EVENT_tx_int_OFS (17)
-#define UART_INTR_EVENT_tx_int_MASK ((uint32_t)0x00020000U)
-#define UART_INTR_EVENT_cts_int_OFS (18)
-#define UART_INTR_EVENT_cts_int_MASK ((uint32_t)0x00040000U)
-#define UART_INTR_EVENT_addr_match_OFS (19)
-#define UART_INTR_EVENT_addr_match_MASK ((uint32_t)0x00080000U)
-#define UART_INTR_EVENT_baud_err_OFS (20)
-#define UART_INTR_EVENT_baud_err_MASK ((uint32_t)0x00100000U)
-#define UART_INTR_EVENT_eot_OFS (21)
-#define UART_INTR_EVENT_eot_MASK ((uint32_t)0x00200000U)
-#define UART_INTR_EVENT_dma_done_tx_intr_OFS (22)
-#define UART_INTR_EVENT_dma_done_tx_intr_MASK ((uint32_t)0x00400000U)
-#define UART_INTR_EVENT_dma_done_rx_intr_OFS (23)
-#define UART_INTR_EVENT_dma_done_rx_intr_MASK ((uint32_t)0x00800000U)
-#define UART_INTR_EN1_rcv_timeout_en_OFS (0)
-#define UART_INTR_EN1_rcv_timeout_en_MASK ((uint32_t)0x00000001U)
-#define UART_INTR_EN1_frame_err_en_OFS (1)
-#define UART_INTR_EN1_frame_err_en_MASK ((uint32_t)0x00000002U)
-#define UART_INTR_EN1_parity_err_en_OFS (2)
-#define UART_INTR_EN1_parity_err_en_MASK ((uint32_t)0x00000004U)
-#define UART_INTR_EN1_underflow_err_en_OFS (3)
-#define UART_INTR_EN1_underflow_err_en_MASK ((uint32_t)0x00000008U)
-#define UART_INTR_EN1_overflow_err_en_OFS (4)
-#define UART_INTR_EN1_overflow_err_en_MASK ((uint32_t)0x00000010U)
-#define UART_INTR_EN1_maj_vote_err_en_OFS (5)
-#define UART_INTR_EN1_maj_vote_err_en_MASK ((uint32_t)0x00000020U)
-#define UART_INTR_EN1_tx_fifo_almost_full_en_OFS (6)
-#define UART_INTR_EN1_tx_fifo_almost_full_en_MASK ((uint32_t)0x00000040U)
-#define UART_INTR_EN1_tx_fifo_full_en_OFS (7)
-#define UART_INTR_EN1_tx_fifo_full_en_MASK ((uint32_t)0x00000080U)
-#define UART_INTR_EN1_tx_fifo_almost_empty_en_OFS (8)
-#define UART_INTR_EN1_tx_fifo_almost_empty_en_MASK ((uint32_t)0x00000100U)
-#define UART_INTR_EN1_tx_fifo_empty_en_OFS (9)
-#define UART_INTR_EN1_tx_fifo_empty_en_MASK ((uint32_t)0x00000200U)
-#define UART_INTR_EN1_rx_fifo_almost_full_en_OFS (10)
-#define UART_INTR_EN1_rx_fifo_almost_full_en_MASK ((uint32_t)0x00000400U)
-#define UART_INTR_EN1_rx_fifo_full_en_OFS (11)
-#define UART_INTR_EN1_rx_fifo_full_en_MASK ((uint32_t)0x00000800U)
-#define UART_INTR_EN1_rx_fifo_almost_empty_en_OFS (12)
-#define UART_INTR_EN1_rx_fifo_almost_empty_en_MASK ((uint32_t)0x00001000U)
-#define UART_INTR_EN1_rx_fifo_empty_en_OFS (13)
-#define UART_INTR_EN1_rx_fifo_empty_en_MASK ((uint32_t)0x00002000U)
-#define UART_INTR_EN1_rcv_negedge_en_OFS (14)
-#define UART_INTR_EN1_rcv_negedge_en_MASK ((uint32_t)0x00004000U)
-#define UART_INTR_EN1_rcv_posedge_en_OFS (15)
-#define UART_INTR_EN1_rcv_posedge_en_MASK ((uint32_t)0x00008000U)
-#define UART_INTR_EN2_rx_int_en_OFS (0)
-#define UART_INTR_EN2_rx_int_en_MASK ((uint32_t)0x00000001U)
-#define UART_INTR_EN2_tx_int_en_OFS (1)
-#define UART_INTR_EN2_tx_int_en_MASK ((uint32_t)0x00000002U)
-#define UART_INTR_EN2_cts_int_en_OFS (2)
-#define UART_INTR_EN2_cts_int_en_MASK ((uint32_t)0x00000004U)
-#define UART_INTR_EN2_addr_match_en_OFS (3)
-#define UART_INTR_EN2_addr_match_en_MASK ((uint32_t)0x00000008U)
-#define UART_INTR_EN2_baud_err_en_OFS (4)
-#define UART_INTR_EN2_baud_err_en_MASK ((uint32_t)0x00000010U)
-#define UART_INTR_EN2_eot_en_OFS (5)
-#define UART_INTR_EN2_eot_en_MASK ((uint32_t)0x00000020U)
-#define UART_INTR_EN2_dma_done_tx_intr_en_OFS (6)
-#define UART_INTR_EN2_dma_done_tx_intr_en_MASK ((uint32_t)0x00000040U)
-#define UART_INTR_EN2_dma_done_rx_intr_en_OFS (7)
-#define UART_INTR_EN2_dma_done_rx_intr_en_MASK ((uint32_t)0x00000080U)
-#define UART_INTR_NMI_EN1_rcv_timeout_nmi_en_OFS (0)
-#define UART_INTR_NMI_EN1_rcv_timeout_nmi_en_MASK ((uint32_t)0x00000001U)
-#define UART_INTR_NMI_EN1_frame_err_nmi_en_OFS (1)
-#define UART_INTR_NMI_EN1_frame_err_nmi_en_MASK ((uint32_t)0x00000002U)
-#define UART_INTR_NMI_EN1_parity_err_nmi_en_OFS (2)
-#define UART_INTR_NMI_EN1_parity_err_nmi_en_MASK ((uint32_t)0x00000004U)
-#define UART_INTR_NMI_EN1_underflow_err_nmi_en_OFS (3)
-#define UART_INTR_NMI_EN1_underflow_err_nmi_en_MASK ((uint32_t)0x00000008U)
-#define UART_INTR_NMI_EN1_overflow_err_nmi_en_OFS (4)
-#define UART_INTR_NMI_EN1_overflow_err_nmi_en_MASK ((uint32_t)0x00000010U)
-#define UART_INTR_NMI_EN1_maj_vote_err_nmi_en_OFS (5)
-#define UART_INTR_NMI_EN1_maj_vote_err_nmi_en_MASK ((uint32_t)0x00000020U)
-#define UART_INTR_NMI_EN1_tx_fifo_almost_full_nmi_en_OFS (6)
-#define UART_INTR_NMI_EN1_tx_fifo_almost_full_nmi_en_MASK ((uint32_t)0x00000040U)
-#define UART_INTR_NMI_EN1_tx_fifo_full_nmi_en_OFS (7)
-#define UART_INTR_NMI_EN1_tx_fifo_full_nmi_en_MASK ((uint32_t)0x00000080U)
-#define UART_INTR_NMI_EN1_tx_fifo_almost_empty_nmi_en_OFS (8)
-#define UART_INTR_NMI_EN1_tx_fifo_almost_empty_nmi_en_MASK ((uint32_t)0x00000100U)
-#define UART_INTR_NMI_EN1_tx_fifo_empty_nmi_en_OFS (9)
-#define UART_INTR_NMI_EN1_tx_fifo_empty_nmi_en_MASK ((uint32_t)0x00000200U)
-#define UART_INTR_NMI_EN1_rx_fifo_almost_full_nmi_en_OFS (10)
-#define UART_INTR_NMI_EN1_rx_fifo_almost_full_nmi_en_MASK ((uint32_t)0x00000400U)
-#define UART_INTR_NMI_EN1_rx_fifo_full_nmi_en_OFS (11)
-#define UART_INTR_NMI_EN1_rx_fifo_full_nmi_en_MASK ((uint32_t)0x00000800U)
-#define UART_INTR_NMI_EN1_rx_fifo_almost_empty_nmi_en_OFS (12)
-#define UART_INTR_NMI_EN1_rx_fifo_almost_empty_nmi_en_MASK ((uint32_t)0x00001000U)
-#define UART_INTR_NMI_EN1_rx_fifo_empty_nmi_en_OFS (13)
-#define UART_INTR_NMI_EN1_rx_fifo_empty_nmi_en_MASK ((uint32_t)0x00002000U)
-#define UART_INTR_NMI_EN1_rcv_negedge_nmi_en_OFS (14)
-#define UART_INTR_NMI_EN1_rcv_negedge_nmi_en_MASK ((uint32_t)0x00004000U)
-#define UART_INTR_NMI_EN1_rcv_posedge_nmi_en_OFS (15)
-#define UART_INTR_NMI_EN1_rcv_posedge_nmi_en_MASK ((uint32_t)0x00008000U)
-#define UART_INTR_NMI_EN2_rx_int_nmi_en_OFS (0)
-#define UART_INTR_NMI_EN2_rx_int_nmi_en_MASK ((uint32_t)0x00000001U)
-#define UART_INTR_NMI_EN2_tx_int_nmi_en_OFS (1)
-#define UART_INTR_NMI_EN2_tx_int_nmi_en_MASK ((uint32_t)0x00000002U)
-#define UART_INTR_NMI_EN2_cts_int_nmi_en_OFS (2)
-#define UART_INTR_NMI_EN2_cts_int_nmi_en_MASK ((uint32_t)0x00000004U)
-#define UART_INTR_NMI_EN2_addr_match_nmi_en_OFS (3)
-#define UART_INTR_NMI_EN2_addr_match_nmi_en_MASK ((uint32_t)0x00000008U)
-#define UART_INTR_NMI_EN2_baud_err_nmi_en_OFS (4)
-#define UART_INTR_NMI_EN2_baud_err_nmi_en_MASK ((uint32_t)0x00000010U)
-#define UART_INTR_NMI_EN2_eot_nmi_en_OFS (5)
-#define UART_INTR_NMI_EN2_eot_nmi_en_MASK ((uint32_t)0x00000020U)
-#define UART_INTR_NMI_EN2_dma_done_tx_intr_nmi_en_OFS (6)
-#define UART_INTR_NMI_EN2_dma_done_tx_intr_nmi_en_MASK ((uint32_t)0x00000040U)
-#define UART_INTR_NMI_EN2_dma_done_rx_intr_nmi_en_OFS (7)
-#define UART_INTR_NMI_EN2_dma_done_rx_intr_nmi_en_MASK ((uint32_t)0x00000080U)
-#define UART_INTR_SW_SET_rcv_timeout_sw_set_OFS (0)
-#define UART_INTR_SW_SET_rcv_timeout_sw_set_MASK ((uint32_t)0x00000001U)
-#define UART_INTR_SW_SET_frame_err_sw_set_OFS (1)
-#define UART_INTR_SW_SET_frame_err_sw_set_MASK ((uint32_t)0x00000002U)
-#define UART_INTR_SW_SET_parity_err_sw_set_OFS (2)
-#define UART_INTR_SW_SET_parity_err_sw_set_MASK ((uint32_t)0x00000004U)
-#define UART_INTR_SW_SET_underflow_err_sw_set_OFS (3)
-#define UART_INTR_SW_SET_underflow_err_sw_set_MASK ((uint32_t)0x00000008U)
-#define UART_INTR_SW_SET_overflow_err_sw_set_OFS (4)
-#define UART_INTR_SW_SET_overflow_err_sw_set_MASK ((uint32_t)0x00000010U)
-#define UART_INTR_SW_SET_maj_vote_err_sw_set_OFS (5)
-#define UART_INTR_SW_SET_maj_vote_err_sw_set_MASK ((uint32_t)0x00000020U)
-#define UART_INTR_SW_SET_tx_fifo_almost_full_sw_set_OFS (6)
-#define UART_INTR_SW_SET_tx_fifo_almost_full_sw_set_MASK ((uint32_t)0x00000040U)
-#define UART_INTR_SW_SET_tx_fifo_full_sw_set_OFS (7)
-#define UART_INTR_SW_SET_tx_fifo_full_sw_set_MASK ((uint32_t)0x00000080U)
-#define UART_INTR_SW_SET_tx_fifo_almost_empty_sw_set_OFS (8)
-#define UART_INTR_SW_SET_tx_fifo_almost_empty_sw_set_MASK ((uint32_t)0x00000100U)
-#define UART_INTR_SW_SET_tx_fifo_empty_sw_set_OFS (9)
-#define UART_INTR_SW_SET_tx_fifo_empty_sw_set_MASK ((uint32_t)0x00000200U)
-#define UART_INTR_SW_SET_rx_fifo_almost_full_sw_set_OFS (10)
-#define UART_INTR_SW_SET_rx_fifo_almost_full_sw_set_MASK ((uint32_t)0x00000400U)
-#define UART_INTR_SW_SET_rx_fifo_full_sw_set_OFS (11)
-#define UART_INTR_SW_SET_rx_fifo_full_sw_set_MASK ((uint32_t)0x00000800U)
-#define UART_INTR_SW_SET_rx_fifo_almost_empty_sw_set_OFS (12)
-#define UART_INTR_SW_SET_rx_fifo_almost_empty_sw_set_MASK ((uint32_t)0x00001000U)
-#define UART_INTR_SW_SET_rx_fifo_empty_sw_set_OFS (13)
-#define UART_INTR_SW_SET_rx_fifo_empty_sw_set_MASK ((uint32_t)0x00002000U)
-#define UART_INTR_SW_SET_rcv_negedge_sw_set_OFS (14)
-#define UART_INTR_SW_SET_rcv_negedge_sw_set_MASK ((uint32_t)0x00004000U)
-#define UART_INTR_SW_SET_rcv_posedge_sw_set_OFS (15)
-#define UART_INTR_SW_SET_rcv_posedge_sw_set_MASK ((uint32_t)0x00008000U)
-#define UART_INTR_SW_SET_rx_int_sw_set_OFS (16)
-#define UART_INTR_SW_SET_rx_int_sw_set_MASK ((uint32_t)0x00010000U)
-#define UART_INTR_SW_SET_tx_int_sw_set_OFS (17)
-#define UART_INTR_SW_SET_tx_int_sw_set_MASK ((uint32_t)0x00020000U)
-#define UART_INTR_SW_SET_cts_int_sw_set_OFS (18)
-#define UART_INTR_SW_SET_cts_int_sw_set_MASK ((uint32_t)0x00040000U)
-#define UART_INTR_SW_SET_addr_match_sw_set_OFS (19)
-#define UART_INTR_SW_SET_addr_match_sw_set_MASK ((uint32_t)0x00080000U)
-#define UART_INTR_SW_SET_baud_err_sw_set_OFS (20)
-#define UART_INTR_SW_SET_baud_err_sw_set_MASK ((uint32_t)0x00100000U)
-#define UART_INTR_SW_SET_eot_sw_set_OFS (21)
-#define UART_INTR_SW_SET_eot_sw_set_MASK ((uint32_t)0x00200000U)
-#define UART_INTR_SW_SET_dma_done_tx_intr_sw_set_OFS (22)
-#define UART_INTR_SW_SET_dma_done_tx_intr_sw_set_MASK ((uint32_t)0x00400000U)
-#define UART_INTR_SW_SET_dma_done_rx_intr_sw_set_OFS (23)
-#define UART_INTR_SW_SET_dma_done_rx_intr_sw_set_MASK ((uint32_t)0x00800000U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rcv_timeout_en_OFS (0)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rcv_timeout_en_MASK ((uint32_t)0x00000001U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_frame_err_en_OFS (1)
-#define UART_DMA_RX_INTR_EN1_dma_rx_frame_err_en_MASK ((uint32_t)0x00000002U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_parity_err_en_OFS (2)
-#define UART_DMA_RX_INTR_EN1_dma_rx_parity_err_en_MASK ((uint32_t)0x00000004U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_underflow_err_en_OFS (3)
-#define UART_DMA_RX_INTR_EN1_dma_rx_underflow_err_en_MASK ((uint32_t)0x00000008U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_overflow_err_en_OFS (4)
-#define UART_DMA_RX_INTR_EN1_dma_rx_overflow_err_en_MASK ((uint32_t)0x00000010U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_maj_vote_err_en_OFS (5)
-#define UART_DMA_RX_INTR_EN1_dma_rx_maj_vote_err_en_MASK ((uint32_t)0x00000020U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_tx_fifo_almost_full_en_OFS (6)
-#define UART_DMA_RX_INTR_EN1_dma_rx_tx_fifo_almost_full_en_MASK ((uint32_t)0x00000040U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_tx_fifo_full_en_OFS (7)
-#define UART_DMA_RX_INTR_EN1_dma_rx_tx_fifo_full_en_MASK ((uint32_t)0x00000080U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_tx_fifo_almost_empty_en_OFS (8)
-#define UART_DMA_RX_INTR_EN1_dma_rx_tx_fifo_almost_empty_en_MASK ((uint32_t)0x00000100U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_tx_fifo_empty_en_OFS (9)
-#define UART_DMA_RX_INTR_EN1_dma_rx_tx_fifo_empty_en_MASK ((uint32_t)0x00000200U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rx_fifo_almost_full_en_OFS (10)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rx_fifo_almost_full_en_MASK ((uint32_t)0x00000400U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rx_fifo_full_en_OFS (11)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rx_fifo_full_en_MASK ((uint32_t)0x00000800U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rx_fifo_almost_empty_en_OFS (12)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rx_fifo_almost_empty_en_MASK ((uint32_t)0x00001000U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rx_fifo_empty_en_OFS (13)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rx_fifo_empty_en_MASK ((uint32_t)0x00002000U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rcv_negedge_en_OFS (14)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rcv_negedge_en_MASK ((uint32_t)0x00004000U)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rcv_posedge_en_OFS (15)
-#define UART_DMA_RX_INTR_EN1_dma_rx_rcv_posedge_en_MASK ((uint32_t)0x00008000U)
-#define UART_DMA_RX_INTR_EN2_dma_rx_rx_int_en_OFS (0)
-#define UART_DMA_RX_INTR_EN2_dma_rx_rx_int_en_MASK ((uint32_t)0x00000001U)
-#define UART_DMA_RX_INTR_EN2_dma_rx_tx_int_en_OFS (1)
-#define UART_DMA_RX_INTR_EN2_dma_rx_tx_int_en_MASK ((uint32_t)0x00000002U)
-#define UART_DMA_RX_INTR_EN2_dma_rx_cts_int_en_OFS (2)
-#define UART_DMA_RX_INTR_EN2_dma_rx_cts_int_en_MASK ((uint32_t)0x00000004U)
-#define UART_DMA_RX_INTR_EN2_dma_rx_addr_match_en_OFS (3)
-#define UART_DMA_RX_INTR_EN2_dma_rx_addr_match_en_MASK ((uint32_t)0x00000008U)
-#define UART_DMA_RX_INTR_EN2_dma_rx_baud_err_en_OFS (4)
-#define UART_DMA_RX_INTR_EN2_dma_rx_baud_err_en_MASK ((uint32_t)0x00000010U)
-#define UART_DMA_RX_INTR_EN2_dma_rx_eot_en_OFS (5)
-#define UART_DMA_RX_INTR_EN2_dma_rx_eot_en_MASK ((uint32_t)0x00000020U)
-#define UART_DMA_RX_INTR_EN2_dma_rx_dma_done_tx_intr_en_OFS (6)
-#define UART_DMA_RX_INTR_EN2_dma_rx_dma_done_tx_intr_en_MASK ((uint32_t)0x00000040U)
-#define UART_DMA_RX_INTR_EN2_dma_rx_dma_done_rx_intr_en_OFS (7)
-#define UART_DMA_RX_INTR_EN2_dma_rx_dma_done_rx_intr_en_MASK ((uint32_t)0x00000080U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rcv_timeout_en_OFS (0)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rcv_timeout_en_MASK ((uint32_t)0x00000001U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_frame_err_en_OFS (1)
-#define UART_DMA_TX_INTR_EN1_dma_tx_frame_err_en_MASK ((uint32_t)0x00000002U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_parity_err_en_OFS (2)
-#define UART_DMA_TX_INTR_EN1_dma_tx_parity_err_en_MASK ((uint32_t)0x00000004U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_underflow_err_en_OFS (3)
-#define UART_DMA_TX_INTR_EN1_dma_tx_underflow_err_en_MASK ((uint32_t)0x00000008U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_overflow_err_en_OFS (4)
-#define UART_DMA_TX_INTR_EN1_dma_tx_overflow_err_en_MASK ((uint32_t)0x00000010U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_maj_vote_err_en_OFS (5)
-#define UART_DMA_TX_INTR_EN1_dma_tx_maj_vote_err_en_MASK ((uint32_t)0x00000020U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_tx_fifo_almost_full_en_OFS (6)
-#define UART_DMA_TX_INTR_EN1_dma_tx_tx_fifo_almost_full_en_MASK ((uint32_t)0x00000040U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_tx_fifo_full_en_OFS (7)
-#define UART_DMA_TX_INTR_EN1_dma_tx_tx_fifo_full_en_MASK ((uint32_t)0x00000080U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_tx_fifo_almost_empty_en_OFS (8)
-#define UART_DMA_TX_INTR_EN1_dma_tx_tx_fifo_almost_empty_en_MASK ((uint32_t)0x00000100U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_tx_fifo_empty_en_OFS (9)
-#define UART_DMA_TX_INTR_EN1_dma_tx_tx_fifo_empty_en_MASK ((uint32_t)0x00000200U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rx_fifo_almost_full_en_OFS (10)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rx_fifo_almost_full_en_MASK ((uint32_t)0x00000400U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rx_fifo_full_en_OFS (11)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rx_fifo_full_en_MASK ((uint32_t)0x00000800U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rx_fifo_almost_empty_en_OFS (12)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rx_fifo_almost_empty_en_MASK ((uint32_t)0x00001000U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rx_fifo_empty_en_OFS (13)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rx_fifo_empty_en_MASK ((uint32_t)0x00002000U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rcv_negedge_en_OFS (14)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rcv_negedge_en_MASK ((uint32_t)0x00004000U)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rcv_posedge_en_OFS (15)
-#define UART_DMA_TX_INTR_EN1_dma_tx_rcv_posedge_en_MASK ((uint32_t)0x00008000U)
-#define UART_DMA_TX_INTR_EN2_dma_tx_rx_int_en_OFS (0)
-#define UART_DMA_TX_INTR_EN2_dma_tx_rx_int_en_MASK ((uint32_t)0x00000001U)
-#define UART_DMA_TX_INTR_EN2_dma_tx_tx_int_en_OFS (1)
-#define UART_DMA_TX_INTR_EN2_dma_tx_tx_int_en_MASK ((uint32_t)0x00000002U)
-#define UART_DMA_TX_INTR_EN2_dma_tx_cts_int_en_OFS (2)
-#define UART_DMA_TX_INTR_EN2_dma_tx_cts_int_en_MASK ((uint32_t)0x00000004U)
-#define UART_DMA_TX_INTR_EN2_dma_tx_addr_match_en_OFS (3)
-#define UART_DMA_TX_INTR_EN2_dma_tx_addr_match_en_MASK ((uint32_t)0x00000008U)
-#define UART_DMA_TX_INTR_EN2_dma_tx_baud_err_en_OFS (4)
-#define UART_DMA_TX_INTR_EN2_dma_tx_baud_err_en_MASK ((uint32_t)0x00000010U)
-#define UART_DMA_TX_INTR_EN2_dma_tx_eot_en_OFS (5)
-#define UART_DMA_TX_INTR_EN2_dma_tx_eot_en_MASK ((uint32_t)0x00000020U)
-#define UART_DMA_TX_INTR_EN2_dma_tx_dma_done_tx_intr_en_OFS (6)
-#define UART_DMA_TX_INTR_EN2_dma_tx_dma_done_tx_intr_en_MASK ((uint32_t)0x00000040U)
-#define UART_DMA_TX_INTR_EN2_dma_tx_dma_done_rx_intr_en_OFS (7)
-#define UART_DMA_TX_INTR_EN2_dma_tx_dma_done_rx_intr_en_MASK ((uint32_t)0x00000080U)
-#define UART_INTR_STS_intr_first_OFS (0)
-#define UART_INTR_STS_intr_first_MASK ((uint32_t)0x0000003FU)
-#define UART_UART_CLKCFG_blck_async_OFS (0)
-#define UART_UART_CLKCFG_blck_async_MASK ((uint32_t)0x00000001U)
-#define UART_UART_CLKCFG_async_req_en_key_OFS (24)
-#define UART_UART_CLKCFG_async_req_en_key_MASK ((uint32_t)0xFF000000U)
-#define UART_UART_FIFOLS_tx_fifo_ls_OFS (0)
-#define UART_UART_FIFOLS_tx_fifo_ls_MASK ((uint32_t)0x00000003U)
-#define UART_UART_FIFOLS_rx_to_OFS (2)
-#define UART_UART_FIFOLS_rx_to_MASK ((uint32_t)0x0000003CU)
-#define UART_UART_FIFOLS_rx_fifo_ls_OFS (6)
-#define UART_UART_FIFOLS_rx_fifo_ls_MASK ((uint32_t)0x000000C0U)
-#define UART_UART_FIFOSTS_tx_fifo_full_sts_OFS (0)
-#define UART_UART_FIFOSTS_tx_fifo_full_sts_MASK ((uint32_t)0x00000001U)
-#define UART_UART_FIFOSTS_tx_fifo_almost_full_sts_OFS (1)
-#define UART_UART_FIFOSTS_tx_fifo_almost_full_sts_MASK ((uint32_t)0x00000002U)
-#define UART_UART_FIFOSTS_tx_fifo_empty_sts_OFS (2)
-#define UART_UART_FIFOSTS_tx_fifo_empty_sts_MASK ((uint32_t)0x00000004U)
-#define UART_UART_FIFOSTS_tx_fifo_almost_empty_sts_OFS (3)
-#define UART_UART_FIFOSTS_tx_fifo_almost_empty_sts_MASK ((uint32_t)0x00000008U)
-#define UART_UART_FIFOSTS_rx_fifo_full_sts_OFS (4)
-#define UART_UART_FIFOSTS_rx_fifo_full_sts_MASK ((uint32_t)0x00000010U)
-#define UART_UART_FIFOSTS_rx_fifo_almost_full_sts_OFS (5)
-#define UART_UART_FIFOSTS_rx_fifo_almost_full_sts_MASK ((uint32_t)0x00000020U)
-#define UART_UART_FIFOSTS_rx_fifo_empty_sts_OFS (6)
-#define UART_UART_FIFOSTS_rx_fifo_empty_sts_MASK ((uint32_t)0x00000040U)
-#define UART_UART_FIFOSTS_rx_fifo_almost_empty_sts_OFS (7)
-#define UART_UART_FIFOSTS_rx_fifo_almost_empty_sts_MASK ((uint32_t)0x00000080U)
-#define UART_UART_CFG_wrd_len_OFS (0)
-#define UART_UART_CFG_wrd_len_MASK ((uint32_t)0x00000003U)
-#define UART_UART_CFG_par_en_OFS (2)
-#define UART_UART_CFG_par_en_MASK ((uint32_t)0x00000004U)
-#define UART_UART_CFG_evn_par_OFS (3)
-#define UART_UART_CFG_evn_par_MASK ((uint32_t)0x00000008U)
-#define UART_UART_CFG_stck_par_OFS (4)
-#define UART_UART_CFG_stck_par_MASK ((uint32_t)0x00000010U)
-#define UART_UART_CFG_stop_bit_OFS (5)
-#define UART_UART_CFG_stop_bit_MASK ((uint32_t)0x00000020U)
-#define UART_UART_CFG_send_idle_OFS (6)
-#define UART_UART_CFG_send_idle_MASK ((uint32_t)0x00000040U)
-#define UART_UART_GFCTL_gf_width_OFS (0)
-#define UART_UART_GFCTL_gf_width_MASK ((uint32_t)0x0000003FU)
-#define UART_UART_TXDATA_uart_data_OFS (0)
-#define UART_UART_TXDATA_uart_data_MASK ((uint32_t)0x000000FFU)
-#define UART_UART_RXDATA_uart_result_OFS (0)
-#define UART_UART_RXDATA_uart_result_MASK ((uint32_t)0x00000FFFU)
-#define UART_UART_BRDNUM_num_m_OFS (0)
-#define UART_UART_BRDNUM_num_m_MASK ((uint32_t)0xFFFFFFFFU)
-#define UART_UART_BRDDEN_den_n_OFS (0)
-#define UART_UART_BRDDEN_den_n_MASK ((uint32_t)0xFFFFFFFFU)
-#define UART_UART_CTRL_uart_en_OFS (0)
-#define UART_UART_CTRL_uart_en_MASK ((uint32_t)0x00000001U)
-#define UART_UART_CTRL_uart_msb_OFS (1)
-#define UART_UART_CTRL_uart_msb_MASK ((uint32_t)0x00000002U)
-#define UART_UART_CTRL_majvote_en_OFS (2)
-#define UART_UART_CTRL_majvote_en_MASK ((uint32_t)0x00000004U)
-#define UART_UART_CTRL_fifo_en_OFS (3)
-#define UART_UART_CTRL_fifo_en_MASK ((uint32_t)0x00000008U)
-#define UART_UART_CTRL_os_OFS (4)
-#define UART_UART_CTRL_os_MASK ((uint32_t)0x000001F0U)
-#define UART_UART_CTRL_loopback_en_OFS (9)
-#define UART_UART_CTRL_loopback_en_MASK ((uint32_t)0x00000200U)
-#define UART_UART_CTRL_mode_OFS (10)
-#define UART_UART_CTRL_mode_MASK ((uint32_t)0x00000C00U)
-#define UART_UART_CTRL_tx_en_OFS (12)
-#define UART_UART_CTRL_tx_en_MASK ((uint32_t)0x00001000U)
-#define UART_UART_CTRL_rx_en_OFS (13)
-#define UART_UART_CTRL_rx_en_MASK ((uint32_t)0x00002000U)
-#define UART_UART_CTRL_tx_out_en_OFS (14)
-#define UART_UART_CTRL_tx_out_en_MASK ((uint32_t)0x00004000U)
-#define UART_UART_CTRL_tx_out_ctrl_OFS (15)
-#define UART_UART_CTRL_tx_out_ctrl_MASK ((uint32_t)0x00008000U)
-#define UART_UART_CTRL_cts_en_OFS (16)
-#define UART_UART_CTRL_cts_en_MASK ((uint32_t)0x00010000U)
-#define UART_UART_CTRL_rts_en_OFS (17)
-#define UART_UART_CTRL_rts_en_MASK ((uint32_t)0x00020000U)
-#define UART_UART_CTRL_rts_val_OFS (18)
-#define UART_UART_CTRL_rts_val_MASK ((uint32_t)0x00040000U)
-#define UART_UART_ADDR_uart_addr_OFS (0)
-#define UART_UART_ADDR_uart_addr_MASK ((uint32_t)0x000000FFU)
-#define UART_UART_ADDRMASK_addr_mask_OFS (0)
-#define UART_UART_ADDRMASK_addr_mask_MASK ((uint32_t)0x000000FFU)
-#define UART_STS_cts_sts_OFS (0)
-#define UART_STS_cts_sts_MASK ((uint32_t)0x00000001U)
-#define UART_STS_busy_OFS (1)
-#define UART_STS_busy_MASK ((uint32_t)0x00000002U)
-#define UART_STS_idle_OFS (2)
-#define UART_STS_idle_MASK ((uint32_t)0x00000004U)
-#define UART_FSM_STS_tx_state_OFS (0)
-#define UART_FSM_STS_tx_state_MASK ((uint32_t)0x00000007U)
-#define UART_FSM_STS_rx_state_OFS (3)
-#define UART_FSM_STS_rx_state_MASK ((uint32_t)0x00000078U)
+#define UART_DESC_MODULE_TYPE_OFS (0)
+#define UART_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define UART_DESC_MODULE_SUBTYPE_OFS (8)
+#define UART_DESC_MODULE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define UART_DESC_MAJOR_REV_OFS (16)
+#define UART_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define UART_DESC_MINOR_REV_OFS (20)
+#define UART_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define UART_PWR_EN_PWR_EN_OFS (0)
+#define UART_PWR_EN_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define UART_PWR_EN_PWR_EN_KEY_OFS (24)
+#define UART_PWR_EN_PWR_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define UART_RST_CTRL_RST_OFS (0)
+#define UART_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define UART_RST_CTRL_RST_STS_CLR_OFS (1)
+#define UART_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define UART_RST_CTRL_RST_KEY_OFS (24)
+#define UART_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define UART_RST_STS_RST_STS_OFS (0)
+#define UART_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define UART_CLK_CTRL_CLK_EN_OFS (0)
+#define UART_CLK_CTRL_CLK_EN_MASK ((uint32_t)0x00000001U)
+#define UART_CLK_SEL_CLK_SEL_OFS (0)
+#define UART_CLK_SEL_CLK_SEL_MASK ((uint32_t)0x00000003U)
+#define UART_CLK_DIV_CLK_DIV_OFS (0)
+#define UART_CLK_DIV_CLK_DIV_MASK ((uint32_t)0x0000000FU)
+#define UART_DBG_CTRL_RUN_ON_HALT_OFS (0)
+#define UART_DBG_CTRL_RUN_ON_HALT_MASK ((uint32_t)0x00000001U)
+#define UART_DBG_CTRL_SOFT_STOP_OFS (1)
+#define UART_DBG_CTRL_SOFT_STOP_MASK ((uint32_t)0x00000002U)
+#define UART_INTR_EVENT_RCV_TIMEOUT_OFS (0)
+#define UART_INTR_EVENT_RCV_TIMEOUT_MASK ((uint32_t)0x00000001U)
+#define UART_INTR_EVENT_FRAME_ERR_OFS (1)
+#define UART_INTR_EVENT_FRAME_ERR_MASK ((uint32_t)0x00000002U)
+#define UART_INTR_EVENT_PARITY_ERR_OFS (2)
+#define UART_INTR_EVENT_PARITY_ERR_MASK ((uint32_t)0x00000004U)
+#define UART_INTR_EVENT_UNDERFLOW_ERR_OFS (3)
+#define UART_INTR_EVENT_UNDERFLOW_ERR_MASK ((uint32_t)0x00000008U)
+#define UART_INTR_EVENT_OVERFLOW_ERR_OFS (4)
+#define UART_INTR_EVENT_OVERFLOW_ERR_MASK ((uint32_t)0x00000010U)
+#define UART_INTR_EVENT_MAJ_VOTE_ERR_OFS (5)
+#define UART_INTR_EVENT_MAJ_VOTE_ERR_MASK ((uint32_t)0x00000020U)
+#define UART_INTR_EVENT_TX_FIFO_ALMOST_FULL_OFS (6)
+#define UART_INTR_EVENT_TX_FIFO_ALMOST_FULL_MASK ((uint32_t)0x00000040U)
+#define UART_INTR_EVENT_TX_FIFO_FULL_OFS (7)
+#define UART_INTR_EVENT_TX_FIFO_FULL_MASK ((uint32_t)0x00000080U)
+#define UART_INTR_EVENT_TX_FIFO_ALMOST_EMPTY_OFS (8)
+#define UART_INTR_EVENT_TX_FIFO_ALMOST_EMPTY_MASK ((uint32_t)0x00000100U)
+#define UART_INTR_EVENT_TX_FIFO_EMPTY_OFS (9)
+#define UART_INTR_EVENT_TX_FIFO_EMPTY_MASK ((uint32_t)0x00000200U)
+#define UART_INTR_EVENT_RX_FIFO_ALMOST_FULL_OFS (10)
+#define UART_INTR_EVENT_RX_FIFO_ALMOST_FULL_MASK ((uint32_t)0x00000400U)
+#define UART_INTR_EVENT_RX_FIFO_FULL_OFS (11)
+#define UART_INTR_EVENT_RX_FIFO_FULL_MASK ((uint32_t)0x00000800U)
+#define UART_INTR_EVENT_RX_FIFO_ALMOST_EMPTY_OFS (12)
+#define UART_INTR_EVENT_RX_FIFO_ALMOST_EMPTY_MASK ((uint32_t)0x00001000U)
+#define UART_INTR_EVENT_RX_FIFO_EMPTY_OFS (13)
+#define UART_INTR_EVENT_RX_FIFO_EMPTY_MASK ((uint32_t)0x00002000U)
+#define UART_INTR_EVENT_RCV_NEGEDGE_OFS (14)
+#define UART_INTR_EVENT_RCV_NEGEDGE_MASK ((uint32_t)0x00004000U)
+#define UART_INTR_EVENT_RCV_POSEDGE_OFS (15)
+#define UART_INTR_EVENT_RCV_POSEDGE_MASK ((uint32_t)0x00008000U)
+#define UART_INTR_EVENT_RX_INT_OFS (16)
+#define UART_INTR_EVENT_RX_INT_MASK ((uint32_t)0x00010000U)
+#define UART_INTR_EVENT_TX_INT_OFS (17)
+#define UART_INTR_EVENT_TX_INT_MASK ((uint32_t)0x00020000U)
+#define UART_INTR_EVENT_CTS_INT_OFS (18)
+#define UART_INTR_EVENT_CTS_INT_MASK ((uint32_t)0x00040000U)
+#define UART_INTR_EVENT_ADDR_MATCH_OFS (19)
+#define UART_INTR_EVENT_ADDR_MATCH_MASK ((uint32_t)0x00080000U)
+#define UART_INTR_EVENT_BAUD_ERR_OFS (20)
+#define UART_INTR_EVENT_BAUD_ERR_MASK ((uint32_t)0x00100000U)
+#define UART_INTR_EVENT_EOT_OFS (21)
+#define UART_INTR_EVENT_EOT_MASK ((uint32_t)0x00200000U)
+#define UART_INTR_EVENT_DMA_DONE_TX_INTR_OFS (22)
+#define UART_INTR_EVENT_DMA_DONE_TX_INTR_MASK ((uint32_t)0x00400000U)
+#define UART_INTR_EVENT_DMA_DONE_RX_INTR_OFS (23)
+#define UART_INTR_EVENT_DMA_DONE_RX_INTR_MASK ((uint32_t)0x00800000U)
+#define UART_INTR_EN1_RCV_TIMEOUT_EN_OFS (0)
+#define UART_INTR_EN1_RCV_TIMEOUT_EN_MASK ((uint32_t)0x00000001U)
+#define UART_INTR_EN1_FRAME_ERR_EN_OFS (1)
+#define UART_INTR_EN1_FRAME_ERR_EN_MASK ((uint32_t)0x00000002U)
+#define UART_INTR_EN1_PARITY_ERR_EN_OFS (2)
+#define UART_INTR_EN1_PARITY_ERR_EN_MASK ((uint32_t)0x00000004U)
+#define UART_INTR_EN1_UNDERFLOW_ERR_EN_OFS (3)
+#define UART_INTR_EN1_UNDERFLOW_ERR_EN_MASK ((uint32_t)0x00000008U)
+#define UART_INTR_EN1_OVERFLOW_ERR_EN_OFS (4)
+#define UART_INTR_EN1_OVERFLOW_ERR_EN_MASK ((uint32_t)0x00000010U)
+#define UART_INTR_EN1_MAJ_VOTE_ERR_EN_OFS (5)
+#define UART_INTR_EN1_MAJ_VOTE_ERR_EN_MASK ((uint32_t)0x00000020U)
+#define UART_INTR_EN1_TX_FIFO_ALMOST_FULL_EN_OFS (6)
+#define UART_INTR_EN1_TX_FIFO_ALMOST_FULL_EN_MASK ((uint32_t)0x00000040U)
+#define UART_INTR_EN1_TX_FIFO_FULL_EN_OFS (7)
+#define UART_INTR_EN1_TX_FIFO_FULL_EN_MASK ((uint32_t)0x00000080U)
+#define UART_INTR_EN1_TX_FIFO_ALMOST_EMPTY_EN_OFS (8)
+#define UART_INTR_EN1_TX_FIFO_ALMOST_EMPTY_EN_MASK ((uint32_t)0x00000100U)
+#define UART_INTR_EN1_TX_FIFO_EMPTY_EN_OFS (9)
+#define UART_INTR_EN1_TX_FIFO_EMPTY_EN_MASK ((uint32_t)0x00000200U)
+#define UART_INTR_EN1_RX_FIFO_ALMOST_FULL_EN_OFS (10)
+#define UART_INTR_EN1_RX_FIFO_ALMOST_FULL_EN_MASK ((uint32_t)0x00000400U)
+#define UART_INTR_EN1_RX_FIFO_FULL_EN_OFS (11)
+#define UART_INTR_EN1_RX_FIFO_FULL_EN_MASK ((uint32_t)0x00000800U)
+#define UART_INTR_EN1_RX_FIFO_ALMOST_EMPTY_EN_OFS (12)
+#define UART_INTR_EN1_RX_FIFO_ALMOST_EMPTY_EN_MASK ((uint32_t)0x00001000U)
+#define UART_INTR_EN1_RX_FIFO_EMPTY_EN_OFS (13)
+#define UART_INTR_EN1_RX_FIFO_EMPTY_EN_MASK ((uint32_t)0x00002000U)
+#define UART_INTR_EN1_RCV_NEGEDGE_EN_OFS (14)
+#define UART_INTR_EN1_RCV_NEGEDGE_EN_MASK ((uint32_t)0x00004000U)
+#define UART_INTR_EN1_RCV_POSEDGE_EN_OFS (15)
+#define UART_INTR_EN1_RCV_POSEDGE_EN_MASK ((uint32_t)0x00008000U)
+#define UART_INTR_EN2_RX_INT_EN_OFS (0)
+#define UART_INTR_EN2_RX_INT_EN_MASK ((uint32_t)0x00000001U)
+#define UART_INTR_EN2_TX_INT_EN_OFS (1)
+#define UART_INTR_EN2_TX_INT_EN_MASK ((uint32_t)0x00000002U)
+#define UART_INTR_EN2_CTS_INT_EN_OFS (2)
+#define UART_INTR_EN2_CTS_INT_EN_MASK ((uint32_t)0x00000004U)
+#define UART_INTR_EN2_ADDR_MATCH_EN_OFS (3)
+#define UART_INTR_EN2_ADDR_MATCH_EN_MASK ((uint32_t)0x00000008U)
+#define UART_INTR_EN2_BAUD_ERR_EN_OFS (4)
+#define UART_INTR_EN2_BAUD_ERR_EN_MASK ((uint32_t)0x00000010U)
+#define UART_INTR_EN2_EOT_EN_OFS (5)
+#define UART_INTR_EN2_EOT_EN_MASK ((uint32_t)0x00000020U)
+#define UART_INTR_EN2_DMA_DONE_TX_INTR_EN_OFS (6)
+#define UART_INTR_EN2_DMA_DONE_TX_INTR_EN_MASK ((uint32_t)0x00000040U)
+#define UART_INTR_EN2_DMA_DONE_RX_INTR_EN_OFS (7)
+#define UART_INTR_EN2_DMA_DONE_RX_INTR_EN_MASK ((uint32_t)0x00000080U)
+#define UART_INTR_NMI_EN1_RCV_TIMEOUT_NMI_EN_OFS (0)
+#define UART_INTR_NMI_EN1_RCV_TIMEOUT_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define UART_INTR_NMI_EN1_FRAME_ERR_NMI_EN_OFS (1)
+#define UART_INTR_NMI_EN1_FRAME_ERR_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define UART_INTR_NMI_EN1_PARITY_ERR_NMI_EN_OFS (2)
+#define UART_INTR_NMI_EN1_PARITY_ERR_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define UART_INTR_NMI_EN1_UNDERFLOW_ERR_NMI_EN_OFS (3)
+#define UART_INTR_NMI_EN1_UNDERFLOW_ERR_NMI_EN_MASK ((uint32_t)0x00000008U)
+#define UART_INTR_NMI_EN1_OVERFLOW_ERR_NMI_EN_OFS (4)
+#define UART_INTR_NMI_EN1_OVERFLOW_ERR_NMI_EN_MASK ((uint32_t)0x00000010U)
+#define UART_INTR_NMI_EN1_MAJ_VOTE_ERR_NMI_EN_OFS (5)
+#define UART_INTR_NMI_EN1_MAJ_VOTE_ERR_NMI_EN_MASK ((uint32_t)0x00000020U)
+#define UART_INTR_NMI_EN1_TX_FIFO_ALMOST_FULL_NMI_EN_OFS (6)
+#define UART_INTR_NMI_EN1_TX_FIFO_ALMOST_FULL_NMI_EN_MASK ((uint32_t)0x00000040U)
+#define UART_INTR_NMI_EN1_TX_FIFO_FULL_NMI_EN_OFS (7)
+#define UART_INTR_NMI_EN1_TX_FIFO_FULL_NMI_EN_MASK ((uint32_t)0x00000080U)
+#define UART_INTR_NMI_EN1_TX_FIFO_ALMOST_EMPTY_NMI_EN_OFS (8)
+#define UART_INTR_NMI_EN1_TX_FIFO_ALMOST_EMPTY_NMI_EN_MASK ((uint32_t)0x00000100U)
+#define UART_INTR_NMI_EN1_TX_FIFO_EMPTY_NMI_EN_OFS (9)
+#define UART_INTR_NMI_EN1_TX_FIFO_EMPTY_NMI_EN_MASK ((uint32_t)0x00000200U)
+#define UART_INTR_NMI_EN1_RX_FIFO_ALMOST_FULL_NMI_EN_OFS (10)
+#define UART_INTR_NMI_EN1_RX_FIFO_ALMOST_FULL_NMI_EN_MASK ((uint32_t)0x00000400U)
+#define UART_INTR_NMI_EN1_RX_FIFO_FULL_NMI_EN_OFS (11)
+#define UART_INTR_NMI_EN1_RX_FIFO_FULL_NMI_EN_MASK ((uint32_t)0x00000800U)
+#define UART_INTR_NMI_EN1_RX_FIFO_ALMOST_EMPTY_NMI_EN_OFS (12)
+#define UART_INTR_NMI_EN1_RX_FIFO_ALMOST_EMPTY_NMI_EN_MASK ((uint32_t)0x00001000U)
+#define UART_INTR_NMI_EN1_RX_FIFO_EMPTY_NMI_EN_OFS (13)
+#define UART_INTR_NMI_EN1_RX_FIFO_EMPTY_NMI_EN_MASK ((uint32_t)0x00002000U)
+#define UART_INTR_NMI_EN1_RCV_NEGEDGE_NMI_EN_OFS (14)
+#define UART_INTR_NMI_EN1_RCV_NEGEDGE_NMI_EN_MASK ((uint32_t)0x00004000U)
+#define UART_INTR_NMI_EN1_RCV_POSEDGE_NMI_EN_OFS (15)
+#define UART_INTR_NMI_EN1_RCV_POSEDGE_NMI_EN_MASK ((uint32_t)0x00008000U)
+#define UART_INTR_NMI_EN2_RX_INT_NMI_EN_OFS (0)
+#define UART_INTR_NMI_EN2_RX_INT_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define UART_INTR_NMI_EN2_TX_INT_NMI_EN_OFS (1)
+#define UART_INTR_NMI_EN2_TX_INT_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define UART_INTR_NMI_EN2_CTS_INT_NMI_EN_OFS (2)
+#define UART_INTR_NMI_EN2_CTS_INT_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define UART_INTR_NMI_EN2_ADDR_MATCH_NMI_EN_OFS (3)
+#define UART_INTR_NMI_EN2_ADDR_MATCH_NMI_EN_MASK ((uint32_t)0x00000008U)
+#define UART_INTR_NMI_EN2_BAUD_ERR_NMI_EN_OFS (4)
+#define UART_INTR_NMI_EN2_BAUD_ERR_NMI_EN_MASK ((uint32_t)0x00000010U)
+#define UART_INTR_NMI_EN2_EOT_NMI_EN_OFS (5)
+#define UART_INTR_NMI_EN2_EOT_NMI_EN_MASK ((uint32_t)0x00000020U)
+#define UART_INTR_NMI_EN2_DMA_DONE_TX_INTR_NMI_EN_OFS (6)
+#define UART_INTR_NMI_EN2_DMA_DONE_TX_INTR_NMI_EN_MASK ((uint32_t)0x00000040U)
+#define UART_INTR_NMI_EN2_DMA_DONE_RX_INTR_NMI_EN_OFS (7)
+#define UART_INTR_NMI_EN2_DMA_DONE_RX_INTR_NMI_EN_MASK ((uint32_t)0x00000080U)
+#define UART_INTR_SW_SET_RCV_TIMEOUT_SW_SET_OFS (0)
+#define UART_INTR_SW_SET_RCV_TIMEOUT_SW_SET_MASK ((uint32_t)0x00000001U)
+#define UART_INTR_SW_SET_FRAME_ERR_SW_SET_OFS (1)
+#define UART_INTR_SW_SET_FRAME_ERR_SW_SET_MASK ((uint32_t)0x00000002U)
+#define UART_INTR_SW_SET_PARITY_ERR_SW_SET_OFS (2)
+#define UART_INTR_SW_SET_PARITY_ERR_SW_SET_MASK ((uint32_t)0x00000004U)
+#define UART_INTR_SW_SET_UNDERFLOW_ERR_SW_SET_OFS (3)
+#define UART_INTR_SW_SET_UNDERFLOW_ERR_SW_SET_MASK ((uint32_t)0x00000008U)
+#define UART_INTR_SW_SET_OVERFLOW_ERR_SW_SET_OFS (4)
+#define UART_INTR_SW_SET_OVERFLOW_ERR_SW_SET_MASK ((uint32_t)0x00000010U)
+#define UART_INTR_SW_SET_MAJ_VOTE_ERR_SW_SET_OFS (5)
+#define UART_INTR_SW_SET_MAJ_VOTE_ERR_SW_SET_MASK ((uint32_t)0x00000020U)
+#define UART_INTR_SW_SET_TX_FIFO_ALMOST_FULL_SW_SET_OFS (6)
+#define UART_INTR_SW_SET_TX_FIFO_ALMOST_FULL_SW_SET_MASK ((uint32_t)0x00000040U)
+#define UART_INTR_SW_SET_TX_FIFO_FULL_SW_SET_OFS (7)
+#define UART_INTR_SW_SET_TX_FIFO_FULL_SW_SET_MASK ((uint32_t)0x00000080U)
+#define UART_INTR_SW_SET_TX_FIFO_ALMOST_EMPTY_SW_SET_OFS (8)
+#define UART_INTR_SW_SET_TX_FIFO_ALMOST_EMPTY_SW_SET_MASK ((uint32_t)0x00000100U)
+#define UART_INTR_SW_SET_TX_FIFO_EMPTY_SW_SET_OFS (9)
+#define UART_INTR_SW_SET_TX_FIFO_EMPTY_SW_SET_MASK ((uint32_t)0x00000200U)
+#define UART_INTR_SW_SET_RX_FIFO_ALMOST_FULL_SW_SET_OFS (10)
+#define UART_INTR_SW_SET_RX_FIFO_ALMOST_FULL_SW_SET_MASK ((uint32_t)0x00000400U)
+#define UART_INTR_SW_SET_RX_FIFO_FULL_SW_SET_OFS (11)
+#define UART_INTR_SW_SET_RX_FIFO_FULL_SW_SET_MASK ((uint32_t)0x00000800U)
+#define UART_INTR_SW_SET_RX_FIFO_ALMOST_EMPTY_SW_SET_OFS (12)
+#define UART_INTR_SW_SET_RX_FIFO_ALMOST_EMPTY_SW_SET_MASK ((uint32_t)0x00001000U)
+#define UART_INTR_SW_SET_RX_FIFO_EMPTY_SW_SET_OFS (13)
+#define UART_INTR_SW_SET_RX_FIFO_EMPTY_SW_SET_MASK ((uint32_t)0x00002000U)
+#define UART_INTR_SW_SET_RCV_NEGEDGE_SW_SET_OFS (14)
+#define UART_INTR_SW_SET_RCV_NEGEDGE_SW_SET_MASK ((uint32_t)0x00004000U)
+#define UART_INTR_SW_SET_RCV_POSEDGE_SW_SET_OFS (15)
+#define UART_INTR_SW_SET_RCV_POSEDGE_SW_SET_MASK ((uint32_t)0x00008000U)
+#define UART_INTR_SW_SET_RX_INT_SW_SET_OFS (16)
+#define UART_INTR_SW_SET_RX_INT_SW_SET_MASK ((uint32_t)0x00010000U)
+#define UART_INTR_SW_SET_TX_INT_SW_SET_OFS (17)
+#define UART_INTR_SW_SET_TX_INT_SW_SET_MASK ((uint32_t)0x00020000U)
+#define UART_INTR_SW_SET_CTS_INT_SW_SET_OFS (18)
+#define UART_INTR_SW_SET_CTS_INT_SW_SET_MASK ((uint32_t)0x00040000U)
+#define UART_INTR_SW_SET_ADDR_MATCH_SW_SET_OFS (19)
+#define UART_INTR_SW_SET_ADDR_MATCH_SW_SET_MASK ((uint32_t)0x00080000U)
+#define UART_INTR_SW_SET_BAUD_ERR_SW_SET_OFS (20)
+#define UART_INTR_SW_SET_BAUD_ERR_SW_SET_MASK ((uint32_t)0x00100000U)
+#define UART_INTR_SW_SET_EOT_SW_SET_OFS (21)
+#define UART_INTR_SW_SET_EOT_SW_SET_MASK ((uint32_t)0x00200000U)
+#define UART_INTR_SW_SET_DMA_DONE_TX_INTR_SW_SET_OFS (22)
+#define UART_INTR_SW_SET_DMA_DONE_TX_INTR_SW_SET_MASK ((uint32_t)0x00400000U)
+#define UART_INTR_SW_SET_DMA_DONE_RX_INTR_SW_SET_OFS (23)
+#define UART_INTR_SW_SET_DMA_DONE_RX_INTR_SW_SET_MASK ((uint32_t)0x00800000U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RCV_TIMEOUT_EN_OFS (0)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RCV_TIMEOUT_EN_MASK ((uint32_t)0x00000001U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_FRAME_ERR_EN_OFS (1)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_FRAME_ERR_EN_MASK ((uint32_t)0x00000002U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_PARITY_ERR_EN_OFS (2)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_PARITY_ERR_EN_MASK ((uint32_t)0x00000004U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_UNDERFLOW_ERR_EN_OFS (3)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_UNDERFLOW_ERR_EN_MASK ((uint32_t)0x00000008U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_OVERFLOW_ERR_EN_OFS (4)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_OVERFLOW_ERR_EN_MASK ((uint32_t)0x00000010U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_MAJ_VOTE_ERR_EN_OFS (5)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_MAJ_VOTE_ERR_EN_MASK ((uint32_t)0x00000020U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_TX_FIFO_ALMOST_FULL_EN_OFS (6)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_TX_FIFO_ALMOST_FULL_EN_MASK ((uint32_t)0x00000040U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_TX_FIFO_FULL_EN_OFS (7)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_TX_FIFO_FULL_EN_MASK ((uint32_t)0x00000080U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_TX_FIFO_ALMOST_EMPTY_EN_OFS (8)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_TX_FIFO_ALMOST_EMPTY_EN_MASK ((uint32_t)0x00000100U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_TX_FIFO_EMPTY_EN_OFS (9)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_TX_FIFO_EMPTY_EN_MASK ((uint32_t)0x00000200U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RX_FIFO_ALMOST_FULL_EN_OFS (10)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RX_FIFO_ALMOST_FULL_EN_MASK ((uint32_t)0x00000400U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RX_FIFO_FULL_EN_OFS (11)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RX_FIFO_FULL_EN_MASK ((uint32_t)0x00000800U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RX_FIFO_ALMOST_EMPTY_EN_OFS (12)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RX_FIFO_ALMOST_EMPTY_EN_MASK ((uint32_t)0x00001000U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RX_FIFO_EMPTY_EN_OFS (13)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RX_FIFO_EMPTY_EN_MASK ((uint32_t)0x00002000U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RCV_NEGEDGE_EN_OFS (14)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RCV_NEGEDGE_EN_MASK ((uint32_t)0x00004000U)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RCV_POSEDGE_EN_OFS (15)
+#define UART_DMA_RX_INTR_EN1_DMA_RX_RCV_POSEDGE_EN_MASK ((uint32_t)0x00008000U)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_RX_INT_EN_OFS (0)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_RX_INT_EN_MASK ((uint32_t)0x00000001U)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_TX_INT_EN_OFS (1)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_TX_INT_EN_MASK ((uint32_t)0x00000002U)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_CTS_INT_EN_OFS (2)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_CTS_INT_EN_MASK ((uint32_t)0x00000004U)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_ADDR_MATCH_EN_OFS (3)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_ADDR_MATCH_EN_MASK ((uint32_t)0x00000008U)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_BAUD_ERR_EN_OFS (4)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_BAUD_ERR_EN_MASK ((uint32_t)0x00000010U)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_EOT_EN_OFS (5)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_EOT_EN_MASK ((uint32_t)0x00000020U)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_DMA_DONE_TX_INTR_EN_OFS (6)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_DMA_DONE_TX_INTR_EN_MASK ((uint32_t)0x00000040U)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_DMA_DONE_RX_INTR_EN_OFS (7)
+#define UART_DMA_RX_INTR_EN2_DMA_RX_DMA_DONE_RX_INTR_EN_MASK ((uint32_t)0x00000080U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RCV_TIMEOUT_EN_OFS (0)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RCV_TIMEOUT_EN_MASK ((uint32_t)0x00000001U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_FRAME_ERR_EN_OFS (1)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_FRAME_ERR_EN_MASK ((uint32_t)0x00000002U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_PARITY_ERR_EN_OFS (2)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_PARITY_ERR_EN_MASK ((uint32_t)0x00000004U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_UNDERFLOW_ERR_EN_OFS (3)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_UNDERFLOW_ERR_EN_MASK ((uint32_t)0x00000008U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_OVERFLOW_ERR_EN_OFS (4)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_OVERFLOW_ERR_EN_MASK ((uint32_t)0x00000010U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_MAJ_VOTE_ERR_EN_OFS (5)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_MAJ_VOTE_ERR_EN_MASK ((uint32_t)0x00000020U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_TX_FIFO_ALMOST_FULL_EN_OFS (6)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_TX_FIFO_ALMOST_FULL_EN_MASK ((uint32_t)0x00000040U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_TX_FIFO_FULL_EN_OFS (7)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_TX_FIFO_FULL_EN_MASK ((uint32_t)0x00000080U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_TX_FIFO_ALMOST_EMPTY_EN_OFS (8)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_TX_FIFO_ALMOST_EMPTY_EN_MASK ((uint32_t)0x00000100U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_TX_FIFO_EMPTY_EN_OFS (9)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_TX_FIFO_EMPTY_EN_MASK ((uint32_t)0x00000200U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RX_FIFO_ALMOST_FULL_EN_OFS (10)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RX_FIFO_ALMOST_FULL_EN_MASK ((uint32_t)0x00000400U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RX_FIFO_FULL_EN_OFS (11)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RX_FIFO_FULL_EN_MASK ((uint32_t)0x00000800U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RX_FIFO_ALMOST_EMPTY_EN_OFS (12)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RX_FIFO_ALMOST_EMPTY_EN_MASK ((uint32_t)0x00001000U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RX_FIFO_EMPTY_EN_OFS (13)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RX_FIFO_EMPTY_EN_MASK ((uint32_t)0x00002000U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RCV_NEGEDGE_EN_OFS (14)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RCV_NEGEDGE_EN_MASK ((uint32_t)0x00004000U)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RCV_POSEDGE_EN_OFS (15)
+#define UART_DMA_TX_INTR_EN1_DMA_TX_RCV_POSEDGE_EN_MASK ((uint32_t)0x00008000U)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_RX_INT_EN_OFS (0)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_RX_INT_EN_MASK ((uint32_t)0x00000001U)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_TX_INT_EN_OFS (1)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_TX_INT_EN_MASK ((uint32_t)0x00000002U)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_CTS_INT_EN_OFS (2)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_CTS_INT_EN_MASK ((uint32_t)0x00000004U)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_ADDR_MATCH_EN_OFS (3)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_ADDR_MATCH_EN_MASK ((uint32_t)0x00000008U)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_BAUD_ERR_EN_OFS (4)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_BAUD_ERR_EN_MASK ((uint32_t)0x00000010U)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_EOT_EN_OFS (5)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_EOT_EN_MASK ((uint32_t)0x00000020U)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_DMA_DONE_TX_INTR_EN_OFS (6)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_DMA_DONE_TX_INTR_EN_MASK ((uint32_t)0x00000040U)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_DMA_DONE_RX_INTR_EN_OFS (7)
+#define UART_DMA_TX_INTR_EN2_DMA_TX_DMA_DONE_RX_INTR_EN_MASK ((uint32_t)0x00000080U)
+#define UART_INTR_STS_INTR_FIRST_OFS (0)
+#define UART_INTR_STS_INTR_FIRST_MASK ((uint32_t)0x0000003FU)
+#define UART_UART_CLKCFG_BLCK_ASYNC_OFS (0)
+#define UART_UART_CLKCFG_BLCK_ASYNC_MASK ((uint32_t)0x00000001U)
+#define UART_UART_CLKCFG_ASYNC_REQ_EN_KEY_OFS (24)
+#define UART_UART_CLKCFG_ASYNC_REQ_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define UART_UART_FIFOLS_TX_FIFO_LS_OFS (0)
+#define UART_UART_FIFOLS_TX_FIFO_LS_MASK ((uint32_t)0x00000003U)
+#define UART_UART_FIFOLS_RX_TO_OFS (2)
+#define UART_UART_FIFOLS_RX_TO_MASK ((uint32_t)0x0000003CU)
+#define UART_UART_FIFOLS_RX_FIFO_LS_OFS (6)
+#define UART_UART_FIFOLS_RX_FIFO_LS_MASK ((uint32_t)0x000000C0U)
+#define UART_UART_FIFOSTS_TX_FIFO_FULL_STS_OFS (0)
+#define UART_UART_FIFOSTS_TX_FIFO_FULL_STS_MASK ((uint32_t)0x00000001U)
+#define UART_UART_FIFOSTS_TX_FIFO_ALMOST_FULL_STS_OFS (1)
+#define UART_UART_FIFOSTS_TX_FIFO_ALMOST_FULL_STS_MASK ((uint32_t)0x00000002U)
+#define UART_UART_FIFOSTS_TX_FIFO_EMPTY_STS_OFS (2)
+#define UART_UART_FIFOSTS_TX_FIFO_EMPTY_STS_MASK ((uint32_t)0x00000004U)
+#define UART_UART_FIFOSTS_TX_FIFO_ALMOST_EMPTY_STS_OFS (3)
+#define UART_UART_FIFOSTS_TX_FIFO_ALMOST_EMPTY_STS_MASK ((uint32_t)0x00000008U)
+#define UART_UART_FIFOSTS_RX_FIFO_FULL_STS_OFS (4)
+#define UART_UART_FIFOSTS_RX_FIFO_FULL_STS_MASK ((uint32_t)0x00000010U)
+#define UART_UART_FIFOSTS_RX_FIFO_ALMOST_FULL_STS_OFS (5)
+#define UART_UART_FIFOSTS_RX_FIFO_ALMOST_FULL_STS_MASK ((uint32_t)0x00000020U)
+#define UART_UART_FIFOSTS_RX_FIFO_EMPTY_STS_OFS (6)
+#define UART_UART_FIFOSTS_RX_FIFO_EMPTY_STS_MASK ((uint32_t)0x00000040U)
+#define UART_UART_FIFOSTS_RX_FIFO_ALMOST_EMPTY_STS_OFS (7)
+#define UART_UART_FIFOSTS_RX_FIFO_ALMOST_EMPTY_STS_MASK ((uint32_t)0x00000080U)
+#define UART_UART_CFG_WRD_LEN_OFS (0)
+#define UART_UART_CFG_WRD_LEN_MASK ((uint32_t)0x00000003U)
+#define UART_UART_CFG_PAR_EN_OFS (2)
+#define UART_UART_CFG_PAR_EN_MASK ((uint32_t)0x00000004U)
+#define UART_UART_CFG_EVN_PAR_OFS (3)
+#define UART_UART_CFG_EVN_PAR_MASK ((uint32_t)0x00000008U)
+#define UART_UART_CFG_STCK_PAR_OFS (4)
+#define UART_UART_CFG_STCK_PAR_MASK ((uint32_t)0x00000010U)
+#define UART_UART_CFG_STOP_BIT_OFS (5)
+#define UART_UART_CFG_STOP_BIT_MASK ((uint32_t)0x00000020U)
+#define UART_UART_CFG_SEND_IDLE_OFS (6)
+#define UART_UART_CFG_SEND_IDLE_MASK ((uint32_t)0x00000040U)
+#define UART_UART_GFCTL_GF_WIDTH_OFS (0)
+#define UART_UART_GFCTL_GF_WIDTH_MASK ((uint32_t)0x0000003FU)
+#define UART_UART_TXDATA_UART_DATA_OFS (0)
+#define UART_UART_TXDATA_UART_DATA_MASK ((uint32_t)0x000000FFU)
+#define UART_UART_RXDATA_UART_RESULT_OFS (0)
+#define UART_UART_RXDATA_UART_RESULT_MASK ((uint32_t)0x00000FFFU)
+#define UART_UART_BRDNUM_NUM_M_OFS (0)
+#define UART_UART_BRDNUM_NUM_M_MASK ((uint32_t)0xFFFFFFFFU)
+#define UART_UART_BRDDEN_DEN_N_OFS (0)
+#define UART_UART_BRDDEN_DEN_N_MASK ((uint32_t)0xFFFFFFFFU)
+#define UART_UART_CTRL_UART_EN_OFS (0)
+#define UART_UART_CTRL_UART_EN_MASK ((uint32_t)0x00000001U)
+#define UART_UART_CTRL_UART_MSB_OFS (1)
+#define UART_UART_CTRL_UART_MSB_MASK ((uint32_t)0x00000002U)
+#define UART_UART_CTRL_MAJVOTE_EN_OFS (2)
+#define UART_UART_CTRL_MAJVOTE_EN_MASK ((uint32_t)0x00000004U)
+#define UART_UART_CTRL_FIFO_EN_OFS (3)
+#define UART_UART_CTRL_FIFO_EN_MASK ((uint32_t)0x00000008U)
+#define UART_UART_CTRL_OS_OFS (4)
+#define UART_UART_CTRL_OS_MASK ((uint32_t)0x000001F0U)
+#define UART_UART_CTRL_LOOPBACK_EN_OFS (9)
+#define UART_UART_CTRL_LOOPBACK_EN_MASK ((uint32_t)0x00000200U)
+#define UART_UART_CTRL_MODE_OFS (10)
+#define UART_UART_CTRL_MODE_MASK ((uint32_t)0x00000C00U)
+#define UART_UART_CTRL_TX_EN_OFS (12)
+#define UART_UART_CTRL_TX_EN_MASK ((uint32_t)0x00001000U)
+#define UART_UART_CTRL_RX_EN_OFS (13)
+#define UART_UART_CTRL_RX_EN_MASK ((uint32_t)0x00002000U)
+#define UART_UART_CTRL_TX_OUT_EN_OFS (14)
+#define UART_UART_CTRL_TX_OUT_EN_MASK ((uint32_t)0x00004000U)
+#define UART_UART_CTRL_TX_OUT_CTRL_OFS (15)
+#define UART_UART_CTRL_TX_OUT_CTRL_MASK ((uint32_t)0x00008000U)
+#define UART_UART_CTRL_CTS_EN_OFS (16)
+#define UART_UART_CTRL_CTS_EN_MASK ((uint32_t)0x00010000U)
+#define UART_UART_CTRL_RTS_EN_OFS (17)
+#define UART_UART_CTRL_RTS_EN_MASK ((uint32_t)0x00020000U)
+#define UART_UART_CTRL_RTS_VAL_OFS (18)
+#define UART_UART_CTRL_RTS_VAL_MASK ((uint32_t)0x00040000U)
+#define UART_UART_ADDR_UART_ADDR_OFS (0)
+#define UART_UART_ADDR_UART_ADDR_MASK ((uint32_t)0x000000FFU)
+#define UART_UART_ADDRMASK_ADDR_MASK_OFS (0)
+#define UART_UART_ADDRMASK_ADDR_MASK_MASK ((uint32_t)0x000000FFU)
+#define UART_STS_CTS_STS_OFS (0)
+#define UART_STS_CTS_STS_MASK ((uint32_t)0x00000001U)
+#define UART_STS_BUSY_OFS (1)
+#define UART_STS_BUSY_MASK ((uint32_t)0x00000002U)
+#define UART_STS_IDLE_OFS (2)
+#define UART_STS_IDLE_MASK ((uint32_t)0x00000004U)
+#define UART_FSM_STS_TX_STATE_OFS (0)
+#define UART_FSM_STS_TX_STATE_MASK ((uint32_t)0x00000007U)
+#define UART_FSM_STS_RX_STATE_OFS (3)
+#define UART_FSM_STS_RX_STATE_MASK ((uint32_t)0x00000078U)
 #endif

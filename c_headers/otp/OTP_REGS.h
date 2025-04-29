@@ -11,7 +11,7 @@ typedef struct OTP_TIMER_CTRL_REG_s {
 } OTP_TIMER_CTRL_REG_s;
 
 typedef union OTP_TIMER_CTRL_u {
-    OTP_TIMER_CTRL_REG_s TIMER_CTRL;
+    OTP_TIMER_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct OTP_OTP_CTRL_REG_s {
 } OTP_OTP_CTRL_REG_s;
 
 typedef union OTP_OTP_CTRL_u {
-    OTP_OTP_CTRL_REG_s OTP_CTRL;
+    OTP_OTP_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -35,7 +35,7 @@ typedef struct OTP_OTP_EN_REG_s {
 } OTP_OTP_EN_REG_s;
 
 typedef union OTP_OTP_EN_u {
-    OTP_OTP_EN_REG_s OTP_EN;
+    OTP_OTP_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -46,7 +46,7 @@ typedef struct OTP_OTP_STATUS_REG_s {
 } OTP_OTP_STATUS_REG_s;
 
 typedef union OTP_OTP_STATUS_u {
-    OTP_OTP_STATUS_REG_s OTP_STATUS;
+    OTP_OTP_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -57,7 +57,7 @@ typedef struct OTP_OTP_REG_s {
 } OTP_OTP_REG_s;
 
 typedef union OTP_OTP_u {
-    OTP_OTP_REG_s OTP;
+    OTP_OTP_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -69,7 +69,7 @@ typedef struct OTP_STS_REG_s {
 } OTP_STS_REG_s;
 
 typedef union OTP_STS_u {
-    OTP_STS_REG_s STS;
+    OTP_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -80,7 +80,7 @@ typedef struct OTP_OTP_RD_EN_REG_s {
 } OTP_OTP_RD_EN_REG_s;
 
 typedef union OTP_OTP_RD_EN_u {
-    OTP_OTP_RD_EN_REG_s OTP_RD_EN;
+    OTP_OTP_RD_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -91,7 +91,7 @@ typedef struct OTP_OTP_RD_STATUS_REG_s {
 } OTP_OTP_RD_STATUS_REG_s;
 
 typedef union OTP_OTP_RD_STATUS_u {
-    OTP_OTP_RD_STATUS_REG_s OTP_RD_STATUS;
+    OTP_OTP_RD_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -108,32 +108,32 @@ typedef struct OTP_REGS_s{
     volatile OTP_OTP_RD_STATUS_u OTP_RD_STATUS;
 } OTP_REGS_s;
 
-#define OTP_TIMER_CTRL_tsetup2_OFS (0)
-#define OTP_TIMER_CTRL_tsetup2_MASK ((uint32_t)0x00000003U)
-#define OTP_TIMER_CTRL_tpas_OFS (2)
-#define OTP_TIMER_CTRL_tpas_MASK ((uint32_t)0x00000004U)
-#define OTP_TIMER_CTRL_tpah_OFS (3)
-#define OTP_TIMER_CTRL_tpah_MASK ((uint32_t)0x00000018U)
-#define OTP_TIMER_CTRL_tprogwh_OFS (5)
-#define OTP_TIMER_CTRL_tprogwh_MASK ((uint32_t)0x0000FFE0U)
-#define OTP_OTP_CTRL_otp_mode_OFS (0)
-#define OTP_OTP_CTRL_otp_mode_MASK ((uint32_t)0x00000001U)
-#define OTP_OTP_CTRL_wr_start_addr_OFS (1)
-#define OTP_OTP_CTRL_wr_start_addr_MASK ((uint32_t)0x0000003EU)
-#define OTP_OTP_CTRL_wr_end_addr_OFS (6)
-#define OTP_OTP_CTRL_wr_end_addr_MASK ((uint32_t)0x000007C0U)
-#define OTP_OTP_EN_otp_wr_en_OFS (0)
-#define OTP_OTP_EN_otp_wr_en_MASK ((uint32_t)0x00000001U)
-#define OTP_OTP_STATUS_otp_wr_done_OFS (0)
-#define OTP_OTP_STATUS_otp_wr_done_MASK ((uint32_t)0x00000001U)
-#define OTP_OTP_otp_OFS (0)
-#define OTP_OTP_otp_MASK ((uint32_t)0x000000FFU)
-#define OTP_STS_wr_pstate_OFS (0)
-#define OTP_STS_wr_pstate_MASK ((uint32_t)0x00000007U)
-#define OTP_STS_rd_pstate_OFS (3)
-#define OTP_STS_rd_pstate_MASK ((uint32_t)0x00000078U)
-#define OTP_OTP_RD_EN_otp_rd_en_OFS (0)
-#define OTP_OTP_RD_EN_otp_rd_en_MASK ((uint32_t)0x00000001U)
-#define OTP_OTP_RD_STATUS_otp_rd_done_OFS (0)
-#define OTP_OTP_RD_STATUS_otp_rd_done_MASK ((uint32_t)0x00000001U)
+#define OTP_TIMER_CTRL_TSETUP2_OFS (0)
+#define OTP_TIMER_CTRL_TSETUP2_MASK ((uint32_t)0x00000003U)
+#define OTP_TIMER_CTRL_TPAS_OFS (2)
+#define OTP_TIMER_CTRL_TPAS_MASK ((uint32_t)0x00000004U)
+#define OTP_TIMER_CTRL_TPAH_OFS (3)
+#define OTP_TIMER_CTRL_TPAH_MASK ((uint32_t)0x00000018U)
+#define OTP_TIMER_CTRL_TPROGWH_OFS (5)
+#define OTP_TIMER_CTRL_TPROGWH_MASK ((uint32_t)0x0000FFE0U)
+#define OTP_OTP_CTRL_OTP_MODE_OFS (0)
+#define OTP_OTP_CTRL_OTP_MODE_MASK ((uint32_t)0x00000001U)
+#define OTP_OTP_CTRL_WR_START_ADDR_OFS (1)
+#define OTP_OTP_CTRL_WR_START_ADDR_MASK ((uint32_t)0x0000003EU)
+#define OTP_OTP_CTRL_WR_END_ADDR_OFS (6)
+#define OTP_OTP_CTRL_WR_END_ADDR_MASK ((uint32_t)0x000007C0U)
+#define OTP_OTP_EN_OTP_WR_EN_OFS (0)
+#define OTP_OTP_EN_OTP_WR_EN_MASK ((uint32_t)0x00000001U)
+#define OTP_OTP_STATUS_OTP_WR_DONE_OFS (0)
+#define OTP_OTP_STATUS_OTP_WR_DONE_MASK ((uint32_t)0x00000001U)
+#define OTP_OTP_OTP_OFS (0)
+#define OTP_OTP_OTP_MASK ((uint32_t)0x000000FFU)
+#define OTP_STS_WR_PSTATE_OFS (0)
+#define OTP_STS_WR_PSTATE_MASK ((uint32_t)0x00000007U)
+#define OTP_STS_RD_PSTATE_OFS (3)
+#define OTP_STS_RD_PSTATE_MASK ((uint32_t)0x00000078U)
+#define OTP_OTP_RD_EN_OTP_RD_EN_OFS (0)
+#define OTP_OTP_RD_EN_OTP_RD_EN_MASK ((uint32_t)0x00000001U)
+#define OTP_OTP_RD_STATUS_OTP_RD_DONE_OFS (0)
+#define OTP_OTP_RD_STATUS_OTP_RD_DONE_MASK ((uint32_t)0x00000001U)
 #endif

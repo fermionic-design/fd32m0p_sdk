@@ -11,7 +11,7 @@ typedef struct I2C_DESC_REG_s {
 } I2C_DESC_REG_s;
 
 typedef union I2C_DESC_u {
-    I2C_DESC_REG_s DESC;
+    I2C_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct I2C_PWR_EN_REG_s {
 } I2C_PWR_EN_REG_s;
 
 typedef union I2C_PWR_EN_u {
-    I2C_PWR_EN_REG_s PWR_EN;
+    I2C_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -38,7 +38,7 @@ typedef struct I2C_RST_CTRL_REG_s {
 } I2C_RST_CTRL_REG_s;
 
 typedef union I2C_RST_CTRL_u {
-    I2C_RST_CTRL_REG_s RST_CTRL;
+    I2C_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -49,7 +49,7 @@ typedef struct I2C_RST_STS_REG_s {
 } I2C_RST_STS_REG_s;
 
 typedef union I2C_RST_STS_u {
-    I2C_RST_STS_REG_s RST_STS;
+    I2C_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -64,7 +64,7 @@ typedef struct I2C_CLK_CTRL_REG_s {
 } I2C_CLK_CTRL_REG_s;
 
 typedef union I2C_CLK_CTRL_u {
-    I2C_CLK_CTRL_REG_s CLK_CTRL;
+    I2C_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -76,7 +76,7 @@ typedef struct I2C_DBG_CTRL_REG_s {
 } I2C_DBG_CTRL_REG_s;
 
 typedef union I2C_DBG_CTRL_u {
-    I2C_DBG_CTRL_REG_s DBG_CTRL;
+    I2C_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -88,7 +88,7 @@ typedef struct I2C_MASTER_SCL_GEN_REG_s {
 } I2C_MASTER_SCL_GEN_REG_s;
 
 typedef union I2C_MASTER_SCL_GEN_u {
-    I2C_MASTER_SCL_GEN_REG_s MASTER_SCL_GEN;
+    I2C_MASTER_SCL_GEN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -102,7 +102,7 @@ typedef struct I2C_MASTER_TIMING_CONSTRAINT_REG_s {
 } I2C_MASTER_TIMING_CONSTRAINT_REG_s;
 
 typedef union I2C_MASTER_TIMING_CONSTRAINT_u {
-    I2C_MASTER_TIMING_CONSTRAINT_REG_s MASTER_TIMING_CONSTRAINT;
+    I2C_MASTER_TIMING_CONSTRAINT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -113,7 +113,7 @@ typedef struct I2C_MASTER_CLKSTRETCH_CNT_REG_s {
 } I2C_MASTER_CLKSTRETCH_CNT_REG_s;
 
 typedef union I2C_MASTER_CLKSTRETCH_CNT_u {
-    I2C_MASTER_CLKSTRETCH_CNT_REG_s MASTER_CLKSTRETCH_CNT;
+    I2C_MASTER_CLKSTRETCH_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -124,7 +124,7 @@ typedef struct I2C_SLAVE_CLKSTRETCH_CNT_REG_s {
 } I2C_SLAVE_CLKSTRETCH_CNT_REG_s;
 
 typedef union I2C_SLAVE_CLKSTRETCH_CNT_u {
-    I2C_SLAVE_CLKSTRETCH_CNT_REG_s SLAVE_CLKSTRETCH_CNT;
+    I2C_SLAVE_CLKSTRETCH_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -135,7 +135,7 @@ typedef struct I2C_SMBUS_TIMEOUT_CNT_REG_s {
 } I2C_SMBUS_TIMEOUT_CNT_REG_s;
 
 typedef union I2C_SMBUS_TIMEOUT_CNT_u {
-    I2C_SMBUS_TIMEOUT_CNT_REG_s SMBUS_TIMEOUT_CNT;
+    I2C_SMBUS_TIMEOUT_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -146,7 +146,7 @@ typedef struct I2C_INTR_STS_REG_s {
 } I2C_INTR_STS_REG_s;
 
 typedef union I2C_INTR_STS_u {
-    I2C_INTR_STS_REG_s INTR_STS;
+    I2C_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -176,7 +176,7 @@ typedef struct I2C_INTR_EVENT_REG_s {
 } I2C_INTR_EVENT_REG_s;
 
 typedef union I2C_INTR_EVENT_u {
-    I2C_INTR_EVENT_REG_s INTR_EVENT;
+    I2C_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -202,7 +202,7 @@ typedef struct I2C_INTR_EN_0_REG_s {
 } I2C_INTR_EN_0_REG_s;
 
 typedef union I2C_INTR_EN_0_u {
-    I2C_INTR_EN_0_REG_s INTR_EN_0;
+    I2C_INTR_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -216,7 +216,7 @@ typedef struct I2C_INTR_EN_1_REG_s {
 } I2C_INTR_EN_1_REG_s;
 
 typedef union I2C_INTR_EN_1_u {
-    I2C_INTR_EN_1_REG_s INTR_EN_1;
+    I2C_INTR_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -242,7 +242,7 @@ typedef struct I2C_INTR_NMI_EN_0_REG_s {
 } I2C_INTR_NMI_EN_0_REG_s;
 
 typedef union I2C_INTR_NMI_EN_0_u {
-    I2C_INTR_NMI_EN_0_REG_s INTR_NMI_EN_0;
+    I2C_INTR_NMI_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -256,7 +256,7 @@ typedef struct I2C_INTR_NMI_EN_1_REG_s {
 } I2C_INTR_NMI_EN_1_REG_s;
 
 typedef union I2C_INTR_NMI_EN_1_u {
-    I2C_INTR_NMI_EN_1_REG_s INTR_NMI_EN_1;
+    I2C_INTR_NMI_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -282,7 +282,7 @@ typedef struct I2C_RX_DMA_EVENT_EN_0_REG_s {
 } I2C_RX_DMA_EVENT_EN_0_REG_s;
 
 typedef union I2C_RX_DMA_EVENT_EN_0_u {
-    I2C_RX_DMA_EVENT_EN_0_REG_s RX_DMA_EVENT_EN_0;
+    I2C_RX_DMA_EVENT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -296,7 +296,7 @@ typedef struct I2C_RX_DMA_EVENT_EN_1_REG_s {
 } I2C_RX_DMA_EVENT_EN_1_REG_s;
 
 typedef union I2C_RX_DMA_EVENT_EN_1_u {
-    I2C_RX_DMA_EVENT_EN_1_REG_s RX_DMA_EVENT_EN_1;
+    I2C_RX_DMA_EVENT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -322,7 +322,7 @@ typedef struct I2C_TX_DMA_EVENT_EN_0_REG_s {
 } I2C_TX_DMA_EVENT_EN_0_REG_s;
 
 typedef union I2C_TX_DMA_EVENT_EN_0_u {
-    I2C_TX_DMA_EVENT_EN_0_REG_s TX_DMA_EVENT_EN_0;
+    I2C_TX_DMA_EVENT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -336,7 +336,7 @@ typedef struct I2C_TX_DMA_EVENT_EN_1_REG_s {
 } I2C_TX_DMA_EVENT_EN_1_REG_s;
 
 typedef union I2C_TX_DMA_EVENT_EN_1_u {
-    I2C_TX_DMA_EVENT_EN_1_REG_s TX_DMA_EVENT_EN_1;
+    I2C_TX_DMA_EVENT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -362,7 +362,7 @@ typedef struct I2C_INTR_SW_SET_0_REG_s {
 } I2C_INTR_SW_SET_0_REG_s;
 
 typedef union I2C_INTR_SW_SET_0_u {
-    I2C_INTR_SW_SET_0_REG_s INTR_SW_SET_0;
+    I2C_INTR_SW_SET_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -376,7 +376,7 @@ typedef struct I2C_INTR_SW_SET_1_REG_s {
 } I2C_INTR_SW_SET_1_REG_s;
 
 typedef union I2C_INTR_SW_SET_1_u {
-    I2C_INTR_SW_SET_1_REG_s INTR_SW_SET_1;
+    I2C_INTR_SW_SET_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -388,7 +388,7 @@ typedef struct I2C_SPARE_CTRL_REG_s {
 } I2C_SPARE_CTRL_REG_s;
 
 typedef union I2C_SPARE_CTRL_u {
-    I2C_SPARE_CTRL_REG_s SPARE_CTRL;
+    I2C_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -400,7 +400,7 @@ typedef struct I2C_SPARE_STS_REG_s {
 } I2C_SPARE_STS_REG_s;
 
 typedef union I2C_SPARE_STS_u {
-    I2C_SPARE_STS_REG_s SPARE_STS;
+    I2C_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -411,7 +411,7 @@ typedef struct I2C_GLITCH_FILTER_CFG_REG_s {
 } I2C_GLITCH_FILTER_CFG_REG_s;
 
 typedef union I2C_GLITCH_FILTER_CFG_u {
-    I2C_GLITCH_FILTER_CFG_REG_s GLITCH_FILTER_CFG;
+    I2C_GLITCH_FILTER_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -434,7 +434,7 @@ typedef struct I2C_SLAVE_CTRL_REG_s {
 } I2C_SLAVE_CTRL_REG_s;
 
 typedef union I2C_SLAVE_CTRL_u {
-    I2C_SLAVE_CTRL_REG_s SLAVE_CTRL;
+    I2C_SLAVE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -447,7 +447,7 @@ typedef struct I2C_SLAVE_ADDR_REG_s {
 } I2C_SLAVE_ADDR_REG_s;
 
 typedef union I2C_SLAVE_ADDR_u {
-    I2C_SLAVE_ADDR_REG_s SLAVE_ADDR;
+    I2C_SLAVE_ADDR_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -467,7 +467,7 @@ typedef struct I2C_SLAVE_STS_REG_s {
 } I2C_SLAVE_STS_REG_s;
 
 typedef union I2C_SLAVE_STS_u {
-    I2C_SLAVE_STS_REG_s SLAVE_STS;
+    I2C_SLAVE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -479,7 +479,7 @@ typedef struct I2C_SLAVE_ACK_CFG_REG_s {
 } I2C_SLAVE_ACK_CFG_REG_s;
 
 typedef union I2C_SLAVE_ACK_CFG_u {
-    I2C_SLAVE_ACK_CFG_REG_s SLAVE_ACK_CFG;
+    I2C_SLAVE_ACK_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -490,7 +490,7 @@ typedef struct I2C_SLAVE_BYTE_ACK_REG_s {
 } I2C_SLAVE_BYTE_ACK_REG_s;
 
 typedef union I2C_SLAVE_BYTE_ACK_u {
-    I2C_SLAVE_BYTE_ACK_REG_s SLAVE_BYTE_ACK;
+    I2C_SLAVE_BYTE_ACK_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -506,7 +506,7 @@ typedef struct I2C_FIFO_CTRL_REG_s {
 } I2C_FIFO_CTRL_REG_s;
 
 typedef union I2C_FIFO_CTRL_u {
-    I2C_FIFO_CTRL_REG_s FIFO_CTRL;
+    I2C_FIFO_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -517,7 +517,7 @@ typedef struct I2C_RXDATA_REG_s {
 } I2C_RXDATA_REG_s;
 
 typedef union I2C_RXDATA_u {
-    I2C_RXDATA_REG_s RXDATA;
+    I2C_RXDATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -528,7 +528,7 @@ typedef struct I2C_TXDATA_REG_s {
 } I2C_TXDATA_REG_s;
 
 typedef union I2C_TXDATA_u {
-    I2C_TXDATA_REG_s TXDATA;
+    I2C_TXDATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -546,7 +546,7 @@ typedef struct I2C_FIFO_STS_REG_s {
 } I2C_FIFO_STS_REG_s;
 
 typedef union I2C_FIFO_STS_u {
-    I2C_FIFO_STS_REG_s FIFO_STS;
+    I2C_FIFO_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -557,7 +557,7 @@ typedef struct I2C_PEC_CTRL_REG_s {
 } I2C_PEC_CTRL_REG_s;
 
 typedef union I2C_PEC_CTRL_u {
-    I2C_PEC_CTRL_REG_s PEC_CTRL;
+    I2C_PEC_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -568,7 +568,7 @@ typedef struct I2C_PEC_STS_REG_s {
 } I2C_PEC_STS_REG_s;
 
 typedef union I2C_PEC_STS_u {
-    I2C_PEC_STS_REG_s PEC_STS;
+    I2C_PEC_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -580,7 +580,7 @@ typedef struct I2C_CRC_OUT_BYTE_REG_s {
 } I2C_CRC_OUT_BYTE_REG_s;
 
 typedef union I2C_CRC_OUT_BYTE_u {
-    I2C_CRC_OUT_BYTE_REG_s CRC_OUT_BYTE;
+    I2C_CRC_OUT_BYTE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -596,7 +596,7 @@ typedef struct I2C_MASTER_CFG_REG_s {
 } I2C_MASTER_CFG_REG_s;
 
 typedef union I2C_MASTER_CFG_u {
-    I2C_MASTER_CFG_REG_s MASTER_CFG;
+    I2C_MASTER_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -614,7 +614,7 @@ typedef struct I2C_MASTER_CTRL_REG_s {
 } I2C_MASTER_CTRL_REG_s;
 
 typedef union I2C_MASTER_CTRL_u {
-    I2C_MASTER_CTRL_REG_s MASTER_CTRL;
+    I2C_MASTER_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -625,7 +625,7 @@ typedef struct I2C_MASTER_ACK_VAL_REG_s {
 } I2C_MASTER_ACK_VAL_REG_s;
 
 typedef union I2C_MASTER_ACK_VAL_u {
-    I2C_MASTER_ACK_VAL_REG_s MASTER_ACK_VAL;
+    I2C_MASTER_ACK_VAL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -643,7 +643,7 @@ typedef struct I2C_MASTER_STS_REG_s {
 } I2C_MASTER_STS_REG_s;
 
 typedef union I2C_MASTER_STS_u {
-    I2C_MASTER_STS_REG_s MASTER_STS;
+    I2C_MASTER_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -655,7 +655,7 @@ typedef struct I2C_MASTER_MON_REG_s {
 } I2C_MASTER_MON_REG_s;
 
 typedef union I2C_MASTER_MON_u {
-    I2C_MASTER_MON_REG_s MASTER_MON;
+    I2C_MASTER_MON_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -668,7 +668,7 @@ typedef struct I2C_FSM_STATUS_REG_s {
 } I2C_FSM_STATUS_REG_s;
 
 typedef union I2C_FSM_STATUS_u {
-    I2C_FSM_STATUS_REG_s FSM_STATUS;
+    I2C_FSM_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -721,452 +721,452 @@ typedef struct I2C_REGS_s{
     volatile I2C_FSM_STATUS_u FSM_STATUS;
 } I2C_REGS_s;
 
-#define I2C_DESC_module_type_OFS (0)
-#define I2C_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define I2C_DESC_modue_subtype_OFS (8)
-#define I2C_DESC_modue_subtype_MASK ((uint32_t)0x0000FF00U)
-#define I2C_DESC_major_rev_OFS (16)
-#define I2C_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define I2C_DESC_minor_rev_OFS (20)
-#define I2C_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define I2C_PWR_EN_pwr_en_OFS (0)
-#define I2C_PWR_EN_pwr_en_MASK ((uint32_t)0x00000001U)
-#define I2C_PWR_EN_pwr_en_key_OFS (24)
-#define I2C_PWR_EN_pwr_en_key_MASK ((uint32_t)0xFF000000U)
-#define I2C_RST_CTRL_rst_OFS (0)
-#define I2C_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define I2C_RST_CTRL_rst_sts_clr_OFS (1)
-#define I2C_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define I2C_RST_CTRL_rst_key_OFS (24)
-#define I2C_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define I2C_RST_STS_rst_sts_OFS (0)
-#define I2C_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define I2C_CLK_CTRL_en_async_clk_req_OFS (0)
-#define I2C_CLK_CTRL_en_async_clk_req_MASK ((uint32_t)0x00000001U)
-#define I2C_CLK_CTRL_clksel_OFS (1)
-#define I2C_CLK_CTRL_clksel_MASK ((uint32_t)0x00000002U)
-#define I2C_CLK_CTRL_clkdiv_OFS (2)
-#define I2C_CLK_CTRL_clkdiv_MASK ((uint32_t)0x0000001CU)
-#define I2C_CLK_CTRL_hold_cnt_OFS (5)
-#define I2C_CLK_CTRL_hold_cnt_MASK ((uint32_t)0x000000E0U)
-#define I2C_CLK_CTRL_setup_cnt_OFS (8)
-#define I2C_CLK_CTRL_setup_cnt_MASK ((uint32_t)0x00000700U)
-#define I2C_DBG_CTRL_run_on_halt_OFS (0)
-#define I2C_DBG_CTRL_run_on_halt_MASK ((uint32_t)0x00000001U)
-#define I2C_DBG_CTRL_soft_stop_OFS (1)
-#define I2C_DBG_CTRL_soft_stop_MASK ((uint32_t)0x00000002U)
-#define I2C_MASTER_SCL_GEN_mst_scl_cnt_high_val_OFS (0)
-#define I2C_MASTER_SCL_GEN_mst_scl_cnt_high_val_MASK ((uint32_t)0x000000FFU)
-#define I2C_MASTER_SCL_GEN_mst_scl_cnt_low_val_OFS (8)
-#define I2C_MASTER_SCL_GEN_mst_scl_cnt_low_val_MASK ((uint32_t)0x0000FF00U)
-#define I2C_MASTER_TIMING_CONSTRAINT_mst_scl_start_cnt_OFS (0)
-#define I2C_MASTER_TIMING_CONSTRAINT_mst_scl_start_cnt_MASK ((uint32_t)0x000000FFU)
-#define I2C_MASTER_TIMING_CONSTRAINT_mst_sda_stop_cnt_OFS (8)
-#define I2C_MASTER_TIMING_CONSTRAINT_mst_sda_stop_cnt_MASK ((uint32_t)0x0000FF00U)
-#define I2C_MASTER_TIMING_CONSTRAINT_mst_stop_start_buffer_cnt_OFS (16)
-#define I2C_MASTER_TIMING_CONSTRAINT_mst_stop_start_buffer_cnt_MASK ((uint32_t)0x00FF0000U)
-#define I2C_MASTER_TIMING_CONSTRAINT_mst_restart_setup_cnt_OFS (24)
-#define I2C_MASTER_TIMING_CONSTRAINT_mst_restart_setup_cnt_MASK ((uint32_t)0xFF000000U)
-#define I2C_MASTER_CLKSTRETCH_CNT_mst_max_clkstretch_cnt_OFS (0)
-#define I2C_MASTER_CLKSTRETCH_CNT_mst_max_clkstretch_cnt_MASK ((uint32_t)0xFFFFFFFFU)
-#define I2C_SLAVE_CLKSTRETCH_CNT_slv_max_clkstretch_cnt_OFS (0)
-#define I2C_SLAVE_CLKSTRETCH_CNT_slv_max_clkstretch_cnt_MASK ((uint32_t)0xFFFFFFFFU)
-#define I2C_SMBUS_TIMEOUT_CNT_smbus_timeout_cnt_OFS (0)
-#define I2C_SMBUS_TIMEOUT_CNT_smbus_timeout_cnt_MASK ((uint32_t)0xFFFFFFFFU)
-#define I2C_INTR_STS_intr_first_OFS (0)
-#define I2C_INTR_STS_intr_first_MASK ((uint32_t)0x0000003FU)
-#define I2C_INTR_EVENT_arb_lost_OFS (0)
-#define I2C_INTR_EVENT_arb_lost_MASK ((uint32_t)0x00000001U)
-#define I2C_INTR_EVENT_slv_gencall_intr_OFS (1)
-#define I2C_INTR_EVENT_slv_gencall_intr_MASK ((uint32_t)0x00000002U)
-#define I2C_INTR_EVENT_slv_start_OFS (2)
-#define I2C_INTR_EVENT_slv_start_MASK ((uint32_t)0x00000004U)
-#define I2C_INTR_EVENT_slv_stop_OFS (3)
-#define I2C_INTR_EVENT_slv_stop_MASK ((uint32_t)0x00000008U)
-#define I2C_INTR_EVENT_tx_done_OFS (4)
-#define I2C_INTR_EVENT_tx_done_MASK ((uint32_t)0x00000010U)
-#define I2C_INTR_EVENT_rx_done_OFS (5)
-#define I2C_INTR_EVENT_rx_done_MASK ((uint32_t)0x00000020U)
-#define I2C_INTR_EVENT_smbus_timeout_OFS (6)
-#define I2C_INTR_EVENT_smbus_timeout_MASK ((uint32_t)0x00000040U)
-#define I2C_INTR_EVENT_clkstretch_timeout_OFS (7)
-#define I2C_INTR_EVENT_clkstretch_timeout_MASK ((uint32_t)0x00000080U)
-#define I2C_INTR_EVENT_pec_err_OFS (8)
-#define I2C_INTR_EVENT_pec_err_MASK ((uint32_t)0x00000100U)
-#define I2C_INTR_EVENT_txfifo_empty_OFS (9)
-#define I2C_INTR_EVENT_txfifo_empty_MASK ((uint32_t)0x00000200U)
-#define I2C_INTR_EVENT_rxfifo_full_OFS (10)
-#define I2C_INTR_EVENT_rxfifo_full_MASK ((uint32_t)0x00000400U)
-#define I2C_INTR_EVENT_txfifo_half_full_OFS (11)
-#define I2C_INTR_EVENT_txfifo_half_full_MASK ((uint32_t)0x00000800U)
-#define I2C_INTR_EVENT_rxfifo_half_full_OFS (12)
-#define I2C_INTR_EVENT_rxfifo_half_full_MASK ((uint32_t)0x00001000U)
-#define I2C_INTR_EVENT_mst_stop_intr_OFS (13)
-#define I2C_INTR_EVENT_mst_stop_intr_MASK ((uint32_t)0x00002000U)
-#define I2C_INTR_EVENT_mst_start_intr_OFS (14)
-#define I2C_INTR_EVENT_mst_start_intr_MASK ((uint32_t)0x00004000U)
-#define I2C_INTR_EVENT_mst_nack_OFS (15)
-#define I2C_INTR_EVENT_mst_nack_MASK ((uint32_t)0x00008000U)
-#define I2C_INTR_EVENT_dma_done_rx_OFS (16)
-#define I2C_INTR_EVENT_dma_done_rx_MASK ((uint32_t)0x00010000U)
-#define I2C_INTR_EVENT_dma_done_tx_OFS (17)
-#define I2C_INTR_EVENT_dma_done_tx_MASK ((uint32_t)0x00020000U)
-#define I2C_INTR_EVENT_txfifo_almost_empty_intr_OFS (18)
-#define I2C_INTR_EVENT_txfifo_almost_empty_intr_MASK ((uint32_t)0x00040000U)
-#define I2C_INTR_EVENT_rxfifo_almost_full_intr_OFS (19)
-#define I2C_INTR_EVENT_rxfifo_almost_full_intr_MASK ((uint32_t)0x00080000U)
-#define I2C_INTR_EN_0_arb_lost_en_OFS (0)
-#define I2C_INTR_EN_0_arb_lost_en_MASK ((uint32_t)0x00000001U)
-#define I2C_INTR_EN_0_slv_gencall_intr_en_OFS (1)
-#define I2C_INTR_EN_0_slv_gencall_intr_en_MASK ((uint32_t)0x00000002U)
-#define I2C_INTR_EN_0_slv_start_en_OFS (2)
-#define I2C_INTR_EN_0_slv_start_en_MASK ((uint32_t)0x00000004U)
-#define I2C_INTR_EN_0_slv_stop_en_OFS (3)
-#define I2C_INTR_EN_0_slv_stop_en_MASK ((uint32_t)0x00000008U)
-#define I2C_INTR_EN_0_tx_done_en_OFS (4)
-#define I2C_INTR_EN_0_tx_done_en_MASK ((uint32_t)0x00000010U)
-#define I2C_INTR_EN_0_rx_done_en_OFS (5)
-#define I2C_INTR_EN_0_rx_done_en_MASK ((uint32_t)0x00000020U)
-#define I2C_INTR_EN_0_smbus_timeout_en_OFS (6)
-#define I2C_INTR_EN_0_smbus_timeout_en_MASK ((uint32_t)0x00000040U)
-#define I2C_INTR_EN_0_clkstretch_timeout_en_OFS (7)
-#define I2C_INTR_EN_0_clkstretch_timeout_en_MASK ((uint32_t)0x00000080U)
-#define I2C_INTR_EN_0_pec_err_en_OFS (8)
-#define I2C_INTR_EN_0_pec_err_en_MASK ((uint32_t)0x00000100U)
-#define I2C_INTR_EN_0_txfifo_empty_en_OFS (9)
-#define I2C_INTR_EN_0_txfifo_empty_en_MASK ((uint32_t)0x00000200U)
-#define I2C_INTR_EN_0_rxfifo_full_en_OFS (10)
-#define I2C_INTR_EN_0_rxfifo_full_en_MASK ((uint32_t)0x00000400U)
-#define I2C_INTR_EN_0_txfifo_half_full_en_OFS (11)
-#define I2C_INTR_EN_0_txfifo_half_full_en_MASK ((uint32_t)0x00000800U)
-#define I2C_INTR_EN_0_rxfifo_half_full_en_OFS (12)
-#define I2C_INTR_EN_0_rxfifo_half_full_en_MASK ((uint32_t)0x00001000U)
-#define I2C_INTR_EN_0_mst_stop_intr_en_OFS (13)
-#define I2C_INTR_EN_0_mst_stop_intr_en_MASK ((uint32_t)0x00002000U)
-#define I2C_INTR_EN_0_mst_start_intr_en_OFS (14)
-#define I2C_INTR_EN_0_mst_start_intr_en_MASK ((uint32_t)0x00004000U)
-#define I2C_INTR_EN_0_mst_nack_en_OFS (15)
-#define I2C_INTR_EN_0_mst_nack_en_MASK ((uint32_t)0x00008000U)
-#define I2C_INTR_EN_1_dma_done_rx_en_OFS (0)
-#define I2C_INTR_EN_1_dma_done_rx_en_MASK ((uint32_t)0x00000001U)
-#define I2C_INTR_EN_1_dma_done_tx_en_OFS (1)
-#define I2C_INTR_EN_1_dma_done_tx_en_MASK ((uint32_t)0x00000002U)
-#define I2C_INTR_EN_1_txfifo_almost_empty_intr_en_OFS (2)
-#define I2C_INTR_EN_1_txfifo_almost_empty_intr_en_MASK ((uint32_t)0x00000004U)
-#define I2C_INTR_EN_1_rxfifo_almost_full_intr_en_OFS (3)
-#define I2C_INTR_EN_1_rxfifo_almost_full_intr_en_MASK ((uint32_t)0x00000008U)
-#define I2C_INTR_NMI_EN_0_arb_lost_nmi_en_OFS (0)
-#define I2C_INTR_NMI_EN_0_arb_lost_nmi_en_MASK ((uint32_t)0x00000001U)
-#define I2C_INTR_NMI_EN_0_slv_gencall_intr_nmi_en_OFS (1)
-#define I2C_INTR_NMI_EN_0_slv_gencall_intr_nmi_en_MASK ((uint32_t)0x00000002U)
-#define I2C_INTR_NMI_EN_0_slv_start_nmi_en_OFS (2)
-#define I2C_INTR_NMI_EN_0_slv_start_nmi_en_MASK ((uint32_t)0x00000004U)
-#define I2C_INTR_NMI_EN_0_slv_stop_nmi_en_OFS (3)
-#define I2C_INTR_NMI_EN_0_slv_stop_nmi_en_MASK ((uint32_t)0x00000008U)
-#define I2C_INTR_NMI_EN_0_tx_done_nmi_en_OFS (4)
-#define I2C_INTR_NMI_EN_0_tx_done_nmi_en_MASK ((uint32_t)0x00000010U)
-#define I2C_INTR_NMI_EN_0_rx_done_nmi_en_OFS (5)
-#define I2C_INTR_NMI_EN_0_rx_done_nmi_en_MASK ((uint32_t)0x00000020U)
-#define I2C_INTR_NMI_EN_0_smbus_timeout_nmi_en_OFS (6)
-#define I2C_INTR_NMI_EN_0_smbus_timeout_nmi_en_MASK ((uint32_t)0x00000040U)
-#define I2C_INTR_NMI_EN_0_clkstretch_timeout_nmi_en_OFS (7)
-#define I2C_INTR_NMI_EN_0_clkstretch_timeout_nmi_en_MASK ((uint32_t)0x00000080U)
-#define I2C_INTR_NMI_EN_0_pec_err_nmi_en_OFS (8)
-#define I2C_INTR_NMI_EN_0_pec_err_nmi_en_MASK ((uint32_t)0x00000100U)
-#define I2C_INTR_NMI_EN_0_txfifo_empty_nmi_en_OFS (9)
-#define I2C_INTR_NMI_EN_0_txfifo_empty_nmi_en_MASK ((uint32_t)0x00000200U)
-#define I2C_INTR_NMI_EN_0_rxfifo_full_nmi_en_OFS (10)
-#define I2C_INTR_NMI_EN_0_rxfifo_full_nmi_en_MASK ((uint32_t)0x00000400U)
-#define I2C_INTR_NMI_EN_0_txfifo_half_full_nmi_en_OFS (11)
-#define I2C_INTR_NMI_EN_0_txfifo_half_full_nmi_en_MASK ((uint32_t)0x00000800U)
-#define I2C_INTR_NMI_EN_0_rxfifo_half_full_nmi_en_OFS (12)
-#define I2C_INTR_NMI_EN_0_rxfifo_half_full_nmi_en_MASK ((uint32_t)0x00001000U)
-#define I2C_INTR_NMI_EN_0_mst_stop_intr_nmi_en_OFS (13)
-#define I2C_INTR_NMI_EN_0_mst_stop_intr_nmi_en_MASK ((uint32_t)0x00002000U)
-#define I2C_INTR_NMI_EN_0_mst_start_intr_nmi_en_OFS (14)
-#define I2C_INTR_NMI_EN_0_mst_start_intr_nmi_en_MASK ((uint32_t)0x00004000U)
-#define I2C_INTR_NMI_EN_0_mst_nack_nmi_en_OFS (15)
-#define I2C_INTR_NMI_EN_0_mst_nack_nmi_en_MASK ((uint32_t)0x00008000U)
-#define I2C_INTR_NMI_EN_1_dma_done_rx_nmi_en_OFS (0)
-#define I2C_INTR_NMI_EN_1_dma_done_rx_nmi_en_MASK ((uint32_t)0x00000001U)
-#define I2C_INTR_NMI_EN_1_dma_done_tx_nmi_en_OFS (1)
-#define I2C_INTR_NMI_EN_1_dma_done_tx_nmi_en_MASK ((uint32_t)0x00000002U)
-#define I2C_INTR_NMI_EN_1_txfifo_almost_empty_intr_nmi_en_OFS (2)
-#define I2C_INTR_NMI_EN_1_txfifo_almost_empty_intr_nmi_en_MASK ((uint32_t)0x00000004U)
-#define I2C_INTR_NMI_EN_1_rxfifo_almost_full_intr_nmi_en_OFS (3)
-#define I2C_INTR_NMI_EN_1_rxfifo_almost_full_intr_nmi_en_MASK ((uint32_t)0x00000008U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_arb_lost_en_OFS (0)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_arb_lost_en_MASK ((uint32_t)0x00000001U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_slv_gencall_intr_en_OFS (1)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_slv_gencall_intr_en_MASK ((uint32_t)0x00000002U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_slv_start_en_OFS (2)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_slv_start_en_MASK ((uint32_t)0x00000004U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_slv_stop_en_OFS (3)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_slv_stop_en_MASK ((uint32_t)0x00000008U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_tx_done_en_OFS (4)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_tx_done_en_MASK ((uint32_t)0x00000010U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_rx_done_en_OFS (5)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_rx_done_en_MASK ((uint32_t)0x00000020U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_smbus_timeout_en_OFS (6)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_smbus_timeout_en_MASK ((uint32_t)0x00000040U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_clkstretch_timeout_en_OFS (7)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_clkstretch_timeout_en_MASK ((uint32_t)0x00000080U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_pec_err_en_OFS (8)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_pec_err_en_MASK ((uint32_t)0x00000100U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_txfifo_empty_en_OFS (9)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_txfifo_empty_en_MASK ((uint32_t)0x00000200U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_rxfifo_full_en_OFS (10)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_rxfifo_full_en_MASK ((uint32_t)0x00000400U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_txfifo_half_full_en_OFS (11)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_txfifo_half_full_en_MASK ((uint32_t)0x00000800U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_rxfifo_half_full_en_OFS (12)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_rxfifo_half_full_en_MASK ((uint32_t)0x00001000U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_mst_stop_intr_en_OFS (13)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_mst_stop_intr_en_MASK ((uint32_t)0x00002000U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_mst_start_intr_en_OFS (14)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_mst_start_intr_en_MASK ((uint32_t)0x00004000U)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_mst_nack_en_OFS (15)
-#define I2C_RX_DMA_EVENT_EN_0_rx_dma_mst_nack_en_MASK ((uint32_t)0x00008000U)
-#define I2C_RX_DMA_EVENT_EN_1_rx_dma_dma_done_rx_en_OFS (0)
-#define I2C_RX_DMA_EVENT_EN_1_rx_dma_dma_done_rx_en_MASK ((uint32_t)0x00000001U)
-#define I2C_RX_DMA_EVENT_EN_1_rx_dma_dma_done_tx_en_OFS (1)
-#define I2C_RX_DMA_EVENT_EN_1_rx_dma_dma_done_tx_en_MASK ((uint32_t)0x00000002U)
-#define I2C_RX_DMA_EVENT_EN_1_rx_dma_txfifo_almost_empty_intr_en_OFS (2)
-#define I2C_RX_DMA_EVENT_EN_1_rx_dma_txfifo_almost_empty_intr_en_MASK ((uint32_t)0x00000004U)
-#define I2C_RX_DMA_EVENT_EN_1_rx_dma_rxfifo_almost_full_intr_en_OFS (3)
-#define I2C_RX_DMA_EVENT_EN_1_rx_dma_rxfifo_almost_full_intr_en_MASK ((uint32_t)0x00000008U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_arb_lost_en_OFS (0)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_arb_lost_en_MASK ((uint32_t)0x00000001U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_slv_gencall_intr_en_OFS (1)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_slv_gencall_intr_en_MASK ((uint32_t)0x00000002U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_slv_start_en_OFS (2)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_slv_start_en_MASK ((uint32_t)0x00000004U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_slv_stop_en_OFS (3)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_slv_stop_en_MASK ((uint32_t)0x00000008U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_tx_done_en_OFS (4)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_tx_done_en_MASK ((uint32_t)0x00000010U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_rx_done_en_OFS (5)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_rx_done_en_MASK ((uint32_t)0x00000020U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_smbus_timeout_en_OFS (6)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_smbus_timeout_en_MASK ((uint32_t)0x00000040U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_clkstretch_timeout_en_OFS (7)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_clkstretch_timeout_en_MASK ((uint32_t)0x00000080U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_pec_err_en_OFS (8)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_pec_err_en_MASK ((uint32_t)0x00000100U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_txfifo_empty_en_OFS (9)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_txfifo_empty_en_MASK ((uint32_t)0x00000200U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_rxfifo_full_en_OFS (10)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_rxfifo_full_en_MASK ((uint32_t)0x00000400U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_txfifo_half_full_en_OFS (11)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_txfifo_half_full_en_MASK ((uint32_t)0x00000800U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_rxfifo_half_full_en_OFS (12)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_rxfifo_half_full_en_MASK ((uint32_t)0x00001000U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_mst_stop_intr_en_OFS (13)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_mst_stop_intr_en_MASK ((uint32_t)0x00002000U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_mst_start_intr_en_OFS (14)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_mst_start_intr_en_MASK ((uint32_t)0x00004000U)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_mst_nack_en_OFS (15)
-#define I2C_TX_DMA_EVENT_EN_0_tx_dma_mst_nack_en_MASK ((uint32_t)0x00008000U)
-#define I2C_TX_DMA_EVENT_EN_1_tx_dma_dma_done_rx_en_OFS (0)
-#define I2C_TX_DMA_EVENT_EN_1_tx_dma_dma_done_rx_en_MASK ((uint32_t)0x00000001U)
-#define I2C_TX_DMA_EVENT_EN_1_tx_dma_dma_done_tx_en_OFS (1)
-#define I2C_TX_DMA_EVENT_EN_1_tx_dma_dma_done_tx_en_MASK ((uint32_t)0x00000002U)
-#define I2C_TX_DMA_EVENT_EN_1_tx_dma_txfifo_almost_empty_intr_en_OFS (2)
-#define I2C_TX_DMA_EVENT_EN_1_tx_dma_txfifo_almost_empty_intr_en_MASK ((uint32_t)0x00000004U)
-#define I2C_TX_DMA_EVENT_EN_1_tx_dma_rxfifo_almost_full_intr_en_OFS (3)
-#define I2C_TX_DMA_EVENT_EN_1_tx_dma_rxfifo_almost_full_intr_en_MASK ((uint32_t)0x00000008U)
-#define I2C_INTR_SW_SET_0_arb_lost_sw_set_OFS (0)
-#define I2C_INTR_SW_SET_0_arb_lost_sw_set_MASK ((uint32_t)0x00000001U)
-#define I2C_INTR_SW_SET_0_slv_gencall_intr_sw_set_OFS (1)
-#define I2C_INTR_SW_SET_0_slv_gencall_intr_sw_set_MASK ((uint32_t)0x00000002U)
-#define I2C_INTR_SW_SET_0_slv_start_sw_set_OFS (2)
-#define I2C_INTR_SW_SET_0_slv_start_sw_set_MASK ((uint32_t)0x00000004U)
-#define I2C_INTR_SW_SET_0_slv_stop_sw_set_OFS (3)
-#define I2C_INTR_SW_SET_0_slv_stop_sw_set_MASK ((uint32_t)0x00000008U)
-#define I2C_INTR_SW_SET_0_tx_done_sw_set_OFS (4)
-#define I2C_INTR_SW_SET_0_tx_done_sw_set_MASK ((uint32_t)0x00000010U)
-#define I2C_INTR_SW_SET_0_rx_done_sw_set_OFS (5)
-#define I2C_INTR_SW_SET_0_rx_done_sw_set_MASK ((uint32_t)0x00000020U)
-#define I2C_INTR_SW_SET_0_smbus_timeout_sw_set_OFS (6)
-#define I2C_INTR_SW_SET_0_smbus_timeout_sw_set_MASK ((uint32_t)0x00000040U)
-#define I2C_INTR_SW_SET_0_clkstretch_timeout_sw_set_OFS (7)
-#define I2C_INTR_SW_SET_0_clkstretch_timeout_sw_set_MASK ((uint32_t)0x00000080U)
-#define I2C_INTR_SW_SET_0_pec_err_sw_set_OFS (8)
-#define I2C_INTR_SW_SET_0_pec_err_sw_set_MASK ((uint32_t)0x00000100U)
-#define I2C_INTR_SW_SET_0_txfifo_empty_sw_set_OFS (9)
-#define I2C_INTR_SW_SET_0_txfifo_empty_sw_set_MASK ((uint32_t)0x00000200U)
-#define I2C_INTR_SW_SET_0_rxfifo_full_sw_set_OFS (10)
-#define I2C_INTR_SW_SET_0_rxfifo_full_sw_set_MASK ((uint32_t)0x00000400U)
-#define I2C_INTR_SW_SET_0_txfifo_half_full_sw_set_OFS (11)
-#define I2C_INTR_SW_SET_0_txfifo_half_full_sw_set_MASK ((uint32_t)0x00000800U)
-#define I2C_INTR_SW_SET_0_rxfifo_half_full_sw_set_OFS (12)
-#define I2C_INTR_SW_SET_0_rxfifo_half_full_sw_set_MASK ((uint32_t)0x00001000U)
-#define I2C_INTR_SW_SET_0_mst_stop_intr_sw_set_OFS (13)
-#define I2C_INTR_SW_SET_0_mst_stop_intr_sw_set_MASK ((uint32_t)0x00002000U)
-#define I2C_INTR_SW_SET_0_mst_start_intr_sw_set_OFS (14)
-#define I2C_INTR_SW_SET_0_mst_start_intr_sw_set_MASK ((uint32_t)0x00004000U)
-#define I2C_INTR_SW_SET_0_mst_nack_sw_set_OFS (15)
-#define I2C_INTR_SW_SET_0_mst_nack_sw_set_MASK ((uint32_t)0x00008000U)
-#define I2C_INTR_SW_SET_1_dma_done_rx_sw_set_OFS (0)
-#define I2C_INTR_SW_SET_1_dma_done_rx_sw_set_MASK ((uint32_t)0x00000001U)
-#define I2C_INTR_SW_SET_1_dma_done_tx_sw_set_OFS (1)
-#define I2C_INTR_SW_SET_1_dma_done_tx_sw_set_MASK ((uint32_t)0x00000002U)
-#define I2C_INTR_SW_SET_1_txfifo_almost_empty_intr_sw_set_OFS (2)
-#define I2C_INTR_SW_SET_1_txfifo_almost_empty_intr_sw_set_MASK ((uint32_t)0x00000004U)
-#define I2C_INTR_SW_SET_1_rxfifo_almost_full_intr_sw_set_OFS (3)
-#define I2C_INTR_SW_SET_1_rxfifo_almost_full_intr_sw_set_MASK ((uint32_t)0x00000008U)
-#define I2C_SPARE_CTRL_cfg0_OFS (0)
-#define I2C_SPARE_CTRL_cfg0_MASK ((uint32_t)0x000000FFU)
-#define I2C_SPARE_CTRL_cfg1_OFS (8)
-#define I2C_SPARE_CTRL_cfg1_MASK ((uint32_t)0x0000FF00U)
-#define I2C_SPARE_STS_sts0_OFS (0)
-#define I2C_SPARE_STS_sts0_MASK ((uint32_t)0x000000FFU)
-#define I2C_SPARE_STS_sts1_OFS (8)
-#define I2C_SPARE_STS_sts1_MASK ((uint32_t)0x0000FF00U)
-#define I2C_GLITCH_FILTER_CFG_gf_width_OFS (0)
-#define I2C_GLITCH_FILTER_CFG_gf_width_MASK ((uint32_t)0x00000007U)
-#define I2C_SLAVE_CTRL_slv_addr_mode_OFS (0)
-#define I2C_SLAVE_CTRL_slv_addr_mode_MASK ((uint32_t)0x00000001U)
-#define I2C_SLAVE_CTRL_slv_low_pwr_wakeup_en_OFS (1)
-#define I2C_SLAVE_CTRL_slv_low_pwr_wakeup_en_MASK ((uint32_t)0x00000002U)
-#define I2C_SLAVE_CTRL_slv_def_dev_addr_en_OFS (2)
-#define I2C_SLAVE_CTRL_slv_def_dev_addr_en_MASK ((uint32_t)0x00000004U)
-#define I2C_SLAVE_CTRL_slv_alres_addr_en_OFS (3)
-#define I2C_SLAVE_CTRL_slv_alres_addr_en_MASK ((uint32_t)0x00000008U)
-#define I2C_SLAVE_CTRL_slv_def_host_addr_en_OFS (4)
-#define I2C_SLAVE_CTRL_slv_def_host_addr_en_MASK ((uint32_t)0x00000010U)
-#define I2C_SLAVE_CTRL_slv_txtrig_at_txmode_OFS (5)
-#define I2C_SLAVE_CTRL_slv_txtrig_at_txmode_MASK ((uint32_t)0x00000020U)
-#define I2C_SLAVE_CTRL_slv_clkstretch_en_OFS (6)
-#define I2C_SLAVE_CTRL_slv_clkstretch_en_MASK ((uint32_t)0x00000040U)
-#define I2C_SLAVE_CTRL_slv_gencall_en_OFS (7)
-#define I2C_SLAVE_CTRL_slv_gencall_en_MASK ((uint32_t)0x00000080U)
-#define I2C_SLAVE_CTRL_slv_enable_OFS (8)
-#define I2C_SLAVE_CTRL_slv_enable_MASK ((uint32_t)0x00000100U)
-#define I2C_SLAVE_CTRL_slv_addr2_en_OFS (9)
-#define I2C_SLAVE_CTRL_slv_addr2_en_MASK ((uint32_t)0x00000200U)
-#define I2C_SLAVE_CTRL_slv_addr2_mask_OFS (10)
-#define I2C_SLAVE_CTRL_slv_addr2_mask_MASK ((uint32_t)0x0001FC00U)
-#define I2C_SLAVE_CTRL_slv_txwait_stale_fifo_OFS (17)
-#define I2C_SLAVE_CTRL_slv_txwait_stale_fifo_MASK ((uint32_t)0x00020000U)
-#define I2C_SLAVE_CTRL_slv_txempty_intr_on_tx_req_OFS (18)
-#define I2C_SLAVE_CTRL_slv_txempty_intr_on_tx_req_MASK ((uint32_t)0x00040000U)
-#define I2C_SLAVE_ADDR_slv_addr1_OFS (0)
-#define I2C_SLAVE_ADDR_slv_addr1_MASK ((uint32_t)0x000003FFU)
-#define I2C_SLAVE_ADDR_slv_addr2_OFS (16)
-#define I2C_SLAVE_ADDR_slv_addr2_MASK ((uint32_t)0x03FF0000U)
-#define I2C_SLAVE_STS_slv_rx_req_OFS (0)
-#define I2C_SLAVE_STS_slv_rx_req_MASK ((uint32_t)0x00000001U)
-#define I2C_SLAVE_STS_slv_tx_req_OFS (1)
-#define I2C_SLAVE_STS_slv_tx_req_MASK ((uint32_t)0x00000002U)
-#define I2C_SLAVE_STS_slv_addr2_sel_OFS (2)
-#define I2C_SLAVE_STS_slv_addr2_sel_MASK ((uint32_t)0x00000004U)
-#define I2C_SLAVE_STS_quick_cmd_sts_OFS (3)
-#define I2C_SLAVE_STS_quick_cmd_sts_MASK ((uint32_t)0x00000008U)
-#define I2C_SLAVE_STS_quick_cmd_rw_OFS (4)
-#define I2C_SLAVE_STS_quick_cmd_rw_MASK ((uint32_t)0x00000010U)
-#define I2C_SLAVE_STS_slv_addr_match_OFS (5)
-#define I2C_SLAVE_STS_slv_addr_match_MASK ((uint32_t)0x00000020U)
-#define I2C_SLAVE_STS_slv_stale_txfifo_OFS (6)
-#define I2C_SLAVE_STS_slv_stale_txfifo_MASK ((uint32_t)0x00000040U)
-#define I2C_SLAVE_STS_slv_txmode_OFS (7)
-#define I2C_SLAVE_STS_slv_txmode_MASK ((uint32_t)0x00000080U)
-#define I2C_SLAVE_STS_slv_rxmode_OFS (8)
-#define I2C_SLAVE_STS_slv_rxmode_MASK ((uint32_t)0x00000100U)
-#define I2C_SLAVE_STS_slv_busbsy_OFS (9)
-#define I2C_SLAVE_STS_slv_busbsy_MASK ((uint32_t)0x00000200U)
-#define I2C_SLAVE_ACK_CFG_slv_auto_ack_en_OFS (0)
-#define I2C_SLAVE_ACK_CFG_slv_auto_ack_en_MASK ((uint32_t)0x00000001U)
-#define I2C_SLAVE_ACK_CFG_slv_addr_auto_ack_en_OFS (1)
-#define I2C_SLAVE_ACK_CFG_slv_addr_auto_ack_en_MASK ((uint32_t)0x00000002U)
-#define I2C_SLAVE_BYTE_ACK_slv_ackval_OFS (0)
-#define I2C_SLAVE_BYTE_ACK_slv_ackval_MASK ((uint32_t)0x00000001U)
-#define I2C_FIFO_CTRL_rxfifo_en_OFS (0)
-#define I2C_FIFO_CTRL_rxfifo_en_MASK ((uint32_t)0x00000001U)
-#define I2C_FIFO_CTRL_txfifo_en_OFS (1)
-#define I2C_FIFO_CTRL_txfifo_en_MASK ((uint32_t)0x00000002U)
-#define I2C_FIFO_CTRL_rxfifo_flush_OFS (8)
-#define I2C_FIFO_CTRL_rxfifo_flush_MASK ((uint32_t)0x00000100U)
-#define I2C_FIFO_CTRL_txfifo_flush_OFS (16)
-#define I2C_FIFO_CTRL_txfifo_flush_MASK ((uint32_t)0x00010000U)
-#define I2C_RXDATA_rxdata_OFS (0)
-#define I2C_RXDATA_rxdata_MASK ((uint32_t)0x000003FFU)
-#define I2C_TXDATA_txdata_OFS (0)
-#define I2C_TXDATA_txdata_MASK ((uint32_t)0x000000FFU)
-#define I2C_FIFO_STS_txfifo_flush_sts_OFS (0)
-#define I2C_FIFO_STS_txfifo_flush_sts_MASK ((uint32_t)0x00000001U)
-#define I2C_FIFO_STS_rxfifo_flush_sts_OFS (1)
-#define I2C_FIFO_STS_rxfifo_flush_sts_MASK ((uint32_t)0x00000002U)
-#define I2C_FIFO_STS_txfifo_empty_sts_OFS (2)
-#define I2C_FIFO_STS_txfifo_empty_sts_MASK ((uint32_t)0x00000004U)
-#define I2C_FIFO_STS_txfifo_almost_empty_OFS (3)
-#define I2C_FIFO_STS_txfifo_almost_empty_MASK ((uint32_t)0x00000008U)
-#define I2C_FIFO_STS_txfifo_full_OFS (4)
-#define I2C_FIFO_STS_txfifo_full_MASK ((uint32_t)0x00000010U)
-#define I2C_FIFO_STS_rxfifo_empty_OFS (5)
-#define I2C_FIFO_STS_rxfifo_empty_MASK ((uint32_t)0x00000020U)
-#define I2C_FIFO_STS_rxfifo_almost_full_OFS (6)
-#define I2C_FIFO_STS_rxfifo_almost_full_MASK ((uint32_t)0x00000040U)
-#define I2C_FIFO_STS_rxfifo_full_sts_OFS (7)
-#define I2C_FIFO_STS_rxfifo_full_sts_MASK ((uint32_t)0x00000080U)
-#define I2C_PEC_CTRL_pec_en_OFS (0)
-#define I2C_PEC_CTRL_pec_en_MASK ((uint32_t)0x00000001U)
-#define I2C_PEC_STS_pec_error_OFS (0)
-#define I2C_PEC_STS_pec_error_MASK ((uint32_t)0x00000001U)
-#define I2C_CRC_OUT_BYTE_slv_crc_out_byte_OFS (0)
-#define I2C_CRC_OUT_BYTE_slv_crc_out_byte_MASK ((uint32_t)0x000000FFU)
-#define I2C_CRC_OUT_BYTE_mst_crc_out_byte_OFS (8)
-#define I2C_CRC_OUT_BYTE_mst_crc_out_byte_MASK ((uint32_t)0x0000FF00U)
-#define I2C_MASTER_CFG_mst_enable_OFS (0)
-#define I2C_MASTER_CFG_mst_enable_MASK ((uint32_t)0x00000001U)
-#define I2C_MASTER_CFG_mst_clkstretch_en_OFS (1)
-#define I2C_MASTER_CFG_mst_clkstretch_en_MASK ((uint32_t)0x00000002U)
-#define I2C_MASTER_CFG_lpbk_mode_OFS (2)
-#define I2C_MASTER_CFG_lpbk_mode_MASK ((uint32_t)0x00000004U)
-#define I2C_MASTER_CFG_mst_auto_ack_en_OFS (3)
-#define I2C_MASTER_CFG_mst_auto_ack_en_MASK ((uint32_t)0x00000008U)
-#define I2C_MASTER_CFG_mst_addr_mode_OFS (4)
-#define I2C_MASTER_CFG_mst_addr_mode_MASK ((uint32_t)0x00000010U)
-#define I2C_MASTER_CFG_mst_slv_addr_cfg_OFS (5)
-#define I2C_MASTER_CFG_mst_slv_addr_cfg_MASK ((uint32_t)0x00007FE0U)
-#define I2C_MASTER_CTRL_mst_cmd_vld_OFS (0)
-#define I2C_MASTER_CTRL_mst_cmd_vld_MASK ((uint32_t)0x00000001U)
-#define I2C_MASTER_CTRL_mst_burst_len_OFS (8)
-#define I2C_MASTER_CTRL_mst_burst_len_MASK ((uint32_t)0x000FFF00U)
-#define I2C_MASTER_CTRL_mst_start_OFS (24)
-#define I2C_MASTER_CTRL_mst_start_MASK ((uint32_t)0x01000000U)
-#define I2C_MASTER_CTRL_mst_dir_OFS (25)
-#define I2C_MASTER_CTRL_mst_dir_MASK ((uint32_t)0x02000000U)
-#define I2C_MASTER_CTRL_mst_stop_OFS (26)
-#define I2C_MASTER_CTRL_mst_stop_MASK ((uint32_t)0x04000000U)
-#define I2C_MASTER_CTRL_mst_rd_on_txempty_OFS (27)
-#define I2C_MASTER_CTRL_mst_rd_on_txempty_MASK ((uint32_t)0x08000000U)
-#define I2C_MASTER_ACK_VAL_mst_ackval_OFS (0)
-#define I2C_MASTER_ACK_VAL_mst_ackval_MASK ((uint32_t)0x00000001U)
-#define I2C_MASTER_STS_mst_busbsy_OFS (0)
-#define I2C_MASTER_STS_mst_busbsy_MASK ((uint32_t)0x00000001U)
-#define I2C_MASTER_STS_mst_idle_OFS (1)
-#define I2C_MASTER_STS_mst_idle_MASK ((uint32_t)0x00000002U)
-#define I2C_MASTER_STS_mst_arblost_OFS (2)
-#define I2C_MASTER_STS_mst_arblost_MASK ((uint32_t)0x00000004U)
-#define I2C_MASTER_STS_mst_tx_data_ack_OFS (3)
-#define I2C_MASTER_STS_mst_tx_data_ack_MASK ((uint32_t)0x00000008U)
-#define I2C_MASTER_STS_mst_tx_addr_ack_OFS (4)
-#define I2C_MASTER_STS_mst_tx_addr_ack_MASK ((uint32_t)0x00000010U)
-#define I2C_MASTER_STS_mst_tx_nack_OFS (5)
-#define I2C_MASTER_STS_mst_tx_nack_MASK ((uint32_t)0x00000020U)
-#define I2C_MASTER_STS_mst_fsm_busy_OFS (6)
-#define I2C_MASTER_STS_mst_fsm_busy_MASK ((uint32_t)0x00000040U)
-#define I2C_MASTER_STS_mst_word_cnt_OFS (7)
-#define I2C_MASTER_STS_mst_word_cnt_MASK ((uint32_t)0x0007FF80U)
-#define I2C_MASTER_MON_mst_sda_state_OFS (0)
-#define I2C_MASTER_MON_mst_sda_state_MASK ((uint32_t)0x00000001U)
-#define I2C_MASTER_MON_mst_scl_state_OFS (1)
-#define I2C_MASTER_MON_mst_scl_state_MASK ((uint32_t)0x00000002U)
-#define I2C_FSM_STATUS_mst_state_OFS (0)
-#define I2C_FSM_STATUS_mst_state_MASK ((uint32_t)0x0000000FU)
-#define I2C_FSM_STATUS_slv_state_OFS (4)
-#define I2C_FSM_STATUS_slv_state_MASK ((uint32_t)0x000000F0U)
-#define I2C_FSM_STATUS_slv_quick_cmd_state_OFS (8)
-#define I2C_FSM_STATUS_slv_quick_cmd_state_MASK ((uint32_t)0x00000700U)
+#define I2C_DESC_MODULE_TYPE_OFS (0)
+#define I2C_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define I2C_DESC_MODUE_SUBTYPE_OFS (8)
+#define I2C_DESC_MODUE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define I2C_DESC_MAJOR_REV_OFS (16)
+#define I2C_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define I2C_DESC_MINOR_REV_OFS (20)
+#define I2C_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define I2C_PWR_EN_PWR_EN_OFS (0)
+#define I2C_PWR_EN_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_PWR_EN_PWR_EN_KEY_OFS (24)
+#define I2C_PWR_EN_PWR_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define I2C_RST_CTRL_RST_OFS (0)
+#define I2C_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define I2C_RST_CTRL_RST_STS_CLR_OFS (1)
+#define I2C_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define I2C_RST_CTRL_RST_KEY_OFS (24)
+#define I2C_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define I2C_RST_STS_RST_STS_OFS (0)
+#define I2C_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define I2C_CLK_CTRL_EN_ASYNC_CLK_REQ_OFS (0)
+#define I2C_CLK_CTRL_EN_ASYNC_CLK_REQ_MASK ((uint32_t)0x00000001U)
+#define I2C_CLK_CTRL_CLKSEL_OFS (1)
+#define I2C_CLK_CTRL_CLKSEL_MASK ((uint32_t)0x00000002U)
+#define I2C_CLK_CTRL_CLKDIV_OFS (2)
+#define I2C_CLK_CTRL_CLKDIV_MASK ((uint32_t)0x0000001CU)
+#define I2C_CLK_CTRL_HOLD_CNT_OFS (5)
+#define I2C_CLK_CTRL_HOLD_CNT_MASK ((uint32_t)0x000000E0U)
+#define I2C_CLK_CTRL_SETUP_CNT_OFS (8)
+#define I2C_CLK_CTRL_SETUP_CNT_MASK ((uint32_t)0x00000700U)
+#define I2C_DBG_CTRL_RUN_ON_HALT_OFS (0)
+#define I2C_DBG_CTRL_RUN_ON_HALT_MASK ((uint32_t)0x00000001U)
+#define I2C_DBG_CTRL_SOFT_STOP_OFS (1)
+#define I2C_DBG_CTRL_SOFT_STOP_MASK ((uint32_t)0x00000002U)
+#define I2C_MASTER_SCL_GEN_MST_SCL_CNT_HIGH_VAL_OFS (0)
+#define I2C_MASTER_SCL_GEN_MST_SCL_CNT_HIGH_VAL_MASK ((uint32_t)0x000000FFU)
+#define I2C_MASTER_SCL_GEN_MST_SCL_CNT_LOW_VAL_OFS (8)
+#define I2C_MASTER_SCL_GEN_MST_SCL_CNT_LOW_VAL_MASK ((uint32_t)0x0000FF00U)
+#define I2C_MASTER_TIMING_CONSTRAINT_MST_SCL_START_CNT_OFS (0)
+#define I2C_MASTER_TIMING_CONSTRAINT_MST_SCL_START_CNT_MASK ((uint32_t)0x000000FFU)
+#define I2C_MASTER_TIMING_CONSTRAINT_MST_SDA_STOP_CNT_OFS (8)
+#define I2C_MASTER_TIMING_CONSTRAINT_MST_SDA_STOP_CNT_MASK ((uint32_t)0x0000FF00U)
+#define I2C_MASTER_TIMING_CONSTRAINT_MST_STOP_START_BUFFER_CNT_OFS (16)
+#define I2C_MASTER_TIMING_CONSTRAINT_MST_STOP_START_BUFFER_CNT_MASK ((uint32_t)0x00FF0000U)
+#define I2C_MASTER_TIMING_CONSTRAINT_MST_RESTART_SETUP_CNT_OFS (24)
+#define I2C_MASTER_TIMING_CONSTRAINT_MST_RESTART_SETUP_CNT_MASK ((uint32_t)0xFF000000U)
+#define I2C_MASTER_CLKSTRETCH_CNT_MST_MAX_CLKSTRETCH_CNT_OFS (0)
+#define I2C_MASTER_CLKSTRETCH_CNT_MST_MAX_CLKSTRETCH_CNT_MASK ((uint32_t)0xFFFFFFFFU)
+#define I2C_SLAVE_CLKSTRETCH_CNT_SLV_MAX_CLKSTRETCH_CNT_OFS (0)
+#define I2C_SLAVE_CLKSTRETCH_CNT_SLV_MAX_CLKSTRETCH_CNT_MASK ((uint32_t)0xFFFFFFFFU)
+#define I2C_SMBUS_TIMEOUT_CNT_SMBUS_TIMEOUT_CNT_OFS (0)
+#define I2C_SMBUS_TIMEOUT_CNT_SMBUS_TIMEOUT_CNT_MASK ((uint32_t)0xFFFFFFFFU)
+#define I2C_INTR_STS_INTR_FIRST_OFS (0)
+#define I2C_INTR_STS_INTR_FIRST_MASK ((uint32_t)0x0000003FU)
+#define I2C_INTR_EVENT_ARB_LOST_OFS (0)
+#define I2C_INTR_EVENT_ARB_LOST_MASK ((uint32_t)0x00000001U)
+#define I2C_INTR_EVENT_SLV_GENCALL_INTR_OFS (1)
+#define I2C_INTR_EVENT_SLV_GENCALL_INTR_MASK ((uint32_t)0x00000002U)
+#define I2C_INTR_EVENT_SLV_START_OFS (2)
+#define I2C_INTR_EVENT_SLV_START_MASK ((uint32_t)0x00000004U)
+#define I2C_INTR_EVENT_SLV_STOP_OFS (3)
+#define I2C_INTR_EVENT_SLV_STOP_MASK ((uint32_t)0x00000008U)
+#define I2C_INTR_EVENT_TX_DONE_OFS (4)
+#define I2C_INTR_EVENT_TX_DONE_MASK ((uint32_t)0x00000010U)
+#define I2C_INTR_EVENT_RX_DONE_OFS (5)
+#define I2C_INTR_EVENT_RX_DONE_MASK ((uint32_t)0x00000020U)
+#define I2C_INTR_EVENT_SMBUS_TIMEOUT_OFS (6)
+#define I2C_INTR_EVENT_SMBUS_TIMEOUT_MASK ((uint32_t)0x00000040U)
+#define I2C_INTR_EVENT_CLKSTRETCH_TIMEOUT_OFS (7)
+#define I2C_INTR_EVENT_CLKSTRETCH_TIMEOUT_MASK ((uint32_t)0x00000080U)
+#define I2C_INTR_EVENT_PEC_ERR_OFS (8)
+#define I2C_INTR_EVENT_PEC_ERR_MASK ((uint32_t)0x00000100U)
+#define I2C_INTR_EVENT_TXFIFO_EMPTY_OFS (9)
+#define I2C_INTR_EVENT_TXFIFO_EMPTY_MASK ((uint32_t)0x00000200U)
+#define I2C_INTR_EVENT_RXFIFO_FULL_OFS (10)
+#define I2C_INTR_EVENT_RXFIFO_FULL_MASK ((uint32_t)0x00000400U)
+#define I2C_INTR_EVENT_TXFIFO_HALF_FULL_OFS (11)
+#define I2C_INTR_EVENT_TXFIFO_HALF_FULL_MASK ((uint32_t)0x00000800U)
+#define I2C_INTR_EVENT_RXFIFO_HALF_FULL_OFS (12)
+#define I2C_INTR_EVENT_RXFIFO_HALF_FULL_MASK ((uint32_t)0x00001000U)
+#define I2C_INTR_EVENT_MST_STOP_INTR_OFS (13)
+#define I2C_INTR_EVENT_MST_STOP_INTR_MASK ((uint32_t)0x00002000U)
+#define I2C_INTR_EVENT_MST_START_INTR_OFS (14)
+#define I2C_INTR_EVENT_MST_START_INTR_MASK ((uint32_t)0x00004000U)
+#define I2C_INTR_EVENT_MST_NACK_OFS (15)
+#define I2C_INTR_EVENT_MST_NACK_MASK ((uint32_t)0x00008000U)
+#define I2C_INTR_EVENT_DMA_DONE_RX_OFS (16)
+#define I2C_INTR_EVENT_DMA_DONE_RX_MASK ((uint32_t)0x00010000U)
+#define I2C_INTR_EVENT_DMA_DONE_TX_OFS (17)
+#define I2C_INTR_EVENT_DMA_DONE_TX_MASK ((uint32_t)0x00020000U)
+#define I2C_INTR_EVENT_TXFIFO_ALMOST_EMPTY_INTR_OFS (18)
+#define I2C_INTR_EVENT_TXFIFO_ALMOST_EMPTY_INTR_MASK ((uint32_t)0x00040000U)
+#define I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_OFS (19)
+#define I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_MASK ((uint32_t)0x00080000U)
+#define I2C_INTR_EN_0_ARB_LOST_EN_OFS (0)
+#define I2C_INTR_EN_0_ARB_LOST_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_INTR_EN_0_SLV_GENCALL_INTR_EN_OFS (1)
+#define I2C_INTR_EN_0_SLV_GENCALL_INTR_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_INTR_EN_0_SLV_START_EN_OFS (2)
+#define I2C_INTR_EN_0_SLV_START_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_INTR_EN_0_SLV_STOP_EN_OFS (3)
+#define I2C_INTR_EN_0_SLV_STOP_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_INTR_EN_0_TX_DONE_EN_OFS (4)
+#define I2C_INTR_EN_0_TX_DONE_EN_MASK ((uint32_t)0x00000010U)
+#define I2C_INTR_EN_0_RX_DONE_EN_OFS (5)
+#define I2C_INTR_EN_0_RX_DONE_EN_MASK ((uint32_t)0x00000020U)
+#define I2C_INTR_EN_0_SMBUS_TIMEOUT_EN_OFS (6)
+#define I2C_INTR_EN_0_SMBUS_TIMEOUT_EN_MASK ((uint32_t)0x00000040U)
+#define I2C_INTR_EN_0_CLKSTRETCH_TIMEOUT_EN_OFS (7)
+#define I2C_INTR_EN_0_CLKSTRETCH_TIMEOUT_EN_MASK ((uint32_t)0x00000080U)
+#define I2C_INTR_EN_0_PEC_ERR_EN_OFS (8)
+#define I2C_INTR_EN_0_PEC_ERR_EN_MASK ((uint32_t)0x00000100U)
+#define I2C_INTR_EN_0_TXFIFO_EMPTY_EN_OFS (9)
+#define I2C_INTR_EN_0_TXFIFO_EMPTY_EN_MASK ((uint32_t)0x00000200U)
+#define I2C_INTR_EN_0_RXFIFO_FULL_EN_OFS (10)
+#define I2C_INTR_EN_0_RXFIFO_FULL_EN_MASK ((uint32_t)0x00000400U)
+#define I2C_INTR_EN_0_TXFIFO_HALF_FULL_EN_OFS (11)
+#define I2C_INTR_EN_0_TXFIFO_HALF_FULL_EN_MASK ((uint32_t)0x00000800U)
+#define I2C_INTR_EN_0_RXFIFO_HALF_FULL_EN_OFS (12)
+#define I2C_INTR_EN_0_RXFIFO_HALF_FULL_EN_MASK ((uint32_t)0x00001000U)
+#define I2C_INTR_EN_0_MST_STOP_INTR_EN_OFS (13)
+#define I2C_INTR_EN_0_MST_STOP_INTR_EN_MASK ((uint32_t)0x00002000U)
+#define I2C_INTR_EN_0_MST_START_INTR_EN_OFS (14)
+#define I2C_INTR_EN_0_MST_START_INTR_EN_MASK ((uint32_t)0x00004000U)
+#define I2C_INTR_EN_0_MST_NACK_EN_OFS (15)
+#define I2C_INTR_EN_0_MST_NACK_EN_MASK ((uint32_t)0x00008000U)
+#define I2C_INTR_EN_1_DMA_DONE_RX_EN_OFS (0)
+#define I2C_INTR_EN_1_DMA_DONE_RX_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_INTR_EN_1_DMA_DONE_TX_EN_OFS (1)
+#define I2C_INTR_EN_1_DMA_DONE_TX_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_INTR_EN_1_TXFIFO_ALMOST_EMPTY_INTR_EN_OFS (2)
+#define I2C_INTR_EN_1_TXFIFO_ALMOST_EMPTY_INTR_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_INTR_EN_1_RXFIFO_ALMOST_FULL_INTR_EN_OFS (3)
+#define I2C_INTR_EN_1_RXFIFO_ALMOST_FULL_INTR_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_INTR_NMI_EN_0_ARB_LOST_NMI_EN_OFS (0)
+#define I2C_INTR_NMI_EN_0_ARB_LOST_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_INTR_NMI_EN_0_SLV_GENCALL_INTR_NMI_EN_OFS (1)
+#define I2C_INTR_NMI_EN_0_SLV_GENCALL_INTR_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_INTR_NMI_EN_0_SLV_START_NMI_EN_OFS (2)
+#define I2C_INTR_NMI_EN_0_SLV_START_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_INTR_NMI_EN_0_SLV_STOP_NMI_EN_OFS (3)
+#define I2C_INTR_NMI_EN_0_SLV_STOP_NMI_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_INTR_NMI_EN_0_TX_DONE_NMI_EN_OFS (4)
+#define I2C_INTR_NMI_EN_0_TX_DONE_NMI_EN_MASK ((uint32_t)0x00000010U)
+#define I2C_INTR_NMI_EN_0_RX_DONE_NMI_EN_OFS (5)
+#define I2C_INTR_NMI_EN_0_RX_DONE_NMI_EN_MASK ((uint32_t)0x00000020U)
+#define I2C_INTR_NMI_EN_0_SMBUS_TIMEOUT_NMI_EN_OFS (6)
+#define I2C_INTR_NMI_EN_0_SMBUS_TIMEOUT_NMI_EN_MASK ((uint32_t)0x00000040U)
+#define I2C_INTR_NMI_EN_0_CLKSTRETCH_TIMEOUT_NMI_EN_OFS (7)
+#define I2C_INTR_NMI_EN_0_CLKSTRETCH_TIMEOUT_NMI_EN_MASK ((uint32_t)0x00000080U)
+#define I2C_INTR_NMI_EN_0_PEC_ERR_NMI_EN_OFS (8)
+#define I2C_INTR_NMI_EN_0_PEC_ERR_NMI_EN_MASK ((uint32_t)0x00000100U)
+#define I2C_INTR_NMI_EN_0_TXFIFO_EMPTY_NMI_EN_OFS (9)
+#define I2C_INTR_NMI_EN_0_TXFIFO_EMPTY_NMI_EN_MASK ((uint32_t)0x00000200U)
+#define I2C_INTR_NMI_EN_0_RXFIFO_FULL_NMI_EN_OFS (10)
+#define I2C_INTR_NMI_EN_0_RXFIFO_FULL_NMI_EN_MASK ((uint32_t)0x00000400U)
+#define I2C_INTR_NMI_EN_0_TXFIFO_HALF_FULL_NMI_EN_OFS (11)
+#define I2C_INTR_NMI_EN_0_TXFIFO_HALF_FULL_NMI_EN_MASK ((uint32_t)0x00000800U)
+#define I2C_INTR_NMI_EN_0_RXFIFO_HALF_FULL_NMI_EN_OFS (12)
+#define I2C_INTR_NMI_EN_0_RXFIFO_HALF_FULL_NMI_EN_MASK ((uint32_t)0x00001000U)
+#define I2C_INTR_NMI_EN_0_MST_STOP_INTR_NMI_EN_OFS (13)
+#define I2C_INTR_NMI_EN_0_MST_STOP_INTR_NMI_EN_MASK ((uint32_t)0x00002000U)
+#define I2C_INTR_NMI_EN_0_MST_START_INTR_NMI_EN_OFS (14)
+#define I2C_INTR_NMI_EN_0_MST_START_INTR_NMI_EN_MASK ((uint32_t)0x00004000U)
+#define I2C_INTR_NMI_EN_0_MST_NACK_NMI_EN_OFS (15)
+#define I2C_INTR_NMI_EN_0_MST_NACK_NMI_EN_MASK ((uint32_t)0x00008000U)
+#define I2C_INTR_NMI_EN_1_DMA_DONE_RX_NMI_EN_OFS (0)
+#define I2C_INTR_NMI_EN_1_DMA_DONE_RX_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_INTR_NMI_EN_1_DMA_DONE_TX_NMI_EN_OFS (1)
+#define I2C_INTR_NMI_EN_1_DMA_DONE_TX_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_INTR_NMI_EN_1_TXFIFO_ALMOST_EMPTY_INTR_NMI_EN_OFS (2)
+#define I2C_INTR_NMI_EN_1_TXFIFO_ALMOST_EMPTY_INTR_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_INTR_NMI_EN_1_RXFIFO_ALMOST_FULL_INTR_NMI_EN_OFS (3)
+#define I2C_INTR_NMI_EN_1_RXFIFO_ALMOST_FULL_INTR_NMI_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_ARB_LOST_EN_OFS (0)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_ARB_LOST_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_SLV_GENCALL_INTR_EN_OFS (1)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_SLV_GENCALL_INTR_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_SLV_START_EN_OFS (2)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_SLV_START_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_SLV_STOP_EN_OFS (3)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_SLV_STOP_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_TX_DONE_EN_OFS (4)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_TX_DONE_EN_MASK ((uint32_t)0x00000010U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_RX_DONE_EN_OFS (5)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_RX_DONE_EN_MASK ((uint32_t)0x00000020U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_SMBUS_TIMEOUT_EN_OFS (6)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_SMBUS_TIMEOUT_EN_MASK ((uint32_t)0x00000040U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_CLKSTRETCH_TIMEOUT_EN_OFS (7)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_CLKSTRETCH_TIMEOUT_EN_MASK ((uint32_t)0x00000080U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_PEC_ERR_EN_OFS (8)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_PEC_ERR_EN_MASK ((uint32_t)0x00000100U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_TXFIFO_EMPTY_EN_OFS (9)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_TXFIFO_EMPTY_EN_MASK ((uint32_t)0x00000200U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_RXFIFO_FULL_EN_OFS (10)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_RXFIFO_FULL_EN_MASK ((uint32_t)0x00000400U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_TXFIFO_HALF_FULL_EN_OFS (11)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_TXFIFO_HALF_FULL_EN_MASK ((uint32_t)0x00000800U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_RXFIFO_HALF_FULL_EN_OFS (12)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_RXFIFO_HALF_FULL_EN_MASK ((uint32_t)0x00001000U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_MST_STOP_INTR_EN_OFS (13)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_MST_STOP_INTR_EN_MASK ((uint32_t)0x00002000U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_MST_START_INTR_EN_OFS (14)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_MST_START_INTR_EN_MASK ((uint32_t)0x00004000U)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_MST_NACK_EN_OFS (15)
+#define I2C_RX_DMA_EVENT_EN_0_RX_DMA_MST_NACK_EN_MASK ((uint32_t)0x00008000U)
+#define I2C_RX_DMA_EVENT_EN_1_RX_DMA_DMA_DONE_RX_EN_OFS (0)
+#define I2C_RX_DMA_EVENT_EN_1_RX_DMA_DMA_DONE_RX_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_RX_DMA_EVENT_EN_1_RX_DMA_DMA_DONE_TX_EN_OFS (1)
+#define I2C_RX_DMA_EVENT_EN_1_RX_DMA_DMA_DONE_TX_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_RX_DMA_EVENT_EN_1_RX_DMA_TXFIFO_ALMOST_EMPTY_INTR_EN_OFS (2)
+#define I2C_RX_DMA_EVENT_EN_1_RX_DMA_TXFIFO_ALMOST_EMPTY_INTR_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_RX_DMA_EVENT_EN_1_RX_DMA_RXFIFO_ALMOST_FULL_INTR_EN_OFS (3)
+#define I2C_RX_DMA_EVENT_EN_1_RX_DMA_RXFIFO_ALMOST_FULL_INTR_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_ARB_LOST_EN_OFS (0)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_ARB_LOST_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_SLV_GENCALL_INTR_EN_OFS (1)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_SLV_GENCALL_INTR_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_SLV_START_EN_OFS (2)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_SLV_START_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_SLV_STOP_EN_OFS (3)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_SLV_STOP_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_TX_DONE_EN_OFS (4)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_TX_DONE_EN_MASK ((uint32_t)0x00000010U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_RX_DONE_EN_OFS (5)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_RX_DONE_EN_MASK ((uint32_t)0x00000020U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_SMBUS_TIMEOUT_EN_OFS (6)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_SMBUS_TIMEOUT_EN_MASK ((uint32_t)0x00000040U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_CLKSTRETCH_TIMEOUT_EN_OFS (7)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_CLKSTRETCH_TIMEOUT_EN_MASK ((uint32_t)0x00000080U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_PEC_ERR_EN_OFS (8)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_PEC_ERR_EN_MASK ((uint32_t)0x00000100U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_TXFIFO_EMPTY_EN_OFS (9)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_TXFIFO_EMPTY_EN_MASK ((uint32_t)0x00000200U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_RXFIFO_FULL_EN_OFS (10)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_RXFIFO_FULL_EN_MASK ((uint32_t)0x00000400U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_TXFIFO_HALF_FULL_EN_OFS (11)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_TXFIFO_HALF_FULL_EN_MASK ((uint32_t)0x00000800U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_RXFIFO_HALF_FULL_EN_OFS (12)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_RXFIFO_HALF_FULL_EN_MASK ((uint32_t)0x00001000U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_MST_STOP_INTR_EN_OFS (13)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_MST_STOP_INTR_EN_MASK ((uint32_t)0x00002000U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_MST_START_INTR_EN_OFS (14)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_MST_START_INTR_EN_MASK ((uint32_t)0x00004000U)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_MST_NACK_EN_OFS (15)
+#define I2C_TX_DMA_EVENT_EN_0_TX_DMA_MST_NACK_EN_MASK ((uint32_t)0x00008000U)
+#define I2C_TX_DMA_EVENT_EN_1_TX_DMA_DMA_DONE_RX_EN_OFS (0)
+#define I2C_TX_DMA_EVENT_EN_1_TX_DMA_DMA_DONE_RX_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_TX_DMA_EVENT_EN_1_TX_DMA_DMA_DONE_TX_EN_OFS (1)
+#define I2C_TX_DMA_EVENT_EN_1_TX_DMA_DMA_DONE_TX_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_TX_DMA_EVENT_EN_1_TX_DMA_TXFIFO_ALMOST_EMPTY_INTR_EN_OFS (2)
+#define I2C_TX_DMA_EVENT_EN_1_TX_DMA_TXFIFO_ALMOST_EMPTY_INTR_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_TX_DMA_EVENT_EN_1_TX_DMA_RXFIFO_ALMOST_FULL_INTR_EN_OFS (3)
+#define I2C_TX_DMA_EVENT_EN_1_TX_DMA_RXFIFO_ALMOST_FULL_INTR_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_INTR_SW_SET_0_ARB_LOST_SW_SET_OFS (0)
+#define I2C_INTR_SW_SET_0_ARB_LOST_SW_SET_MASK ((uint32_t)0x00000001U)
+#define I2C_INTR_SW_SET_0_SLV_GENCALL_INTR_SW_SET_OFS (1)
+#define I2C_INTR_SW_SET_0_SLV_GENCALL_INTR_SW_SET_MASK ((uint32_t)0x00000002U)
+#define I2C_INTR_SW_SET_0_SLV_START_SW_SET_OFS (2)
+#define I2C_INTR_SW_SET_0_SLV_START_SW_SET_MASK ((uint32_t)0x00000004U)
+#define I2C_INTR_SW_SET_0_SLV_STOP_SW_SET_OFS (3)
+#define I2C_INTR_SW_SET_0_SLV_STOP_SW_SET_MASK ((uint32_t)0x00000008U)
+#define I2C_INTR_SW_SET_0_TX_DONE_SW_SET_OFS (4)
+#define I2C_INTR_SW_SET_0_TX_DONE_SW_SET_MASK ((uint32_t)0x00000010U)
+#define I2C_INTR_SW_SET_0_RX_DONE_SW_SET_OFS (5)
+#define I2C_INTR_SW_SET_0_RX_DONE_SW_SET_MASK ((uint32_t)0x00000020U)
+#define I2C_INTR_SW_SET_0_SMBUS_TIMEOUT_SW_SET_OFS (6)
+#define I2C_INTR_SW_SET_0_SMBUS_TIMEOUT_SW_SET_MASK ((uint32_t)0x00000040U)
+#define I2C_INTR_SW_SET_0_CLKSTRETCH_TIMEOUT_SW_SET_OFS (7)
+#define I2C_INTR_SW_SET_0_CLKSTRETCH_TIMEOUT_SW_SET_MASK ((uint32_t)0x00000080U)
+#define I2C_INTR_SW_SET_0_PEC_ERR_SW_SET_OFS (8)
+#define I2C_INTR_SW_SET_0_PEC_ERR_SW_SET_MASK ((uint32_t)0x00000100U)
+#define I2C_INTR_SW_SET_0_TXFIFO_EMPTY_SW_SET_OFS (9)
+#define I2C_INTR_SW_SET_0_TXFIFO_EMPTY_SW_SET_MASK ((uint32_t)0x00000200U)
+#define I2C_INTR_SW_SET_0_RXFIFO_FULL_SW_SET_OFS (10)
+#define I2C_INTR_SW_SET_0_RXFIFO_FULL_SW_SET_MASK ((uint32_t)0x00000400U)
+#define I2C_INTR_SW_SET_0_TXFIFO_HALF_FULL_SW_SET_OFS (11)
+#define I2C_INTR_SW_SET_0_TXFIFO_HALF_FULL_SW_SET_MASK ((uint32_t)0x00000800U)
+#define I2C_INTR_SW_SET_0_RXFIFO_HALF_FULL_SW_SET_OFS (12)
+#define I2C_INTR_SW_SET_0_RXFIFO_HALF_FULL_SW_SET_MASK ((uint32_t)0x00001000U)
+#define I2C_INTR_SW_SET_0_MST_STOP_INTR_SW_SET_OFS (13)
+#define I2C_INTR_SW_SET_0_MST_STOP_INTR_SW_SET_MASK ((uint32_t)0x00002000U)
+#define I2C_INTR_SW_SET_0_MST_START_INTR_SW_SET_OFS (14)
+#define I2C_INTR_SW_SET_0_MST_START_INTR_SW_SET_MASK ((uint32_t)0x00004000U)
+#define I2C_INTR_SW_SET_0_MST_NACK_SW_SET_OFS (15)
+#define I2C_INTR_SW_SET_0_MST_NACK_SW_SET_MASK ((uint32_t)0x00008000U)
+#define I2C_INTR_SW_SET_1_DMA_DONE_RX_SW_SET_OFS (0)
+#define I2C_INTR_SW_SET_1_DMA_DONE_RX_SW_SET_MASK ((uint32_t)0x00000001U)
+#define I2C_INTR_SW_SET_1_DMA_DONE_TX_SW_SET_OFS (1)
+#define I2C_INTR_SW_SET_1_DMA_DONE_TX_SW_SET_MASK ((uint32_t)0x00000002U)
+#define I2C_INTR_SW_SET_1_TXFIFO_ALMOST_EMPTY_INTR_SW_SET_OFS (2)
+#define I2C_INTR_SW_SET_1_TXFIFO_ALMOST_EMPTY_INTR_SW_SET_MASK ((uint32_t)0x00000004U)
+#define I2C_INTR_SW_SET_1_RXFIFO_ALMOST_FULL_INTR_SW_SET_OFS (3)
+#define I2C_INTR_SW_SET_1_RXFIFO_ALMOST_FULL_INTR_SW_SET_MASK ((uint32_t)0x00000008U)
+#define I2C_SPARE_CTRL_CFG0_OFS (0)
+#define I2C_SPARE_CTRL_CFG0_MASK ((uint32_t)0x000000FFU)
+#define I2C_SPARE_CTRL_CFG1_OFS (8)
+#define I2C_SPARE_CTRL_CFG1_MASK ((uint32_t)0x0000FF00U)
+#define I2C_SPARE_STS_STS0_OFS (0)
+#define I2C_SPARE_STS_STS0_MASK ((uint32_t)0x000000FFU)
+#define I2C_SPARE_STS_STS1_OFS (8)
+#define I2C_SPARE_STS_STS1_MASK ((uint32_t)0x0000FF00U)
+#define I2C_GLITCH_FILTER_CFG_GF_WIDTH_OFS (0)
+#define I2C_GLITCH_FILTER_CFG_GF_WIDTH_MASK ((uint32_t)0x00000007U)
+#define I2C_SLAVE_CTRL_SLV_ADDR_MODE_OFS (0)
+#define I2C_SLAVE_CTRL_SLV_ADDR_MODE_MASK ((uint32_t)0x00000001U)
+#define I2C_SLAVE_CTRL_SLV_LOW_PWR_WAKEUP_EN_OFS (1)
+#define I2C_SLAVE_CTRL_SLV_LOW_PWR_WAKEUP_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_SLAVE_CTRL_SLV_DEF_DEV_ADDR_EN_OFS (2)
+#define I2C_SLAVE_CTRL_SLV_DEF_DEV_ADDR_EN_MASK ((uint32_t)0x00000004U)
+#define I2C_SLAVE_CTRL_SLV_ALRES_ADDR_EN_OFS (3)
+#define I2C_SLAVE_CTRL_SLV_ALRES_ADDR_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_SLAVE_CTRL_SLV_DEF_HOST_ADDR_EN_OFS (4)
+#define I2C_SLAVE_CTRL_SLV_DEF_HOST_ADDR_EN_MASK ((uint32_t)0x00000010U)
+#define I2C_SLAVE_CTRL_SLV_TXTRIG_AT_TXMODE_OFS (5)
+#define I2C_SLAVE_CTRL_SLV_TXTRIG_AT_TXMODE_MASK ((uint32_t)0x00000020U)
+#define I2C_SLAVE_CTRL_SLV_CLKSTRETCH_EN_OFS (6)
+#define I2C_SLAVE_CTRL_SLV_CLKSTRETCH_EN_MASK ((uint32_t)0x00000040U)
+#define I2C_SLAVE_CTRL_SLV_GENCALL_EN_OFS (7)
+#define I2C_SLAVE_CTRL_SLV_GENCALL_EN_MASK ((uint32_t)0x00000080U)
+#define I2C_SLAVE_CTRL_SLV_ENABLE_OFS (8)
+#define I2C_SLAVE_CTRL_SLV_ENABLE_MASK ((uint32_t)0x00000100U)
+#define I2C_SLAVE_CTRL_SLV_ADDR2_EN_OFS (9)
+#define I2C_SLAVE_CTRL_SLV_ADDR2_EN_MASK ((uint32_t)0x00000200U)
+#define I2C_SLAVE_CTRL_SLV_ADDR2_MASK_OFS (10)
+#define I2C_SLAVE_CTRL_SLV_ADDR2_MASK_MASK ((uint32_t)0x0001FC00U)
+#define I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_OFS (17)
+#define I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_MASK ((uint32_t)0x00020000U)
+#define I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_OFS (18)
+#define I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_MASK ((uint32_t)0x00040000U)
+#define I2C_SLAVE_ADDR_SLV_ADDR1_OFS (0)
+#define I2C_SLAVE_ADDR_SLV_ADDR1_MASK ((uint32_t)0x000003FFU)
+#define I2C_SLAVE_ADDR_SLV_ADDR2_OFS (16)
+#define I2C_SLAVE_ADDR_SLV_ADDR2_MASK ((uint32_t)0x03FF0000U)
+#define I2C_SLAVE_STS_SLV_RX_REQ_OFS (0)
+#define I2C_SLAVE_STS_SLV_RX_REQ_MASK ((uint32_t)0x00000001U)
+#define I2C_SLAVE_STS_SLV_TX_REQ_OFS (1)
+#define I2C_SLAVE_STS_SLV_TX_REQ_MASK ((uint32_t)0x00000002U)
+#define I2C_SLAVE_STS_SLV_ADDR2_SEL_OFS (2)
+#define I2C_SLAVE_STS_SLV_ADDR2_SEL_MASK ((uint32_t)0x00000004U)
+#define I2C_SLAVE_STS_QUICK_CMD_STS_OFS (3)
+#define I2C_SLAVE_STS_QUICK_CMD_STS_MASK ((uint32_t)0x00000008U)
+#define I2C_SLAVE_STS_QUICK_CMD_RW_OFS (4)
+#define I2C_SLAVE_STS_QUICK_CMD_RW_MASK ((uint32_t)0x00000010U)
+#define I2C_SLAVE_STS_SLV_ADDR_MATCH_OFS (5)
+#define I2C_SLAVE_STS_SLV_ADDR_MATCH_MASK ((uint32_t)0x00000020U)
+#define I2C_SLAVE_STS_SLV_STALE_TXFIFO_OFS (6)
+#define I2C_SLAVE_STS_SLV_STALE_TXFIFO_MASK ((uint32_t)0x00000040U)
+#define I2C_SLAVE_STS_SLV_TXMODE_OFS (7)
+#define I2C_SLAVE_STS_SLV_TXMODE_MASK ((uint32_t)0x00000080U)
+#define I2C_SLAVE_STS_SLV_RXMODE_OFS (8)
+#define I2C_SLAVE_STS_SLV_RXMODE_MASK ((uint32_t)0x00000100U)
+#define I2C_SLAVE_STS_SLV_BUSBSY_OFS (9)
+#define I2C_SLAVE_STS_SLV_BUSBSY_MASK ((uint32_t)0x00000200U)
+#define I2C_SLAVE_ACK_CFG_SLV_AUTO_ACK_EN_OFS (0)
+#define I2C_SLAVE_ACK_CFG_SLV_AUTO_ACK_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_SLAVE_ACK_CFG_SLV_ADDR_AUTO_ACK_EN_OFS (1)
+#define I2C_SLAVE_ACK_CFG_SLV_ADDR_AUTO_ACK_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_OFS (0)
+#define I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_MASK ((uint32_t)0x00000001U)
+#define I2C_FIFO_CTRL_RXFIFO_EN_OFS (0)
+#define I2C_FIFO_CTRL_RXFIFO_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_FIFO_CTRL_TXFIFO_EN_OFS (1)
+#define I2C_FIFO_CTRL_TXFIFO_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_FIFO_CTRL_RXFIFO_FLUSH_OFS (8)
+#define I2C_FIFO_CTRL_RXFIFO_FLUSH_MASK ((uint32_t)0x00000100U)
+#define I2C_FIFO_CTRL_TXFIFO_FLUSH_OFS (16)
+#define I2C_FIFO_CTRL_TXFIFO_FLUSH_MASK ((uint32_t)0x00010000U)
+#define I2C_RXDATA_RXDATA_OFS (0)
+#define I2C_RXDATA_RXDATA_MASK ((uint32_t)0x000003FFU)
+#define I2C_TXDATA_TXDATA_OFS (0)
+#define I2C_TXDATA_TXDATA_MASK ((uint32_t)0x000000FFU)
+#define I2C_FIFO_STS_TXFIFO_FLUSH_STS_OFS (0)
+#define I2C_FIFO_STS_TXFIFO_FLUSH_STS_MASK ((uint32_t)0x00000001U)
+#define I2C_FIFO_STS_RXFIFO_FLUSH_STS_OFS (1)
+#define I2C_FIFO_STS_RXFIFO_FLUSH_STS_MASK ((uint32_t)0x00000002U)
+#define I2C_FIFO_STS_TXFIFO_EMPTY_STS_OFS (2)
+#define I2C_FIFO_STS_TXFIFO_EMPTY_STS_MASK ((uint32_t)0x00000004U)
+#define I2C_FIFO_STS_TXFIFO_ALMOST_EMPTY_OFS (3)
+#define I2C_FIFO_STS_TXFIFO_ALMOST_EMPTY_MASK ((uint32_t)0x00000008U)
+#define I2C_FIFO_STS_TXFIFO_FULL_OFS (4)
+#define I2C_FIFO_STS_TXFIFO_FULL_MASK ((uint32_t)0x00000010U)
+#define I2C_FIFO_STS_RXFIFO_EMPTY_OFS (5)
+#define I2C_FIFO_STS_RXFIFO_EMPTY_MASK ((uint32_t)0x00000020U)
+#define I2C_FIFO_STS_RXFIFO_ALMOST_FULL_OFS (6)
+#define I2C_FIFO_STS_RXFIFO_ALMOST_FULL_MASK ((uint32_t)0x00000040U)
+#define I2C_FIFO_STS_RXFIFO_FULL_STS_OFS (7)
+#define I2C_FIFO_STS_RXFIFO_FULL_STS_MASK ((uint32_t)0x00000080U)
+#define I2C_PEC_CTRL_PEC_EN_OFS (0)
+#define I2C_PEC_CTRL_PEC_EN_MASK ((uint32_t)0x00000001U)
+#define I2C_PEC_STS_PEC_ERROR_OFS (0)
+#define I2C_PEC_STS_PEC_ERROR_MASK ((uint32_t)0x00000001U)
+#define I2C_CRC_OUT_BYTE_SLV_CRC_OUT_BYTE_OFS (0)
+#define I2C_CRC_OUT_BYTE_SLV_CRC_OUT_BYTE_MASK ((uint32_t)0x000000FFU)
+#define I2C_CRC_OUT_BYTE_MST_CRC_OUT_BYTE_OFS (8)
+#define I2C_CRC_OUT_BYTE_MST_CRC_OUT_BYTE_MASK ((uint32_t)0x0000FF00U)
+#define I2C_MASTER_CFG_MST_ENABLE_OFS (0)
+#define I2C_MASTER_CFG_MST_ENABLE_MASK ((uint32_t)0x00000001U)
+#define I2C_MASTER_CFG_MST_CLKSTRETCH_EN_OFS (1)
+#define I2C_MASTER_CFG_MST_CLKSTRETCH_EN_MASK ((uint32_t)0x00000002U)
+#define I2C_MASTER_CFG_LPBK_MODE_OFS (2)
+#define I2C_MASTER_CFG_LPBK_MODE_MASK ((uint32_t)0x00000004U)
+#define I2C_MASTER_CFG_MST_AUTO_ACK_EN_OFS (3)
+#define I2C_MASTER_CFG_MST_AUTO_ACK_EN_MASK ((uint32_t)0x00000008U)
+#define I2C_MASTER_CFG_MST_ADDR_MODE_OFS (4)
+#define I2C_MASTER_CFG_MST_ADDR_MODE_MASK ((uint32_t)0x00000010U)
+#define I2C_MASTER_CFG_MST_SLV_ADDR_CFG_OFS (5)
+#define I2C_MASTER_CFG_MST_SLV_ADDR_CFG_MASK ((uint32_t)0x00007FE0U)
+#define I2C_MASTER_CTRL_MST_CMD_VLD_OFS (0)
+#define I2C_MASTER_CTRL_MST_CMD_VLD_MASK ((uint32_t)0x00000001U)
+#define I2C_MASTER_CTRL_MST_BURST_LEN_OFS (8)
+#define I2C_MASTER_CTRL_MST_BURST_LEN_MASK ((uint32_t)0x000FFF00U)
+#define I2C_MASTER_CTRL_MST_START_OFS (24)
+#define I2C_MASTER_CTRL_MST_START_MASK ((uint32_t)0x01000000U)
+#define I2C_MASTER_CTRL_MST_DIR_OFS (25)
+#define I2C_MASTER_CTRL_MST_DIR_MASK ((uint32_t)0x02000000U)
+#define I2C_MASTER_CTRL_MST_STOP_OFS (26)
+#define I2C_MASTER_CTRL_MST_STOP_MASK ((uint32_t)0x04000000U)
+#define I2C_MASTER_CTRL_MST_RD_ON_TXEMPTY_OFS (27)
+#define I2C_MASTER_CTRL_MST_RD_ON_TXEMPTY_MASK ((uint32_t)0x08000000U)
+#define I2C_MASTER_ACK_VAL_MST_ACKVAL_OFS (0)
+#define I2C_MASTER_ACK_VAL_MST_ACKVAL_MASK ((uint32_t)0x00000001U)
+#define I2C_MASTER_STS_MST_BUSBSY_OFS (0)
+#define I2C_MASTER_STS_MST_BUSBSY_MASK ((uint32_t)0x00000001U)
+#define I2C_MASTER_STS_MST_IDLE_OFS (1)
+#define I2C_MASTER_STS_MST_IDLE_MASK ((uint32_t)0x00000002U)
+#define I2C_MASTER_STS_MST_ARBLOST_OFS (2)
+#define I2C_MASTER_STS_MST_ARBLOST_MASK ((uint32_t)0x00000004U)
+#define I2C_MASTER_STS_MST_TX_DATA_ACK_OFS (3)
+#define I2C_MASTER_STS_MST_TX_DATA_ACK_MASK ((uint32_t)0x00000008U)
+#define I2C_MASTER_STS_MST_TX_ADDR_ACK_OFS (4)
+#define I2C_MASTER_STS_MST_TX_ADDR_ACK_MASK ((uint32_t)0x00000010U)
+#define I2C_MASTER_STS_MST_TX_NACK_OFS (5)
+#define I2C_MASTER_STS_MST_TX_NACK_MASK ((uint32_t)0x00000020U)
+#define I2C_MASTER_STS_MST_FSM_BUSY_OFS (6)
+#define I2C_MASTER_STS_MST_FSM_BUSY_MASK ((uint32_t)0x00000040U)
+#define I2C_MASTER_STS_MST_WORD_CNT_OFS (7)
+#define I2C_MASTER_STS_MST_WORD_CNT_MASK ((uint32_t)0x0007FF80U)
+#define I2C_MASTER_MON_MST_SDA_STATE_OFS (0)
+#define I2C_MASTER_MON_MST_SDA_STATE_MASK ((uint32_t)0x00000001U)
+#define I2C_MASTER_MON_MST_SCL_STATE_OFS (1)
+#define I2C_MASTER_MON_MST_SCL_STATE_MASK ((uint32_t)0x00000002U)
+#define I2C_FSM_STATUS_MST_STATE_OFS (0)
+#define I2C_FSM_STATUS_MST_STATE_MASK ((uint32_t)0x0000000FU)
+#define I2C_FSM_STATUS_SLV_STATE_OFS (4)
+#define I2C_FSM_STATUS_SLV_STATE_MASK ((uint32_t)0x000000F0U)
+#define I2C_FSM_STATUS_SLV_QUICK_CMD_STATE_OFS (8)
+#define I2C_FSM_STATUS_SLV_QUICK_CMD_STATE_MASK ((uint32_t)0x00000700U)
 #endif

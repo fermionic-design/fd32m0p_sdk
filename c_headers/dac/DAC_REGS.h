@@ -11,7 +11,7 @@ typedef struct DAC_DESC_REG_s {
 } DAC_DESC_REG_s;
 
 typedef union DAC_DESC_u {
-    DAC_DESC_REG_s DESC;
+    DAC_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct DAC_PWR_EN_REG_s {
 } DAC_PWR_EN_REG_s;
 
 typedef union DAC_PWR_EN_u {
-    DAC_PWR_EN_REG_s PWR_EN;
+    DAC_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -38,7 +38,7 @@ typedef struct DAC_RST_CTRL_REG_s {
 } DAC_RST_CTRL_REG_s;
 
 typedef union DAC_RST_CTRL_u {
-    DAC_RST_CTRL_REG_s RST_CTRL;
+    DAC_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -49,7 +49,7 @@ typedef struct DAC_RST_STS_REG_s {
 } DAC_RST_STS_REG_s;
 
 typedef union DAC_RST_STS_u {
-    DAC_RST_STS_REG_s RST_STS;
+    DAC_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -60,7 +60,7 @@ typedef struct DAC_CLK_CTRL_REG_s {
 } DAC_CLK_CTRL_REG_s;
 
 typedef union DAC_CLK_CTRL_u {
-    DAC_CLK_CTRL_REG_s CLK_CTRL;
+    DAC_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -71,7 +71,7 @@ typedef struct DAC_INTR_STS_REG_s {
 } DAC_INTR_STS_REG_s;
 
 typedef union DAC_INTR_STS_u {
-    DAC_INTR_STS_REG_s INTR_STS;
+    DAC_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -89,7 +89,7 @@ typedef struct DAC_INTR_EVENT_REG_s {
 } DAC_INTR_EVENT_REG_s;
 
 typedef union DAC_INTR_EVENT_u {
-    DAC_INTR_EVENT_REG_s INTR_EVENT;
+    DAC_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -107,7 +107,7 @@ typedef struct DAC_INTR_EN_REG_s {
 } DAC_INTR_EN_REG_s;
 
 typedef union DAC_INTR_EN_u {
-    DAC_INTR_EN_REG_s INTR_EN;
+    DAC_INTR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -125,7 +125,7 @@ typedef struct DAC_INTR_NMI_EN_REG_s {
 } DAC_INTR_NMI_EN_REG_s;
 
 typedef union DAC_INTR_NMI_EN_u {
-    DAC_INTR_NMI_EN_REG_s INTR_NMI_EN;
+    DAC_INTR_NMI_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -143,7 +143,7 @@ typedef struct DAC_EVENT_EN_REG_s {
 } DAC_EVENT_EN_REG_s;
 
 typedef union DAC_EVENT_EN_u {
-    DAC_EVENT_EN_REG_s EVENT_EN;
+    DAC_EVENT_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -161,7 +161,7 @@ typedef struct DAC_INTR_SW_SET_REG_s {
 } DAC_INTR_SW_SET_REG_s;
 
 typedef union DAC_INTR_SW_SET_u {
-    DAC_INTR_SW_SET_REG_s INTR_SW_SET;
+    DAC_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -172,7 +172,7 @@ typedef struct DAC_EVENT_CTRL_REG_s {
 } DAC_EVENT_CTRL_REG_s;
 
 typedef union DAC_EVENT_CTRL_u {
-    DAC_EVENT_CTRL_REG_s EVENT_CTRL;
+    DAC_EVENT_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -187,7 +187,7 @@ typedef struct DAC_DAC_CTRL0_REG_s {
 } DAC_DAC_CTRL0_REG_s;
 
 typedef union DAC_DAC_CTRL0_u {
-    DAC_DAC_CTRL0_REG_s DAC_CTRL0;
+    DAC_DAC_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -196,15 +196,15 @@ typedef union DAC_DAC_CTRL0_u {
 typedef struct DAC_DAC_CTRL1_REG_s {
     unsigned int amp_en:1; // 
     unsigned int rsvd_0:7; // 
-    unsigned int amp_hiz:2; // 
-    unsigned int rsvd_1:6; // 
+    unsigned int amp_hiz:1; // 
+    unsigned int rsvd_1:7; // 
     unsigned int vrefp_sel:1; // 
     unsigned int rsvd_2:7; // 
     unsigned int out_en:1; // 
 } DAC_DAC_CTRL1_REG_s;
 
 typedef union DAC_DAC_CTRL1_u {
-    DAC_DAC_CTRL1_REG_s DAC_CTRL1;
+    DAC_DAC_CTRL1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -221,7 +221,7 @@ typedef struct DAC_DAC_CTRL2_REG_s {
 } DAC_DAC_CTRL2_REG_s;
 
 typedef union DAC_DAC_CTRL2_u {
-    DAC_DAC_CTRL2_REG_s DAC_CTRL2;
+    DAC_DAC_CTRL2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -234,18 +234,18 @@ typedef struct DAC_DAC_CTRL3_REG_s {
 } DAC_DAC_CTRL3_REG_s;
 
 typedef union DAC_DAC_CTRL3_u {
-    DAC_DAC_CTRL3_REG_s DAC_CTRL3;
+    DAC_DAC_CTRL3_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_DAC_CTRL3_u;
 
 typedef struct DAC_DAC_DATA_REG_s {
-    unsigned int dac_code:12; // 
+    unsigned int dac_code:13; // 
 } DAC_DAC_DATA_REG_s;
 
 typedef union DAC_DAC_DATA_u {
-    DAC_DAC_DATA_REG_s DAC_DATA;
+    DAC_DAC_DATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -257,7 +257,7 @@ typedef struct DAC_CAL_CTRL_REG_s {
 } DAC_CAL_CTRL_REG_s;
 
 typedef union DAC_CAL_CTRL_u {
-    DAC_CAL_CTRL_REG_s CAL_CTRL;
+    DAC_CAL_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -270,11 +270,35 @@ typedef struct DAC_CAL_STS_REG_s {
 } DAC_CAL_STS_REG_s;
 
 typedef union DAC_CAL_STS_u {
-    DAC_CAL_STS_REG_s CAL_STS;
+    DAC_CAL_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_CAL_STS_u;
+
+typedef struct DAC_SPARE_CTRL_REG_s {
+    unsigned int cfg0:8; // 
+    unsigned int cfg1:8; // 
+} DAC_SPARE_CTRL_REG_s;
+
+typedef union DAC_SPARE_CTRL_u {
+    DAC_SPARE_CTRL_REG_s;
+    uint8_t packed_byte[4];
+    uint16_t packed_hw[2];
+    uint32_t packed_w;
+} DAC_SPARE_CTRL_u;
+
+typedef struct DAC_SPARE_STS_REG_s {
+    unsigned int sts0:8; // 
+    unsigned int sts1:8; // 
+} DAC_SPARE_STS_REG_s;
+
+typedef union DAC_SPARE_STS_u {
+    DAC_SPARE_STS_REG_s;
+    uint8_t packed_byte[4];
+    uint16_t packed_hw[2];
+    uint32_t packed_w;
+} DAC_SPARE_STS_u;
 
 typedef struct DAC_REGS_s{
     volatile DAC_DESC_u DESC;
@@ -296,148 +320,158 @@ typedef struct DAC_REGS_s{
     volatile DAC_DAC_DATA_u DAC_DATA;
     volatile DAC_CAL_CTRL_u CAL_CTRL;
     volatile DAC_CAL_STS_u CAL_STS;
+    volatile DAC_SPARE_CTRL_u SPARE_CTRL;
+    volatile DAC_SPARE_STS_u SPARE_STS;
 } DAC_REGS_s;
 
-#define DAC_DESC_module_type_OFS (0)
-#define DAC_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define DAC_DESC_modue_subtype_OFS (8)
-#define DAC_DESC_modue_subtype_MASK ((uint32_t)0x0000FF00U)
-#define DAC_DESC_major_rev_OFS (16)
-#define DAC_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define DAC_DESC_minor_rev_OFS (20)
-#define DAC_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define DAC_PWR_EN_pwr_en_OFS (0)
-#define DAC_PWR_EN_pwr_en_MASK ((uint32_t)0x00000001U)
-#define DAC_PWR_EN_pwr_en_key_OFS (24)
-#define DAC_PWR_EN_pwr_en_key_MASK ((uint32_t)0xFF000000U)
-#define DAC_RST_CTRL_rst_OFS (0)
-#define DAC_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define DAC_RST_CTRL_rst_sts_clr_OFS (1)
-#define DAC_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define DAC_RST_CTRL_rst_key_OFS (24)
-#define DAC_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define DAC_RST_STS_rst_sts_OFS (0)
-#define DAC_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define DAC_CLK_CTRL_clk_en_OFS (0)
-#define DAC_CLK_CTRL_clk_en_MASK ((uint32_t)0x00000001U)
-#define DAC_INTR_STS_intr_first_OFS (0)
-#define DAC_INTR_STS_intr_first_MASK ((uint32_t)0x000000FFU)
-#define DAC_INTR_EVENT_dac_rdy_OFS (0)
-#define DAC_INTR_EVENT_dac_rdy_MASK ((uint32_t)0x00000001U)
-#define DAC_INTR_EVENT_fifo_full_OFS (1)
-#define DAC_INTR_EVENT_fifo_full_MASK ((uint32_t)0x00000002U)
-#define DAC_INTR_EVENT_fifo_almost_full_OFS (2)
-#define DAC_INTR_EVENT_fifo_almost_full_MASK ((uint32_t)0x00000004U)
-#define DAC_INTR_EVENT_fifo_empty_OFS (3)
-#define DAC_INTR_EVENT_fifo_empty_MASK ((uint32_t)0x00000008U)
-#define DAC_INTR_EVENT_fifo_almost_empty_OFS (4)
-#define DAC_INTR_EVENT_fifo_almost_empty_MASK ((uint32_t)0x00000010U)
-#define DAC_INTR_EVENT_fifo_overflow_OFS (5)
-#define DAC_INTR_EVENT_fifo_overflow_MASK ((uint32_t)0x00000020U)
-#define DAC_INTR_EVENT_fifo_underflow_OFS (6)
-#define DAC_INTR_EVENT_fifo_underflow_MASK ((uint32_t)0x00000040U)
-#define DAC_INTR_EVENT_dma_done_OFS (7)
-#define DAC_INTR_EVENT_dma_done_MASK ((uint32_t)0x00000080U)
-#define DAC_INTR_EN_dac_rdy_en_OFS (0)
-#define DAC_INTR_EN_dac_rdy_en_MASK ((uint32_t)0x00000001U)
-#define DAC_INTR_EN_fifo_full_en_OFS (1)
-#define DAC_INTR_EN_fifo_full_en_MASK ((uint32_t)0x00000002U)
-#define DAC_INTR_EN_fifo_almost_full_en_OFS (2)
-#define DAC_INTR_EN_fifo_almost_full_en_MASK ((uint32_t)0x00000004U)
-#define DAC_INTR_EN_fifo_empty_en_OFS (3)
-#define DAC_INTR_EN_fifo_empty_en_MASK ((uint32_t)0x00000008U)
-#define DAC_INTR_EN_fifo_almost_empty_en_OFS (4)
-#define DAC_INTR_EN_fifo_almost_empty_en_MASK ((uint32_t)0x00000010U)
-#define DAC_INTR_EN_fifo_overflow_en_OFS (5)
-#define DAC_INTR_EN_fifo_overflow_en_MASK ((uint32_t)0x00000020U)
-#define DAC_INTR_EN_fifo_underflow_en_OFS (6)
-#define DAC_INTR_EN_fifo_underflow_en_MASK ((uint32_t)0x00000040U)
-#define DAC_INTR_EN_dma_done_en_OFS (7)
-#define DAC_INTR_EN_dma_done_en_MASK ((uint32_t)0x00000080U)
-#define DAC_INTR_NMI_EN_dac_rdy_nmi_en_OFS (0)
-#define DAC_INTR_NMI_EN_dac_rdy_nmi_en_MASK ((uint32_t)0x00000001U)
-#define DAC_INTR_NMI_EN_fifo_full_nmi_en_OFS (1)
-#define DAC_INTR_NMI_EN_fifo_full_nmi_en_MASK ((uint32_t)0x00000002U)
-#define DAC_INTR_NMI_EN_fifo_almost_full_nmi_en_OFS (2)
-#define DAC_INTR_NMI_EN_fifo_almost_full_nmi_en_MASK ((uint32_t)0x00000004U)
-#define DAC_INTR_NMI_EN_fifo_empty_nmi_en_OFS (3)
-#define DAC_INTR_NMI_EN_fifo_empty_nmi_en_MASK ((uint32_t)0x00000008U)
-#define DAC_INTR_NMI_EN_fifo_almost_empty_nmi_en_OFS (4)
-#define DAC_INTR_NMI_EN_fifo_almost_empty_nmi_en_MASK ((uint32_t)0x00000010U)
-#define DAC_INTR_NMI_EN_fifo_overflow_nmi_en_OFS (5)
-#define DAC_INTR_NMI_EN_fifo_overflow_nmi_en_MASK ((uint32_t)0x00000020U)
-#define DAC_INTR_NMI_EN_fifo_underflow_nmi_en_OFS (6)
-#define DAC_INTR_NMI_EN_fifo_underflow_nmi_en_MASK ((uint32_t)0x00000040U)
-#define DAC_INTR_NMI_EN_dma_done_nmi_en_OFS (7)
-#define DAC_INTR_NMI_EN_dma_done_nmi_en_MASK ((uint32_t)0x00000080U)
-#define DAC_EVENT_EN_dac_rdy_event_en_OFS (0)
-#define DAC_EVENT_EN_dac_rdy_event_en_MASK ((uint32_t)0x00000001U)
-#define DAC_EVENT_EN_fifo_full_event_en_OFS (1)
-#define DAC_EVENT_EN_fifo_full_event_en_MASK ((uint32_t)0x00000002U)
-#define DAC_EVENT_EN_fifo_almost_full_event_en_OFS (2)
-#define DAC_EVENT_EN_fifo_almost_full_event_en_MASK ((uint32_t)0x00000004U)
-#define DAC_EVENT_EN_fifo_empty_event_en_OFS (3)
-#define DAC_EVENT_EN_fifo_empty_event_en_MASK ((uint32_t)0x00000008U)
-#define DAC_EVENT_EN_fifo_almost_empty_event_en_OFS (4)
-#define DAC_EVENT_EN_fifo_almost_empty_event_en_MASK ((uint32_t)0x00000010U)
-#define DAC_EVENT_EN_fifo_overflow_event_en_OFS (5)
-#define DAC_EVENT_EN_fifo_overflow_event_en_MASK ((uint32_t)0x00000020U)
-#define DAC_EVENT_EN_fifo_underflow_event_en_OFS (6)
-#define DAC_EVENT_EN_fifo_underflow_event_en_MASK ((uint32_t)0x00000040U)
-#define DAC_EVENT_EN_dma_done_event_en_OFS (7)
-#define DAC_EVENT_EN_dma_done_event_en_MASK ((uint32_t)0x00000080U)
-#define DAC_INTR_SW_SET_dac_rdy_sw_set_OFS (0)
-#define DAC_INTR_SW_SET_dac_rdy_sw_set_MASK ((uint32_t)0x00000001U)
-#define DAC_INTR_SW_SET_fifo_full_sw_set_OFS (1)
-#define DAC_INTR_SW_SET_fifo_full_sw_set_MASK ((uint32_t)0x00000002U)
-#define DAC_INTR_SW_SET_fifo_almost_full_sw_set_OFS (2)
-#define DAC_INTR_SW_SET_fifo_almost_full_sw_set_MASK ((uint32_t)0x00000004U)
-#define DAC_INTR_SW_SET_fifo_empty_sw_set_OFS (3)
-#define DAC_INTR_SW_SET_fifo_empty_sw_set_MASK ((uint32_t)0x00000008U)
-#define DAC_INTR_SW_SET_fifo_almost_empty_sw_set_OFS (4)
-#define DAC_INTR_SW_SET_fifo_almost_empty_sw_set_MASK ((uint32_t)0x00000010U)
-#define DAC_INTR_SW_SET_fifo_overflow_sw_set_OFS (5)
-#define DAC_INTR_SW_SET_fifo_overflow_sw_set_MASK ((uint32_t)0x00000020U)
-#define DAC_INTR_SW_SET_fifo_underflow_sw_set_OFS (6)
-#define DAC_INTR_SW_SET_fifo_underflow_sw_set_MASK ((uint32_t)0x00000040U)
-#define DAC_INTR_SW_SET_dma_done_sw_set_OFS (7)
-#define DAC_INTR_SW_SET_dma_done_sw_set_MASK ((uint32_t)0x00000080U)
-#define DAC_EVENT_CTRL_chan_id0_OFS (0)
-#define DAC_EVENT_CTRL_chan_id0_MASK ((uint32_t)0x0000000FU)
-#define DAC_DAC_CTRL0_enable_OFS (0)
-#define DAC_DAC_CTRL0_enable_MASK ((uint32_t)0x00000001U)
-#define DAC_DAC_CTRL0_res_OFS (8)
-#define DAC_DAC_CTRL0_res_MASK ((uint32_t)0x00000100U)
-#define DAC_DAC_CTRL0_data_fmt_OFS (16)
-#define DAC_DAC_CTRL0_data_fmt_MASK ((uint32_t)0x00010000U)
-#define DAC_DAC_CTRL1_amp_en_OFS (0)
-#define DAC_DAC_CTRL1_amp_en_MASK ((uint32_t)0x00000001U)
-#define DAC_DAC_CTRL1_amp_hiz_OFS (8)
-#define DAC_DAC_CTRL1_amp_hiz_MASK ((uint32_t)0x00000300U)
-#define DAC_DAC_CTRL1_vrefp_sel_OFS (16)
-#define DAC_DAC_CTRL1_vrefp_sel_MASK ((uint32_t)0x00010000U)
-#define DAC_DAC_CTRL1_out_en_OFS (24)
-#define DAC_DAC_CTRL1_out_en_MASK ((uint32_t)0x01000000U)
-#define DAC_DAC_CTRL2_fifo_en_OFS (0)
-#define DAC_DAC_CTRL2_fifo_en_MASK ((uint32_t)0x00000001U)
-#define DAC_DAC_CTRL2_fifo_th_OFS (8)
-#define DAC_DAC_CTRL2_fifo_th_MASK ((uint32_t)0x00000300U)
-#define DAC_DAC_CTRL2_fifo_trig_sel_OFS (16)
-#define DAC_DAC_CTRL2_fifo_trig_sel_MASK ((uint32_t)0x00030000U)
-#define DAC_DAC_CTRL2_dma_trig_en_OFS (24)
-#define DAC_DAC_CTRL2_dma_trig_en_MASK ((uint32_t)0x01000000U)
-#define DAC_DAC_CTRL3_samp_tim_en_OFS (0)
-#define DAC_DAC_CTRL3_samp_tim_en_MASK ((uint32_t)0x00000001U)
-#define DAC_DAC_CTRL3_samp_tim_rate_OFS (8)
-#define DAC_DAC_CTRL3_samp_tim_rate_MASK ((uint32_t)0x00000F00U)
-#define DAC_DAC_DATA_dac_code_OFS (0)
-#define DAC_DAC_DATA_dac_code_MASK ((uint32_t)0x00000FFFU)
-#define DAC_CAL_CTRL_cal_en_OFS (0)
-#define DAC_CAL_CTRL_cal_en_MASK ((uint32_t)0x00000001U)
-#define DAC_CAL_CTRL_cal_sel_OFS (1)
-#define DAC_CAL_CTRL_cal_sel_MASK ((uint32_t)0x00000002U)
-#define DAC_CAL_STS_cal_done_OFS (0)
-#define DAC_CAL_STS_cal_done_MASK ((uint32_t)0x00000001U)
-#define DAC_CAL_STS_cal_data_OFS (8)
-#define DAC_CAL_STS_cal_data_MASK ((uint32_t)0x00007F00U)
+#define DAC_DESC_MODULE_TYPE_OFS (0)
+#define DAC_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define DAC_DESC_MODUE_SUBTYPE_OFS (8)
+#define DAC_DESC_MODUE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define DAC_DESC_MAJOR_REV_OFS (16)
+#define DAC_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define DAC_DESC_MINOR_REV_OFS (20)
+#define DAC_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define DAC_PWR_EN_PWR_EN_OFS (0)
+#define DAC_PWR_EN_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_PWR_EN_PWR_EN_KEY_OFS (24)
+#define DAC_PWR_EN_PWR_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define DAC_RST_CTRL_RST_OFS (0)
+#define DAC_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define DAC_RST_CTRL_RST_STS_CLR_OFS (1)
+#define DAC_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define DAC_RST_CTRL_RST_KEY_OFS (24)
+#define DAC_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define DAC_RST_STS_RST_STS_OFS (0)
+#define DAC_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define DAC_CLK_CTRL_CLK_EN_OFS (0)
+#define DAC_CLK_CTRL_CLK_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_INTR_STS_INTR_FIRST_OFS (0)
+#define DAC_INTR_STS_INTR_FIRST_MASK ((uint32_t)0x000000FFU)
+#define DAC_INTR_EVENT_DAC_RDY_OFS (0)
+#define DAC_INTR_EVENT_DAC_RDY_MASK ((uint32_t)0x00000001U)
+#define DAC_INTR_EVENT_FIFO_FULL_OFS (1)
+#define DAC_INTR_EVENT_FIFO_FULL_MASK ((uint32_t)0x00000002U)
+#define DAC_INTR_EVENT_FIFO_ALMOST_FULL_OFS (2)
+#define DAC_INTR_EVENT_FIFO_ALMOST_FULL_MASK ((uint32_t)0x00000004U)
+#define DAC_INTR_EVENT_FIFO_EMPTY_OFS (3)
+#define DAC_INTR_EVENT_FIFO_EMPTY_MASK ((uint32_t)0x00000008U)
+#define DAC_INTR_EVENT_FIFO_ALMOST_EMPTY_OFS (4)
+#define DAC_INTR_EVENT_FIFO_ALMOST_EMPTY_MASK ((uint32_t)0x00000010U)
+#define DAC_INTR_EVENT_FIFO_OVERFLOW_OFS (5)
+#define DAC_INTR_EVENT_FIFO_OVERFLOW_MASK ((uint32_t)0x00000020U)
+#define DAC_INTR_EVENT_FIFO_UNDERFLOW_OFS (6)
+#define DAC_INTR_EVENT_FIFO_UNDERFLOW_MASK ((uint32_t)0x00000040U)
+#define DAC_INTR_EVENT_DMA_DONE_OFS (7)
+#define DAC_INTR_EVENT_DMA_DONE_MASK ((uint32_t)0x00000080U)
+#define DAC_INTR_EN_DAC_RDY_EN_OFS (0)
+#define DAC_INTR_EN_DAC_RDY_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_INTR_EN_FIFO_FULL_EN_OFS (1)
+#define DAC_INTR_EN_FIFO_FULL_EN_MASK ((uint32_t)0x00000002U)
+#define DAC_INTR_EN_FIFO_ALMOST_FULL_EN_OFS (2)
+#define DAC_INTR_EN_FIFO_ALMOST_FULL_EN_MASK ((uint32_t)0x00000004U)
+#define DAC_INTR_EN_FIFO_EMPTY_EN_OFS (3)
+#define DAC_INTR_EN_FIFO_EMPTY_EN_MASK ((uint32_t)0x00000008U)
+#define DAC_INTR_EN_FIFO_ALMOST_EMPTY_EN_OFS (4)
+#define DAC_INTR_EN_FIFO_ALMOST_EMPTY_EN_MASK ((uint32_t)0x00000010U)
+#define DAC_INTR_EN_FIFO_OVERFLOW_EN_OFS (5)
+#define DAC_INTR_EN_FIFO_OVERFLOW_EN_MASK ((uint32_t)0x00000020U)
+#define DAC_INTR_EN_FIFO_UNDERFLOW_EN_OFS (6)
+#define DAC_INTR_EN_FIFO_UNDERFLOW_EN_MASK ((uint32_t)0x00000040U)
+#define DAC_INTR_EN_DMA_DONE_EN_OFS (7)
+#define DAC_INTR_EN_DMA_DONE_EN_MASK ((uint32_t)0x00000080U)
+#define DAC_INTR_NMI_EN_DAC_RDY_NMI_EN_OFS (0)
+#define DAC_INTR_NMI_EN_DAC_RDY_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_INTR_NMI_EN_FIFO_FULL_NMI_EN_OFS (1)
+#define DAC_INTR_NMI_EN_FIFO_FULL_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define DAC_INTR_NMI_EN_FIFO_ALMOST_FULL_NMI_EN_OFS (2)
+#define DAC_INTR_NMI_EN_FIFO_ALMOST_FULL_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define DAC_INTR_NMI_EN_FIFO_EMPTY_NMI_EN_OFS (3)
+#define DAC_INTR_NMI_EN_FIFO_EMPTY_NMI_EN_MASK ((uint32_t)0x00000008U)
+#define DAC_INTR_NMI_EN_FIFO_ALMOST_EMPTY_NMI_EN_OFS (4)
+#define DAC_INTR_NMI_EN_FIFO_ALMOST_EMPTY_NMI_EN_MASK ((uint32_t)0x00000010U)
+#define DAC_INTR_NMI_EN_FIFO_OVERFLOW_NMI_EN_OFS (5)
+#define DAC_INTR_NMI_EN_FIFO_OVERFLOW_NMI_EN_MASK ((uint32_t)0x00000020U)
+#define DAC_INTR_NMI_EN_FIFO_UNDERFLOW_NMI_EN_OFS (6)
+#define DAC_INTR_NMI_EN_FIFO_UNDERFLOW_NMI_EN_MASK ((uint32_t)0x00000040U)
+#define DAC_INTR_NMI_EN_DMA_DONE_NMI_EN_OFS (7)
+#define DAC_INTR_NMI_EN_DMA_DONE_NMI_EN_MASK ((uint32_t)0x00000080U)
+#define DAC_EVENT_EN_DAC_RDY_EVENT_EN_OFS (0)
+#define DAC_EVENT_EN_DAC_RDY_EVENT_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_EVENT_EN_FIFO_FULL_EVENT_EN_OFS (1)
+#define DAC_EVENT_EN_FIFO_FULL_EVENT_EN_MASK ((uint32_t)0x00000002U)
+#define DAC_EVENT_EN_FIFO_ALMOST_FULL_EVENT_EN_OFS (2)
+#define DAC_EVENT_EN_FIFO_ALMOST_FULL_EVENT_EN_MASK ((uint32_t)0x00000004U)
+#define DAC_EVENT_EN_FIFO_EMPTY_EVENT_EN_OFS (3)
+#define DAC_EVENT_EN_FIFO_EMPTY_EVENT_EN_MASK ((uint32_t)0x00000008U)
+#define DAC_EVENT_EN_FIFO_ALMOST_EMPTY_EVENT_EN_OFS (4)
+#define DAC_EVENT_EN_FIFO_ALMOST_EMPTY_EVENT_EN_MASK ((uint32_t)0x00000010U)
+#define DAC_EVENT_EN_FIFO_OVERFLOW_EVENT_EN_OFS (5)
+#define DAC_EVENT_EN_FIFO_OVERFLOW_EVENT_EN_MASK ((uint32_t)0x00000020U)
+#define DAC_EVENT_EN_FIFO_UNDERFLOW_EVENT_EN_OFS (6)
+#define DAC_EVENT_EN_FIFO_UNDERFLOW_EVENT_EN_MASK ((uint32_t)0x00000040U)
+#define DAC_EVENT_EN_DMA_DONE_EVENT_EN_OFS (7)
+#define DAC_EVENT_EN_DMA_DONE_EVENT_EN_MASK ((uint32_t)0x00000080U)
+#define DAC_INTR_SW_SET_DAC_RDY_SW_SET_OFS (0)
+#define DAC_INTR_SW_SET_DAC_RDY_SW_SET_MASK ((uint32_t)0x00000001U)
+#define DAC_INTR_SW_SET_FIFO_FULL_SW_SET_OFS (1)
+#define DAC_INTR_SW_SET_FIFO_FULL_SW_SET_MASK ((uint32_t)0x00000002U)
+#define DAC_INTR_SW_SET_FIFO_ALMOST_FULL_SW_SET_OFS (2)
+#define DAC_INTR_SW_SET_FIFO_ALMOST_FULL_SW_SET_MASK ((uint32_t)0x00000004U)
+#define DAC_INTR_SW_SET_FIFO_EMPTY_SW_SET_OFS (3)
+#define DAC_INTR_SW_SET_FIFO_EMPTY_SW_SET_MASK ((uint32_t)0x00000008U)
+#define DAC_INTR_SW_SET_FIFO_ALMOST_EMPTY_SW_SET_OFS (4)
+#define DAC_INTR_SW_SET_FIFO_ALMOST_EMPTY_SW_SET_MASK ((uint32_t)0x00000010U)
+#define DAC_INTR_SW_SET_FIFO_OVERFLOW_SW_SET_OFS (5)
+#define DAC_INTR_SW_SET_FIFO_OVERFLOW_SW_SET_MASK ((uint32_t)0x00000020U)
+#define DAC_INTR_SW_SET_FIFO_UNDERFLOW_SW_SET_OFS (6)
+#define DAC_INTR_SW_SET_FIFO_UNDERFLOW_SW_SET_MASK ((uint32_t)0x00000040U)
+#define DAC_INTR_SW_SET_DMA_DONE_SW_SET_OFS (7)
+#define DAC_INTR_SW_SET_DMA_DONE_SW_SET_MASK ((uint32_t)0x00000080U)
+#define DAC_EVENT_CTRL_CHAN_ID0_OFS (0)
+#define DAC_EVENT_CTRL_CHAN_ID0_MASK ((uint32_t)0x0000000FU)
+#define DAC_DAC_CTRL0_ENABLE_OFS (0)
+#define DAC_DAC_CTRL0_ENABLE_MASK ((uint32_t)0x00000001U)
+#define DAC_DAC_CTRL0_RES_OFS (8)
+#define DAC_DAC_CTRL0_RES_MASK ((uint32_t)0x00000100U)
+#define DAC_DAC_CTRL0_DATA_FMT_OFS (16)
+#define DAC_DAC_CTRL0_DATA_FMT_MASK ((uint32_t)0x00010000U)
+#define DAC_DAC_CTRL1_AMP_EN_OFS (0)
+#define DAC_DAC_CTRL1_AMP_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_DAC_CTRL1_AMP_HIZ_OFS (8)
+#define DAC_DAC_CTRL1_AMP_HIZ_MASK ((uint32_t)0x00000100U)
+#define DAC_DAC_CTRL1_VREFP_SEL_OFS (16)
+#define DAC_DAC_CTRL1_VREFP_SEL_MASK ((uint32_t)0x00010000U)
+#define DAC_DAC_CTRL1_OUT_EN_OFS (24)
+#define DAC_DAC_CTRL1_OUT_EN_MASK ((uint32_t)0x01000000U)
+#define DAC_DAC_CTRL2_FIFO_EN_OFS (0)
+#define DAC_DAC_CTRL2_FIFO_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_DAC_CTRL2_FIFO_TH_OFS (8)
+#define DAC_DAC_CTRL2_FIFO_TH_MASK ((uint32_t)0x00000300U)
+#define DAC_DAC_CTRL2_FIFO_TRIG_SEL_OFS (16)
+#define DAC_DAC_CTRL2_FIFO_TRIG_SEL_MASK ((uint32_t)0x00030000U)
+#define DAC_DAC_CTRL2_DMA_TRIG_EN_OFS (24)
+#define DAC_DAC_CTRL2_DMA_TRIG_EN_MASK ((uint32_t)0x01000000U)
+#define DAC_DAC_CTRL3_SAMP_TIM_EN_OFS (0)
+#define DAC_DAC_CTRL3_SAMP_TIM_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_DAC_CTRL3_SAMP_TIM_RATE_OFS (8)
+#define DAC_DAC_CTRL3_SAMP_TIM_RATE_MASK ((uint32_t)0x00000F00U)
+#define DAC_DAC_DATA_DAC_CODE_OFS (0)
+#define DAC_DAC_DATA_DAC_CODE_MASK ((uint32_t)0x00001FFFU)
+#define DAC_CAL_CTRL_CAL_EN_OFS (0)
+#define DAC_CAL_CTRL_CAL_EN_MASK ((uint32_t)0x00000001U)
+#define DAC_CAL_CTRL_CAL_SEL_OFS (1)
+#define DAC_CAL_CTRL_CAL_SEL_MASK ((uint32_t)0x00000002U)
+#define DAC_CAL_STS_CAL_DONE_OFS (0)
+#define DAC_CAL_STS_CAL_DONE_MASK ((uint32_t)0x00000001U)
+#define DAC_CAL_STS_CAL_DATA_OFS (8)
+#define DAC_CAL_STS_CAL_DATA_MASK ((uint32_t)0x00007F00U)
+#define DAC_SPARE_CTRL_CFG0_OFS (0)
+#define DAC_SPARE_CTRL_CFG0_MASK ((uint32_t)0x000000FFU)
+#define DAC_SPARE_CTRL_CFG1_OFS (8)
+#define DAC_SPARE_CTRL_CFG1_MASK ((uint32_t)0x0000FF00U)
+#define DAC_SPARE_STS_STS0_OFS (0)
+#define DAC_SPARE_STS_STS0_MASK ((uint32_t)0x000000FFU)
+#define DAC_SPARE_STS_STS1_OFS (8)
+#define DAC_SPARE_STS_STS1_MASK ((uint32_t)0x0000FF00U)
 #endif

@@ -7,7 +7,7 @@ void UartStdOutInit(void)
     UART_PWR_EN_WRITE(UART_REGS, 1, 0x7D);
 
     UART_REGS->RST_CTRL.packed_w = 0x7D000001;
-    if((UART_REGS->RST_STS.packed_w & UART_RST_STS_rst_sts_MASK) == 1){
+    if((UART_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1){
       //printf("deasserting the reset\n");
       UART_RST_CTRL_WRITE(UART_REGS, 0, 1, 0x7D);
         }
@@ -29,15 +29,15 @@ void UartStdOutInit(void)
 //output a character
 unsigned char UartPutc(unsigned char my_ch)
 {
-    while((UART_REGS->UART_FIFOSTS.UART_FIFOSTS.tx_fifo_full_sts) == 1);
-    UART_REGS->UART_TXDATA->packed_w = my_ch;
+    while((UART_REGS->UART_FIFOSTS.tx_fifo_full_sts) == 1);
+    UART_REGS->UART_TXDATA[0].packed_w = my_ch;
     return(my_ch);
 }
 //get a charcter
 unsigned char UartGetc(void)
 {
-    while(UART_REGS->UART_FIFOSTS.UART_FIFOSTS.rx_fifo_empty_sts == 1);
-    return (UART_REGS->UART_RXDATA->UART_RXDATA.uart_result);
+    while(UART_REGS->UART_FIFOSTS.rx_fifo_empty_sts == 1);
+    return (UART_REGS->UART_RXDATA[0].uart_result);
 }
 
 // Uart string output

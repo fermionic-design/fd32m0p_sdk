@@ -11,7 +11,7 @@ typedef struct FLASH_DESC_REG_s {
 } FLASH_DESC_REG_s;
 
 typedef union FLASH_DESC_u {
-    FLASH_DESC_REG_s DESC;
+    FLASH_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -22,7 +22,7 @@ typedef struct FLASH_CLK_CTRL_REG_s {
 } FLASH_CLK_CTRL_REG_s;
 
 typedef union FLASH_CLK_CTRL_u {
-    FLASH_CLK_CTRL_REG_s CLK_CTRL;
+    FLASH_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -37,7 +37,7 @@ typedef struct FLASH_FLASH_CTRL_REG_s {
 } FLASH_FLASH_CTRL_REG_s;
 
 typedef union FLASH_FLASH_CTRL_u {
-    FLASH_FLASH_CTRL_REG_s FLASH_CTRL;
+    FLASH_FLASH_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -48,7 +48,7 @@ typedef struct FLASH_FLASH_STATUS_REG_s {
 } FLASH_FLASH_STATUS_REG_s;
 
 typedef union FLASH_FLASH_STATUS_u {
-    FLASH_FLASH_STATUS_REG_s FLASH_STATUS;
+    FLASH_FLASH_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -63,7 +63,7 @@ typedef struct FLASH_TIME_CTRL_REG_s {
 } FLASH_TIME_CTRL_REG_s;
 
 typedef union FLASH_TIME_CTRL_u {
-    FLASH_TIME_CTRL_REG_s TIME_CTRL;
+    FLASH_TIME_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -71,14 +71,14 @@ typedef union FLASH_TIME_CTRL_u {
 
 typedef struct FLASH_TIME_CTRL_1_REG_s {
     unsigned int tadhr:1; // 
-    unsigned int rtw:4; // 
+    unsigned int rtw:8; // 
     unsigned int tads:1; // 
-    unsigned int twpw:4; // 
+    unsigned int twpw:6; // 
     unsigned int tpwcsh:4; // 
 } FLASH_TIME_CTRL_1_REG_s;
 
 typedef union FLASH_TIME_CTRL_1_u {
-    FLASH_TIME_CTRL_1_REG_s TIME_CTRL_1;
+    FLASH_TIME_CTRL_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -88,11 +88,11 @@ typedef struct FLASH_TIME_CTRL_2_REG_s {
     unsigned int twrc:4; // 
     unsigned int twes:18; // 
     unsigned int tbr:4; // 
-    unsigned int wtw:4; // 
+    unsigned int wtw:6; // 
 } FLASH_TIME_CTRL_2_REG_s;
 
 typedef union FLASH_TIME_CTRL_2_u {
-    FLASH_TIME_CTRL_2_REG_s TIME_CTRL_2;
+    FLASH_TIME_CTRL_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -103,7 +103,7 @@ typedef struct FLASH_TIME_UPTD_REG_s {
 } FLASH_TIME_UPTD_REG_s;
 
 typedef union FLASH_TIME_UPTD_u {
-    FLASH_TIME_UPTD_REG_s TIME_UPTD;
+    FLASH_TIME_UPTD_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -115,11 +115,33 @@ typedef struct FLASH_HSIZE_CTRL_REG_s {
 } FLASH_HSIZE_CTRL_REG_s;
 
 typedef union FLASH_HSIZE_CTRL_u {
-    FLASH_HSIZE_CTRL_REG_s HSIZE_CTRL;
+    FLASH_HSIZE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_HSIZE_CTRL_u;
+
+typedef struct FLASH_STS_REG_s {
+    unsigned int flash_pstate:5; // 
+} FLASH_STS_REG_s;
+
+typedef union FLASH_STS_u {
+    FLASH_STS_REG_s;
+    uint8_t packed_byte[4];
+    uint16_t packed_hw[2];
+    uint32_t packed_w;
+} FLASH_STS_u;
+
+typedef struct FLASH_ECED_STATUS_REG_s {
+    unsigned int eced_sts:32; // 
+} FLASH_ECED_STATUS_REG_s;
+
+typedef union FLASH_ECED_STATUS_u {
+    FLASH_ECED_STATUS_REG_s;
+    uint8_t packed_byte[4];
+    uint16_t packed_hw[2];
+    uint32_t packed_w;
+} FLASH_ECED_STATUS_u;
 
 typedef struct FLASH_REGS_s{
     volatile FLASH_DESC_u DESC;
@@ -131,62 +153,68 @@ typedef struct FLASH_REGS_s{
     volatile FLASH_TIME_CTRL_2_u TIME_CTRL_2;
     volatile FLASH_TIME_UPTD_u TIME_UPTD;
     volatile FLASH_HSIZE_CTRL_u HSIZE_CTRL;
+    volatile FLASH_STS_u STS;
+    volatile FLASH_ECED_STATUS_u ECED_STATUS;
 } FLASH_REGS_s;
 
-#define FLASH_DESC_module_type_OFS (0)
-#define FLASH_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define FLASH_DESC_modue_subtype_OFS (8)
-#define FLASH_DESC_modue_subtype_MASK ((uint32_t)0x0000FF00U)
-#define FLASH_DESC_major_rev_OFS (16)
-#define FLASH_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define FLASH_DESC_minor_rev_OFS (20)
-#define FLASH_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define FLASH_CLK_CTRL_clk_en_OFS (0)
-#define FLASH_CLK_CTRL_clk_en_MASK ((uint32_t)0x00000001U)
-#define FLASH_FLASH_CTRL_clen_OFS (0)
-#define FLASH_FLASH_CTRL_clen_MASK ((uint32_t)0x00000001U)
-#define FLASH_FLASH_CTRL_srl_OFS (1)
-#define FLASH_FLASH_CTRL_srl_MASK ((uint32_t)0x00000002U)
-#define FLASH_FLASH_CTRL_isavb_OFS (2)
-#define FLASH_FLASH_CTRL_isavb_MASK ((uint32_t)0x00000004U)
-#define FLASH_FLASH_CTRL_rdecc_OFS (3)
-#define FLASH_FLASH_CTRL_rdecc_MASK ((uint32_t)0x00000008U)
-#define FLASH_FLASH_CTRL_cpecc_OFS (4)
-#define FLASH_FLASH_CTRL_cpecc_MASK ((uint32_t)0x00000010U)
-#define FLASH_FLASH_STATUS_eced_OFS (0)
-#define FLASH_FLASH_STATUS_eced_MASK ((uint32_t)0x00000001U)
-#define FLASH_TIME_CTRL_tcsctrls_OFS (0)
-#define FLASH_TIME_CTRL_tcsctrls_MASK ((uint32_t)0x0000000FU)
-#define FLASH_TIME_CTRL_tras_OFS (4)
-#define FLASH_TIME_CTRL_tras_MASK ((uint32_t)0x000003F0U)
-#define FLASH_TIME_CTRL_eeprom_tras_OFS (10)
-#define FLASH_TIME_CTRL_eeprom_tras_MASK ((uint32_t)0x0003FC00U)
-#define FLASH_TIME_CTRL_trc_OFS (18)
-#define FLASH_TIME_CTRL_trc_MASK ((uint32_t)0x00FC0000U)
-#define FLASH_TIME_CTRL_eeprom_trc_OFS (24)
-#define FLASH_TIME_CTRL_eeprom_trc_MASK ((uint32_t)0xFF000000U)
-#define FLASH_TIME_CTRL_1_tadhr_OFS (0)
-#define FLASH_TIME_CTRL_1_tadhr_MASK ((uint32_t)0x00000001U)
-#define FLASH_TIME_CTRL_1_rtw_OFS (1)
-#define FLASH_TIME_CTRL_1_rtw_MASK ((uint32_t)0x0000001EU)
-#define FLASH_TIME_CTRL_1_tads_OFS (5)
-#define FLASH_TIME_CTRL_1_tads_MASK ((uint32_t)0x00000020U)
-#define FLASH_TIME_CTRL_1_twpw_OFS (6)
-#define FLASH_TIME_CTRL_1_twpw_MASK ((uint32_t)0x000003C0U)
-#define FLASH_TIME_CTRL_1_tpwcsh_OFS (10)
-#define FLASH_TIME_CTRL_1_tpwcsh_MASK ((uint32_t)0x00003C00U)
-#define FLASH_TIME_CTRL_2_twrc_OFS (0)
-#define FLASH_TIME_CTRL_2_twrc_MASK ((uint32_t)0x0000000FU)
-#define FLASH_TIME_CTRL_2_twes_OFS (4)
-#define FLASH_TIME_CTRL_2_twes_MASK ((uint32_t)0x003FFFF0U)
-#define FLASH_TIME_CTRL_2_tbr_OFS (22)
-#define FLASH_TIME_CTRL_2_tbr_MASK ((uint32_t)0x03C00000U)
-#define FLASH_TIME_CTRL_2_wtw_OFS (26)
-#define FLASH_TIME_CTRL_2_wtw_MASK ((uint32_t)0x3C000000U)
-#define FLASH_TIME_UPTD_flash_config_done_OFS (0)
-#define FLASH_TIME_UPTD_flash_config_done_MASK ((uint32_t)0x00000001U)
-#define FLASH_HSIZE_CTRL_force_hsize_val_OFS (0)
-#define FLASH_HSIZE_CTRL_force_hsize_val_MASK ((uint32_t)0x00000007U)
-#define FLASH_HSIZE_CTRL_force_hsize_en_OFS (3)
-#define FLASH_HSIZE_CTRL_force_hsize_en_MASK ((uint32_t)0x00000008U)
+#define FLASH_DESC_MODULE_TYPE_OFS (0)
+#define FLASH_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define FLASH_DESC_MODUE_SUBTYPE_OFS (8)
+#define FLASH_DESC_MODUE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define FLASH_DESC_MAJOR_REV_OFS (16)
+#define FLASH_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define FLASH_DESC_MINOR_REV_OFS (20)
+#define FLASH_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define FLASH_CLK_CTRL_CLK_EN_OFS (0)
+#define FLASH_CLK_CTRL_CLK_EN_MASK ((uint32_t)0x00000001U)
+#define FLASH_FLASH_CTRL_CLEN_OFS (0)
+#define FLASH_FLASH_CTRL_CLEN_MASK ((uint32_t)0x00000001U)
+#define FLASH_FLASH_CTRL_SRL_OFS (1)
+#define FLASH_FLASH_CTRL_SRL_MASK ((uint32_t)0x00000002U)
+#define FLASH_FLASH_CTRL_ISAVB_OFS (2)
+#define FLASH_FLASH_CTRL_ISAVB_MASK ((uint32_t)0x00000004U)
+#define FLASH_FLASH_CTRL_RDECC_OFS (3)
+#define FLASH_FLASH_CTRL_RDECC_MASK ((uint32_t)0x00000008U)
+#define FLASH_FLASH_CTRL_CPECC_OFS (4)
+#define FLASH_FLASH_CTRL_CPECC_MASK ((uint32_t)0x00000010U)
+#define FLASH_FLASH_STATUS_ECED_OFS (0)
+#define FLASH_FLASH_STATUS_ECED_MASK ((uint32_t)0x00000001U)
+#define FLASH_TIME_CTRL_TCSCTRLS_OFS (0)
+#define FLASH_TIME_CTRL_TCSCTRLS_MASK ((uint32_t)0x0000000FU)
+#define FLASH_TIME_CTRL_TRAS_OFS (4)
+#define FLASH_TIME_CTRL_TRAS_MASK ((uint32_t)0x000003F0U)
+#define FLASH_TIME_CTRL_EEPROM_TRAS_OFS (10)
+#define FLASH_TIME_CTRL_EEPROM_TRAS_MASK ((uint32_t)0x0003FC00U)
+#define FLASH_TIME_CTRL_TRC_OFS (18)
+#define FLASH_TIME_CTRL_TRC_MASK ((uint32_t)0x00FC0000U)
+#define FLASH_TIME_CTRL_EEPROM_TRC_OFS (24)
+#define FLASH_TIME_CTRL_EEPROM_TRC_MASK ((uint32_t)0xFF000000U)
+#define FLASH_TIME_CTRL_1_TADHR_OFS (0)
+#define FLASH_TIME_CTRL_1_TADHR_MASK ((uint32_t)0x00000001U)
+#define FLASH_TIME_CTRL_1_RTW_OFS (1)
+#define FLASH_TIME_CTRL_1_RTW_MASK ((uint32_t)0x000001FEU)
+#define FLASH_TIME_CTRL_1_TADS_OFS (9)
+#define FLASH_TIME_CTRL_1_TADS_MASK ((uint32_t)0x00000200U)
+#define FLASH_TIME_CTRL_1_TWPW_OFS (10)
+#define FLASH_TIME_CTRL_1_TWPW_MASK ((uint32_t)0x0000FC00U)
+#define FLASH_TIME_CTRL_1_TPWCSH_OFS (16)
+#define FLASH_TIME_CTRL_1_TPWCSH_MASK ((uint32_t)0x000F0000U)
+#define FLASH_TIME_CTRL_2_TWRC_OFS (0)
+#define FLASH_TIME_CTRL_2_TWRC_MASK ((uint32_t)0x0000000FU)
+#define FLASH_TIME_CTRL_2_TWES_OFS (4)
+#define FLASH_TIME_CTRL_2_TWES_MASK ((uint32_t)0x003FFFF0U)
+#define FLASH_TIME_CTRL_2_TBR_OFS (22)
+#define FLASH_TIME_CTRL_2_TBR_MASK ((uint32_t)0x03C00000U)
+#define FLASH_TIME_CTRL_2_WTW_OFS (26)
+#define FLASH_TIME_CTRL_2_WTW_MASK ((uint32_t)0xFC000000U)
+#define FLASH_TIME_UPTD_FLASH_CONFIG_DONE_OFS (0)
+#define FLASH_TIME_UPTD_FLASH_CONFIG_DONE_MASK ((uint32_t)0x00000001U)
+#define FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_OFS (0)
+#define FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_MASK ((uint32_t)0x00000007U)
+#define FLASH_HSIZE_CTRL_FORCE_HSIZE_EN_OFS (3)
+#define FLASH_HSIZE_CTRL_FORCE_HSIZE_EN_MASK ((uint32_t)0x00000008U)
+#define FLASH_STS_FLASH_PSTATE_OFS (0)
+#define FLASH_STS_FLASH_PSTATE_MASK ((uint32_t)0x0000001FU)
+#define FLASH_ECED_STATUS_ECED_STS_OFS (0)
+#define FLASH_ECED_STATUS_ECED_STS_MASK ((uint32_t)0xFFFFFFFFU)
 #endif

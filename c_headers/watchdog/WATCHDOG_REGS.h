@@ -11,7 +11,7 @@ typedef struct WATCHDOG_DESC_REG_s {
 } WATCHDOG_DESC_REG_s;
 
 typedef union WATCHDOG_DESC_u {
-    WATCHDOG_DESC_REG_s DESC;
+    WATCHDOG_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct WATCHDOG_PWR_EN_REG_s {
 } WATCHDOG_PWR_EN_REG_s;
 
 typedef union WATCHDOG_PWR_EN_u {
-    WATCHDOG_PWR_EN_REG_s PWR_EN;
+    WATCHDOG_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -38,7 +38,7 @@ typedef struct WATCHDOG_RST_CTRL_REG_s {
 } WATCHDOG_RST_CTRL_REG_s;
 
 typedef union WATCHDOG_RST_CTRL_u {
-    WATCHDOG_RST_CTRL_REG_s RST_CTRL;
+    WATCHDOG_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -49,7 +49,7 @@ typedef struct WATCHDOG_RST_STS_REG_s {
 } WATCHDOG_RST_STS_REG_s;
 
 typedef union WATCHDOG_RST_STS_u {
-    WATCHDOG_RST_STS_REG_s RST_STS;
+    WATCHDOG_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -60,7 +60,7 @@ typedef struct WATCHDOG_INTR_STS_REG_s {
 } WATCHDOG_INTR_STS_REG_s;
 
 typedef union WATCHDOG_INTR_STS_u {
-    WATCHDOG_INTR_STS_REG_s INTR_STS;
+    WATCHDOG_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -75,7 +75,7 @@ typedef struct WATCHDOG_INTR_EVENT_REG_s {
 } WATCHDOG_INTR_EVENT_REG_s;
 
 typedef union WATCHDOG_INTR_EVENT_u {
-    WATCHDOG_INTR_EVENT_REG_s INTR_EVENT;
+    WATCHDOG_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -90,7 +90,7 @@ typedef struct WATCHDOG_INTR_EN_REG_s {
 } WATCHDOG_INTR_EN_REG_s;
 
 typedef union WATCHDOG_INTR_EN_u {
-    WATCHDOG_INTR_EN_REG_s INTR_EN;
+    WATCHDOG_INTR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -105,7 +105,7 @@ typedef struct WATCHDOG_INTR_NMI_EN_REG_s {
 } WATCHDOG_INTR_NMI_EN_REG_s;
 
 typedef union WATCHDOG_INTR_NMI_EN_u {
-    WATCHDOG_INTR_NMI_EN_REG_s INTR_NMI_EN;
+    WATCHDOG_INTR_NMI_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -116,7 +116,7 @@ typedef struct WATCHDOG_EVENT_EN_REG_s {
 } WATCHDOG_EVENT_EN_REG_s;
 
 typedef union WATCHDOG_EVENT_EN_u {
-    WATCHDOG_EVENT_EN_REG_s EVENT_EN;
+    WATCHDOG_EVENT_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -131,7 +131,7 @@ typedef struct WATCHDOG_INTR_SW_SET_REG_s {
 } WATCHDOG_INTR_SW_SET_REG_s;
 
 typedef union WATCHDOG_INTR_SW_SET_u {
-    WATCHDOG_INTR_SW_SET_REG_s INTR_SW_SET;
+    WATCHDOG_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -142,7 +142,7 @@ typedef struct WATCHDOG_HALT_MODE_REG_s {
 } WATCHDOG_HALT_MODE_REG_s;
 
 typedef union WATCHDOG_HALT_MODE_u {
-    WATCHDOG_HALT_MODE_REG_s HALT_MODE;
+    WATCHDOG_HALT_MODE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -155,7 +155,7 @@ typedef struct WATCHDOG_WWDT_EN_REG_s {
 } WATCHDOG_WWDT_EN_REG_s;
 
 typedef union WATCHDOG_WWDT_EN_u {
-    WATCHDOG_WWDT_EN_REG_s WWDT_EN;
+    WATCHDOG_WWDT_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -175,7 +175,7 @@ typedef struct WATCHDOG_WWDT_CTL0_REG_s {
 } WATCHDOG_WWDT_CTL0_REG_s;
 
 typedef union WATCHDOG_WWDT_CTL0_u {
-    WATCHDOG_WWDT_CTL0_REG_s WWDT_CTL0;
+    WATCHDOG_WWDT_CTL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -189,7 +189,7 @@ typedef struct WATCHDOG_WWDT_CTL1_REG_s {
 } WATCHDOG_WWDT_CTL1_REG_s;
 
 typedef union WATCHDOG_WWDT_CTL1_u {
-    WATCHDOG_WWDT_CTL1_REG_s WWDT_CTL1;
+    WATCHDOG_WWDT_CTL1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -200,7 +200,7 @@ typedef struct WATCHDOG_WWDT_RESTART_REG_s {
 } WATCHDOG_WWDT_RESTART_REG_s;
 
 typedef union WATCHDOG_WWDT_RESTART_u {
-    WATCHDOG_WWDT_RESTART_REG_s WWDT_RESTART;
+    WATCHDOG_WWDT_RESTART_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -211,7 +211,7 @@ typedef struct WATCHDOG_WWDT_STS_REG_s {
 } WATCHDOG_WWDT_STS_REG_s;
 
 typedef union WATCHDOG_WWDT_STS_u {
-    WATCHDOG_WWDT_STS_REG_s WWDT_STS;
+    WATCHDOG_WWDT_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -236,102 +236,102 @@ typedef struct WATCHDOG_REGS_s{
     volatile WATCHDOG_WWDT_STS_u WWDT_STS;
 } WATCHDOG_REGS_s;
 
-#define WATCHDOG_DESC_module_type_OFS (0)
-#define WATCHDOG_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define WATCHDOG_DESC_modue_subtype_OFS (8)
-#define WATCHDOG_DESC_modue_subtype_MASK ((uint32_t)0x0000FF00U)
-#define WATCHDOG_DESC_major_rev_OFS (16)
-#define WATCHDOG_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define WATCHDOG_DESC_minor_rev_OFS (20)
-#define WATCHDOG_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define WATCHDOG_PWR_EN_pwr_en_OFS (0)
-#define WATCHDOG_PWR_EN_pwr_en_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_PWR_EN_pwr_en_key_OFS (24)
-#define WATCHDOG_PWR_EN_pwr_en_key_MASK ((uint32_t)0xFF000000U)
-#define WATCHDOG_RST_CTRL_rst_OFS (0)
-#define WATCHDOG_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_RST_CTRL_rst_sts_clr_OFS (1)
-#define WATCHDOG_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define WATCHDOG_RST_CTRL_rst_key_OFS (24)
-#define WATCHDOG_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define WATCHDOG_RST_STS_rst_sts_OFS (0)
-#define WATCHDOG_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_INTR_STS_intr_first_OFS (0)
-#define WATCHDOG_INTR_STS_intr_first_MASK ((uint32_t)0x0000000FU)
-#define WATCHDOG_INTR_EVENT_time_prd_exp_OFS (0)
-#define WATCHDOG_INTR_EVENT_time_prd_exp_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_INTR_EVENT_restart_in_closed_window_OFS (1)
-#define WATCHDOG_INTR_EVENT_restart_in_closed_window_MASK ((uint32_t)0x00000002U)
-#define WATCHDOG_INTR_EVENT_restart_reg_incorrect_data_OFS (2)
-#define WATCHDOG_INTR_EVENT_restart_reg_incorrect_data_MASK ((uint32_t)0x00000004U)
-#define WATCHDOG_INTR_EVENT_wr_to_ctl_regs_after_wwdt_en_OFS (3)
-#define WATCHDOG_INTR_EVENT_wr_to_ctl_regs_after_wwdt_en_MASK ((uint32_t)0x00000008U)
-#define WATCHDOG_INTR_EVENT_wrg_pwd_or_access_to_ctrl_regs_OFS (4)
-#define WATCHDOG_INTR_EVENT_wrg_pwd_or_access_to_ctrl_regs_MASK ((uint32_t)0x00000010U)
-#define WATCHDOG_INTR_EN_time_prd_exp_en_OFS (0)
-#define WATCHDOG_INTR_EN_time_prd_exp_en_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_INTR_EN_restart_in_closed_window_en_OFS (1)
-#define WATCHDOG_INTR_EN_restart_in_closed_window_en_MASK ((uint32_t)0x00000002U)
-#define WATCHDOG_INTR_EN_restart_reg_incorrect_data_en_OFS (2)
-#define WATCHDOG_INTR_EN_restart_reg_incorrect_data_en_MASK ((uint32_t)0x00000004U)
-#define WATCHDOG_INTR_EN_wr_to_ctl_regs_after_wwdt_en_en_OFS (3)
-#define WATCHDOG_INTR_EN_wr_to_ctl_regs_after_wwdt_en_en_MASK ((uint32_t)0x00000008U)
-#define WATCHDOG_INTR_EN_wrg_pwd_or_access_to_ctrl_regs_en_OFS (4)
-#define WATCHDOG_INTR_EN_wrg_pwd_or_access_to_ctrl_regs_en_MASK ((uint32_t)0x00000010U)
-#define WATCHDOG_INTR_NMI_EN_time_prd_exp_nmi_en_OFS (0)
-#define WATCHDOG_INTR_NMI_EN_time_prd_exp_nmi_en_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_INTR_NMI_EN_restart_within_closed_window_nmi_en_OFS (1)
-#define WATCHDOG_INTR_NMI_EN_restart_within_closed_window_nmi_en_MASK ((uint32_t)0x00000002U)
-#define WATCHDOG_INTR_NMI_EN_restart_reg_incorrect_data_nmi_en_OFS (2)
-#define WATCHDOG_INTR_NMI_EN_restart_reg_incorrect_data_nmi_en_MASK ((uint32_t)0x00000004U)
-#define WATCHDOG_INTR_NMI_EN_wr_to_ctl_regs_after_wwdt_en_nmi_en_OFS (3)
-#define WATCHDOG_INTR_NMI_EN_wr_to_ctl_regs_after_wwdt_en_nmi_en_MASK ((uint32_t)0x00000008U)
-#define WATCHDOG_INTR_NMI_EN_wrg_pwd_or_access_to_ctrl_regs_nmi_en_OFS (4)
-#define WATCHDOG_INTR_NMI_EN_wrg_pwd_or_access_to_ctrl_regs_nmi_en_MASK ((uint32_t)0x00000010U)
-#define WATCHDOG_EVENT_EN_time_prd_exp_event_en_OFS (0)
-#define WATCHDOG_EVENT_EN_time_prd_exp_event_en_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_INTR_SW_SET_time_prd_exp_sw_set_OFS (0)
-#define WATCHDOG_INTR_SW_SET_time_prd_exp_sw_set_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_INTR_SW_SET_restart_within_closed_window_sw_set_OFS (1)
-#define WATCHDOG_INTR_SW_SET_restart_within_closed_window_sw_set_MASK ((uint32_t)0x00000002U)
-#define WATCHDOG_INTR_SW_SET_restart_reg_incorrect_data_sw_set_OFS (2)
-#define WATCHDOG_INTR_SW_SET_restart_reg_incorrect_data_sw_set_MASK ((uint32_t)0x00000004U)
-#define WATCHDOG_INTR_SW_SET_wr_to_ctl_regs_after_wwdt_en_sw_set_OFS (3)
-#define WATCHDOG_INTR_SW_SET_wr_to_ctl_regs_after_wwdt_en_sw_set_MASK ((uint32_t)0x00000008U)
-#define WATCHDOG_INTR_SW_SET_wrg_pwd_or_access_to_ctrl_regs_sw_set_OFS (4)
-#define WATCHDOG_INTR_SW_SET_wrg_pwd_or_access_to_ctrl_regs_sw_set_MASK ((uint32_t)0x00000010U)
-#define WATCHDOG_HALT_MODE_run_in_halt_mode_OFS (0)
-#define WATCHDOG_HALT_MODE_run_in_halt_mode_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_WWDT_EN_wwdt_en_OFS (0)
-#define WATCHDOG_WWDT_EN_wwdt_en_MASK ((uint32_t)0x00000001U)
-#define WATCHDOG_WWDT_EN_wwdt_en_key_OFS (24)
-#define WATCHDOG_WWDT_EN_wwdt_en_key_MASK ((uint32_t)0xFF000000U)
-#define WATCHDOG_WWDT_CTL0_clk_div_OFS (0)
-#define WATCHDOG_WWDT_CTL0_clk_div_MASK ((uint32_t)0x00000007U)
-#define WATCHDOG_WWDT_CTL0_total_time_period_OFS (3)
-#define WATCHDOG_WWDT_CTL0_total_time_period_MASK ((uint32_t)0x00000038U)
-#define WATCHDOG_WWDT_CTL0_closed_window_OFS (6)
-#define WATCHDOG_WWDT_CTL0_closed_window_MASK ((uint32_t)0x000001C0U)
-#define WATCHDOG_WWDT_CTL0_is_timer_mode_OFS (9)
-#define WATCHDOG_WWDT_CTL0_is_timer_mode_MASK ((uint32_t)0x00000200U)
-#define WATCHDOG_WWDT_CTL0_timer_repeat_OFS (10)
-#define WATCHDOG_WWDT_CTL0_timer_repeat_MASK ((uint32_t)0x00000400U)
-#define WATCHDOG_WWDT_CTL0_stop_in_sleep_mode_OFS (11)
-#define WATCHDOG_WWDT_CTL0_stop_in_sleep_mode_MASK ((uint32_t)0x00000800U)
-#define WATCHDOG_WWDT_CTL0_sleep_policy_rst_OFS (12)
-#define WATCHDOG_WWDT_CTL0_sleep_policy_rst_MASK ((uint32_t)0x00001000U)
-#define WATCHDOG_WWDT_CTL0_violation_gen_OFS (13)
-#define WATCHDOG_WWDT_CTL0_violation_gen_MASK ((uint32_t)0x00002000U)
-#define WATCHDOG_WWDT_CTL0_wwdt_ctl0_key_OFS (24)
-#define WATCHDOG_WWDT_CTL0_wwdt_ctl0_key_MASK ((uint32_t)0xFF000000U)
-#define WATCHDOG_WWDT_CTL1_total_wait_time_after_violation_OFS (0)
-#define WATCHDOG_WWDT_CTL1_total_wait_time_after_violation_MASK ((uint32_t)0x0000FFFFU)
-#define WATCHDOG_WWDT_CTL1_wwdt_enabled_after_violation_OFS (16)
-#define WATCHDOG_WWDT_CTL1_wwdt_enabled_after_violation_MASK ((uint32_t)0x00010000U)
-#define WATCHDOG_WWDT_CTL1_wwdt_ctl1_key_OFS (24)
-#define WATCHDOG_WWDT_CTL1_wwdt_ctl1_key_MASK ((uint32_t)0xFF000000U)
-#define WATCHDOG_WWDT_RESTART_restart_OFS (0)
-#define WATCHDOG_WWDT_RESTART_restart_MASK ((uint32_t)0xFFFFFFFFU)
-#define WATCHDOG_WWDT_STS_run_OFS (0)
-#define WATCHDOG_WWDT_STS_run_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_DESC_MODULE_TYPE_OFS (0)
+#define WATCHDOG_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define WATCHDOG_DESC_MODUE_SUBTYPE_OFS (8)
+#define WATCHDOG_DESC_MODUE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define WATCHDOG_DESC_MAJOR_REV_OFS (16)
+#define WATCHDOG_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define WATCHDOG_DESC_MINOR_REV_OFS (20)
+#define WATCHDOG_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define WATCHDOG_PWR_EN_PWR_EN_OFS (0)
+#define WATCHDOG_PWR_EN_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_PWR_EN_PWR_EN_KEY_OFS (24)
+#define WATCHDOG_PWR_EN_PWR_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define WATCHDOG_RST_CTRL_RST_OFS (0)
+#define WATCHDOG_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_RST_CTRL_RST_STS_CLR_OFS (1)
+#define WATCHDOG_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define WATCHDOG_RST_CTRL_RST_KEY_OFS (24)
+#define WATCHDOG_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define WATCHDOG_RST_STS_RST_STS_OFS (0)
+#define WATCHDOG_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_INTR_STS_INTR_FIRST_OFS (0)
+#define WATCHDOG_INTR_STS_INTR_FIRST_MASK ((uint32_t)0x0000000FU)
+#define WATCHDOG_INTR_EVENT_TIME_PRD_EXP_OFS (0)
+#define WATCHDOG_INTR_EVENT_TIME_PRD_EXP_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_INTR_EVENT_RESTART_IN_CLOSED_WINDOW_OFS (1)
+#define WATCHDOG_INTR_EVENT_RESTART_IN_CLOSED_WINDOW_MASK ((uint32_t)0x00000002U)
+#define WATCHDOG_INTR_EVENT_RESTART_REG_INCORRECT_DATA_OFS (2)
+#define WATCHDOG_INTR_EVENT_RESTART_REG_INCORRECT_DATA_MASK ((uint32_t)0x00000004U)
+#define WATCHDOG_INTR_EVENT_WR_TO_CTL_REGS_AFTER_WWDT_EN_OFS (3)
+#define WATCHDOG_INTR_EVENT_WR_TO_CTL_REGS_AFTER_WWDT_EN_MASK ((uint32_t)0x00000008U)
+#define WATCHDOG_INTR_EVENT_WRG_PWD_OR_ACCESS_TO_CTRL_REGS_OFS (4)
+#define WATCHDOG_INTR_EVENT_WRG_PWD_OR_ACCESS_TO_CTRL_REGS_MASK ((uint32_t)0x00000010U)
+#define WATCHDOG_INTR_EN_TIME_PRD_EXP_EN_OFS (0)
+#define WATCHDOG_INTR_EN_TIME_PRD_EXP_EN_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_INTR_EN_RESTART_IN_CLOSED_WINDOW_EN_OFS (1)
+#define WATCHDOG_INTR_EN_RESTART_IN_CLOSED_WINDOW_EN_MASK ((uint32_t)0x00000002U)
+#define WATCHDOG_INTR_EN_RESTART_REG_INCORRECT_DATA_EN_OFS (2)
+#define WATCHDOG_INTR_EN_RESTART_REG_INCORRECT_DATA_EN_MASK ((uint32_t)0x00000004U)
+#define WATCHDOG_INTR_EN_WR_TO_CTL_REGS_AFTER_WWDT_EN_EN_OFS (3)
+#define WATCHDOG_INTR_EN_WR_TO_CTL_REGS_AFTER_WWDT_EN_EN_MASK ((uint32_t)0x00000008U)
+#define WATCHDOG_INTR_EN_WRG_PWD_OR_ACCESS_TO_CTRL_REGS_EN_OFS (4)
+#define WATCHDOG_INTR_EN_WRG_PWD_OR_ACCESS_TO_CTRL_REGS_EN_MASK ((uint32_t)0x00000010U)
+#define WATCHDOG_INTR_NMI_EN_TIME_PRD_EXP_NMI_EN_OFS (0)
+#define WATCHDOG_INTR_NMI_EN_TIME_PRD_EXP_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_INTR_NMI_EN_RESTART_WITHIN_CLOSED_WINDOW_NMI_EN_OFS (1)
+#define WATCHDOG_INTR_NMI_EN_RESTART_WITHIN_CLOSED_WINDOW_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define WATCHDOG_INTR_NMI_EN_RESTART_REG_INCORRECT_DATA_NMI_EN_OFS (2)
+#define WATCHDOG_INTR_NMI_EN_RESTART_REG_INCORRECT_DATA_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define WATCHDOG_INTR_NMI_EN_WR_TO_CTL_REGS_AFTER_WWDT_EN_NMI_EN_OFS (3)
+#define WATCHDOG_INTR_NMI_EN_WR_TO_CTL_REGS_AFTER_WWDT_EN_NMI_EN_MASK ((uint32_t)0x00000008U)
+#define WATCHDOG_INTR_NMI_EN_WRG_PWD_OR_ACCESS_TO_CTRL_REGS_NMI_EN_OFS (4)
+#define WATCHDOG_INTR_NMI_EN_WRG_PWD_OR_ACCESS_TO_CTRL_REGS_NMI_EN_MASK ((uint32_t)0x00000010U)
+#define WATCHDOG_EVENT_EN_TIME_PRD_EXP_EVENT_EN_OFS (0)
+#define WATCHDOG_EVENT_EN_TIME_PRD_EXP_EVENT_EN_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_INTR_SW_SET_TIME_PRD_EXP_SW_SET_OFS (0)
+#define WATCHDOG_INTR_SW_SET_TIME_PRD_EXP_SW_SET_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_INTR_SW_SET_RESTART_WITHIN_CLOSED_WINDOW_SW_SET_OFS (1)
+#define WATCHDOG_INTR_SW_SET_RESTART_WITHIN_CLOSED_WINDOW_SW_SET_MASK ((uint32_t)0x00000002U)
+#define WATCHDOG_INTR_SW_SET_RESTART_REG_INCORRECT_DATA_SW_SET_OFS (2)
+#define WATCHDOG_INTR_SW_SET_RESTART_REG_INCORRECT_DATA_SW_SET_MASK ((uint32_t)0x00000004U)
+#define WATCHDOG_INTR_SW_SET_WR_TO_CTL_REGS_AFTER_WWDT_EN_SW_SET_OFS (3)
+#define WATCHDOG_INTR_SW_SET_WR_TO_CTL_REGS_AFTER_WWDT_EN_SW_SET_MASK ((uint32_t)0x00000008U)
+#define WATCHDOG_INTR_SW_SET_WRG_PWD_OR_ACCESS_TO_CTRL_REGS_SW_SET_OFS (4)
+#define WATCHDOG_INTR_SW_SET_WRG_PWD_OR_ACCESS_TO_CTRL_REGS_SW_SET_MASK ((uint32_t)0x00000010U)
+#define WATCHDOG_HALT_MODE_RUN_IN_HALT_MODE_OFS (0)
+#define WATCHDOG_HALT_MODE_RUN_IN_HALT_MODE_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_WWDT_EN_WWDT_EN_OFS (0)
+#define WATCHDOG_WWDT_EN_WWDT_EN_MASK ((uint32_t)0x00000001U)
+#define WATCHDOG_WWDT_EN_WWDT_EN_KEY_OFS (24)
+#define WATCHDOG_WWDT_EN_WWDT_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define WATCHDOG_WWDT_CTL0_CLK_DIV_OFS (0)
+#define WATCHDOG_WWDT_CTL0_CLK_DIV_MASK ((uint32_t)0x00000007U)
+#define WATCHDOG_WWDT_CTL0_TOTAL_TIME_PERIOD_OFS (3)
+#define WATCHDOG_WWDT_CTL0_TOTAL_TIME_PERIOD_MASK ((uint32_t)0x00000038U)
+#define WATCHDOG_WWDT_CTL0_CLOSED_WINDOW_OFS (6)
+#define WATCHDOG_WWDT_CTL0_CLOSED_WINDOW_MASK ((uint32_t)0x000001C0U)
+#define WATCHDOG_WWDT_CTL0_IS_TIMER_MODE_OFS (9)
+#define WATCHDOG_WWDT_CTL0_IS_TIMER_MODE_MASK ((uint32_t)0x00000200U)
+#define WATCHDOG_WWDT_CTL0_TIMER_REPEAT_OFS (10)
+#define WATCHDOG_WWDT_CTL0_TIMER_REPEAT_MASK ((uint32_t)0x00000400U)
+#define WATCHDOG_WWDT_CTL0_STOP_IN_SLEEP_MODE_OFS (11)
+#define WATCHDOG_WWDT_CTL0_STOP_IN_SLEEP_MODE_MASK ((uint32_t)0x00000800U)
+#define WATCHDOG_WWDT_CTL0_SLEEP_POLICY_RST_OFS (12)
+#define WATCHDOG_WWDT_CTL0_SLEEP_POLICY_RST_MASK ((uint32_t)0x00001000U)
+#define WATCHDOG_WWDT_CTL0_VIOLATION_GEN_OFS (13)
+#define WATCHDOG_WWDT_CTL0_VIOLATION_GEN_MASK ((uint32_t)0x00002000U)
+#define WATCHDOG_WWDT_CTL0_WWDT_CTL0_KEY_OFS (24)
+#define WATCHDOG_WWDT_CTL0_WWDT_CTL0_KEY_MASK ((uint32_t)0xFF000000U)
+#define WATCHDOG_WWDT_CTL1_TOTAL_WAIT_TIME_AFTER_VIOLATION_OFS (0)
+#define WATCHDOG_WWDT_CTL1_TOTAL_WAIT_TIME_AFTER_VIOLATION_MASK ((uint32_t)0x0000FFFFU)
+#define WATCHDOG_WWDT_CTL1_WWDT_ENABLED_AFTER_VIOLATION_OFS (16)
+#define WATCHDOG_WWDT_CTL1_WWDT_ENABLED_AFTER_VIOLATION_MASK ((uint32_t)0x00010000U)
+#define WATCHDOG_WWDT_CTL1_WWDT_CTL1_KEY_OFS (24)
+#define WATCHDOG_WWDT_CTL1_WWDT_CTL1_KEY_MASK ((uint32_t)0xFF000000U)
+#define WATCHDOG_WWDT_RESTART_RESTART_OFS (0)
+#define WATCHDOG_WWDT_RESTART_RESTART_MASK ((uint32_t)0xFFFFFFFFU)
+#define WATCHDOG_WWDT_STS_RUN_OFS (0)
+#define WATCHDOG_WWDT_STS_RUN_MASK ((uint32_t)0x00000001U)
 #endif

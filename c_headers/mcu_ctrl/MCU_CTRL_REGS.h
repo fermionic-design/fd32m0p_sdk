@@ -11,7 +11,7 @@ typedef struct MCU_CTRL_DESC_REG_s {
 } MCU_CTRL_DESC_REG_s;
 
 typedef union MCU_CTRL_DESC_u {
-    MCU_CTRL_DESC_REG_s DESC;
+    MCU_CTRL_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -25,7 +25,7 @@ typedef struct MCU_CTRL_RST_CTRL_REG_s {
 } MCU_CTRL_RST_CTRL_REG_s;
 
 typedef union MCU_CTRL_RST_CTRL_u {
-    MCU_CTRL_RST_CTRL_REG_s RST_CTRL;
+    MCU_CTRL_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -36,7 +36,7 @@ typedef struct MCU_CTRL_RST_STS_REG_s {
 } MCU_CTRL_RST_STS_REG_s;
 
 typedef union MCU_CTRL_RST_STS_u {
-    MCU_CTRL_RST_STS_REG_s RST_STS;
+    MCU_CTRL_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -47,7 +47,7 @@ typedef struct MCU_CTRL_CLK_CTRL_REG_s {
 } MCU_CTRL_CLK_CTRL_REG_s;
 
 typedef union MCU_CTRL_CLK_CTRL_u {
-    MCU_CTRL_CLK_CTRL_REG_s CLK_CTRL;
+    MCU_CTRL_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -60,7 +60,7 @@ typedef struct MCU_CTRL_INTR_EVENT_REG_s {
 } MCU_CTRL_INTR_EVENT_REG_s;
 
 typedef union MCU_CTRL_INTR_EVENT_u {
-    MCU_CTRL_INTR_EVENT_REG_s INTR_EVENT;
+    MCU_CTRL_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -73,7 +73,7 @@ typedef struct MCU_CTRL_INTR_EN_REG_s {
 } MCU_CTRL_INTR_EN_REG_s;
 
 typedef union MCU_CTRL_INTR_EN_u {
-    MCU_CTRL_INTR_EN_REG_s INTR_EN;
+    MCU_CTRL_INTR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -92,7 +92,7 @@ typedef struct MCU_CTRL_CLK_PWR_EN_REG_s {
 } MCU_CTRL_CLK_PWR_EN_REG_s;
 
 typedef union MCU_CTRL_CLK_PWR_EN_u {
-    MCU_CTRL_CLK_PWR_EN_REG_s CLK_PWR_EN;
+    MCU_CTRL_CLK_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -110,7 +110,7 @@ typedef struct MCU_CTRL_ANA_CLK_EN_REG_s {
 } MCU_CTRL_ANA_CLK_EN_REG_s;
 
 typedef union MCU_CTRL_ANA_CLK_EN_u {
-    MCU_CTRL_ANA_CLK_EN_REG_s ANA_CLK_EN;
+    MCU_CTRL_ANA_CLK_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -131,7 +131,7 @@ typedef struct MCU_CTRL_HF_CLK_CTRL_REG_s {
 } MCU_CTRL_HF_CLK_CTRL_REG_s;
 
 typedef union MCU_CTRL_HF_CLK_CTRL_u {
-    MCU_CTRL_HF_CLK_CTRL_REG_s HF_CLK_CTRL;
+    MCU_CTRL_HF_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -147,7 +147,7 @@ typedef struct MCU_CTRL_HF_OSC_CLK_CTRL_REG_s {
 } MCU_CTRL_HF_OSC_CLK_CTRL_REG_s;
 
 typedef union MCU_CTRL_HF_OSC_CLK_CTRL_u {
-    MCU_CTRL_HF_OSC_CLK_CTRL_REG_s HF_OSC_CLK_CTRL;
+    MCU_CTRL_HF_OSC_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -166,7 +166,7 @@ typedef struct MCU_CTRL_LF_CLK_CTRL_REG_s {
 } MCU_CTRL_LF_CLK_CTRL_REG_s;
 
 typedef union MCU_CTRL_LF_CLK_CTRL_u {
-    MCU_CTRL_LF_CLK_CTRL_REG_s LF_CLK_CTRL;
+    MCU_CTRL_LF_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -180,7 +180,7 @@ typedef struct MCU_CTRL_XO_CFG_STS_REG_s {
 } MCU_CTRL_XO_CFG_STS_REG_s;
 
 typedef union MCU_CTRL_XO_CFG_STS_u {
-    MCU_CTRL_XO_CFG_STS_REG_s XO_CFG_STS;
+    MCU_CTRL_XO_CFG_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -195,7 +195,7 @@ typedef struct MCU_CTRL_AHB_HCLK_CTRL_REG_s {
 } MCU_CTRL_AHB_HCLK_CTRL_REG_s;
 
 typedef union MCU_CTRL_AHB_HCLK_CTRL_u {
-    MCU_CTRL_AHB_HCLK_CTRL_REG_s AHB_HCLK_CTRL;
+    MCU_CTRL_AHB_HCLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -206,7 +206,7 @@ typedef struct MCU_CTRL_APB_PCLK_CTRL_REG_s {
 } MCU_CTRL_APB_PCLK_CTRL_REG_s;
 
 typedef union MCU_CTRL_APB_PCLK_CTRL_u {
-    MCU_CTRL_APB_PCLK_CTRL_REG_s APB_PCLK_CTRL;
+    MCU_CTRL_APB_PCLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -217,7 +217,7 @@ typedef struct MCU_CTRL_CLK_4MHZ_CTRL_REG_s {
 } MCU_CTRL_CLK_4MHZ_CTRL_REG_s;
 
 typedef union MCU_CTRL_CLK_4MHZ_CTRL_u {
-    MCU_CTRL_CLK_4MHZ_CTRL_REG_s CLK_4MHZ_CTRL;
+    MCU_CTRL_CLK_4MHZ_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -244,7 +244,7 @@ typedef struct MCU_CTRL_PWR_SM_OVRD_CTL_REG_s {
 } MCU_CTRL_PWR_SM_OVRD_CTL_REG_s;
 
 typedef union MCU_CTRL_PWR_SM_OVRD_CTL_u {
-    MCU_CTRL_PWR_SM_OVRD_CTL_REG_s PWR_SM_OVRD_CTL;
+    MCU_CTRL_PWR_SM_OVRD_CTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -265,7 +265,7 @@ typedef struct MCU_CTRL_PLL_EN_REG_s {
 } MCU_CTRL_PLL_EN_REG_s;
 
 typedef union MCU_CTRL_PLL_EN_u {
-    MCU_CTRL_PLL_EN_REG_s PLL_EN;
+    MCU_CTRL_PLL_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -283,7 +283,7 @@ typedef struct MCU_CTRL_PLL_CTRL1_REG_s {
 } MCU_CTRL_PLL_CTRL1_REG_s;
 
 typedef union MCU_CTRL_PLL_CTRL1_u {
-    MCU_CTRL_PLL_CTRL1_REG_s PLL_CTRL1;
+    MCU_CTRL_PLL_CTRL1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -298,7 +298,7 @@ typedef struct MCU_CTRL_PLL_CTRL2_REG_s {
 } MCU_CTRL_PLL_CTRL2_REG_s;
 
 typedef union MCU_CTRL_PLL_CTRL2_u {
-    MCU_CTRL_PLL_CTRL2_REG_s PLL_CTRL2;
+    MCU_CTRL_PLL_CTRL2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -309,7 +309,7 @@ typedef struct MCU_CTRL_BLOCK_CLK_REQ_REG_s {
 } MCU_CTRL_BLOCK_CLK_REQ_REG_s;
 
 typedef union MCU_CTRL_BLOCK_CLK_REQ_u {
-    MCU_CTRL_BLOCK_CLK_REQ_REG_s BLOCK_CLK_REQ;
+    MCU_CTRL_BLOCK_CLK_REQ_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -320,7 +320,7 @@ typedef struct MCU_CTRL_PMODE_CFG_REG_s {
 } MCU_CTRL_PMODE_CFG_REG_s;
 
 typedef union MCU_CTRL_PMODE_CFG_u {
-    MCU_CTRL_PMODE_CFG_REG_s PMODE_CFG;
+    MCU_CTRL_PMODE_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -336,7 +336,7 @@ typedef struct MCU_CTRL_AON_CTRL_REG_s {
 } MCU_CTRL_AON_CTRL_REG_s;
 
 typedef union MCU_CTRL_AON_CTRL_u {
-    MCU_CTRL_AON_CTRL_REG_s AON_CTRL;
+    MCU_CTRL_AON_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -358,7 +358,7 @@ typedef struct MCU_CTRL_GPAMPCTL_REG_s {
 } MCU_CTRL_GPAMPCTL_REG_s;
 
 typedef union MCU_CTRL_GPAMPCTL_u {
-    MCU_CTRL_GPAMPCTL_REG_s GPAMPCTL;
+    MCU_CTRL_GPAMPCTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -370,7 +370,7 @@ typedef struct MCU_CTRL_GPAMPSTS_REG_s {
 } MCU_CTRL_GPAMPSTS_REG_s;
 
 typedef union MCU_CTRL_GPAMPSTS_u {
-    MCU_CTRL_GPAMPSTS_REG_s GPAMPSTS;
+    MCU_CTRL_GPAMPSTS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -382,7 +382,7 @@ typedef struct MCU_CTRL_PROCMONCTL_REG_s {
 } MCU_CTRL_PROCMONCTL_REG_s;
 
 typedef union MCU_CTRL_PROCMONCTL_u {
-    MCU_CTRL_PROCMONCTL_REG_s PROCMONCTL;
+    MCU_CTRL_PROCMONCTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -397,7 +397,7 @@ typedef struct MCU_CTRL_MCU_SW_RST_REG_s {
 } MCU_CTRL_MCU_SW_RST_REG_s;
 
 typedef union MCU_CTRL_MCU_SW_RST_u {
-    MCU_CTRL_MCU_SW_RST_REG_s MCU_SW_RST;
+    MCU_CTRL_MCU_SW_RST_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -410,7 +410,7 @@ typedef struct MCU_CTRL_BOOT_CFG_REG_s {
 } MCU_CTRL_BOOT_CFG_REG_s;
 
 typedef union MCU_CTRL_BOOT_CFG_u {
-    MCU_CTRL_BOOT_CFG_REG_s BOOT_CFG;
+    MCU_CTRL_BOOT_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -423,7 +423,7 @@ typedef struct MCU_CTRL_BOR_MODE_SEL_REG_s {
 } MCU_CTRL_BOR_MODE_SEL_REG_s;
 
 typedef union MCU_CTRL_BOR_MODE_SEL_u {
-    MCU_CTRL_BOR_MODE_SEL_REG_s BOR_MODE_SEL;
+    MCU_CTRL_BOR_MODE_SEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -435,7 +435,7 @@ typedef struct MCU_CTRL_SPARE_CTRL_REG_s {
 } MCU_CTRL_SPARE_CTRL_REG_s;
 
 typedef union MCU_CTRL_SPARE_CTRL_u {
-    MCU_CTRL_SPARE_CTRL_REG_s SPARE_CTRL;
+    MCU_CTRL_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -447,7 +447,7 @@ typedef struct MCU_CTRL_SPARE_STS_REG_s {
 } MCU_CTRL_SPARE_STS_REG_s;
 
 typedef union MCU_CTRL_SPARE_STS_u {
-    MCU_CTRL_SPARE_STS_REG_s SPARE_STS;
+    MCU_CTRL_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -458,7 +458,7 @@ typedef struct MCU_CTRL_ANA_SPARE_STS_REG_s {
 } MCU_CTRL_ANA_SPARE_STS_REG_s;
 
 typedef union MCU_CTRL_ANA_SPARE_STS_u {
-    MCU_CTRL_ANA_SPARE_STS_REG_s ANA_SPARE_STS;
+    MCU_CTRL_ANA_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -469,7 +469,7 @@ typedef struct MCU_CTRL_ANA_SPARE_OUT0_REG_s {
 } MCU_CTRL_ANA_SPARE_OUT0_REG_s;
 
 typedef union MCU_CTRL_ANA_SPARE_OUT0_u {
-    MCU_CTRL_ANA_SPARE_OUT0_REG_s ANA_SPARE_OUT0;
+    MCU_CTRL_ANA_SPARE_OUT0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -480,7 +480,7 @@ typedef struct MCU_CTRL_ANA_SPARE_OUT1_REG_s {
 } MCU_CTRL_ANA_SPARE_OUT1_REG_s;
 
 typedef union MCU_CTRL_ANA_SPARE_OUT1_u {
-    MCU_CTRL_ANA_SPARE_OUT1_REG_s ANA_SPARE_OUT1;
+    MCU_CTRL_ANA_SPARE_OUT1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -522,238 +522,238 @@ typedef struct MCU_CTRL_REGS_s{
     volatile MCU_CTRL_ANA_SPARE_OUT1_u ANA_SPARE_OUT1;
 } MCU_CTRL_REGS_s;
 
-#define MCU_CTRL_DESC_module_type_OFS (0)
-#define MCU_CTRL_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define MCU_CTRL_DESC_module_subtype_OFS (8)
-#define MCU_CTRL_DESC_module_subtype_MASK ((uint32_t)0x0000FF00U)
-#define MCU_CTRL_DESC_major_rev_OFS (16)
-#define MCU_CTRL_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define MCU_CTRL_DESC_minor_rev_OFS (20)
-#define MCU_CTRL_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define MCU_CTRL_RST_CTRL_rst_OFS (0)
-#define MCU_CTRL_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_RST_CTRL_rst_sts_clr_OFS (1)
-#define MCU_CTRL_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define MCU_CTRL_RST_CTRL_rst_key_OFS (24)
-#define MCU_CTRL_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define MCU_CTRL_RST_STS_rst_sts_OFS (0)
-#define MCU_CTRL_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_CLK_CTRL_clk_en_OFS (0)
-#define MCU_CTRL_CLK_CTRL_clk_en_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_INTR_EVENT_bor_OFS (0)
-#define MCU_CTRL_INTR_EVENT_bor_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_INTR_EVENT_clk_lf_mon_fault_OFS (1)
-#define MCU_CTRL_INTR_EVENT_clk_lf_mon_fault_MASK ((uint32_t)0x00000002U)
-#define MCU_CTRL_INTR_EVENT_clk_32mhz_req_OFS (2)
-#define MCU_CTRL_INTR_EVENT_clk_32mhz_req_MASK ((uint32_t)0x00000004U)
-#define MCU_CTRL_INTR_EN_bor_en_OFS (0)
-#define MCU_CTRL_INTR_EN_bor_en_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_INTR_EN_clk_lf_mon_fault_en_OFS (1)
-#define MCU_CTRL_INTR_EN_clk_lf_mon_fault_en_MASK ((uint32_t)0x00000002U)
-#define MCU_CTRL_INTR_EN_clk_32mhz_req_en_OFS (2)
-#define MCU_CTRL_INTR_EN_clk_32mhz_req_en_MASK ((uint32_t)0x00000004U)
-#define MCU_CTRL_CLK_PWR_EN_hf_osc_pwr_en_OFS (0)
-#define MCU_CTRL_CLK_PWR_EN_hf_osc_pwr_en_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_CLK_PWR_EN_hf_xo_pwr_en_OFS (4)
-#define MCU_CTRL_CLK_PWR_EN_hf_xo_pwr_en_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_CLK_PWR_EN_pll_pwr_en_OFS (8)
-#define MCU_CTRL_CLK_PWR_EN_pll_pwr_en_MASK ((uint32_t)0x00000100U)
-#define MCU_CTRL_CLK_PWR_EN_lf_osc_pwr_en_OFS (12)
-#define MCU_CTRL_CLK_PWR_EN_lf_osc_pwr_en_MASK ((uint32_t)0x00001000U)
-#define MCU_CTRL_CLK_PWR_EN_lf_xo_pwr_en_OFS (16)
-#define MCU_CTRL_CLK_PWR_EN_lf_xo_pwr_en_MASK ((uint32_t)0x00010000U)
-#define MCU_CTRL_ANA_CLK_EN_hf_osc_clk_en_ovrd_val_OFS (0)
-#define MCU_CTRL_ANA_CLK_EN_hf_osc_clk_en_ovrd_val_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_ANA_CLK_EN_hf_osc_clk_en_ovrd_en_OFS (1)
-#define MCU_CTRL_ANA_CLK_EN_hf_osc_clk_en_ovrd_en_MASK ((uint32_t)0x00000002U)
-#define MCU_CTRL_ANA_CLK_EN_pll_clk_en_ovrd_val_OFS (4)
-#define MCU_CTRL_ANA_CLK_EN_pll_clk_en_ovrd_val_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_ANA_CLK_EN_pll_clk_en_ovrd_en_OFS (5)
-#define MCU_CTRL_ANA_CLK_EN_pll_clk_en_ovrd_en_MASK ((uint32_t)0x00000020U)
-#define MCU_CTRL_ANA_CLK_EN_hf_xo_or_ext_clk_ovrd_val_OFS (8)
-#define MCU_CTRL_ANA_CLK_EN_hf_xo_or_ext_clk_ovrd_val_MASK ((uint32_t)0x00000100U)
-#define MCU_CTRL_ANA_CLK_EN_hf_xo_or_ext_clk_ovrd_en_OFS (9)
-#define MCU_CTRL_ANA_CLK_EN_hf_xo_or_ext_clk_ovrd_en_MASK ((uint32_t)0x00000200U)
-#define MCU_CTRL_HF_CLK_CTRL_use_clk_pll_OFS (0)
-#define MCU_CTRL_HF_CLK_CTRL_use_clk_pll_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_HF_CLK_CTRL_use_hf_osc_OFS (4)
-#define MCU_CTRL_HF_CLK_CTRL_use_hf_osc_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_HF_CLK_CTRL_hf_xo_or_ext_div_OFS (12)
-#define MCU_CTRL_HF_CLK_CTRL_hf_xo_or_ext_div_MASK ((uint32_t)0x0000F000U)
-#define MCU_CTRL_HF_CLK_CTRL_use_precision_clk_OFS (16)
-#define MCU_CTRL_HF_CLK_CTRL_use_precision_clk_MASK ((uint32_t)0x00010000U)
-#define MCU_CTRL_HF_CLK_CTRL_hf_xo_en_OFS (20)
-#define MCU_CTRL_HF_CLK_CTRL_hf_xo_en_MASK ((uint32_t)0x00100000U)
-#define MCU_CTRL_HF_CLK_CTRL_hf_xo_or_ext_chng_time_OFS (24)
-#define MCU_CTRL_HF_CLK_CTRL_hf_xo_or_ext_chng_time_MASK ((uint32_t)0x0F000000U)
-#define MCU_CTRL_HF_CLK_CTRL_hf_osc_code_chng_time_OFS (28)
-#define MCU_CTRL_HF_CLK_CTRL_hf_osc_code_chng_time_MASK ((uint32_t)0xF0000000U)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_freq_OFS (0)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_freq_MASK ((uint32_t)0x0000000FU)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_div1_OFS (4)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_div1_MASK ((uint32_t)0x000000F0U)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_div2_OFS (8)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_div2_MASK ((uint32_t)0x00000F00U)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_4mhz_in_stop_OFS (12)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_4mhz_in_stop_MASK ((uint32_t)0x00001000U)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_disable_in_stop_OFS (13)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_disable_in_stop_MASK ((uint32_t)0x00002000U)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_disable_OFS (14)
-#define MCU_CTRL_HF_OSC_CLK_CTRL_hf_osc_disable_MASK ((uint32_t)0x00004000U)
-#define MCU_CTRL_LF_CLK_CTRL_lf_xo_en_OFS (0)
-#define MCU_CTRL_LF_CLK_CTRL_lf_xo_en_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_LF_CLK_CTRL_lf_osc_en_OFS (4)
-#define MCU_CTRL_LF_CLK_CTRL_lf_osc_en_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_LF_CLK_CTRL_lf_clk_sel_OFS (8)
-#define MCU_CTRL_LF_CLK_CTRL_lf_clk_sel_MASK ((uint32_t)0x00000300U)
-#define MCU_CTRL_LF_CLK_CTRL_gate_clocks_in_stdby_OFS (12)
-#define MCU_CTRL_LF_CLK_CTRL_gate_clocks_in_stdby_MASK ((uint32_t)0x00001000U)
-#define MCU_CTRL_LF_CLK_CTRL_lfosc_cfg0_OFS (16)
-#define MCU_CTRL_LF_CLK_CTRL_lfosc_cfg0_MASK ((uint32_t)0x00FF0000U)
-#define MCU_CTRL_XO_CFG_STS_hf_xo_cfg0_OFS (0)
-#define MCU_CTRL_XO_CFG_STS_hf_xo_cfg0_MASK ((uint32_t)0x000000FFU)
-#define MCU_CTRL_XO_CFG_STS_lf_xo_cfg0_OFS (8)
-#define MCU_CTRL_XO_CFG_STS_lf_xo_cfg0_MASK ((uint32_t)0x0000FF00U)
-#define MCU_CTRL_XO_CFG_STS_hf_xo_sts0_OFS (16)
-#define MCU_CTRL_XO_CFG_STS_hf_xo_sts0_MASK ((uint32_t)0x00FF0000U)
-#define MCU_CTRL_XO_CFG_STS_lf_xo_sts0_OFS (24)
-#define MCU_CTRL_XO_CFG_STS_lf_xo_sts0_MASK ((uint32_t)0xFF000000U)
-#define MCU_CTRL_AHB_HCLK_CTRL_use_lf_clk_OFS (0)
-#define MCU_CTRL_AHB_HCLK_CTRL_use_lf_clk_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_AHB_HCLK_CTRL_all_hf_clk_off_OFS (4)
-#define MCU_CTRL_AHB_HCLK_CTRL_all_hf_clk_off_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_AHB_HCLK_CTRL_only_hf_osc_on_OFS (8)
-#define MCU_CTRL_AHB_HCLK_CTRL_only_hf_osc_on_MASK ((uint32_t)0x00000100U)
-#define MCU_CTRL_APB_PCLK_CTRL_pclk_div_OFS (0)
-#define MCU_CTRL_APB_PCLK_CTRL_pclk_div_MASK ((uint32_t)0x0000000FU)
-#define MCU_CTRL_CLK_4MHZ_CTRL_clk_4mhz_en_OFS (0)
-#define MCU_CTRL_CLK_4MHZ_CTRL_clk_4mhz_en_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_ahb_ovrd_val_OFS (0)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_ahb_ovrd_val_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_ahb_ovrd_en_OFS (1)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_ahb_ovrd_en_MASK ((uint32_t)0x00000002U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_apb_ovrd_val_OFS (4)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_apb_ovrd_val_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_apb_ovrd_en_OFS (5)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_apb_ovrd_en_MASK ((uint32_t)0x00000020U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_4mhz_ovrd_val_OFS (8)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_4mhz_ovrd_val_MASK ((uint32_t)0x00000100U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_4mhz_ovrd_en_OFS (9)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_4mhz_ovrd_en_MASK ((uint32_t)0x00000200U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_lf_ovrd_val_OFS (12)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_lf_ovrd_val_MASK ((uint32_t)0x00001000U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_lf_ovrd_en_OFS (13)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_lf_ovrd_en_MASK ((uint32_t)0x00002000U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_cpu_ovrd_en_OFS (16)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_cpu_ovrd_en_MASK ((uint32_t)0x00010000U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_cpu_ovrd_val_OFS (17)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_clk_cpu_ovrd_val_MASK ((uint32_t)0x00020000U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_use_lf_clk_sm_ovrd_val_OFS (20)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_use_lf_clk_sm_ovrd_val_MASK ((uint32_t)0x00100000U)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_use_lf_clk_sm_ovrd_en_OFS (21)
-#define MCU_CTRL_PWR_SM_OVRD_CTL_use_lf_clk_sm_ovrd_en_MASK ((uint32_t)0x00200000U)
-#define MCU_CTRL_PLL_EN_pll_en_OFS (0)
-#define MCU_CTRL_PLL_EN_pll_en_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_PLL_EN_pll_mdiv_clk2x_en_OFS (4)
-#define MCU_CTRL_PLL_EN_pll_mdiv_clk2x_en_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_PLL_EN_pll_mdiv_clk0_en_OFS (8)
-#define MCU_CTRL_PLL_EN_pll_mdiv_clk0_en_MASK ((uint32_t)0x00000100U)
-#define MCU_CTRL_PLL_EN_pll_mdiv_clk1_en_OFS (16)
-#define MCU_CTRL_PLL_EN_pll_mdiv_clk1_en_MASK ((uint32_t)0x00010000U)
-#define MCU_CTRL_PLL_EN_pll_sw_cg_en_OFS (20)
-#define MCU_CTRL_PLL_EN_pll_sw_cg_en_MASK ((uint32_t)0x00100000U)
-#define MCU_CTRL_PLL_EN_pll_cp_icfg_OFS (24)
-#define MCU_CTRL_PLL_EN_pll_cp_icfg_MASK ((uint32_t)0xFF000000U)
-#define MCU_CTRL_PLL_CTRL1_pll_ref_sel_OFS (0)
-#define MCU_CTRL_PLL_CTRL1_pll_ref_sel_MASK ((uint32_t)0x00000003U)
-#define MCU_CTRL_PLL_CTRL1_pll_vco_freq_OFS (8)
-#define MCU_CTRL_PLL_CTRL1_pll_vco_freq_MASK ((uint32_t)0x0000FF00U)
-#define MCU_CTRL_PLL_CTRL1_pll_pfd_width_cfg_OFS (16)
-#define MCU_CTRL_PLL_CTRL1_pll_pfd_width_cfg_MASK ((uint32_t)0x00030000U)
-#define MCU_CTRL_PLL_CTRL1_pll_bw_OFS (24)
-#define MCU_CTRL_PLL_CTRL1_pll_bw_MASK ((uint32_t)0x03000000U)
-#define MCU_CTRL_PLL_CTRL1_pll_freq_chng_time_OFS (28)
-#define MCU_CTRL_PLL_CTRL1_pll_freq_chng_time_MASK ((uint32_t)0xF0000000U)
-#define MCU_CTRL_PLL_CTRL2_pll_mdiv_clk2x_OFS (0)
-#define MCU_CTRL_PLL_CTRL2_pll_mdiv_clk2x_MASK ((uint32_t)0x0000000FU)
-#define MCU_CTRL_PLL_CTRL2_pll_mdiv_clk0_OFS (4)
-#define MCU_CTRL_PLL_CTRL2_pll_mdiv_clk0_MASK ((uint32_t)0x000000F0U)
-#define MCU_CTRL_PLL_CTRL2_pll_mdiv_clk1_OFS (8)
-#define MCU_CTRL_PLL_CTRL2_pll_mdiv_clk1_MASK ((uint32_t)0x00000F00U)
-#define MCU_CTRL_PLL_CTRL2_pll_pdiv_OFS (12)
-#define MCU_CTRL_PLL_CTRL2_pll_pdiv_MASK ((uint32_t)0x0000F000U)
-#define MCU_CTRL_PLL_CTRL2_pll_qdiv_OFS (16)
-#define MCU_CTRL_PLL_CTRL2_pll_qdiv_MASK ((uint32_t)0xFFFF0000U)
-#define MCU_CTRL_BLOCK_CLK_REQ_block_ip_clk_32mhz_req_OFS (0)
-#define MCU_CTRL_BLOCK_CLK_REQ_block_ip_clk_32mhz_req_MASK ((uint32_t)0x00FFFFFFU)
-#define MCU_CTRL_PMODE_CFG_low_power_mode_OFS (0)
-#define MCU_CTRL_PMODE_CFG_low_power_mode_MASK ((uint32_t)0x00000007U)
-#define MCU_CTRL_AON_CTRL_aon_strb_OFS (0)
-#define MCU_CTRL_AON_CTRL_aon_strb_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_AON_CTRL_aon_addr_OFS (8)
-#define MCU_CTRL_AON_CTRL_aon_addr_MASK ((uint32_t)0x00000F00U)
-#define MCU_CTRL_AON_CTRL_aon_wdata_OFS (16)
-#define MCU_CTRL_AON_CTRL_aon_wdata_MASK ((uint32_t)0x00FF0000U)
-#define MCU_CTRL_AON_CTRL_aon_rdata_OFS (24)
-#define MCU_CTRL_AON_CTRL_aon_rdata_MASK ((uint32_t)0xFF000000U)
-#define MCU_CTRL_GPAMPCTL_gpamp_pwr_en_OFS (0)
-#define MCU_CTRL_GPAMPCTL_gpamp_pwr_en_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_GPAMPCTL_gpamp_en_OFS (1)
-#define MCU_CTRL_GPAMPCTL_gpamp_en_MASK ((uint32_t)0x00000002U)
-#define MCU_CTRL_GPAMPCTL_gpamp_out_en_OFS (2)
-#define MCU_CTRL_GPAMPCTL_gpamp_out_en_MASK ((uint32_t)0x00000004U)
-#define MCU_CTRL_GPAMPCTL_gpamp_nchnl_sel_OFS (4)
-#define MCU_CTRL_GPAMPCTL_gpamp_nchnl_sel_MASK ((uint32_t)0x00000070U)
-#define MCU_CTRL_GPAMPCTL_gpamp_pchnl_en_OFS (8)
-#define MCU_CTRL_GPAMPCTL_gpamp_pchnl_en_MASK ((uint32_t)0x00000300U)
-#define MCU_CTRL_GPAMPCTL_gpamp_rri_OFS (10)
-#define MCU_CTRL_GPAMPCTL_gpamp_rri_MASK ((uint32_t)0x00000C00U)
-#define MCU_CTRL_GPAMPCTL_gpamp_chop_clk_freq_OFS (12)
-#define MCU_CTRL_GPAMPCTL_gpamp_chop_clk_freq_MASK ((uint32_t)0x00003000U)
-#define MCU_CTRL_GPAMPCTL_gpamp_chop_clk_mode_OFS (14)
-#define MCU_CTRL_GPAMPCTL_gpamp_chop_clk_mode_MASK ((uint32_t)0x0000C000U)
-#define MCU_CTRL_GPAMPCTL_gpamp_cfg0_OFS (16)
-#define MCU_CTRL_GPAMPCTL_gpamp_cfg0_MASK ((uint32_t)0x00FF0000U)
-#define MCU_CTRL_GPAMPCTL_gpamp_cfg1_OFS (24)
-#define MCU_CTRL_GPAMPCTL_gpamp_cfg1_MASK ((uint32_t)0xFF000000U)
-#define MCU_CTRL_GPAMPSTS_gpamp_sts0_OFS (0)
-#define MCU_CTRL_GPAMPSTS_gpamp_sts0_MASK ((uint32_t)0x000000FFU)
-#define MCU_CTRL_GPAMPSTS_gpamp_sts1_OFS (8)
-#define MCU_CTRL_GPAMPSTS_gpamp_sts1_MASK ((uint32_t)0x0000FF00U)
-#define MCU_CTRL_PROCMONCTL_proc_mon_pwr_en_OFS (0)
-#define MCU_CTRL_PROCMONCTL_proc_mon_pwr_en_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_PROCMONCTL_proc_mon_en_OFS (1)
-#define MCU_CTRL_PROCMONCTL_proc_mon_en_MASK ((uint32_t)0x00000002U)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl0_OFS (0)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl0_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl1_OFS (1)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl1_MASK ((uint32_t)0x00000002U)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl2_OFS (2)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl2_MASK ((uint32_t)0x00000004U)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl3_OFS (3)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl3_MASK ((uint32_t)0x00000008U)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl4_OFS (4)
-#define MCU_CTRL_MCU_SW_RST_sw_rst_lvl4_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_BOOT_CFG_boot_sel_OFS (0)
-#define MCU_CTRL_BOOT_CFG_boot_sel_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_BOOT_CFG_fw_trigger_OFS (4)
-#define MCU_CTRL_BOOT_CFG_fw_trigger_MASK ((uint32_t)0x00000010U)
-#define MCU_CTRL_BOR_MODE_SEL_bor_mode_OFS (0)
-#define MCU_CTRL_BOR_MODE_SEL_bor_mode_MASK ((uint32_t)0x00000001U)
-#define MCU_CTRL_BOR_MODE_SEL_bor_key_OFS (24)
-#define MCU_CTRL_BOR_MODE_SEL_bor_key_MASK ((uint32_t)0xFF000000U)
-#define MCU_CTRL_SPARE_CTRL_cfg0_OFS (0)
-#define MCU_CTRL_SPARE_CTRL_cfg0_MASK ((uint32_t)0x000000FFU)
-#define MCU_CTRL_SPARE_CTRL_cfg1_OFS (8)
-#define MCU_CTRL_SPARE_CTRL_cfg1_MASK ((uint32_t)0x0000FF00U)
-#define MCU_CTRL_SPARE_STS_sts0_OFS (0)
-#define MCU_CTRL_SPARE_STS_sts0_MASK ((uint32_t)0x000000FFU)
-#define MCU_CTRL_SPARE_STS_sts1_OFS (8)
-#define MCU_CTRL_SPARE_STS_sts1_MASK ((uint32_t)0x0000FF00U)
-#define MCU_CTRL_ANA_SPARE_STS_spare_in_OFS (0)
-#define MCU_CTRL_ANA_SPARE_STS_spare_in_MASK ((uint32_t)0x0000FFFFU)
-#define MCU_CTRL_ANA_SPARE_OUT0_spare_out_0_OFS (0)
-#define MCU_CTRL_ANA_SPARE_OUT0_spare_out_0_MASK ((uint32_t)0xFFFFFFFFU)
-#define MCU_CTRL_ANA_SPARE_OUT1_spare_out_1_OFS (0)
-#define MCU_CTRL_ANA_SPARE_OUT1_spare_out_1_MASK ((uint32_t)0xFFFFFFFFU)
+#define MCU_CTRL_DESC_MODULE_TYPE_OFS (0)
+#define MCU_CTRL_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define MCU_CTRL_DESC_MODULE_SUBTYPE_OFS (8)
+#define MCU_CTRL_DESC_MODULE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define MCU_CTRL_DESC_MAJOR_REV_OFS (16)
+#define MCU_CTRL_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define MCU_CTRL_DESC_MINOR_REV_OFS (20)
+#define MCU_CTRL_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define MCU_CTRL_RST_CTRL_RST_OFS (0)
+#define MCU_CTRL_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_RST_CTRL_RST_STS_CLR_OFS (1)
+#define MCU_CTRL_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define MCU_CTRL_RST_CTRL_RST_KEY_OFS (24)
+#define MCU_CTRL_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define MCU_CTRL_RST_STS_RST_STS_OFS (0)
+#define MCU_CTRL_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_CLK_CTRL_CLK_EN_OFS (0)
+#define MCU_CTRL_CLK_CTRL_CLK_EN_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_INTR_EVENT_BOR_OFS (0)
+#define MCU_CTRL_INTR_EVENT_BOR_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_INTR_EVENT_CLK_LF_MON_FAULT_OFS (1)
+#define MCU_CTRL_INTR_EVENT_CLK_LF_MON_FAULT_MASK ((uint32_t)0x00000002U)
+#define MCU_CTRL_INTR_EVENT_CLK_32MHZ_REQ_OFS (2)
+#define MCU_CTRL_INTR_EVENT_CLK_32MHZ_REQ_MASK ((uint32_t)0x00000004U)
+#define MCU_CTRL_INTR_EN_BOR_EN_OFS (0)
+#define MCU_CTRL_INTR_EN_BOR_EN_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_INTR_EN_CLK_LF_MON_FAULT_EN_OFS (1)
+#define MCU_CTRL_INTR_EN_CLK_LF_MON_FAULT_EN_MASK ((uint32_t)0x00000002U)
+#define MCU_CTRL_INTR_EN_CLK_32MHZ_REQ_EN_OFS (2)
+#define MCU_CTRL_INTR_EN_CLK_32MHZ_REQ_EN_MASK ((uint32_t)0x00000004U)
+#define MCU_CTRL_CLK_PWR_EN_HF_OSC_PWR_EN_OFS (0)
+#define MCU_CTRL_CLK_PWR_EN_HF_OSC_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_CLK_PWR_EN_HF_XO_PWR_EN_OFS (4)
+#define MCU_CTRL_CLK_PWR_EN_HF_XO_PWR_EN_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_CLK_PWR_EN_PLL_PWR_EN_OFS (8)
+#define MCU_CTRL_CLK_PWR_EN_PLL_PWR_EN_MASK ((uint32_t)0x00000100U)
+#define MCU_CTRL_CLK_PWR_EN_LF_OSC_PWR_EN_OFS (12)
+#define MCU_CTRL_CLK_PWR_EN_LF_OSC_PWR_EN_MASK ((uint32_t)0x00001000U)
+#define MCU_CTRL_CLK_PWR_EN_LF_XO_PWR_EN_OFS (16)
+#define MCU_CTRL_CLK_PWR_EN_LF_XO_PWR_EN_MASK ((uint32_t)0x00010000U)
+#define MCU_CTRL_ANA_CLK_EN_HF_OSC_CLK_EN_OVRD_VAL_OFS (0)
+#define MCU_CTRL_ANA_CLK_EN_HF_OSC_CLK_EN_OVRD_VAL_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_ANA_CLK_EN_HF_OSC_CLK_EN_OVRD_EN_OFS (1)
+#define MCU_CTRL_ANA_CLK_EN_HF_OSC_CLK_EN_OVRD_EN_MASK ((uint32_t)0x00000002U)
+#define MCU_CTRL_ANA_CLK_EN_PLL_CLK_EN_OVRD_VAL_OFS (4)
+#define MCU_CTRL_ANA_CLK_EN_PLL_CLK_EN_OVRD_VAL_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_ANA_CLK_EN_PLL_CLK_EN_OVRD_EN_OFS (5)
+#define MCU_CTRL_ANA_CLK_EN_PLL_CLK_EN_OVRD_EN_MASK ((uint32_t)0x00000020U)
+#define MCU_CTRL_ANA_CLK_EN_HF_XO_OR_EXT_CLK_OVRD_VAL_OFS (8)
+#define MCU_CTRL_ANA_CLK_EN_HF_XO_OR_EXT_CLK_OVRD_VAL_MASK ((uint32_t)0x00000100U)
+#define MCU_CTRL_ANA_CLK_EN_HF_XO_OR_EXT_CLK_OVRD_EN_OFS (9)
+#define MCU_CTRL_ANA_CLK_EN_HF_XO_OR_EXT_CLK_OVRD_EN_MASK ((uint32_t)0x00000200U)
+#define MCU_CTRL_HF_CLK_CTRL_USE_CLK_PLL_OFS (0)
+#define MCU_CTRL_HF_CLK_CTRL_USE_CLK_PLL_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_HF_CLK_CTRL_USE_HF_OSC_OFS (4)
+#define MCU_CTRL_HF_CLK_CTRL_USE_HF_OSC_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_HF_CLK_CTRL_HF_XO_OR_EXT_DIV_OFS (12)
+#define MCU_CTRL_HF_CLK_CTRL_HF_XO_OR_EXT_DIV_MASK ((uint32_t)0x0000F000U)
+#define MCU_CTRL_HF_CLK_CTRL_USE_PRECISION_CLK_OFS (16)
+#define MCU_CTRL_HF_CLK_CTRL_USE_PRECISION_CLK_MASK ((uint32_t)0x00010000U)
+#define MCU_CTRL_HF_CLK_CTRL_HF_XO_EN_OFS (20)
+#define MCU_CTRL_HF_CLK_CTRL_HF_XO_EN_MASK ((uint32_t)0x00100000U)
+#define MCU_CTRL_HF_CLK_CTRL_HF_XO_OR_EXT_CHNG_TIME_OFS (24)
+#define MCU_CTRL_HF_CLK_CTRL_HF_XO_OR_EXT_CHNG_TIME_MASK ((uint32_t)0x0F000000U)
+#define MCU_CTRL_HF_CLK_CTRL_HF_OSC_CODE_CHNG_TIME_OFS (28)
+#define MCU_CTRL_HF_CLK_CTRL_HF_OSC_CODE_CHNG_TIME_MASK ((uint32_t)0xF0000000U)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_FREQ_OFS (0)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_FREQ_MASK ((uint32_t)0x0000000FU)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_DIV1_OFS (4)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_DIV1_MASK ((uint32_t)0x000000F0U)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_DIV2_OFS (8)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_DIV2_MASK ((uint32_t)0x00000F00U)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_4MHZ_IN_STOP_OFS (12)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_4MHZ_IN_STOP_MASK ((uint32_t)0x00001000U)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_DISABLE_IN_STOP_OFS (13)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_DISABLE_IN_STOP_MASK ((uint32_t)0x00002000U)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_DISABLE_OFS (14)
+#define MCU_CTRL_HF_OSC_CLK_CTRL_HF_OSC_DISABLE_MASK ((uint32_t)0x00004000U)
+#define MCU_CTRL_LF_CLK_CTRL_LF_XO_EN_OFS (0)
+#define MCU_CTRL_LF_CLK_CTRL_LF_XO_EN_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_LF_CLK_CTRL_LF_OSC_EN_OFS (4)
+#define MCU_CTRL_LF_CLK_CTRL_LF_OSC_EN_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_LF_CLK_CTRL_LF_CLK_SEL_OFS (8)
+#define MCU_CTRL_LF_CLK_CTRL_LF_CLK_SEL_MASK ((uint32_t)0x00000300U)
+#define MCU_CTRL_LF_CLK_CTRL_GATE_CLOCKS_IN_STDBY_OFS (12)
+#define MCU_CTRL_LF_CLK_CTRL_GATE_CLOCKS_IN_STDBY_MASK ((uint32_t)0x00001000U)
+#define MCU_CTRL_LF_CLK_CTRL_LFOSC_CFG0_OFS (16)
+#define MCU_CTRL_LF_CLK_CTRL_LFOSC_CFG0_MASK ((uint32_t)0x00FF0000U)
+#define MCU_CTRL_XO_CFG_STS_HF_XO_CFG0_OFS (0)
+#define MCU_CTRL_XO_CFG_STS_HF_XO_CFG0_MASK ((uint32_t)0x000000FFU)
+#define MCU_CTRL_XO_CFG_STS_LF_XO_CFG0_OFS (8)
+#define MCU_CTRL_XO_CFG_STS_LF_XO_CFG0_MASK ((uint32_t)0x0000FF00U)
+#define MCU_CTRL_XO_CFG_STS_HF_XO_STS0_OFS (16)
+#define MCU_CTRL_XO_CFG_STS_HF_XO_STS0_MASK ((uint32_t)0x00FF0000U)
+#define MCU_CTRL_XO_CFG_STS_LF_XO_STS0_OFS (24)
+#define MCU_CTRL_XO_CFG_STS_LF_XO_STS0_MASK ((uint32_t)0xFF000000U)
+#define MCU_CTRL_AHB_HCLK_CTRL_USE_LF_CLK_OFS (0)
+#define MCU_CTRL_AHB_HCLK_CTRL_USE_LF_CLK_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_AHB_HCLK_CTRL_ALL_HF_CLK_OFF_OFS (4)
+#define MCU_CTRL_AHB_HCLK_CTRL_ALL_HF_CLK_OFF_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_AHB_HCLK_CTRL_ONLY_HF_OSC_ON_OFS (8)
+#define MCU_CTRL_AHB_HCLK_CTRL_ONLY_HF_OSC_ON_MASK ((uint32_t)0x00000100U)
+#define MCU_CTRL_APB_PCLK_CTRL_PCLK_DIV_OFS (0)
+#define MCU_CTRL_APB_PCLK_CTRL_PCLK_DIV_MASK ((uint32_t)0x0000000FU)
+#define MCU_CTRL_CLK_4MHZ_CTRL_CLK_4MHZ_EN_OFS (0)
+#define MCU_CTRL_CLK_4MHZ_CTRL_CLK_4MHZ_EN_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_AHB_OVRD_VAL_OFS (0)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_AHB_OVRD_VAL_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_AHB_OVRD_EN_OFS (1)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_AHB_OVRD_EN_MASK ((uint32_t)0x00000002U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_APB_OVRD_VAL_OFS (4)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_APB_OVRD_VAL_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_APB_OVRD_EN_OFS (5)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_APB_OVRD_EN_MASK ((uint32_t)0x00000020U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_4MHZ_OVRD_VAL_OFS (8)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_4MHZ_OVRD_VAL_MASK ((uint32_t)0x00000100U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_4MHZ_OVRD_EN_OFS (9)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_4MHZ_OVRD_EN_MASK ((uint32_t)0x00000200U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_LF_OVRD_VAL_OFS (12)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_LF_OVRD_VAL_MASK ((uint32_t)0x00001000U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_LF_OVRD_EN_OFS (13)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_LF_OVRD_EN_MASK ((uint32_t)0x00002000U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_CPU_OVRD_EN_OFS (16)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_CPU_OVRD_EN_MASK ((uint32_t)0x00010000U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_CPU_OVRD_VAL_OFS (17)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_CLK_CPU_OVRD_VAL_MASK ((uint32_t)0x00020000U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_USE_LF_CLK_SM_OVRD_VAL_OFS (20)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_USE_LF_CLK_SM_OVRD_VAL_MASK ((uint32_t)0x00100000U)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_USE_LF_CLK_SM_OVRD_EN_OFS (21)
+#define MCU_CTRL_PWR_SM_OVRD_CTL_USE_LF_CLK_SM_OVRD_EN_MASK ((uint32_t)0x00200000U)
+#define MCU_CTRL_PLL_EN_PLL_EN_OFS (0)
+#define MCU_CTRL_PLL_EN_PLL_EN_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_PLL_EN_PLL_MDIV_CLK2X_EN_OFS (4)
+#define MCU_CTRL_PLL_EN_PLL_MDIV_CLK2X_EN_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_PLL_EN_PLL_MDIV_CLK0_EN_OFS (8)
+#define MCU_CTRL_PLL_EN_PLL_MDIV_CLK0_EN_MASK ((uint32_t)0x00000100U)
+#define MCU_CTRL_PLL_EN_PLL_MDIV_CLK1_EN_OFS (16)
+#define MCU_CTRL_PLL_EN_PLL_MDIV_CLK1_EN_MASK ((uint32_t)0x00010000U)
+#define MCU_CTRL_PLL_EN_PLL_SW_CG_EN_OFS (20)
+#define MCU_CTRL_PLL_EN_PLL_SW_CG_EN_MASK ((uint32_t)0x00100000U)
+#define MCU_CTRL_PLL_EN_PLL_CP_ICFG_OFS (24)
+#define MCU_CTRL_PLL_EN_PLL_CP_ICFG_MASK ((uint32_t)0xFF000000U)
+#define MCU_CTRL_PLL_CTRL1_PLL_REF_SEL_OFS (0)
+#define MCU_CTRL_PLL_CTRL1_PLL_REF_SEL_MASK ((uint32_t)0x00000003U)
+#define MCU_CTRL_PLL_CTRL1_PLL_VCO_FREQ_OFS (8)
+#define MCU_CTRL_PLL_CTRL1_PLL_VCO_FREQ_MASK ((uint32_t)0x0000FF00U)
+#define MCU_CTRL_PLL_CTRL1_PLL_PFD_WIDTH_CFG_OFS (16)
+#define MCU_CTRL_PLL_CTRL1_PLL_PFD_WIDTH_CFG_MASK ((uint32_t)0x00030000U)
+#define MCU_CTRL_PLL_CTRL1_PLL_BW_OFS (24)
+#define MCU_CTRL_PLL_CTRL1_PLL_BW_MASK ((uint32_t)0x03000000U)
+#define MCU_CTRL_PLL_CTRL1_PLL_FREQ_CHNG_TIME_OFS (28)
+#define MCU_CTRL_PLL_CTRL1_PLL_FREQ_CHNG_TIME_MASK ((uint32_t)0xF0000000U)
+#define MCU_CTRL_PLL_CTRL2_PLL_MDIV_CLK2X_OFS (0)
+#define MCU_CTRL_PLL_CTRL2_PLL_MDIV_CLK2X_MASK ((uint32_t)0x0000000FU)
+#define MCU_CTRL_PLL_CTRL2_PLL_MDIV_CLK0_OFS (4)
+#define MCU_CTRL_PLL_CTRL2_PLL_MDIV_CLK0_MASK ((uint32_t)0x000000F0U)
+#define MCU_CTRL_PLL_CTRL2_PLL_MDIV_CLK1_OFS (8)
+#define MCU_CTRL_PLL_CTRL2_PLL_MDIV_CLK1_MASK ((uint32_t)0x00000F00U)
+#define MCU_CTRL_PLL_CTRL2_PLL_PDIV_OFS (12)
+#define MCU_CTRL_PLL_CTRL2_PLL_PDIV_MASK ((uint32_t)0x0000F000U)
+#define MCU_CTRL_PLL_CTRL2_PLL_QDIV_OFS (16)
+#define MCU_CTRL_PLL_CTRL2_PLL_QDIV_MASK ((uint32_t)0xFFFF0000U)
+#define MCU_CTRL_BLOCK_CLK_REQ_BLOCK_IP_CLK_32MHZ_REQ_OFS (0)
+#define MCU_CTRL_BLOCK_CLK_REQ_BLOCK_IP_CLK_32MHZ_REQ_MASK ((uint32_t)0x00FFFFFFU)
+#define MCU_CTRL_PMODE_CFG_LOW_POWER_MODE_OFS (0)
+#define MCU_CTRL_PMODE_CFG_LOW_POWER_MODE_MASK ((uint32_t)0x00000007U)
+#define MCU_CTRL_AON_CTRL_AON_STRB_OFS (0)
+#define MCU_CTRL_AON_CTRL_AON_STRB_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_AON_CTRL_AON_ADDR_OFS (8)
+#define MCU_CTRL_AON_CTRL_AON_ADDR_MASK ((uint32_t)0x00000F00U)
+#define MCU_CTRL_AON_CTRL_AON_WDATA_OFS (16)
+#define MCU_CTRL_AON_CTRL_AON_WDATA_MASK ((uint32_t)0x00FF0000U)
+#define MCU_CTRL_AON_CTRL_AON_RDATA_OFS (24)
+#define MCU_CTRL_AON_CTRL_AON_RDATA_MASK ((uint32_t)0xFF000000U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_PWR_EN_OFS (0)
+#define MCU_CTRL_GPAMPCTL_GPAMP_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_EN_OFS (1)
+#define MCU_CTRL_GPAMPCTL_GPAMP_EN_MASK ((uint32_t)0x00000002U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_OUT_EN_OFS (2)
+#define MCU_CTRL_GPAMPCTL_GPAMP_OUT_EN_MASK ((uint32_t)0x00000004U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_NCHNL_SEL_OFS (4)
+#define MCU_CTRL_GPAMPCTL_GPAMP_NCHNL_SEL_MASK ((uint32_t)0x00000070U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_PCHNL_EN_OFS (8)
+#define MCU_CTRL_GPAMPCTL_GPAMP_PCHNL_EN_MASK ((uint32_t)0x00000300U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_RRI_OFS (10)
+#define MCU_CTRL_GPAMPCTL_GPAMP_RRI_MASK ((uint32_t)0x00000C00U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_CHOP_CLK_FREQ_OFS (12)
+#define MCU_CTRL_GPAMPCTL_GPAMP_CHOP_CLK_FREQ_MASK ((uint32_t)0x00003000U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_CHOP_CLK_MODE_OFS (14)
+#define MCU_CTRL_GPAMPCTL_GPAMP_CHOP_CLK_MODE_MASK ((uint32_t)0x0000C000U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_CFG0_OFS (16)
+#define MCU_CTRL_GPAMPCTL_GPAMP_CFG0_MASK ((uint32_t)0x00FF0000U)
+#define MCU_CTRL_GPAMPCTL_GPAMP_CFG1_OFS (24)
+#define MCU_CTRL_GPAMPCTL_GPAMP_CFG1_MASK ((uint32_t)0xFF000000U)
+#define MCU_CTRL_GPAMPSTS_GPAMP_STS0_OFS (0)
+#define MCU_CTRL_GPAMPSTS_GPAMP_STS0_MASK ((uint32_t)0x000000FFU)
+#define MCU_CTRL_GPAMPSTS_GPAMP_STS1_OFS (8)
+#define MCU_CTRL_GPAMPSTS_GPAMP_STS1_MASK ((uint32_t)0x0000FF00U)
+#define MCU_CTRL_PROCMONCTL_PROC_MON_PWR_EN_OFS (0)
+#define MCU_CTRL_PROCMONCTL_PROC_MON_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_PROCMONCTL_PROC_MON_EN_OFS (1)
+#define MCU_CTRL_PROCMONCTL_PROC_MON_EN_MASK ((uint32_t)0x00000002U)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL0_OFS (0)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL0_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL1_OFS (1)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL1_MASK ((uint32_t)0x00000002U)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL2_OFS (2)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL2_MASK ((uint32_t)0x00000004U)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL3_OFS (3)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL3_MASK ((uint32_t)0x00000008U)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL4_OFS (4)
+#define MCU_CTRL_MCU_SW_RST_SW_RST_LVL4_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_BOOT_CFG_BOOT_SEL_OFS (0)
+#define MCU_CTRL_BOOT_CFG_BOOT_SEL_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_BOOT_CFG_FW_TRIGGER_OFS (4)
+#define MCU_CTRL_BOOT_CFG_FW_TRIGGER_MASK ((uint32_t)0x00000010U)
+#define MCU_CTRL_BOR_MODE_SEL_BOR_MODE_OFS (0)
+#define MCU_CTRL_BOR_MODE_SEL_BOR_MODE_MASK ((uint32_t)0x00000001U)
+#define MCU_CTRL_BOR_MODE_SEL_BOR_KEY_OFS (24)
+#define MCU_CTRL_BOR_MODE_SEL_BOR_KEY_MASK ((uint32_t)0xFF000000U)
+#define MCU_CTRL_SPARE_CTRL_CFG0_OFS (0)
+#define MCU_CTRL_SPARE_CTRL_CFG0_MASK ((uint32_t)0x000000FFU)
+#define MCU_CTRL_SPARE_CTRL_CFG1_OFS (8)
+#define MCU_CTRL_SPARE_CTRL_CFG1_MASK ((uint32_t)0x0000FF00U)
+#define MCU_CTRL_SPARE_STS_STS0_OFS (0)
+#define MCU_CTRL_SPARE_STS_STS0_MASK ((uint32_t)0x000000FFU)
+#define MCU_CTRL_SPARE_STS_STS1_OFS (8)
+#define MCU_CTRL_SPARE_STS_STS1_MASK ((uint32_t)0x0000FF00U)
+#define MCU_CTRL_ANA_SPARE_STS_SPARE_IN_OFS (0)
+#define MCU_CTRL_ANA_SPARE_STS_SPARE_IN_MASK ((uint32_t)0x0000FFFFU)
+#define MCU_CTRL_ANA_SPARE_OUT0_SPARE_OUT_0_OFS (0)
+#define MCU_CTRL_ANA_SPARE_OUT0_SPARE_OUT_0_MASK ((uint32_t)0xFFFFFFFFU)
+#define MCU_CTRL_ANA_SPARE_OUT1_SPARE_OUT_1_OFS (0)
+#define MCU_CTRL_ANA_SPARE_OUT1_SPARE_OUT_1_MASK ((uint32_t)0xFFFFFFFFU)
 #endif

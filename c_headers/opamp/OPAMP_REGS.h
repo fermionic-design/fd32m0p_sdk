@@ -11,7 +11,7 @@ typedef struct OPAMP_DESC_REG_s {
 } OPAMP_DESC_REG_s;
 
 typedef union OPAMP_DESC_u {
-    OPAMP_DESC_REG_s DESC;
+    OPAMP_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct OPAMP_PWR_EN_REG_s {
 } OPAMP_PWR_EN_REG_s;
 
 typedef union OPAMP_PWR_EN_u {
-    OPAMP_PWR_EN_REG_s PWR_EN;
+    OPAMP_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -38,7 +38,7 @@ typedef struct OPAMP_RST_CTRL_REG_s {
 } OPAMP_RST_CTRL_REG_s;
 
 typedef union OPAMP_RST_CTRL_u {
-    OPAMP_RST_CTRL_REG_s RST_CTRL;
+    OPAMP_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -49,7 +49,7 @@ typedef struct OPAMP_RST_STS_REG_s {
 } OPAMP_RST_STS_REG_s;
 
 typedef union OPAMP_RST_STS_u {
-    OPAMP_RST_STS_REG_s RST_STS;
+    OPAMP_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -66,7 +66,7 @@ typedef struct OPAMP_CTRL0_REG_s {
 } OPAMP_CTRL0_REG_s;
 
 typedef union OPAMP_CTRL0_u {
-    OPAMP_CTRL0_REG_s CTRL0;
+    OPAMP_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -83,7 +83,7 @@ typedef struct OPAMP_GAIN_CTRL0_REG_s {
 } OPAMP_GAIN_CTRL0_REG_s;
 
 typedef union OPAMP_GAIN_CTRL0_u {
-    OPAMP_GAIN_CTRL0_REG_s GAIN_CTRL0;
+    OPAMP_GAIN_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -96,7 +96,7 @@ typedef struct OPAMP_INPUT_CTRL0_REG_s {
 } OPAMP_INPUT_CTRL0_REG_s;
 
 typedef union OPAMP_INPUT_CTRL0_u {
-    OPAMP_INPUT_CTRL0_REG_s INPUT_CTRL0;
+    OPAMP_INPUT_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -108,7 +108,7 @@ typedef struct OPAMP_SPARE_CTRL_REG_s {
 } OPAMP_SPARE_CTRL_REG_s;
 
 typedef union OPAMP_SPARE_CTRL_u {
-    OPAMP_SPARE_CTRL_REG_s SPARE_CTRL;
+    OPAMP_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -120,7 +120,7 @@ typedef struct OPAMP_SPARE_STS_REG_s {
 } OPAMP_SPARE_STS_REG_s;
 
 typedef union OPAMP_SPARE_STS_u {
-    OPAMP_SPARE_STS_REG_s SPARE_STS;
+    OPAMP_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -138,54 +138,54 @@ typedef struct OPAMP_REGS_s{
     volatile OPAMP_SPARE_STS_u SPARE_STS;
 } OPAMP_REGS_s;
 
-#define OPAMP_DESC_module_type_OFS (0)
-#define OPAMP_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define OPAMP_DESC_modue_subtype_OFS (8)
-#define OPAMP_DESC_modue_subtype_MASK ((uint32_t)0x0000FF00U)
-#define OPAMP_DESC_major_rev_OFS (16)
-#define OPAMP_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define OPAMP_DESC_minor_rev_OFS (20)
-#define OPAMP_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define OPAMP_PWR_EN_pwr_en_OFS (0)
-#define OPAMP_PWR_EN_pwr_en_MASK ((uint32_t)0x00000001U)
-#define OPAMP_PWR_EN_pwr_en_key_OFS (24)
-#define OPAMP_PWR_EN_pwr_en_key_MASK ((uint32_t)0xFF000000U)
-#define OPAMP_RST_CTRL_rst_OFS (0)
-#define OPAMP_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define OPAMP_RST_CTRL_rst_sts_clr_OFS (1)
-#define OPAMP_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define OPAMP_RST_CTRL_rst_key_OFS (24)
-#define OPAMP_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define OPAMP_RST_STS_rst_sts_OFS (0)
-#define OPAMP_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define OPAMP_CTRL0_enable_OFS (0)
-#define OPAMP_CTRL0_enable_MASK ((uint32_t)0x00000001U)
-#define OPAMP_CTRL0_bcs_en_OFS (8)
-#define OPAMP_CTRL0_bcs_en_MASK ((uint32_t)0x00000100U)
-#define OPAMP_CTRL0_rri_en_OFS (16)
-#define OPAMP_CTRL0_rri_en_MASK ((uint32_t)0x00010000U)
-#define OPAMP_CTRL0_out_en_OFS (24)
-#define OPAMP_CTRL0_out_en_MASK ((uint32_t)0x01000000U)
-#define OPAMP_GAIN_CTRL0_gain_OFS (0)
-#define OPAMP_GAIN_CTRL0_gain_MASK ((uint32_t)0x0000000FU)
-#define OPAMP_GAIN_CTRL0_gbw_OFS (8)
-#define OPAMP_GAIN_CTRL0_gbw_MASK ((uint32_t)0x00000100U)
-#define OPAMP_GAIN_CTRL0_chop_en_OFS (16)
-#define OPAMP_GAIN_CTRL0_chop_en_MASK ((uint32_t)0x00010000U)
-#define OPAMP_GAIN_CTRL0_chop_mode_OFS (24)
-#define OPAMP_GAIN_CTRL0_chop_mode_MASK ((uint32_t)0x01000000U)
-#define OPAMP_INPUT_CTRL0_in_p_sel_OFS (0)
-#define OPAMP_INPUT_CTRL0_in_p_sel_MASK ((uint32_t)0x0000000FU)
-#define OPAMP_INPUT_CTRL0_in_n_sel_OFS (4)
-#define OPAMP_INPUT_CTRL0_in_n_sel_MASK ((uint32_t)0x000000F0U)
-#define OPAMP_INPUT_CTRL0_in_m_sel_OFS (8)
-#define OPAMP_INPUT_CTRL0_in_m_sel_MASK ((uint32_t)0x00000F00U)
-#define OPAMP_SPARE_CTRL_cfg0_OFS (0)
-#define OPAMP_SPARE_CTRL_cfg0_MASK ((uint32_t)0x000000FFU)
-#define OPAMP_SPARE_CTRL_cfg1_OFS (8)
-#define OPAMP_SPARE_CTRL_cfg1_MASK ((uint32_t)0x0000FF00U)
-#define OPAMP_SPARE_STS_sts0_OFS (0)
-#define OPAMP_SPARE_STS_sts0_MASK ((uint32_t)0x000000FFU)
-#define OPAMP_SPARE_STS_sts1_OFS (8)
-#define OPAMP_SPARE_STS_sts1_MASK ((uint32_t)0x0000FF00U)
+#define OPAMP_DESC_MODULE_TYPE_OFS (0)
+#define OPAMP_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define OPAMP_DESC_MODUE_SUBTYPE_OFS (8)
+#define OPAMP_DESC_MODUE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define OPAMP_DESC_MAJOR_REV_OFS (16)
+#define OPAMP_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define OPAMP_DESC_MINOR_REV_OFS (20)
+#define OPAMP_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define OPAMP_PWR_EN_PWR_EN_OFS (0)
+#define OPAMP_PWR_EN_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define OPAMP_PWR_EN_PWR_EN_KEY_OFS (24)
+#define OPAMP_PWR_EN_PWR_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define OPAMP_RST_CTRL_RST_OFS (0)
+#define OPAMP_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define OPAMP_RST_CTRL_RST_STS_CLR_OFS (1)
+#define OPAMP_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define OPAMP_RST_CTRL_RST_KEY_OFS (24)
+#define OPAMP_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define OPAMP_RST_STS_RST_STS_OFS (0)
+#define OPAMP_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define OPAMP_CTRL0_ENABLE_OFS (0)
+#define OPAMP_CTRL0_ENABLE_MASK ((uint32_t)0x00000001U)
+#define OPAMP_CTRL0_BCS_EN_OFS (8)
+#define OPAMP_CTRL0_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define OPAMP_CTRL0_RRI_EN_OFS (16)
+#define OPAMP_CTRL0_RRI_EN_MASK ((uint32_t)0x00010000U)
+#define OPAMP_CTRL0_OUT_EN_OFS (24)
+#define OPAMP_CTRL0_OUT_EN_MASK ((uint32_t)0x01000000U)
+#define OPAMP_GAIN_CTRL0_GAIN_OFS (0)
+#define OPAMP_GAIN_CTRL0_GAIN_MASK ((uint32_t)0x0000000FU)
+#define OPAMP_GAIN_CTRL0_GBW_OFS (8)
+#define OPAMP_GAIN_CTRL0_GBW_MASK ((uint32_t)0x00000100U)
+#define OPAMP_GAIN_CTRL0_CHOP_EN_OFS (16)
+#define OPAMP_GAIN_CTRL0_CHOP_EN_MASK ((uint32_t)0x00010000U)
+#define OPAMP_GAIN_CTRL0_CHOP_MODE_OFS (24)
+#define OPAMP_GAIN_CTRL0_CHOP_MODE_MASK ((uint32_t)0x01000000U)
+#define OPAMP_INPUT_CTRL0_IN_P_SEL_OFS (0)
+#define OPAMP_INPUT_CTRL0_IN_P_SEL_MASK ((uint32_t)0x0000000FU)
+#define OPAMP_INPUT_CTRL0_IN_N_SEL_OFS (4)
+#define OPAMP_INPUT_CTRL0_IN_N_SEL_MASK ((uint32_t)0x000000F0U)
+#define OPAMP_INPUT_CTRL0_IN_M_SEL_OFS (8)
+#define OPAMP_INPUT_CTRL0_IN_M_SEL_MASK ((uint32_t)0x00000F00U)
+#define OPAMP_SPARE_CTRL_CFG0_OFS (0)
+#define OPAMP_SPARE_CTRL_CFG0_MASK ((uint32_t)0x000000FFU)
+#define OPAMP_SPARE_CTRL_CFG1_OFS (8)
+#define OPAMP_SPARE_CTRL_CFG1_MASK ((uint32_t)0x0000FF00U)
+#define OPAMP_SPARE_STS_STS0_OFS (0)
+#define OPAMP_SPARE_STS_STS0_MASK ((uint32_t)0x000000FFU)
+#define OPAMP_SPARE_STS_STS1_OFS (8)
+#define OPAMP_SPARE_STS_STS1_MASK ((uint32_t)0x0000FF00U)
 #endif

@@ -11,7 +11,7 @@ typedef struct COMP_DESC_REG_s {
 } COMP_DESC_REG_s;
 
 typedef union COMP_DESC_u {
-    COMP_DESC_REG_s DESC;
+    COMP_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct COMP_PWR_EN_REG_s {
 } COMP_PWR_EN_REG_s;
 
 typedef union COMP_PWR_EN_u {
-    COMP_PWR_EN_REG_s PWR_EN;
+    COMP_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -38,7 +38,7 @@ typedef struct COMP_RST_CTRL_REG_s {
 } COMP_RST_CTRL_REG_s;
 
 typedef union COMP_RST_CTRL_u {
-    COMP_RST_CTRL_REG_s RST_CTRL;
+    COMP_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -49,7 +49,7 @@ typedef struct COMP_RST_STS_REG_s {
 } COMP_RST_STS_REG_s;
 
 typedef union COMP_RST_STS_u {
-    COMP_RST_STS_REG_s RST_STS;
+    COMP_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -60,7 +60,7 @@ typedef struct COMP_CLK_CTRL_REG_s {
 } COMP_CLK_CTRL_REG_s;
 
 typedef union COMP_CLK_CTRL_u {
-    COMP_CLK_CTRL_REG_s CLK_CTRL;
+    COMP_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -71,7 +71,7 @@ typedef struct COMP_INTR_STS_REG_s {
 } COMP_INTR_STS_REG_s;
 
 typedef union COMP_INTR_STS_u {
-    COMP_INTR_STS_REG_s INTR_STS;
+    COMP_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -84,7 +84,7 @@ typedef struct COMP_INTR_EVENT_REG_s {
 } COMP_INTR_EVENT_REG_s;
 
 typedef union COMP_INTR_EVENT_u {
-    COMP_INTR_EVENT_REG_s INTR_EVENT;
+    COMP_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -97,7 +97,7 @@ typedef struct COMP_INTR_EN_REG_s {
 } COMP_INTR_EN_REG_s;
 
 typedef union COMP_INTR_EN_u {
-    COMP_INTR_EN_REG_s INTR_EN;
+    COMP_INTR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -110,7 +110,7 @@ typedef struct COMP_INTR_NMI_EN_REG_s {
 } COMP_INTR_NMI_EN_REG_s;
 
 typedef union COMP_INTR_NMI_EN_u {
-    COMP_INTR_NMI_EN_REG_s INTR_NMI_EN;
+    COMP_INTR_NMI_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -123,7 +123,7 @@ typedef struct COMP_EVENT_EN_REG_s {
 } COMP_EVENT_EN_REG_s;
 
 typedef union COMP_EVENT_EN_u {
-    COMP_EVENT_EN_REG_s EVENT_EN;
+    COMP_EVENT_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -136,7 +136,7 @@ typedef struct COMP_INTR_SW_SET_REG_s {
 } COMP_INTR_SW_SET_REG_s;
 
 typedef union COMP_INTR_SW_SET_u {
-    COMP_INTR_SW_SET_REG_s INTR_SW_SET;
+    COMP_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -147,7 +147,7 @@ typedef struct COMP_STS_REG_s {
 } COMP_STS_REG_s;
 
 typedef union COMP_STS_u {
-    COMP_STS_REG_s STS;
+    COMP_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -164,7 +164,7 @@ typedef struct COMP_CTRL0_REG_s {
 } COMP_CTRL0_REG_s;
 
 typedef union COMP_CTRL0_u {
-    COMP_CTRL0_REG_s CTRL0;
+    COMP_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -181,7 +181,7 @@ typedef struct COMP_INPUT_CTRL0_REG_s {
 } COMP_INPUT_CTRL0_REG_s;
 
 typedef union COMP_INPUT_CTRL0_u {
-    COMP_INPUT_CTRL0_REG_s INPUT_CTRL0;
+    COMP_INPUT_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -194,7 +194,7 @@ typedef struct COMP_INPUT_CTRL1_REG_s {
 } COMP_INPUT_CTRL1_REG_s;
 
 typedef union COMP_INPUT_CTRL1_u {
-    COMP_INPUT_CTRL1_REG_s INPUT_CTRL1;
+    COMP_INPUT_CTRL1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -211,7 +211,7 @@ typedef struct COMP_OUT_CTRL0_REG_s {
 } COMP_OUT_CTRL0_REG_s;
 
 typedef union COMP_OUT_CTRL0_u {
-    COMP_OUT_CTRL0_REG_s OUT_CTRL0;
+    COMP_OUT_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -228,7 +228,7 @@ typedef struct COMP_OUT_CTRL1_REG_s {
 } COMP_OUT_CTRL1_REG_s;
 
 typedef union COMP_OUT_CTRL1_u {
-    COMP_OUT_CTRL1_REG_s OUT_CTRL1;
+    COMP_OUT_CTRL1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -243,7 +243,7 @@ typedef struct COMP_REF_CTRL0_REG_s {
 } COMP_REF_CTRL0_REG_s;
 
 typedef union COMP_REF_CTRL0_u {
-    COMP_REF_CTRL0_REG_s REF_CTRL0;
+    COMP_REF_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -258,7 +258,7 @@ typedef struct COMP_REF_CTRL1_REG_s {
 } COMP_REF_CTRL1_REG_s;
 
 typedef union COMP_REF_CTRL1_u {
-    COMP_REF_CTRL1_REG_s REF_CTRL1;
+    COMP_REF_CTRL1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -270,7 +270,7 @@ typedef struct COMP_SPARE_CTRL_REG_s {
 } COMP_SPARE_CTRL_REG_s;
 
 typedef union COMP_SPARE_CTRL_u {
-    COMP_SPARE_CTRL_REG_s SPARE_CTRL;
+    COMP_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -282,7 +282,7 @@ typedef struct COMP_SPARE_STS_REG_s {
 } COMP_SPARE_STS_REG_s;
 
 typedef union COMP_SPARE_STS_u {
-    COMP_SPARE_STS_REG_s SPARE_STS;
+    COMP_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -312,118 +312,118 @@ typedef struct COMP_REGS_s{
     volatile COMP_SPARE_STS_u SPARE_STS;
 } COMP_REGS_s;
 
-#define COMP_DESC_module_type_OFS (0)
-#define COMP_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define COMP_DESC_modue_subtype_OFS (8)
-#define COMP_DESC_modue_subtype_MASK ((uint32_t)0x0000FF00U)
-#define COMP_DESC_major_rev_OFS (16)
-#define COMP_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define COMP_DESC_minor_rev_OFS (20)
-#define COMP_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define COMP_PWR_EN_pwr_en_OFS (0)
-#define COMP_PWR_EN_pwr_en_MASK ((uint32_t)0x00000001U)
-#define COMP_PWR_EN_pwr_en_key_OFS (24)
-#define COMP_PWR_EN_pwr_en_key_MASK ((uint32_t)0xFF000000U)
-#define COMP_RST_CTRL_rst_OFS (0)
-#define COMP_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define COMP_RST_CTRL_rst_sts_clr_OFS (1)
-#define COMP_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define COMP_RST_CTRL_rst_key_OFS (24)
-#define COMP_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define COMP_RST_STS_rst_sts_OFS (0)
-#define COMP_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define COMP_CLK_CTRL_en_async_clk_req_OFS (0)
-#define COMP_CLK_CTRL_en_async_clk_req_MASK ((uint32_t)0x00000001U)
-#define COMP_INTR_STS_intr_first_OFS (0)
-#define COMP_INTR_STS_intr_first_MASK ((uint32_t)0x000000FFU)
-#define COMP_INTR_EVENT_comp_out_edge0_OFS (0)
-#define COMP_INTR_EVENT_comp_out_edge0_MASK ((uint32_t)0x00000001U)
-#define COMP_INTR_EVENT_comp_out_edge1_OFS (1)
-#define COMP_INTR_EVENT_comp_out_edge1_MASK ((uint32_t)0x00000002U)
-#define COMP_INTR_EVENT_comp_out_OFS (2)
-#define COMP_INTR_EVENT_comp_out_MASK ((uint32_t)0x00000004U)
-#define COMP_INTR_EN_comp_out_edge0_en_OFS (0)
-#define COMP_INTR_EN_comp_out_edge0_en_MASK ((uint32_t)0x00000001U)
-#define COMP_INTR_EN_comp_out_edge1_en_OFS (1)
-#define COMP_INTR_EN_comp_out_edge1_en_MASK ((uint32_t)0x00000002U)
-#define COMP_INTR_EN_comp_out_en_OFS (2)
-#define COMP_INTR_EN_comp_out_en_MASK ((uint32_t)0x00000004U)
-#define COMP_INTR_NMI_EN_comp_out_edge0_nmi_en_OFS (0)
-#define COMP_INTR_NMI_EN_comp_out_edge0_nmi_en_MASK ((uint32_t)0x00000001U)
-#define COMP_INTR_NMI_EN_comp_out_edge1_nmi_en_OFS (1)
-#define COMP_INTR_NMI_EN_comp_out_edge1_nmi_en_MASK ((uint32_t)0x00000002U)
-#define COMP_INTR_NMI_EN_comp_out_nmi_en_OFS (2)
-#define COMP_INTR_NMI_EN_comp_out_nmi_en_MASK ((uint32_t)0x00000004U)
-#define COMP_EVENT_EN_comp_out_edge0_event_en_OFS (0)
-#define COMP_EVENT_EN_comp_out_edge0_event_en_MASK ((uint32_t)0x00000001U)
-#define COMP_EVENT_EN_comp_out_edge1_event_en_OFS (1)
-#define COMP_EVENT_EN_comp_out_edge1_event_en_MASK ((uint32_t)0x00000002U)
-#define COMP_EVENT_EN_comp_out_event_en_OFS (2)
-#define COMP_EVENT_EN_comp_out_event_en_MASK ((uint32_t)0x00000004U)
-#define COMP_INTR_SW_SET_comp_out_edge0_sw_set_OFS (0)
-#define COMP_INTR_SW_SET_comp_out_edge0_sw_set_MASK ((uint32_t)0x00000001U)
-#define COMP_INTR_SW_SET_comp_out_edge1_sw_set_OFS (1)
-#define COMP_INTR_SW_SET_comp_out_edge1_sw_set_MASK ((uint32_t)0x00000002U)
-#define COMP_INTR_SW_SET_comp_out_sw_set_OFS (2)
-#define COMP_INTR_SW_SET_comp_out_sw_set_MASK ((uint32_t)0x00000004U)
-#define COMP_STS_comp_out_sts_OFS (0)
-#define COMP_STS_comp_out_sts_MASK ((uint32_t)0x00000001U)
-#define COMP_CTRL0_enable_OFS (0)
-#define COMP_CTRL0_enable_MASK ((uint32_t)0x00000001U)
-#define COMP_CTRL0_speed_OFS (8)
-#define COMP_CTRL0_speed_MASK ((uint32_t)0x00000100U)
-#define COMP_CTRL0_hyst_OFS (16)
-#define COMP_CTRL0_hyst_MASK ((uint32_t)0x00030000U)
-#define COMP_CTRL0_intr_edge_sel_OFS (24)
-#define COMP_CTRL0_intr_edge_sel_MASK ((uint32_t)0x01000000U)
-#define COMP_INPUT_CTRL0_in_p_en_OFS (0)
-#define COMP_INPUT_CTRL0_in_p_en_MASK ((uint32_t)0x00000001U)
-#define COMP_INPUT_CTRL0_in_p_sel_OFS (8)
-#define COMP_INPUT_CTRL0_in_p_sel_MASK ((uint32_t)0x00000700U)
-#define COMP_INPUT_CTRL0_in_m_en_OFS (16)
-#define COMP_INPUT_CTRL0_in_m_en_MASK ((uint32_t)0x00010000U)
-#define COMP_INPUT_CTRL0_in_m_sel_OFS (24)
-#define COMP_INPUT_CTRL0_in_m_sel_MASK ((uint32_t)0x07000000U)
-#define COMP_INPUT_CTRL1_in_short_OFS (0)
-#define COMP_INPUT_CTRL1_in_short_MASK ((uint32_t)0x00000001U)
-#define COMP_INPUT_CTRL1_in_swap_OFS (8)
-#define COMP_INPUT_CTRL1_in_swap_MASK ((uint32_t)0x00000100U)
-#define COMP_OUT_CTRL0_out_pol_OFS (0)
-#define COMP_OUT_CTRL0_out_pol_MASK ((uint32_t)0x00000001U)
-#define COMP_OUT_CTRL0_samp_en_OFS (8)
-#define COMP_OUT_CTRL0_samp_en_MASK ((uint32_t)0x00000100U)
-#define COMP_OUT_CTRL0_filt_en_OFS (16)
-#define COMP_OUT_CTRL0_filt_en_MASK ((uint32_t)0x00010000U)
-#define COMP_OUT_CTRL0_filt_delay_OFS (24)
-#define COMP_OUT_CTRL0_filt_delay_MASK ((uint32_t)0x03000000U)
-#define COMP_OUT_CTRL1_win_comp_en_OFS (0)
-#define COMP_OUT_CTRL1_win_comp_en_MASK ((uint32_t)0x00000001U)
-#define COMP_OUT_CTRL1_win_comp_sel_OFS (8)
-#define COMP_OUT_CTRL1_win_comp_sel_MASK ((uint32_t)0x00000300U)
-#define COMP_OUT_CTRL1_blank_en_OFS (16)
-#define COMP_OUT_CTRL1_blank_en_MASK ((uint32_t)0x00010000U)
-#define COMP_OUT_CTRL1_blank_src_OFS (24)
-#define COMP_OUT_CTRL1_blank_src_MASK ((uint32_t)0x07000000U)
-#define COMP_REF_CTRL0_ref_sel_OFS (0)
-#define COMP_REF_CTRL0_ref_sel_MASK ((uint32_t)0x00000001U)
-#define COMP_REF_CTRL0_ref_src_OFS (8)
-#define COMP_REF_CTRL0_ref_src_MASK ((uint32_t)0x00000100U)
-#define COMP_REF_CTRL0_ref_mode_OFS (16)
-#define COMP_REF_CTRL0_ref_mode_MASK ((uint32_t)0x00010000U)
-#define COMP_REF_CTRL1_dac_code0_OFS (0)
-#define COMP_REF_CTRL1_dac_code0_MASK ((uint32_t)0x000000FFU)
-#define COMP_REF_CTRL1_dac_code1_OFS (8)
-#define COMP_REF_CTRL1_dac_code1_MASK ((uint32_t)0x0000FF00U)
-#define COMP_REF_CTRL1_dac_mode_OFS (16)
-#define COMP_REF_CTRL1_dac_mode_MASK ((uint32_t)0x00010000U)
-#define COMP_REF_CTRL1_dac_code_sel_OFS (24)
-#define COMP_REF_CTRL1_dac_code_sel_MASK ((uint32_t)0x01000000U)
-#define COMP_SPARE_CTRL_cfg0_OFS (0)
-#define COMP_SPARE_CTRL_cfg0_MASK ((uint32_t)0x000000FFU)
-#define COMP_SPARE_CTRL_cfg1_OFS (8)
-#define COMP_SPARE_CTRL_cfg1_MASK ((uint32_t)0x0000FF00U)
-#define COMP_SPARE_STS_sts0_OFS (0)
-#define COMP_SPARE_STS_sts0_MASK ((uint32_t)0x000000FFU)
-#define COMP_SPARE_STS_sts1_OFS (8)
-#define COMP_SPARE_STS_sts1_MASK ((uint32_t)0x0000FF00U)
+#define COMP_DESC_MODULE_TYPE_OFS (0)
+#define COMP_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define COMP_DESC_MODUE_SUBTYPE_OFS (8)
+#define COMP_DESC_MODUE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define COMP_DESC_MAJOR_REV_OFS (16)
+#define COMP_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define COMP_DESC_MINOR_REV_OFS (20)
+#define COMP_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define COMP_PWR_EN_PWR_EN_OFS (0)
+#define COMP_PWR_EN_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define COMP_PWR_EN_PWR_EN_KEY_OFS (24)
+#define COMP_PWR_EN_PWR_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define COMP_RST_CTRL_RST_OFS (0)
+#define COMP_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define COMP_RST_CTRL_RST_STS_CLR_OFS (1)
+#define COMP_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define COMP_RST_CTRL_RST_KEY_OFS (24)
+#define COMP_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define COMP_RST_STS_RST_STS_OFS (0)
+#define COMP_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define COMP_CLK_CTRL_EN_ASYNC_CLK_REQ_OFS (0)
+#define COMP_CLK_CTRL_EN_ASYNC_CLK_REQ_MASK ((uint32_t)0x00000001U)
+#define COMP_INTR_STS_INTR_FIRST_OFS (0)
+#define COMP_INTR_STS_INTR_FIRST_MASK ((uint32_t)0x000000FFU)
+#define COMP_INTR_EVENT_COMP_OUT_EDGE0_OFS (0)
+#define COMP_INTR_EVENT_COMP_OUT_EDGE0_MASK ((uint32_t)0x00000001U)
+#define COMP_INTR_EVENT_COMP_OUT_EDGE1_OFS (1)
+#define COMP_INTR_EVENT_COMP_OUT_EDGE1_MASK ((uint32_t)0x00000002U)
+#define COMP_INTR_EVENT_COMP_OUT_OFS (2)
+#define COMP_INTR_EVENT_COMP_OUT_MASK ((uint32_t)0x00000004U)
+#define COMP_INTR_EN_COMP_OUT_EDGE0_EN_OFS (0)
+#define COMP_INTR_EN_COMP_OUT_EDGE0_EN_MASK ((uint32_t)0x00000001U)
+#define COMP_INTR_EN_COMP_OUT_EDGE1_EN_OFS (1)
+#define COMP_INTR_EN_COMP_OUT_EDGE1_EN_MASK ((uint32_t)0x00000002U)
+#define COMP_INTR_EN_COMP_OUT_EN_OFS (2)
+#define COMP_INTR_EN_COMP_OUT_EN_MASK ((uint32_t)0x00000004U)
+#define COMP_INTR_NMI_EN_COMP_OUT_EDGE0_NMI_EN_OFS (0)
+#define COMP_INTR_NMI_EN_COMP_OUT_EDGE0_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define COMP_INTR_NMI_EN_COMP_OUT_EDGE1_NMI_EN_OFS (1)
+#define COMP_INTR_NMI_EN_COMP_OUT_EDGE1_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define COMP_INTR_NMI_EN_COMP_OUT_NMI_EN_OFS (2)
+#define COMP_INTR_NMI_EN_COMP_OUT_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define COMP_EVENT_EN_COMP_OUT_EDGE0_EVENT_EN_OFS (0)
+#define COMP_EVENT_EN_COMP_OUT_EDGE0_EVENT_EN_MASK ((uint32_t)0x00000001U)
+#define COMP_EVENT_EN_COMP_OUT_EDGE1_EVENT_EN_OFS (1)
+#define COMP_EVENT_EN_COMP_OUT_EDGE1_EVENT_EN_MASK ((uint32_t)0x00000002U)
+#define COMP_EVENT_EN_COMP_OUT_EVENT_EN_OFS (2)
+#define COMP_EVENT_EN_COMP_OUT_EVENT_EN_MASK ((uint32_t)0x00000004U)
+#define COMP_INTR_SW_SET_COMP_OUT_EDGE0_SW_SET_OFS (0)
+#define COMP_INTR_SW_SET_COMP_OUT_EDGE0_SW_SET_MASK ((uint32_t)0x00000001U)
+#define COMP_INTR_SW_SET_COMP_OUT_EDGE1_SW_SET_OFS (1)
+#define COMP_INTR_SW_SET_COMP_OUT_EDGE1_SW_SET_MASK ((uint32_t)0x00000002U)
+#define COMP_INTR_SW_SET_COMP_OUT_SW_SET_OFS (2)
+#define COMP_INTR_SW_SET_COMP_OUT_SW_SET_MASK ((uint32_t)0x00000004U)
+#define COMP_STS_COMP_OUT_STS_OFS (0)
+#define COMP_STS_COMP_OUT_STS_MASK ((uint32_t)0x00000001U)
+#define COMP_CTRL0_ENABLE_OFS (0)
+#define COMP_CTRL0_ENABLE_MASK ((uint32_t)0x00000001U)
+#define COMP_CTRL0_SPEED_OFS (8)
+#define COMP_CTRL0_SPEED_MASK ((uint32_t)0x00000100U)
+#define COMP_CTRL0_HYST_OFS (16)
+#define COMP_CTRL0_HYST_MASK ((uint32_t)0x00030000U)
+#define COMP_CTRL0_INTR_EDGE_SEL_OFS (24)
+#define COMP_CTRL0_INTR_EDGE_SEL_MASK ((uint32_t)0x01000000U)
+#define COMP_INPUT_CTRL0_IN_P_EN_OFS (0)
+#define COMP_INPUT_CTRL0_IN_P_EN_MASK ((uint32_t)0x00000001U)
+#define COMP_INPUT_CTRL0_IN_P_SEL_OFS (8)
+#define COMP_INPUT_CTRL0_IN_P_SEL_MASK ((uint32_t)0x00000700U)
+#define COMP_INPUT_CTRL0_IN_M_EN_OFS (16)
+#define COMP_INPUT_CTRL0_IN_M_EN_MASK ((uint32_t)0x00010000U)
+#define COMP_INPUT_CTRL0_IN_M_SEL_OFS (24)
+#define COMP_INPUT_CTRL0_IN_M_SEL_MASK ((uint32_t)0x07000000U)
+#define COMP_INPUT_CTRL1_IN_SHORT_OFS (0)
+#define COMP_INPUT_CTRL1_IN_SHORT_MASK ((uint32_t)0x00000001U)
+#define COMP_INPUT_CTRL1_IN_SWAP_OFS (8)
+#define COMP_INPUT_CTRL1_IN_SWAP_MASK ((uint32_t)0x00000100U)
+#define COMP_OUT_CTRL0_OUT_POL_OFS (0)
+#define COMP_OUT_CTRL0_OUT_POL_MASK ((uint32_t)0x00000001U)
+#define COMP_OUT_CTRL0_SAMP_EN_OFS (8)
+#define COMP_OUT_CTRL0_SAMP_EN_MASK ((uint32_t)0x00000100U)
+#define COMP_OUT_CTRL0_FILT_EN_OFS (16)
+#define COMP_OUT_CTRL0_FILT_EN_MASK ((uint32_t)0x00010000U)
+#define COMP_OUT_CTRL0_FILT_DELAY_OFS (24)
+#define COMP_OUT_CTRL0_FILT_DELAY_MASK ((uint32_t)0x03000000U)
+#define COMP_OUT_CTRL1_WIN_COMP_EN_OFS (0)
+#define COMP_OUT_CTRL1_WIN_COMP_EN_MASK ((uint32_t)0x00000001U)
+#define COMP_OUT_CTRL1_WIN_COMP_SEL_OFS (8)
+#define COMP_OUT_CTRL1_WIN_COMP_SEL_MASK ((uint32_t)0x00000300U)
+#define COMP_OUT_CTRL1_BLANK_EN_OFS (16)
+#define COMP_OUT_CTRL1_BLANK_EN_MASK ((uint32_t)0x00010000U)
+#define COMP_OUT_CTRL1_BLANK_SRC_OFS (24)
+#define COMP_OUT_CTRL1_BLANK_SRC_MASK ((uint32_t)0x07000000U)
+#define COMP_REF_CTRL0_REF_SEL_OFS (0)
+#define COMP_REF_CTRL0_REF_SEL_MASK ((uint32_t)0x00000001U)
+#define COMP_REF_CTRL0_REF_SRC_OFS (8)
+#define COMP_REF_CTRL0_REF_SRC_MASK ((uint32_t)0x00000100U)
+#define COMP_REF_CTRL0_REF_MODE_OFS (16)
+#define COMP_REF_CTRL0_REF_MODE_MASK ((uint32_t)0x00010000U)
+#define COMP_REF_CTRL1_DAC_CODE0_OFS (0)
+#define COMP_REF_CTRL1_DAC_CODE0_MASK ((uint32_t)0x000000FFU)
+#define COMP_REF_CTRL1_DAC_CODE1_OFS (8)
+#define COMP_REF_CTRL1_DAC_CODE1_MASK ((uint32_t)0x0000FF00U)
+#define COMP_REF_CTRL1_DAC_MODE_OFS (16)
+#define COMP_REF_CTRL1_DAC_MODE_MASK ((uint32_t)0x00010000U)
+#define COMP_REF_CTRL1_DAC_CODE_SEL_OFS (24)
+#define COMP_REF_CTRL1_DAC_CODE_SEL_MASK ((uint32_t)0x01000000U)
+#define COMP_SPARE_CTRL_CFG0_OFS (0)
+#define COMP_SPARE_CTRL_CFG0_MASK ((uint32_t)0x000000FFU)
+#define COMP_SPARE_CTRL_CFG1_OFS (8)
+#define COMP_SPARE_CTRL_CFG1_MASK ((uint32_t)0x0000FF00U)
+#define COMP_SPARE_STS_STS0_OFS (0)
+#define COMP_SPARE_STS_STS0_MASK ((uint32_t)0x000000FFU)
+#define COMP_SPARE_STS_STS1_OFS (8)
+#define COMP_SPARE_STS_STS1_MASK ((uint32_t)0x0000FF00U)
 #endif

@@ -11,7 +11,7 @@ typedef struct VREF_DESC_REG_s {
 } VREF_DESC_REG_s;
 
 typedef union VREF_DESC_u {
-    VREF_DESC_REG_s DESC;
+    VREF_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct VREF_PWR_EN_REG_s {
 } VREF_PWR_EN_REG_s;
 
 typedef union VREF_PWR_EN_u {
-    VREF_PWR_EN_REG_s PWR_EN;
+    VREF_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -38,7 +38,7 @@ typedef struct VREF_RST_CTRL_REG_s {
 } VREF_RST_CTRL_REG_s;
 
 typedef union VREF_RST_CTRL_u {
-    VREF_RST_CTRL_REG_s RST_CTRL;
+    VREF_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -49,7 +49,7 @@ typedef struct VREF_RST_STS_REG_s {
 } VREF_RST_STS_REG_s;
 
 typedef union VREF_RST_STS_u {
-    VREF_RST_STS_REG_s RST_STS;
+    VREF_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -62,7 +62,7 @@ typedef struct VREF_CLK_CTRL_REG_s {
 } VREF_CLK_CTRL_REG_s;
 
 typedef union VREF_CLK_CTRL_u {
-    VREF_CLK_CTRL_REG_s CLK_CTRL;
+    VREF_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -73,7 +73,7 @@ typedef struct VREF_STS_REG_s {
 } VREF_STS_REG_s;
 
 typedef union VREF_STS_u {
-    VREF_STS_REG_s STS;
+    VREF_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -88,7 +88,7 @@ typedef struct VREF_VREF_CTRL_REG_s {
 } VREF_VREF_CTRL_REG_s;
 
 typedef union VREF_VREF_CTRL_u {
-    VREF_VREF_CTRL_REG_s VREF_CTRL;
+    VREF_VREF_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -100,7 +100,7 @@ typedef struct VREF_SH_CTRL_REG_s {
 } VREF_SH_CTRL_REG_s;
 
 typedef union VREF_SH_CTRL_u {
-    VREF_SH_CTRL_REG_s SH_CTRL;
+    VREF_SH_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -112,7 +112,7 @@ typedef struct VREF_VREF_SPARE_CTRL_REG_s {
 } VREF_VREF_SPARE_CTRL_REG_s;
 
 typedef union VREF_VREF_SPARE_CTRL_u {
-    VREF_VREF_SPARE_CTRL_REG_s VREF_SPARE_CTRL;
+    VREF_VREF_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -124,7 +124,7 @@ typedef struct VREF_VREF_SPARE_STS_REG_s {
 } VREF_VREF_SPARE_STS_REG_s;
 
 typedef union VREF_VREF_SPARE_STS_u {
-    VREF_VREF_SPARE_STS_REG_s VREF_SPARE_STS;
+    VREF_VREF_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -143,48 +143,48 @@ typedef struct VREF_REGS_s{
     volatile VREF_VREF_SPARE_STS_u VREF_SPARE_STS;
 } VREF_REGS_s;
 
-#define VREF_DESC_module_type_OFS (0)
-#define VREF_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define VREF_DESC_modue_subtype_OFS (8)
-#define VREF_DESC_modue_subtype_MASK ((uint32_t)0x0000FF00U)
-#define VREF_DESC_major_rev_OFS (16)
-#define VREF_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define VREF_DESC_minor_rev_OFS (20)
-#define VREF_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define VREF_PWR_EN_pwr_en_OFS (0)
-#define VREF_PWR_EN_pwr_en_MASK ((uint32_t)0x00000001U)
-#define VREF_PWR_EN_pwr_en_key_OFS (24)
-#define VREF_PWR_EN_pwr_en_key_MASK ((uint32_t)0xFF000000U)
-#define VREF_RST_CTRL_rst_OFS (0)
-#define VREF_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define VREF_RST_CTRL_rst_sts_clr_OFS (1)
-#define VREF_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define VREF_RST_CTRL_rst_key_OFS (24)
-#define VREF_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define VREF_RST_STS_rst_sts_OFS (0)
-#define VREF_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define VREF_CLK_CTRL_clk_sel_OFS (0)
-#define VREF_CLK_CTRL_clk_sel_MASK ((uint32_t)0x00000003U)
-#define VREF_CLK_CTRL_clk_div_OFS (8)
-#define VREF_CLK_CTRL_clk_div_MASK ((uint32_t)0x00000700U)
-#define VREF_STS_vref_rdy_OFS (0)
-#define VREF_STS_vref_rdy_MASK ((uint32_t)0x00000001U)
-#define VREF_VREF_CTRL_enable_OFS (0)
-#define VREF_VREF_CTRL_enable_MASK ((uint32_t)0x00000001U)
-#define VREF_VREF_CTRL_vref_mode_OFS (8)
-#define VREF_VREF_CTRL_vref_mode_MASK ((uint32_t)0x00000100U)
-#define VREF_VREF_CTRL_sh_en_OFS (16)
-#define VREF_VREF_CTRL_sh_en_MASK ((uint32_t)0x00010000U)
-#define VREF_SH_CTRL_hold_cnt_OFS (0)
-#define VREF_SH_CTRL_hold_cnt_MASK ((uint32_t)0x0000FFFFU)
-#define VREF_SH_CTRL_period_cnt_OFS (16)
-#define VREF_SH_CTRL_period_cnt_MASK ((uint32_t)0xFFFF0000U)
-#define VREF_VREF_SPARE_CTRL_vref_cfg0_OFS (0)
-#define VREF_VREF_SPARE_CTRL_vref_cfg0_MASK ((uint32_t)0x000000FFU)
-#define VREF_VREF_SPARE_CTRL_vref_cfg1_OFS (8)
-#define VREF_VREF_SPARE_CTRL_vref_cfg1_MASK ((uint32_t)0x0000FF00U)
-#define VREF_VREF_SPARE_STS_vref_sts0_OFS (0)
-#define VREF_VREF_SPARE_STS_vref_sts0_MASK ((uint32_t)0x000000FFU)
-#define VREF_VREF_SPARE_STS_vref_sts1_OFS (8)
-#define VREF_VREF_SPARE_STS_vref_sts1_MASK ((uint32_t)0x0000FF00U)
+#define VREF_DESC_MODULE_TYPE_OFS (0)
+#define VREF_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define VREF_DESC_MODUE_SUBTYPE_OFS (8)
+#define VREF_DESC_MODUE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define VREF_DESC_MAJOR_REV_OFS (16)
+#define VREF_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define VREF_DESC_MINOR_REV_OFS (20)
+#define VREF_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define VREF_PWR_EN_PWR_EN_OFS (0)
+#define VREF_PWR_EN_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define VREF_PWR_EN_PWR_EN_KEY_OFS (24)
+#define VREF_PWR_EN_PWR_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define VREF_RST_CTRL_RST_OFS (0)
+#define VREF_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define VREF_RST_CTRL_RST_STS_CLR_OFS (1)
+#define VREF_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define VREF_RST_CTRL_RST_KEY_OFS (24)
+#define VREF_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define VREF_RST_STS_RST_STS_OFS (0)
+#define VREF_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define VREF_CLK_CTRL_CLK_SEL_OFS (0)
+#define VREF_CLK_CTRL_CLK_SEL_MASK ((uint32_t)0x00000003U)
+#define VREF_CLK_CTRL_CLK_DIV_OFS (8)
+#define VREF_CLK_CTRL_CLK_DIV_MASK ((uint32_t)0x00000700U)
+#define VREF_STS_VREF_RDY_OFS (0)
+#define VREF_STS_VREF_RDY_MASK ((uint32_t)0x00000001U)
+#define VREF_VREF_CTRL_ENABLE_OFS (0)
+#define VREF_VREF_CTRL_ENABLE_MASK ((uint32_t)0x00000001U)
+#define VREF_VREF_CTRL_VREF_MODE_OFS (8)
+#define VREF_VREF_CTRL_VREF_MODE_MASK ((uint32_t)0x00000100U)
+#define VREF_VREF_CTRL_SH_EN_OFS (16)
+#define VREF_VREF_CTRL_SH_EN_MASK ((uint32_t)0x00010000U)
+#define VREF_SH_CTRL_HOLD_CNT_OFS (0)
+#define VREF_SH_CTRL_HOLD_CNT_MASK ((uint32_t)0x0000FFFFU)
+#define VREF_SH_CTRL_PERIOD_CNT_OFS (16)
+#define VREF_SH_CTRL_PERIOD_CNT_MASK ((uint32_t)0xFFFF0000U)
+#define VREF_VREF_SPARE_CTRL_VREF_CFG0_OFS (0)
+#define VREF_VREF_SPARE_CTRL_VREF_CFG0_MASK ((uint32_t)0x000000FFU)
+#define VREF_VREF_SPARE_CTRL_VREF_CFG1_OFS (8)
+#define VREF_VREF_SPARE_CTRL_VREF_CFG1_MASK ((uint32_t)0x0000FF00U)
+#define VREF_VREF_SPARE_STS_VREF_STS0_OFS (0)
+#define VREF_VREF_SPARE_STS_VREF_STS0_MASK ((uint32_t)0x000000FFU)
+#define VREF_VREF_SPARE_STS_VREF_STS1_OFS (8)
+#define VREF_VREF_SPARE_STS_VREF_STS1_MASK ((uint32_t)0x0000FF00U)
 #endif

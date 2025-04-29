@@ -11,7 +11,7 @@ typedef struct ADC_DESC_REG_s {
 } ADC_DESC_REG_s;
 
 typedef union ADC_DESC_u {
-    ADC_DESC_REG_s DESC;
+    ADC_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -24,7 +24,7 @@ typedef struct ADC_PWR_EN_REG_s {
 } ADC_PWR_EN_REG_s;
 
 typedef union ADC_PWR_EN_u {
-    ADC_PWR_EN_REG_s PWR_EN;
+    ADC_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -38,7 +38,7 @@ typedef struct ADC_RST_CTRL_REG_s {
 } ADC_RST_CTRL_REG_s;
 
 typedef union ADC_RST_CTRL_u {
-    ADC_RST_CTRL_REG_s RST_CTRL;
+    ADC_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -49,7 +49,7 @@ typedef struct ADC_RST_STS_REG_s {
 } ADC_RST_STS_REG_s;
 
 typedef union ADC_RST_STS_u {
-    ADC_RST_STS_REG_s RST_STS;
+    ADC_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -61,7 +61,7 @@ typedef struct ADC_DBG_CTRL_REG_s {
 } ADC_DBG_CTRL_REG_s;
 
 typedef union ADC_DBG_CTRL_u {
-    ADC_DBG_CTRL_REG_s DBG_CTRL;
+    ADC_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -73,7 +73,7 @@ typedef struct ADC_CLK_CTRL_REG_s {
 } ADC_CLK_CTRL_REG_s;
 
 typedef union ADC_CLK_CTRL_u {
-    ADC_CLK_CTRL_REG_s CLK_CTRL;
+    ADC_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -84,7 +84,7 @@ typedef struct ADC_CLK_SEL_REG_s {
 } ADC_CLK_SEL_REG_s;
 
 typedef union ADC_CLK_SEL_u {
-    ADC_CLK_SEL_REG_s CLK_SEL;
+    ADC_CLK_SEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -118,7 +118,7 @@ typedef struct ADC_INTR_EVENT_REG_s {
 } ADC_INTR_EVENT_REG_s;
 
 typedef union ADC_INTR_EVENT_u {
-    ADC_INTR_EVENT_REG_s INTR_EVENT;
+    ADC_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -144,7 +144,7 @@ typedef struct ADC_INTR_EN_0_REG_s {
 } ADC_INTR_EN_0_REG_s;
 
 typedef union ADC_INTR_EN_0_u {
-    ADC_INTR_EN_0_REG_s INTR_EN_0;
+    ADC_INTR_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -162,7 +162,7 @@ typedef struct ADC_INTR_EN_1_REG_s {
 } ADC_INTR_EN_1_REG_s;
 
 typedef union ADC_INTR_EN_1_u {
-    ADC_INTR_EN_1_REG_s INTR_EN_1;
+    ADC_INTR_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -188,7 +188,7 @@ typedef struct ADC_DMA_EN_0_REG_s {
 } ADC_DMA_EN_0_REG_s;
 
 typedef union ADC_DMA_EN_0_u {
-    ADC_DMA_EN_0_REG_s DMA_EN_0;
+    ADC_DMA_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -206,7 +206,7 @@ typedef struct ADC_DMA_EN_1_REG_s {
 } ADC_DMA_EN_1_REG_s;
 
 typedef union ADC_DMA_EN_1_u {
-    ADC_DMA_EN_1_REG_s DMA_EN_1;
+    ADC_DMA_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -232,7 +232,7 @@ typedef struct ADC_EVENT_EN_0_REG_s {
 } ADC_EVENT_EN_0_REG_s;
 
 typedef union ADC_EVENT_EN_0_u {
-    ADC_EVENT_EN_0_REG_s EVENT_EN_0;
+    ADC_EVENT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -250,7 +250,7 @@ typedef struct ADC_EVENT_EN_1_REG_s {
 } ADC_EVENT_EN_1_REG_s;
 
 typedef union ADC_EVENT_EN_1_u {
-    ADC_EVENT_EN_1_REG_s EVENT_EN_1;
+    ADC_EVENT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -276,7 +276,7 @@ typedef struct ADC_INTR_NMI_EN_0_REG_s {
 } ADC_INTR_NMI_EN_0_REG_s;
 
 typedef union ADC_INTR_NMI_EN_0_u {
-    ADC_INTR_NMI_EN_0_REG_s INTR_NMI_EN_0;
+    ADC_INTR_NMI_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -294,7 +294,7 @@ typedef struct ADC_INTR_NMI_EN_1_REG_s {
 } ADC_INTR_NMI_EN_1_REG_s;
 
 typedef union ADC_INTR_NMI_EN_1_u {
-    ADC_INTR_NMI_EN_1_REG_s INTR_NMI_EN_1;
+    ADC_INTR_NMI_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -305,7 +305,7 @@ typedef struct ADC_INTR_STS_REG_s {
 } ADC_INTR_STS_REG_s;
 
 typedef union ADC_INTR_STS_u {
-    ADC_INTR_STS_REG_s INTR_STS;
+    ADC_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -339,7 +339,7 @@ typedef struct ADC_INTR_SW_REG_s {
 } ADC_INTR_SW_REG_s;
 
 typedef union ADC_INTR_SW_u {
-    ADC_INTR_SW_REG_s INTR_SW;
+    ADC_INTR_SW_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -355,7 +355,7 @@ typedef struct ADC_CONV_CFG_REG_s {
 } ADC_CONV_CFG_REG_s;
 
 typedef union ADC_CONV_CFG_u {
-    ADC_CONV_CFG_REG_s CONV_CFG;
+    ADC_CONV_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -370,7 +370,7 @@ typedef struct ADC_CHNL_CFG_0_REG_s {
 } ADC_CHNL_CFG_0_REG_s;
 
 typedef union ADC_CHNL_CFG_0_u {
-    ADC_CHNL_CFG_0_REG_s CHNL_CFG_0;
+    ADC_CHNL_CFG_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -385,7 +385,7 @@ typedef struct ADC_CHNL_CFG_1_REG_s {
 } ADC_CHNL_CFG_1_REG_s;
 
 typedef union ADC_CHNL_CFG_1_u {
-    ADC_CHNL_CFG_1_REG_s CHNL_CFG_1;
+    ADC_CHNL_CFG_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -400,7 +400,7 @@ typedef struct ADC_CHNL_CFG_2_REG_s {
 } ADC_CHNL_CFG_2_REG_s;
 
 typedef union ADC_CHNL_CFG_2_u {
-    ADC_CHNL_CFG_2_REG_s CHNL_CFG_2;
+    ADC_CHNL_CFG_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -415,7 +415,7 @@ typedef struct ADC_CHNL_CFG_3_REG_s {
 } ADC_CHNL_CFG_3_REG_s;
 
 typedef union ADC_CHNL_CFG_3_u {
-    ADC_CHNL_CFG_3_REG_s CHNL_CFG_3;
+    ADC_CHNL_CFG_3_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -430,7 +430,7 @@ typedef struct ADC_CHNL_CFG_4_REG_s {
 } ADC_CHNL_CFG_4_REG_s;
 
 typedef union ADC_CHNL_CFG_4_u {
-    ADC_CHNL_CFG_4_REG_s CHNL_CFG_4;
+    ADC_CHNL_CFG_4_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -445,7 +445,7 @@ typedef struct ADC_CHNL_CFG_5_REG_s {
 } ADC_CHNL_CFG_5_REG_s;
 
 typedef union ADC_CHNL_CFG_5_u {
-    ADC_CHNL_CFG_5_REG_s CHNL_CFG_5;
+    ADC_CHNL_CFG_5_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -460,7 +460,7 @@ typedef struct ADC_CHNL_CFG_6_REG_s {
 } ADC_CHNL_CFG_6_REG_s;
 
 typedef union ADC_CHNL_CFG_6_u {
-    ADC_CHNL_CFG_6_REG_s CHNL_CFG_6;
+    ADC_CHNL_CFG_6_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -475,7 +475,7 @@ typedef struct ADC_CHNL_CFG_7_REG_s {
 } ADC_CHNL_CFG_7_REG_s;
 
 typedef union ADC_CHNL_CFG_7_u {
-    ADC_CHNL_CFG_7_REG_s CHNL_CFG_7;
+    ADC_CHNL_CFG_7_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -490,7 +490,7 @@ typedef struct ADC_CHNL_CFG_8_REG_s {
 } ADC_CHNL_CFG_8_REG_s;
 
 typedef union ADC_CHNL_CFG_8_u {
-    ADC_CHNL_CFG_8_REG_s CHNL_CFG_8;
+    ADC_CHNL_CFG_8_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -505,7 +505,7 @@ typedef struct ADC_CHNL_CFG_9_REG_s {
 } ADC_CHNL_CFG_9_REG_s;
 
 typedef union ADC_CHNL_CFG_9_u {
-    ADC_CHNL_CFG_9_REG_s CHNL_CFG_9;
+    ADC_CHNL_CFG_9_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -520,7 +520,7 @@ typedef struct ADC_CHNL_CFG_10_REG_s {
 } ADC_CHNL_CFG_10_REG_s;
 
 typedef union ADC_CHNL_CFG_10_u {
-    ADC_CHNL_CFG_10_REG_s CHNL_CFG_10;
+    ADC_CHNL_CFG_10_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -535,7 +535,7 @@ typedef struct ADC_CHNL_CFG_11_REG_s {
 } ADC_CHNL_CFG_11_REG_s;
 
 typedef union ADC_CHNL_CFG_11_u {
-    ADC_CHNL_CFG_11_REG_s CHNL_CFG_11;
+    ADC_CHNL_CFG_11_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -550,7 +550,7 @@ typedef struct ADC_CHNL_CFG_12_REG_s {
 } ADC_CHNL_CFG_12_REG_s;
 
 typedef union ADC_CHNL_CFG_12_u {
-    ADC_CHNL_CFG_12_REG_s CHNL_CFG_12;
+    ADC_CHNL_CFG_12_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -565,7 +565,7 @@ typedef struct ADC_CHNL_CFG_13_REG_s {
 } ADC_CHNL_CFG_13_REG_s;
 
 typedef union ADC_CHNL_CFG_13_u {
-    ADC_CHNL_CFG_13_REG_s CHNL_CFG_13;
+    ADC_CHNL_CFG_13_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -580,7 +580,7 @@ typedef struct ADC_CHNL_CFG_14_REG_s {
 } ADC_CHNL_CFG_14_REG_s;
 
 typedef union ADC_CHNL_CFG_14_u {
-    ADC_CHNL_CFG_14_REG_s CHNL_CFG_14;
+    ADC_CHNL_CFG_14_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -595,7 +595,7 @@ typedef struct ADC_CHNL_CFG_15_REG_s {
 } ADC_CHNL_CFG_15_REG_s;
 
 typedef union ADC_CHNL_CFG_15_u {
-    ADC_CHNL_CFG_15_REG_s CHNL_CFG_15;
+    ADC_CHNL_CFG_15_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -606,7 +606,7 @@ typedef struct ADC_RESULT_CFG_REG_s {
 } ADC_RESULT_CFG_REG_s;
 
 typedef union ADC_RESULT_CFG_u {
-    ADC_RESULT_CFG_REG_s RESULT_CFG;
+    ADC_RESULT_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -618,7 +618,7 @@ typedef struct ADC_HW_AVG_CFG_REG_s {
 } ADC_HW_AVG_CFG_REG_s;
 
 typedef union ADC_HW_AVG_CFG_u {
-    ADC_HW_AVG_CFG_REG_s HW_AVG_CFG;
+    ADC_HW_AVG_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -629,7 +629,7 @@ typedef struct ADC_RESULT_REG_s {
 } ADC_RESULT_REG_s;
 
 typedef union ADC_RESULT_u {
-    ADC_RESULT_REG_s RESULT;
+    ADC_RESULT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -640,7 +640,7 @@ typedef struct ADC_TIMER_START_REG_s {
 } ADC_TIMER_START_REG_s;
 
 typedef union ADC_TIMER_START_u {
-    ADC_TIMER_START_REG_s TIMER_START;
+    ADC_TIMER_START_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -651,7 +651,7 @@ typedef struct ADC_TIMER_SAMPLE_REG_s {
 } ADC_TIMER_SAMPLE_REG_s;
 
 typedef union ADC_TIMER_SAMPLE_u {
-    ADC_TIMER_SAMPLE_REG_s TIMER_SAMPLE;
+    ADC_TIMER_SAMPLE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -662,7 +662,7 @@ typedef struct ADC_TIMER_CONVERSION_REG_s {
 } ADC_TIMER_CONVERSION_REG_s;
 
 typedef union ADC_TIMER_CONVERSION_u {
-    ADC_TIMER_CONVERSION_REG_s TIMER_CONVERSION;
+    ADC_TIMER_CONVERSION_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -674,7 +674,7 @@ typedef struct ADC_WINDOW_COMP_REG_s {
 } ADC_WINDOW_COMP_REG_s;
 
 typedef union ADC_WINDOW_COMP_u {
-    ADC_WINDOW_COMP_REG_s WINDOW_COMP;
+    ADC_WINDOW_COMP_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -685,7 +685,7 @@ typedef struct ADC_ADC_STATUS_REG_s {
 } ADC_ADC_STATUS_REG_s;
 
 typedef union ADC_ADC_STATUS_u {
-    ADC_ADC_STATUS_REG_s ADC_STATUS;
+    ADC_ADC_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -696,7 +696,7 @@ typedef struct ADC_DMA_REG_REG_s {
 } ADC_DMA_REG_REG_s;
 
 typedef union ADC_DMA_REG_u {
-    ADC_DMA_REG_REG_s DMA_REG;
+    ADC_DMA_REG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -707,7 +707,7 @@ typedef struct ADC_POWER_DN_REG_s {
 } ADC_POWER_DN_REG_s;
 
 typedef union ADC_POWER_DN_u {
-    ADC_POWER_DN_REG_s POWER_DN;
+    ADC_POWER_DN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -718,7 +718,7 @@ typedef struct ADC_SUBS_PORT_REG_s {
 } ADC_SUBS_PORT_REG_s;
 
 typedef union ADC_SUBS_PORT_u {
-    ADC_SUBS_PORT_REG_s SUBS_PORT;
+    ADC_SUBS_PORT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -729,7 +729,7 @@ typedef struct ADC_PUBS_PORT_REG_s {
 } ADC_PUBS_PORT_REG_s;
 
 typedef union ADC_PUBS_PORT_u {
-    ADC_PUBS_PORT_REG_s PUBS_PORT;
+    ADC_PUBS_PORT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -742,7 +742,7 @@ typedef struct ADC_CALIBRATION_REQ_REG_s {
 } ADC_CALIBRATION_REQ_REG_s;
 
 typedef union ADC_CALIBRATION_REQ_u {
-    ADC_CALIBRATION_REQ_REG_s CALIBRATION_REQ;
+    ADC_CALIBRATION_REQ_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -753,7 +753,7 @@ typedef struct ADC_BLOCK_ASYNC_REQ_REG_s {
 } ADC_BLOCK_ASYNC_REQ_REG_s;
 
 typedef union ADC_BLOCK_ASYNC_REQ_u {
-    ADC_BLOCK_ASYNC_REQ_REG_s BLOCK_ASYNC_REQ;
+    ADC_BLOCK_ASYNC_REQ_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -765,7 +765,7 @@ typedef struct ADC_SW_TRIGGER_REG_s {
 } ADC_SW_TRIGGER_REG_s;
 
 typedef union ADC_SW_TRIGGER_u {
-    ADC_SW_TRIGGER_REG_s SW_TRIGGER;
+    ADC_SW_TRIGGER_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -779,7 +779,7 @@ typedef struct ADC_SPARE_CTRL_REG_s {
 } ADC_SPARE_CTRL_REG_s;
 
 typedef union ADC_SPARE_CTRL_u {
-    ADC_SPARE_CTRL_REG_s SPARE_CTRL;
+    ADC_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -793,7 +793,7 @@ typedef struct ADC_SPARE_STS_REG_s {
 } ADC_SPARE_STS_REG_s;
 
 typedef union ADC_SPARE_STS_u {
-    ADC_SPARE_STS_REG_s SPARE_STS;
+    ADC_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -804,7 +804,7 @@ typedef struct ADC_EOC_ANA_REG_s {
 } ADC_EOC_ANA_REG_s;
 
 typedef union ADC_EOC_ANA_u {
-    ADC_EOC_ANA_REG_s EOC_ANA;
+    ADC_EOC_ANA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -815,7 +815,7 @@ typedef struct ADC_TEMP_SENSOR_EN_REG_s {
 } ADC_TEMP_SENSOR_EN_REG_s;
 
 typedef union ADC_TEMP_SENSOR_EN_u {
-    ADC_TEMP_SENSOR_EN_REG_s TEMP_SENSOR_EN;
+    ADC_TEMP_SENSOR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -826,7 +826,7 @@ typedef struct ADC_SM_STATE_REG_s {
 } ADC_SM_STATE_REG_s;
 
 typedef union ADC_SM_STATE_u {
-    ADC_SM_STATE_REG_s SM_STATE;
+    ADC_SM_STATE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -837,7 +837,7 @@ typedef struct ADC_DMA_TRANSFER_CNT_REG_s {
 } ADC_DMA_TRANSFER_CNT_REG_s;
 
 typedef union ADC_DMA_TRANSFER_CNT_u {
-    ADC_DMA_TRANSFER_CNT_REG_s DMA_TRANSFER_CNT;
+    ADC_DMA_TRANSFER_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -902,560 +902,560 @@ typedef struct ADC_REGS_s{
     volatile ADC_DMA_TRANSFER_CNT_u DMA_TRANSFER_CNT;
 } ADC_REGS_s;
 
-#define ADC_DESC_module_type_OFS (0)
-#define ADC_DESC_module_type_MASK ((uint32_t)0x000000FFU)
-#define ADC_DESC_module_subtype_OFS (8)
-#define ADC_DESC_module_subtype_MASK ((uint32_t)0x0000FF00U)
-#define ADC_DESC_major_rev_OFS (16)
-#define ADC_DESC_major_rev_MASK ((uint32_t)0x000F0000U)
-#define ADC_DESC_minor_rev_OFS (20)
-#define ADC_DESC_minor_rev_MASK ((uint32_t)0x00F00000U)
-#define ADC_PWR_EN_pwr_en_OFS (0)
-#define ADC_PWR_EN_pwr_en_MASK ((uint32_t)0x00000001U)
-#define ADC_PWR_EN_pwr_en_key_OFS (24)
-#define ADC_PWR_EN_pwr_en_key_MASK ((uint32_t)0xFF000000U)
-#define ADC_RST_CTRL_rst_OFS (0)
-#define ADC_RST_CTRL_rst_MASK ((uint32_t)0x00000001U)
-#define ADC_RST_CTRL_rst_sts_clr_OFS (1)
-#define ADC_RST_CTRL_rst_sts_clr_MASK ((uint32_t)0x00000002U)
-#define ADC_RST_CTRL_rst_key_OFS (24)
-#define ADC_RST_CTRL_rst_key_MASK ((uint32_t)0xFF000000U)
-#define ADC_RST_STS_rst_sts_OFS (0)
-#define ADC_RST_STS_rst_sts_MASK ((uint32_t)0x00000001U)
-#define ADC_DBG_CTRL_stop_on_halt_OFS (0)
-#define ADC_DBG_CTRL_stop_on_halt_MASK ((uint32_t)0x00000001U)
-#define ADC_DBG_CTRL_soft_stop_OFS (1)
-#define ADC_DBG_CTRL_soft_stop_MASK ((uint32_t)0x00000002U)
-#define ADC_CLK_CTRL_clk_en_OFS (0)
-#define ADC_CLK_CTRL_clk_en_MASK ((uint32_t)0x00000001U)
-#define ADC_CLK_CTRL_clk_div_OFS (1)
-#define ADC_CLK_CTRL_clk_div_MASK ((uint32_t)0x0000000EU)
-#define ADC_CLK_SEL_clk_sel_OFS (0)
-#define ADC_CLK_SEL_clk_sel_MASK ((uint32_t)0x00000003U)
-#define ADC_INTR_EVENT_trig_to_dma_flag_OFS (0)
-#define ADC_INTR_EVENT_trig_to_dma_flag_MASK ((uint32_t)0x00000001U)
-#define ADC_INTR_EVENT_ov_flag_OFS (1)
-#define ADC_INTR_EVENT_ov_flag_MASK ((uint32_t)0x00000002U)
-#define ADC_INTR_EVENT_seq_ov_flow_OFS (2)
-#define ADC_INTR_EVENT_seq_ov_flow_MASK ((uint32_t)0x00000004U)
-#define ADC_INTR_EVENT_wc_in_flag_OFS (3)
-#define ADC_INTR_EVENT_wc_in_flag_MASK ((uint32_t)0x00000008U)
-#define ADC_INTR_EVENT_wc_high_flag_OFS (4)
-#define ADC_INTR_EVENT_wc_high_flag_MASK ((uint32_t)0x00000010U)
-#define ADC_INTR_EVENT_wc_low_flag_OFS (5)
-#define ADC_INTR_EVENT_wc_low_flag_MASK ((uint32_t)0x00000020U)
-#define ADC_INTR_EVENT_dma_done_OFS (6)
-#define ADC_INTR_EVENT_dma_done_MASK ((uint32_t)0x00000040U)
-#define ADC_INTR_EVENT_uf_flag_OFS (7)
-#define ADC_INTR_EVENT_uf_flag_MASK ((uint32_t)0x00000080U)
-#define ADC_INTR_EVENT_result0_flag_OFS (8)
-#define ADC_INTR_EVENT_result0_flag_MASK ((uint32_t)0x00000100U)
-#define ADC_INTR_EVENT_result1_flag_OFS (9)
-#define ADC_INTR_EVENT_result1_flag_MASK ((uint32_t)0x00000200U)
-#define ADC_INTR_EVENT_result2_flag_OFS (10)
-#define ADC_INTR_EVENT_result2_flag_MASK ((uint32_t)0x00000400U)
-#define ADC_INTR_EVENT_result3_flag_OFS (11)
-#define ADC_INTR_EVENT_result3_flag_MASK ((uint32_t)0x00000800U)
-#define ADC_INTR_EVENT_result4_flag_OFS (12)
-#define ADC_INTR_EVENT_result4_flag_MASK ((uint32_t)0x00001000U)
-#define ADC_INTR_EVENT_result5_flag_OFS (13)
-#define ADC_INTR_EVENT_result5_flag_MASK ((uint32_t)0x00002000U)
-#define ADC_INTR_EVENT_result6_flag_OFS (14)
-#define ADC_INTR_EVENT_result6_flag_MASK ((uint32_t)0x00004000U)
-#define ADC_INTR_EVENT_result7_flag_OFS (15)
-#define ADC_INTR_EVENT_result7_flag_MASK ((uint32_t)0x00008000U)
-#define ADC_INTR_EVENT_result8_flag_OFS (16)
-#define ADC_INTR_EVENT_result8_flag_MASK ((uint32_t)0x00010000U)
-#define ADC_INTR_EVENT_result9_flag_OFS (17)
-#define ADC_INTR_EVENT_result9_flag_MASK ((uint32_t)0x00020000U)
-#define ADC_INTR_EVENT_result10_flag_OFS (18)
-#define ADC_INTR_EVENT_result10_flag_MASK ((uint32_t)0x00040000U)
-#define ADC_INTR_EVENT_result11_flag_OFS (19)
-#define ADC_INTR_EVENT_result11_flag_MASK ((uint32_t)0x00080000U)
-#define ADC_INTR_EVENT_result12_flag_OFS (20)
-#define ADC_INTR_EVENT_result12_flag_MASK ((uint32_t)0x00100000U)
-#define ADC_INTR_EVENT_result13_flag_OFS (21)
-#define ADC_INTR_EVENT_result13_flag_MASK ((uint32_t)0x00200000U)
-#define ADC_INTR_EVENT_result14_flag_OFS (22)
-#define ADC_INTR_EVENT_result14_flag_MASK ((uint32_t)0x00400000U)
-#define ADC_INTR_EVENT_result15_flag_OFS (23)
-#define ADC_INTR_EVENT_result15_flag_MASK ((uint32_t)0x00800000U)
-#define ADC_INTR_EN_0_trig_to_dma_flag_en_OFS (0)
-#define ADC_INTR_EN_0_trig_to_dma_flag_en_MASK ((uint32_t)0x00000001U)
-#define ADC_INTR_EN_0_ov_flag_en_OFS (1)
-#define ADC_INTR_EN_0_ov_flag_en_MASK ((uint32_t)0x00000002U)
-#define ADC_INTR_EN_0_seq_ov_flow_en_OFS (2)
-#define ADC_INTR_EN_0_seq_ov_flow_en_MASK ((uint32_t)0x00000004U)
-#define ADC_INTR_EN_0_wc_in_flag_en_OFS (3)
-#define ADC_INTR_EN_0_wc_in_flag_en_MASK ((uint32_t)0x00000008U)
-#define ADC_INTR_EN_0_wc_high_flag_en_OFS (4)
-#define ADC_INTR_EN_0_wc_high_flag_en_MASK ((uint32_t)0x00000010U)
-#define ADC_INTR_EN_0_wc_low_flag_en_OFS (5)
-#define ADC_INTR_EN_0_wc_low_flag_en_MASK ((uint32_t)0x00000020U)
-#define ADC_INTR_EN_0_dma_done_en_OFS (6)
-#define ADC_INTR_EN_0_dma_done_en_MASK ((uint32_t)0x00000040U)
-#define ADC_INTR_EN_0_uf_flag_en_OFS (7)
-#define ADC_INTR_EN_0_uf_flag_en_MASK ((uint32_t)0x00000080U)
-#define ADC_INTR_EN_0_result0_flag_en_OFS (8)
-#define ADC_INTR_EN_0_result0_flag_en_MASK ((uint32_t)0x00000100U)
-#define ADC_INTR_EN_0_result1_flag_en_OFS (9)
-#define ADC_INTR_EN_0_result1_flag_en_MASK ((uint32_t)0x00000200U)
-#define ADC_INTR_EN_0_result2_flag_en_OFS (10)
-#define ADC_INTR_EN_0_result2_flag_en_MASK ((uint32_t)0x00000400U)
-#define ADC_INTR_EN_0_result3_flag_en_OFS (11)
-#define ADC_INTR_EN_0_result3_flag_en_MASK ((uint32_t)0x00000800U)
-#define ADC_INTR_EN_0_result4_flag_en_OFS (12)
-#define ADC_INTR_EN_0_result4_flag_en_MASK ((uint32_t)0x00001000U)
-#define ADC_INTR_EN_0_result5_flag_en_OFS (13)
-#define ADC_INTR_EN_0_result5_flag_en_MASK ((uint32_t)0x00002000U)
-#define ADC_INTR_EN_0_result6_flag_en_OFS (14)
-#define ADC_INTR_EN_0_result6_flag_en_MASK ((uint32_t)0x00004000U)
-#define ADC_INTR_EN_0_result7_flag_en_OFS (15)
-#define ADC_INTR_EN_0_result7_flag_en_MASK ((uint32_t)0x00008000U)
-#define ADC_INTR_EN_1_result8_flag_en_OFS (0)
-#define ADC_INTR_EN_1_result8_flag_en_MASK ((uint32_t)0x00000001U)
-#define ADC_INTR_EN_1_result9_flag_en_OFS (1)
-#define ADC_INTR_EN_1_result9_flag_en_MASK ((uint32_t)0x00000002U)
-#define ADC_INTR_EN_1_result10_flag_en_OFS (2)
-#define ADC_INTR_EN_1_result10_flag_en_MASK ((uint32_t)0x00000004U)
-#define ADC_INTR_EN_1_result11_flag_en_OFS (3)
-#define ADC_INTR_EN_1_result11_flag_en_MASK ((uint32_t)0x00000008U)
-#define ADC_INTR_EN_1_result12_flag_en_OFS (4)
-#define ADC_INTR_EN_1_result12_flag_en_MASK ((uint32_t)0x00000010U)
-#define ADC_INTR_EN_1_result13_flag_en_OFS (5)
-#define ADC_INTR_EN_1_result13_flag_en_MASK ((uint32_t)0x00000020U)
-#define ADC_INTR_EN_1_result14_flag_en_OFS (6)
-#define ADC_INTR_EN_1_result14_flag_en_MASK ((uint32_t)0x00000040U)
-#define ADC_INTR_EN_1_result15_flag_en_OFS (7)
-#define ADC_INTR_EN_1_result15_flag_en_MASK ((uint32_t)0x00000080U)
-#define ADC_DMA_EN_0_trig_to_dma_en_OFS (0)
-#define ADC_DMA_EN_0_trig_to_dma_en_MASK ((uint32_t)0x00000001U)
-#define ADC_DMA_EN_0_ov_dma_en_OFS (1)
-#define ADC_DMA_EN_0_ov_dma_en_MASK ((uint32_t)0x00000002U)
-#define ADC_DMA_EN_0_seq_ov_dma_en_OFS (2)
-#define ADC_DMA_EN_0_seq_ov_dma_en_MASK ((uint32_t)0x00000004U)
-#define ADC_DMA_EN_0_wc_in_dma_en_OFS (3)
-#define ADC_DMA_EN_0_wc_in_dma_en_MASK ((uint32_t)0x00000008U)
-#define ADC_DMA_EN_0_wc_high_dma_en_OFS (4)
-#define ADC_DMA_EN_0_wc_high_dma_en_MASK ((uint32_t)0x00000010U)
-#define ADC_DMA_EN_0_wc_low_dma_en_OFS (5)
-#define ADC_DMA_EN_0_wc_low_dma_en_MASK ((uint32_t)0x00000020U)
-#define ADC_DMA_EN_0_dma_done_dma_en_OFS (6)
-#define ADC_DMA_EN_0_dma_done_dma_en_MASK ((uint32_t)0x00000040U)
-#define ADC_DMA_EN_0_uf_dma_en_OFS (7)
-#define ADC_DMA_EN_0_uf_dma_en_MASK ((uint32_t)0x00000080U)
-#define ADC_DMA_EN_0_result0_dma_en_OFS (8)
-#define ADC_DMA_EN_0_result0_dma_en_MASK ((uint32_t)0x00000100U)
-#define ADC_DMA_EN_0_result1_dma_en_OFS (9)
-#define ADC_DMA_EN_0_result1_dma_en_MASK ((uint32_t)0x00000200U)
-#define ADC_DMA_EN_0_result2_dma_en_OFS (10)
-#define ADC_DMA_EN_0_result2_dma_en_MASK ((uint32_t)0x00000400U)
-#define ADC_DMA_EN_0_result3_dma_en_OFS (11)
-#define ADC_DMA_EN_0_result3_dma_en_MASK ((uint32_t)0x00000800U)
-#define ADC_DMA_EN_0_result4_dma_en_OFS (12)
-#define ADC_DMA_EN_0_result4_dma_en_MASK ((uint32_t)0x00001000U)
-#define ADC_DMA_EN_0_result5_dma_en_OFS (13)
-#define ADC_DMA_EN_0_result5_dma_en_MASK ((uint32_t)0x00002000U)
-#define ADC_DMA_EN_0_result6_dma_en_OFS (14)
-#define ADC_DMA_EN_0_result6_dma_en_MASK ((uint32_t)0x00004000U)
-#define ADC_DMA_EN_0_result7_dma_en_OFS (15)
-#define ADC_DMA_EN_0_result7_dma_en_MASK ((uint32_t)0x00008000U)
-#define ADC_DMA_EN_1_result8_dma_en_OFS (0)
-#define ADC_DMA_EN_1_result8_dma_en_MASK ((uint32_t)0x00000001U)
-#define ADC_DMA_EN_1_result9_dma_en_OFS (1)
-#define ADC_DMA_EN_1_result9_dma_en_MASK ((uint32_t)0x00000002U)
-#define ADC_DMA_EN_1_result10_dma_en_OFS (2)
-#define ADC_DMA_EN_1_result10_dma_en_MASK ((uint32_t)0x00000004U)
-#define ADC_DMA_EN_1_result11_dma_en_OFS (3)
-#define ADC_DMA_EN_1_result11_dma_en_MASK ((uint32_t)0x00000008U)
-#define ADC_DMA_EN_1_result12_dma_en_OFS (4)
-#define ADC_DMA_EN_1_result12_dma_en_MASK ((uint32_t)0x00000010U)
-#define ADC_DMA_EN_1_result13_dma_en_OFS (5)
-#define ADC_DMA_EN_1_result13_dma_en_MASK ((uint32_t)0x00000020U)
-#define ADC_DMA_EN_1_result14_dma_en_OFS (6)
-#define ADC_DMA_EN_1_result14_dma_en_MASK ((uint32_t)0x00000040U)
-#define ADC_DMA_EN_1_result15_dma_en_OFS (7)
-#define ADC_DMA_EN_1_result15_dma_en_MASK ((uint32_t)0x00000080U)
-#define ADC_EVENT_EN_0_trig_to_dma_event_en_OFS (0)
-#define ADC_EVENT_EN_0_trig_to_dma_event_en_MASK ((uint32_t)0x00000001U)
-#define ADC_EVENT_EN_0_ov_flag_event_en_OFS (1)
-#define ADC_EVENT_EN_0_ov_flag_event_en_MASK ((uint32_t)0x00000002U)
-#define ADC_EVENT_EN_0_seq_ov_flow_event_en_OFS (2)
-#define ADC_EVENT_EN_0_seq_ov_flow_event_en_MASK ((uint32_t)0x00000004U)
-#define ADC_EVENT_EN_0_wc_in_event_en_OFS (3)
-#define ADC_EVENT_EN_0_wc_in_event_en_MASK ((uint32_t)0x00000008U)
-#define ADC_EVENT_EN_0_wc_high_event_en_OFS (4)
-#define ADC_EVENT_EN_0_wc_high_event_en_MASK ((uint32_t)0x00000010U)
-#define ADC_EVENT_EN_0_wc_low_event_en_OFS (5)
-#define ADC_EVENT_EN_0_wc_low_event_en_MASK ((uint32_t)0x00000020U)
-#define ADC_EVENT_EN_0_dma_done_event_en_OFS (6)
-#define ADC_EVENT_EN_0_dma_done_event_en_MASK ((uint32_t)0x00000040U)
-#define ADC_EVENT_EN_0_uf_flag_event_en_OFS (7)
-#define ADC_EVENT_EN_0_uf_flag_event_en_MASK ((uint32_t)0x00000080U)
-#define ADC_EVENT_EN_0_result0_event_en_OFS (8)
-#define ADC_EVENT_EN_0_result0_event_en_MASK ((uint32_t)0x00000100U)
-#define ADC_EVENT_EN_0_result1_event_en_OFS (9)
-#define ADC_EVENT_EN_0_result1_event_en_MASK ((uint32_t)0x00000200U)
-#define ADC_EVENT_EN_0_result2_event_en_OFS (10)
-#define ADC_EVENT_EN_0_result2_event_en_MASK ((uint32_t)0x00000400U)
-#define ADC_EVENT_EN_0_result3_event_en_OFS (11)
-#define ADC_EVENT_EN_0_result3_event_en_MASK ((uint32_t)0x00000800U)
-#define ADC_EVENT_EN_0_result4_event_en_OFS (12)
-#define ADC_EVENT_EN_0_result4_event_en_MASK ((uint32_t)0x00001000U)
-#define ADC_EVENT_EN_0_result5_event_en_OFS (13)
-#define ADC_EVENT_EN_0_result5_event_en_MASK ((uint32_t)0x00002000U)
-#define ADC_EVENT_EN_0_result6_event_en_OFS (14)
-#define ADC_EVENT_EN_0_result6_event_en_MASK ((uint32_t)0x00004000U)
-#define ADC_EVENT_EN_0_result7_event_en_OFS (15)
-#define ADC_EVENT_EN_0_result7_event_en_MASK ((uint32_t)0x00008000U)
-#define ADC_EVENT_EN_1_result8_event_en_OFS (0)
-#define ADC_EVENT_EN_1_result8_event_en_MASK ((uint32_t)0x00000001U)
-#define ADC_EVENT_EN_1_result9_event_en_OFS (1)
-#define ADC_EVENT_EN_1_result9_event_en_MASK ((uint32_t)0x00000002U)
-#define ADC_EVENT_EN_1_result10_event_en_OFS (2)
-#define ADC_EVENT_EN_1_result10_event_en_MASK ((uint32_t)0x00000004U)
-#define ADC_EVENT_EN_1_result11_event_en_OFS (3)
-#define ADC_EVENT_EN_1_result11_event_en_MASK ((uint32_t)0x00000008U)
-#define ADC_EVENT_EN_1_result12_event_en_OFS (4)
-#define ADC_EVENT_EN_1_result12_event_en_MASK ((uint32_t)0x00000010U)
-#define ADC_EVENT_EN_1_result13_event_en_OFS (5)
-#define ADC_EVENT_EN_1_result13_event_en_MASK ((uint32_t)0x00000020U)
-#define ADC_EVENT_EN_1_result14_event_en_OFS (6)
-#define ADC_EVENT_EN_1_result14_event_en_MASK ((uint32_t)0x00000040U)
-#define ADC_EVENT_EN_1_result15_event_en_OFS (7)
-#define ADC_EVENT_EN_1_result15_event_en_MASK ((uint32_t)0x00000080U)
-#define ADC_INTR_NMI_EN_0_trig_to_dma_flag_nmi_en_OFS (0)
-#define ADC_INTR_NMI_EN_0_trig_to_dma_flag_nmi_en_MASK ((uint32_t)0x00000001U)
-#define ADC_INTR_NMI_EN_0_ov_flag_nmi_en_OFS (1)
-#define ADC_INTR_NMI_EN_0_ov_flag_nmi_en_MASK ((uint32_t)0x00000002U)
-#define ADC_INTR_NMI_EN_0_seq_ov_flow_nmi_en_OFS (2)
-#define ADC_INTR_NMI_EN_0_seq_ov_flow_nmi_en_MASK ((uint32_t)0x00000004U)
-#define ADC_INTR_NMI_EN_0_wc_in_flag_nmi_en_OFS (3)
-#define ADC_INTR_NMI_EN_0_wc_in_flag_nmi_en_MASK ((uint32_t)0x00000008U)
-#define ADC_INTR_NMI_EN_0_wc_high_flag_nmi_en_OFS (4)
-#define ADC_INTR_NMI_EN_0_wc_high_flag_nmi_en_MASK ((uint32_t)0x00000010U)
-#define ADC_INTR_NMI_EN_0_wc_low_flag_nmi_en_OFS (5)
-#define ADC_INTR_NMI_EN_0_wc_low_flag_nmi_en_MASK ((uint32_t)0x00000020U)
-#define ADC_INTR_NMI_EN_0_dma_done_nmi_en_OFS (6)
-#define ADC_INTR_NMI_EN_0_dma_done_nmi_en_MASK ((uint32_t)0x00000040U)
-#define ADC_INTR_NMI_EN_0_uf_flag_nmi_en_OFS (7)
-#define ADC_INTR_NMI_EN_0_uf_flag_nmi_en_MASK ((uint32_t)0x00000080U)
-#define ADC_INTR_NMI_EN_0_result0_flag_nmi_en_OFS (8)
-#define ADC_INTR_NMI_EN_0_result0_flag_nmi_en_MASK ((uint32_t)0x00000100U)
-#define ADC_INTR_NMI_EN_0_result1_flag_nmi_en_OFS (9)
-#define ADC_INTR_NMI_EN_0_result1_flag_nmi_en_MASK ((uint32_t)0x00000200U)
-#define ADC_INTR_NMI_EN_0_result2_flag_nmi_en_OFS (10)
-#define ADC_INTR_NMI_EN_0_result2_flag_nmi_en_MASK ((uint32_t)0x00000400U)
-#define ADC_INTR_NMI_EN_0_result3_flag_nmi_en_OFS (11)
-#define ADC_INTR_NMI_EN_0_result3_flag_nmi_en_MASK ((uint32_t)0x00000800U)
-#define ADC_INTR_NMI_EN_0_result4_flag_nmi_en_OFS (12)
-#define ADC_INTR_NMI_EN_0_result4_flag_nmi_en_MASK ((uint32_t)0x00001000U)
-#define ADC_INTR_NMI_EN_0_result5_flag_nmi_en_OFS (13)
-#define ADC_INTR_NMI_EN_0_result5_flag_nmi_en_MASK ((uint32_t)0x00002000U)
-#define ADC_INTR_NMI_EN_0_result6_flag_nmi_en_OFS (14)
-#define ADC_INTR_NMI_EN_0_result6_flag_nmi_en_MASK ((uint32_t)0x00004000U)
-#define ADC_INTR_NMI_EN_0_result7_flag_nmi_en_OFS (15)
-#define ADC_INTR_NMI_EN_0_result7_flag_nmi_en_MASK ((uint32_t)0x00008000U)
-#define ADC_INTR_NMI_EN_1_result8_flag_nmi_en_OFS (0)
-#define ADC_INTR_NMI_EN_1_result8_flag_nmi_en_MASK ((uint32_t)0x00000001U)
-#define ADC_INTR_NMI_EN_1_result9_flag_nmi_en_OFS (1)
-#define ADC_INTR_NMI_EN_1_result9_flag_nmi_en_MASK ((uint32_t)0x00000002U)
-#define ADC_INTR_NMI_EN_1_result10_flag_nmi_en_OFS (2)
-#define ADC_INTR_NMI_EN_1_result10_flag_nmi_en_MASK ((uint32_t)0x00000004U)
-#define ADC_INTR_NMI_EN_1_result11_flag_nmi_en_OFS (3)
-#define ADC_INTR_NMI_EN_1_result11_flag_nmi_en_MASK ((uint32_t)0x00000008U)
-#define ADC_INTR_NMI_EN_1_result12_flag_nmi_en_OFS (4)
-#define ADC_INTR_NMI_EN_1_result12_flag_nmi_en_MASK ((uint32_t)0x00000010U)
-#define ADC_INTR_NMI_EN_1_result13_flag_nmi_en_OFS (5)
-#define ADC_INTR_NMI_EN_1_result13_flag_nmi_en_MASK ((uint32_t)0x00000020U)
-#define ADC_INTR_NMI_EN_1_result14_flag_nmi_en_OFS (6)
-#define ADC_INTR_NMI_EN_1_result14_flag_nmi_en_MASK ((uint32_t)0x00000040U)
-#define ADC_INTR_NMI_EN_1_result15_flag_nmi_en_OFS (7)
-#define ADC_INTR_NMI_EN_1_result15_flag_nmi_en_MASK ((uint32_t)0x00000080U)
-#define ADC_INTR_STS_intr_first_OFS (0)
-#define ADC_INTR_STS_intr_first_MASK ((uint32_t)0x000000FFU)
-#define ADC_INTR_SW_trig_to_dma_flag_sw_set_OFS (0)
-#define ADC_INTR_SW_trig_to_dma_flag_sw_set_MASK ((uint32_t)0x00000001U)
-#define ADC_INTR_SW_ov_flag_sw_set_OFS (1)
-#define ADC_INTR_SW_ov_flag_sw_set_MASK ((uint32_t)0x00000002U)
-#define ADC_INTR_SW_seq_ov_flow_sw_set_OFS (2)
-#define ADC_INTR_SW_seq_ov_flow_sw_set_MASK ((uint32_t)0x00000004U)
-#define ADC_INTR_SW_wc_in_flag_sw_set_OFS (3)
-#define ADC_INTR_SW_wc_in_flag_sw_set_MASK ((uint32_t)0x00000008U)
-#define ADC_INTR_SW_wc_high_flag_sw_set_OFS (4)
-#define ADC_INTR_SW_wc_high_flag_sw_set_MASK ((uint32_t)0x00000010U)
-#define ADC_INTR_SW_wc_low_flag_sw_set_OFS (5)
-#define ADC_INTR_SW_wc_low_flag_sw_set_MASK ((uint32_t)0x00000020U)
-#define ADC_INTR_SW_dma_done_sw_set_OFS (6)
-#define ADC_INTR_SW_dma_done_sw_set_MASK ((uint32_t)0x00000040U)
-#define ADC_INTR_SW_uf_flag_sw_set_OFS (7)
-#define ADC_INTR_SW_uf_flag_sw_set_MASK ((uint32_t)0x00000080U)
-#define ADC_INTR_SW_result0_flag_sw_set_OFS (8)
-#define ADC_INTR_SW_result0_flag_sw_set_MASK ((uint32_t)0x00000100U)
-#define ADC_INTR_SW_result1_flag_sw_set_OFS (9)
-#define ADC_INTR_SW_result1_flag_sw_set_MASK ((uint32_t)0x00000200U)
-#define ADC_INTR_SW_result2_flag_sw_set_OFS (10)
-#define ADC_INTR_SW_result2_flag_sw_set_MASK ((uint32_t)0x00000400U)
-#define ADC_INTR_SW_result3_flag_sw_set_OFS (11)
-#define ADC_INTR_SW_result3_flag_sw_set_MASK ((uint32_t)0x00000800U)
-#define ADC_INTR_SW_result4_flag_sw_set_OFS (12)
-#define ADC_INTR_SW_result4_flag_sw_set_MASK ((uint32_t)0x00001000U)
-#define ADC_INTR_SW_result5_flag_sw_set_OFS (13)
-#define ADC_INTR_SW_result5_flag_sw_set_MASK ((uint32_t)0x00002000U)
-#define ADC_INTR_SW_result6_flag_sw_set_OFS (14)
-#define ADC_INTR_SW_result6_flag_sw_set_MASK ((uint32_t)0x00004000U)
-#define ADC_INTR_SW_result7_flag_sw_set_OFS (15)
-#define ADC_INTR_SW_result7_flag_sw_set_MASK ((uint32_t)0x00008000U)
-#define ADC_INTR_SW_result8_flag_sw_set_OFS (16)
-#define ADC_INTR_SW_result8_flag_sw_set_MASK ((uint32_t)0x00010000U)
-#define ADC_INTR_SW_result9_flag_sw_set_OFS (17)
-#define ADC_INTR_SW_result9_flag_sw_set_MASK ((uint32_t)0x00020000U)
-#define ADC_INTR_SW_result10_flag_sw_set_OFS (18)
-#define ADC_INTR_SW_result10_flag_sw_set_MASK ((uint32_t)0x00040000U)
-#define ADC_INTR_SW_result11_flag_sw_set_OFS (19)
-#define ADC_INTR_SW_result11_flag_sw_set_MASK ((uint32_t)0x00080000U)
-#define ADC_INTR_SW_result12_flag_sw_set_OFS (20)
-#define ADC_INTR_SW_result12_flag_sw_set_MASK ((uint32_t)0x00100000U)
-#define ADC_INTR_SW_result13_flag_sw_set_OFS (21)
-#define ADC_INTR_SW_result13_flag_sw_set_MASK ((uint32_t)0x00200000U)
-#define ADC_INTR_SW_result14_flag_sw_set_OFS (22)
-#define ADC_INTR_SW_result14_flag_sw_set_MASK ((uint32_t)0x00400000U)
-#define ADC_INTR_SW_result15_flag_sw_set_OFS (23)
-#define ADC_INTR_SW_result15_flag_sw_set_MASK ((uint32_t)0x00800000U)
-#define ADC_CONV_CFG_conv_mode_OFS (0)
-#define ADC_CONV_CFG_conv_mode_MASK ((uint32_t)0x00000003U)
-#define ADC_CONV_CFG_start_addr_OFS (2)
-#define ADC_CONV_CFG_start_addr_MASK ((uint32_t)0x0000003CU)
-#define ADC_CONV_CFG_end_addr_OFS (6)
-#define ADC_CONV_CFG_end_addr_MASK ((uint32_t)0x000003C0U)
-#define ADC_CONV_CFG_trigger_source_OFS (10)
-#define ADC_CONV_CFG_trigger_source_MASK ((uint32_t)0x00000400U)
-#define ADC_CONV_CFG_adc_res_OFS (11)
-#define ADC_CONV_CFG_adc_res_MASK ((uint32_t)0x00001800U)
-#define ADC_CONV_CFG_en_conv_OFS (13)
-#define ADC_CONV_CFG_en_conv_MASK ((uint32_t)0x00002000U)
-#define ADC_CHNL_CFG_0_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_0_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_0_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_0_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_0_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_0_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_0_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_0_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_0_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_0_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_1_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_1_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_1_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_1_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_1_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_1_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_1_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_1_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_1_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_1_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_2_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_2_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_2_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_2_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_2_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_2_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_2_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_2_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_2_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_2_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_3_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_3_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_3_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_3_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_3_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_3_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_3_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_3_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_3_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_3_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_4_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_4_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_4_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_4_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_4_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_4_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_4_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_4_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_4_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_4_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_5_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_5_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_5_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_5_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_5_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_5_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_5_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_5_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_5_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_5_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_6_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_6_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_6_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_6_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_6_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_6_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_6_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_6_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_6_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_6_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_7_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_7_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_7_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_7_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_7_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_7_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_7_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_7_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_7_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_7_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_8_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_8_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_8_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_8_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_8_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_8_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_8_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_8_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_8_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_8_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_9_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_9_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_9_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_9_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_9_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_9_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_9_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_9_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_9_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_9_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_10_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_10_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_10_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_10_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_10_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_10_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_10_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_10_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_10_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_10_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_11_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_11_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_11_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_11_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_11_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_11_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_11_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_11_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_11_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_11_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_12_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_12_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_12_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_12_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_12_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_12_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_12_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_12_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_12_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_12_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_13_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_13_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_13_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_13_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_13_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_13_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_13_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_13_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_13_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_13_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_14_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_14_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_14_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_14_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_14_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_14_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_14_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_14_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_14_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_14_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_15_channel_sel_OFS (0)
-#define ADC_CHNL_CFG_15_channel_sel_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_15_vref_sel_OFS (4)
-#define ADC_CHNL_CFG_15_vref_sel_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_15_hw_avg_en_OFS (6)
-#define ADC_CHNL_CFG_15_hw_avg_en_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_15_window_comp_en_OFS (7)
-#define ADC_CHNL_CFG_15_window_comp_en_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_15_bcs_en_OFS (8)
-#define ADC_CHNL_CFG_15_bcs_en_MASK ((uint32_t)0x00000100U)
-#define ADC_RESULT_CFG_fifo_en_OFS (0)
-#define ADC_RESULT_CFG_fifo_en_MASK ((uint32_t)0x00000001U)
-#define ADC_HW_AVG_CFG_hw_sample_cnt_OFS (0)
-#define ADC_HW_AVG_CFG_hw_sample_cnt_MASK ((uint32_t)0x0000000FU)
-#define ADC_HW_AVG_CFG_hw_avg_sample_div_OFS (4)
-#define ADC_HW_AVG_CFG_hw_avg_sample_div_MASK ((uint32_t)0x000000F0U)
-#define ADC_RESULT_result_OFS (0)
-#define ADC_RESULT_result_MASK ((uint32_t)0x0000FFFFU)
-#define ADC_TIMER_START_timer_cnt_start_OFS (0)
-#define ADC_TIMER_START_timer_cnt_start_MASK ((uint32_t)0x0000000FU)
-#define ADC_TIMER_SAMPLE_timer_cnt_sample_OFS (0)
-#define ADC_TIMER_SAMPLE_timer_cnt_sample_MASK ((uint32_t)0x0000001FU)
-#define ADC_TIMER_CONVERSION_timer_cnt_conversion_OFS (0)
-#define ADC_TIMER_CONVERSION_timer_cnt_conversion_MASK ((uint32_t)0x000000FFU)
-#define ADC_WINDOW_COMP_window_comp_th_low_OFS (0)
-#define ADC_WINDOW_COMP_window_comp_th_low_MASK ((uint32_t)0x0000FFFFU)
-#define ADC_WINDOW_COMP_window_comp_th_high_OFS (16)
-#define ADC_WINDOW_COMP_window_comp_th_high_MASK ((uint32_t)0xFFFF0000U)
-#define ADC_ADC_STATUS_adc_busy_OFS (0)
-#define ADC_ADC_STATUS_adc_busy_MASK ((uint32_t)0x00000001U)
-#define ADC_DMA_REG_dma_en_OFS (0)
-#define ADC_DMA_REG_dma_en_MASK ((uint32_t)0x00000001U)
-#define ADC_POWER_DN_pwr_dn_OFS (0)
-#define ADC_POWER_DN_pwr_dn_MASK ((uint32_t)0x00000001U)
-#define ADC_SUBS_PORT_subs_port_OFS (0)
-#define ADC_SUBS_PORT_subs_port_MASK ((uint32_t)0x0000000FU)
-#define ADC_PUBS_PORT_pubs_port_OFS (0)
-#define ADC_PUBS_PORT_pubs_port_MASK ((uint32_t)0x0000000FU)
-#define ADC_CALIBRATION_REQ_cal_req_OFS (0)
-#define ADC_CALIBRATION_REQ_cal_req_MASK ((uint32_t)0x00000001U)
-#define ADC_CALIBRATION_REQ_cal_done_OFS (1)
-#define ADC_CALIBRATION_REQ_cal_done_MASK ((uint32_t)0x00000002U)
-#define ADC_CALIBRATION_REQ_cal_ctrl_OFS (2)
-#define ADC_CALIBRATION_REQ_cal_ctrl_MASK ((uint32_t)0x000FFFFCU)
-#define ADC_BLOCK_ASYNC_REQ_block_async_req_OFS (0)
-#define ADC_BLOCK_ASYNC_REQ_block_async_req_MASK ((uint32_t)0x00000001U)
-#define ADC_SW_TRIGGER_sw_trigger_OFS (0)
-#define ADC_SW_TRIGGER_sw_trigger_MASK ((uint32_t)0x00000001U)
-#define ADC_SW_TRIGGER_sw_trigger_en_OFS (1)
-#define ADC_SW_TRIGGER_sw_trigger_en_MASK ((uint32_t)0x00000002U)
-#define ADC_SPARE_CTRL_adc_cfg0_OFS (0)
-#define ADC_SPARE_CTRL_adc_cfg0_MASK ((uint32_t)0x000000FFU)
-#define ADC_SPARE_CTRL_adc_cfg1_OFS (8)
-#define ADC_SPARE_CTRL_adc_cfg1_MASK ((uint32_t)0x0000FF00U)
-#define ADC_SPARE_CTRL_adc_cfg2_OFS (16)
-#define ADC_SPARE_CTRL_adc_cfg2_MASK ((uint32_t)0x00FF0000U)
-#define ADC_SPARE_CTRL_adc_cfg3_OFS (24)
-#define ADC_SPARE_CTRL_adc_cfg3_MASK ((uint32_t)0xFF000000U)
-#define ADC_SPARE_STS_adc_sts0_OFS (0)
-#define ADC_SPARE_STS_adc_sts0_MASK ((uint32_t)0x000000FFU)
-#define ADC_SPARE_STS_adc_sts1_OFS (8)
-#define ADC_SPARE_STS_adc_sts1_MASK ((uint32_t)0x0000FF00U)
-#define ADC_SPARE_STS_adc_sts2_OFS (16)
-#define ADC_SPARE_STS_adc_sts2_MASK ((uint32_t)0x00FF0000U)
-#define ADC_SPARE_STS_adc_sts3_OFS (24)
-#define ADC_SPARE_STS_adc_sts3_MASK ((uint32_t)0xFF000000U)
-#define ADC_EOC_ANA_eoc_ana_OFS (0)
-#define ADC_EOC_ANA_eoc_ana_MASK ((uint32_t)0x00000001U)
-#define ADC_TEMP_SENSOR_EN_temp_sensor_en_OFS (0)
-#define ADC_TEMP_SENSOR_EN_temp_sensor_en_MASK ((uint32_t)0x00000001U)
-#define ADC_SM_STATE_curr_state_OFS (0)
-#define ADC_SM_STATE_curr_state_MASK ((uint32_t)0x0000000FU)
-#define ADC_DMA_TRANSFER_CNT_dma_transfer_cnt_OFS (0)
-#define ADC_DMA_TRANSFER_CNT_dma_transfer_cnt_MASK ((uint32_t)0x0000000FU)
+#define ADC_DESC_MODULE_TYPE_OFS (0)
+#define ADC_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
+#define ADC_DESC_MODULE_SUBTYPE_OFS (8)
+#define ADC_DESC_MODULE_SUBTYPE_MASK ((uint32_t)0x0000FF00U)
+#define ADC_DESC_MAJOR_REV_OFS (16)
+#define ADC_DESC_MAJOR_REV_MASK ((uint32_t)0x000F0000U)
+#define ADC_DESC_MINOR_REV_OFS (20)
+#define ADC_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
+#define ADC_PWR_EN_PWR_EN_OFS (0)
+#define ADC_PWR_EN_PWR_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_PWR_EN_PWR_EN_KEY_OFS (24)
+#define ADC_PWR_EN_PWR_EN_KEY_MASK ((uint32_t)0xFF000000U)
+#define ADC_RST_CTRL_RST_OFS (0)
+#define ADC_RST_CTRL_RST_MASK ((uint32_t)0x00000001U)
+#define ADC_RST_CTRL_RST_STS_CLR_OFS (1)
+#define ADC_RST_CTRL_RST_STS_CLR_MASK ((uint32_t)0x00000002U)
+#define ADC_RST_CTRL_RST_KEY_OFS (24)
+#define ADC_RST_CTRL_RST_KEY_MASK ((uint32_t)0xFF000000U)
+#define ADC_RST_STS_RST_STS_OFS (0)
+#define ADC_RST_STS_RST_STS_MASK ((uint32_t)0x00000001U)
+#define ADC_DBG_CTRL_STOP_ON_HALT_OFS (0)
+#define ADC_DBG_CTRL_STOP_ON_HALT_MASK ((uint32_t)0x00000001U)
+#define ADC_DBG_CTRL_SOFT_STOP_OFS (1)
+#define ADC_DBG_CTRL_SOFT_STOP_MASK ((uint32_t)0x00000002U)
+#define ADC_CLK_CTRL_CLK_EN_OFS (0)
+#define ADC_CLK_CTRL_CLK_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_CLK_CTRL_CLK_DIV_OFS (1)
+#define ADC_CLK_CTRL_CLK_DIV_MASK ((uint32_t)0x0000000EU)
+#define ADC_CLK_SEL_CLK_SEL_OFS (0)
+#define ADC_CLK_SEL_CLK_SEL_MASK ((uint32_t)0x00000003U)
+#define ADC_INTR_EVENT_TRIG_TO_DMA_FLAG_OFS (0)
+#define ADC_INTR_EVENT_TRIG_TO_DMA_FLAG_MASK ((uint32_t)0x00000001U)
+#define ADC_INTR_EVENT_OV_FLAG_OFS (1)
+#define ADC_INTR_EVENT_OV_FLAG_MASK ((uint32_t)0x00000002U)
+#define ADC_INTR_EVENT_SEQ_OV_FLOW_OFS (2)
+#define ADC_INTR_EVENT_SEQ_OV_FLOW_MASK ((uint32_t)0x00000004U)
+#define ADC_INTR_EVENT_WC_IN_FLAG_OFS (3)
+#define ADC_INTR_EVENT_WC_IN_FLAG_MASK ((uint32_t)0x00000008U)
+#define ADC_INTR_EVENT_WC_HIGH_FLAG_OFS (4)
+#define ADC_INTR_EVENT_WC_HIGH_FLAG_MASK ((uint32_t)0x00000010U)
+#define ADC_INTR_EVENT_WC_LOW_FLAG_OFS (5)
+#define ADC_INTR_EVENT_WC_LOW_FLAG_MASK ((uint32_t)0x00000020U)
+#define ADC_INTR_EVENT_DMA_DONE_OFS (6)
+#define ADC_INTR_EVENT_DMA_DONE_MASK ((uint32_t)0x00000040U)
+#define ADC_INTR_EVENT_UF_FLAG_OFS (7)
+#define ADC_INTR_EVENT_UF_FLAG_MASK ((uint32_t)0x00000080U)
+#define ADC_INTR_EVENT_RESULT0_FLAG_OFS (8)
+#define ADC_INTR_EVENT_RESULT0_FLAG_MASK ((uint32_t)0x00000100U)
+#define ADC_INTR_EVENT_RESULT1_FLAG_OFS (9)
+#define ADC_INTR_EVENT_RESULT1_FLAG_MASK ((uint32_t)0x00000200U)
+#define ADC_INTR_EVENT_RESULT2_FLAG_OFS (10)
+#define ADC_INTR_EVENT_RESULT2_FLAG_MASK ((uint32_t)0x00000400U)
+#define ADC_INTR_EVENT_RESULT3_FLAG_OFS (11)
+#define ADC_INTR_EVENT_RESULT3_FLAG_MASK ((uint32_t)0x00000800U)
+#define ADC_INTR_EVENT_RESULT4_FLAG_OFS (12)
+#define ADC_INTR_EVENT_RESULT4_FLAG_MASK ((uint32_t)0x00001000U)
+#define ADC_INTR_EVENT_RESULT5_FLAG_OFS (13)
+#define ADC_INTR_EVENT_RESULT5_FLAG_MASK ((uint32_t)0x00002000U)
+#define ADC_INTR_EVENT_RESULT6_FLAG_OFS (14)
+#define ADC_INTR_EVENT_RESULT6_FLAG_MASK ((uint32_t)0x00004000U)
+#define ADC_INTR_EVENT_RESULT7_FLAG_OFS (15)
+#define ADC_INTR_EVENT_RESULT7_FLAG_MASK ((uint32_t)0x00008000U)
+#define ADC_INTR_EVENT_RESULT8_FLAG_OFS (16)
+#define ADC_INTR_EVENT_RESULT8_FLAG_MASK ((uint32_t)0x00010000U)
+#define ADC_INTR_EVENT_RESULT9_FLAG_OFS (17)
+#define ADC_INTR_EVENT_RESULT9_FLAG_MASK ((uint32_t)0x00020000U)
+#define ADC_INTR_EVENT_RESULT10_FLAG_OFS (18)
+#define ADC_INTR_EVENT_RESULT10_FLAG_MASK ((uint32_t)0x00040000U)
+#define ADC_INTR_EVENT_RESULT11_FLAG_OFS (19)
+#define ADC_INTR_EVENT_RESULT11_FLAG_MASK ((uint32_t)0x00080000U)
+#define ADC_INTR_EVENT_RESULT12_FLAG_OFS (20)
+#define ADC_INTR_EVENT_RESULT12_FLAG_MASK ((uint32_t)0x00100000U)
+#define ADC_INTR_EVENT_RESULT13_FLAG_OFS (21)
+#define ADC_INTR_EVENT_RESULT13_FLAG_MASK ((uint32_t)0x00200000U)
+#define ADC_INTR_EVENT_RESULT14_FLAG_OFS (22)
+#define ADC_INTR_EVENT_RESULT14_FLAG_MASK ((uint32_t)0x00400000U)
+#define ADC_INTR_EVENT_RESULT15_FLAG_OFS (23)
+#define ADC_INTR_EVENT_RESULT15_FLAG_MASK ((uint32_t)0x00800000U)
+#define ADC_INTR_EN_0_TRIG_TO_DMA_FLAG_EN_OFS (0)
+#define ADC_INTR_EN_0_TRIG_TO_DMA_FLAG_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_INTR_EN_0_OV_FLAG_EN_OFS (1)
+#define ADC_INTR_EN_0_OV_FLAG_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_INTR_EN_0_SEQ_OV_FLOW_EN_OFS (2)
+#define ADC_INTR_EN_0_SEQ_OV_FLOW_EN_MASK ((uint32_t)0x00000004U)
+#define ADC_INTR_EN_0_WC_IN_FLAG_EN_OFS (3)
+#define ADC_INTR_EN_0_WC_IN_FLAG_EN_MASK ((uint32_t)0x00000008U)
+#define ADC_INTR_EN_0_WC_HIGH_FLAG_EN_OFS (4)
+#define ADC_INTR_EN_0_WC_HIGH_FLAG_EN_MASK ((uint32_t)0x00000010U)
+#define ADC_INTR_EN_0_WC_LOW_FLAG_EN_OFS (5)
+#define ADC_INTR_EN_0_WC_LOW_FLAG_EN_MASK ((uint32_t)0x00000020U)
+#define ADC_INTR_EN_0_DMA_DONE_EN_OFS (6)
+#define ADC_INTR_EN_0_DMA_DONE_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_INTR_EN_0_UF_FLAG_EN_OFS (7)
+#define ADC_INTR_EN_0_UF_FLAG_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_INTR_EN_0_RESULT0_FLAG_EN_OFS (8)
+#define ADC_INTR_EN_0_RESULT0_FLAG_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_INTR_EN_0_RESULT1_FLAG_EN_OFS (9)
+#define ADC_INTR_EN_0_RESULT1_FLAG_EN_MASK ((uint32_t)0x00000200U)
+#define ADC_INTR_EN_0_RESULT2_FLAG_EN_OFS (10)
+#define ADC_INTR_EN_0_RESULT2_FLAG_EN_MASK ((uint32_t)0x00000400U)
+#define ADC_INTR_EN_0_RESULT3_FLAG_EN_OFS (11)
+#define ADC_INTR_EN_0_RESULT3_FLAG_EN_MASK ((uint32_t)0x00000800U)
+#define ADC_INTR_EN_0_RESULT4_FLAG_EN_OFS (12)
+#define ADC_INTR_EN_0_RESULT4_FLAG_EN_MASK ((uint32_t)0x00001000U)
+#define ADC_INTR_EN_0_RESULT5_FLAG_EN_OFS (13)
+#define ADC_INTR_EN_0_RESULT5_FLAG_EN_MASK ((uint32_t)0x00002000U)
+#define ADC_INTR_EN_0_RESULT6_FLAG_EN_OFS (14)
+#define ADC_INTR_EN_0_RESULT6_FLAG_EN_MASK ((uint32_t)0x00004000U)
+#define ADC_INTR_EN_0_RESULT7_FLAG_EN_OFS (15)
+#define ADC_INTR_EN_0_RESULT7_FLAG_EN_MASK ((uint32_t)0x00008000U)
+#define ADC_INTR_EN_1_RESULT8_FLAG_EN_OFS (0)
+#define ADC_INTR_EN_1_RESULT8_FLAG_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_INTR_EN_1_RESULT9_FLAG_EN_OFS (1)
+#define ADC_INTR_EN_1_RESULT9_FLAG_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_INTR_EN_1_RESULT10_FLAG_EN_OFS (2)
+#define ADC_INTR_EN_1_RESULT10_FLAG_EN_MASK ((uint32_t)0x00000004U)
+#define ADC_INTR_EN_1_RESULT11_FLAG_EN_OFS (3)
+#define ADC_INTR_EN_1_RESULT11_FLAG_EN_MASK ((uint32_t)0x00000008U)
+#define ADC_INTR_EN_1_RESULT12_FLAG_EN_OFS (4)
+#define ADC_INTR_EN_1_RESULT12_FLAG_EN_MASK ((uint32_t)0x00000010U)
+#define ADC_INTR_EN_1_RESULT13_FLAG_EN_OFS (5)
+#define ADC_INTR_EN_1_RESULT13_FLAG_EN_MASK ((uint32_t)0x00000020U)
+#define ADC_INTR_EN_1_RESULT14_FLAG_EN_OFS (6)
+#define ADC_INTR_EN_1_RESULT14_FLAG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_INTR_EN_1_RESULT15_FLAG_EN_OFS (7)
+#define ADC_INTR_EN_1_RESULT15_FLAG_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_DMA_EN_0_TRIG_TO_DMA_EN_OFS (0)
+#define ADC_DMA_EN_0_TRIG_TO_DMA_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_DMA_EN_0_OV_DMA_EN_OFS (1)
+#define ADC_DMA_EN_0_OV_DMA_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_DMA_EN_0_SEQ_OV_DMA_EN_OFS (2)
+#define ADC_DMA_EN_0_SEQ_OV_DMA_EN_MASK ((uint32_t)0x00000004U)
+#define ADC_DMA_EN_0_WC_IN_DMA_EN_OFS (3)
+#define ADC_DMA_EN_0_WC_IN_DMA_EN_MASK ((uint32_t)0x00000008U)
+#define ADC_DMA_EN_0_WC_HIGH_DMA_EN_OFS (4)
+#define ADC_DMA_EN_0_WC_HIGH_DMA_EN_MASK ((uint32_t)0x00000010U)
+#define ADC_DMA_EN_0_WC_LOW_DMA_EN_OFS (5)
+#define ADC_DMA_EN_0_WC_LOW_DMA_EN_MASK ((uint32_t)0x00000020U)
+#define ADC_DMA_EN_0_DMA_DONE_DMA_EN_OFS (6)
+#define ADC_DMA_EN_0_DMA_DONE_DMA_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_DMA_EN_0_UF_DMA_EN_OFS (7)
+#define ADC_DMA_EN_0_UF_DMA_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_DMA_EN_0_RESULT0_DMA_EN_OFS (8)
+#define ADC_DMA_EN_0_RESULT0_DMA_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_DMA_EN_0_RESULT1_DMA_EN_OFS (9)
+#define ADC_DMA_EN_0_RESULT1_DMA_EN_MASK ((uint32_t)0x00000200U)
+#define ADC_DMA_EN_0_RESULT2_DMA_EN_OFS (10)
+#define ADC_DMA_EN_0_RESULT2_DMA_EN_MASK ((uint32_t)0x00000400U)
+#define ADC_DMA_EN_0_RESULT3_DMA_EN_OFS (11)
+#define ADC_DMA_EN_0_RESULT3_DMA_EN_MASK ((uint32_t)0x00000800U)
+#define ADC_DMA_EN_0_RESULT4_DMA_EN_OFS (12)
+#define ADC_DMA_EN_0_RESULT4_DMA_EN_MASK ((uint32_t)0x00001000U)
+#define ADC_DMA_EN_0_RESULT5_DMA_EN_OFS (13)
+#define ADC_DMA_EN_0_RESULT5_DMA_EN_MASK ((uint32_t)0x00002000U)
+#define ADC_DMA_EN_0_RESULT6_DMA_EN_OFS (14)
+#define ADC_DMA_EN_0_RESULT6_DMA_EN_MASK ((uint32_t)0x00004000U)
+#define ADC_DMA_EN_0_RESULT7_DMA_EN_OFS (15)
+#define ADC_DMA_EN_0_RESULT7_DMA_EN_MASK ((uint32_t)0x00008000U)
+#define ADC_DMA_EN_1_RESULT8_DMA_EN_OFS (0)
+#define ADC_DMA_EN_1_RESULT8_DMA_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_DMA_EN_1_RESULT9_DMA_EN_OFS (1)
+#define ADC_DMA_EN_1_RESULT9_DMA_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_DMA_EN_1_RESULT10_DMA_EN_OFS (2)
+#define ADC_DMA_EN_1_RESULT10_DMA_EN_MASK ((uint32_t)0x00000004U)
+#define ADC_DMA_EN_1_RESULT11_DMA_EN_OFS (3)
+#define ADC_DMA_EN_1_RESULT11_DMA_EN_MASK ((uint32_t)0x00000008U)
+#define ADC_DMA_EN_1_RESULT12_DMA_EN_OFS (4)
+#define ADC_DMA_EN_1_RESULT12_DMA_EN_MASK ((uint32_t)0x00000010U)
+#define ADC_DMA_EN_1_RESULT13_DMA_EN_OFS (5)
+#define ADC_DMA_EN_1_RESULT13_DMA_EN_MASK ((uint32_t)0x00000020U)
+#define ADC_DMA_EN_1_RESULT14_DMA_EN_OFS (6)
+#define ADC_DMA_EN_1_RESULT14_DMA_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_DMA_EN_1_RESULT15_DMA_EN_OFS (7)
+#define ADC_DMA_EN_1_RESULT15_DMA_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_EVENT_EN_0_TRIG_TO_DMA_EVENT_EN_OFS (0)
+#define ADC_EVENT_EN_0_TRIG_TO_DMA_EVENT_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_EVENT_EN_0_OV_FLAG_EVENT_EN_OFS (1)
+#define ADC_EVENT_EN_0_OV_FLAG_EVENT_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_EVENT_EN_0_SEQ_OV_FLOW_EVENT_EN_OFS (2)
+#define ADC_EVENT_EN_0_SEQ_OV_FLOW_EVENT_EN_MASK ((uint32_t)0x00000004U)
+#define ADC_EVENT_EN_0_WC_IN_EVENT_EN_OFS (3)
+#define ADC_EVENT_EN_0_WC_IN_EVENT_EN_MASK ((uint32_t)0x00000008U)
+#define ADC_EVENT_EN_0_WC_HIGH_EVENT_EN_OFS (4)
+#define ADC_EVENT_EN_0_WC_HIGH_EVENT_EN_MASK ((uint32_t)0x00000010U)
+#define ADC_EVENT_EN_0_WC_LOW_EVENT_EN_OFS (5)
+#define ADC_EVENT_EN_0_WC_LOW_EVENT_EN_MASK ((uint32_t)0x00000020U)
+#define ADC_EVENT_EN_0_DMA_DONE_EVENT_EN_OFS (6)
+#define ADC_EVENT_EN_0_DMA_DONE_EVENT_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_EVENT_EN_0_UF_FLAG_EVENT_EN_OFS (7)
+#define ADC_EVENT_EN_0_UF_FLAG_EVENT_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_EVENT_EN_0_RESULT0_EVENT_EN_OFS (8)
+#define ADC_EVENT_EN_0_RESULT0_EVENT_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_EVENT_EN_0_RESULT1_EVENT_EN_OFS (9)
+#define ADC_EVENT_EN_0_RESULT1_EVENT_EN_MASK ((uint32_t)0x00000200U)
+#define ADC_EVENT_EN_0_RESULT2_EVENT_EN_OFS (10)
+#define ADC_EVENT_EN_0_RESULT2_EVENT_EN_MASK ((uint32_t)0x00000400U)
+#define ADC_EVENT_EN_0_RESULT3_EVENT_EN_OFS (11)
+#define ADC_EVENT_EN_0_RESULT3_EVENT_EN_MASK ((uint32_t)0x00000800U)
+#define ADC_EVENT_EN_0_RESULT4_EVENT_EN_OFS (12)
+#define ADC_EVENT_EN_0_RESULT4_EVENT_EN_MASK ((uint32_t)0x00001000U)
+#define ADC_EVENT_EN_0_RESULT5_EVENT_EN_OFS (13)
+#define ADC_EVENT_EN_0_RESULT5_EVENT_EN_MASK ((uint32_t)0x00002000U)
+#define ADC_EVENT_EN_0_RESULT6_EVENT_EN_OFS (14)
+#define ADC_EVENT_EN_0_RESULT6_EVENT_EN_MASK ((uint32_t)0x00004000U)
+#define ADC_EVENT_EN_0_RESULT7_EVENT_EN_OFS (15)
+#define ADC_EVENT_EN_0_RESULT7_EVENT_EN_MASK ((uint32_t)0x00008000U)
+#define ADC_EVENT_EN_1_RESULT8_EVENT_EN_OFS (0)
+#define ADC_EVENT_EN_1_RESULT8_EVENT_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_EVENT_EN_1_RESULT9_EVENT_EN_OFS (1)
+#define ADC_EVENT_EN_1_RESULT9_EVENT_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_EVENT_EN_1_RESULT10_EVENT_EN_OFS (2)
+#define ADC_EVENT_EN_1_RESULT10_EVENT_EN_MASK ((uint32_t)0x00000004U)
+#define ADC_EVENT_EN_1_RESULT11_EVENT_EN_OFS (3)
+#define ADC_EVENT_EN_1_RESULT11_EVENT_EN_MASK ((uint32_t)0x00000008U)
+#define ADC_EVENT_EN_1_RESULT12_EVENT_EN_OFS (4)
+#define ADC_EVENT_EN_1_RESULT12_EVENT_EN_MASK ((uint32_t)0x00000010U)
+#define ADC_EVENT_EN_1_RESULT13_EVENT_EN_OFS (5)
+#define ADC_EVENT_EN_1_RESULT13_EVENT_EN_MASK ((uint32_t)0x00000020U)
+#define ADC_EVENT_EN_1_RESULT14_EVENT_EN_OFS (6)
+#define ADC_EVENT_EN_1_RESULT14_EVENT_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_EVENT_EN_1_RESULT15_EVENT_EN_OFS (7)
+#define ADC_EVENT_EN_1_RESULT15_EVENT_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_INTR_NMI_EN_0_TRIG_TO_DMA_FLAG_NMI_EN_OFS (0)
+#define ADC_INTR_NMI_EN_0_TRIG_TO_DMA_FLAG_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_INTR_NMI_EN_0_OV_FLAG_NMI_EN_OFS (1)
+#define ADC_INTR_NMI_EN_0_OV_FLAG_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_INTR_NMI_EN_0_SEQ_OV_FLOW_NMI_EN_OFS (2)
+#define ADC_INTR_NMI_EN_0_SEQ_OV_FLOW_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define ADC_INTR_NMI_EN_0_WC_IN_FLAG_NMI_EN_OFS (3)
+#define ADC_INTR_NMI_EN_0_WC_IN_FLAG_NMI_EN_MASK ((uint32_t)0x00000008U)
+#define ADC_INTR_NMI_EN_0_WC_HIGH_FLAG_NMI_EN_OFS (4)
+#define ADC_INTR_NMI_EN_0_WC_HIGH_FLAG_NMI_EN_MASK ((uint32_t)0x00000010U)
+#define ADC_INTR_NMI_EN_0_WC_LOW_FLAG_NMI_EN_OFS (5)
+#define ADC_INTR_NMI_EN_0_WC_LOW_FLAG_NMI_EN_MASK ((uint32_t)0x00000020U)
+#define ADC_INTR_NMI_EN_0_DMA_DONE_NMI_EN_OFS (6)
+#define ADC_INTR_NMI_EN_0_DMA_DONE_NMI_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_INTR_NMI_EN_0_UF_FLAG_NMI_EN_OFS (7)
+#define ADC_INTR_NMI_EN_0_UF_FLAG_NMI_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_INTR_NMI_EN_0_RESULT0_FLAG_NMI_EN_OFS (8)
+#define ADC_INTR_NMI_EN_0_RESULT0_FLAG_NMI_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_INTR_NMI_EN_0_RESULT1_FLAG_NMI_EN_OFS (9)
+#define ADC_INTR_NMI_EN_0_RESULT1_FLAG_NMI_EN_MASK ((uint32_t)0x00000200U)
+#define ADC_INTR_NMI_EN_0_RESULT2_FLAG_NMI_EN_OFS (10)
+#define ADC_INTR_NMI_EN_0_RESULT2_FLAG_NMI_EN_MASK ((uint32_t)0x00000400U)
+#define ADC_INTR_NMI_EN_0_RESULT3_FLAG_NMI_EN_OFS (11)
+#define ADC_INTR_NMI_EN_0_RESULT3_FLAG_NMI_EN_MASK ((uint32_t)0x00000800U)
+#define ADC_INTR_NMI_EN_0_RESULT4_FLAG_NMI_EN_OFS (12)
+#define ADC_INTR_NMI_EN_0_RESULT4_FLAG_NMI_EN_MASK ((uint32_t)0x00001000U)
+#define ADC_INTR_NMI_EN_0_RESULT5_FLAG_NMI_EN_OFS (13)
+#define ADC_INTR_NMI_EN_0_RESULT5_FLAG_NMI_EN_MASK ((uint32_t)0x00002000U)
+#define ADC_INTR_NMI_EN_0_RESULT6_FLAG_NMI_EN_OFS (14)
+#define ADC_INTR_NMI_EN_0_RESULT6_FLAG_NMI_EN_MASK ((uint32_t)0x00004000U)
+#define ADC_INTR_NMI_EN_0_RESULT7_FLAG_NMI_EN_OFS (15)
+#define ADC_INTR_NMI_EN_0_RESULT7_FLAG_NMI_EN_MASK ((uint32_t)0x00008000U)
+#define ADC_INTR_NMI_EN_1_RESULT8_FLAG_NMI_EN_OFS (0)
+#define ADC_INTR_NMI_EN_1_RESULT8_FLAG_NMI_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_INTR_NMI_EN_1_RESULT9_FLAG_NMI_EN_OFS (1)
+#define ADC_INTR_NMI_EN_1_RESULT9_FLAG_NMI_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_INTR_NMI_EN_1_RESULT10_FLAG_NMI_EN_OFS (2)
+#define ADC_INTR_NMI_EN_1_RESULT10_FLAG_NMI_EN_MASK ((uint32_t)0x00000004U)
+#define ADC_INTR_NMI_EN_1_RESULT11_FLAG_NMI_EN_OFS (3)
+#define ADC_INTR_NMI_EN_1_RESULT11_FLAG_NMI_EN_MASK ((uint32_t)0x00000008U)
+#define ADC_INTR_NMI_EN_1_RESULT12_FLAG_NMI_EN_OFS (4)
+#define ADC_INTR_NMI_EN_1_RESULT12_FLAG_NMI_EN_MASK ((uint32_t)0x00000010U)
+#define ADC_INTR_NMI_EN_1_RESULT13_FLAG_NMI_EN_OFS (5)
+#define ADC_INTR_NMI_EN_1_RESULT13_FLAG_NMI_EN_MASK ((uint32_t)0x00000020U)
+#define ADC_INTR_NMI_EN_1_RESULT14_FLAG_NMI_EN_OFS (6)
+#define ADC_INTR_NMI_EN_1_RESULT14_FLAG_NMI_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_INTR_NMI_EN_1_RESULT15_FLAG_NMI_EN_OFS (7)
+#define ADC_INTR_NMI_EN_1_RESULT15_FLAG_NMI_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_INTR_STS_INTR_FIRST_OFS (0)
+#define ADC_INTR_STS_INTR_FIRST_MASK ((uint32_t)0x000000FFU)
+#define ADC_INTR_SW_TRIG_TO_DMA_FLAG_SW_SET_OFS (0)
+#define ADC_INTR_SW_TRIG_TO_DMA_FLAG_SW_SET_MASK ((uint32_t)0x00000001U)
+#define ADC_INTR_SW_OV_FLAG_SW_SET_OFS (1)
+#define ADC_INTR_SW_OV_FLAG_SW_SET_MASK ((uint32_t)0x00000002U)
+#define ADC_INTR_SW_SEQ_OV_FLOW_SW_SET_OFS (2)
+#define ADC_INTR_SW_SEQ_OV_FLOW_SW_SET_MASK ((uint32_t)0x00000004U)
+#define ADC_INTR_SW_WC_IN_FLAG_SW_SET_OFS (3)
+#define ADC_INTR_SW_WC_IN_FLAG_SW_SET_MASK ((uint32_t)0x00000008U)
+#define ADC_INTR_SW_WC_HIGH_FLAG_SW_SET_OFS (4)
+#define ADC_INTR_SW_WC_HIGH_FLAG_SW_SET_MASK ((uint32_t)0x00000010U)
+#define ADC_INTR_SW_WC_LOW_FLAG_SW_SET_OFS (5)
+#define ADC_INTR_SW_WC_LOW_FLAG_SW_SET_MASK ((uint32_t)0x00000020U)
+#define ADC_INTR_SW_DMA_DONE_SW_SET_OFS (6)
+#define ADC_INTR_SW_DMA_DONE_SW_SET_MASK ((uint32_t)0x00000040U)
+#define ADC_INTR_SW_UF_FLAG_SW_SET_OFS (7)
+#define ADC_INTR_SW_UF_FLAG_SW_SET_MASK ((uint32_t)0x00000080U)
+#define ADC_INTR_SW_RESULT0_FLAG_SW_SET_OFS (8)
+#define ADC_INTR_SW_RESULT0_FLAG_SW_SET_MASK ((uint32_t)0x00000100U)
+#define ADC_INTR_SW_RESULT1_FLAG_SW_SET_OFS (9)
+#define ADC_INTR_SW_RESULT1_FLAG_SW_SET_MASK ((uint32_t)0x00000200U)
+#define ADC_INTR_SW_RESULT2_FLAG_SW_SET_OFS (10)
+#define ADC_INTR_SW_RESULT2_FLAG_SW_SET_MASK ((uint32_t)0x00000400U)
+#define ADC_INTR_SW_RESULT3_FLAG_SW_SET_OFS (11)
+#define ADC_INTR_SW_RESULT3_FLAG_SW_SET_MASK ((uint32_t)0x00000800U)
+#define ADC_INTR_SW_RESULT4_FLAG_SW_SET_OFS (12)
+#define ADC_INTR_SW_RESULT4_FLAG_SW_SET_MASK ((uint32_t)0x00001000U)
+#define ADC_INTR_SW_RESULT5_FLAG_SW_SET_OFS (13)
+#define ADC_INTR_SW_RESULT5_FLAG_SW_SET_MASK ((uint32_t)0x00002000U)
+#define ADC_INTR_SW_RESULT6_FLAG_SW_SET_OFS (14)
+#define ADC_INTR_SW_RESULT6_FLAG_SW_SET_MASK ((uint32_t)0x00004000U)
+#define ADC_INTR_SW_RESULT7_FLAG_SW_SET_OFS (15)
+#define ADC_INTR_SW_RESULT7_FLAG_SW_SET_MASK ((uint32_t)0x00008000U)
+#define ADC_INTR_SW_RESULT8_FLAG_SW_SET_OFS (16)
+#define ADC_INTR_SW_RESULT8_FLAG_SW_SET_MASK ((uint32_t)0x00010000U)
+#define ADC_INTR_SW_RESULT9_FLAG_SW_SET_OFS (17)
+#define ADC_INTR_SW_RESULT9_FLAG_SW_SET_MASK ((uint32_t)0x00020000U)
+#define ADC_INTR_SW_RESULT10_FLAG_SW_SET_OFS (18)
+#define ADC_INTR_SW_RESULT10_FLAG_SW_SET_MASK ((uint32_t)0x00040000U)
+#define ADC_INTR_SW_RESULT11_FLAG_SW_SET_OFS (19)
+#define ADC_INTR_SW_RESULT11_FLAG_SW_SET_MASK ((uint32_t)0x00080000U)
+#define ADC_INTR_SW_RESULT12_FLAG_SW_SET_OFS (20)
+#define ADC_INTR_SW_RESULT12_FLAG_SW_SET_MASK ((uint32_t)0x00100000U)
+#define ADC_INTR_SW_RESULT13_FLAG_SW_SET_OFS (21)
+#define ADC_INTR_SW_RESULT13_FLAG_SW_SET_MASK ((uint32_t)0x00200000U)
+#define ADC_INTR_SW_RESULT14_FLAG_SW_SET_OFS (22)
+#define ADC_INTR_SW_RESULT14_FLAG_SW_SET_MASK ((uint32_t)0x00400000U)
+#define ADC_INTR_SW_RESULT15_FLAG_SW_SET_OFS (23)
+#define ADC_INTR_SW_RESULT15_FLAG_SW_SET_MASK ((uint32_t)0x00800000U)
+#define ADC_CONV_CFG_CONV_MODE_OFS (0)
+#define ADC_CONV_CFG_CONV_MODE_MASK ((uint32_t)0x00000003U)
+#define ADC_CONV_CFG_START_ADDR_OFS (2)
+#define ADC_CONV_CFG_START_ADDR_MASK ((uint32_t)0x0000003CU)
+#define ADC_CONV_CFG_END_ADDR_OFS (6)
+#define ADC_CONV_CFG_END_ADDR_MASK ((uint32_t)0x000003C0U)
+#define ADC_CONV_CFG_TRIGGER_SOURCE_OFS (10)
+#define ADC_CONV_CFG_TRIGGER_SOURCE_MASK ((uint32_t)0x00000400U)
+#define ADC_CONV_CFG_ADC_RES_OFS (11)
+#define ADC_CONV_CFG_ADC_RES_MASK ((uint32_t)0x00001800U)
+#define ADC_CONV_CFG_EN_CONV_OFS (13)
+#define ADC_CONV_CFG_EN_CONV_MASK ((uint32_t)0x00002000U)
+#define ADC_CHNL_CFG_0_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_0_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_0_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_0_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_0_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_0_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_0_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_0_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_0_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_0_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_1_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_1_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_1_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_1_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_1_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_1_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_1_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_1_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_1_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_1_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_2_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_2_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_2_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_2_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_2_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_2_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_2_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_2_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_2_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_2_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_3_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_3_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_3_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_3_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_3_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_3_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_3_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_3_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_3_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_3_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_4_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_4_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_4_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_4_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_4_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_4_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_4_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_4_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_4_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_4_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_5_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_5_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_5_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_5_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_5_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_5_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_5_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_5_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_5_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_5_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_6_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_6_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_6_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_6_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_6_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_6_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_6_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_6_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_6_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_6_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_7_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_7_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_7_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_7_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_7_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_7_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_7_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_7_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_7_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_7_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_8_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_8_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_8_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_8_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_8_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_8_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_8_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_8_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_8_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_8_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_9_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_9_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_9_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_9_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_9_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_9_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_9_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_9_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_9_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_9_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_10_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_10_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_10_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_10_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_10_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_10_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_10_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_10_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_10_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_10_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_11_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_11_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_11_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_11_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_11_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_11_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_11_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_11_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_11_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_11_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_12_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_12_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_12_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_12_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_12_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_12_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_12_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_12_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_12_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_12_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_13_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_13_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_13_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_13_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_13_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_13_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_13_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_13_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_13_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_13_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_14_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_14_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_14_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_14_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_14_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_14_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_14_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_14_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_14_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_14_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_15_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_15_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_15_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_15_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_15_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_15_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_15_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_15_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_15_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_15_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_RESULT_CFG_FIFO_EN_OFS (0)
+#define ADC_RESULT_CFG_FIFO_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_HW_AVG_CFG_HW_SAMPLE_CNT_OFS (0)
+#define ADC_HW_AVG_CFG_HW_SAMPLE_CNT_MASK ((uint32_t)0x0000000FU)
+#define ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_OFS (4)
+#define ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_MASK ((uint32_t)0x000000F0U)
+#define ADC_RESULT_RESULT_OFS (0)
+#define ADC_RESULT_RESULT_MASK ((uint32_t)0x0000FFFFU)
+#define ADC_TIMER_START_TIMER_CNT_START_OFS (0)
+#define ADC_TIMER_START_TIMER_CNT_START_MASK ((uint32_t)0x0000000FU)
+#define ADC_TIMER_SAMPLE_TIMER_CNT_SAMPLE_OFS (0)
+#define ADC_TIMER_SAMPLE_TIMER_CNT_SAMPLE_MASK ((uint32_t)0x0000001FU)
+#define ADC_TIMER_CONVERSION_TIMER_CNT_CONVERSION_OFS (0)
+#define ADC_TIMER_CONVERSION_TIMER_CNT_CONVERSION_MASK ((uint32_t)0x000000FFU)
+#define ADC_WINDOW_COMP_WINDOW_COMP_TH_LOW_OFS (0)
+#define ADC_WINDOW_COMP_WINDOW_COMP_TH_LOW_MASK ((uint32_t)0x0000FFFFU)
+#define ADC_WINDOW_COMP_WINDOW_COMP_TH_HIGH_OFS (16)
+#define ADC_WINDOW_COMP_WINDOW_COMP_TH_HIGH_MASK ((uint32_t)0xFFFF0000U)
+#define ADC_ADC_STATUS_ADC_BUSY_OFS (0)
+#define ADC_ADC_STATUS_ADC_BUSY_MASK ((uint32_t)0x00000001U)
+#define ADC_DMA_REG_DMA_EN_OFS (0)
+#define ADC_DMA_REG_DMA_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_POWER_DN_PWR_DN_OFS (0)
+#define ADC_POWER_DN_PWR_DN_MASK ((uint32_t)0x00000001U)
+#define ADC_SUBS_PORT_SUBS_PORT_OFS (0)
+#define ADC_SUBS_PORT_SUBS_PORT_MASK ((uint32_t)0x0000000FU)
+#define ADC_PUBS_PORT_PUBS_PORT_OFS (0)
+#define ADC_PUBS_PORT_PUBS_PORT_MASK ((uint32_t)0x0000000FU)
+#define ADC_CALIBRATION_REQ_CAL_REQ_OFS (0)
+#define ADC_CALIBRATION_REQ_CAL_REQ_MASK ((uint32_t)0x00000001U)
+#define ADC_CALIBRATION_REQ_CAL_DONE_OFS (1)
+#define ADC_CALIBRATION_REQ_CAL_DONE_MASK ((uint32_t)0x00000002U)
+#define ADC_CALIBRATION_REQ_CAL_CTRL_OFS (2)
+#define ADC_CALIBRATION_REQ_CAL_CTRL_MASK ((uint32_t)0x000FFFFCU)
+#define ADC_BLOCK_ASYNC_REQ_BLOCK_ASYNC_REQ_OFS (0)
+#define ADC_BLOCK_ASYNC_REQ_BLOCK_ASYNC_REQ_MASK ((uint32_t)0x00000001U)
+#define ADC_SW_TRIGGER_SW_TRIGGER_OFS (0)
+#define ADC_SW_TRIGGER_SW_TRIGGER_MASK ((uint32_t)0x00000001U)
+#define ADC_SW_TRIGGER_SW_TRIGGER_EN_OFS (1)
+#define ADC_SW_TRIGGER_SW_TRIGGER_EN_MASK ((uint32_t)0x00000002U)
+#define ADC_SPARE_CTRL_ADC_CFG0_OFS (0)
+#define ADC_SPARE_CTRL_ADC_CFG0_MASK ((uint32_t)0x000000FFU)
+#define ADC_SPARE_CTRL_ADC_CFG1_OFS (8)
+#define ADC_SPARE_CTRL_ADC_CFG1_MASK ((uint32_t)0x0000FF00U)
+#define ADC_SPARE_CTRL_ADC_CFG2_OFS (16)
+#define ADC_SPARE_CTRL_ADC_CFG2_MASK ((uint32_t)0x00FF0000U)
+#define ADC_SPARE_CTRL_ADC_CFG3_OFS (24)
+#define ADC_SPARE_CTRL_ADC_CFG3_MASK ((uint32_t)0xFF000000U)
+#define ADC_SPARE_STS_ADC_STS0_OFS (0)
+#define ADC_SPARE_STS_ADC_STS0_MASK ((uint32_t)0x000000FFU)
+#define ADC_SPARE_STS_ADC_STS1_OFS (8)
+#define ADC_SPARE_STS_ADC_STS1_MASK ((uint32_t)0x0000FF00U)
+#define ADC_SPARE_STS_ADC_STS2_OFS (16)
+#define ADC_SPARE_STS_ADC_STS2_MASK ((uint32_t)0x00FF0000U)
+#define ADC_SPARE_STS_ADC_STS3_OFS (24)
+#define ADC_SPARE_STS_ADC_STS3_MASK ((uint32_t)0xFF000000U)
+#define ADC_EOC_ANA_EOC_ANA_OFS (0)
+#define ADC_EOC_ANA_EOC_ANA_MASK ((uint32_t)0x00000001U)
+#define ADC_TEMP_SENSOR_EN_TEMP_SENSOR_EN_OFS (0)
+#define ADC_TEMP_SENSOR_EN_TEMP_SENSOR_EN_MASK ((uint32_t)0x00000001U)
+#define ADC_SM_STATE_CURR_STATE_OFS (0)
+#define ADC_SM_STATE_CURR_STATE_MASK ((uint32_t)0x0000000FU)
+#define ADC_DMA_TRANSFER_CNT_DMA_TRANSFER_CNT_OFS (0)
+#define ADC_DMA_TRANSFER_CNT_DMA_TRANSFER_CNT_MASK ((uint32_t)0x0000000FU)
 #endif

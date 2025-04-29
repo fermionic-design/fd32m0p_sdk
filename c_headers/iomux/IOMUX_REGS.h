@@ -3,10 +3,6 @@
 
 #include <stdint.h>
 
-typedef struct base0_s {
-    unsigned int base:32;
-} base0_s;
-
 typedef struct IOMUX_PA_0_REG_s {
     unsigned int output_en:1; // 
     unsigned int input_en:1; // 
@@ -21,7 +17,7 @@ typedef struct IOMUX_PA_0_REG_s {
 } IOMUX_PA_0_REG_s;
 
 typedef union IOMUX_PA_0_u {
-    IOMUX_PA_0_REG_s PA_0;
+    IOMUX_PA_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -41,7 +37,7 @@ typedef struct IOMUX_PA_1_REG_s {
 } IOMUX_PA_1_REG_s;
 
 typedef union IOMUX_PA_1_u {
-    IOMUX_PA_1_REG_s PA_1;
+    IOMUX_PA_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -61,7 +57,7 @@ typedef struct IOMUX_PA_2_REG_s {
 } IOMUX_PA_2_REG_s;
 
 typedef union IOMUX_PA_2_u {
-    IOMUX_PA_2_REG_s PA_2;
+    IOMUX_PA_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -81,7 +77,7 @@ typedef struct IOMUX_PA_3_REG_s {
 } IOMUX_PA_3_REG_s;
 
 typedef union IOMUX_PA_3_u {
-    IOMUX_PA_3_REG_s PA_3;
+    IOMUX_PA_3_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -101,7 +97,7 @@ typedef struct IOMUX_PA_4_REG_s {
 } IOMUX_PA_4_REG_s;
 
 typedef union IOMUX_PA_4_u {
-    IOMUX_PA_4_REG_s PA_4;
+    IOMUX_PA_4_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -121,7 +117,7 @@ typedef struct IOMUX_PA_5_REG_s {
 } IOMUX_PA_5_REG_s;
 
 typedef union IOMUX_PA_5_u {
-    IOMUX_PA_5_REG_s PA_5;
+    IOMUX_PA_5_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -141,7 +137,7 @@ typedef struct IOMUX_PA_6_REG_s {
 } IOMUX_PA_6_REG_s;
 
 typedef union IOMUX_PA_6_u {
-    IOMUX_PA_6_REG_s PA_6;
+    IOMUX_PA_6_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -161,7 +157,7 @@ typedef struct IOMUX_PA_7_REG_s {
 } IOMUX_PA_7_REG_s;
 
 typedef union IOMUX_PA_7_u {
-    IOMUX_PA_7_REG_s PA_7;
+    IOMUX_PA_7_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -181,7 +177,7 @@ typedef struct IOMUX_PA_8_REG_s {
 } IOMUX_PA_8_REG_s;
 
 typedef union IOMUX_PA_8_u {
-    IOMUX_PA_8_REG_s PA_8;
+    IOMUX_PA_8_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -201,7 +197,7 @@ typedef struct IOMUX_PA_9_REG_s {
 } IOMUX_PA_9_REG_s;
 
 typedef union IOMUX_PA_9_u {
-    IOMUX_PA_9_REG_s PA_9;
+    IOMUX_PA_9_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -221,7 +217,7 @@ typedef struct IOMUX_PA_10_REG_s {
 } IOMUX_PA_10_REG_s;
 
 typedef union IOMUX_PA_10_u {
-    IOMUX_PA_10_REG_s PA_10;
+    IOMUX_PA_10_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -241,7 +237,7 @@ typedef struct IOMUX_PA_11_REG_s {
 } IOMUX_PA_11_REG_s;
 
 typedef union IOMUX_PA_11_u {
-    IOMUX_PA_11_REG_s PA_11;
+    IOMUX_PA_11_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -261,7 +257,7 @@ typedef struct IOMUX_PA_12_REG_s {
 } IOMUX_PA_12_REG_s;
 
 typedef union IOMUX_PA_12_u {
-    IOMUX_PA_12_REG_s PA_12;
+    IOMUX_PA_12_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -281,7 +277,7 @@ typedef struct IOMUX_PA_13_REG_s {
 } IOMUX_PA_13_REG_s;
 
 typedef union IOMUX_PA_13_u {
-    IOMUX_PA_13_REG_s PA_13;
+    IOMUX_PA_13_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -301,7 +297,7 @@ typedef struct IOMUX_PA_14_REG_s {
 } IOMUX_PA_14_REG_s;
 
 typedef union IOMUX_PA_14_u {
-    IOMUX_PA_14_REG_s PA_14;
+    IOMUX_PA_14_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -321,7 +317,7 @@ typedef struct IOMUX_PA_15_REG_s {
 } IOMUX_PA_15_REG_s;
 
 typedef union IOMUX_PA_15_u {
-    IOMUX_PA_15_REG_s PA_15;
+    IOMUX_PA_15_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -341,7 +337,7 @@ typedef struct IOMUX_PA_16_REG_s {
 } IOMUX_PA_16_REG_s;
 
 typedef union IOMUX_PA_16_u {
-    IOMUX_PA_16_REG_s PA_16;
+    IOMUX_PA_16_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -361,7 +357,7 @@ typedef struct IOMUX_PA_17_REG_s {
 } IOMUX_PA_17_REG_s;
 
 typedef union IOMUX_PA_17_u {
-    IOMUX_PA_17_REG_s PA_17;
+    IOMUX_PA_17_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -381,7 +377,7 @@ typedef struct IOMUX_PA_18_REG_s {
 } IOMUX_PA_18_REG_s;
 
 typedef union IOMUX_PA_18_u {
-    IOMUX_PA_18_REG_s PA_18;
+    IOMUX_PA_18_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -401,7 +397,7 @@ typedef struct IOMUX_PA_19_REG_s {
 } IOMUX_PA_19_REG_s;
 
 typedef union IOMUX_PA_19_u {
-    IOMUX_PA_19_REG_s PA_19;
+    IOMUX_PA_19_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -421,7 +417,7 @@ typedef struct IOMUX_PA_20_REG_s {
 } IOMUX_PA_20_REG_s;
 
 typedef union IOMUX_PA_20_u {
-    IOMUX_PA_20_REG_s PA_20;
+    IOMUX_PA_20_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -441,7 +437,7 @@ typedef struct IOMUX_PA_21_REG_s {
 } IOMUX_PA_21_REG_s;
 
 typedef union IOMUX_PA_21_u {
-    IOMUX_PA_21_REG_s PA_21;
+    IOMUX_PA_21_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -461,7 +457,7 @@ typedef struct IOMUX_PA_22_REG_s {
 } IOMUX_PA_22_REG_s;
 
 typedef union IOMUX_PA_22_u {
-    IOMUX_PA_22_REG_s PA_22;
+    IOMUX_PA_22_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -481,7 +477,7 @@ typedef struct IOMUX_PA_23_REG_s {
 } IOMUX_PA_23_REG_s;
 
 typedef union IOMUX_PA_23_u {
-    IOMUX_PA_23_REG_s PA_23;
+    IOMUX_PA_23_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -501,7 +497,7 @@ typedef struct IOMUX_PA_24_REG_s {
 } IOMUX_PA_24_REG_s;
 
 typedef union IOMUX_PA_24_u {
-    IOMUX_PA_24_REG_s PA_24;
+    IOMUX_PA_24_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -521,7 +517,7 @@ typedef struct IOMUX_PA_25_REG_s {
 } IOMUX_PA_25_REG_s;
 
 typedef union IOMUX_PA_25_u {
-    IOMUX_PA_25_REG_s PA_25;
+    IOMUX_PA_25_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -541,7 +537,7 @@ typedef struct IOMUX_PA_26_REG_s {
 } IOMUX_PA_26_REG_s;
 
 typedef union IOMUX_PA_26_u {
-    IOMUX_PA_26_REG_s PA_26;
+    IOMUX_PA_26_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -561,7 +557,7 @@ typedef struct IOMUX_PA_27_REG_s {
 } IOMUX_PA_27_REG_s;
 
 typedef union IOMUX_PA_27_u {
-    IOMUX_PA_27_REG_s PA_27;
+    IOMUX_PA_27_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
@@ -572,14 +568,13 @@ typedef struct IOMUX_DUMMY_REG_s {
 } IOMUX_DUMMY_REG_s;
 
 typedef union IOMUX_DUMMY_u {
-    IOMUX_DUMMY_REG_s DUMMY;
+    IOMUX_DUMMY_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } IOMUX_DUMMY_u;
 
 typedef struct IOMUX_REGS_s{
-    volatile base0_s base0;    
     volatile IOMUX_PA_0_u PA_0;
     volatile IOMUX_PA_1_u PA_1;
     volatile IOMUX_PA_2_u PA_2;
@@ -611,510 +606,510 @@ typedef struct IOMUX_REGS_s{
     volatile IOMUX_DUMMY_u DUMMY;
 } IOMUX_REGS_s;
 
-#define IOMUX_PA_0_output_en_OFS (0)
-#define IOMUX_PA_0_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_0_input_en_OFS (1)
-#define IOMUX_PA_0_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_0_drive_strength_OFS (2)
-#define IOMUX_PA_0_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_0_slew_rate_OFS (4)
-#define IOMUX_PA_0_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_0_pull_up_OFS (5)
-#define IOMUX_PA_0_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_0_pull_down_OFS (6)
-#define IOMUX_PA_0_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_0_hysteresis_OFS (7)
-#define IOMUX_PA_0_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_0_sel_OFS (8)
-#define IOMUX_PA_0_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_0_input_val_OFS (16)
-#define IOMUX_PA_0_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_1_output_en_OFS (0)
-#define IOMUX_PA_1_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_1_input_en_OFS (1)
-#define IOMUX_PA_1_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_1_drive_strength_OFS (2)
-#define IOMUX_PA_1_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_1_slew_rate_OFS (4)
-#define IOMUX_PA_1_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_1_pull_up_OFS (5)
-#define IOMUX_PA_1_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_1_pull_down_OFS (6)
-#define IOMUX_PA_1_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_1_hysteresis_OFS (7)
-#define IOMUX_PA_1_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_1_sel_OFS (8)
-#define IOMUX_PA_1_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_1_input_val_OFS (16)
-#define IOMUX_PA_1_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_2_output_en_OFS (0)
-#define IOMUX_PA_2_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_2_input_en_OFS (1)
-#define IOMUX_PA_2_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_2_drive_strength_OFS (2)
-#define IOMUX_PA_2_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_2_slew_rate_OFS (4)
-#define IOMUX_PA_2_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_2_pull_up_OFS (5)
-#define IOMUX_PA_2_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_2_pull_down_OFS (6)
-#define IOMUX_PA_2_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_2_hysteresis_OFS (7)
-#define IOMUX_PA_2_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_2_sel_OFS (8)
-#define IOMUX_PA_2_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_2_input_val_OFS (16)
-#define IOMUX_PA_2_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_3_output_en_OFS (0)
-#define IOMUX_PA_3_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_3_input_en_OFS (1)
-#define IOMUX_PA_3_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_3_drive_strength_OFS (2)
-#define IOMUX_PA_3_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_3_slew_rate_OFS (4)
-#define IOMUX_PA_3_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_3_pull_up_OFS (5)
-#define IOMUX_PA_3_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_3_pull_down_OFS (6)
-#define IOMUX_PA_3_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_3_hysteresis_OFS (7)
-#define IOMUX_PA_3_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_3_sel_OFS (8)
-#define IOMUX_PA_3_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_3_input_val_OFS (16)
-#define IOMUX_PA_3_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_4_output_en_OFS (0)
-#define IOMUX_PA_4_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_4_input_en_OFS (1)
-#define IOMUX_PA_4_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_4_drive_strength_OFS (2)
-#define IOMUX_PA_4_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_4_slew_rate_OFS (4)
-#define IOMUX_PA_4_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_4_pull_up_OFS (5)
-#define IOMUX_PA_4_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_4_pull_down_OFS (6)
-#define IOMUX_PA_4_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_4_hysteresis_OFS (7)
-#define IOMUX_PA_4_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_4_sel_OFS (8)
-#define IOMUX_PA_4_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_4_input_val_OFS (16)
-#define IOMUX_PA_4_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_5_output_en_OFS (0)
-#define IOMUX_PA_5_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_5_input_en_OFS (1)
-#define IOMUX_PA_5_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_5_drive_strength_OFS (2)
-#define IOMUX_PA_5_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_5_slew_rate_OFS (4)
-#define IOMUX_PA_5_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_5_pull_up_OFS (5)
-#define IOMUX_PA_5_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_5_pull_down_OFS (6)
-#define IOMUX_PA_5_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_5_hysteresis_OFS (7)
-#define IOMUX_PA_5_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_5_sel_OFS (8)
-#define IOMUX_PA_5_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_5_input_val_OFS (16)
-#define IOMUX_PA_5_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_6_output_en_OFS (0)
-#define IOMUX_PA_6_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_6_input_en_OFS (1)
-#define IOMUX_PA_6_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_6_drive_strength_OFS (2)
-#define IOMUX_PA_6_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_6_slew_rate_OFS (4)
-#define IOMUX_PA_6_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_6_pull_up_OFS (5)
-#define IOMUX_PA_6_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_6_pull_down_OFS (6)
-#define IOMUX_PA_6_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_6_hysteresis_OFS (7)
-#define IOMUX_PA_6_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_6_sel_OFS (8)
-#define IOMUX_PA_6_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_6_input_val_OFS (16)
-#define IOMUX_PA_6_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_7_output_en_OFS (0)
-#define IOMUX_PA_7_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_7_input_en_OFS (1)
-#define IOMUX_PA_7_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_7_drive_strength_OFS (2)
-#define IOMUX_PA_7_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_7_slew_rate_OFS (4)
-#define IOMUX_PA_7_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_7_pull_up_OFS (5)
-#define IOMUX_PA_7_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_7_pull_down_OFS (6)
-#define IOMUX_PA_7_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_7_hysteresis_OFS (7)
-#define IOMUX_PA_7_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_7_sel_OFS (8)
-#define IOMUX_PA_7_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_7_input_val_OFS (16)
-#define IOMUX_PA_7_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_8_output_en_OFS (0)
-#define IOMUX_PA_8_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_8_input_en_OFS (1)
-#define IOMUX_PA_8_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_8_drive_strength_OFS (2)
-#define IOMUX_PA_8_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_8_slew_rate_OFS (4)
-#define IOMUX_PA_8_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_8_pull_up_OFS (5)
-#define IOMUX_PA_8_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_8_pull_down_OFS (6)
-#define IOMUX_PA_8_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_8_hysteresis_OFS (7)
-#define IOMUX_PA_8_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_8_sel_OFS (8)
-#define IOMUX_PA_8_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_8_input_val_OFS (16)
-#define IOMUX_PA_8_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_9_output_en_OFS (0)
-#define IOMUX_PA_9_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_9_input_en_OFS (1)
-#define IOMUX_PA_9_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_9_drive_strength_OFS (2)
-#define IOMUX_PA_9_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_9_slew_rate_OFS (4)
-#define IOMUX_PA_9_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_9_pull_up_OFS (5)
-#define IOMUX_PA_9_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_9_pull_down_OFS (6)
-#define IOMUX_PA_9_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_9_hysteresis_OFS (7)
-#define IOMUX_PA_9_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_9_sel_OFS (8)
-#define IOMUX_PA_9_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_9_input_val_OFS (16)
-#define IOMUX_PA_9_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_10_output_en_OFS (0)
-#define IOMUX_PA_10_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_10_input_en_OFS (1)
-#define IOMUX_PA_10_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_10_drive_strength_OFS (2)
-#define IOMUX_PA_10_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_10_slew_rate_OFS (4)
-#define IOMUX_PA_10_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_10_pull_up_OFS (5)
-#define IOMUX_PA_10_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_10_pull_down_OFS (6)
-#define IOMUX_PA_10_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_10_hysteresis_OFS (7)
-#define IOMUX_PA_10_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_10_sel_OFS (8)
-#define IOMUX_PA_10_sel_MASK ((uint32_t)0x00000F00U)
-#define IOMUX_PA_10_input_val_OFS (16)
-#define IOMUX_PA_10_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_11_output_en_OFS (0)
-#define IOMUX_PA_11_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_11_input_en_OFS (1)
-#define IOMUX_PA_11_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_11_drive_strength_OFS (2)
-#define IOMUX_PA_11_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_11_slew_rate_OFS (4)
-#define IOMUX_PA_11_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_11_pull_up_OFS (5)
-#define IOMUX_PA_11_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_11_pull_down_OFS (6)
-#define IOMUX_PA_11_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_11_hysteresis_OFS (7)
-#define IOMUX_PA_11_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_11_sel_OFS (8)
-#define IOMUX_PA_11_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_11_input_val_OFS (16)
-#define IOMUX_PA_11_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_12_output_en_OFS (0)
-#define IOMUX_PA_12_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_12_input_en_OFS (1)
-#define IOMUX_PA_12_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_12_drive_strength_OFS (2)
-#define IOMUX_PA_12_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_12_slew_rate_OFS (4)
-#define IOMUX_PA_12_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_12_pull_up_OFS (5)
-#define IOMUX_PA_12_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_12_pull_down_OFS (6)
-#define IOMUX_PA_12_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_12_hysteresis_OFS (7)
-#define IOMUX_PA_12_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_12_sel_OFS (8)
-#define IOMUX_PA_12_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_12_input_val_OFS (16)
-#define IOMUX_PA_12_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_13_output_en_OFS (0)
-#define IOMUX_PA_13_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_13_input_en_OFS (1)
-#define IOMUX_PA_13_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_13_drive_strength_OFS (2)
-#define IOMUX_PA_13_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_13_slew_rate_OFS (4)
-#define IOMUX_PA_13_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_13_pull_up_OFS (5)
-#define IOMUX_PA_13_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_13_pull_down_OFS (6)
-#define IOMUX_PA_13_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_13_hysteresis_OFS (7)
-#define IOMUX_PA_13_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_13_sel_OFS (8)
-#define IOMUX_PA_13_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_13_input_val_OFS (16)
-#define IOMUX_PA_13_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_14_output_en_OFS (0)
-#define IOMUX_PA_14_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_14_input_en_OFS (1)
-#define IOMUX_PA_14_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_14_drive_strength_OFS (2)
-#define IOMUX_PA_14_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_14_slew_rate_OFS (4)
-#define IOMUX_PA_14_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_14_pull_up_OFS (5)
-#define IOMUX_PA_14_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_14_pull_down_OFS (6)
-#define IOMUX_PA_14_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_14_hysteresis_OFS (7)
-#define IOMUX_PA_14_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_14_sel_OFS (8)
-#define IOMUX_PA_14_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_14_input_val_OFS (16)
-#define IOMUX_PA_14_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_15_output_en_OFS (0)
-#define IOMUX_PA_15_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_15_input_en_OFS (1)
-#define IOMUX_PA_15_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_15_drive_strength_OFS (2)
-#define IOMUX_PA_15_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_15_slew_rate_OFS (4)
-#define IOMUX_PA_15_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_15_pull_up_OFS (5)
-#define IOMUX_PA_15_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_15_pull_down_OFS (6)
-#define IOMUX_PA_15_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_15_hysteresis_OFS (7)
-#define IOMUX_PA_15_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_15_sel_OFS (8)
-#define IOMUX_PA_15_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_15_input_val_OFS (16)
-#define IOMUX_PA_15_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_16_output_en_OFS (0)
-#define IOMUX_PA_16_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_16_input_en_OFS (1)
-#define IOMUX_PA_16_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_16_drive_strength_OFS (2)
-#define IOMUX_PA_16_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_16_slew_rate_OFS (4)
-#define IOMUX_PA_16_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_16_pull_up_OFS (5)
-#define IOMUX_PA_16_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_16_pull_down_OFS (6)
-#define IOMUX_PA_16_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_16_hysteresis_OFS (7)
-#define IOMUX_PA_16_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_16_sel_OFS (8)
-#define IOMUX_PA_16_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_16_input_val_OFS (16)
-#define IOMUX_PA_16_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_17_output_en_OFS (0)
-#define IOMUX_PA_17_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_17_input_en_OFS (1)
-#define IOMUX_PA_17_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_17_drive_strength_OFS (2)
-#define IOMUX_PA_17_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_17_slew_rate_OFS (4)
-#define IOMUX_PA_17_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_17_pull_up_OFS (5)
-#define IOMUX_PA_17_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_17_pull_down_OFS (6)
-#define IOMUX_PA_17_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_17_hysteresis_OFS (7)
-#define IOMUX_PA_17_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_17_sel_OFS (8)
-#define IOMUX_PA_17_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_17_input_val_OFS (16)
-#define IOMUX_PA_17_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_18_output_en_OFS (0)
-#define IOMUX_PA_18_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_18_input_en_OFS (1)
-#define IOMUX_PA_18_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_18_drive_strength_OFS (2)
-#define IOMUX_PA_18_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_18_slew_rate_OFS (4)
-#define IOMUX_PA_18_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_18_pull_up_OFS (5)
-#define IOMUX_PA_18_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_18_pull_down_OFS (6)
-#define IOMUX_PA_18_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_18_hysteresis_OFS (7)
-#define IOMUX_PA_18_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_18_sel_OFS (8)
-#define IOMUX_PA_18_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_18_input_val_OFS (16)
-#define IOMUX_PA_18_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_19_output_en_OFS (0)
-#define IOMUX_PA_19_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_19_input_en_OFS (1)
-#define IOMUX_PA_19_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_19_drive_strength_OFS (2)
-#define IOMUX_PA_19_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_19_slew_rate_OFS (4)
-#define IOMUX_PA_19_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_19_pull_up_OFS (5)
-#define IOMUX_PA_19_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_19_pull_down_OFS (6)
-#define IOMUX_PA_19_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_19_hysteresis_OFS (7)
-#define IOMUX_PA_19_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_19_sel_OFS (8)
-#define IOMUX_PA_19_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_19_input_val_OFS (16)
-#define IOMUX_PA_19_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_20_output_en_OFS (0)
-#define IOMUX_PA_20_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_20_input_en_OFS (1)
-#define IOMUX_PA_20_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_20_drive_strength_OFS (2)
-#define IOMUX_PA_20_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_20_slew_rate_OFS (4)
-#define IOMUX_PA_20_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_20_pull_up_OFS (5)
-#define IOMUX_PA_20_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_20_pull_down_OFS (6)
-#define IOMUX_PA_20_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_20_hysteresis_OFS (7)
-#define IOMUX_PA_20_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_20_sel_OFS (8)
-#define IOMUX_PA_20_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_20_input_val_OFS (16)
-#define IOMUX_PA_20_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_21_output_en_OFS (0)
-#define IOMUX_PA_21_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_21_input_en_OFS (1)
-#define IOMUX_PA_21_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_21_drive_strength_OFS (2)
-#define IOMUX_PA_21_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_21_slew_rate_OFS (4)
-#define IOMUX_PA_21_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_21_pull_up_OFS (5)
-#define IOMUX_PA_21_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_21_pull_down_OFS (6)
-#define IOMUX_PA_21_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_21_hysteresis_OFS (7)
-#define IOMUX_PA_21_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_21_sel_OFS (8)
-#define IOMUX_PA_21_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_21_input_val_OFS (16)
-#define IOMUX_PA_21_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_22_output_en_OFS (0)
-#define IOMUX_PA_22_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_22_input_en_OFS (1)
-#define IOMUX_PA_22_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_22_drive_strength_OFS (2)
-#define IOMUX_PA_22_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_22_slew_rate_OFS (4)
-#define IOMUX_PA_22_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_22_pull_up_OFS (5)
-#define IOMUX_PA_22_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_22_pull_down_OFS (6)
-#define IOMUX_PA_22_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_22_hysteresis_OFS (7)
-#define IOMUX_PA_22_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_22_sel_OFS (8)
-#define IOMUX_PA_22_sel_MASK ((uint32_t)0x00000F00U)
-#define IOMUX_PA_22_input_val_OFS (16)
-#define IOMUX_PA_22_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_23_output_en_OFS (0)
-#define IOMUX_PA_23_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_23_input_en_OFS (1)
-#define IOMUX_PA_23_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_23_drive_strength_OFS (2)
-#define IOMUX_PA_23_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_23_slew_rate_OFS (4)
-#define IOMUX_PA_23_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_23_pull_up_OFS (5)
-#define IOMUX_PA_23_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_23_pull_down_OFS (6)
-#define IOMUX_PA_23_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_23_hysteresis_OFS (7)
-#define IOMUX_PA_23_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_23_sel_OFS (8)
-#define IOMUX_PA_23_sel_MASK ((uint32_t)0x00000F00U)
-#define IOMUX_PA_23_input_val_OFS (16)
-#define IOMUX_PA_23_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_24_output_en_OFS (0)
-#define IOMUX_PA_24_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_24_input_en_OFS (1)
-#define IOMUX_PA_24_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_24_drive_strength_OFS (2)
-#define IOMUX_PA_24_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_24_slew_rate_OFS (4)
-#define IOMUX_PA_24_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_24_pull_up_OFS (5)
-#define IOMUX_PA_24_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_24_pull_down_OFS (6)
-#define IOMUX_PA_24_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_24_hysteresis_OFS (7)
-#define IOMUX_PA_24_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_24_sel_OFS (8)
-#define IOMUX_PA_24_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_24_input_val_OFS (16)
-#define IOMUX_PA_24_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_25_output_en_OFS (0)
-#define IOMUX_PA_25_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_25_input_en_OFS (1)
-#define IOMUX_PA_25_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_25_drive_strength_OFS (2)
-#define IOMUX_PA_25_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_25_slew_rate_OFS (4)
-#define IOMUX_PA_25_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_25_pull_up_OFS (5)
-#define IOMUX_PA_25_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_25_pull_down_OFS (6)
-#define IOMUX_PA_25_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_25_hysteresis_OFS (7)
-#define IOMUX_PA_25_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_25_sel_OFS (8)
-#define IOMUX_PA_25_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_25_input_val_OFS (16)
-#define IOMUX_PA_25_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_26_output_en_OFS (0)
-#define IOMUX_PA_26_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_26_input_en_OFS (1)
-#define IOMUX_PA_26_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_26_drive_strength_OFS (2)
-#define IOMUX_PA_26_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_26_slew_rate_OFS (4)
-#define IOMUX_PA_26_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_26_pull_up_OFS (5)
-#define IOMUX_PA_26_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_26_pull_down_OFS (6)
-#define IOMUX_PA_26_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_26_hysteresis_OFS (7)
-#define IOMUX_PA_26_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_26_sel_OFS (8)
-#define IOMUX_PA_26_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_26_input_val_OFS (16)
-#define IOMUX_PA_26_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_PA_27_output_en_OFS (0)
-#define IOMUX_PA_27_output_en_MASK ((uint32_t)0x00000001U)
-#define IOMUX_PA_27_input_en_OFS (1)
-#define IOMUX_PA_27_input_en_MASK ((uint32_t)0x00000002U)
-#define IOMUX_PA_27_drive_strength_OFS (2)
-#define IOMUX_PA_27_drive_strength_MASK ((uint32_t)0x0000000CU)
-#define IOMUX_PA_27_slew_rate_OFS (4)
-#define IOMUX_PA_27_slew_rate_MASK ((uint32_t)0x00000010U)
-#define IOMUX_PA_27_pull_up_OFS (5)
-#define IOMUX_PA_27_pull_up_MASK ((uint32_t)0x00000020U)
-#define IOMUX_PA_27_pull_down_OFS (6)
-#define IOMUX_PA_27_pull_down_MASK ((uint32_t)0x00000040U)
-#define IOMUX_PA_27_hysteresis_OFS (7)
-#define IOMUX_PA_27_hysteresis_MASK ((uint32_t)0x00000080U)
-#define IOMUX_PA_27_sel_OFS (8)
-#define IOMUX_PA_27_sel_MASK ((uint32_t)0x00000700U)
-#define IOMUX_PA_27_input_val_OFS (16)
-#define IOMUX_PA_27_input_val_MASK ((uint32_t)0x00010000U)
-#define IOMUX_DUMMY_dummy_OFS (0)
-#define IOMUX_DUMMY_dummy_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_0_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_0_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_0_INPUT_EN_OFS (1)
+#define IOMUX_PA_0_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_0_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_0_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_0_SLEW_RATE_OFS (4)
+#define IOMUX_PA_0_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_0_PULL_UP_OFS (5)
+#define IOMUX_PA_0_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_0_PULL_DOWN_OFS (6)
+#define IOMUX_PA_0_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_0_HYSTERESIS_OFS (7)
+#define IOMUX_PA_0_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_0_SEL_OFS (8)
+#define IOMUX_PA_0_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_0_INPUT_VAL_OFS (16)
+#define IOMUX_PA_0_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_1_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_1_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_1_INPUT_EN_OFS (1)
+#define IOMUX_PA_1_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_1_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_1_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_1_SLEW_RATE_OFS (4)
+#define IOMUX_PA_1_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_1_PULL_UP_OFS (5)
+#define IOMUX_PA_1_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_1_PULL_DOWN_OFS (6)
+#define IOMUX_PA_1_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_1_HYSTERESIS_OFS (7)
+#define IOMUX_PA_1_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_1_SEL_OFS (8)
+#define IOMUX_PA_1_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_1_INPUT_VAL_OFS (16)
+#define IOMUX_PA_1_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_2_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_2_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_2_INPUT_EN_OFS (1)
+#define IOMUX_PA_2_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_2_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_2_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_2_SLEW_RATE_OFS (4)
+#define IOMUX_PA_2_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_2_PULL_UP_OFS (5)
+#define IOMUX_PA_2_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_2_PULL_DOWN_OFS (6)
+#define IOMUX_PA_2_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_2_HYSTERESIS_OFS (7)
+#define IOMUX_PA_2_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_2_SEL_OFS (8)
+#define IOMUX_PA_2_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_2_INPUT_VAL_OFS (16)
+#define IOMUX_PA_2_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_3_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_3_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_3_INPUT_EN_OFS (1)
+#define IOMUX_PA_3_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_3_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_3_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_3_SLEW_RATE_OFS (4)
+#define IOMUX_PA_3_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_3_PULL_UP_OFS (5)
+#define IOMUX_PA_3_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_3_PULL_DOWN_OFS (6)
+#define IOMUX_PA_3_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_3_HYSTERESIS_OFS (7)
+#define IOMUX_PA_3_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_3_SEL_OFS (8)
+#define IOMUX_PA_3_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_3_INPUT_VAL_OFS (16)
+#define IOMUX_PA_3_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_4_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_4_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_4_INPUT_EN_OFS (1)
+#define IOMUX_PA_4_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_4_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_4_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_4_SLEW_RATE_OFS (4)
+#define IOMUX_PA_4_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_4_PULL_UP_OFS (5)
+#define IOMUX_PA_4_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_4_PULL_DOWN_OFS (6)
+#define IOMUX_PA_4_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_4_HYSTERESIS_OFS (7)
+#define IOMUX_PA_4_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_4_SEL_OFS (8)
+#define IOMUX_PA_4_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_4_INPUT_VAL_OFS (16)
+#define IOMUX_PA_4_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_5_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_5_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_5_INPUT_EN_OFS (1)
+#define IOMUX_PA_5_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_5_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_5_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_5_SLEW_RATE_OFS (4)
+#define IOMUX_PA_5_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_5_PULL_UP_OFS (5)
+#define IOMUX_PA_5_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_5_PULL_DOWN_OFS (6)
+#define IOMUX_PA_5_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_5_HYSTERESIS_OFS (7)
+#define IOMUX_PA_5_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_5_SEL_OFS (8)
+#define IOMUX_PA_5_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_5_INPUT_VAL_OFS (16)
+#define IOMUX_PA_5_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_6_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_6_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_6_INPUT_EN_OFS (1)
+#define IOMUX_PA_6_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_6_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_6_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_6_SLEW_RATE_OFS (4)
+#define IOMUX_PA_6_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_6_PULL_UP_OFS (5)
+#define IOMUX_PA_6_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_6_PULL_DOWN_OFS (6)
+#define IOMUX_PA_6_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_6_HYSTERESIS_OFS (7)
+#define IOMUX_PA_6_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_6_SEL_OFS (8)
+#define IOMUX_PA_6_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_6_INPUT_VAL_OFS (16)
+#define IOMUX_PA_6_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_7_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_7_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_7_INPUT_EN_OFS (1)
+#define IOMUX_PA_7_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_7_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_7_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_7_SLEW_RATE_OFS (4)
+#define IOMUX_PA_7_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_7_PULL_UP_OFS (5)
+#define IOMUX_PA_7_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_7_PULL_DOWN_OFS (6)
+#define IOMUX_PA_7_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_7_HYSTERESIS_OFS (7)
+#define IOMUX_PA_7_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_7_SEL_OFS (8)
+#define IOMUX_PA_7_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_7_INPUT_VAL_OFS (16)
+#define IOMUX_PA_7_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_8_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_8_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_8_INPUT_EN_OFS (1)
+#define IOMUX_PA_8_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_8_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_8_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_8_SLEW_RATE_OFS (4)
+#define IOMUX_PA_8_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_8_PULL_UP_OFS (5)
+#define IOMUX_PA_8_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_8_PULL_DOWN_OFS (6)
+#define IOMUX_PA_8_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_8_HYSTERESIS_OFS (7)
+#define IOMUX_PA_8_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_8_SEL_OFS (8)
+#define IOMUX_PA_8_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_8_INPUT_VAL_OFS (16)
+#define IOMUX_PA_8_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_9_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_9_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_9_INPUT_EN_OFS (1)
+#define IOMUX_PA_9_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_9_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_9_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_9_SLEW_RATE_OFS (4)
+#define IOMUX_PA_9_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_9_PULL_UP_OFS (5)
+#define IOMUX_PA_9_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_9_PULL_DOWN_OFS (6)
+#define IOMUX_PA_9_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_9_HYSTERESIS_OFS (7)
+#define IOMUX_PA_9_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_9_SEL_OFS (8)
+#define IOMUX_PA_9_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_9_INPUT_VAL_OFS (16)
+#define IOMUX_PA_9_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_10_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_10_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_10_INPUT_EN_OFS (1)
+#define IOMUX_PA_10_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_10_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_10_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_10_SLEW_RATE_OFS (4)
+#define IOMUX_PA_10_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_10_PULL_UP_OFS (5)
+#define IOMUX_PA_10_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_10_PULL_DOWN_OFS (6)
+#define IOMUX_PA_10_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_10_HYSTERESIS_OFS (7)
+#define IOMUX_PA_10_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_10_SEL_OFS (8)
+#define IOMUX_PA_10_SEL_MASK ((uint32_t)0x00000F00U)
+#define IOMUX_PA_10_INPUT_VAL_OFS (16)
+#define IOMUX_PA_10_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_11_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_11_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_11_INPUT_EN_OFS (1)
+#define IOMUX_PA_11_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_11_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_11_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_11_SLEW_RATE_OFS (4)
+#define IOMUX_PA_11_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_11_PULL_UP_OFS (5)
+#define IOMUX_PA_11_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_11_PULL_DOWN_OFS (6)
+#define IOMUX_PA_11_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_11_HYSTERESIS_OFS (7)
+#define IOMUX_PA_11_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_11_SEL_OFS (8)
+#define IOMUX_PA_11_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_11_INPUT_VAL_OFS (16)
+#define IOMUX_PA_11_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_12_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_12_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_12_INPUT_EN_OFS (1)
+#define IOMUX_PA_12_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_12_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_12_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_12_SLEW_RATE_OFS (4)
+#define IOMUX_PA_12_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_12_PULL_UP_OFS (5)
+#define IOMUX_PA_12_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_12_PULL_DOWN_OFS (6)
+#define IOMUX_PA_12_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_12_HYSTERESIS_OFS (7)
+#define IOMUX_PA_12_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_12_SEL_OFS (8)
+#define IOMUX_PA_12_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_12_INPUT_VAL_OFS (16)
+#define IOMUX_PA_12_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_13_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_13_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_13_INPUT_EN_OFS (1)
+#define IOMUX_PA_13_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_13_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_13_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_13_SLEW_RATE_OFS (4)
+#define IOMUX_PA_13_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_13_PULL_UP_OFS (5)
+#define IOMUX_PA_13_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_13_PULL_DOWN_OFS (6)
+#define IOMUX_PA_13_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_13_HYSTERESIS_OFS (7)
+#define IOMUX_PA_13_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_13_SEL_OFS (8)
+#define IOMUX_PA_13_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_13_INPUT_VAL_OFS (16)
+#define IOMUX_PA_13_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_14_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_14_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_14_INPUT_EN_OFS (1)
+#define IOMUX_PA_14_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_14_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_14_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_14_SLEW_RATE_OFS (4)
+#define IOMUX_PA_14_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_14_PULL_UP_OFS (5)
+#define IOMUX_PA_14_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_14_PULL_DOWN_OFS (6)
+#define IOMUX_PA_14_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_14_HYSTERESIS_OFS (7)
+#define IOMUX_PA_14_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_14_SEL_OFS (8)
+#define IOMUX_PA_14_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_14_INPUT_VAL_OFS (16)
+#define IOMUX_PA_14_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_15_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_15_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_15_INPUT_EN_OFS (1)
+#define IOMUX_PA_15_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_15_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_15_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_15_SLEW_RATE_OFS (4)
+#define IOMUX_PA_15_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_15_PULL_UP_OFS (5)
+#define IOMUX_PA_15_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_15_PULL_DOWN_OFS (6)
+#define IOMUX_PA_15_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_15_HYSTERESIS_OFS (7)
+#define IOMUX_PA_15_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_15_SEL_OFS (8)
+#define IOMUX_PA_15_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_15_INPUT_VAL_OFS (16)
+#define IOMUX_PA_15_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_16_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_16_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_16_INPUT_EN_OFS (1)
+#define IOMUX_PA_16_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_16_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_16_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_16_SLEW_RATE_OFS (4)
+#define IOMUX_PA_16_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_16_PULL_UP_OFS (5)
+#define IOMUX_PA_16_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_16_PULL_DOWN_OFS (6)
+#define IOMUX_PA_16_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_16_HYSTERESIS_OFS (7)
+#define IOMUX_PA_16_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_16_SEL_OFS (8)
+#define IOMUX_PA_16_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_16_INPUT_VAL_OFS (16)
+#define IOMUX_PA_16_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_17_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_17_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_17_INPUT_EN_OFS (1)
+#define IOMUX_PA_17_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_17_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_17_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_17_SLEW_RATE_OFS (4)
+#define IOMUX_PA_17_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_17_PULL_UP_OFS (5)
+#define IOMUX_PA_17_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_17_PULL_DOWN_OFS (6)
+#define IOMUX_PA_17_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_17_HYSTERESIS_OFS (7)
+#define IOMUX_PA_17_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_17_SEL_OFS (8)
+#define IOMUX_PA_17_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_17_INPUT_VAL_OFS (16)
+#define IOMUX_PA_17_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_18_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_18_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_18_INPUT_EN_OFS (1)
+#define IOMUX_PA_18_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_18_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_18_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_18_SLEW_RATE_OFS (4)
+#define IOMUX_PA_18_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_18_PULL_UP_OFS (5)
+#define IOMUX_PA_18_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_18_PULL_DOWN_OFS (6)
+#define IOMUX_PA_18_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_18_HYSTERESIS_OFS (7)
+#define IOMUX_PA_18_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_18_SEL_OFS (8)
+#define IOMUX_PA_18_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_18_INPUT_VAL_OFS (16)
+#define IOMUX_PA_18_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_19_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_19_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_19_INPUT_EN_OFS (1)
+#define IOMUX_PA_19_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_19_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_19_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_19_SLEW_RATE_OFS (4)
+#define IOMUX_PA_19_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_19_PULL_UP_OFS (5)
+#define IOMUX_PA_19_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_19_PULL_DOWN_OFS (6)
+#define IOMUX_PA_19_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_19_HYSTERESIS_OFS (7)
+#define IOMUX_PA_19_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_19_SEL_OFS (8)
+#define IOMUX_PA_19_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_19_INPUT_VAL_OFS (16)
+#define IOMUX_PA_19_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_20_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_20_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_20_INPUT_EN_OFS (1)
+#define IOMUX_PA_20_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_20_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_20_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_20_SLEW_RATE_OFS (4)
+#define IOMUX_PA_20_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_20_PULL_UP_OFS (5)
+#define IOMUX_PA_20_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_20_PULL_DOWN_OFS (6)
+#define IOMUX_PA_20_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_20_HYSTERESIS_OFS (7)
+#define IOMUX_PA_20_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_20_SEL_OFS (8)
+#define IOMUX_PA_20_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_20_INPUT_VAL_OFS (16)
+#define IOMUX_PA_20_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_21_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_21_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_21_INPUT_EN_OFS (1)
+#define IOMUX_PA_21_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_21_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_21_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_21_SLEW_RATE_OFS (4)
+#define IOMUX_PA_21_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_21_PULL_UP_OFS (5)
+#define IOMUX_PA_21_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_21_PULL_DOWN_OFS (6)
+#define IOMUX_PA_21_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_21_HYSTERESIS_OFS (7)
+#define IOMUX_PA_21_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_21_SEL_OFS (8)
+#define IOMUX_PA_21_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_21_INPUT_VAL_OFS (16)
+#define IOMUX_PA_21_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_22_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_22_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_22_INPUT_EN_OFS (1)
+#define IOMUX_PA_22_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_22_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_22_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_22_SLEW_RATE_OFS (4)
+#define IOMUX_PA_22_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_22_PULL_UP_OFS (5)
+#define IOMUX_PA_22_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_22_PULL_DOWN_OFS (6)
+#define IOMUX_PA_22_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_22_HYSTERESIS_OFS (7)
+#define IOMUX_PA_22_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_22_SEL_OFS (8)
+#define IOMUX_PA_22_SEL_MASK ((uint32_t)0x00000F00U)
+#define IOMUX_PA_22_INPUT_VAL_OFS (16)
+#define IOMUX_PA_22_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_23_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_23_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_23_INPUT_EN_OFS (1)
+#define IOMUX_PA_23_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_23_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_23_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_23_SLEW_RATE_OFS (4)
+#define IOMUX_PA_23_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_23_PULL_UP_OFS (5)
+#define IOMUX_PA_23_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_23_PULL_DOWN_OFS (6)
+#define IOMUX_PA_23_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_23_HYSTERESIS_OFS (7)
+#define IOMUX_PA_23_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_23_SEL_OFS (8)
+#define IOMUX_PA_23_SEL_MASK ((uint32_t)0x00000F00U)
+#define IOMUX_PA_23_INPUT_VAL_OFS (16)
+#define IOMUX_PA_23_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_24_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_24_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_24_INPUT_EN_OFS (1)
+#define IOMUX_PA_24_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_24_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_24_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_24_SLEW_RATE_OFS (4)
+#define IOMUX_PA_24_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_24_PULL_UP_OFS (5)
+#define IOMUX_PA_24_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_24_PULL_DOWN_OFS (6)
+#define IOMUX_PA_24_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_24_HYSTERESIS_OFS (7)
+#define IOMUX_PA_24_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_24_SEL_OFS (8)
+#define IOMUX_PA_24_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_24_INPUT_VAL_OFS (16)
+#define IOMUX_PA_24_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_25_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_25_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_25_INPUT_EN_OFS (1)
+#define IOMUX_PA_25_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_25_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_25_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_25_SLEW_RATE_OFS (4)
+#define IOMUX_PA_25_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_25_PULL_UP_OFS (5)
+#define IOMUX_PA_25_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_25_PULL_DOWN_OFS (6)
+#define IOMUX_PA_25_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_25_HYSTERESIS_OFS (7)
+#define IOMUX_PA_25_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_25_SEL_OFS (8)
+#define IOMUX_PA_25_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_25_INPUT_VAL_OFS (16)
+#define IOMUX_PA_25_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_26_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_26_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_26_INPUT_EN_OFS (1)
+#define IOMUX_PA_26_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_26_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_26_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_26_SLEW_RATE_OFS (4)
+#define IOMUX_PA_26_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_26_PULL_UP_OFS (5)
+#define IOMUX_PA_26_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_26_PULL_DOWN_OFS (6)
+#define IOMUX_PA_26_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_26_HYSTERESIS_OFS (7)
+#define IOMUX_PA_26_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_26_SEL_OFS (8)
+#define IOMUX_PA_26_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_26_INPUT_VAL_OFS (16)
+#define IOMUX_PA_26_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_PA_27_OUTPUT_EN_OFS (0)
+#define IOMUX_PA_27_OUTPUT_EN_MASK ((uint32_t)0x00000001U)
+#define IOMUX_PA_27_INPUT_EN_OFS (1)
+#define IOMUX_PA_27_INPUT_EN_MASK ((uint32_t)0x00000002U)
+#define IOMUX_PA_27_DRIVE_STRENGTH_OFS (2)
+#define IOMUX_PA_27_DRIVE_STRENGTH_MASK ((uint32_t)0x0000000CU)
+#define IOMUX_PA_27_SLEW_RATE_OFS (4)
+#define IOMUX_PA_27_SLEW_RATE_MASK ((uint32_t)0x00000010U)
+#define IOMUX_PA_27_PULL_UP_OFS (5)
+#define IOMUX_PA_27_PULL_UP_MASK ((uint32_t)0x00000020U)
+#define IOMUX_PA_27_PULL_DOWN_OFS (6)
+#define IOMUX_PA_27_PULL_DOWN_MASK ((uint32_t)0x00000040U)
+#define IOMUX_PA_27_HYSTERESIS_OFS (7)
+#define IOMUX_PA_27_HYSTERESIS_MASK ((uint32_t)0x00000080U)
+#define IOMUX_PA_27_SEL_OFS (8)
+#define IOMUX_PA_27_SEL_MASK ((uint32_t)0x00000700U)
+#define IOMUX_PA_27_INPUT_VAL_OFS (16)
+#define IOMUX_PA_27_INPUT_VAL_MASK ((uint32_t)0x00010000U)
+#define IOMUX_DUMMY_DUMMY_OFS (0)
+#define IOMUX_DUMMY_DUMMY_MASK ((uint32_t)0x00000001U)
 #endif
