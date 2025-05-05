@@ -781,35 +781,20 @@ typedef union GPIO_INTR_POL_1_u {
     uint32_t packed_w;
 } GPIO_INTR_POL_1_u;
 
-typedef struct GPIO_SUB_CFG_0_REG_s {
+typedef struct GPIO_SUB_CFG_REG_s {
     unsigned int sub_en:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int action:2; // 
     unsigned int rsvd_1:6; // 
     unsigned int bit_num:5; // 
-} GPIO_SUB_CFG_0_REG_s;
+} GPIO_SUB_CFG_REG_s;
 
-typedef union GPIO_SUB_CFG_0_u {
-    GPIO_SUB_CFG_0_REG_s;
+typedef union GPIO_SUB_CFG_u {
+    GPIO_SUB_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
-} GPIO_SUB_CFG_0_u;
-
-typedef struct GPIO_SUB_CFG_1_REG_s {
-    unsigned int sub_en:1; // 
-    unsigned int rsvd_0:7; // 
-    unsigned int action:2; // 
-    unsigned int rsvd_1:6; // 
-    unsigned int bit_num:5; // 
-} GPIO_SUB_CFG_1_REG_s;
-
-typedef union GPIO_SUB_CFG_1_u {
-    GPIO_SUB_CFG_1_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} GPIO_SUB_CFG_1_u;
+} GPIO_SUB_CFG_u;
 
 typedef struct GPIO_DMA_WR_MASK_REG_s {
     unsigned int dma_wr_mask:32; // 
@@ -865,8 +850,7 @@ typedef struct GPIO_REGS_s{
     volatile GPIO_FILT_EN_1_u FILT_EN_1;
     volatile GPIO_INTR_POL_0_u INTR_POL_0;
     volatile GPIO_INTR_POL_1_u INTR_POL_1;
-    volatile GPIO_SUB_CFG_0_u SUB_CFG_0;
-    volatile GPIO_SUB_CFG_1_u SUB_CFG_1;
+    volatile GPIO_SUB_CFG_u SUB_CFG[2];
     volatile GPIO_DMA_WR_MASK_u DMA_WR_MASK;
 } GPIO_REGS_s;
 
@@ -1486,18 +1470,12 @@ typedef struct GPIO_REGS_s{
 #define GPIO_INTR_POL_1_INTR_POL_30_MASK ((uint32_t)0x30000000U)
 #define GPIO_INTR_POL_1_INTR_POL_31_OFS (30)
 #define GPIO_INTR_POL_1_INTR_POL_31_MASK ((uint32_t)0xC0000000U)
-#define GPIO_SUB_CFG_0_SUB_EN_OFS (0)
-#define GPIO_SUB_CFG_0_SUB_EN_MASK ((uint32_t)0x00000001U)
-#define GPIO_SUB_CFG_0_ACTION_OFS (8)
-#define GPIO_SUB_CFG_0_ACTION_MASK ((uint32_t)0x00000300U)
-#define GPIO_SUB_CFG_0_BIT_NUM_OFS (16)
-#define GPIO_SUB_CFG_0_BIT_NUM_MASK ((uint32_t)0x001F0000U)
-#define GPIO_SUB_CFG_1_SUB_EN_OFS (0)
-#define GPIO_SUB_CFG_1_SUB_EN_MASK ((uint32_t)0x00000001U)
-#define GPIO_SUB_CFG_1_ACTION_OFS (8)
-#define GPIO_SUB_CFG_1_ACTION_MASK ((uint32_t)0x00000300U)
-#define GPIO_SUB_CFG_1_BIT_NUM_OFS (16)
-#define GPIO_SUB_CFG_1_BIT_NUM_MASK ((uint32_t)0x001F0000U)
+#define GPIO_SUB_CFG_SUB_EN_OFS (0)
+#define GPIO_SUB_CFG_SUB_EN_MASK ((uint32_t)0x00000001U)
+#define GPIO_SUB_CFG_ACTION_OFS (8)
+#define GPIO_SUB_CFG_ACTION_MASK ((uint32_t)0x00000300U)
+#define GPIO_SUB_CFG_BIT_NUM_OFS (16)
+#define GPIO_SUB_CFG_BIT_NUM_MASK ((uint32_t)0x001F0000U)
 #define GPIO_DMA_WR_MASK_DMA_WR_MASK_OFS (0)
 #define GPIO_DMA_WR_MASK_DMA_WR_MASK_MASK ((uint32_t)0xFFFFFFFFU)
 #endif

@@ -361,245 +361,20 @@ typedef union ADC_CONV_CFG_u {
     uint32_t packed_w;
 } ADC_CONV_CFG_u;
 
-typedef struct ADC_CHNL_CFG_0_REG_s {
+typedef struct ADC_CHNL_CFG_REG_s {
     unsigned int channel_sel:4; // 
     unsigned int vref_sel:2; // 
     unsigned int hw_avg_en:1; // 
     unsigned int window_comp_en:1; // 
     unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_0_REG_s;
+} ADC_CHNL_CFG_REG_s;
 
-typedef union ADC_CHNL_CFG_0_u {
-    ADC_CHNL_CFG_0_REG_s;
+typedef union ADC_CHNL_CFG_u {
+    ADC_CHNL_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
-} ADC_CHNL_CFG_0_u;
-
-typedef struct ADC_CHNL_CFG_1_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_1_REG_s;
-
-typedef union ADC_CHNL_CFG_1_u {
-    ADC_CHNL_CFG_1_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_1_u;
-
-typedef struct ADC_CHNL_CFG_2_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_2_REG_s;
-
-typedef union ADC_CHNL_CFG_2_u {
-    ADC_CHNL_CFG_2_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_2_u;
-
-typedef struct ADC_CHNL_CFG_3_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_3_REG_s;
-
-typedef union ADC_CHNL_CFG_3_u {
-    ADC_CHNL_CFG_3_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_3_u;
-
-typedef struct ADC_CHNL_CFG_4_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_4_REG_s;
-
-typedef union ADC_CHNL_CFG_4_u {
-    ADC_CHNL_CFG_4_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_4_u;
-
-typedef struct ADC_CHNL_CFG_5_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_5_REG_s;
-
-typedef union ADC_CHNL_CFG_5_u {
-    ADC_CHNL_CFG_5_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_5_u;
-
-typedef struct ADC_CHNL_CFG_6_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_6_REG_s;
-
-typedef union ADC_CHNL_CFG_6_u {
-    ADC_CHNL_CFG_6_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_6_u;
-
-typedef struct ADC_CHNL_CFG_7_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_7_REG_s;
-
-typedef union ADC_CHNL_CFG_7_u {
-    ADC_CHNL_CFG_7_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_7_u;
-
-typedef struct ADC_CHNL_CFG_8_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_8_REG_s;
-
-typedef union ADC_CHNL_CFG_8_u {
-    ADC_CHNL_CFG_8_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_8_u;
-
-typedef struct ADC_CHNL_CFG_9_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_9_REG_s;
-
-typedef union ADC_CHNL_CFG_9_u {
-    ADC_CHNL_CFG_9_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_9_u;
-
-typedef struct ADC_CHNL_CFG_10_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_10_REG_s;
-
-typedef union ADC_CHNL_CFG_10_u {
-    ADC_CHNL_CFG_10_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_10_u;
-
-typedef struct ADC_CHNL_CFG_11_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_11_REG_s;
-
-typedef union ADC_CHNL_CFG_11_u {
-    ADC_CHNL_CFG_11_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_11_u;
-
-typedef struct ADC_CHNL_CFG_12_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_12_REG_s;
-
-typedef union ADC_CHNL_CFG_12_u {
-    ADC_CHNL_CFG_12_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_12_u;
-
-typedef struct ADC_CHNL_CFG_13_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_13_REG_s;
-
-typedef union ADC_CHNL_CFG_13_u {
-    ADC_CHNL_CFG_13_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_13_u;
-
-typedef struct ADC_CHNL_CFG_14_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_14_REG_s;
-
-typedef union ADC_CHNL_CFG_14_u {
-    ADC_CHNL_CFG_14_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_14_u;
-
-typedef struct ADC_CHNL_CFG_15_REG_s {
-    unsigned int channel_sel:4; // 
-    unsigned int vref_sel:2; // 
-    unsigned int hw_avg_en:1; // 
-    unsigned int window_comp_en:1; // 
-    unsigned int bcs_en:1; // 
-} ADC_CHNL_CFG_15_REG_s;
-
-typedef union ADC_CHNL_CFG_15_u {
-    ADC_CHNL_CFG_15_REG_s;
-    uint8_t packed_byte[4];
-    uint16_t packed_hw[2];
-    uint32_t packed_w;
-} ADC_CHNL_CFG_15_u;
+} ADC_CHNL_CFG_u;
 
 typedef struct ADC_RESULT_CFG_REG_s {
     unsigned int fifo_en:1; // 
@@ -863,22 +638,7 @@ typedef struct ADC_REGS_s{
     volatile ADC_INTR_STS_u INTR_STS;
     volatile ADC_INTR_SW_u INTR_SW;
     volatile ADC_CONV_CFG_u CONV_CFG;
-    volatile ADC_CHNL_CFG_0_u CHNL_CFG_0;
-    volatile ADC_CHNL_CFG_1_u CHNL_CFG_1;
-    volatile ADC_CHNL_CFG_2_u CHNL_CFG_2;
-    volatile ADC_CHNL_CFG_3_u CHNL_CFG_3;
-    volatile ADC_CHNL_CFG_4_u CHNL_CFG_4;
-    volatile ADC_CHNL_CFG_5_u CHNL_CFG_5;
-    volatile ADC_CHNL_CFG_6_u CHNL_CFG_6;
-    volatile ADC_CHNL_CFG_7_u CHNL_CFG_7;
-    volatile ADC_CHNL_CFG_8_u CHNL_CFG_8;
-    volatile ADC_CHNL_CFG_9_u CHNL_CFG_9;
-    volatile ADC_CHNL_CFG_10_u CHNL_CFG_10;
-    volatile ADC_CHNL_CFG_11_u CHNL_CFG_11;
-    volatile ADC_CHNL_CFG_12_u CHNL_CFG_12;
-    volatile ADC_CHNL_CFG_13_u CHNL_CFG_13;
-    volatile ADC_CHNL_CFG_14_u CHNL_CFG_14;
-    volatile ADC_CHNL_CFG_15_u CHNL_CFG_15;
+    volatile ADC_CHNL_CFG_u CHNL_CFG[16];
     volatile ADC_RESULT_CFG_u RESULT_CFG;
     volatile ADC_HW_AVG_CFG_u HW_AVG_CFG;
     volatile ADC_RESULT_u RESULT[16];
@@ -1234,166 +994,16 @@ typedef struct ADC_REGS_s{
 #define ADC_CONV_CFG_ADC_RES_MASK ((uint32_t)0x00001800U)
 #define ADC_CONV_CFG_EN_CONV_OFS (13)
 #define ADC_CONV_CFG_EN_CONV_MASK ((uint32_t)0x00002000U)
-#define ADC_CHNL_CFG_0_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_0_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_0_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_0_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_0_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_0_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_0_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_0_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_0_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_0_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_1_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_1_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_1_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_1_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_1_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_1_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_1_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_1_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_1_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_1_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_2_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_2_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_2_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_2_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_2_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_2_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_2_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_2_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_2_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_2_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_3_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_3_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_3_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_3_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_3_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_3_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_3_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_3_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_3_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_3_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_4_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_4_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_4_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_4_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_4_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_4_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_4_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_4_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_4_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_4_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_5_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_5_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_5_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_5_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_5_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_5_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_5_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_5_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_5_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_5_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_6_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_6_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_6_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_6_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_6_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_6_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_6_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_6_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_6_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_6_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_7_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_7_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_7_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_7_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_7_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_7_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_7_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_7_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_7_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_7_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_8_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_8_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_8_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_8_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_8_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_8_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_8_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_8_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_8_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_8_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_9_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_9_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_9_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_9_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_9_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_9_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_9_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_9_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_9_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_9_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_10_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_10_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_10_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_10_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_10_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_10_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_10_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_10_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_10_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_10_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_11_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_11_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_11_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_11_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_11_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_11_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_11_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_11_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_11_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_11_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_12_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_12_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_12_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_12_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_12_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_12_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_12_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_12_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_12_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_12_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_13_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_13_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_13_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_13_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_13_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_13_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_13_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_13_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_13_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_13_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_14_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_14_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_14_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_14_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_14_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_14_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_14_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_14_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_14_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_14_BCS_EN_MASK ((uint32_t)0x00000100U)
-#define ADC_CHNL_CFG_15_CHANNEL_SEL_OFS (0)
-#define ADC_CHNL_CFG_15_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
-#define ADC_CHNL_CFG_15_VREF_SEL_OFS (4)
-#define ADC_CHNL_CFG_15_VREF_SEL_MASK ((uint32_t)0x00000030U)
-#define ADC_CHNL_CFG_15_HW_AVG_EN_OFS (6)
-#define ADC_CHNL_CFG_15_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
-#define ADC_CHNL_CFG_15_WINDOW_COMP_EN_OFS (7)
-#define ADC_CHNL_CFG_15_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
-#define ADC_CHNL_CFG_15_BCS_EN_OFS (8)
-#define ADC_CHNL_CFG_15_BCS_EN_MASK ((uint32_t)0x00000100U)
+#define ADC_CHNL_CFG_CHANNEL_SEL_OFS (0)
+#define ADC_CHNL_CFG_CHANNEL_SEL_MASK ((uint32_t)0x0000000FU)
+#define ADC_CHNL_CFG_VREF_SEL_OFS (4)
+#define ADC_CHNL_CFG_VREF_SEL_MASK ((uint32_t)0x00000030U)
+#define ADC_CHNL_CFG_HW_AVG_EN_OFS (6)
+#define ADC_CHNL_CFG_HW_AVG_EN_MASK ((uint32_t)0x00000040U)
+#define ADC_CHNL_CFG_WINDOW_COMP_EN_OFS (7)
+#define ADC_CHNL_CFG_WINDOW_COMP_EN_MASK ((uint32_t)0x00000080U)
+#define ADC_CHNL_CFG_BCS_EN_OFS (8)
+#define ADC_CHNL_CFG_BCS_EN_MASK ((uint32_t)0x00000100U)
 #define ADC_RESULT_CFG_FIFO_EN_OFS (0)
 #define ADC_RESULT_CFG_FIFO_EN_MASK ((uint32_t)0x00000001U)
 #define ADC_HW_AVG_CFG_HW_SAMPLE_CNT_OFS (0)

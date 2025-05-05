@@ -76,68 +76,8 @@ static inline void ADC_CONV_CFG_WRITE(ADC_REGS_s * registers, uint32_t conv_mode
     registers->CONV_CFG.packed_w =  + ((conv_mode<<ADC_CONV_CFG_CONV_MODE_OFS)&ADC_CONV_CFG_CONV_MODE_MASK) + ((start_addr<<ADC_CONV_CFG_START_ADDR_OFS)&ADC_CONV_CFG_START_ADDR_MASK) + ((end_addr<<ADC_CONV_CFG_END_ADDR_OFS)&ADC_CONV_CFG_END_ADDR_MASK) + ((trigger_source<<ADC_CONV_CFG_TRIGGER_SOURCE_OFS)&ADC_CONV_CFG_TRIGGER_SOURCE_MASK) + ((adc_res<<ADC_CONV_CFG_ADC_RES_OFS)&ADC_CONV_CFG_ADC_RES_MASK) + ((en_conv<<ADC_CONV_CFG_EN_CONV_OFS)&ADC_CONV_CFG_EN_CONV_MASK);
 }
 
-static inline void ADC_CHNL_CFG_0_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_0.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_0_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_0_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_0_VREF_SEL_OFS)&ADC_CHNL_CFG_0_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_0_HW_AVG_EN_OFS)&ADC_CHNL_CFG_0_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_0_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_0_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_0_BCS_EN_OFS)&ADC_CHNL_CFG_0_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_1_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_1.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_1_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_1_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_1_VREF_SEL_OFS)&ADC_CHNL_CFG_1_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_1_HW_AVG_EN_OFS)&ADC_CHNL_CFG_1_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_1_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_1_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_1_BCS_EN_OFS)&ADC_CHNL_CFG_1_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_2_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_2.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_2_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_2_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_2_VREF_SEL_OFS)&ADC_CHNL_CFG_2_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_2_HW_AVG_EN_OFS)&ADC_CHNL_CFG_2_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_2_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_2_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_2_BCS_EN_OFS)&ADC_CHNL_CFG_2_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_3_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_3.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_3_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_3_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_3_VREF_SEL_OFS)&ADC_CHNL_CFG_3_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_3_HW_AVG_EN_OFS)&ADC_CHNL_CFG_3_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_3_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_3_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_3_BCS_EN_OFS)&ADC_CHNL_CFG_3_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_4_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_4.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_4_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_4_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_4_VREF_SEL_OFS)&ADC_CHNL_CFG_4_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_4_HW_AVG_EN_OFS)&ADC_CHNL_CFG_4_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_4_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_4_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_4_BCS_EN_OFS)&ADC_CHNL_CFG_4_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_5_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_5.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_5_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_5_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_5_VREF_SEL_OFS)&ADC_CHNL_CFG_5_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_5_HW_AVG_EN_OFS)&ADC_CHNL_CFG_5_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_5_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_5_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_5_BCS_EN_OFS)&ADC_CHNL_CFG_5_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_6_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_6.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_6_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_6_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_6_VREF_SEL_OFS)&ADC_CHNL_CFG_6_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_6_HW_AVG_EN_OFS)&ADC_CHNL_CFG_6_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_6_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_6_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_6_BCS_EN_OFS)&ADC_CHNL_CFG_6_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_7_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_7.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_7_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_7_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_7_VREF_SEL_OFS)&ADC_CHNL_CFG_7_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_7_HW_AVG_EN_OFS)&ADC_CHNL_CFG_7_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_7_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_7_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_7_BCS_EN_OFS)&ADC_CHNL_CFG_7_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_8_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_8.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_8_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_8_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_8_VREF_SEL_OFS)&ADC_CHNL_CFG_8_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_8_HW_AVG_EN_OFS)&ADC_CHNL_CFG_8_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_8_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_8_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_8_BCS_EN_OFS)&ADC_CHNL_CFG_8_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_9_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_9.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_9_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_9_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_9_VREF_SEL_OFS)&ADC_CHNL_CFG_9_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_9_HW_AVG_EN_OFS)&ADC_CHNL_CFG_9_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_9_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_9_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_9_BCS_EN_OFS)&ADC_CHNL_CFG_9_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_10_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_10.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_10_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_10_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_10_VREF_SEL_OFS)&ADC_CHNL_CFG_10_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_10_HW_AVG_EN_OFS)&ADC_CHNL_CFG_10_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_10_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_10_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_10_BCS_EN_OFS)&ADC_CHNL_CFG_10_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_11_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_11.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_11_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_11_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_11_VREF_SEL_OFS)&ADC_CHNL_CFG_11_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_11_HW_AVG_EN_OFS)&ADC_CHNL_CFG_11_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_11_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_11_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_11_BCS_EN_OFS)&ADC_CHNL_CFG_11_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_12_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_12.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_12_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_12_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_12_VREF_SEL_OFS)&ADC_CHNL_CFG_12_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_12_HW_AVG_EN_OFS)&ADC_CHNL_CFG_12_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_12_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_12_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_12_BCS_EN_OFS)&ADC_CHNL_CFG_12_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_13_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_13.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_13_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_13_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_13_VREF_SEL_OFS)&ADC_CHNL_CFG_13_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_13_HW_AVG_EN_OFS)&ADC_CHNL_CFG_13_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_13_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_13_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_13_BCS_EN_OFS)&ADC_CHNL_CFG_13_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_14_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_14.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_14_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_14_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_14_VREF_SEL_OFS)&ADC_CHNL_CFG_14_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_14_HW_AVG_EN_OFS)&ADC_CHNL_CFG_14_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_14_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_14_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_14_BCS_EN_OFS)&ADC_CHNL_CFG_14_BCS_EN_MASK);
-}
-
-static inline void ADC_CHNL_CFG_15_WRITE(ADC_REGS_s * registers, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
-    registers->CHNL_CFG_15.packed_w =  + ((channel_sel<<ADC_CHNL_CFG_15_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_15_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_15_VREF_SEL_OFS)&ADC_CHNL_CFG_15_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_15_HW_AVG_EN_OFS)&ADC_CHNL_CFG_15_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_15_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_15_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_15_BCS_EN_OFS)&ADC_CHNL_CFG_15_BCS_EN_MASK);
+static inline void ADC_CHNL_CFG_N_WRITE(ADC_REGS_s * registers, uint32_t index, uint32_t channel_sel, uint32_t vref_sel, uint32_t hw_avg_en, uint32_t window_comp_en, uint32_t bcs_en) {
+    registers->CHNL_CFG[index].packed_w =  + ((channel_sel<<ADC_CHNL_CFG_CHANNEL_SEL_OFS)&ADC_CHNL_CFG_CHANNEL_SEL_MASK) + ((vref_sel<<ADC_CHNL_CFG_VREF_SEL_OFS)&ADC_CHNL_CFG_VREF_SEL_MASK) + ((hw_avg_en<<ADC_CHNL_CFG_HW_AVG_EN_OFS)&ADC_CHNL_CFG_HW_AVG_EN_MASK) + ((window_comp_en<<ADC_CHNL_CFG_WINDOW_COMP_EN_OFS)&ADC_CHNL_CFG_WINDOW_COMP_EN_MASK) + ((bcs_en<<ADC_CHNL_CFG_BCS_EN_OFS)&ADC_CHNL_CFG_BCS_EN_MASK);
 }
 
 static inline void ADC_RESULT_CFG_WRITE(ADC_REGS_s * registers, uint32_t fifo_en) {
@@ -146,6 +86,10 @@ static inline void ADC_RESULT_CFG_WRITE(ADC_REGS_s * registers, uint32_t fifo_en
 
 static inline void ADC_HW_AVG_CFG_WRITE(ADC_REGS_s * registers, uint32_t hw_sample_cnt, uint32_t hw_avg_sample_div) {
     registers->HW_AVG_CFG.packed_w =  + ((hw_sample_cnt<<ADC_HW_AVG_CFG_HW_SAMPLE_CNT_OFS)&ADC_HW_AVG_CFG_HW_SAMPLE_CNT_MASK) + ((hw_avg_sample_div<<ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_OFS)&ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_MASK);
+}
+
+static inline void ADC_RESULT_N_WRITE(ADC_REGS_s * registers, uint32_t index, uint32_t result) {
+    registers->RESULT[index].packed_w =  + ((result<<ADC_RESULT_RESULT_OFS)&ADC_RESULT_RESULT_MASK);
 }
 
 static inline void ADC_TIMER_START_WRITE(ADC_REGS_s * registers, uint32_t timer_cnt_start) {

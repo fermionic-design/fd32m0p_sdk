@@ -128,6 +128,14 @@ static inline void I2C_FIFO_CTRL_WRITE(I2C_REGS_s * registers, uint32_t rxfifo_e
     registers->FIFO_CTRL.packed_w =  + ((rxfifo_en<<I2C_FIFO_CTRL_RXFIFO_EN_OFS)&I2C_FIFO_CTRL_RXFIFO_EN_MASK) + ((txfifo_en<<I2C_FIFO_CTRL_TXFIFO_EN_OFS)&I2C_FIFO_CTRL_TXFIFO_EN_MASK) + ((rxfifo_flush<<I2C_FIFO_CTRL_RXFIFO_FLUSH_OFS)&I2C_FIFO_CTRL_RXFIFO_FLUSH_MASK) + ((txfifo_flush<<I2C_FIFO_CTRL_TXFIFO_FLUSH_OFS)&I2C_FIFO_CTRL_TXFIFO_FLUSH_MASK);
 }
 
+static inline void I2C_RXDATA_N_WRITE(I2C_REGS_s * registers, uint32_t index, uint32_t rxdata) {
+    registers->RXDATA[index].packed_w =  + ((rxdata<<I2C_RXDATA_RXDATA_OFS)&I2C_RXDATA_RXDATA_MASK);
+}
+
+static inline void I2C_TXDATA_N_WRITE(I2C_REGS_s * registers, uint32_t index, uint32_t txdata) {
+    registers->TXDATA[index].packed_w =  + ((txdata<<I2C_TXDATA_TXDATA_OFS)&I2C_TXDATA_TXDATA_MASK);
+}
+
 static inline void I2C_FIFO_STS_WRITE(I2C_REGS_s * registers, uint32_t txfifo_flush_sts, uint32_t rxfifo_flush_sts, uint32_t txfifo_empty_sts, uint32_t txfifo_almost_empty, uint32_t txfifo_full, uint32_t rxfifo_empty, uint32_t rxfifo_almost_full, uint32_t rxfifo_full_sts) {
     registers->FIFO_STS.packed_w =  + ((txfifo_flush_sts<<I2C_FIFO_STS_TXFIFO_FLUSH_STS_OFS)&I2C_FIFO_STS_TXFIFO_FLUSH_STS_MASK) + ((rxfifo_flush_sts<<I2C_FIFO_STS_RXFIFO_FLUSH_STS_OFS)&I2C_FIFO_STS_RXFIFO_FLUSH_STS_MASK) + ((txfifo_empty_sts<<I2C_FIFO_STS_TXFIFO_EMPTY_STS_OFS)&I2C_FIFO_STS_TXFIFO_EMPTY_STS_MASK) + ((txfifo_almost_empty<<I2C_FIFO_STS_TXFIFO_ALMOST_EMPTY_OFS)&I2C_FIFO_STS_TXFIFO_ALMOST_EMPTY_MASK) + ((txfifo_full<<I2C_FIFO_STS_TXFIFO_FULL_OFS)&I2C_FIFO_STS_TXFIFO_FULL_MASK) + ((rxfifo_empty<<I2C_FIFO_STS_RXFIFO_EMPTY_OFS)&I2C_FIFO_STS_RXFIFO_EMPTY_MASK) + ((rxfifo_almost_full<<I2C_FIFO_STS_RXFIFO_ALMOST_FULL_OFS)&I2C_FIFO_STS_RXFIFO_ALMOST_FULL_MASK) + ((rxfifo_full_sts<<I2C_FIFO_STS_RXFIFO_FULL_STS_OFS)&I2C_FIFO_STS_RXFIFO_FULL_STS_MASK);
 }

@@ -20,6 +20,10 @@ static inline void CRC_CRCSEED_WRITE(CRC_REGS_s * registers, uint32_t seed) {
     registers->CRCSEED.packed_w =  + ((seed<<CRC_CRCSEED_SEED_OFS)&CRC_CRCSEED_SEED_MASK);
 }
 
+static inline void CRC_CRCINPUT_N_WRITE(CRC_REGS_s * registers, uint32_t index, uint32_t data) {
+    registers->CRCINPUT[index].packed_w =  + ((data<<CRC_CRCINPUT_DATA_OFS)&CRC_CRCINPUT_DATA_MASK);
+}
+
 static inline void CRC_CRCRESULT_WRITE(CRC_REGS_s * registers, uint32_t result) {
     registers->CRCRESULT.packed_w =  + ((result<<CRC_CRCRESULT_RESULT_OFS)&CRC_CRCRESULT_RESULT_MASK);
 }

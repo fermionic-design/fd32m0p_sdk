@@ -16,6 +16,10 @@ static inline void OTP_OTP_STATUS_WRITE(OTP_REGS_s * registers, uint32_t otp_wr_
     registers->OTP_STATUS.packed_w =  + ((otp_wr_done<<OTP_OTP_STATUS_OTP_WR_DONE_OFS)&OTP_OTP_STATUS_OTP_WR_DONE_MASK);
 }
 
+static inline void OTP_OTP_N_WRITE(OTP_REGS_s * registers, uint32_t index, uint32_t otp) {
+    registers->OTP[index].packed_w =  + ((otp<<OTP_OTP_OTP_OFS)&OTP_OTP_OTP_MASK);
+}
+
 static inline void OTP_STS_WRITE(OTP_REGS_s * registers, uint32_t wr_pstate, uint32_t rd_pstate) {
     registers->STS.packed_w =  + ((wr_pstate<<OTP_STS_WR_PSTATE_OFS)&OTP_STS_WR_PSTATE_MASK) + ((rd_pstate<<OTP_STS_RD_PSTATE_OFS)&OTP_STS_RD_PSTATE_MASK);
 }

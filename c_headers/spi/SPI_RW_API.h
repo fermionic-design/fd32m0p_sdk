@@ -88,6 +88,14 @@ static inline void SPI_STS_WRITE(SPI_REGS_s * registers, uint32_t spi_busy_sts, 
     registers->STS.packed_w =  + ((spi_busy_sts<<SPI_STS_SPI_BUSY_STS_OFS)&SPI_STS_SPI_BUSY_STS_MASK) + ((rx_fifo_full_sts<<SPI_STS_RX_FIFO_FULL_STS_OFS)&SPI_STS_RX_FIFO_FULL_STS_MASK) + ((rx_fifo_empty_sts<<SPI_STS_RX_FIFO_EMPTY_STS_OFS)&SPI_STS_RX_FIFO_EMPTY_STS_MASK) + ((tx_fifo_full_sts<<SPI_STS_TX_FIFO_FULL_STS_OFS)&SPI_STS_TX_FIFO_FULL_STS_MASK) + ((tx_fifo_empty_sts<<SPI_STS_TX_FIFO_EMPTY_STS_OFS)&SPI_STS_TX_FIFO_EMPTY_STS_MASK);
 }
 
+static inline void SPI_TX_FIFO_N_WRITE(SPI_REGS_s * registers, uint32_t index, uint32_t tx_fifo) {
+    registers->TX_FIFO[index].packed_w =  + ((tx_fifo<<SPI_TX_FIFO_TX_FIFO_OFS)&SPI_TX_FIFO_TX_FIFO_MASK);
+}
+
+static inline void SPI_RX_FIFO_N_WRITE(SPI_REGS_s * registers, uint32_t index, uint32_t rx_fifo) {
+    registers->RX_FIFO[index].packed_w =  + ((rx_fifo<<SPI_RX_FIFO_RX_FIFO_OFS)&SPI_RX_FIFO_RX_FIFO_MASK);
+}
+
 static inline void SPI_SPI_DBG_CTRL_WRITE(SPI_REGS_s * registers, uint32_t stop_on_halt, uint32_t soft_stop) {
     registers->SPI_DBG_CTRL.packed_w =  + ((stop_on_halt<<SPI_SPI_DBG_CTRL_STOP_ON_HALT_OFS)&SPI_SPI_DBG_CTRL_STOP_ON_HALT_MASK) + ((soft_stop<<SPI_SPI_DBG_CTRL_SOFT_STOP_OFS)&SPI_SPI_DBG_CTRL_SOFT_STOP_MASK);
 }

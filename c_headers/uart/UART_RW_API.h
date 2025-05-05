@@ -96,6 +96,14 @@ static inline void UART_UART_GFCTL_WRITE(UART_REGS_s * registers, uint32_t gf_wi
     registers->UART_GFCTL.packed_w =  + ((gf_width<<UART_UART_GFCTL_GF_WIDTH_OFS)&UART_UART_GFCTL_GF_WIDTH_MASK);
 }
 
+static inline void UART_UART_TXDATA_N_WRITE(UART_REGS_s * registers, uint32_t index, uint32_t uart_data) {
+    registers->UART_TXDATA[index].packed_w =  + ((uart_data<<UART_UART_TXDATA_UART_DATA_OFS)&UART_UART_TXDATA_UART_DATA_MASK);
+}
+
+static inline void UART_UART_RXDATA_N_WRITE(UART_REGS_s * registers, uint32_t index, uint32_t uart_result) {
+    registers->UART_RXDATA[index].packed_w =  + ((uart_result<<UART_UART_RXDATA_UART_RESULT_OFS)&UART_UART_RXDATA_UART_RESULT_MASK);
+}
+
 static inline void UART_UART_BRDNUM_WRITE(UART_REGS_s * registers, uint32_t num_m) {
     registers->UART_BRDNUM.packed_w =  + ((num_m<<UART_UART_BRDNUM_NUM_M_OFS)&UART_UART_BRDNUM_NUM_M_MASK);
 }
