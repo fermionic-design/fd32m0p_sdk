@@ -5,6 +5,7 @@
 #include "uart_stdout.h"
 #include "utils.h"
 #include "GPIO_REGS.h"
+#include "GPIO_RW_API.h"
 #include "ADC_REGS.h"
 #include "ADC_RW_API.h"
 
