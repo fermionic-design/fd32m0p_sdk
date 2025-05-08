@@ -22,25 +22,49 @@ static inline void GPIO_INTR_EVENT_CLEAR(GPIO_REGS_s * registers, uint32_t intr_
 static inline void GPIO_INTR_EVENT_EN(GPIO_REGS_s * registers, uint32_t intr_idx){
     uint32_t intr_idx_mod_16 = intr_idx%16;
     if(intr_idx<16)
-        registers->INTR_EN0.packed_w = 1<<intr_idx + 1<<(intr_idx+16);
+        registers->INTR_EN0.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
     else if(intr_idx<32)
-        registers->INTR_EN1.packed_w = 1<<(intr_idx_mod_16) + 1<<(intr_idx_mod_16+16);
+        registers->INTR_EN1.packed_w = (1<<intr_idx_mod_16) + (1<<(intr_idx_mod_16+16));
+}
+
+static inline void GPIO_INTR_EVENT_DIS(GPIO_REGS_s * registers, uint32_t intr_idx){
+    uint32_t intr_idx_mod_16 = intr_idx%16;
+    if(intr_idx<16)
+        registers->INTR_EN0.packed_w = (1<<(intr_idx+16));
+    else if(intr_idx<32)
+        registers->INTR_EN1.packed_w = (1<<(intr_idx_mod_16+16));
 }
 
 static inline void GPIO_INTR_EVENT_NMI_EN(GPIO_REGS_s * registers, uint32_t intr_idx){
     uint32_t intr_idx_mod_16 = intr_idx%16;
     if(intr_idx<16)
-        registers->INTR_NMI_EN0.packed_w = 1<<intr_idx + 1<<(intr_idx+16);
+        registers->INTR_NMI_EN0.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
     else if(intr_idx<32)
-        registers->INTR_NMI_EN1.packed_w = 1<<(intr_idx_mod_16) + 1<<(intr_idx_mod_16+16);
+        registers->INTR_NMI_EN1.packed_w = (1<<intr_idx_mod_16) + (1<<(intr_idx_mod_16+16));
+}
+
+static inline void GPIO_INTR_EVENT_NMI_DIS(GPIO_REGS_s * registers, uint32_t intr_idx){
+    uint32_t intr_idx_mod_16 = intr_idx%16;
+    if(intr_idx<16)
+        registers->INTR_NMI_EN0.packed_w = (1<<(intr_idx+16));
+    else if(intr_idx<32)
+        registers->INTR_NMI_EN1.packed_w = (1<<(intr_idx_mod_16+16));
 }
 
 static inline void GPIO_GENERIC_EVENT_EN(GPIO_REGS_s * registers, uint32_t intr_idx){
     uint32_t intr_idx_mod_16 = intr_idx%16;
     if(intr_idx<16)
-        registers->EVENT_EN0.packed_w = 1<<intr_idx + 1<<(intr_idx+16);
+        registers->EVENT_EN0.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
     else if(intr_idx<32)
-        registers->EVENT_EN1.packed_w = 1<<(intr_idx_mod_16) + 1<<(intr_idx_mod_16+16);
+        registers->EVENT_EN1.packed_w = (1<<intr_idx_mod_16) + (1<<(intr_idx_mod_16+16));
+}
+
+static inline void GPIO_GENERIC_EVENT_DIS(GPIO_REGS_s * registers, uint32_t intr_idx){
+    uint32_t intr_idx_mod_16 = intr_idx%16;
+    if(intr_idx<16)
+        registers->EVENT_EN0.packed_w = (1<<(intr_idx+16));
+    else if(intr_idx<32)
+        registers->EVENT_EN1.packed_w = (1<<(intr_idx_mod_16+16));
 }
 
 static inline void GPIO_INTR_SW_SET(GPIO_REGS_s * registers, uint32_t intr_idx){
