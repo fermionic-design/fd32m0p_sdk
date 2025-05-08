@@ -28,31 +28,31 @@ typedef union FLASH_CLK_CTRL_u {
     uint32_t packed_w;
 } FLASH_CLK_CTRL_u;
 
-typedef struct FLASH_FLASH_CTRL_REG_s {
+typedef struct FLASH_CTRL_REG_s {
     unsigned int clen:1; // 
     unsigned int srl:1; // 
     unsigned int isavb:1; // 
     unsigned int rdecc:1; // 
     unsigned int cpecc:1; // 
-} FLASH_FLASH_CTRL_REG_s;
+} FLASH_CTRL_REG_s;
 
-typedef union FLASH_FLASH_CTRL_u {
-    FLASH_FLASH_CTRL_REG_s;
+typedef union FLASH_CTRL_u {
+    FLASH_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
-} FLASH_FLASH_CTRL_u;
+} FLASH_CTRL_u;
 
-typedef struct FLASH_FLASH_STATUS_REG_s {
+typedef struct FLASH_STATUS_REG_s {
     unsigned int eced:1; // 
-} FLASH_FLASH_STATUS_REG_s;
+} FLASH_STATUS_REG_s;
 
-typedef union FLASH_FLASH_STATUS_u {
-    FLASH_FLASH_STATUS_REG_s;
+typedef union FLASH_STATUS_u {
+    FLASH_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
-} FLASH_FLASH_STATUS_u;
+} FLASH_STATUS_u;
 
 typedef struct FLASH_TIME_CTRL_REG_s {
     unsigned int tcsctrls:4; // 
@@ -146,8 +146,8 @@ typedef union FLASH_ECED_STATUS_u {
 typedef struct FLASH_REGS_s{
     volatile FLASH_DESC_u DESC;
     volatile FLASH_CLK_CTRL_u CLK_CTRL;
-    volatile FLASH_FLASH_CTRL_u FLASH_CTRL;
-    volatile FLASH_FLASH_STATUS_u FLASH_STATUS;
+    volatile FLASH_CTRL_u CTRL;
+    volatile FLASH_STATUS_u STATUS;
     volatile FLASH_TIME_CTRL_u TIME_CTRL;
     volatile FLASH_TIME_CTRL_1_u TIME_CTRL_1;
     volatile FLASH_TIME_CTRL_2_u TIME_CTRL_2;
@@ -156,6 +156,39 @@ typedef struct FLASH_REGS_s{
     volatile FLASH_STS_u STS;
     volatile FLASH_ECED_STATUS_u ECED_STATUS;
 } FLASH_REGS_s;
+
+
+
+typedef enum {
+	FLASH_CTRL_CLEN_NORMAL_MODE = 0,
+	FLASH_CTRL_CLEN_TEST_MODE = 1,
+} FLASH_CTRL_CLEN;
+
+typedef enum {
+	FLASH_CTRL_SRL_DEFAULT = 0,
+	FLASH_CTRL_SRL_SHADOW = 1,
+} FLASH_CTRL_SRL;
+
+typedef enum {
+	FLASH_CTRL_ISAVB_LOW_POWER = 0,
+	FLASH_CTRL_ISAVB_HIGH_SPEED = 1,
+} FLASH_CTRL_ISAVB;
+
+typedef enum {
+	FLASH_CTRL_RDECC_DEFAULT = 0,
+	FLASH_CTRL_RDECC_ECC_SWITCHING = 1,
+} FLASH_CTRL_RDECC;
+
+typedef enum {
+	FLASH_CTRL_CPECC_OFF = 0,
+	FLASH_CTRL_CPECC_ON = 1,
+} FLASH_CTRL_CPECC;
+
+typedef enum {
+	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_BYTE = 0,
+	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_HALF_WORD = 1,
+	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_WORD = 2,
+} FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL;
 
 #define FLASH_DESC_MODULE_TYPE_OFS (0)
 #define FLASH_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
@@ -167,18 +200,18 @@ typedef struct FLASH_REGS_s{
 #define FLASH_DESC_MINOR_REV_MASK ((uint32_t)0x00F00000U)
 #define FLASH_CLK_CTRL_CLK_EN_OFS (0)
 #define FLASH_CLK_CTRL_CLK_EN_MASK ((uint32_t)0x00000001U)
-#define FLASH_FLASH_CTRL_CLEN_OFS (0)
-#define FLASH_FLASH_CTRL_CLEN_MASK ((uint32_t)0x00000001U)
-#define FLASH_FLASH_CTRL_SRL_OFS (1)
-#define FLASH_FLASH_CTRL_SRL_MASK ((uint32_t)0x00000002U)
-#define FLASH_FLASH_CTRL_ISAVB_OFS (2)
-#define FLASH_FLASH_CTRL_ISAVB_MASK ((uint32_t)0x00000004U)
-#define FLASH_FLASH_CTRL_RDECC_OFS (3)
-#define FLASH_FLASH_CTRL_RDECC_MASK ((uint32_t)0x00000008U)
-#define FLASH_FLASH_CTRL_CPECC_OFS (4)
-#define FLASH_FLASH_CTRL_CPECC_MASK ((uint32_t)0x00000010U)
-#define FLASH_FLASH_STATUS_ECED_OFS (0)
-#define FLASH_FLASH_STATUS_ECED_MASK ((uint32_t)0x00000001U)
+#define FLASH_CTRL_CLEN_OFS (0)
+#define FLASH_CTRL_CLEN_MASK ((uint32_t)0x00000001U)
+#define FLASH_CTRL_SRL_OFS (1)
+#define FLASH_CTRL_SRL_MASK ((uint32_t)0x00000002U)
+#define FLASH_CTRL_ISAVB_OFS (2)
+#define FLASH_CTRL_ISAVB_MASK ((uint32_t)0x00000004U)
+#define FLASH_CTRL_RDECC_OFS (3)
+#define FLASH_CTRL_RDECC_MASK ((uint32_t)0x00000008U)
+#define FLASH_CTRL_CPECC_OFS (4)
+#define FLASH_CTRL_CPECC_MASK ((uint32_t)0x00000010U)
+#define FLASH_STATUS_ECED_OFS (0)
+#define FLASH_STATUS_ECED_MASK ((uint32_t)0x00000001U)
 #define FLASH_TIME_CTRL_TCSCTRLS_OFS (0)
 #define FLASH_TIME_CTRL_TCSCTRLS_MASK ((uint32_t)0x0000000FU)
 #define FLASH_TIME_CTRL_TRAS_OFS (4)
@@ -217,4 +250,5 @@ typedef struct FLASH_REGS_s{
 #define FLASH_STS_FLASH_PSTATE_MASK ((uint32_t)0x0000001FU)
 #define FLASH_ECED_STATUS_ECED_STS_OFS (0)
 #define FLASH_ECED_STATUS_ECED_STS_MASK ((uint32_t)0xFFFFFFFFU)
+
 #endif
