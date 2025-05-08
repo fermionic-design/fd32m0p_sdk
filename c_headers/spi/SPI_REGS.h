@@ -56,7 +56,7 @@ typedef union SPI_RST_STS_u {
 } SPI_RST_STS_u;
 
 typedef struct SPI_CLK_CTRL_REG_s {
-    unsigned int clk_scaler:10; // 
+    unsigned int clk_scaler:10; // Scaler value on top CLK_DIV to generate master SPI clock
 } SPI_CLK_CTRL_REG_s;
 
 typedef union SPI_CLK_CTRL_u {
@@ -67,7 +67,7 @@ typedef union SPI_CLK_CTRL_u {
 } SPI_CLK_CTRL_u;
 
 typedef struct SPI_CLK_DIV_REG_s {
-    unsigned int div_ratio:5; // 
+    unsigned int div_ratio:5; // Clock division value of the clock selected by CLKSEL. Division value is added by 1 to the programmed value
 } SPI_CLK_DIV_REG_s;
 
 typedef union SPI_CLK_DIV_u {
@@ -78,7 +78,7 @@ typedef union SPI_CLK_DIV_u {
 } SPI_CLK_DIV_u;
 
 typedef struct SPI_CLKSEL_REG_s {
-    unsigned int clk_sel:2; // 
+    unsigned int clk_sel:2; // Selects the source for clk_spi 0: clk_ahb 1: clk_4mhz, 2: clk_lf
 } SPI_CLKSEL_REG_s;
 
 typedef union SPI_CLKSEL_u {
@@ -310,17 +310,17 @@ typedef union SPI_RX_FIFO_u {
     uint32_t packed_w;
 } SPI_RX_FIFO_u;
 
-typedef struct SPI_SPI_DBG_CTRL_REG_s {
+typedef struct SPI_DBG_CTRL_REG_s {
     unsigned int stop_on_halt:1; // 
     unsigned int soft_stop:1; // 
-} SPI_SPI_DBG_CTRL_REG_s;
+} SPI_DBG_CTRL_REG_s;
 
-typedef union SPI_SPI_DBG_CTRL_u {
-    SPI_SPI_DBG_CTRL_REG_s;
+typedef union SPI_DBG_CTRL_u {
+    SPI_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
-} SPI_SPI_DBG_CTRL_u;
+} SPI_DBG_CTRL_u;
 
 typedef struct SPI_INTR_STS_REG_s {
     unsigned int intr_first:5; // 
@@ -508,7 +508,7 @@ typedef struct SPI_REGS_s{
     volatile SPI_STS_u STS;
     volatile SPI_TX_FIFO_u TX_FIFO[4];
     volatile SPI_RX_FIFO_u RX_FIFO[4];
-    volatile SPI_SPI_DBG_CTRL_u SPI_DBG_CTRL;
+    volatile SPI_DBG_CTRL_u DBG_CTRL;
     volatile SPI_INTR_STS_u INTR_STS;
     volatile SPI_INTR_EVENT_u INTR_EVENT;
     volatile SPI_INTR_EN_u INTR_EN;
@@ -519,6 +519,48 @@ typedef struct SPI_REGS_s{
     volatile SPI_SPARE_CTRL_u SPARE_CTRL;
     volatile SPI_SPARE_STS_u SPARE_STS;
 } SPI_REGS_s;
+
+#define SPI_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
+#define SPI_RST_CTRL_RST_KEY ((uint32_t)0x000000ABU)
+#define SPI_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x000000ABU)
+
+#define SPI_INTR_EVENT_RX_FIFO_OVERFLOW_IDX (0)
+#define SPI_INTR_EVENT_PARITY_ERROR_IDX (1)
+#define SPI_INTR_EVENT_RX_TIMEOUT_IDX (2)
+#define SPI_INTR_EVENT_RX_FIFO_TRG_LVL_IDX (3)
+#define SPI_INTR_EVENT_TX_FIFO_TRG_LVL_IDX (4)
+#define SPI_INTR_EVENT_TX_FIFO_EMPTY_IDX (5)
+#define SPI_INTR_EVENT_IDLE_IDX (6)
+#define SPI_INTR_EVENT_RX_DMA_DONE_IDX (7)
+#define SPI_INTR_EVENT_TX_DMA_DONE_IDX (8)
+#define SPI_INTR_EVENT_TX_FIFO_UNDERFLOW_IDX (9)
+#define SPI_INTR_EVENT_RX_FIFO_FULL_IDX (10)
+
+typedef enum {
+	SPI_CLKSEL_CLK_SEL_CLK_SPI = 0,
+	SPI_CLKSEL_CLK_SEL_CLK_4MHZ = 1,
+	SPI_CLKSEL_CLK_SEL_CLK_LF = 2,
+} SPI_CLKSEL_CLK_SEL;
+
+typedef enum {
+	SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_LOW = 0,
+	SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_HIGH = 1,
+} SPI_MOT_MOD_CNTRL_CLOCK_POLARITY;
+
+typedef enum {
+	SPI_MOT_MOD_CNTRL_CLOCK_PHASE_LEADING = 0,
+	SPI_MOT_MOD_CNTRL_CLOCK_PHASE_TRAILING = 1,
+} SPI_MOT_MOD_CNTRL_CLOCK_PHASE;
+
+typedef enum {
+	SPI_MODE_CTRL_PERIPHERAL_MODE_CONTROLLER = 0,
+	SPI_MODE_CTRL_PERIPHERAL_MODE_PERIPHERAL = 1,
+} SPI_MODE_CTRL_PERIPHERAL_MODE;
+
+typedef enum {
+	SPI_MODE_CTRL_FRAME_FORMAT_MOTOROLA = 0,
+	SPI_MODE_CTRL_FRAME_FORMAT_TI = 1,
+} SPI_MODE_CTRL_FRAME_FORMAT;
 
 #define SPI_DESC_MODULE_TYPE_OFS (0)
 #define SPI_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
@@ -626,10 +668,10 @@ typedef struct SPI_REGS_s{
 #define SPI_TX_FIFO_TX_FIFO_MASK ((uint32_t)0xFFFFFFFFU)
 #define SPI_RX_FIFO_RX_FIFO_OFS (0)
 #define SPI_RX_FIFO_RX_FIFO_MASK ((uint32_t)0xFFFFFFFFU)
-#define SPI_SPI_DBG_CTRL_STOP_ON_HALT_OFS (0)
-#define SPI_SPI_DBG_CTRL_STOP_ON_HALT_MASK ((uint32_t)0x00000001U)
-#define SPI_SPI_DBG_CTRL_SOFT_STOP_OFS (1)
-#define SPI_SPI_DBG_CTRL_SOFT_STOP_MASK ((uint32_t)0x00000002U)
+#define SPI_DBG_CTRL_STOP_ON_HALT_OFS (0)
+#define SPI_DBG_CTRL_STOP_ON_HALT_MASK ((uint32_t)0x00000001U)
+#define SPI_DBG_CTRL_SOFT_STOP_OFS (1)
+#define SPI_DBG_CTRL_SOFT_STOP_MASK ((uint32_t)0x00000002U)
 #define SPI_INTR_STS_INTR_FIRST_OFS (0)
 #define SPI_INTR_STS_INTR_FIRST_MASK ((uint32_t)0x0000001FU)
 #define SPI_INTR_EVENT_RX_FIFO_OVERFLOW_OFS (0)
@@ -772,4 +814,5 @@ typedef struct SPI_REGS_s{
 #define SPI_SPARE_STS_STS0_MASK ((uint32_t)0x000000FFU)
 #define SPI_SPARE_STS_STS1_OFS (8)
 #define SPI_SPARE_STS_STS1_MASK ((uint32_t)0x0000FF00U)
+
 #endif
