@@ -13,31 +13,31 @@ void UartStdOutInit(void)
         }
     UART_REGS->CLK_SEL.packed_w = 0x00030000; //addr = 20
     UART_REGS->CLK_DIV.packed_w = 0x00070000; //addr = 24
-    UART_UART_CLKCFG_WRITE(UART_REGS, 1, 0x13); //addr = 60
-    UART_REGS->UART_CFG.packed_w = 0x00000003;  //addr = 72
-    UART_REGS->UART_GFCTL.packed_w = 0x00000000; //addr = 76
-    UART_REGS->UART_BRDNUM.packed_w = 0x00000000;
-    UART_REGS->UART_BRDDEN.packed_w = 0x00000000;
+    UART_CLKCFG_WRITE(UART_REGS, 1, 0x13); //addr = 60
+    UART_REGS->CFG.packed_w = 0x00000003;  //addr = 72
+    UART_REGS->GFCTL.packed_w = 0x00000000; //addr = 76
+    UART_REGS->BRDNUM.packed_w = 0x00000000;
+    UART_REGS->BRDDEN.packed_w = 0x00000000;
     #ifdef FPGA
     UART_REGS->UART_BRDNUM.packed_w = 105;
     UART_REGS->UART_BRDDEN.packed_w = 11;
     #endif
-    UART_REGS->UART_CTRL.packed_w = 0x00001101;
+    UART_REGS->CTRL.packed_w = 0x00001101;
     UART_REGS->CLK_CTRL.packed_w = 0x00000001;
     return;
 }
 //output a character
 unsigned char UartPutc(unsigned char my_ch)
 {
-    while((UART_REGS->UART_FIFOSTS.tx_fifo_full_sts) == 1);
-    UART_REGS->UART_TXDATA[0].packed_w = my_ch;
+    while((UART_REGS->FIFOSTS.tx_fifo_full_sts) == 1);
+    UART_REGS->TXDATA[0].packed_w = my_ch;
     return(my_ch);
 }
 //get a charcter
 unsigned char UartGetc(void)
 {
-    while(UART_REGS->UART_FIFOSTS.rx_fifo_empty_sts == 1);
-    return (UART_REGS->UART_RXDATA[0].uart_result);
+    while(UART_REGS->FIFOSTS.rx_fifo_empty_sts == 1);
+    return (UART_REGS->RXDATA[0].uart_result);
 }
 
 // Uart string output
