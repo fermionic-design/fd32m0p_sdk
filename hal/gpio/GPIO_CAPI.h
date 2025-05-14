@@ -9,7 +9,7 @@
 extern void iomux_cfg(IOMUX_REGS_s * registers, IOMUX_PA_REG_s iomux_cfg,  uint32_t pin_num);
 extern void gpio_dout_pinwise(GPIO_REGS_s * registers, uint32_t pin_num, uint32_t val);
 extern void gpio_glitch_filter_cfg(GPIO_REGS_s * registers, uint32_t pin_num, uint32_t val);
-extern void gpio_intr_polarity_cfg(GPIO_REGS_s * registers, uint32_t pin_num, GPIO_INTR_POL val);
+extern void gpio_intr_polarity_cfg(GPIO_REGS_s * registers, uint32_t pin_num, GPIO_INTR_POL_E val);
 extern void gpio_dma_cfg(GPIO_REGS_s * registers, uint32_t val);
 extern int gpio_din(GPIO_REGS_s * registers);
 extern void gpio_dout(GPIO_REGS_s * registers, uint32_t val);
