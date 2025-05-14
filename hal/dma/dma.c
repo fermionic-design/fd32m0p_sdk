@@ -4,12 +4,8 @@
  *  ======== dma_init ========
  */
 void dma_init(PL230_REGS_s *PL230_REGS, uint32_t base_ptr_address) {
-    uint32_t current_state;
-    // Wait untill current DMA completes
-    current_state = PL230_REGS->DMA_STATUS.state;
-    while(!((current_state==PL230_DMA_STATUS_STATE_IDLE) || (current_state==PL230_DMA_STATUS_STATE_STALLED) || (current_state== PL230_DMA_STATUS_STATE_DONE ))){
-        current_state = PL230_REGS->DMA_STATUS.state;
-    }
+    // Waiting for current transcation to end
+    while(is_dma_idle(PL230_REGS));
     // Disable DMA controller for initialization
     PL230_REGS->DMA_CFG.master_enable = 0;
     // Set DMA data structure address
@@ -43,26 +39,26 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
     // Reading the channel configuration based pointer
     uint32_t base_addr = PL230_REGS->CTRL_BASE_PTR.packed_w;  
     // Calculating the pointer to the required channel configuration 
-    volatile channel_cfg_t *ch = ((channel_cfg_t *)base_addr) + channel + (dma_channel_cfg->alternate_cfg_sel ? 16 : 0);
+    volatile dma_mem_channel_cfg_t *ch = ((dma_mem_channel_cfg_t *)base_addr) + channel + (dma_channel_cfg->alternate_cfg_sel ? 16 : 0);
     volatile DMA_REPEATED_TRANSFER_CHNL_0_u *repeated_transfer_channels = (volatile DMA_REPEATED_TRANSFER_CHNL_0_u *) &DMA_REGS->REPEATED_TRANSFER_CHNL_0;
     // Updating channel configuration 
     ch->rsp = src_end_pointer;
     ch->rdp = dst_end_pointer;
-    ch->ctrl.cycle_ctrl    = dma_channel_cfg->transfer_type;
+    ch->ctrl.cycle_ctrl = dma_channel_cfg->transfer_type;
     ch->ctrl.next_useburst = dma_channel_cfg->next_useburst;
-    ch->ctrl.n_minus_1     = dma_channel_cfg->total_transaction;
-    ch->ctrl.r_power       = dma_channel_cfg->r_power;
+    ch->ctrl.n_minus_1 = dma_channel_cfg->total_transaction;
+    ch->ctrl.r_power = dma_channel_cfg->r_power;
     ch->ctrl.src_prot_ctrl = dma_channel_cfg->src_prot_ctrl;
     ch->ctrl.dst_prot_ctrl = dma_channel_cfg->dst_prot_ctrl;
-    ch->ctrl.src_size      = dma_channel_cfg->src_size;
-    ch->ctrl.src_inc       = dma_channel_cfg->src_incr;  
-    ch->ctrl.dst_size      = dma_channel_cfg->dst_size;
-    ch->ctrl.dst_inc       = dma_channel_cfg->dst_incr;
+    ch->ctrl.src_size = dma_channel_cfg->src_size;
+    ch->ctrl.src_inc = dma_channel_cfg->src_incr;  
+    ch->ctrl.dst_size = dma_channel_cfg->dst_size;
+    ch->ctrl.dst_inc = dma_channel_cfg->dst_incr;
     // Fill configuration
     if(dma_channel_cfg->fill_en) {
-        DMA_REGS->FILL_MODE_CFG.fill_mode_chnl_no     = channel; 
-        DMA_REGS->FILL_MODE_CFG.fill_mode_init_val    = dma_channel_cfg->fill_init_value; 
-        DMA_REGS->FILL_MODE_CFG.fill_mode_incr_val    = dma_channel_cfg->fill_incr_value;
+        DMA_REGS->FILL_MODE_CFG.fill_mode_chnl_no = channel; 
+        DMA_REGS->FILL_MODE_CFG.fill_mode_init_val = dma_channel_cfg->fill_init_value; 
+        DMA_REGS->FILL_MODE_CFG.fill_mode_incr_val = dma_channel_cfg->fill_incr_value;
         DMA_REGS->FILL_MODE.fill_mode_en = dma_channel_cfg->fill_en;
     }
     // Stride configuration
@@ -70,11 +66,13 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
         DMA_REGS->STRIDE_MODE_CFG_0.stride_mode_chnl_no = channel;
         DMA_REGS->STRIDE_MODE_CFG_0.src_stride_val = dma_channel_cfg->stride_src_incr;
         DMA_REGS->STRIDE_MODE_CFG_0.dst_stride_val = dma_channel_cfg->stride_dst_incr;
-        DMA_REGS->STRIDE_MODE_CFG_0.src_inc = dma_channel_cfg->src_incr;
-        DMA_REGS->STRIDE_MODE_CFG_0.dst_inc = dma_channel_cfg->dst_incr;
-        DMA_REGS->STRIDE_MODE_CFG_1.stride_mode_src_base_addr = dma_channel_cfg->src_addr;
-        DMA_REGS->STRIDE_MODE_CFG_2.stride_mode_dst_base_addr = dma_channel_cfg->dst_addr;
+        DMA_REGS->STRIDE_MODE_CFG_0.src_inc = dma_channel_cfg->src_size;
+        DMA_REGS->STRIDE_MODE_CFG_0.dst_inc = dma_channel_cfg->dst_size;
+        DMA_REGS->STRIDE_MODE_CFG_1.stride_mode_src_base_addr = src_end_pointer;
+        DMA_REGS->STRIDE_MODE_CFG_2.stride_mode_dst_base_addr = dst_end_pointer;
         DMA_REGS->STRIDE_MODE.stride_mode_en = dma_channel_cfg->stride_en;
+        ch->rsp = DMA_STRIDE_MODE_LOOKUP_SRC_ADDR;
+        ch->rdp = DMA_STRIDE_MODE_LOOKUP_DST_ADDR;
     }
     // Reapeated Transfer
     if(dma_channel_cfg->repeated_transfer_en) {
@@ -117,4 +115,23 @@ void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, uint8_t mode, uint16_t round
         DMA_REGS->ARBITRATION_MASK.dma_rr_mask = 0;
         DMA_REGS->ARBITRATION.dma_rr_en = 0;
     }
+}
+/*
+ *  ========  is_dma_idle ========
+ */
+uint8_t is_dma_idle(PL230_REGS_s *PL230_REGS) {
+    uint32_t current_state;
+    current_state = PL230_REGS->DMA_STATUS.state;
+    if(((current_state==PL230_DMA_STATUS_STATE_IDLE) || (current_state==PL230_DMA_STATUS_STATE_STALLED) || (current_state== PL230_DMA_STATUS_STATE_DONE ))) {
+        return 0;
+    }
+    else{
+        return 1;
+    }
+}
+/*
+ *  ========  dma_channel_en_clr ========
+ */
+void dma_channel_en_clr(PL230_REGS_s *PL230_REGS, uint8_t channel) {
+    PL230_REGS->CHNL_ENABLE_CLR.packed_w = (1 << channel); 
 }
