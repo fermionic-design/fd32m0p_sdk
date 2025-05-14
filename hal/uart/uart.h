@@ -1,0 +1,115 @@
+#ifndef uart_h_include
+#define uart_h_include
+#include "UART_REGS.h"
+#include "UART_RW_API.h"
+#include <stdint.h>
+#include <stdbool.h>
+
+//structs
+//TODO:add comments
+typedef struct 
+{
+    UART_CLK_SEL            clk_sel;
+    uint32_t                clk_div;
+    uint32_t                baud_rate;
+    uint32_t                clk_freq;
+    UART_CTRL_OS            oversampling;
+    UART_CFG_WRD_LEN        word_length;
+    uint32_t                parity_en;
+    uint32_t                even_parity;
+    UART_CFG_STCK_PAR       stick_parity;
+    UART_CFG_STOP_BIT       num_stop_bits;
+    UART_CTRL_UART_MSB      msb_first;
+    uint32_t                majority_voting_en;
+    uint32_t                loopback_en;
+    UART_CTRL_TX_EN         tx_en;
+    uint32_t                rx_en;
+    UART_CTRL_TX_OUT_EN     tx_out_en;
+    UART_CTRL_TX_OUT_CTRL   tx_out_ctrl;    
+    uint32_t                cts_en;
+    uint32_t                rts_en;
+    uint32_t                rts_val;
+    uint32_t                glitch_filter_width;
+    uint32_t                rx_timeout_val;
+} uart_cfg_s;
+
+#define UART_CFG_DEFAULT { \
+    clk_sel = UART_CLK_SEL_CLK_APB; \
+    clk_div = 0; \
+    oversampling = 16; \
+    word_length = UART_CFG_WRD_LEN_8_BITS; \
+    num_stop_bits = UART_CFG_STOP_BIT_ONE; \
+    msb_first = UART_CTRL_UART_MSB_FIRST; \
+    tx_en = UART_CTRL_TX_EN_HW; \
+    rx_timeout_val = 10; \
+    clk_en = 1; \
+}
+
+//TODO:add comments
+typedef struct 
+{
+    UART_FIFOLS_TX_FIFO_LS tx_fifo_lvl_sel;
+    UART_FIFOLS_RX_FIFO_LS rx_fifo_lvl_sel;
+    uint32_t fifo_en;
+} uart_fifo_cfg_s;
+
+#define UART_FIFO_CFG_DEFAULT { \
+    tx_fifo_lvl_sel = UART_FIFOLS_TX_FIFO_LS_EMPTY; \
+    rx_fifo_lvl_sel = UART_FIFOLS_RX_FIFO_LS_ALMOST_EMPTY; \
+    fifo_en = 1; \
+}
+/*function definitions*/
+//uart configurations
+void uart_cfg(UART_REGS_s *registers, const uart_cfg_s *cfg);
+
+//uart_baud rate calculation function
+void uart_baud_cfg(UART_REGS_s *registers, uint32_t baud_rate, uint32_t clk_freq, uint32_t oversampling);
+
+//clk enabling
+void uart_clk_en(UART_REGS_s *registers);
+
+//clk disabling
+void uart_clk_dis(UART_REGS_s *registers);
+
+//uart enabling
+void uart_en(UART_REGS_s *registers);
+
+//uart disabling
+void uart_dis(UART_REGS_s *registers);
+
+//uart fifo configurations
+void uart_fifo_cfg(UART_REGS_s *registers, const uart_fifo_cfg_s *fifo_cfg);
+
+//uart tx fifo fill non blocking
+uint32_t uart_txfifo_fill_nonblocking(UART_REGS_s *registers, const uint8_t *buffer, uint32_t num_bytes);
+
+//uart txfifo fill non blocking static
+bool uart_txfifo_fill_static_nonblocking(UART_REGS_s *registers, const uint8_t *buffer, uint32_t num_bytes, uint32_t rst_int_ctr);
+
+//uart txfifo fill blocking
+void uart_txfifo_fill_blocking(UART_REGS_s *registers, const uint8_t *buffer, uint32_t num_bytes);
+
+//uart puts(blocking)
+void uart_puts(UART_REGS_s *registers, const unsigned char * data_char_arr);
+
+//uart put character
+extern inline unsigned char uart_putc(UART_REGS_s *registers, const unsigned char data_char);
+
+//uart rx fifo drain non blocking
+uint32_t uart_rxfifo_drain_nonblocking(UART_REGS_s *registers, uint8_t *buffer, uint32_t num_bytes);
+
+//uart rx fifo drain static non blocking
+bool uart_rxfifo_drain_static_nonblocking(UART_REGS_s *registers, uint8_t *buffer, uint32_t num_bytes, uint32_t rst_int_ctr);
+
+//rxfifo drain blocking
+void uart_rxfifo_drain_blocking(UART_REGS_s *registers, uint8_t *buffer, uint32_t num_bytes);
+
+//uart rx fifo get character
+extern inline unsigned char uart_getc(UART_REGS_s *registers);
+
+//read uart cfg
+void uart_read_cfg(UART_REGS_s *registers, uart_cfg_s *rd_cfg);
+
+#endif
+
+
