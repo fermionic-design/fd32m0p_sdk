@@ -205,7 +205,7 @@ void gpio_glitch_filter_cfg(GPIO_REGS_s * registers, uint32_t pin_num, uint32_t 
     
 }/*}}}*/
 
-void gpio_intr_polarity_cfg(GPIO_REGS_s * registers, uint32_t pin_num, GPIO_INTR_POL val)/*{{{*/{
+void gpio_intr_polarity_cfg(GPIO_REGS_s * registers, uint32_t pin_num, GPIO_INTR_POL_E val)/*{{{*/{
     if(pin_num == 0){
         registers->INTR_POL_0.intr_pol_0 = val;
     }
