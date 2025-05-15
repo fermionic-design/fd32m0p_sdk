@@ -1,34 +1,11 @@
+#ifndef HAL_DMA_H
+#define HAL_DMA_H
+
 #include "DMA_REGS.h"
 #include "DMA_RW_API.h"
 #include "PL230_REGS.h"
 #include "PL230_RW_API.h"
-
-/*!
- *  @brief  Defines for Transfer Configuration 
- *
- *  @note   Default values for the transfer configuration of a given channel 
- */
-#define DMA_DEFAULT_SRC_ADDR                            0                                                     
-#define DMA_DEFAULT_DST_ADDR                            0
-#define DMA_DEFAULT_SRC_SIZE                            2
-#define DMA_DEFAULT_SRC_INCR                            2
-#define DMA_DEFAULT_DST_SIZE                            2
-#define DMA_DEFAULT_DST_INCR                            2
-#define DMA_DEFAULT_TRANSFER_TYPE                       2
-#define DMA_DEFAULT_TOTAL_TRANSACTION                   1
-#define DMA_DEFAULT_R_POWER                             0
-#define DMA_DEFAULT_ALTERNATE_CFG_SEL                   0
-#define DMA_DEFAULT_FILL_EN                             0
-#define DMA_DEFAULT_FILL_INCR_VALUE                     0
-#define DMA_DEFAULT_FILL_INIT_VALUE                     0
-#define DMA_DEFAULT_STRIDE_EN                           0
-#define DMA_DEFAULT_STRIDE_SRC_INCR                     DMA_STRIDE_MODE_CFG_0_SRC_INC_BYTE
-#define DMA_DEFAULT_STRIDE_DST_INCR                     DMA_STRIDE_MODE_CFG_0_DST_INC_BYTE
-#define DMA_DEFAULT_EARLY_IRQ_REMAINING_TRANSACTION     0
-#define DMA_DEFAULT_REPEATED_TRANSFER_EN                0
-#define DMA_DEFAULT_NEXT_USEBURST                       0
-#define DMA_DEFAULT_SRC_PROT_CTRL                       PL230_DMA_CFG_CHNL_PROT_CTRL_PRIVILEGE_ACCESS
-#define DMA_DEFAULT_DST_PROT_CTRL                       PL230_DMA_CFG_CHNL_PROT_CTRL_PRIVILEGE_ACCESS
+#include <stdbool.h>
 
 /*!
  *  @brief  Define for Stride Source and Destination Address 
@@ -60,6 +37,20 @@ typedef enum {
 } dma_channel;
 
 /*!
+ *  @brief  Transaction Type Enum 
+ */
+typedef enum {
+    DMA_TRANS_TYPE_INVALID                      = 0,
+    DMA_TRANS_TYPE_BASIC                        = 1, 
+    DMA_TRANS_TYPE_AUTO_REQ                     = 2, 
+    DMA_TRANS_TYPE_PING_PONG                    = 3, 
+    DMA_TRANS_TYPE_PRIMARY_MEM_SCATTER_GATHER   = 4, 
+    DMA_TRANS_TYPE_ALTERNATE_MEM_SCATTER_GATHER = 5, 
+    DMA_TRANS_TYPE_PRIMARY_PER_SCATTER_GATHER   = 6, 
+    DMA_TRANS_TYPE_ALTERNATE_PER_SCATTER_GATHER = 7 
+} dma_transaction_type_e;
+
+/*!
  *  @brief  Channel based transfer configuration 
  *
  *  @note   This struct contain parameters for initializing a DMA transfer
@@ -69,7 +60,6 @@ typedef struct dma_channel_cfg_t{
     uint32_t    src_addr;                           /*!< DMA source address */
     uint32_t    dst_addr;                           /*!< DMA destination address */
     uint16_t    total_transaction;                  /*!< DMA total number of transaction */
-    uint16_t    early_irq_remaining_transaction;    /*!< DMA early interrupt remaining transaction */
     uint16_t    repeated_transfer_en;               /*!< DMA Repeated Transfer Enable */
     uint8_t     src_size;                           /*!< DMA source size 0:byte 1:halfword 2:word */
     uint8_t     src_incr;                           /*!< DMA source address increement */
@@ -109,7 +99,7 @@ typedef struct dma_mem_ctrl_cfg_t {
 /*!
  *  @brief  Channel Configuration struct
  */
-typedef struct channel_cfg {
+typedef struct dma_mem_channel_cfg_t {
     uint32_t            rsp;
     uint32_t            rdp;
     dma_mem_ctrl_cfg_t  ctrl;
@@ -121,28 +111,27 @@ typedef struct channel_cfg {
  *
  *  @note   Make sure to updgrade this macro if 'channel_transfer_cfg_struct' is modified 
  */
-#define CHANNEL_TRANSFER_CFG_DEFAULT {                                                                              \
-    .src_addr                           = DMA_DEFAULT_SRC_ADDR                                                     ,\
-    .dst_addr                           = DMA_DEFAULT_DST_ADDR                                                     ,\
-    .src_size                           = DMA_DEFAULT_SRC_SIZE                                                     ,\
-    .src_incr                           = DMA_DEFAULT_SRC_INCR                                                     ,\
-    .dst_size                           = DMA_DEFAULT_DST_SIZE                                                     ,\
-    .dst_incr                           = DMA_DEFAULT_DST_INCR                                                     ,\
-    .transfer_type                      = DMA_DEFAULT_TRANSFER_TYPE                                                ,\
-    .total_transaction                  = DMA_DEFAULT_TOTAL_TRANSACTION                                            ,\
-    .r_power                            = DMA_DEFAULT_R_POWER                                                      ,\
-    .next_useburst                      = DMA_DEFAULT_NEXT_USEBURST                                                ,\
-    .src_prot_ctrl                      = DMA_DEFAULT_SRC_PROT_CTRL                                                ,\
-    .dst_prot_ctrl                      = DMA_DEFAULT_DST_PROT_CTRL                                                ,\
-    .alternate_cfg_sel                  = DMA_DEFAULT_ALTERNATE_CFG_SEL                                            ,\
-    .fill_en                            = DMA_DEFAULT_FILL_EN                                                      ,\
-    .fill_incr_value                    = DMA_DEFAULT_FILL_INCR_VALUE                                              ,\
-    .fill_init_value                    = DMA_DEFAULT_FILL_INIT_VALUE                                              ,\
-    .stride_en                          = DMA_DEFAULT_STRIDE_EN                                                    ,\
-    .stride_src_incr                    = DMA_DEFAULT_STRIDE_SRC_INCR                                              ,\
-    .stride_dst_incr                    = DMA_DEFAULT_STRIDE_DST_INCR                                              ,\
-    .early_irq_remaining_transaction    = DMA_DEFAULT_EARLY_IRQ_REMAINING_TRANSACTION                              ,\
-    .repeated_transfer_en               = DMA_DEFAULT_REPEATED_TRANSFER_EN                                          \
+#define CHANNEL_TRANSFER_CFG_DEFAULT {                                                  \
+    .src_addr                           = 0                                            ,\
+    .dst_addr                           = 0                                            ,\
+    .src_size                           = 2                                            ,\
+    .src_incr                           = 2                                            ,\
+    .dst_size                           = 2                                            ,\
+    .dst_incr                           = 2                                            ,\
+    .transfer_type                      = DMA_TRANS_TYPE_AUTO_REQ                      ,\
+    .total_transaction                  = 1                                            ,\
+    .r_power                            = 0                                            ,\
+    .next_useburst                      = 0                                            ,\
+    .src_prot_ctrl                      = PL230_DMA_CFG_CHNL_PROT_CTRL_PRIVILEGE_ACCESS,\
+    .dst_prot_ctrl                      = PL230_DMA_CFG_CHNL_PROT_CTRL_PRIVILEGE_ACCESS,\
+    .alternate_cfg_sel                  = 0                                            ,\
+    .fill_en                            = 0                                            ,\
+    .fill_incr_value                    = 0                                            ,\
+    .fill_init_value                    = 0                                            ,\
+    .stride_en                          = 0                                            ,\
+    .stride_src_incr                    = DMA_STRIDE_MODE_CFG_0_SRC_INC_BYTE           ,\
+    .stride_dst_incr                    = DMA_STRIDE_MODE_CFG_0_DST_INC_BYTE           ,\
+    .repeated_transfer_en               = 0                                             \
 }
 
 /**
@@ -217,7 +206,7 @@ void dma_channel_sw_trig(PL230_REGS_s *PL230_REGS, uint8_t channel);
  *
  * @retval   
  */
-void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, uint8_t mode, uint16_t round_robin_mask);
+void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, DMA_ARBITRATION_DMA_RR_EN_E mode, uint16_t round_robin_mask);
 
 /**
  * @brief   This function check if dma fsm is in idle/stalled/done state   
@@ -226,4 +215,6 @@ void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, uint8_t mode, uint16_t round
  *
  * @retval  status of pl230 fsm   
  */
-uint8_t is_dma_idle(PL230_REGS_s *PL230_REGS);
+bool dma_is_idle(PL230_REGS_s *PL230_REGS);
+
+#endif

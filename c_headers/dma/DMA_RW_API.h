@@ -1,6 +1,3 @@
-#ifndef DMA_RW_API_H
-#define DMA_RW_API_H
-
 #include "DMA_REGS.h"
 
 static inline void DMA_PWR_EN_WRITE(DMA_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -273,5 +270,3 @@ static inline void DMA_ARBITRATION_MASK_WRITE(DMA_REGS_s * registers, uint32_t d
     registers->ARBITRATION_MASK.packed_w = ((dma_rr_mask<<DMA_ARBITRATION_MASK_DMA_RR_MASK_OFS) & DMA_ARBITRATION_MASK_DMA_RR_MASK_MASK);
 }
 
-
-#endif

@@ -5,7 +5,7 @@
  */
 void dma_init(PL230_REGS_s *PL230_REGS, uint32_t base_ptr_address) {
     // Waiting for current transcation to end
-    while(is_dma_idle(PL230_REGS));
+    while(!dma_is_idle(PL230_REGS));
     // Disable DMA controller for initialization
     PL230_REGS->DMA_CFG.master_enable = 0;
     // Set DMA data structure address
@@ -41,6 +41,7 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
     // Calculating the pointer to the required channel configuration 
     volatile dma_mem_channel_cfg_t *ch = ((dma_mem_channel_cfg_t *)base_addr) + channel + (dma_channel_cfg->alternate_cfg_sel ? 16 : 0);
     volatile DMA_REPEATED_TRANSFER_CHNL_0_u *repeated_transfer_channels = (volatile DMA_REPEATED_TRANSFER_CHNL_0_u *) &DMA_REGS->REPEATED_TRANSFER_CHNL_0;
+    volatile DMA_EARLY_IRQ_0_u *early_irq_channels = (volatile DMA_EARLY_IRQ_0_u *) &DMA_REGS->EARLY_IRQ_0;
     // Updating channel configuration 
     ch->rsp = src_end_pointer;
     ch->rdp = dst_end_pointer;
@@ -79,9 +80,10 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
         repeated_transfer_channels[channel].packed_w = dma_channel_cfg->total_transaction;
         DMA_REGS->REPEATED_TRANSFER_ALTERNATE_SEL.packed_w = dma_channel_cfg->alternate_cfg_sel;
         DMA_REGS->REPEATED_TRANSFER_EN.rptd_trnsfr_en = (1 << channel);
-        DMA_REGS->CFG_0.ctrl_base_ptr = PL230_REGS->CTRL_BASE_PTR.packed_w;
-        DMA_REGS->CFG_1.alt_ctrl_base_ptr = PL230_REGS->ALT_CTRL_BASE_PTR.packed_w;
     }
+    // Early IRQ Configuration
+    DMA_REGS->CFG_0.ctrl_base_ptr = PL230_REGS->CTRL_BASE_PTR.packed_w;
+    DMA_REGS->CFG_1.alt_ctrl_base_ptr = PL230_REGS->ALT_CTRL_BASE_PTR.packed_w;
 }
 /*
  *  ========  dma_channel_en_set ========
@@ -104,9 +106,9 @@ void dma_channel_sw_trig(PL230_REGS_s *PL230_REGS, uint8_t channel) {
 /*
  *  ========  dma_channel_priority_cfg ========
  */
-void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, uint8_t mode, uint16_t round_robin_mask) {
+void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, DMA_ARBITRATION_DMA_RR_EN_E mode, uint16_t round_robin_mask) {
     // If round robin arbitration is enabled 
-    if(mode==1) {
+    if(mode==DMA_ARBITRATION_DMA_RR_EN_SET) {
         DMA_REGS->ARBITRATION_MASK.dma_rr_mask = round_robin_mask;
         DMA_REGS->ARBITRATION.dma_rr_en = 1;
     }
@@ -117,16 +119,16 @@ void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, uint8_t mode, uint16_t round
     }
 }
 /*
- *  ========  is_dma_idle ========
+ *  ========  dma_is_idle ========
  */
-uint8_t is_dma_idle(PL230_REGS_s *PL230_REGS) {
+bool dma_is_idle(PL230_REGS_s *PL230_REGS) {
     uint32_t current_state;
     current_state = PL230_REGS->DMA_STATUS.state;
     if(((current_state==PL230_DMA_STATUS_STATE_IDLE) || (current_state==PL230_DMA_STATUS_STATE_STALLED) || (current_state== PL230_DMA_STATUS_STATE_DONE ))) {
-        return 0;
+        return true;
     }
     else{
-        return 1;
+        return false;
     }
 }
 /*
