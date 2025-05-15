@@ -1,3 +1,6 @@
+#ifndef SPI_RW_API_H
+#define SPI_RW_API_H
+
 #include "SPI_REGS.h"
 
 static inline void SPI_PWR_EN_WRITE(SPI_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -170,3 +173,5 @@ static inline void SPI_SPARE_CTRL_WRITE(SPI_REGS_s * registers, uint32_t cfg0, u
                                     +((cfg1<<SPI_SPARE_CTRL_CFG1_OFS) & SPI_SPARE_CTRL_CFG1_MASK);
 }
 
+
+#endif

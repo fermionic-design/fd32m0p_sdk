@@ -1,3 +1,6 @@
+#ifndef TIMER_RW_API_H
+#define TIMER_RW_API_H
+
 #include "TIMER_REGS.h"
 
 static inline void TIMER_PWR_EN_WRITE(TIMER_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -376,3 +379,5 @@ static inline void TIMER_RCTR_LOAD_VAL_WRITE(TIMER_REGS_s * registers, uint32_t 
     registers->RCTR_LOAD_VAL.packed_w = ((rctr_load_val<<TIMER_RCTR_LOAD_VAL_RCTR_LOAD_VAL_OFS) & TIMER_RCTR_LOAD_VAL_RCTR_LOAD_VAL_MASK);
 }
 
+
+#endif

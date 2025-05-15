@@ -1,3 +1,6 @@
+#ifndef VREF_RW_API_H
+#define VREF_RW_API_H
+
 #include "VREF_REGS.h"
 
 static inline void VREF_PWR_EN_WRITE(VREF_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -32,3 +35,5 @@ static inline void VREF_SPARE_CTRL_WRITE(VREF_REGS_s * registers, uint32_t vref_
                                     +((vref_cfg1<<VREF_SPARE_CTRL_VREF_CFG1_OFS) & VREF_SPARE_CTRL_VREF_CFG1_MASK);
 }
 
+
+#endif

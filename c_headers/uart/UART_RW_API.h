@@ -1,3 +1,6 @@
+#ifndef UART_RW_API_H
+#define UART_RW_API_H
+
 #include "UART_REGS.h"
 
 static inline void UART_PWR_EN_WRITE(UART_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -161,3 +164,5 @@ static inline void UART_ADDRMASK_WRITE(UART_REGS_s * registers, uint32_t addr_ma
     registers->ADDRMASK.packed_w = ((addr_mask<<UART_ADDRMASK_ADDR_MASK_OFS) & UART_ADDRMASK_ADDR_MASK_MASK);
 }
 
+
+#endif

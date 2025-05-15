@@ -1,3 +1,6 @@
+#ifndef CRC_RW_API_H
+#define CRC_RW_API_H
+
 #include "CRC_REGS.h"
 
 static inline void CRC_PWR_EN_WRITE(CRC_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -27,3 +30,5 @@ static inline void CRC_CRCINPUT_N_WRITE(CRC_REGS_s * registers, uint32_t index, 
     registers->CRCINPUT[index].packed_w = ((data<<CRC_CRCINPUT_DATA_OFS) & CRC_CRCINPUT_DATA_MASK);
 }
 
+
+#endif

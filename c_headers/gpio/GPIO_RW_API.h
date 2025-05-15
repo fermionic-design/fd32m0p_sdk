@@ -1,3 +1,6 @@
+#ifndef GPIO_RW_API_H
+#define GPIO_RW_API_H
+
 #include "GPIO_REGS.h"
 
 static inline void GPIO_PWR_EN_WRITE(GPIO_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -241,3 +244,5 @@ static inline void GPIO_DMA_WR_MASK_WRITE(GPIO_REGS_s * registers, uint32_t dma_
     registers->DMA_WR_MASK.packed_w = ((dma_wr_mask<<GPIO_DMA_WR_MASK_DMA_WR_MASK_OFS) & GPIO_DMA_WR_MASK_DMA_WR_MASK_MASK);
 }
 
+
+#endif

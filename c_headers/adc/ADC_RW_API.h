@@ -1,3 +1,6 @@
+#ifndef ADC_RW_API_H
+#define ADC_RW_API_H
+
 #include "ADC_REGS.h"
 
 static inline void ADC_PWR_EN_WRITE(ADC_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -221,3 +224,5 @@ static inline void ADC_DMA_TRANSFER_CNT_WRITE(ADC_REGS_s * registers, uint32_t d
     registers->DMA_TRANSFER_CNT.packed_w = ((dma_transfer_cnt<<ADC_DMA_TRANSFER_CNT_DMA_TRANSFER_CNT_OFS) & ADC_DMA_TRANSFER_CNT_DMA_TRANSFER_CNT_MASK);
 }
 
+
+#endif

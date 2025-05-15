@@ -1,3 +1,6 @@
+#ifndef DAC_RW_API_H
+#define DAC_RW_API_H
+
 #include "DAC_REGS.h"
 
 static inline void DAC_PWR_EN_WRITE(DAC_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -94,3 +97,5 @@ static inline void DAC_SPARE_CTRL_WRITE(DAC_REGS_s * registers, uint32_t cfg0, u
                                     +((cfg1<<DAC_SPARE_CTRL_CFG1_OFS) & DAC_SPARE_CTRL_CFG1_MASK);
 }
 
+
+#endif

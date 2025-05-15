@@ -1,3 +1,6 @@
+#ifndef I2C_RW_API_H
+#define I2C_RW_API_H
+
 #include "I2C_REGS.h"
 
 static inline void I2C_PWR_EN_WRITE(I2C_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -200,3 +203,5 @@ static inline void I2C_MASTER_ACK_VAL_WRITE(I2C_REGS_s * registers, uint32_t mst
     registers->MASTER_ACK_VAL.packed_w = ((mst_ackval<<I2C_MASTER_ACK_VAL_MST_ACKVAL_OFS) & I2C_MASTER_ACK_VAL_MST_ACKVAL_MASK);
 }
 
+
+#endif

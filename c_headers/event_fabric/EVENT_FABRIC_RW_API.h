@@ -1,3 +1,6 @@
+#ifndef EVENT_FABRIC_RW_API_H
+#define EVENT_FABRIC_RW_API_H
+
 #include "EVENT_FABRIC_REGS.h"
 
 static inline void EVENT_FABRIC_PWR_EN_WRITE(EVENT_FABRIC_REGS_s * registers, uint32_t pwr_en, uint32_t pwr_en_key) {
@@ -27,3 +30,5 @@ static inline void EVENT_FABRIC_DMA_PUB_N_WRITE(EVENT_FABRIC_REGS_s * registers,
     registers->DMA_PUB[index].packed_w = ((dma_pub_event_id<<EVENT_FABRIC_DMA_PUB_DMA_PUB_EVENT_ID_OFS) & EVENT_FABRIC_DMA_PUB_DMA_PUB_EVENT_ID_MASK);
 }
 
+
+#endif
