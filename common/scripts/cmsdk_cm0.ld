@@ -14,9 +14,9 @@
  *
  *      SVN Information
  *
- *      Checked In          : $Date: 2023/07/10 11:44:18 GMT $
+ *      Checked In          : $Date: 2024/12/18 12:19:39 GMT $
  *
- *      Revision            : $Revision: 1 $
+ *      Revision            : $Revision: 4 $
  *
  *      Release Information : Cortex-M System Design Kit-r1p1-00rel0
  *-----------------------------------------------------------------------------
@@ -33,8 +33,8 @@ INCLUDE "lib-nosys.ld"
 
 MEMORY
 {
-  FLASH (rx) : ORIGIN = 0x0,        LENGTH = 0x10000 /* 64K */
-  RAM (rwx)  : ORIGIN = 0x20000000, LENGTH = 0xFC00  /* 63K */
+  FLASH (rx) : ORIGIN = 0x0,        LENGTH = 0x8000 /* 32K */
+  RAM (rwx)  : ORIGIN = 0x20000000, LENGTH = 0x1000 /* 4K */
   /* 64K is available, but reserve some space for    */
   /*   1) debug tester communication for debug tests */
   /*   2) DMA data structure for DMA tests           */
