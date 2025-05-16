@@ -19,6 +19,8 @@ typedef struct uart_sram_memory {
     uint32_t mem[10];
 } uart_sram_memory_t;
 
+//SRAM Memory
+uint8_t mem_8[10];
 int main(void) {
     uint8_t tx_data;
     uart_cfg_s uart0_cfg_struct = UART_CFG_DEFAULT;
@@ -53,7 +55,7 @@ int main(void) {
     uart_en(UART0_REGS);
     uart_clk_en(UART0_REGS);
 
-    UartPuts("UART_HAL_TEST, configured UART 0\n");
+    uart_puts(UART0_REGS, "UART_HAL_TEST, configured UART 0\n");
 
 //********************************UART1*****************************************
     //power enable and reset ctrl for uart1, block async request
@@ -71,9 +73,13 @@ int main(void) {
     uart1_cfg_struct.baud_rate = 921600;
     uart1_cfg_struct.clk_freq = 32000;
     uart1_cfg_struct.oversampling = UART_CTRL_OS_FACTOR_16;
-    uart1_cfg_struct.word_length = UART_CFG_WRD_LEN_6_BITS;
+    uart1_cfg_struct.word_length = UART_CFG_WRD_LEN_8_BITS;
     uart1_cfg_struct.msb_first = UART_CTRL_UART_MSB_LAST;
     uart1_cfg_struct.tx_en = UART_CTRL_TX_EN_HW;
+    #ifdef LPBK
+        uart1_cfg_struct.rx_en = 1;
+        uart1_cfg_struct.loopback_en = 1;
+    #endif
 
     uart_cfg(UART_REGS, &uart1_cfg_struct);
     //clk en
@@ -119,25 +125,27 @@ int main(void) {
     //uart_fifo_cfg
     uart_fifo_cfg(UART_REGS, &uart1_fifo_cfg_struct);
 
-//****************************************************************************
-
 //************************data trsnmit*******************************************
-    UartPuts("UART_HAL_TEST writing data\n");
+    uart_puts(UART0_REGS, "UART_HAL_TEST writing data\n");
     // Memory Population
-    //tx_data= rand();
-    for(int i=0; i<DATA_LEN; i++) {
-        sram_mem_s->mem[i] = 0x7A + i;
-        uart_putc(UART_REGS, sram_mem_s->mem[i]);
-        //UART_REGS->UART_TXDATA->UART_TXDATA.uart_data = sram_mem_s->mem[i] ;
-    }
-    UartPuts("UART_HAL_TEST, data written\n");
+    #ifdef uart_txfill_blocking
+        uart_txfifo_fill_blocking(UART_REGS, &mem_8, DATA_LEN);
+    #else
+        for(int i=0; i<DATA_LEN; i++) {
+            sram_mem_s->mem[i] = 0x7A + i;
+            mem_8[i] = 0x7A + i;
+            uart_putc(UART_REGS, sram_mem_s->mem[i]);
+        }
+    #endif
+    uart_puts(UART0_REGS, "UART_HAL_TEST, data written\n");
 
     #ifdef LPBK
         while(sram_mem_s->mem[9] == 0){
         __asm("NOP");
         }
         for(int j=0; j<DATA_LEN; j++) {
-            sram_mem_s->mem[j+DATA_LEN] =UART_REGS->UART_RXDATA->UART_RXDATA.uart_result;
+            //sram_mem_s->mem[j+DATA_LEN] =UART_REGS->UART_RXDATA->UART_RXDATA.uart_result;
+            sram_mem_s->mem[j+DATA_LEN] = uart_getc(UART_REGS);
         }
         sram_mem_s->mem[8] = 1;
     #endif

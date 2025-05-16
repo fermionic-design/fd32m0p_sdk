@@ -113,15 +113,14 @@ uint32_t uart_txfifo_fill_nonblocking(UART_REGS_s *regs, const uint8_t *buffer, 
     {
         if((regs->FIFOSTS.tx_fifo_full_sts == 1))
         {
-            break;
+            return i;
         }
         else
         {
             uart_putc(regs, buffer[i]);
-            num_bytes_written = i++;
         }
     }
-    return num_bytes_written;
+    return i;
 }
 
 //txfifo fill non blocking static
@@ -148,6 +147,8 @@ bool uart_txfifo_fill_static_nonblocking(UART_REGS_s *regs, const uint8_t *buffe
     {
         txn_done = 1;
     }
+    else
+        txn_done = 0;
     return txn_done;
 }
 
@@ -166,12 +167,13 @@ void uart_txfifo_fill_blocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_
 void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr)
 {
     unsigned char curr_char;
-    while((regs->FIFOSTS.tx_fifo_full_sts) == 1);
+    //while((regs->FIFOSTS.tx_fifo_full_sts) == 1);
     do
     {
         curr_char = *data_char_arr;
         if(curr_char != (char) 0x0) 
         {
+            while((regs->FIFOSTS.tx_fifo_full_sts) == 1);
             uart_putc(regs, curr_char);
         }
         *data_char_arr++;
@@ -190,20 +192,18 @@ inline uint8_t uart_putc(UART_REGS_s *regs, const unsigned char data_char)
 uint32_t uart_rxfifo_drain_nonblocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num_bytes)
 {
     uint32_t i;
-    uint32_t num_bytes_read;
     for(i = 0; i<num_bytes; i++)
     {
         if(regs->FIFOSTS.rx_fifo_empty_sts == 1)
         {
-            break;
+            return i;
         }
         else
         {
             buffer[i] = uart_getc(regs);
-            num_bytes_read = i++;
         }
     }
-    return num_bytes_read;
+    return i;
 }
 
 //rx fifo drain non blocking static
@@ -227,6 +227,10 @@ bool uart_rxfifo_drain_static_nonblocking(UART_REGS_s *regs, uint8_t *buffer, ui
     if(i == num_bytes)
     {
         txn_done = 1;
+    }
+    else
+    {
+        txn_done = 0;
     }
     return txn_done;
 }
