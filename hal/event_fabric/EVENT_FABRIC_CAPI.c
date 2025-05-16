@@ -45,14 +45,10 @@ void get_event_fabric_full_chnl_cfg(EVENT_FABRIC_REGS_s * registers, chnl_cfg * 
                 sub_chan_id = registers->GEN_SUB[i].packed_w;
                 chnl[sub_chan_id].sub = i; 
             }
-            //print_int_var("SUB_CHAN",sub_chan_id,0);
-            //print_int_var("PUB_CHAN",pub_chan_id,0); 
             if(i <= EVENT_FABRIC_NUMBER_OF_PUB ){
                 pub_chan_id = registers->GEN_PUB[i].packed_w;
                 chnl[pub_chan_id].pub = i;
             }
-            //print_int_var("channel_sub",&chnl[sub_chan_id].sub,1);
-            //print_int_var("channel_pub",&chnl[pub_chan_id].pub,1);
         }
 }
 
