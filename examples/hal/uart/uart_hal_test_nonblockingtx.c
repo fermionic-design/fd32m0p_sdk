@@ -21,8 +21,21 @@ typedef struct uart_sram_memory {
 
 //SRAM Memory
 uint8_t mem_8[10];
+uint8_t data_rx_arr[10];
+int txn_done;
+int txn_done_rx;
+int rst_int_ctr;
+int rst_int_ctr_rx;
+int num_bytes_wr_int;
+int num_bytes_written;
+int num_bytes_rd;
+int num_bytes_rd_int;
+
 int main(void) {
-    uint8_t tx_data;
+
+    NVIC_ClearPendingIRQ(15);
+    NVIC_EnableIRQ(15);
+
     uart_cfg_s uart0_cfg_struct = UART_CFG_DEFAULT;
     uart_cfg_s uart1_cfg_struct = UART_CFG_DEFAULT;
     uart_fifo_cfg_s uart1_fifo_cfg_struct = UART_FIFO_CFG_DEFAULT;    
@@ -80,7 +93,6 @@ int main(void) {
         uart1_cfg_struct.rx_en = 1;
         uart1_cfg_struct.loopback_en = 1;
     #endif
-
     uart_cfg(UART_REGS, &uart1_cfg_struct);
     //clk en
     uart_clk_en(UART_REGS);
@@ -120,33 +132,54 @@ int main(void) {
     uart_en(UART_REGS);
 
     //fifo cfg
+    #ifdef uart_rx_non_static_nonblocking
+        uart1_fifo_cfg_struct.rx_fifo_lvl_sel = UART_FIFOLS_RX_FIFO_LS_HALF_FULL;
+    #endif
     uart1_fifo_cfg_struct.fifo_en = 1;
 
     //uart_fifo_cfg
     uart_fifo_cfg(UART_REGS, &uart1_fifo_cfg_struct);
 
+
 //************************data trsnmit*******************************************
     uart_puts(UART0_REGS, "UART_HAL_TEST writing data\n");
     // Memory Population
-    #ifdef uart_txfill_blocking
-        uart_txfifo_fill_blocking(UART_REGS, &mem_8, DATA_LEN);
-    #else
-        for(int i=0; i<DATA_LEN; i++) {
-            sram_mem_s->mem[i] = 0x7A + i;
-            mem_8[i] = 0x7A + i;
-            uart_putc(UART_REGS, sram_mem_s->mem[i]);
-        }
-    #endif
-    uart_puts(UART0_REGS, "UART_HAL_TEST, data written\n");
+    for(int i=0; i<DATA_LEN; i++) {
+        sram_mem_s->mem[i] = 0x7A + i;
+        mem_8[i] = 0x7A + i;
+    }
+    UART_INTR_EVENT_EN(UART_REGS, UART_INTR_EVENT_RX_INT_IDX);        
+    UART_INTR_EVENT_EN(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);    
 
     #ifdef LPBK
-        while(sram_mem_s->mem[9] == 0){
-        __asm("NOP");
+       // for(int j=0; j<DATA_LEN; j++){
+       // while((UART_REGS->FIFOSTS.rx_fifo_empty_sts) == 1);
+       //     data_rx_arr[j] = uart_getc(UART_REGS);    //rx getc, TODO: cleanup
+       // }
+       // uart_rxfifo_drain_blocking(UART_REGS, &data_rx_arr, DATA_LEN);  //rx drain blocking TODO:cleanup
+        //while(txn_done_rx==0); //rx drain non blocking static, TODO: cleanup
+        while(num_bytes_rd_int != DATA_LEN);
+        for(int k = 0; k<DATA_LEN; k++){
+        if(mem_8[k] == data_rx_arr[k]){
+            print_int_var("data got = ",data_rx_arr[k],1);
+            print_int_var("data sent = ", mem_8[k],1);
+            UartPass();
         }
-        for(int j=0; j<DATA_LEN; j++) {
-            //sram_mem_s->mem[j+DATA_LEN] =UART_REGS->UART_RXDATA->UART_RXDATA.uart_result;
-            sram_mem_s->mem[j+DATA_LEN] = uart_getc(UART_REGS);
+        else{
+            print_int_var("data sent = ", mem_8[k],1);
+            print_int_var("data received = ",data_rx_arr[k],1);
+            UartFail();
         }
+    }
+
+      // // while(sram_mem_s->mem[9] == 0){ //TODO: remove
+      // // __asm("NOP");
+      //  //}
+      //  for(int j=0; j<DATA_LEN; j++) {
+      //      //sram_mem_s->mem[j+DATA_LEN] =UART_REGS->UART_RXDATA->UART_RXDATA.uart_result;
+      //      while((UART_REGS->FIFOSTS.rx_fifo_empty_sts) == 1);
+      //      sram_mem_s->mem[j+DATA_LEN] = uart_getc(UART_REGS);
+      //  }
         sram_mem_s->mem[8] = 1;
     #endif
 //**************************************************************************************
@@ -154,4 +187,69 @@ int main(void) {
     
     return 0;
 }    
+
+//*********************intr handler*****************************************************
+void INTR15_Handler(void)
+{
+    int intr_sts;
+    intr_sts = UART_REGS->INTR_STS.packed_w-1;
+    //UART_INTR_EVENT_CLEAR(UART_REGS, intr_sts);
+
+    #ifdef UART_HAL_TX_STATIC
+        if(intr_sts == UART_INTR_EVENT_TX_INT_IDX)
+        {
+            txn_done = uart_txfifo_fill_static_nonblocking(UART_REGS, &mem_8, DATA_LEN, rst_int_ctr);
+            UART_INTR_EVENT_CLEAR(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);
+        }
+        else if(intr_sts == UART_INTR_EVENT_RX_INT_IDX)
+        {
+            txn_done_rx = uart_rxfifo_drain_static_nonblocking(UART_REGS, &data_rx_arr, DATA_LEN, rst_int_ctr_rx);
+            UART_INTR_EVENT_CLEAR(UART_REGS, UART_INTR_EVENT_RX_INT_IDX);            
+        }
+
+        //UART_INTR_EVENT_CLEAR(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);
+        if(txn_done == 1)
+            rst_int_ctr = 1;
+        else
+            rst_int_ctr = 0;
+
+        if(txn_done_rx == 1)
+            rst_int_ctr_rx = 1;
+        else
+            rst_int_ctr_rx = 0;
+
+    #else
+        if(intr_sts == UART_INTR_EVENT_TX_INT_IDX) 
+        {
+            num_bytes_written = uart_txfifo_fill_nonblocking(UART_REGS, &mem_8[0 + num_bytes_wr_int], (DATA_LEN-num_bytes_wr_int));
+            UART_INTR_EVENT_CLEAR(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);            
+            num_bytes_wr_int = num_bytes_wr_int + num_bytes_written;
+            if(num_bytes_wr_int == DATA_LEN)
+        {
+            //num_bytes_wr_int = 0;
+            //num_bytes_written = 0;
+            UART_INTR_EVENT_DIS(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);
+        }  
+             
+        }
+        else if(intr_sts == UART_INTR_EVENT_RX_INT_IDX)
+        {
+            num_bytes_rd = uart_rxfifo_drain_nonblocking(UART_REGS, &data_rx_arr[0 + num_bytes_rd_int], (DATA_LEN - num_bytes_rd_int));
+            UART_INTR_EVENT_CLEAR(UART_REGS, UART_INTR_EVENT_RX_INT_IDX);            
+            num_bytes_rd_int = num_bytes_rd_int + num_bytes_rd;
+            if(num_bytes_rd_int == DATA_LEN)
+        {
+            //num_bytes_rd_int = 0;
+            //num_bytes_rd = 0;
+            UART_INTR_EVENT_DIS(UART_REGS, UART_INTR_EVENT_RX_INT_IDX);
+        }
+
+        }
+                 
+        //num_bytes_wr_int = num_bytes_wr_int + num_bytes_written;
+           
+        //UART_INTR_EVENT_CLEAR(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);
+
+    #endif
+}
 
