@@ -2,6 +2,7 @@
 
 //#include "CMSDK_CM0plus.h"
 //#include "core_cm0plus.h"
+#include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
 #include "uart.h"
 //#include "IOMUX_REGS.h"
