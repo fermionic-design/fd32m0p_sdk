@@ -30,69 +30,77 @@
 
 #define EVENT_FABRIC_REGS   ((EVENT_FABRIC_REGS_s *)      0x3FFC3000)     // EVENT_FABRIC_REGS Common APB Address Space
 
-#define EVENT_FABRIC_PUB_ID_ADC_0       0
-#define EVENT_FABRIC_PUB_ID_ADC_1       1
-#define EVENT_FABRIC_PUB_ID_GPIO        2
-#define EVENT_FABRIC_PUB_ID_RTC         3
-#define EVENT_FABRIC_PUB_ID_COMP_0      4
-#define EVENT_FABRIC_PUB_ID_COMP_1      5
-#define EVENT_FABRIC_PUB_ID_COMP_2      6
-#define EVENT_FABRIC_PUB_ID_DAC         9
-#define EVENT_FABRIC_PUB0_ID_TIM_A_0    10
-#define EVENT_FABRIC_PUB1_ID_TIM_A_0    11
-#define EVENT_FABRIC_PUB0_ID_TIM_A_1    12
-#define EVENT_FABRIC_PUB1_ID_TIM_A_1    13
-#define EVENT_FABRIC_PUB0_ID_TIM_G_0    14
-#define EVENT_FABRIC_PUB1_ID_TIM_G_0    15
-#define EVENT_FABRIC_PUB0_ID_TIM_G_1    16
-#define EVENT_FABRIC_PUB1_ID_TIM_G_1    17
-#define EVENT_FABRIC_PUB0_ID_TIM_G_2    18
-#define EVENT_FABRIC_PUB1_ID_TIM_G_2    19
-#define EVENT_FABRIC_PUB0_ID_TIM_G_3    20
-#define EVENT_FABRIC_PUB1_ID_TIM_G_3    21
-#define EVENT_FABRIC_PUB0_ID_TIM_G_4    22
-#define EVENT_FABRIC_PUB1_ID_TIM_G_4    23
+typedef enum {
+    EVENT_FABRIC_PUB_ID_ADC_0       = 0,
+    EVENT_FABRIC_PUB_ID_ADC_1       = 1,
+    EVENT_FABRIC_PUB_ID_GPIO        = 2,
+    EVENT_FABRIC_PUB_ID_RTC         = 3,
+    EVENT_FABRIC_PUB_ID_COMP_0      = 4,
+    EVENT_FABRIC_PUB_ID_COMP_1      = 5,
+    EVENT_FABRIC_PUB_ID_COMP_2      = 6,
+    EVENT_FABRIC_PUB_ID_DAC         = 9,
+    EVENT_FABRIC_PUB0_ID_TIM_A_0    = 10,
+    EVENT_FABRIC_PUB1_ID_TIM_A_0    = 11,
+    EVENT_FABRIC_PUB0_ID_TIM_A_1    = 12,
+    EVENT_FABRIC_PUB1_ID_TIM_A_1    = 13,
+    EVENT_FABRIC_PUB0_ID_TIM_G_0    = 14,
+    EVENT_FABRIC_PUB1_ID_TIM_G_0    = 15,
+    EVENT_FABRIC_PUB0_ID_TIM_G_1    = 16,
+    EVENT_FABRIC_PUB1_ID_TIM_G_1    = 17,
+    EVENT_FABRIC_PUB0_ID_TIM_G_2    = 18,
+    EVENT_FABRIC_PUB1_ID_TIM_G_2    = 19,
+    EVENT_FABRIC_PUB0_ID_TIM_G_3    = 20,
+    EVENT_FABRIC_PUB1_ID_TIM_G_3    = 21,
+    EVENT_FABRIC_PUB0_ID_TIM_G_4    = 22,
+    EVENT_FABRIC_PUB1_ID_TIM_G_4    = 23,
+} EVENT_FABRIC_PUB_ID_E;
 
-#define EVENT_FABRIC_SUB_ID_ADC_0       0
-#define EVENT_FABRIC_SUB_ID_ADC_1       1
-#define EVENT_FABRIC_SUB0_ID_GPIO       2
-#define EVENT_FABRIC_SUB1_ID_GPIO       3
-#define EVENT_FABRIC_SUB0_ID_COMP       4
-#define EVENT_FABRIC_SUB1_ID_COMP       5
-#define EVENT_FABRIC_SUB0_ID_COMP       6
-#define EVENT_FABRIC_SUB1_ID_COMP       7
-#define EVENT_FABRIC_SUB0_ID_COMP       8
-#define EVENT_FABRIC_SUB1_ID_COMP       9
-#define EVENT_FABRIC_SUB0_ID_DAC        10
-#define EVENT_FABRIC_SUB0_ID_TIM_A_0    11
-#define EVENT_FABRIC_SUB1_ID_TIM_A_0    12
-#define EVENT_FABRIC_SUB0_ID_TIM_A_1    13
-#define EVENT_FABRIC_SUB1_ID_TIM_A_1    14
-#define EVENT_FABRIC_SUB0_ID_TIM_G_0    15
-#define EVENT_FABRIC_SUB1_ID_TIM_G_0    16
-#define EVENT_FABRIC_SUB0_ID_TIM_G_1    17
-#define EVENT_FABRIC_SUB1_ID_TIM_G_1    18
-#define EVENT_FABRIC_SUB0_ID_TIM_G_2    19
-#define EVENT_FABRIC_SUB1_ID_TIM_G_2    20
-#define EVENT_FABRIC_SUB0_ID_TIM_G_3    21
-#define EVENT_FABRIC_SUB1_ID_TIM_G_3    22
-#define EVENT_FABRIC_SUB0_ID_TIM_G_4    23
-#define EVENT_FABRIC_SUB1_ID_TIM_G_4    24
-
-#define DMA_PUB_ID_USB2                 14
-#define DMA_PUB_ID_SPI_RX               13
-#define DMA_PUB_ID_SPI_TX               12
-#define DMA_PUB_ID_I2C_1_TX             11
-#define DMA_PUB_ID_I2C_1_RX             10
-#define DMA_PUB_ID_I2C_0_TX             9
-#define DMA_PUB_ID_I2C_0_RX             8
-#define DMA_PUB_ID_UART_1_TX            7
-#define DMA_PUB_ID_UART_1_RX            6
-#define DMA_PUB_ID_UART_0_TX            5
-#define DMA_PUB_ID_UART_0_RX            4
-#define DMA_PUB_ID_ADC_1                3
-#define DMA_PUB_ID_ADC_0                2
-#define DMA_PUB_ID_DAC                  1
+typedef enum {
+    EVENT_FABRIC_SUB_ID_ADC_0       = 0,
+    EVENT_FABRIC_SUB_ID_ADC_1       = 1,
+    EVENT_FABRIC_SUB0_ID_GPIO       = 2,
+    EVENT_FABRIC_SUB1_ID_GPIO       = 3,
+    EVENT_FABRIC_SUB0_ID_COMP_0     = 4,
+    EVENT_FABRIC_SUB1_ID_COMP_0     = 5,
+    EVENT_FABRIC_SUB0_ID_COMP_1     = 6,
+    EVENT_FABRIC_SUB1_ID_COMP_1     = 7,
+    EVENT_FABRIC_SUB0_ID_COMP_2     = 8,
+    EVENT_FABRIC_SUB1_ID_COMP_2     = 9,
+    EVENT_FABRIC_SUB0_ID_DAC        = 10,
+    EVENT_FABRIC_SUB0_ID_TIM_A_0    = 11,
+    EVENT_FABRIC_SUB1_ID_TIM_A_0    = 12,
+    EVENT_FABRIC_SUB0_ID_TIM_A_1    = 13,
+    EVENT_FABRIC_SUB1_ID_TIM_A_1    = 14,
+    EVENT_FABRIC_SUB0_ID_TIM_G_0    = 15,
+    EVENT_FABRIC_SUB1_ID_TIM_G_0    = 16,
+    EVENT_FABRIC_SUB0_ID_TIM_G_1    = 17,
+    EVENT_FABRIC_SUB1_ID_TIM_G_1    = 18,
+    EVENT_FABRIC_SUB0_ID_TIM_G_2    = 19,
+    EVENT_FABRIC_SUB1_ID_TIM_G_2    = 20,
+    EVENT_FABRIC_SUB0_ID_TIM_G_3    = 21,
+    EVENT_FABRIC_SUB1_ID_TIM_G_3    = 22,
+    EVENT_FABRIC_SUB0_ID_TIM_G_4    = 23,
+    EVENT_FABRIC_SUB1_ID_TIM_G_4    = 24,
+} EVENT_FABRIC_SUB_ID_E;
+                             
+typedef enum {
+	EVENT_FABRIC_CHAN_ID_DISCONNECT = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_DISCONNECT,
+	EVENT_FABRIC_CHAN_ID_1          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_1,
+	EVENT_FABRIC_CHAN_ID_2          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_2,
+	EVENT_FABRIC_CHAN_ID_3          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_3,
+	EVENT_FABRIC_CHAN_ID_4          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_4,
+	EVENT_FABRIC_CHAN_ID_5          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_5,
+	EVENT_FABRIC_CHAN_ID_6          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_6,
+	EVENT_FABRIC_CHAN_ID_7          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_7,
+	EVENT_FABRIC_CHAN_ID_8          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_8,
+	EVENT_FABRIC_CHAN_ID_9          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_9,
+	EVENT_FABRIC_CHAN_ID_10         = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_10,
+	EVENT_FABRIC_CHAN_ID_11         = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_11,
+	EVENT_FABRIC_CHAN_ID_12         = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_12,
+	EVENT_FABRIC_CHAN_ID_13         = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_13,
+	EVENT_FABRIC_CHAN_ID_14         = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_14,
+	EVENT_FABRIC_CHAN_ID_15         = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_15,
+} EVENT_FABRIC_CHAN_ID_E;
 
 #define GENERIC_FABRIC                  0
 #define DMA_FABRIC                      1
@@ -109,9 +117,9 @@ typedef struct chnl_cfg {
 } chnl_cfg;
 
 
-extern void event_fabric_pub_to_dma_channel_cfg     (EVENT_FABRIC_REGS_s * registers, uint32_t pub_id, uint32_t chan_id);
+extern void event_fabric_pub_to_dma_channel_cfg     (EVENT_FABRIC_REGS_s * registers, EVENT_FABRIC_DMA_PUB_EVENT_ID_E pub_id, uint32_t chan_id);
 
-extern void event_fabric_pub_to_sub_channel_cfg     (EVENT_FABRIC_REGS_s * registers, uint32_t pub_id, uint32_t sub_id, uint32_t chan_id);
+extern void event_fabric_pub_to_sub_channel_cfg     (EVENT_FABRIC_REGS_s * registers, EVENT_FABRIC_PUB_ID_E pub_id, EVENT_FABRIC_SUB_ID_E sub_id, EVENT_FABRIC_CHAN_ID_E chan_id);
 
 extern void get_event_fabric_full_chnl_cfg          (EVENT_FABRIC_REGS_s * registers, chnl_cfg* chnl);
 
