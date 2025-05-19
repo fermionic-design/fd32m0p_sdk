@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-#include "CMSDK_CM0plus.h"
-#include "core_cm0plus.h"
+//#include "CMSDK_CM0plus.h"
+//#include "core_cm0plus.h"
+#include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
-#include "uart_cfg_reg.h"
 #include "uart.h"
-#include "IOMUX_REGS.h"
+//#include "IOMUX_REGS.h"
 
 #include "GPIO_CAPI.h"
-#define UART_REGS ((UART_REGS_s *) 0x3ffd3000) //this should be uart1 address space
-#define UART0_REGS ((UART_REGS_s *) 0x3ffcc000) //this should be uart0 address space
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 ) //iomux addr space
+//#define UART1_REGS ((UART_REGS_s *) 0x3ffd3000) //this should be uart1 address space
+//#define UART0_REGS ((UART_REGS_s *) 0x3ffcc000) //this should be uart0 address space
+//#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 ) //iomux addr space
 
 #define sram_mem_s    ((uart_sram_memory_t *)   0x200000F0)
 
@@ -68,13 +68,13 @@ int main(void) {
 
 //********************************UART1*****************************************
     //power enable and reset ctrl for uart1, block async request
-    UART_PWR_EN_WRITE(UART_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART_REGS->RST_CTRL.packed_w = 0x7D000001;
-    if((UART_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
+    UART_PWR_EN_WRITE(UART1_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
+    UART1_REGS->RST_CTRL.packed_w = 0x7D000001;
+    if((UART1_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
     {
-      UART_RST_CTRL_WRITE(UART_REGS, 0, 1, 0x7D);
+      UART_RST_CTRL_WRITE(UART1_REGS, 0, 1, 0x7D);
     }
-    UART_CLKCFG_WRITE(UART_REGS, 1, 0x7D);
+    UART_CLKCFG_WRITE(UART1_REGS, 1, 0x7D);
 
     //configuring uart1
     uart1_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
@@ -89,9 +89,9 @@ int main(void) {
         uart1_cfg_struct.rx_en = 1;
         uart1_cfg_struct.loopback_en = 1;
     #endif
-    uart_cfg(UART_REGS, &uart1_cfg_struct);
+    uart_cfg(UART1_REGS, &uart1_cfg_struct);
     //clk en
-    uart_clk_en(UART_REGS);
+    uart_clk_en(UART1_REGS);
  
     //*************iomux cfg*******************************
     //tx port
@@ -125,13 +125,13 @@ int main(void) {
     //*******************iomux cfg end********************
 
     //uart_en
-    uart_en(UART_REGS);
+    uart_en(UART1_REGS);
 
     //fifo cfg
     uart1_fifo_cfg_struct.fifo_en = 1;
 
     //uart_fifo_cfg
-    uart_fifo_cfg(UART_REGS, &uart1_fifo_cfg_struct);
+    uart_fifo_cfg(UART1_REGS, &uart1_fifo_cfg_struct);
 
 
 //************************data trsnmit*******************************************
@@ -141,16 +141,16 @@ int main(void) {
         sram_mem_s->mem[i] = 0x7A + i;
         mem_8[i] = 0x7A + i;
     }
-    UART_INTR_EVENT_EN(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);    
+    UART_INTR_EVENT_EN(UART1_REGS, UART_INTR_EVENT_TX_INT_IDX);    
 
     #ifdef LPBK
         #ifdef uart_rxdrain_blocking
-            uart_rxfifo_drain_blocking(UART_REGS, &data_rx_arr, DATA_LEN);
+            uart_rxfifo_drain_blocking(UART1_REGS, &data_rx_arr, DATA_LEN);
         #else
             for(int j=0; j<DATA_LEN; j++)
             {
-                while((UART_REGS->FIFOSTS.rx_fifo_empty_sts) == 1);
-                data_rx_arr[j] = uart_getc(UART_REGS);   
+                while((UART1_REGS->FIFOSTS.rx_fifo_empty_sts) == 1);
+                data_rx_arr[j] = uart_getc(UART1_REGS);   
             }
         #endif
         for(int k = 0; k<DATA_LEN; k++){
@@ -177,15 +177,15 @@ int main(void) {
 void INTR15_Handler(void)
 {
     int intr_sts;
-    intr_sts = UART_REGS->INTR_STS.packed_w-1;
+    intr_sts = UART1_REGS->INTR_STS.packed_w-1;
 
     #ifdef UART_HAL_TX_STATIC
         if(intr_sts == UART_INTR_EVENT_TX_INT_IDX)
         {
-            txn_done = uart_txfifo_fill_static_nonblocking(UART_REGS, &mem_8, DATA_LEN, rst_int_ctr);
+            txn_done = uart_txfifo_fill_static_nonblocking(UART1_REGS, &mem_8, DATA_LEN, rst_int_ctr);
         }
 
-        UART_INTR_EVENT_CLEAR(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);
+        UART_INTR_EVENT_CLEAR(UART1_REGS, UART_INTR_EVENT_TX_INT_IDX);
         if(txn_done == 1)
             rst_int_ctr = 1;
         else
@@ -193,11 +193,11 @@ void INTR15_Handler(void)
     #else
         if(intr_sts == UART_INTR_EVENT_TX_INT_IDX) 
         {
-            num_bytes_written = uart_txfifo_fill_nonblocking(UART_REGS, &mem_8[0 + num_bytes_wr_int], (DATA_LEN-num_bytes_wr_int));
+            num_bytes_written = uart_txfifo_fill_nonblocking(UART1_REGS, &mem_8[0 + num_bytes_wr_int], (DATA_LEN-num_bytes_wr_int));
         }
 
         num_bytes_wr_int = num_bytes_wr_int + num_bytes_written;
-        UART_INTR_EVENT_CLEAR(UART_REGS, UART_INTR_EVENT_TX_INT_IDX);
+        UART_INTR_EVENT_CLEAR(UART1_REGS, UART_INTR_EVENT_TX_INT_IDX);
 
         if(num_bytes_wr_int == DATA_LEN)
         {
