@@ -1,16 +1,10 @@
 #include <stdio.h>
 
-//#include "CMSDK_CM0plus.h"
-//#include "core_cm0plus.h"
 #include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
 #include "uart.h"
-//#include "IOMUX_REGS.h"
 
 #include "GPIO_CAPI.h"
-//#define UART1_REGS ((UART_REGS_s *) 0x3ffd3000) //this should be uart1 address space
-//#define UART0_REGS ((UART_REGS_s *) 0x3ffcc000) //this should be uart0 address space
-//#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 ) //iomux addr space
 
 #define sram_mem_s    ((uart_sram_memory_t *)   0x200000F0)
 
@@ -41,6 +35,7 @@ int main(void) {
     IOMUX_PA_REG_s iomux_cfg_struct_rts;
 
 //******************************UART0******************************************
+
    //power enable and reset for uart0, block async req 
     UART_PWR_EN_WRITE(UART0_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
     UART_RST_CTRL_WRITE(UART0_REGS, 1, 0, UART_RST_CTRL_RST_KEY);    
@@ -67,6 +62,7 @@ int main(void) {
     uart_puts(UART0_REGS, "UART_HAL_TEST, configured UART 0\n");
 
 //********************************UART1*****************************************
+
     //power enable and reset ctrl for uart1, block async request
     UART_PWR_EN_WRITE(UART1_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
     UART_RST_CTRL_WRITE(UART1_REGS, 1, 0, UART_RST_CTRL_RST_KEY);        
@@ -90,6 +86,7 @@ int main(void) {
         uart1_cfg_struct.loopback_en = 1;
     #endif
     uart_cfg(UART1_REGS, &uart1_cfg_struct);
+
     //clk en
     uart_clk_en(UART1_REGS);
  
@@ -136,6 +133,7 @@ int main(void) {
 
 //************************data trsnmit*******************************************
     uart_puts(UART0_REGS, "UART_HAL_TEST writing data\n");
+
     // Memory Population
     for(int i=0; i<DATA_LEN; i++) {
         sram_mem_s->mem[i] = 0x7A + i;
@@ -174,7 +172,7 @@ int main(void) {
 }    
 
 //*********************intr handler*****************************************************
-void INTR15_Handler(void)
+void UART1_IRQ_Handler(void)
 {
     int intr_sts;
     intr_sts = UART1_REGS->INTR_STS.packed_w-1;
