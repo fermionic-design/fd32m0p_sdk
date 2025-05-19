@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-//#include "CMSDK_CM0plus.h"
-//#include "core_cm0plus.h"
-#include "FD32M0P.h"
+#include "CMSDK_CM0plus.h"
+#include "core_cm0plus.h"
+//#include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
 #include "uart.h"
-//#include "IOMUX_REGS.h"
+#include "IOMUX_REGS.h"
 
 #include "GPIO_CAPI.h"
-//#define UART1_REGS ((UART_REGS_s *) 0x3ffd3000) //this should be uart1 address space
-//#define UART0_REGS ((UART_REGS_s *) 0x3ffcc000) //this should be uart0 address space
-//#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 ) //iomux addr space
+#define UART1_REGS ((UART_REGS_s *) 0x3ffd3000) //this should be uart1 address space
+#define UART0_REGS ((UART_REGS_s *) 0x3ffcc000) //this should be uart0 address space
+#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 ) //iomux addr space
 
 #define sram_mem_s    ((uart_sram_memory_t *)   0x200000F0)
 
@@ -38,6 +38,7 @@ int main(void) {
 
     uart_cfg_s uart0_cfg_struct = UART_CFG_DEFAULT;
     uart_cfg_s uart1_cfg_struct = UART_CFG_DEFAULT;
+    uart_cfg_s rd_uart_cfg_struct;
     uart_fifo_cfg_s uart1_fifo_cfg_struct = UART_FIFO_CFG_DEFAULT;    
     IOMUX_PA_REG_s iomux_cfg_struct_tx;
     IOMUX_PA_REG_s iomux_cfg_struct_rx;
@@ -47,12 +48,12 @@ int main(void) {
 //******************************UART0******************************************
    //power enable and reset for uart0, block async req 
     UART_PWR_EN_WRITE(UART0_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART0_REGS->RST_CTRL.packed_w = 0x7D000001;
+    UART_RST_CTRL_WRITE(UART0_REGS, 1, 0, UART_RST_CTRL_RST_KEY);
     if((UART0_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
     {
-      UART_RST_CTRL_WRITE(UART0_REGS, 0, 1, 0x7D); //TODO: put key define
+      UART_RST_CTRL_WRITE(UART0_REGS, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY); //TODO: put key define
     }
-    UART_CLKCFG_WRITE(UART0_REGS, 1, 0x7D);
+    UART_CLKCFG_WRITE(UART0_REGS, 1,UART_CLKCFG_BLCK_ASYNC_KEY);
 
    //configuring uart0 for printing
     uart0_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
@@ -73,12 +74,12 @@ int main(void) {
 //********************************UART1*****************************************
     //power enable and reset ctrl for uart1, block async request
     UART_PWR_EN_WRITE(UART1_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART1_REGS->RST_CTRL.packed_w = 0x7D000001;
+    UART_RST_CTRL_WRITE(UART1_REGS, 1, 0, UART_RST_CTRL_RST_KEY);    
     if((UART1_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
     {
-      UART_RST_CTRL_WRITE(UART1_REGS, 0, 1, 0x7D);
+      UART_RST_CTRL_WRITE(UART1_REGS, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY);
     }
-    UART_CLKCFG_WRITE(UART1_REGS, 1, 0x7D);
+    UART_CLKCFG_WRITE(UART1_REGS, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
 
     //configuring uart1
     uart1_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
@@ -137,6 +138,18 @@ int main(void) {
     //uart_fifo_cfg
     uart_fifo_cfg(UART1_REGS, &uart1_fifo_cfg_struct);
 
+    //******************read cfg regs*****************************
+    uart_rd_cfg(UART1_REGS, &rd_uart_cfg_struct);
+    if(rd_uart_cfg_struct.clk_sel == uart1_cfg_struct.clk_sel)
+    {
+        uart_puts(UART0_REGS, "cfg matched\n");
+        UartPass();
+    }
+    else
+    {
+        uart_puts(UART0_REGS, "cfg did not match\n");
+        UartFail();
+    }
 
 //************************data trsnmit*******************************************
     uart_puts(UART0_REGS, "UART_HAL_TEST writing data\n");

@@ -43,12 +43,12 @@ int main(void) {
 //******************************UART0******************************************
    //power enable and reset for uart0, block async req 
     UART_PWR_EN_WRITE(UART0_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART0_REGS->RST_CTRL.packed_w = 0x7D000001;
+    UART_RST_CTRL_WRITE(UART0_REGS, 1, 0, UART_RST_CTRL_RST_KEY);    
     if((UART0_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
     {
-      UART_RST_CTRL_WRITE(UART0_REGS, 0, 1, 0x7D); //TODO: put key define
+      UART_RST_CTRL_WRITE(UART0_REGS, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY); //TODO: put key define
     }
-    UART_CLKCFG_WRITE(UART0_REGS, 1, 0x7D);
+    UART_CLKCFG_WRITE(UART0_REGS, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
 
    //configuring uart0 for printing
     uart0_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
@@ -69,12 +69,12 @@ int main(void) {
 //********************************UART1*****************************************
     //power enable and reset ctrl for uart1, block async request
     UART_PWR_EN_WRITE(UART1_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART1_REGS->RST_CTRL.packed_w = 0x7D000001;
+    UART_RST_CTRL_WRITE(UART1_REGS, 1, 0, UART_RST_CTRL_RST_KEY);        
     if((UART1_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
     {
-      UART_RST_CTRL_WRITE(UART1_REGS, 0, 1, 0x7D);
+      UART_RST_CTRL_WRITE(UART1_REGS, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY);
     }
-    UART_CLKCFG_WRITE(UART1_REGS, 1, 0x7D);
+    UART_CLKCFG_WRITE(UART1_REGS, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
 
     //configuring uart1
     uart1_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
