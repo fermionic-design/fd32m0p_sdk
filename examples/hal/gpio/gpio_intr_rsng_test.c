@@ -1,24 +1,25 @@
+//////////////////////////////////////////////////////////////////////////////
+////                        GPIO INTR RISING TEST                         ////
+////    DESCRIPTION:                                                      ////      
+////        This is an example test to test the  generation of            ////
+////        interrupt upon detection of rising edge at GPIO.              ////
+////                                                                      ////
+////    Board Setup:                                                      ////
+////        PA7 and PA20 are pins used in this example. Both pins should  //// 
+////        be driven high and respective interrupts should be set.       ////
+////                                                                      ////
+////                                                                      ////
+//////////////////////////////////////////////////////////////////////////////
+
 #include <stdio.h>
 #include <stdint.h> 
-#include <sys/types.h> 
-#include <stdlib.h> 
-#include <stdio.h> 
-#include <string.h>
 
-#include "CMSDK_CM0plus.h"
-#include "core_cm0plus.h"
 #include "uart_stdout.h"
 
 #include "GPIO_CAPI.h"
 
 #define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
 #define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-
-typedef struct sram_memory {
-    uint32_t mem[1024];
-} sram_memory_t;
-
-#define sram_mem_loc  ((sram_memory_t *)   0x200000F0)
 
 int main(void) {
     int intr_val;
@@ -52,42 +53,23 @@ int main(void) {
 
     printf("Output is disabled on GPIO.\n");
 
-    GPIO_REGS->INTR_EN0.packed_w = 0xFFFFFFFF;
+    GPIO_REGS->INTR_EN0.packed_w = 0x00800080;
     printf("Enabled INTR 0. \n");
 
-    GPIO_REGS->INTR_EN1.packed_w = 0xFFFFFFFF;
+    GPIO_REGS->INTR_EN1.packed_w = 0x00100010;
     printf("Enabled INTR 1. \n");
 
-    for(i=0;i<28;i=i+1)
-    {
-        gpio_intr_polarity_cfg(GPIO_REGS, i, GPIO_INTR_POL_POS);
-    }
+    gpio_intr_polarity_cfg(GPIO_REGS, 7, GPIO_INTR_POL_POS);
+    gpio_intr_polarity_cfg(GPIO_REGS, 20, GPIO_INTR_POL_POS);
     
-    printf("Enabled INTR_POL_0 \n");
+    printf("Enabled INTR_POL_0 for Pin 7\n");
 
-    printf("Enabled INTR_POL_1 \n");
+    printf("Enabled INTR_POL_1 for Pin 20\n");
 
-    sram_mem_loc->mem[6] = 0xBBBBBBBB;
+    intr_val = 0x00100080; 
+    while(GPIO_REGS->INTR_EVENT.packed_w != intr_val);
 
-    while (sram_mem_loc->mem[8] != 0xDDDDDDDD) 
-    {
-    
-       printf("Waiting for 0xDDDDDDDD to be written at location 8\n");
-    }
-    intr_val = 0x03333333;
-
-    sram_mem_loc->mem[7] = 0xCCCCCCCC;
-
-
-    while (sram_mem_loc->mem[1] != 0xAAAAAAAA) 
-    {
-        printf("Waiting for 0xDDDDDDDD to be written at location 3\n");
-    }
-    print_int_var("intr_val = ", intr_val,1);
-    intr_val_regs = GPIO_REGS->INTR_EVENT.packed_w;
-    print_int_var("intr_val_regs = ", intr_val_regs,1);
-    
-    if(intr_val_regs == intr_val)
+    if(GPIO_REGS->INTR_EVENT.packed_w == intr_val)
     {
         printf("-- Correct Value is set. --\n");
     }
@@ -96,9 +78,7 @@ int main(void) {
         failed++;
         printf("** Correct Value is not set. **\n");
     }
-    sram_mem_loc->mem[0] = 0xC001C0DE;
-    sram_mem_loc->mem[2] = 0x0E9DC0DE;
-
+   
     if(failed == 0)
     {
         printf("-- GPIO INTR RSNG TEST PASSED --\n");

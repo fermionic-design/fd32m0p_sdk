@@ -1,3 +1,14 @@
+//////////////////////////////////////////////////////////////////////////////
+////                        GPIO WR BIT TEST                              ////
+////    DESCRIPTION:                                                      ////      
+////        This is an example test to write specific GPIO pin through    ////
+////        a gpio_dout_pinwise function.                                 ////
+////                                                                      ////
+////    Board Setup:                                                      ////
+////        Output for programmed bit should be read at the chip top.     ////
+////                                                                      ////
+//////////////////////////////////////////////////////////////////////////////
+
 #include <stdio.h>
 #include <stdint.h> 
 #include <sys/types.h> 
@@ -13,11 +24,6 @@
 
 #define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
 #define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-typedef struct sram_memory {
-    uint32_t mem[1024];
-} sram_memory_t;
-
-#define sram_mem_loc  ((sram_memory_t *)   0x200000F0)
 
 int main(void) {
   
@@ -52,43 +58,13 @@ int main(void) {
     print_int_var("pin27 : ", val, 0);
     printf("1 written to GPIO Pin 27. \n");
 
-    sram_mem_loc->mem[5] = 0x08000042;    
-    printf("0x8000_0042 written in SRAM location : 0x200000F0.\n");
-
     for (i=0;i<29;i=i+1)
     {
         IOMUX_PA_N_WRITE(IOMUX_REGS, i, 1, 0, 0, 0, 0, 0, 0, 1, 0);
     }
-    sram_mem_loc->mem[6] = 0xBBBBBBBB;
 
-    while (sram_mem_loc->mem[8] != 0xDDDDDDDD) 
-    {
-        printf("Waiting for 0xDDDDDDDD to be written at location 8\n");
-    }
-
-    if(sram_mem_loc->mem[9] == sram_mem_loc->mem[5])
-    {
-        printf("** Correct Value is set. **\n");
-    }
-    else 
-    {
-        failed++;
-        printf("Correct Value is not set. \n");
-    }
-    sram_mem_loc->mem[0] = 0xC001C0DE;
-    sram_mem_loc->mem[2] = 0x0E9DC0DE;
-
-    if(failed == 0)
-    {
-       printf("** TEST PASSED **\n");
-       UartPass();
-    }
-    else 
-    { 
-       printf("** TEST FAILED**\n");
-       UartFail();
-    }
-
+    printf("GPIO Write Bit Test ends.\n");   
+    
     for (int i = 0; i< 10000 ; i++);
     UartEndSimulation();
     return 0;

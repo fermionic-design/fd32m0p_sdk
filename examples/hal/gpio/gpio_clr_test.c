@@ -1,30 +1,31 @@
+//////////////////////////////////////////////////////////////////////////////
+////                        GPIO CLR TEST                                 ////
+////    DESCRIPTION:                                                      ////      
+////        This is an example test to test the clear functionality.      ////
+////                                                                      ////
+////                                                                      ////
+////    Board Setup:                                                      ////
+////        Output pins for which GPIO CLR is set will be cleared.        //// 
+////                                                                      ////
+////                                                                      ////
+//////////////////////////////////////////////////////////////////////////////
+
 #include <stdio.h>
 #include <stdint.h> 
-#include <sys/types.h> 
-#include <stdlib.h> 
-#include <stdio.h> 
-#include <string.h>
 
-#include "CMSDK_CM0plus.h"
-#include "core_cm0plus.h"
 #include "uart_stdout.h"
 
 #include "GPIO_CAPI.h"
 
 #define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
 #define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-typedef struct sram_memory {
-    uint32_t mem[1024];
-} sram_memory_t;
-
-#define sram_mem_loc  ((sram_memory_t *)   0x200000F0)
 
 int main(void) {
 
-    int iomux_val;
-    int iomux_val_rd;
-    int failed = 0;
-    int i;
+    uint32_t iomux_val;
+    uint32_t iomux_val_rd;
+    uint32_t failed = 0;
+    uint32_t i;
     UartStdOutInit();
     IOMUX_PA_REG_s iomux_cfg_struct;
 
@@ -57,28 +58,17 @@ int main(void) {
     printf("Writing AAAA_AAAA on O/P of GPIO.\n");
     gpio_dout(GPIO_REGS, 0xAAAAAAAA);
     gpio_clr(GPIO_REGS, 0xFFFFFFFF);
-    sram_mem_loc->mem[6] = 0xBBBBBBBB;
     gpio_clr_en(GPIO_REGS, 0x00000000);
 
-    while (sram_mem_loc->mem[8] != 0x88888888) 
+    iomux_val_rd = get_gpio_dout(GPIO_REGS); 
+    if(iomux_val_rd == 0)
     {
-        printf("Waiting for 0x88888888 to be written at location 8\n");
+        failed = 0;
     }
-
-    iomux_val = 0x00000000;
-    iomux_val_rd = sram_mem_loc->mem[3];
-
-    if(iomux_val_rd == iomux_val)
-    {
-        printf("-- Correct Value is set. --\n");
-    }
-    else 
+    else
     {
         failed++;
-        printf("** Correct Value is not set. **\n");
     }
-    sram_mem_loc->mem[0] = 0xC001C0DE;
-    sram_mem_loc->mem[2] = 0x0E9DC0DE;
 
     if(failed == 0)
     {

@@ -17,8 +17,6 @@
 #include <stdio.h> 
 #include <string.h>
 
-#include "CMSDK_CM0plus.h"
-#include "core_cm0plus.h"
 #include "uart_stdout.h"
 
 #include "GPIO_CAPI.h"
