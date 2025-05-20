@@ -16,12 +16,6 @@
 #include "MCU_CTRL_REGS.h"
 #include "MCU_CTRL_RW_API.h"
 
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-#define ADC_REGS   ((ADC_REGS_s *) 0x40040000)
-#define VREF_REGS   ((VREF_REGS_s *) 0x3FFD2000)
-#define MCU_CTRL_REGS ((MCU_CTRL_REGS_s *) 0x3FFC0000)
-
 #define ADC_CHNL_0 0 
 #define ADC_CHNL_1 1
 #define ADC_CHNL_2 2
@@ -51,17 +45,17 @@
 #define DATA_CHNL_15 15
 
 typedef struct {
-    uint32_t clk_en;
-    uint32_t clk_div;
-    ADC_CLK_SEL_E clk_sel;
+    uint32_t                clk_en;
+    ADC_CLK_CTRL_CLK_DIV_E  clk_div;
+    ADC_CLK_SEL_E           clk_sel;
 } adc_clk_cfg_s;
 
 typedef struct {
-    uint32_t data_channel;
-    uint32_t channel_sel;
-    uint32_t vref_sel;
-    uint32_t hw_avg_en;
-    uint32_t bcs_en;
+    uint32_t                    data_channel;
+    ADC_CHNL_CFG_CHANNEL_SEL_E  channel_sel;
+    ADC_CHNL_CFG_VREF_SEL_E     vref_sel;
+    uint32_t                    hw_avg_en;
+    uint32_t                    bcs_en;
 } adc_chnl_cfg_s;
 
 typedef struct {
@@ -76,24 +70,24 @@ typedef struct {
 } adc_sw_trig_cfg_s;
 
 typedef struct {
-    uint32_t repeat;
-    uint32_t start_addr;
-    uint32_t trig_src;
-    uint32_t adc_res;
-    uint32_t dma_en;
-    uint32_t dma_transfer_cnt;
-    uint32_t fifo_en;
+    uint32_t                        repeat;
+    uint32_t                        start_addr;
+    ADC_CONV_CFG_TRIGGER_SOURCE_E   trig_src;
+    ADC_CONV_CFG_ADC_RES_E          adc_res;
+    uint32_t                        dma_en;
+    uint32_t                        dma_transfer_cnt;
+    uint32_t                        fifo_en;
 } adc_single_ch_conv_cfg_s;
 
 typedef struct {
-    uint32_t repeat;
-    uint32_t start_addr;
-    uint32_t end_addr;
-    uint32_t trig_src;
-    uint32_t adc_res;
-    uint32_t dma_en;
-    uint32_t dma_transfer_cnt;
-    uint32_t fifo_en;
+    uint32_t                      repeat;
+    uint32_t                      start_addr;
+    uint32_t                      end_addr;
+    ADC_CONV_CFG_TRIGGER_SOURCE_E trig_src;
+    ADC_CONV_CFG_ADC_RES_E        adc_res;
+    uint32_t                      dma_en;
+    uint32_t                      dma_transfer_cnt;
+    uint32_t                      fifo_en;
 } adc_multi_ch_conv_cfg_s;
 
 typedef struct {
@@ -112,8 +106,8 @@ typedef struct {
 } adc_dma_cfg_s;
 
 typedef struct {
-    uint32_t hw_sample_cnt;
-    uint32_t hw_avg_sample_div;
+    ADC_HW_AVG_CFG_HW_SAMPLE_CNT_E      hw_sample_cnt;
+    ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_E  hw_avg_sample_div;
 } adc_hw_avg_cfg_s;
 
 void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg);

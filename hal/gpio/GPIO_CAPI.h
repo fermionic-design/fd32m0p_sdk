@@ -7,9 +7,6 @@
 #include "GPIO_REGS.h"
 #include "GPIO_RW_API.h"
 
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-
 void iomux_cfg(IOMUX_REGS_s *regs, IOMUX_PA_REG_s iomux_cfg_struct,  uint32_t pin_num);
 void gpio_dout_pinwise(GPIO_REGS_s *regs, uint32_t pin_num, uint32_t dout_pin_val);
 void gpio_glitch_filter_cfg(GPIO_REGS_s *regs, uint32_t pin_num, GPIO_FILT_EN_E filt_width_val);
