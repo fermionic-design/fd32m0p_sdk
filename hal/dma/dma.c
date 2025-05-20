@@ -19,17 +19,17 @@ void dma_init(PL230_REGS_s *PL230_REGS, uint32_t base_ptr_address) {
 /*
  *  ========  dma_channel_cfg ========
  */
-void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel_cfg_t *dma_channel_cfg,uint8_t channel) {
+void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel_cfg_t *dma_channel_cfg,DMA_CHANNEL_E channel) {
     uint32_t src_end_pointer;
     uint32_t dst_end_pointer;
 
-    if(dma_channel_cfg->src_incr==3) {
+    if(dma_channel_cfg->src_incr==DMA_SRC_INC_NO_INCR) {
         src_end_pointer = dma_channel_cfg->src_addr;
     }
     else {
         src_end_pointer = dma_channel_cfg->src_addr + ((1<<dma_channel_cfg->src_size)*dma_channel_cfg->total_transaction);
     }
-    if(dma_channel_cfg->dst_incr==3) {
+    if(dma_channel_cfg->dst_incr==DMA_SRC_INC_NO_INCR) {
         dst_end_pointer = dma_channel_cfg->dst_addr;
     }
     else {
@@ -88,19 +88,19 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
 /*
  *  ========  dma_channel_en_set ========
  */
-void dma_channel_en_set(PL230_REGS_s *PL230_REGS, uint8_t channel) {
+void dma_channel_en_set(PL230_REGS_s *PL230_REGS, DMA_CHANNEL_E channel) {
     PL230_REGS->CHNL_ENABLE_SET.packed_w = (1 << channel); 
 }
 /*
  *  ========  dma_channel_en_get ========
  */
-uint8_t dma_channel_en_get(PL230_REGS_s *PL230_REGS, uint8_t channel) {
+uint8_t dma_channel_en_get(PL230_REGS_s *PL230_REGS, DMA_CHANNEL_E channel) {
     return (PL230_REGS->CHNL_ENABLE_SET.packed_w >> channel) & 0x1; 
 }
 /*
  *  ========  dma_channel_sw_trig ========
  */
-void dma_channel_sw_trig(PL230_REGS_s *PL230_REGS, uint8_t channel) {
+void dma_channel_sw_trig(PL230_REGS_s *PL230_REGS, DMA_CHANNEL_E channel) {
     PL230_REGS->CHNL_SW_REQUEST.packed_w = (1 << channel);
 }
 /*
@@ -134,6 +134,6 @@ bool dma_is_idle(PL230_REGS_s *PL230_REGS) {
 /*
  *  ========  dma_channel_en_clr ========
  */
-void dma_channel_en_clr(PL230_REGS_s *PL230_REGS, uint8_t channel) {
+void dma_channel_en_clr(PL230_REGS_s *PL230_REGS, DMA_CHANNEL_E channel) {
     PL230_REGS->CHNL_ENABLE_CLR.packed_w = (1 << channel); 
 }

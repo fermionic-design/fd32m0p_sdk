@@ -14,6 +14,26 @@
 #define DMA_STRIDE_MODE_LOOKUP_DST_ADDR                0x20010008
 
 /*!
+ *  @brief  Enum for src inc
+ */
+typedef enum {
+    DMA_SRC_INC_BYTE        = 0,
+    DMA_SRC_INC_HALF_WORD   = 1,
+    DMA_SRC_INC_WORD        = 2,
+    DMA_SRC_INC_NO_INCR     = 3
+} DMA_SRC_INC_E;
+
+/*!
+ *  @brief  Enum for src size
+ */
+typedef enum {
+    DMA_SRC_SIZE_BYTE        = 0,
+    DMA_SRC_SIZE_HALF_WORD   = 1,
+    DMA_SRC_SIZE_WORD        = 2,
+    DMA_SRC_SIZE_RESERVED    = 3
+} DMA_SRC_SIZE_E;
+
+/*!
  *  @brief  Channel Number Enum 
  */
 typedef enum {
@@ -34,7 +54,7 @@ typedef enum {
     DMA_CHANNEL_14 = 14,                             /*!< DMA Channel 14*/
     DMA_CHANNEL_15 = 15                              /*!< DMA Channel 15*/
 
-} dma_channel;
+} DMA_CHANNEL_E;
 
 /*!
  *  @brief  Transaction Type Enum 
@@ -48,7 +68,7 @@ typedef enum {
     DMA_TRANS_TYPE_ALTERNATE_MEM_SCATTER_GATHER = 5, 
     DMA_TRANS_TYPE_PRIMARY_PER_SCATTER_GATHER   = 6, 
     DMA_TRANS_TYPE_ALTERNATE_PER_SCATTER_GATHER = 7 
-} dma_transaction_type_e;
+} DMA_TRANSACTION_TYPE_E;
 
 /*!
  *  @brief  Channel based transfer configuration 
@@ -57,26 +77,26 @@ typedef enum {
  *          using a given DMA channel number
  */
 typedef struct dma_channel_cfg_t{
-    uint32_t    src_addr;                           /*!< DMA source address */
-    uint32_t    dst_addr;                           /*!< DMA destination address */
-    uint16_t    total_transaction;                  /*!< DMA total number of transaction */
-    uint16_t    repeated_transfer_en;               /*!< DMA Repeated Transfer Enable */
-    uint8_t     src_size;                           /*!< DMA source size 0:byte 1:halfword 2:word */
-    uint8_t     src_incr;                           /*!< DMA source address increement */
-    uint8_t     dst_size;                           /*!< DMA destination size 0:byte 1:halfword 2:word */
-    uint8_t     dst_incr;                           /*!< DMA destination address increement */
-    uint8_t     r_power;                            /*!< DMA Arbitration rate */
-    uint8_t     next_useburst;                      /*!< DMA Set this to disable Single reqs*/ 
-    uint8_t     src_prot_ctrl;                      /*!< DMA source protection control*/
-    uint8_t     dst_prot_ctrl;                      /*!< DMA destination protection control*/
-    uint8_t     alternate_cfg_sel;                  /*!< DMA alternate configuration select */
-    uint8_t     fill_en;                            /*!< DMA fill mode enable */
-    uint8_t     fill_incr_value;                    /*!< DMA fill increement value */
-    uint8_t     fill_init_value;                    /*!< DMA fill initial value */
-    uint8_t     stride_en;                          /*!< DMA stride mode enable */
-    uint8_t     stride_src_incr;                    /*!< DMA stride source address increement value */
-    uint8_t     stride_dst_incr;                    /*!< DMA stride destination address increement value */
-    uint8_t     transfer_type;                      /*!< DMA transaction type*/
+    uint32_t                        src_addr;                           /*!< DMA source address */
+    uint32_t                        dst_addr;                           /*!< DMA destination address */
+    uint16_t                        total_transaction;                  /*!< DMA total number of transaction */
+    uint16_t                        repeated_transfer_en;               /*!< DMA Repeated Transfer Enable */
+    DMA_SRC_SIZE_E                  src_size;                           /*!< DMA source size 0:byte 1:halfword 2:word */
+    DMA_SRC_INC_E                   src_incr;                           /*!< DMA source address increement */
+    DMA_SRC_SIZE_E                  dst_size;                           /*!< DMA destination size 0:byte 1:halfword 2:word */
+    DMA_SRC_INC_E                   dst_incr;                           /*!< DMA destination address increement */
+    uint8_t                         r_power;                            /*!< DMA Arbitration rate */
+    uint8_t                         next_useburst;                      /*!< DMA Set this to disable Single reqs*/ 
+    uint8_t                         src_prot_ctrl;                      /*!< DMA source protection control*/
+    uint8_t                         dst_prot_ctrl;                      /*!< DMA destination protection control*/
+    uint8_t                         alternate_cfg_sel;                  /*!< DMA alternate configuration select */
+    uint8_t                         fill_en;                            /*!< DMA fill mode enable */
+    uint8_t                         fill_incr_value;                    /*!< DMA fill increement value */
+    uint8_t                         fill_init_value;                    /*!< DMA fill initial value */
+    uint8_t                         stride_en;                          /*!< DMA stride mode enable */
+    DMA_STRIDE_MODE_CFG_0_SRC_INC_E stride_src_incr;                    /*!< DMA stride source address increement value */
+    DMA_STRIDE_MODE_CFG_0_DST_INC_E stride_dst_incr;                    /*!< DMA stride destination address increement value */
+    DMA_TRANSACTION_TYPE_E          transfer_type;                      /*!< DMA transaction type*/
 } dma_channel_cfg_t;
 
 
@@ -114,10 +134,10 @@ typedef struct dma_mem_channel_cfg_t {
 #define CHANNEL_TRANSFER_CFG_DEFAULT {                                                  \
     .src_addr                           = 0                                            ,\
     .dst_addr                           = 0                                            ,\
-    .src_size                           = 2                                            ,\
-    .src_incr                           = 2                                            ,\
-    .dst_size                           = 2                                            ,\
-    .dst_incr                           = 2                                            ,\
+    .src_size                           = DMA_SRC_SIZE_WORD                            ,\
+    .src_incr                           = DMA_SRC_INC_WORD                             ,\
+    .dst_size                           = DMA_SRC_SIZE_WORD                            ,\
+    .dst_incr                           = DMA_SRC_INC_WORD                             ,\
     .transfer_type                      = DMA_TRANS_TYPE_AUTO_REQ                      ,\
     .total_transaction                  = 1                                            ,\
     .r_power                            = 0                                            ,\

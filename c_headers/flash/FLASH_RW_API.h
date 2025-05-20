@@ -1,6 +1,3 @@
-#ifndef FLASH_RW_API_H
-#define FLASH_RW_API_H
-
 #include "FLASH_REGS.h"
 
 static inline void FLASH_CLK_CTRL_WRITE(FLASH_REGS_s * registers, uint32_t clk_en) {
@@ -47,5 +44,3 @@ static inline void FLASH_HSIZE_CTRL_WRITE(FLASH_REGS_s * registers, uint32_t for
                                     +((force_hsize_en<<FLASH_HSIZE_CTRL_FORCE_HSIZE_EN_OFS) & FLASH_HSIZE_CTRL_FORCE_HSIZE_EN_MASK);
 }
 
-
-#endif

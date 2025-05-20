@@ -61,7 +61,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define  FLASH_TIMING_CFG_48MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1, \
     .tcsctrls       = 4, \
-    .tras           = 2, \
+    .tras           = 3, \
     .eeprom_tras    = 11, \
     .trc            = 2, \
     .eeprom_trc     = 11, \
@@ -93,7 +93,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_24MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 2,\
-    .tras           = 1,\
+    .tras           = 2,\
     .eeprom_tras    = 5,\
     .trc            = 1,\
     .eeprom_trc     = 5,\
@@ -109,7 +109,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_16MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 1,\
-    .tras           = 0,\
+    .tras           = 1,\
     .eeprom_tras    = 3,\
     .trc            = 0,\
     .eeprom_trc     = 3,\
@@ -125,7 +125,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_8MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 0,\
-    .tras           = 0,\
+    .tras           = 1,\
     .eeprom_tras    = 1,\
     .trc            = 0,\
     .eeprom_trc     = 1,\
@@ -141,7 +141,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_4MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 0,\
-    .tras           = 0,\
+    .tras           = 1,\
     .eeprom_tras    = 0,\
     .trc            = 0,\
     .eeprom_trc     = 0,\
@@ -157,7 +157,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_48MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 4,\
-    .tras           = 11,\
+    .tras           = 12,\
     .eeprom_tras    = 95,\
     .trc            = 11,\
     .eeprom_trc     = 95,\
@@ -173,7 +173,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define  FLASH_TIMING_CFG_32MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 3,\
-    .tras           = 7,\
+    .tras           = 8,\
     .eeprom_tras    = 63,\
     .trc            = 7,\
     .eeprom_trc     = 63,\
@@ -189,7 +189,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_24MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 2,\
-    .tras           = 5,\
+    .tras           = 6,\
     .eeprom_tras    = 47,\
     .trc            = 5,\
     .eeprom_trc     = 47,\
@@ -205,7 +205,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_16MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 1,\
-    .tras           = 3,\
+    .tras           = 4,\
     .eeprom_tras    = 31,\
     .trc            = 3,\
     .eeprom_trc     = 31,\
@@ -221,7 +221,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_8MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 0,\
-    .tras           = 1,\
+    .tras           = 2,\
     .eeprom_tras    = 15,\
     .trc            = 1,\
     .eeprom_trc     = 15,\
@@ -237,7 +237,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_4MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 0,\
-    .tras           = 0,\
+    .tras           = 1,\
     .eeprom_tras    = 7,\
     .trc            = 0,\
     .eeprom_trc     = 7,\
@@ -269,7 +269,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_32MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 3,\
-    .tras           = 3,\
+    .tras           = 4,\
     .eeprom_tras    = 7,\
     .trc            = 3,\
     .eeprom_trc     = 7,\
@@ -285,9 +285,9 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_24MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 2,\
-    .tras           = 2,\
+    .tras           = 4,\
     .eeprom_tras    = 5,\
-    .trc            = 2,\
+    .trc            = 3,\
     .eeprom_trc     = 5,\
     .tadhr          = 0,\
     .tads           = 0,\
@@ -301,7 +301,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_16MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 1,\
-    .tras           = 1,\
+    .tras           = 2,\
     .eeprom_tras    = 3,\
     .trc            = 1,\
     .eeprom_trc     = 3,\
@@ -317,7 +317,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_8MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 0,\
-    .tras           = 0,\
+    .tras           = 1,\
     .eeprom_tras    = 1,\
     .trc            = 0,\
     .eeprom_trc     = 1,\
@@ -333,7 +333,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_4MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 0,\
-    .tras           = 0,\
+    .tras           = 1,\
     .eeprom_tras    = 0,\
     .trc            = 0,\
     .eeprom_trc     = 0,\
@@ -349,7 +349,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_48MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 4,\
-    .tras           = 23,\
+    .tras           = 24,\
     .eeprom_tras    = 95,\
     .trc            = 23,\
     .eeprom_trc     = 95,\
@@ -365,7 +365,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_32MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 3,\
-    .tras           = 15,\
+    .tras           = 16,\
     .eeprom_tras    = 63,\
     .trc            = 15,\
     .eeprom_trc     = 63,\
@@ -381,7 +381,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_24MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 2,\
-    .tras           = 11,\
+    .tras           = 12,\
     .eeprom_tras    = 47,\
     .trc            = 11,\
     .eeprom_trc     = 47,\
@@ -397,7 +397,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_16MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 1,\
-    .tras           = 7,\
+    .tras           = 8,\
     .eeprom_tras    = 31,\
     .trc            = 7,\
     .eeprom_trc     = 31,\
@@ -413,7 +413,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_8MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 0,\
-    .tras           = 3,\
+    .tras           = 4,\
     .eeprom_tras    = 15,\
     .trc            = 3,\
     .eeprom_trc     = 15,\
@@ -429,7 +429,7 @@ typedef struct flash_timing_regs_cfg_t {
 #define FLASH_TIMING_CFG_4MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 0,\
-    .tras           = 1,\
+    .tras           = 2,\
     .eeprom_tras    = 7,\
     .trc            = 1,\
     .eeprom_trc     = 7,\

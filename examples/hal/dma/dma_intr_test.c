@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include "CMSDK_CM0plus.h"
-#include "core_cm0plus.h"
 #include "uart_stdout.h"
 
+#include "FD32M0P.h"
 #include "../../hal/dma/dma.h"
 
 #define PL230_BASE_ADDRESS  0x3FFC1000
@@ -66,7 +65,7 @@ void main(){
     while(1);
 }
 
-void INTR26_Handler(void)
+void DMA_IRQ_Handler(void)
 {
     uint32_t intr_sts;
     intr_sts = DMA_REGS->INTR_STS.packed_w;

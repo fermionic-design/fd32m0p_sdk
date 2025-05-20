@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include "CMSDK_CM0plus.h"
-#include "core_cm0plus.h"
 #include "uart_stdout.h"
 
 #include "../../hal/dma/dma.h"
