@@ -3,7 +3,7 @@
 void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg){
     regs->CLK_CTRL.clk_en  = clk_cfg.clk_en;
     regs->CLK_CTRL.clk_div = clk_cfg.clk_div;
-    regs->CLK_SEL.packed_w  = (0x00030000| clk_cfg.clk_sel);
+    regs->CLK_SEL.packed_w  = (ADC_CLK_SEL_CLK_SEL_MASK<<16 | clk_cfg.clk_sel);
 }
 
 void adc_chnl_cfg(ADC_REGS_s *regs, adc_chnl_cfg_s chnl_cfg){
@@ -91,20 +91,20 @@ void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s 
     adc_regs->DMA_REG.dma_en                               = adc_single_ch.dma_en;
     adc_regs->DMA_TRANSFER_CNT.dma_transfer_cnt            = adc_single_ch.dma_transfer_cnt;
     adc_regs->RESULT_CFG.fifo_en                           = adc_single_ch.dma_en;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel  = 11;
+    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel  = 11; // Ch 11 used for Temp Sensor
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel     = chnl_cfg.vref_sel;
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].hw_avg_en    = chnl_cfg.hw_avg_en;
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en       = 0;
     adc_regs->BLOCK_ASYNC_REQ.block_async_req              = 1;
-    mcu_regs->ANA_SPARE_OUT0.spare_out_0          = 0x00000000;
+    mcu_regs->ANA_SPARE_OUT0.spare_out_0          = 0x00000000; // Enables Temp Sensor (active low)
     vref_regs->CTRL.enable                            = 1;
     vref_regs->CTRL.vref_mode                         = 0; 
 }/*}}}*/
 
 void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg, uint32_t val)/*{{{*/{
     vref_regs->CTRL.enable                                  = 1;
-    vref_regs->CTRL.vref_mode                               = 0;
-    mcu_regs->ANA_SPARE_OUT0.spare_out_0                    = 0x09800000;
+    vref_regs->CTRL.vref_mode                               = 0;        //0: 1p4v 1:2p5v
+    mcu_regs->ANA_SPARE_OUT0.spare_out_0                    = 0x09800000; // disables temp sensor through spare out regs.
     if(adc_single_ch.repeat == 1)
     {
         adc_regs->CONV_CFG.conv_mode                        = 1;
@@ -120,7 +120,7 @@ void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS
     adc_regs->DMA_REG.dma_en                                = adc_single_ch.dma_en;
     adc_regs->DMA_TRANSFER_CNT.dma_transfer_cnt             = adc_single_ch.dma_transfer_cnt;
     adc_regs->RESULT_CFG.fifo_en                            = adc_single_ch.fifo_en;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel   = 15;
+    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel   = 15;       // Ch 15 for Batt Mon
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel      = chnl_cfg.vref_sel;
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].hw_avg_en     = chnl_cfg.hw_avg_en;
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en        = 0;
@@ -236,7 +236,7 @@ adc_single_ch_conv_cfg_s get_adc_single_ch_conv_cfg(ADC_REGS_s *regs)/*{{{*/{
 adc_multi_ch_conv_cfg_s get_adc_multi_ch_conv_cfg(ADC_REGS_s *regs)/*{{{*/{
     adc_multi_ch_conv_cfg_s adc_multi_ch;
     
-    adc_multi_ch.repeat             = (regs->CONV_CFG.conv_mode)%2;
+    adc_multi_ch.repeat             = (regs->CONV_CFG.conv_mode) & 0x01;
     adc_multi_ch.start_addr         = regs->CONV_CFG.start_addr;               
     adc_multi_ch.end_addr           = regs->CONV_CFG.end_addr;
     adc_multi_ch.adc_res            = regs->CONV_CFG.adc_res;
