@@ -26,6 +26,8 @@
 #define ADC_CHNL_7 7
 #define ADC_CHNL_8 8
 #define ADC_CHNL_9 9
+#define ADC_CHNL_11 11
+#define ADC_CHNL_15 15
 
 #define DATA_CHNL_0 0 
 #define DATA_CHNL_1 1
@@ -120,7 +122,7 @@ void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_singl
 void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_ch);
 void adc_en_conv(ADC_REGS_s *regs, uint32_t val);
 void adc_temp_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs, adc_single_ch_conv_cfg_s adc_temp_cfg, adc_chnl_cfg_s adc_chnl_cfg);
-void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg, uint32_t val);
+void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg);
 void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_samp_rate);
 void adc_hw_avg_cfg(ADC_REGS_s *regs, adc_hw_avg_cfg_s adc_hw_cfg);
 adc_clk_cfg_s get_adc_clk_cfg(ADC_REGS_s *regs);
