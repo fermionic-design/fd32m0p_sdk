@@ -101,9 +101,9 @@ void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s 
     vref_regs->CTRL.vref_mode                         = 0; 
 }/*}}}*/
 
-void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg, uint32_t val)/*{{{*/{
+void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg)/*{{{*/{
     vref_regs->CTRL.enable                                  = 1;
-    vref_regs->CTRL.vref_mode                               = 0;        //0: 1p4v 1:2p5v
+    vref_regs->CTRL.vref_mode                               = 1;        //0: 1p4v 1:2p5v
     mcu_regs->ANA_SPARE_OUT0.spare_out_0                    = 0x09800000; // disables temp sensor through spare out regs.
     if(adc_single_ch.repeat == 1)
     {
