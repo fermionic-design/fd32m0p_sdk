@@ -14,7 +14,7 @@
 
 #include "uart_stdout.h"
 
-#include "GPIO_CAPI.h"
+#include "gpio.h"
 #include "EVENT_FABRIC_REGS.h"
 #include "EVENT_FABRIC_RW_API.h"
 #include "EVENT_FABRIC_CAPI.h"

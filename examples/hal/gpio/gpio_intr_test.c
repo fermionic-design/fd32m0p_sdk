@@ -15,7 +15,7 @@
 #include <stdint.h> 
 #include "uart_stdout.h"
 
-#include "GPIO_CAPI.h"
+#include "gpio.h"
 
 #define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
 #define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )

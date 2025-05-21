@@ -9,7 +9,7 @@
 #include "core_cm0plus.h"
 #include "uart_stdout.h"
 
-#include "GPIO_CAPI.h"
+#include "gpio.h"
 
 #include "DMA_REGS.h"
 #include "DMA_RW_API.h"
