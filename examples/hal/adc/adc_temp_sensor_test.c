@@ -15,9 +15,9 @@
 #include "FD32M0P.h"
 #include "uart_stdout.h"
 
-#include "VREF_CAPI.h"
-#include "GPIO_CAPI.h" 
-#include "ADC_CAPI.h"
+#include "vref.h"
+#include "gpio.h" 
+#include "adc.h"
 
 int main(void){
    
