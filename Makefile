@@ -7,11 +7,12 @@ GNU_CC_FLAGS_BOOTLOADER = -g -O -mthumb -mcpu=cortex-m0plus -fno-delete-null-poi
 DEADCODESTRIP = -Wl,-static  -fdata-sections -ffunction-sections -Wl,--gc-sections 
 
 PRJ_DIR = ./
-PRJ_CHEADER_DIR = ./c_headers/
-PRJ_CHEADER_DIR = ./c_headers/
-PRJ_HAL_DIR = ./hal/
 
 SOFTWARE_DIR= $(PRJ_DIR)/
+
+PRJ_CHEADER_DIR = $(SOFTWARE_DIR)/c_headers/
+PRJ_HAL_DIR = $(SOFTWARE_DIR)/hal/
+
 CMSIS_DIR   = $(SOFTWARE_DIR)/cmsis
 CORE_DIR    = $(CMSIS_DIR)/CMSIS/Include
 DEVICE_DIR  = $(CMSIS_DIR)/Device/FD32M0P
@@ -104,4 +105,5 @@ endif
 	$(USER_DEFINE) $(TEST_DEFINE) -T $(LINKER_SCRIPT) -o ${C_COMPILE_DIR}/$(TESTNAME).o
 	$(GNU_OBJDUMP) -S ${C_COMPILE_DIR}/$(TESTNAME).o > ${C_COMPILE_DIR}/$(TESTNAME).lst
 	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o -O binary ${C_COMPILE_DIR}/$(TESTNAME).bin
+	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o --pad-to 32768 -O binary ${C_COMPILE_DIR}/$(TESTNAME)_32KB.bin
 	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o -O verilog ${C_COMPILE_DIR}/$(TESTNAME).hex
