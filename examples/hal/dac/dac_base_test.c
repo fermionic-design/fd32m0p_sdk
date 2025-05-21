@@ -6,13 +6,11 @@
 #include "UART_REGS.h"
 #include "UART_RW_API.h"
 
-#include "DAC_CAPI.h"
+#include "dac.h"
 
 #define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
 #define UART0_REGS  ((UART_REGS_s *)  0x3ffcc000)
 #define DAC_REGS  ((DAC_REGS_s *) 0x3FFD1000)
-
-
 
 
 void UartStdOutInit1(UART_REGS_s * UART_REGS)/*{{{*/
@@ -65,4 +63,7 @@ int main(void) {
     print_int_var("dac_code :", dac_code, 0);
 
     UartPuts("Test Ended\n.");
+    for (int i = 0; i< 10000 ; i++ );
+    UartEndSimulation();
+    return 0;
 }

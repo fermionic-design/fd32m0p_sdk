@@ -6,7 +6,7 @@
 #include "UART_REGS.h"
 #include "UART_RW_API.h"
 
-#include "DAC_CAPI.h"
+#include "dac.h"
 #include "../../hal/dma/dma.h"
 
 #include "EVENT_FABRIC_REGS.h"
@@ -110,6 +110,10 @@ int main(void) {
     
     //ENABLE DMA EVENT
     DAC_REGS->CTRL2.dma_trig_en = 1;
+
+    for (int i = 0; i< 10000 ; i++ );
+    UartEndSimulation();
+    return 0;
     return 0;
 }
 
