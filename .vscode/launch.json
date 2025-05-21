@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "FDMCU Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/bootrom.o",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",            
+            "servertype": "external",
+            "gdbPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gdb",
+            "gdbTarget": "localhost:3333",     
+            "postRestartCommands": [
+                "break main",
+                "continue"
+            ]       
+        }
+    ]
+}

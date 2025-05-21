@@ -39,7 +39,7 @@ void get_event_fabric_full_chnl_cfg(EVENT_FABRIC_REGS_s * registers, chnl_cfg * 
             max_of_pub_sub = EVENT_FABRIC_NUMBER_OF_SUB;
         }
         
-        print_int_var("chl_addr",chnl,1);
+        //print_int_var("chl_addr",chnl,1);
         for(int i=0; i< max_of_pub_sub; i++){
             if(i <= EVENT_FABRIC_NUMBER_OF_SUB ){
                 sub_chan_id = registers->GEN_SUB[i].packed_w;

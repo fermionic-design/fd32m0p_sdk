@@ -1,9 +1,9 @@
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include "math.h"
-#include <sys/types.h> 
-#include "uart_stdout.h"
+//#include <string.h>
+//#include "math.h"
+//#include <sys/types.h> 
+#include "uart_stdout_mcu.h"
 
 void print_int_var(char *prefix, int var, int is_hex) {
     char c[16]="";//,final[50]="";

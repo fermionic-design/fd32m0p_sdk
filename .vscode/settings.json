@@ -1,0 +1,13 @@
+{
+    "makefile.configurations": [
+        {
+            "name": "helloworld",
+            "makeArgs": ["TESTNAME=helloworld", "TESTFOLDER=examples/hal/bringup"]
+        },
+        {
+            "name": "Print make version",
+            "makeArgs": ["--version"]
+        }
+    ],
+    "makefile.makePath": "C:\\Program Files (x86)\\GnuWin32\\bin",
+}
