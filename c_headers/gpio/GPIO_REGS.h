@@ -901,7 +901,7 @@ typedef enum {
 typedef enum {
 	GPIO_INTR_POL_OFF = 0,
 	GPIO_INTR_POL_POS = 1,
-	GPIO_INTR_POL_NEG =  2,
+	GPIO_INTR_POL_NEG = 2,
 	GPIO_INTR_POL_BOTH = 3,
 } GPIO_INTR_POL_E;
 

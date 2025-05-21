@@ -50,13 +50,13 @@ static inline void DAC_INTR_SW_SET(DAC_REGS_s * registers, uint32_t intr_idx){
     registers->INTR_SW_SET.packed_w = 1<<intr_idx;
 }
 
-static inline void DAC_GENERIC_EVENT_CTRL(DAC_REGS_s * registers, uint32_t intr_idx){
-    registers->EVENT_CTRL.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
-}
-
-static inline void DAC_GENERIC_EVENT_CTRL(DAC_REGS_s * registers, uint32_t intr_idx){
-    registers->EVENT_CTRL.packed_w = (1<<(intr_idx+16));
-}
+//static inline void DAC_GENERIC_EVENT_CTRL(DAC_REGS_s * registers, uint32_t intr_idx){
+//    registers->EVENT_CTRL.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
+//}
+//
+//static inline void DAC_GENERIC_EVENT_CTRL(DAC_REGS_s * registers, uint32_t intr_idx){
+//    registers->EVENT_CTRL.packed_w = (1<<(intr_idx+16));
+//}
 
 static inline void DAC_CTRL0_WRITE(DAC_REGS_s * registers, uint32_t enable, uint32_t res, uint32_t data_fmt) {
     registers->CTRL0.packed_w = ((enable<<DAC_CTRL0_ENABLE_OFS) & DAC_CTRL0_ENABLE_MASK)
