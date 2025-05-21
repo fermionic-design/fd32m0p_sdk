@@ -1,4 +1,4 @@
-#include "ADC_CAPI.h"
+#include "adc.h"
 
 void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg){
     regs->CLK_CTRL.clk_en  = clk_cfg.clk_en;
@@ -71,7 +71,7 @@ void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_c
 }/*}}}*/
 
 void adc_en_conv(ADC_REGS_s *regs, uint32_t en_conv){
-    regs->CONV_CFG.en_conv = val;
+    regs->CONV_CFG.en_conv = en_conv;
 }
 
 void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs, adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg)/*{{{*/{
