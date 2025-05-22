@@ -66,7 +66,7 @@ C_HEADER_INCDIR = -I $(PRJ_CHEADER_DIR)/crc/ \
 				  -I $(PRJ_CHEADER_DIR)/usb2/ \
 				  -I $(PRJ_CHEADER_DIR)/common/ 
 
-HAL_SRC_FILES = $(PRJ_HAL_DIR)/gpio/GPIO_CAPI.c \
+HAL_SRC_FILES = $(PRJ_HAL_DIR)/gpio/gpio.c \
 				$(PRJ_HAL_DIR)/event_fabric/EVENT_FABRIC_CAPI.c \
 				$(PRJ_HAL_DIR)/uart/uart.c
 
