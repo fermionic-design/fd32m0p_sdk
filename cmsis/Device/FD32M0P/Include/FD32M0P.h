@@ -274,8 +274,8 @@ typedef struct
 */
 // APB peripherals          
 #define MCU_CTRL_REGS       ((MCU_CTRL_REGS_s*)     MCU_CTRL_BASE)       
-#define DMA_PL230_REGS      ((DMA_PL230_REGS_s*)    DMA_PL230_BASE)      
-#define DMA_MCU_REGS        ((DMA_MCU_REGS_s*)      DMA_MCU_BASE)        
+#define DMA_PL230_REGS      ((PL230_REGS_s*)        DMA_PL230_BASE)      
+#define DMA_MCU_REGS        ((DMA_REGS_s*)          DMA_MCU_BASE)        
 #define EVENT_FABRIC_REGS   ((EVENT_FABRIC_REGS_s*) EVENT_FABRIC_BASE)   
 #define IOMUX_REGS          ((IOMUX_REGS_s*)        IOMUX_BASE)          
 #define OTP_REGS            ((OTP_REGS_s*)          OTP_BASE)            
