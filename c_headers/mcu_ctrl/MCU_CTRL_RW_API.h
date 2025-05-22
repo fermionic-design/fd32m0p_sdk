@@ -1,3 +1,6 @@
+#ifndef MCU_CTRL_RW_API_H
+#define MCU_CTRL_RW_API_H
+
 #include "MCU_CTRL_REGS.h"
 
 static inline void MCU_CTRL_DESC_WRITE(MCU_CTRL_REGS_s * registers, uint32_t module_type, uint32_t module_subtype, uint32_t major_rev, uint32_t minor_rev) {
@@ -131,4 +134,6 @@ static inline void MCU_CTRL_ANA_SPARE_OUT0_WRITE(MCU_CTRL_REGS_s * registers, ui
 static inline void MCU_CTRL_ANA_SPARE_OUT1_WRITE(MCU_CTRL_REGS_s * registers, uint32_t spare_out_1) {
     registers->ANA_SPARE_OUT1.packed_w =  + ((spare_out_1<<MCU_CTRL_ANA_SPARE_OUT1_SPARE_OUT_1_OFS)&MCU_CTRL_ANA_SPARE_OUT1_SPARE_OUT_1_MASK);
 }
+
+#endif
 
