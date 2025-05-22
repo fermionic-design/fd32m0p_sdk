@@ -1,3 +1,8 @@
+#python cache 
+*.pyc
+*__pycache__*
+
+
 #swap files 
 *.swp
 *.swo
