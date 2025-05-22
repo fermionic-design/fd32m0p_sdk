@@ -23,6 +23,7 @@
  */
 /* Functions for stdout during simulation */
 /* The functions are implemented in top/verification/c_api/uart/uart_stdout_mcu.c */
+#include "FD32M0P.h"
 #include "uart.h"
 
 #ifdef UART1_STDIO

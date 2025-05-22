@@ -1,5 +1,3 @@
-//#include <stdlib.h>
-#include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
 
 void UartStdOutInit(void) {
