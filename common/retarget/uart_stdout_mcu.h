@@ -23,11 +23,19 @@
  */
 /* Functions for stdout during simulation */
 /* The functions are implemented in top/verification/c_api/uart/uart_stdout_mcu.c */
+#include "uart.h"
 
-extern void UartStdOutInit(void);
-extern void UartPuts(unsigned char * mytext);
-extern unsigned char UartPutc(unsigned char my_ch);
-extern unsigned char UartGetc(void);
-extern unsigned char UartEndSimulation(void);
-extern unsigned char UartPass(void);
-extern unsigned char UartFail(void);
+#ifdef UART1_STDIO
+#define UART_STDIO UART1_REGS
+#else
+#define UART_STDIO UART0_REGS
+#endif
+
+#define UartPuts(x) uart_puts(UART_STDIO, x)
+
+void UartStdOutInit(void);
+void UartEndSimulation(void);
+void UartPass(void);
+void UartFail(void);
+void itoa(int value, char* str, int base);
+void print_int_var(char *prefix, int var, bool is_hex);

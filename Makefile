@@ -67,13 +67,23 @@ C_HEADER_INCDIR = -I $(PRJ_CHEADER_DIR)/crc/ \
 				  -I $(PRJ_CHEADER_DIR)/common/ 
 
 HAL_SRC_FILES = $(PRJ_HAL_DIR)/gpio/gpio.c \
+				$(PRJ_HAL_DIR)/adc/adc.c \
+				$(PRJ_HAL_DIR)/vref/vref.c \
+				$(PRJ_HAL_DIR)/dac/dac.c \
+				$(PRJ_HAL_DIR)/dma/dma.c \
 				$(PRJ_HAL_DIR)/event_fabric/EVENT_FABRIC_CAPI.c \
-				$(PRJ_HAL_DIR)/uart/uart.c
+				$(PRJ_HAL_DIR)/uart/uart.c \
+				$(PRJ_HAL_DIR)/crc/crc.c
 
 HAL_INCDIR =-I $(PRJ_HAL_DIR)/common/ \
 			-I $(PRJ_HAL_DIR)/gpio/ \
+			-I $(PRJ_HAL_DIR)/dma/ \
+			-I $(PRJ_HAL_DIR)/adc/ \
+			-I $(PRJ_HAL_DIR)/vref/ \
+			-I $(PRJ_HAL_DIR)/dac/ \
 			-I $(PRJ_HAL_DIR)/event_fabric/ \
-			-I $(PRJ_HAL_DIR)/uart/
+			-I $(PRJ_HAL_DIR)/uart/ \
+			-I $(PRJ_HAL_DIR)/crc/
 
 test:
 ifeq ($(TESTFOLDER),)
@@ -90,7 +100,7 @@ endif
 	$(DEADCODESTRIP) \
 	-I $(TESTFOLDER)/ \
 	$(SOFTWARE_DIR)/common/retarget/retarget.c \
-	$(PRJ_HAL_DIR)/uart/uart_stdout_mcu.c \
+	$(SOFTWARE_DIR)/common/retarget/uart_stdout_mcu.c \
 	$(PRJ_HAL_DIR)/mcu_ctrl/mcu_ctrl_cfg_reg.c \
 	$(PRJ_HAL_DIR)/common/utils.c \
 	$(DEVICE_DIR)/Source/$(SYSTEM_FILE).c \
