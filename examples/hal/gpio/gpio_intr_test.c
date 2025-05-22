@@ -11,14 +11,13 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <stdint.h> 
-#include "uart_stdout.h"
 
+#include <stdint.h>
+
+#include "uart_stdout_mcu.h"
+#include "FD32M0P.h"
 #include "gpio.h"
 
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
 
 int main(void) {
     int intr_val;
@@ -45,19 +44,19 @@ int main(void) {
     }
 
     GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
-    printf("Power EN Reg Written.\n");
+    UartPuts("Power EN Reg Written.\n");
 
-    printf("GPIO INTR Test\n");
+    UartPuts("GPIO INTR Test\n");
     gpio_dout_en(GPIO_REGS, 0x00000000);
 
-    printf("Output is disabled on GPIO.\n");
+    UartPuts("Output is disabled on GPIO.\n");
 
     GPIO_INTR_EVENT_EN(GPIO_REGS, 5);
     GPIO_INTR_EVENT_EN(GPIO_REGS, 11);
     GPIO_INTR_EVENT_EN(GPIO_REGS, 19);
 
-    printf("Enabled INTR 0. \n");
-    printf("Enabled INTR 1. \n");
+    UartPuts("Enabled INTR 0. \n");
+    UartPuts("Enabled INTR 1. \n");
 
     for(i=0;i<32;i=i+1)
     {
@@ -74,8 +73,8 @@ int main(void) {
     gpio_intr_polarity_cfg(GPIO_REGS, 11, GPIO_INTR_POL_BOTH);
     gpio_intr_polarity_cfg(GPIO_REGS, 19, GPIO_INTR_POL_BOTH);
 
-    printf("Enabled INTR_POL_0 \n");
-    printf("Enabled INTR_POL_1 \n");
+    UartPuts("Enabled INTR_POL_0 \n");
+    UartPuts("Enabled INTR_POL_1 \n");
     
     intr_val    = 0x00080820;
 
@@ -83,12 +82,12 @@ int main(void) {
 
     if(GPIO_REGS->INTR_EVENT.packed_w == intr_val)
     {
-        printf("-- INTR_RSNG : Correct Value is set. --\n");
+        UartPuts("-- INTR_RSNG : Correct Value is set. --\n");
     }
     else 
     {
         failed++;
-        printf("** INTR_RSNG : Correct Value is not set. **\n");
+        UartPuts("** INTR_RSNG : Correct Value is not set. **\n");
     }
     GPIO_REGS->INTR_EVENT.packed_w = 0xFFFFFFFF;
 
@@ -96,22 +95,22 @@ int main(void) {
     
     if(GPIO_REGS->INTR_EVENT.packed_w == intr_val)
     {
-        printf("-- INTR_FLNG : Correct Value is set. --\n");
+        UartPuts("-- INTR_FLNG : Correct Value is set. --\n");
     }
     else 
     {
         failed++;
-        printf("** INTR_FLNG : Correct Value is not set. **\n");
+        UartPuts("** INTR_FLNG : Correct Value is not set. **\n");
     }
 
     if(failed == 0)
     {
-        printf("-- TEST PASSED --\n");
+        UartPuts("-- TEST PASSED --\n");
         UartPass();
     }
     else
     { 
-        printf("** TEST FAILED**\n");
+        UartPuts("** TEST FAILED**\n");
         UartFail();
     }
 

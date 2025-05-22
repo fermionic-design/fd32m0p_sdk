@@ -10,19 +10,13 @@
 ////                                                                      ////
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
-#include <stdio.h>
+
 #include <stdint.h> 
-#include <sys/types.h> 
-#include <stdlib.h> 
-#include <stdio.h> 
-#include <string.h>
 
-#include "uart_stdout.h"
-
+#include "uart_stdout_mcu.h"
+#include "FD32M0P.h"
 #include "gpio.h"
 
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
 
 int main(void) {
     uint32_t failed = 0;
@@ -31,11 +25,11 @@ int main(void) {
     uint32_t i;
 
     GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
-    printf("Power EN Reg Written.\n");
+    UartPuts("Power EN Reg Written.\n");
 
-    printf("GPIO RD Base Test\n");
+    UartPuts("GPIO RD Base Test\n");
     gpio_dout_en(GPIO_REGS, 0x00000000); 
-    printf("All Pins are enabled on GPIO.\n");
+    UartPuts("All Pins are enabled on GPIO.\n");
     
     for (i=0;i<29;i=i+1)
     {
@@ -47,7 +41,7 @@ int main(void) {
 
     print_int_var("din :", din, 0);
     
-    printf("GPIO Read Test Ends\n");
+    UartPuts("GPIO Read Test Ends\n");
 
     for (int i = 0; i< 10000 ; i++);
     UartEndSimulation();

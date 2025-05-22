@@ -9,22 +9,13 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
+
 #include <stdint.h> 
 
-#include "uart_stdout.h"
-
+#include "uart_stdout_mcu.h"
+#include "FD32M0P.h"
 #include "gpio.h"
-#include "EVENT_FABRIC_REGS.h"
-#include "EVENT_FABRIC_RW_API.h"
 #include "EVENT_FABRIC_CAPI.h"
-#include "DAC_REGS.h"
-#include "DAC_RW_API.h"
-
-#define EVENT_FABRIC_REGS   ((EVENT_FABRIC_REGS_s *) 0x3FFC3000)
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-#define DAC_REGS  ((DAC_REGS_s *) 0x3FFD1000)
 
 int main(void) {
     #if SEED
@@ -36,9 +27,9 @@ int main(void) {
     UartStdOutInit();
 
     GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
-    printf("Power EN Reg Written.\n");
+    UartPuts("Power EN Reg Written.\n");
 
-    printf("GPIO Base Test\n");
+    UartPuts("GPIO Base Test\n");
    
     gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
     
@@ -50,7 +41,7 @@ int main(void) {
     gpio_dout(GPIO_REGS, dout);
     
     sub_en      =   1;
-    action      =   1;
+    action      =   0;
     bit_num     =   10;
     
     gpio_sub_cfg(GPIO_REGS, 0, sub_en, action, bit_num);
@@ -73,7 +64,7 @@ int main(void) {
     print_int_var("SUB_CFG1_action : ",sub_cfg_val.action, 1);
     print_int_var("SUB_CFG1_bit_num : ",sub_cfg_val.bit_num, 1);
 
-    EVENT_FABRIC_GEN_SUB_N_WRITE(EVENT_FABRIC_REGS, 2, 2);
+    EVENT_FABRIC_GEN_SUB_N_WRITE(EVENT_FABRIC_REGS, 3, 2);
     EVENT_FABRIC_GEN_PUB_N_WRITE(EVENT_FABRIC_REGS, 9, 2);
 
     DAC_REGS->EVENT_EN.packed_w = 0x00020002;

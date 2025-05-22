@@ -10,15 +10,14 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
+
 #include <stdint.h> 
 
-#include "uart_stdout.h"
+#include "uart_stdout_mcu.h"
+#include "FD32M0P.h"
 
 #include "gpio.h"
 
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
 
 int main(void) {
     uint32_t failed = 0;
@@ -33,20 +32,19 @@ int main(void) {
     {
         IOMUX_PA_N_WRITE(IOMUX_REGS, i, 0, 1, 0, 0, 0, 0, 0, 1, 0);
     }
-    //din =  gpio_din_pinwise(GPIO_REGS,4);
     while( gpio_din_pinwise(GPIO_REGS,4) != 1);   
-    printf("PA4 is set.\n");
+    UartPuts("PA4 is set.\n");
 
     while( gpio_din_pinwise(GPIO_REGS,7) != 1);   
-    printf("PA7 is set.\n");
+    UartPuts("PA7 is set.\n");
 
     while( gpio_din_pinwise(GPIO_REGS,14) != 1);   
-    printf("PA14 is set.\n");
+    UartPuts("PA14 is set.\n");
 
     while( gpio_din_pinwise(GPIO_REGS,15) != 1);   
-    printf("PA15 is set.\n");
+    UartPuts("PA15 is set.\n");
 
-    printf("Read Test ends.\n");
+    UartPuts("Read Test ends.\n");
     for (int i = 0; i< 1000 ; i++ );
     UartEndSimulation();
     return 0;

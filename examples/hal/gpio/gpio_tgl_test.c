@@ -10,16 +10,11 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-
-#include <stdio.h>
 #include <stdint.h> 
 
-#include "uart_stdout.h"
-
+#include "FD32M0P.h"
+#include "uart_stdout_mcu.h"
 #include "gpio.h"
-
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
 
 int main(void) {
     
@@ -30,22 +25,22 @@ int main(void) {
    
     UartStdOutInit();
 
-    printf("GPIO TOGGLE TEST.\n");
+    UartPuts("GPIO TOGGLE TEST.\n");
 
     GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
-    printf("Power EN Reg Written.\n");
+    UartPuts("Power EN Reg Written.\n");
 
-    printf("GPIO TGL Base Test\n");
-    printf("Writing AAAA_AAAA on O/P of GPIO.\n");
+    UartPuts("GPIO TGL Base Test\n");
+    UartPuts("Writing AAAA_AAAA on O/P of GPIO.\n");
     
     gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
-    printf("All Pins are enabled on GPIO.\n");
+    UartPuts("All Pins are enabled on GPIO.\n");
 
     gpio_dout(GPIO_REGS, 0xAAAAAAAA);
-    printf("AAAA_AAAA written on GPIO.\n");
+    UartPuts("AAAA_AAAA written on GPIO.\n");
 
     gpio_tgl(GPIO_REGS, 0xFFFFFFFF);
-    printf("All pins are set for toggling.\n");
+    UartPuts("All pins are set for toggling.\n");
     
     for (i=0;i<29;i=i+1)
     {
@@ -57,22 +52,22 @@ int main(void) {
 
     if(iomux_val_rd == iomux_val)
     {
-        printf("-- Correct Value is set. --\n");
+        UartPuts("-- Correct Value is set. --\n");
     }
     else 
     {
         failed++;
-        printf("** Correct Value is not set. **\n");
+        UartPuts("** Correct Value is not set. **\n");
     }
    
     if(failed == 0)
     {
-        printf("-- GPIO TGL TEST PASSED --\n");
+        UartPuts("-- GPIO TGL TEST PASSED --\n");
         UartPass();
     }
     else
     { 
-        printf("** GPIO TGL TEST FAILED**\n");
+        UartPuts("** GPIO TGL TEST FAILED**\n");
         UartFail();
     }
 
