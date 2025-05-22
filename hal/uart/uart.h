@@ -9,27 +9,27 @@
 typedef struct 
 {
     UART_CLK_SEL_E          clk_sel;
-    uint32_t                clk_div;
+    uint8_t                 clk_div;
     uint32_t                baud_rate;
     uint32_t                clk_freq;
     UART_CTRL_OS_E          oversampling;
     UART_CFG_WRD_LEN_E      word_length;
-    uint32_t                parity_en;
-    uint32_t                even_parity;
+    bool                    parity_en;
+    bool                    even_parity;
     UART_CFG_STCK_PAR_E     stick_parity;
     UART_CFG_STOP_BIT_E     num_stop_bits;
     UART_CTRL_UART_MSB_E    msb_first;
-    uint32_t                majority_voting_en;
-    uint32_t                loopback_en;
+    bool                    majority_voting_en;
+    bool                    loopback_en;
     UART_CTRL_TX_EN_E       tx_en;
-    uint32_t                rx_en;
+    bool                    rx_en;
     UART_CTRL_TX_OUT_EN_E   tx_out_en;
     UART_CTRL_TX_OUT_CTRL_E tx_out_ctrl;    
-    uint32_t                cts_en;
-    uint32_t                rts_en;
-    uint32_t                rts_val;
-    uint32_t                glitch_filter_width;
-    uint32_t                rx_timeout_val;
+    bool                    cts_en;
+    bool                    rts_en;
+    bool                    rts_val;
+    uint8_t                 glitch_filter_width;
+    uint8_t                rx_timeout_val;
 } uart_cfg_s;
 
 #define UART_CFG_DEFAULT { \

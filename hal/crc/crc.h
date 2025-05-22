@@ -2,16 +2,17 @@
 #define crc_h_include
 #include "CRC_REGS.h"
 #include "CRC_RW_API.h"
+#include <stdbool.h>
 
 //structs
 //TODO: add comments
 typedef struct
 {
     CRC_CRCCONFIG_POLY_TYPE_E   poly_type;
-    uint8_t                    input_bit_rev;
-    uint8_t                    output_bit_rev;
-    uint8_t                    in_is_big_endian;
-    uint8_t                    out_is_big_endian;
+    bool                        input_bit_rev;
+    bool                        output_bit_rev;
+    bool                        in_is_big_endian;
+    bool                        out_is_big_endian;
 } crc_cfg_s;
 
 #define CRC_CFG_DEFAULT { \

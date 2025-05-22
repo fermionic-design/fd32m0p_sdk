@@ -1,4 +1,5 @@
 #include "crc.h"
+#include <string.h>
 
 //TODO: add comments before every function
 
@@ -76,7 +77,7 @@ uint32_t crc_compute_32bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t
 {
     uint32_t crc_result;
     crc_set_seed(regs, seed);
-    memcpy((&regs->CRCINPUT[0].packed_w), (start_addr), length*sizeof(uint32_t));
+    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_w, (start_addr), length*sizeof(uint32_t));
     crc_result = crc_get_result(regs);
     return crc_result;
 }
@@ -85,7 +86,7 @@ uint32_t crc_compute_16bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t
 {
     uint32_t crc_result;
     crc_set_seed(regs, seed);
-    memcpy((&regs->CRCINPUT[0].packed_hw[0]), (start_addr), length*sizeof(uint16_t));
+    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_hw[0], (start_addr), length*sizeof(uint16_t));
     crc_result = crc_get_result(regs);
     return crc_result;
 }
@@ -94,7 +95,7 @@ uint32_t crc_compute_8bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t 
 {
     uint32_t crc_result;
     crc_set_seed(regs, seed);
-    memcpy((&regs->CRCINPUT[0].packed_byte[0]), (start_addr), length);
+    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_byte[0], (start_addr), length);
     crc_result = crc_get_result(regs);
     return crc_result;    
 }
