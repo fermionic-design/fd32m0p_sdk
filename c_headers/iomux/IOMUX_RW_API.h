@@ -7,8 +7,4 @@ static inline void IOMUX_PA_N_WRITE(IOMUX_REGS_s * registers, uint32_t index, ui
     registers->PA[index].packed_w =  + ((output_en<<IOMUX_PA_OUTPUT_EN_OFS)&IOMUX_PA_OUTPUT_EN_MASK) + ((input_en<<IOMUX_PA_INPUT_EN_OFS)&IOMUX_PA_INPUT_EN_MASK) + ((drive_strength<<IOMUX_PA_DRIVE_STRENGTH_OFS)&IOMUX_PA_DRIVE_STRENGTH_MASK) + ((slew_rate<<IOMUX_PA_SLEW_RATE_OFS)&IOMUX_PA_SLEW_RATE_MASK) + ((pull_up<<IOMUX_PA_PULL_UP_OFS)&IOMUX_PA_PULL_UP_MASK) + ((pull_down<<IOMUX_PA_PULL_DOWN_OFS)&IOMUX_PA_PULL_DOWN_MASK) + ((hysteresis<<IOMUX_PA_HYSTERESIS_OFS)&IOMUX_PA_HYSTERESIS_MASK) + ((sel<<IOMUX_PA_SEL_OFS)&IOMUX_PA_SEL_MASK) + ((input_val<<IOMUX_PA_INPUT_VAL_OFS)&IOMUX_PA_INPUT_VAL_MASK);
 }
 
-static inline void IOMUX_DUMMY_WRITE(IOMUX_REGS_s * registers, uint32_t dummy) {
-    registers->DUMMY.packed_w =  + ((dummy<<IOMUX_DUMMY_DUMMY_OFS)&IOMUX_DUMMY_DUMMY_MASK);
-}
-
 #endif

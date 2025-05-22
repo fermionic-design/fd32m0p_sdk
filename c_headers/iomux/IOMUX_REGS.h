@@ -35,8 +35,9 @@ typedef union IOMUX_DUMMY_u {
 } IOMUX_DUMMY_u;
 
 typedef struct IOMUX_REGS_s{
+    volatile IOMUX_DUMMY_u DUMMY0;
     volatile IOMUX_PA_u PA[28];
-    volatile IOMUX_DUMMY_u DUMMY;
+    volatile IOMUX_DUMMY_u DUMMY1;
 } IOMUX_REGS_s;
 
 #define IOMUX_PA_OUTPUT_EN_OFS (0)
