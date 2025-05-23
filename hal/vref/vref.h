@@ -13,9 +13,6 @@
 #include "MCU_CTRL_REGS.h"
 #include "MCU_CTRL_RW_API.h"
 
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000)
-#define VREF_REGS   ((VREF_REGS_s *) 0x3FFD2000)
-#define MCU_CTRL_REGS ((MCU_CTRL_REGS_s *) 0x3FFC0000)
 
 typedef struct {
     uint32_t enable;

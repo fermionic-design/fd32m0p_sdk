@@ -1,4 +1,5 @@
 #include "adc.h"
+#include "uart_stdout_mcu.h"
 
 void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg){
     regs->CLK_CTRL.clk_en  = clk_cfg.clk_en;
@@ -126,7 +127,7 @@ void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS
 }/*}}}*/
 
 void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_samp_rate)/*{{{*/{
-
+    
     uint32_t adc_clk, adc_clk_div, total_timer, conv_time, samp_time, start_time;
     uint32_t samp_rate_calculated;
     samp_rate_calculated = 0;
@@ -144,7 +145,8 @@ void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_sam
     {
         if(total_timer < 1)
         {
-            print_int_var("Samp Rate Too High.", conv_time, 0);  // Desired sampling rate cannot be achieved. Select correct sampling rate.
+            UartPuts("Samp Rate Too High.\n");  // Desired sampling rate cannot be achieved. Select correct sampling rate.
+            return;
         }
         else if(total_timer > 255)
         {
@@ -155,7 +157,7 @@ void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_sam
                 samp_time  = 31;
                 start_time = total_timer - samp_time - conv_time;
                 if(start_time > 15)
-                    printf("Samp rate Too Low\n");              // Desired sampling rate cannot be achieved. Lowest possible sampling rate set
+                    UartPuts("Samp rate Too Low\n");              // Desired sampling rate cannot be achieved. Lowest possible sampling rate set
                     start_time = 15;
                     samp_rate_calculated = 1;
             }
