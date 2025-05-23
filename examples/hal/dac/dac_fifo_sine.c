@@ -61,6 +61,7 @@ int main(void) {
     const int* ptr = sine_wave;
     // source_addr = 0x20000484 + (num_samples*4) - 4;
     source_addr = (int)(uintptr_t)&sine_wave[num_samples-1];
+    //source_addr = (void*)&sine_wave[num_samples-1];
     dma_init(DMA_PL230_REGS, 0x20000C00);
 
     // Configuring dma channel configuration
