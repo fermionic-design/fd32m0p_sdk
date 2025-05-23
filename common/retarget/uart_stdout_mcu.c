@@ -15,19 +15,11 @@ void UartStdOutInit(void) {
                                   .rx_timeout_val = 10 
                                 };
 
-    UART_PWR_EN_WRITE(UART_STDIO, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART_RST_CTRL_WRITE(UART_STDIO, 1, 0, UART_RST_CTRL_RST_KEY);    
-    if((UART_STDIO->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
-    {
-      UART_RST_CTRL_WRITE(UART_STDIO, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY); //TODO: put key define
-    }
-
-    UART_CLKCFG_WRITE(UART_STDIO, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
+    uart_init(UART_STDIO);
 
     uart_cfg(UART_STDIO, &uart_stdio_cfg);
 
     uart_en(UART_STDIO);
-    uart_clk_en(UART_STDIO);
 
     return;
 }
