@@ -22,16 +22,31 @@
 int main(void) {
     uint32_t failed = 0;
     uint32_t din;
-    UartStdOutInit();
     uint32_t i;
-    GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
+
+    UartStdOutInit();
+    IOMUX_PA_REG_s iomux_cfg_struct;
+    
+    GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     
     gpio_dout_en(GPIO_REGS, 0x00000000);
+    
+    iomux_cfg_struct.output_en        = 0;
+    iomux_cfg_struct.input_en         = 1;
+    iomux_cfg_struct.drive_strength   = 0;
+    iomux_cfg_struct.slew_rate        = 0;
+    iomux_cfg_struct.pull_up          = 0;
+    iomux_cfg_struct.pull_down        = 0;
+    iomux_cfg_struct.hysteresis       = 0;
+    iomux_cfg_struct.sel              = 1;
+    iomux_cfg_struct.input_val        = 0;
 
-    for (i=0;i<29;i=i+1)
+    for (i=0;i<28;i=i+1)
     {
-        IOMUX_PA_N_WRITE(IOMUX_REGS, i, 0, 1, 0, 0, 0, 0, 0, 1, 0);
+        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        
     }
+
     while( gpio_din_pinwise(GPIO_REGS,4) != 1);   
     UartPuts("PA4 is set.\n");
 

@@ -22,20 +22,38 @@ int main(void) {
         srand(SEED);
     #endif
     uint32_t gpio_outs;
-    int sub_cfg_reg, sub_en, action, bit_num, dout;
+    uint32_t i, sub_cfg_reg, sub_en, action, bit_num, dout;
     GPIO_SUB_CFG_REG_s sub_cfg_val;
+    IOMUX_PA_REG_s iomux_cfg_struct;
     UartStdOutInit();
 
-    GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
+    GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO Base Test\n");
-   
-    gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
-    
-    GPIO_REGS->EVENT_EN0.packed_w = 0xFFFFFFFF;
+  
+    iomux_cfg_struct.output_en        = 1;
+    iomux_cfg_struct.input_en         = 0;
+    iomux_cfg_struct.drive_strength   = 0;
+    iomux_cfg_struct.slew_rate        = 0;
+    iomux_cfg_struct.pull_up          = 0;
+    iomux_cfg_struct.pull_down        = 0;
+    iomux_cfg_struct.hysteresis       = 0;
+    iomux_cfg_struct.sel              = 1;
+    iomux_cfg_struct.input_val        = 0;
 
-    GPIO_REGS->EVENT_EN1.packed_w = 0xFFFFFFFF;
+    for (i=0;i<28;i=i+1)
+    {
+        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        
+    }
+
+    gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
+   
+    GPIO_GENERIC_EVENT_EN(GPIO_REGS, 10);
+    GPIO_GENERIC_EVENT_EN(GPIO_REGS, 24);
+    //GPIO_REGS->EVENT_EN0.packed_w = 0xFFFFFFFF;
+    //GPIO_REGS->EVENT_EN1.packed_w = 0xFFFFFFFF;
     
     //dout = sram_mem_loc->mem[2];
     gpio_dout(GPIO_REGS, dout);

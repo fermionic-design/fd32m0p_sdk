@@ -19,13 +19,15 @@
 
 int main(void) {
 
-    int iomux_val;
-    int iomux_val_rd;
-    int failed = 0;
-    int i;
-    UartStdOutInit();
+    uint32_t iomux_val;
+    uint32_t iomux_val_rd;
+    uint32_t failed = 0;
+    uint32_t i;
 
-    GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
+    UartStdOutInit();
+    IOMUX_PA_REG_s iomux_cfg_struct;
+
+    GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO Base Test\n");
@@ -36,12 +38,22 @@ int main(void) {
     gpio_dout(GPIO_REGS, 0xAAAAAAAA);
     UartPuts("AAAA_AAAA written on GPIO.\n");
 
-        
-    for (i=0;i<29;i=i+1)
+    iomux_cfg_struct.output_en        = 1;
+    iomux_cfg_struct.input_en         = 0;
+    iomux_cfg_struct.drive_strength   = 0;
+    iomux_cfg_struct.slew_rate        = 0;
+    iomux_cfg_struct.pull_up          = 0;
+    iomux_cfg_struct.pull_down        = 0;
+    iomux_cfg_struct.hysteresis       = 0;
+    iomux_cfg_struct.sel              = 1;
+    iomux_cfg_struct.input_val        = 0;
+
+    for (i=0;i<28;i=i+1)
     {
-        IOMUX_PA_N_WRITE(IOMUX_REGS, i, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        
     }
-    
+        
     UartPuts("All Pins are set for output. \n");
 
     gpio_set(GPIO_REGS, 0xFFFFFFFF);

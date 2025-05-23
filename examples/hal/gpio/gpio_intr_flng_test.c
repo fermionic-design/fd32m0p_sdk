@@ -20,11 +20,11 @@
 
 
 int main(void) {
-    int intr_val;
-    int intr_val_regs;
-    int failed = 0;
+    uint32_t intr_val;
+    uint32_t intr_val_regs;
+    uint32_t failed = 0;
+    uint32_t i;
     UartStdOutInit();
-    int i;
     IOMUX_PA_REG_s iomux_cfg_struct;
 
     iomux_cfg_struct.output_en        = 0;
@@ -37,12 +37,10 @@ int main(void) {
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 1;
     
-    for (i=0;i<29;i=i+1)
-    {
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
-    }
-    
-    GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
+
+    GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO INTR FLNG TEST\n");
@@ -50,10 +48,13 @@ int main(void) {
     gpio_dout_en(GPIO_REGS, 0x00000000);
     UartPuts("Output is disabled on GPIO.\n");
 
-    GPIO_REGS->INTR_EN0.packed_w = 0x00100010;
+    GPIO_INTR_EVENT_EN(GPIO_REGS, 4);
+    GPIO_INTR_EVENT_EN(GPIO_REGS, 24);
+        
+    //GPIO_REGS->INTR_EN0.packed_w = 0x00100010;
     UartPuts("Enabled INTR 0. \n");
 
-    GPIO_REGS->INTR_EN1.packed_w = 0x01000100;
+    //GPIO_REGS->INTR_EN1.packed_w = 0x01000100;
     UartPuts("Enabled INTR 1. \n");
 
     //for(i=4;i<5;i=i+1)

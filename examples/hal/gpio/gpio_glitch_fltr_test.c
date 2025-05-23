@@ -20,32 +20,32 @@
 
 int main(void) {
     uint32_t gpio_outs; 
+    uint32_t val,i;
+
     UartStdOutInit();
-    int val,i;
-    GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
+    IOMUX_PA_REG_s iomux_cfg_struct;
+
+    GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO Glitch Filter Test\n");
- 
-    for (i=0;i<29;i=i+1)
-    {
-        IOMUX_PA_N_WRITE(IOMUX_REGS, i, 0, 1, 0, 0, 0, 0, 0, 1, 0);
-    } 
 
-    GPIO_REGS->INTR_EN0.packed_w = 0xFFFFFFFF;
-    UartPuts("Enabled INTR 0. \n");
+    iomux_cfg_struct.output_en        = 0;
+    iomux_cfg_struct.input_en         = 1;
+    iomux_cfg_struct.drive_strength   = 0;
+    iomux_cfg_struct.slew_rate        = 0;
+    iomux_cfg_struct.pull_up          = 0;
+    iomux_cfg_struct.pull_down        = 0;
+    iomux_cfg_struct.hysteresis       = 0;
+    iomux_cfg_struct.sel              = IOMUX_PIN_SEL_PA6_GPIO;
+    iomux_cfg_struct.input_val        = 0;
+  
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 6);
 
-    GPIO_REGS->INTR_EN1.packed_w = 0xFFFFFFFF;
-    UartPuts("Enabled INTR 1. \n");
+    GPIO_INTR_EVENT_EN(GPIO_REGS, 6);
 
     gpio_dout_en(GPIO_REGS, 0x00000000);
-    UartPuts("All Pins are enabled on GPIO.\n");
-
-    GPIO_REGS->EVENT_EN0.packed_w = 0xFFFFFFFF;
-    UartPuts("Events 0 are enabled on GPIO.\n");
-
-    GPIO_REGS->EVENT_EN1.packed_w = 0xFFFFFFFF;
-    UartPuts("Events 1 are enabled on GPIO.\n");
+    UartPuts("All Pins are set for input on GPIO.\n");
 
     gpio_glitch_filter_cfg(GPIO_REGS, 6, GPIO_FILT_EN_WIDTH_4);
     

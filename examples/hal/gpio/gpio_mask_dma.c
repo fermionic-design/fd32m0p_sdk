@@ -38,26 +38,37 @@ int main(void) {
     uint32_t gpio_dout=0;
     uint32_t gpio_data_out=0;
     uint32_t gpio_data=0;
-    int i;
+    uint32_t i;
 
+    IOMUX_PA_REG_s iomux_cfg_struct;
     UartStdOutInit();
     UartPuts("DMA Basic Test\n");
     
-    //IOMUX for GPIO
-    for (i=0;i<29;i=i+1)
+    iomux_cfg_struct.output_en        = 1;
+    iomux_cfg_struct.input_en         = 0;
+    iomux_cfg_struct.drive_strength   = 0;
+    iomux_cfg_struct.slew_rate        = 0;
+    iomux_cfg_struct.pull_up          = 0;
+    iomux_cfg_struct.pull_down        = 0;
+    iomux_cfg_struct.hysteresis       = 0;
+    iomux_cfg_struct.sel              = 1;
+    iomux_cfg_struct.input_val        = 0;
+
+    for (i=0;i<28;i=i+1)
     {
-        IOMUX_PA_N_WRITE(IOMUX_REGS, i, 1, 0, 0, 0, 0, 0, 0, 1, 0);
+        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        
     }
-    //clk enable
+    //clk enable    //to do
     DMA_MCU_REGS->CLK_CTRL.packed_w = 0xBC000001;
     
-    //Soft Reset 
+    //Soft Reset  //to do 
     DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000001;
     DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000000;
     
     //GPIO dma mask enable/disable
     gpio_data_out = 0x0FFFFFFF;
-    GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
+    GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
     
     #ifdef GPIO_DMA_MASK_EN
