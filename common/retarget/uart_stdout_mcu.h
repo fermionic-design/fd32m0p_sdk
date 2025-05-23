@@ -38,5 +38,5 @@ void UartStdOutInit(void);
 void UartEndSimulation(void);
 void UartPass(void);
 void UartFail(void);
-void itoa_mcu(int value, char* str, int base);
+void itoa_mcu(uint32_t value, char* str, int base);
 void print_int_var(char *prefix, int var, bool is_hex);

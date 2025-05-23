@@ -48,7 +48,7 @@ void UartFail(void) {
  * @param base  Numerical base for conversion (16, 10)
  */
 
-void itoa_mcu(int value, char* str, int base) {
+void itoa_mcu(uint32_t value, char* str, int base) {
     // Handle invalid base
     if (base != 10 && base != 16) {
         *str = '\0';
@@ -64,12 +64,6 @@ void itoa_mcu(int value, char* str, int base) {
         *ptr++ = '0';
         *ptr = '\0';
         return;
-    }
-    
-    // Handle negative values for base 10 only
-    if (value < 0 && base == 10) {
-        is_negative = true;
-        value = -value;
     }
     
     // Convert number to string (backwards)
@@ -110,9 +104,13 @@ void print_int_var(char *prefix, int var, bool is_hex) {
 
     if(is_hex) { 
         uart_puts(UART_STDIO, "0x");
-        itoa_mcu(var, c, 16);
+        itoa_mcu((uint32_t) var, c, 16);
     } else {
-        itoa_mcu(var, c, 10); //convert int to char in base 10
+        if(var < 0) {
+            var = -var;
+            uart_puts(UART_STDIO, "-");
+        }
+        itoa_mcu((uint32_t) var, c, 10); //convert int to char in base 10
     }
 
     uart_puts(UART_STDIO, c);
