@@ -48,7 +48,7 @@ void UartFail(void) {
  * @param base  Numerical base for conversion (16, 10)
  */
 
-void itoa(int value, char* str, int base) {
+void itoa_mcu(int value, char* str, int base) {
     // Handle invalid base
     if (base != 10 && base != 16) {
         *str = '\0';
@@ -110,9 +110,9 @@ void print_int_var(char *prefix, int var, bool is_hex) {
 
     if(is_hex) { 
         uart_puts(UART_STDIO, "0x");
-        itoa(var, c, 16);
+        itoa_mcu(var, c, 16);
     } else {
-        itoa(var, c, 10); //convert int to char in base 10
+        itoa_mcu(var, c, 10); //convert int to char in base 10
     }
 
     uart_puts(UART_STDIO, c);
