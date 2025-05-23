@@ -1,12 +1,7 @@
-#include <stdio.h>
-#include <stdint.h> 
-#include <sys/types.h> 
 #include <stdlib.h> 
-#include <string.h>
-
 #include "FD32M0P.h"
 #include "crc.h"
-#include "uart_stdout.h"
+#include "uart_stdout_mcu.h"
 
 //byte swap - 32bit number - changes from little endian to big endian.
 uint32_t swap_bytes_32(uint32_t num)
@@ -172,15 +167,15 @@ typedef struct test_data_s {
     uint16_t hw_data    ; 
     uint32_t w_data     ; 
     uint8_t  byte_data_arr[10] ;  
-    uint16_t hw_data_arr[6]   ; 
-    uint32_t w_data_arr[4]    ; 
+    uint16_t hw_data_arr[8]   ; 
+    uint32_t w_data_arr[8]    ; 
 } test_data_s;
 
 
 int main(void) {
 
     UartStdOutInit();
-    printf("CRC 32 hal test\n");
+    UartPuts("CRC 32 hal test\n");
  
     //Variable to store tb & dut crc values
     uint32_t tb_crc_32 = 0;
@@ -220,7 +215,7 @@ int main(void) {
     }
     
     //Print the tb crc value on GPIO
-    printf("INFO: Setting GPIO0 as Output\n");
+    UartPuts("INFO: Setting GPIO0 as Output\n");
 
     //------------------------------------------------------------------------
     //    PWR EN and RST CTRL programming 
@@ -233,7 +228,7 @@ int main(void) {
 
         //RST_STS -addr: 0x40020008
         if((CRC_REGS->RST_STS.packed_w & CRC_RST_STS_RST_STS_MASK) == 1){
-            printf("RST_STS reg = 1 : deasserting the reset\n");
+            UartPuts("RST_STS reg = 1 : deasserting the reset\n");
             CRC_RST_CTRL_WRITE(CRC_REGS, 0,1,CRC_RST_CTRL_RST_STS_CLR_KEY);   //rst, rst_sts_clr, rst_key
         }
     //________________________________________________________________________
@@ -252,8 +247,8 @@ int main(void) {
     //-------------------------------------------------------------------------------------
     //input type:single WORD, Config:input big endian - seed little endian, seed:0xFFFF, Input_data:0xAABBCCDD 
     //-------------------------------------------------------------------------------------
-        printf("TEST-> input type:single WORD, Config:input big endian - seed little endian\n");
-        printf("TEST-> seed:0xAAFFBBFF, Input_data:0xAABBCCDD\n");
+        UartPuts("TEST-> input type:single WORD, Config:input big endian - seed little endian\n");
+        UartPuts("TEST-> seed:0xAAFFBBFF, Input_data:0xAABBCCDD\n");
 
         //CRC_SEED -addr: 0x40020010
         i_seed = 0xAAFFBBFF;
@@ -266,12 +261,12 @@ int main(void) {
         crc_read_cfg(CRC_REGS,&rd_crc_cfg_struct);
         if(rd_crc_cfg_struct.in_is_big_endian == crc_config_struct.in_is_big_endian)
         {   
-            printf("config matched\n");
+            UartPuts("config matched\n");
             UartPass();
         }
         else
         {
-            printf("config did not match\n");
+            UartPuts("config did not match\n");
             UartFail();
         }
 
@@ -296,13 +291,13 @@ int main(void) {
             
             
         if(dut_crc_32 == tb_crc_32){
-            printf("CRC matched\n");
+            UartPuts("CRC matched\n");
             print_int_var("TB CRC = ",tb_crc_32,1);
             print_int_var("DUT CRC = ", dut_crc_32,1);
         }
         else {
             failed++;
-            printf("CRC NOT matched\n");
+            UartPuts("CRC NOT matched\n");
             print_int_var("TB CRC = ",tb_crc_32,1);
             print_int_var("DUT CRC = ", dut_crc_32,1);
         }
@@ -316,8 +311,8 @@ int main(void) {
     //-------------------------------------------------------------------------------------
     //input type:single WORD, Config:all combinations, seed:random, Input_data:random 
     //-------------------------------------------------------------------------------------
-        printf("TEST-> input type:single WORD, Config:all combinations\n");
-        printf("TEST-> seed:random, Input_data:random\n");
+        UartPuts("TEST-> input type:single WORD, Config:all combinations\n");
+        UartPuts("TEST-> seed:random, Input_data:random\n");
 
         for(config_val = 0; config_val <= 0x1E; config_val = config_val+2){
 
@@ -355,14 +350,14 @@ int main(void) {
 
             if(dut_crc_32 == tb_crc_32)
             {
-                printf("CRC matched\n");
+                UartPuts("CRC matched\n");
                 print_int_var("TB CRC = ",tb_crc_32,1);
                 print_int_var("DUT CRC = ", dut_crc_32,1);
             }
             else 
             {
                 failed++;
-                printf("CRC NOT matched\n");
+                UartPuts("CRC NOT matched\n");
                 print_int_var("TB CRC = ",tb_crc_32,1);
                 print_int_var("DUT CRC = ", dut_crc_32,1);
             }
@@ -377,12 +372,11 @@ int main(void) {
     //-------------------------------------------------------------------------------------
     //input type:Multiple WORD, Config:all combinations, seed:random, Input_data:random 
     //-------------------------------------------------------------------------------------
-        printf("TEST-> input type:Multiple WORD, Config:all combinations\n");
-        printf("TEST-> seed:random, Input_data:random\n");
+        UartPuts("TEST-> input type:Multiple WORD, Config:all combinations\n");
+        UartPuts("TEST-> seed:random, Input_data:random\n");
         
         for(config_val = 0; config_val <= 0x1E; config_val = config_val+2){
 
-            random_i_num = rand(); 
             config_val = config_val & 0x0000001E;
             i_bit_rev  = config_val & 0x00000002;
             o_bit_rev  = config_val & 0x00000004;
@@ -411,7 +405,7 @@ int main(void) {
             }
     
             //CRC_INPUT -addr: 0x40020014
-            dut_crc_32=crc_compute_32bit_block(CRC_REGS, length, &td_s1.w_data_arr, i_seed);
+            dut_crc_32=crc_compute_32bit_block(CRC_REGS, length, td_s1.w_data_arr, i_seed);
 
             print_int_var("DUT CRC = ",dut_crc_32,1);
 
@@ -419,10 +413,10 @@ int main(void) {
             print_int_var("TB CRC = ",tb_crc_32,1);
 
             if(dut_crc_32 == tb_crc_32)
-                printf("CRC matched\n");
+                UartPuts("CRC matched\n");
             else {
                 failed++;
-                printf("CRC NOT matched\n");
+                UartPuts("CRC NOT matched\n");
             }
 
             pass = 0;
@@ -436,12 +430,11 @@ int main(void) {
     //-------------------------------------------------------------------------------------
     //input type:Multiple HALF WORD, Config:all combinations, seed:random, Input_data:random 
     //-------------------------------------------------------------------------------------
-        printf("TEST-> input type:Multiple HALF WORD, Config:all combinations\n");
-        printf("TEST-> seed:random, Input_data:random\n");
+        UartPuts("TEST-> input type:Multiple HALF WORD, Config:all combinations\n");
+        UartPuts("TEST-> seed:random, Input_data:random\n");
         
         for(config_val = 0; config_val <= 0x1E; config_val = config_val+2){
 
-            random_i_num = rand(); 
             config_val = config_val & 0x0000001E;
             i_bit_rev  = config_val & 0x00000002;
             o_bit_rev  = config_val & 0x00000004;
@@ -468,7 +461,7 @@ int main(void) {
             for(int i=0; i<length; i++){
                 td_s1.hw_data_arr[i] = rand(); 
             }
-            dut_crc_32=crc_compute_16bit_block(CRC_REGS, length, &td_s1.hw_data_arr, i_seed);
+            dut_crc_32=crc_compute_16bit_block(CRC_REGS, length, td_s1.hw_data_arr, i_seed);
 
             //CRC_INPUT -addr: 0x40020014
             
@@ -477,10 +470,10 @@ int main(void) {
             print_int_var("TB CRC = ",tb_crc_32,1);
 
             if(dut_crc_32 == tb_crc_32)
-                printf("CRC matched\n");
+                UartPuts("CRC matched\n");
             else {
                 failed++;
-                printf("CRC NOT matched\n");
+                UartPuts("CRC NOT matched\n");
             }
 
             pass = 0;
@@ -493,12 +486,11 @@ int main(void) {
     //-------------------------------------------------------------------------------------
     //input type:Multiple BYTE, Config:all combinations, seed:random, Input_data:random 
     //-------------------------------------------------------------------------------------
-        printf("TEST-> input type:Multiple BYTE, Config:all combinations\n");
-        printf("TEST-> seed:random, Input_data:random\n");
+        UartPuts("TEST-> input type:Multiple BYTE, Config:all combinations\n");
+        UartPuts("TEST-> seed:random, Input_data:random\n");
         
         for(config_val = 0; config_val <= 0x1E; config_val = config_val+2){
 
-            random_i_num = rand(); 
             config_val = config_val & 0x0000001E;
             i_bit_rev  = config_val & 0x00000002;
             o_bit_rev  = config_val & 0x00000004;
@@ -526,7 +518,7 @@ int main(void) {
                 td_s1.byte_data_arr[i] = rand(); 
             }
             
-            dut_crc_32 = crc_compute_8bit_block(CRC_REGS, length, &td_s1.byte_data_arr, i_seed);
+            dut_crc_32 = crc_compute_8bit_block(CRC_REGS, length, td_s1.byte_data_arr, i_seed);
             //CRC_INPUT -addr: 0x40020014
             
             tb_crc_32 = crc32_byte_features(&td_s1.byte_data_arr[0], length, i_seed, /*seed_rev*/seed_rev, /*input_bit_rev=*/i_bit_rev, /*output_bit_rev=*/o_bit_rev, /*in_is_big_endian=*/in_big_en, /*out_is_big_endian=*/o_big_en); 
@@ -534,10 +526,10 @@ int main(void) {
             print_int_var("TB CRC = ",tb_crc_32,1);
 
             if(dut_crc_32 == tb_crc_32)
-                printf("CRC matched\n");
+                UartPuts("CRC matched\n");
             else {
                 failed++;
-                printf("CRC NOT matched\n");
+                UartPuts("CRC NOT matched\n");
             }
 
             pass = 0;
@@ -552,11 +544,11 @@ int main(void) {
     //Final test RESULT
     //------------------------------------------------------------------------
     if(failed == 0){
-        printf("** TEST PASSED **\n");
+        UartPuts("** TEST PASSED **\n");
         UartPass();
     }
     else{ 
-        printf("** TEST FAILED**\n");
+        UartPuts("** TEST FAILED**\n");
         UartFail();
     }
     UartEndSimulation();

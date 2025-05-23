@@ -26,6 +26,18 @@ void uart_cfg(UART_REGS_s *regs, const uart_cfg_s *cfg)
     uart_baud_cfg(regs, cfg->baud_rate, (cfg->clk_freq)*1000, cfg->oversampling);
 }
 
+//uart power and rst initializations
+void uart_init(UART_REGS_s *regs)
+{
+    UART_PWR_EN_WRITE(regs, 1, UART_PWR_EN_PWR_EN_KEY);
+    UART_RST_CTRL_WRITE(regs, 1, 0, UART_RST_CTRL_RST_KEY);    
+    if((regs->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
+    {
+      UART_RST_CTRL_WRITE(regs, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY);
+    }
+    UART_CLKCFG_WRITE(regs, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
+}
+
 //baud rate
 void uart_baud_cfg(UART_REGS_s *regs, uint32_t baud_rate, uint32_t clk_freq, uint32_t oversampling)
 {
@@ -87,7 +99,9 @@ void uart_clk_dis(UART_REGS_s *regs)
 //uart enable
 void uart_en(UART_REGS_s *regs)
 {
+    uart_clk_en(regs);
     regs->CTRL.uart_en = 1;
+
 }
 
 //uart_disable
@@ -167,7 +181,6 @@ void uart_txfifo_fill_blocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_
 void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr)
 {
     unsigned char curr_char;
-    //while((regs->FIFOSTS.tx_fifo_full_sts) == 1);
     do
     {
         curr_char = *data_char_arr;
@@ -179,13 +192,6 @@ void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr)
         *data_char_arr++;
     } while(curr_char != 0);
     return;
-}
-
-//put character
-inline uint8_t uart_putc(UART_REGS_s *regs, const unsigned char data_char)
-{
-    regs->TXDATA->uart_data = data_char;
-    return(data_char);
 }
 
 //rxfifo drain non blocking
@@ -246,14 +252,9 @@ void uart_rxfifo_drain_blocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num
     }
        
 }
-//get character
-inline uint8_t uart_getc(UART_REGS_s *regs)
-{
-    return(regs->RXDATA->uart_result);
-}
 
 //read uart cfg
-void uart_rd_cfg(UART_REGS_s *regs, uart_cfg_s *rd_cfg)
+void uart_read_cfg(UART_REGS_s *regs, uart_cfg_s *rd_cfg)
 {
     rd_cfg->clk_sel = regs->CLK_SEL.clk_sel;
     rd_cfg->clk_div = regs->CLK_DIV.clk_div;

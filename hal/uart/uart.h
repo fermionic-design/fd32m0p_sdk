@@ -1,5 +1,6 @@
 #ifndef uart_h_include
 #define uart_h_include
+
 #include "UART_REGS.h"
 #include "UART_RW_API.h"
 #include <stdbool.h>
@@ -56,8 +57,11 @@ typedef struct
     .rx_fifo_lvl_sel = UART_FIFOLS_RX_FIFO_LS_ALMOST_EMPTY, \
     .fifo_en = 1 \
 }
-
 /*function definitions*/
+
+//uart initialization
+void uart_init(UART_REGS_s *regs);
+
 //uart configurations
 void uart_cfg(UART_REGS_s *regs, const uart_cfg_s *cfg);
 
@@ -92,7 +96,11 @@ void uart_txfifo_fill_blocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_
 void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr);
 
 //uart put character
-extern inline uint8_t uart_putc(UART_REGS_s *regs, const unsigned char data_char);
+static inline uint8_t uart_putc(UART_REGS_s *regs, const unsigned char data_char)
+{
+    regs->TXDATA->uart_data = data_char;
+    return(data_char);
+}
 
 //uart rx fifo drain non blocking
 uint32_t uart_rxfifo_drain_nonblocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num_bytes);
@@ -104,7 +112,10 @@ bool uart_rxfifo_drain_static_nonblocking(UART_REGS_s *regs, uint8_t *buffer, ui
 void uart_rxfifo_drain_blocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num_bytes);
 
 //uart rx fifo get character
-extern inline uint8_t uart_getc(UART_REGS_s *regs);
+static inline uint8_t uart_getc(UART_REGS_s *regs)
+{
+    return(regs->RXDATA->uart_result);
+}    
 
 //read uart cfg
 void uart_read_cfg(UART_REGS_s *regs, uart_cfg_s *rd_cfg);

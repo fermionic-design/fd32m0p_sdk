@@ -1,10 +1,8 @@
-#include <stdio.h>
-
 #include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
 #include "uart.h"
 
-#include "GPIO_CAPI.h"
+#include "gpio.h"
 
 #define sram_mem_s    ((uart_sram_memory_t *)   0x200000F0)
 
@@ -41,14 +39,15 @@ int main(void) {
 
 //******************************UART0******************************************
 
-   //power enable and reset for uart0, block async req 
-    UART_PWR_EN_WRITE(UART0_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART_RST_CTRL_WRITE(UART0_REGS, 1, 0, UART_RST_CTRL_RST_KEY);
-    if((UART0_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
-    {
-      UART_RST_CTRL_WRITE(UART0_REGS, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY); //TODO: put key define
-    }
-    UART_CLKCFG_WRITE(UART0_REGS, 1,UART_CLKCFG_BLCK_ASYNC_KEY);
+   //power enable and reset for uart0, block async req
+    uart_init(UART0_REGS);   
+   // UART_PWR_EN_WRITE(UART0_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
+   // UART_RST_CTRL_WRITE(UART0_REGS, 1, 0, UART_RST_CTRL_RST_KEY);
+   // if((UART0_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
+   // {
+   //   UART_RST_CTRL_WRITE(UART0_REGS, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY); //TODO: put key define
+   // }
+   // UART_CLKCFG_WRITE(UART0_REGS, 1,UART_CLKCFG_BLCK_ASYNC_KEY);
 
    //configuring uart0 for printing
     uart0_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
@@ -62,20 +61,21 @@ int main(void) {
     uart_cfg(UART0_REGS, &uart0_cfg_struct);
 
     uart_en(UART0_REGS);
-    uart_clk_en(UART0_REGS);
+    //uart_clk_en(UART0_REGS);
 
     uart_puts(UART0_REGS, "UART_HAL_TEST, configured UART 0\n");
 
 //********************************UART1*****************************************
 
     //power enable and reset ctrl for uart1, block async request
-    UART_PWR_EN_WRITE(UART1_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART_RST_CTRL_WRITE(UART1_REGS, 1, 0, UART_RST_CTRL_RST_KEY);    
-    if((UART1_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
-    {
-      UART_RST_CTRL_WRITE(UART1_REGS, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY);
-    }
-    UART_CLKCFG_WRITE(UART1_REGS, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
+    uart_init(UART1_REGS);   
+    //UART_PWR_EN_WRITE(UART1_REGS, 1, UART_PWR_EN_PWR_EN_KEY);
+    //UART_RST_CTRL_WRITE(UART1_REGS, 1, 0, UART_RST_CTRL_RST_KEY);    
+    //if((UART1_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
+    //{
+    //  UART_RST_CTRL_WRITE(UART1_REGS, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY);
+    //}
+    //UART_CLKCFG_WRITE(UART1_REGS, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
 
     //configuring uart1
     uart1_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
@@ -93,7 +93,7 @@ int main(void) {
     uart_cfg(UART1_REGS, &uart1_cfg_struct);
 
     //clk en
-    uart_clk_en(UART1_REGS);
+    //uart_clk_en(UART1_REGS);
  
     //*************iomux cfg*******************************
     //tx port
@@ -101,28 +101,28 @@ int main(void) {
     iomux_cfg_struct_tx.input_en         = 0;
     iomux_cfg_struct_tx.sel              = 2;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_tx, 10+1);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_tx, 10);
 
     //rx port
     iomux_cfg_struct_rx.output_en        = 0;
     iomux_cfg_struct_rx.input_en         = 1;
     iomux_cfg_struct_rx.sel              = 2;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rx, 11+1);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rx, 11);
     
     //cts port
     iomux_cfg_struct_cts.output_en        = 0;
     iomux_cfg_struct_cts.input_en         = 1;
     iomux_cfg_struct_cts.sel              = 2;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_cts, 14+1);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_cts, 14);
 
     //rts port
     iomux_cfg_struct_rts.output_en        = 1;
     iomux_cfg_struct_rts.input_en         = 0;
     iomux_cfg_struct_rts.sel              = 2;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rts, 15+1);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rts, 15);
 
     //*******************iomux cfg end********************
 
@@ -136,7 +136,7 @@ int main(void) {
     uart_fifo_cfg(UART1_REGS, &uart1_fifo_cfg_struct);
 
     //******************read cfg regs*****************************
-    uart_rd_cfg(UART1_REGS, &rd_uart_cfg_struct);
+    uart_read_cfg(UART1_REGS, &rd_uart_cfg_struct);
     if(rd_uart_cfg_struct.clk_sel == uart1_cfg_struct.clk_sel)
     {
         uart_puts(UART0_REGS, "cfg matched\n");
@@ -163,7 +163,7 @@ int main(void) {
     }
     #ifdef uart_txfill_blocking
         UART_INTR_EVENT_EN(UART1_REGS, UART_INTR_EVENT_RX_INT_IDX);        
-        uart_txfifo_fill_blocking(UART1_REGS, &mem_8, DATA_LEN);
+        uart_txfifo_fill_blocking(UART1_REGS, mem_8, DATA_LEN);
     #endif
 
     #ifndef tx_blocking
@@ -203,11 +203,11 @@ void UART1_IRQ_Handler(void)
     #ifdef UART_HAL_TX_STATIC
         if(intr_sts == UART_INTR_EVENT_TX_INT_IDX)
         {
-            txn_done = uart_txfifo_fill_static_nonblocking(UART1_REGS, &mem_8, DATA_LEN, rst_int_ctr);
+            txn_done = uart_txfifo_fill_static_nonblocking(UART1_REGS, mem_8, DATA_LEN, rst_int_ctr);
         }
         else if(intr_sts == UART_INTR_EVENT_RX_INT_IDX)
         {
-            txn_done_rx = uart_rxfifo_drain_static_nonblocking(UART1_REGS, &data_rx_arr, DATA_LEN, rst_int_ctr_rx);
+            txn_done_rx = uart_rxfifo_drain_static_nonblocking(UART1_REGS, data_rx_arr, DATA_LEN, rst_int_ctr_rx);
         }
 
         if(txn_done == 1)

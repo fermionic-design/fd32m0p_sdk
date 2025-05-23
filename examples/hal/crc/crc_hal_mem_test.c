@@ -1,13 +1,7 @@
-#include <stdio.h>
-#include <stdint.h> 
-#include <sys/types.h> 
 #include <stdlib.h> 
-#include <stdio.h> 
-#include <string.h>
 #include "FD32M0P.h"
-
 #include "crc.h"
-#include "uart_stdout.h"
+#include "uart_stdout_mcu.h"
 
 //byte swap - 32bit number - changes from little endian to big endian.
 uint32_t swap_bytes_32(uint32_t num)
@@ -50,14 +44,14 @@ uint16_t crc16_byte(uint8_t* pData, int length, uint16_t i_seed)
     uint8_t i;
     uint16_t  Crc_16 = i_seed;   //Seed value
 
-    printf("CRC 16 entering while\n");
+    UartPuts("CRC 16 entering while\n");
     while (length--) { 
         Crc_16 ^= *(uint8_t *)pData++ << 8; 
         for (i=0; i < 8; i++) {
              Crc_16 =  Crc_16 & 0x8000 ? ( Crc_16 << 1) ^ 0x1021 :  Crc_16 << 1; 
         }
     }
-    printf("CRC 16 exit while\n");
+    UartPuts("CRC 16 exit while\n");
     return  Crc_16 & 0xffff;        //return least 16 bits 
 }
 
@@ -66,14 +60,14 @@ uint16_t crc16_hw(uint16_t* pData, int length, uint16_t i_seed)
     uint16_t i;
     uint16_t  Crc_16 = i_seed;   //Seed value
 
-    printf("CRC 16 entering while\n");
+    UartPuts("CRC 16 entering while\n");
     while (length--) { 
         Crc_16 ^= *(uint16_t *)pData++ ;  
         for (i=0; i < 16; i++) {
              Crc_16 =  Crc_16 & 0x8000 ? ( Crc_16 << 1) ^ 0x1021 :  Crc_16 << 1; 
         }
     }
-    printf("CRC 16 exit while\n");
+    UartPuts("CRC 16 exit while\n");
     return  Crc_16 & 0xffff;        //return least 16 bits 
 }
 
@@ -107,17 +101,17 @@ uint16_t crc16_w(uint32_t* pData, int length, uint16_t i_seed)
     uint8_t i;
     uint32_t  Crc_32 = i_seed;   //Seed value
 
-    printf("CRC 32 entering while\n");
+    UartPuts("CRC 32 entering while\n");
     while (length--) { 
-        //printf("CRC 32 entered while\n");
+        //UartPuts("CRC 32 entered while\n");
         Crc_32 ^= *(uint8_t *)pData++ << 24; 
-        //printf("CRC 32 xor done\n");
+        //UartPuts("CRC 32 xor done\n");
         for (i=0; i < 8; i++) {
-             //printf("CRC 32 enter for\n");
+             //UartPuts("CRC 32 enter for\n");
              Crc_32 =  Crc_32 & 0x80000000 ? ( Crc_32 << 1) ^ 0x04C11DB7 :  Crc_32 << 1; 
         }
     }
-    printf("CRC 32 exit while\n");
+    UartPuts("CRC 32 exit while\n");
     return  Crc_32 & 0xffffffff;   //return least 32 bits 
 }
 
@@ -127,19 +121,19 @@ uint16_t crc16_w(uint32_t* pData, int length, uint16_t i_seed)
     uint32_t  Crc_32 = i_seed;   //Seed value
     uint16_t data_in_tmp;
 
-    printf("CRC 32 entering while\n");
+    UartPuts("CRC 32 entering while\n");
     while (length--) { 
-        //printf("CRC 32 entered while\n");
+        //UartPuts("CRC 32 entered while\n");
         data_in_tmp = *(uint16_t *)pData++ ;
         data_in_tmp = swap_bytes_16(data_in_tmp);
         Crc_32 ^= data_in_tmp << 16; 
-        //printf("CRC 32 xor done\n");
+        //UartPuts("CRC 32 xor done\n");
         for (i=0; i < 16; i++) {
-             //printf("CRC 32 enter for\n");
+             //UartPuts("CRC 32 enter for\n");
              Crc_32 =  Crc_32 & 0x80000000 ? ( Crc_32 << 1) ^ 0x04C11DB7 :  Crc_32 << 1; 
         }
     }
-    printf("CRC 32 exit while\n");
+    UartPuts("CRC 32 exit while\n");
     return  Crc_32 & 0xffffffff;   //return least 32 bits 
 }
 
@@ -149,7 +143,7 @@ uint16_t crc16_w(uint32_t* pData, int length, uint16_t i_seed)
     uint32_t  Crc_32 = i_seed;   //Seed value
     uint32_t data_in_tmp;
 
-    printf("CRC 32 entering while\n");
+    UartPuts("CRC 32 entering while\n");
     while (length--) { 
         data_in_tmp = *(uint32_t *)pData++;
         data_in_tmp = swap_bytes_32(data_in_tmp);
@@ -158,7 +152,7 @@ uint16_t crc16_w(uint32_t* pData, int length, uint16_t i_seed)
              Crc_32 =  Crc_32 & 0x80000000 ? ( Crc_32 << 1) ^ 0x04C11DB7 :  Crc_32 << 1; 
         }
     }
-    printf("CRC 32 exit while\n");
+    UartPuts("CRC 32 exit while\n");
     return  Crc_32 & 0xffffffff;   //return least 32 bits 
 }
 
@@ -181,7 +175,7 @@ typedef struct test_data_s {
 int main(void) {
 
     UartStdOutInit();
-    printf("CRC mem test\n");
+    UartPuts("CRC mem test\n");
  
     //Variable to store tb & dut crc values
     uint32_t tb_crc_32 = 0;
@@ -231,7 +225,7 @@ int main(void) {
 
         //CRC_SEED -addr: 0x40020010
     //Print the tb crc value on GPIO
-    printf("INFO: Setting GPIO0 as Output\n");
+    UartPuts("INFO: Setting GPIO0 as Output\n");
 
     //------------------------------------------------------------------------
     //    PWR EN and RST CTRL programming 
@@ -244,7 +238,7 @@ int main(void) {
 
         //RST_STS -addr: 0x40020008
         if((CRC_REGS->RST_STS.packed_w & CRC_RST_STS_RST_STS_MASK) == 1){
-            printf("RST_STS reg = 1 : deasserting the reset\n");
+            UartPuts("RST_STS reg = 1 : deasserting the reset\n");
             CRC_RST_CTRL_WRITE(CRC_REGS, 0,1,CRC_RST_CTRL_RST_STS_CLR_KEY);   //rst, rst_sts_clr, rst_key
         }
     //________________________________________________________________________
@@ -266,11 +260,11 @@ int main(void) {
 
         //Write data to CRC_INPUT using memcpy()
         #ifdef crc_wrd_mem
-            dut_crc_32 = crc_compute_32bit_mem_range(CRC_REGS, length, i_seed, &mem_array_w);
+            dut_crc_32 = crc_compute_32bit_mem_range(CRC_REGS, length, i_seed, mem_array_w);
         #elif crc_hwrd_mem
-            dut_crc_32 = crc_compute_16bit_mem_range(CRC_REGS, length, i_seed, &mem_array_hw);
+            dut_crc_32 = crc_compute_16bit_mem_range(CRC_REGS, length, i_seed, mem_array_hw);
         #else
-            dut_crc_32 = crc_compute_8bit_mem_range(CRC_REGS, length, i_seed, &mem_array);
+            dut_crc_32 = crc_compute_8bit_mem_range(CRC_REGS, length, i_seed, mem_array);
         #endif
         
         print_int_var("DUT CRC = ",dut_crc_32,1);
@@ -288,7 +282,7 @@ int main(void) {
         gpio_print(tb_crc_32);
 
         if(dut_crc_32 == tb_crc_32)
-            printf("CRC 32 matched\n");
+            UartPuts("CRC 32 matched\n");
         else
             failed++;
 
@@ -311,7 +305,7 @@ int main(void) {
         //CRC_SEED -addr: 0x40020010
         i_seed_16 = rand();
 
-        dut_crc_16 = crc_compute_8bit_mem_range(CRC_REGS, length, i_seed_16, &mem_array);
+        dut_crc_16 = crc_compute_8bit_mem_range(CRC_REGS, length, i_seed_16, mem_array);
         
         print_int_var("DUT CRC = ",dut_crc_16,1);
 
@@ -323,7 +317,7 @@ int main(void) {
         gpio_print(tb_crc_16);
 
         if(dut_crc_16 == tb_crc_16)
-            printf("CRC 16 matched\n");
+            UartPuts("CRC 16 matched\n");
         else
             failed++;
 
@@ -336,11 +330,11 @@ int main(void) {
     //Final test RESULT
     //------------------------------------------------------------------------
     if(failed == 0){
-        printf("** TEST PASSED **\n");
+        UartPuts("** TEST PASSED **\n");
         UartPass();
     }
     else{ 
-        printf("** TEST FAILED**\n");
+        UartPuts("** TEST FAILED**\n");
         UartFail();
     }
     UartEndSimulation();

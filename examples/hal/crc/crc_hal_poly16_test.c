@@ -1,13 +1,7 @@
-#include <stdio.h>
-#include <stdint.h> 
-#include <sys/types.h> 
 #include <stdlib.h> 
-#include <stdio.h> 
-#include <string.h>
 #include "FD32M0P.h"
 #include "crc.h"
-
-#include "uart_stdout.h"
+#include "uart_stdout_mcu.h"
 
 //byte swap - 32bit number - changes from little endian to big endian.
 #if CRC_CHECK <= 2  
@@ -181,15 +175,15 @@ typedef struct test_data_s {
     uint16_t hw_data    ; 
     uint32_t w_data     ; 
     uint8_t  byte_data_arr[10] ;  
-    uint16_t hw_data_arr[6]   ; 
-    uint32_t w_data_arr[4]    ; 
+    uint16_t hw_data_arr[8]   ; 
+    uint32_t w_data_arr[8]    ; 
 } test_data_s;
 
 
 int main(void) {
 
     UartStdOutInit();
-    printf("CRC 16 hal test\n");
+    UartPuts("CRC 16 hal test\n");
  
     //Variable to store tb & dut crc values
     uint16_t tb_crc_16 = 0;
@@ -229,7 +223,7 @@ int main(void) {
     }
     
     //Print the tb crc value on GPIO
-    printf("INFO: Setting GPIO0 as Output\n");
+    UartPuts("INFO: Setting GPIO0 as Output\n");
 
     //------------------------------------------------------------------------
     //    PWR EN and RST CTRL programming 
@@ -242,7 +236,7 @@ int main(void) {
 
         //RST_STS -addr: 0x40020008
         if((CRC_REGS->RST_STS.packed_w & CRC_RST_STS_RST_STS_MASK) == 1){
-            printf("RST_STS reg = 1 : deasserting the reset\n");
+            UartPuts("RST_STS reg = 1 : deasserting the reset\n");
             CRC_RST_CTRL_WRITE(CRC_REGS, 0,1,CRC_RST_CTRL_RST_STS_CLR_KEY);   //rst, rst_sts_clr, rst_key
         }
     //________________________________________________________________________
@@ -279,13 +273,13 @@ int main(void) {
         tb_crc_16 = crc16_w_features(&td_s1.w_data, 1, i_seed, /*seed_rev*/0, /*input_bit_rev=*/0, /*output_bit_rev=*/0, /*in_is_big_endian=*/1, /*out_is_big_endian=*/0); 
 
         if(dut_crc_16 == tb_crc_16){
-            printf("CRC matched\n");
+            UartPuts("CRC matched\n");
             print_int_var("TB CRC = ",tb_crc_16,1);
             print_int_var("DUT CRC = ", dut_crc_16,1);
         }
         else {
             failed++;
-            printf("CRC NOT matched\n");
+            UartPuts("CRC NOT matched\n");
             print_int_var("TB CRC = ",tb_crc_16,1);
             print_int_var("DUT CRC = ", dut_crc_16,1);
         }
@@ -337,10 +331,10 @@ int main(void) {
             tb_crc_16 = crc16_w_features(&random_i_num, 1, i_seed, /*seed_rev*/seed_rev, /*input_bit_rev=*/i_bit_rev, /*output_bit_rev=*/o_bit_rev, /*in_is_big_endian=*/in_big_en, /*out_is_big_endian=*/o_big_en); 
 
             if(dut_crc_16 == tb_crc_16)
-                printf("CRC matched\n");
+                UartPuts("CRC matched\n");
             else {
                 failed++;
-                printf("CRC NOT matched\n");
+                UartPuts("CRC NOT matched\n");
             }
 
             dut_crc_16 = 0;
@@ -384,17 +378,17 @@ int main(void) {
             }
     
             //CRC_INPUT -addr: 0x40020014
-            dut_crc_16=crc_compute_32bit_block(CRC_REGS, length, &td_s1.w_data_arr, i_seed);
+            dut_crc_16=crc_compute_32bit_block(CRC_REGS, length, td_s1.w_data_arr, i_seed);
 
             print_int_var("DUT CRC = ",dut_crc_16,1);
 
             tb_crc_16 = crc16_w_features(&td_s1.w_data_arr[0], length, i_seed, /*seed_rev*/seed_rev, /*input_bit_rev=*/i_bit_rev, /*output_bit_rev=*/o_bit_rev, /*in_is_big_endian=*/in_big_en, /*out_is_big_endian=*/o_big_en); 
 
             if(dut_crc_16 == tb_crc_16)
-                printf("CRC matched\n");
+                UartPuts("CRC matched\n");
             else {
                 failed++;
-                printf("CRC NOT matched\n");
+                UartPuts("CRC NOT matched\n");
             }
 
             pass = 0;
@@ -438,7 +432,7 @@ int main(void) {
             for(int i=0; i<length; i++){
                 td_s1.hw_data_arr[i] = rand(); 
             }
-            dut_crc_16=crc_compute_16bit_block(CRC_REGS, length, &td_s1.hw_data_arr, i_seed);
+            dut_crc_16=crc_compute_16bit_block(CRC_REGS, length, td_s1.hw_data_arr, i_seed);
             //CRC_INPUT -addr: 0x40020014
             
             tb_crc_16 = crc16_hw_features(&td_s1.hw_data_arr[0], length, i_seed, /*seed_rev*/seed_rev, /*input_bit_rev=*/i_bit_rev, /*output_bit_rev=*/o_bit_rev, /*in_is_big_endian=*/in_big_en, /*out_is_big_endian=*/o_big_en); 
@@ -446,10 +440,10 @@ int main(void) {
             print_int_var("TB CRC = ",tb_crc_16,1);
 
             if(dut_crc_16 == tb_crc_16)
-                printf("CRC matched\n");
+                UartPuts("CRC matched\n");
             else {
                 failed++;
-                printf("CRC NOT matched\n");
+                UartPuts("CRC NOT matched\n");
             }
 
             pass = 0;
@@ -491,7 +485,7 @@ int main(void) {
             for(int i=0; i<length; i++){
                 td_s1.byte_data_arr[i] = rand(); 
             }
-            dut_crc_16 = crc_compute_8bit_block(CRC_REGS, length, &td_s1.byte_data_arr, i_seed);
+            dut_crc_16 = crc_compute_8bit_block(CRC_REGS, length, td_s1.byte_data_arr, i_seed);
 
             //CRC_INPUT -addr: 0x40020014
             
@@ -500,10 +494,10 @@ int main(void) {
             print_int_var("TB CRC = ",tb_crc_16,1);
 
             if(dut_crc_16 == tb_crc_16)
-                printf("CRC matched\n");
+                UartPuts("CRC matched\n");
             else {
                 failed++;
-                printf("CRC NOT matched\n");
+                UartPuts("CRC NOT matched\n");
             }
 
             pass = 0;
@@ -517,11 +511,11 @@ int main(void) {
     //Final test RESULT
     //------------------------------------------------------------------------
     if(failed == 0){
-        printf("** TEST PASSED **\n");
+        UartPuts("** TEST PASSED **\n");
         UartPass();
     }
     else{ 
-        printf("** TEST FAILED**\n");
+        UartPuts("** TEST FAILED**\n");
         UartFail();
     }
     UartEndSimulation();
