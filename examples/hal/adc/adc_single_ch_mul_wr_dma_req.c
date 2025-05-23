@@ -6,57 +6,34 @@
 ////                                                                      ////
 ////    Board Setup:                                                      ////
 ////        ADC CH0 - PA27                                                ////
-////        For other ADC Channels refer to ADC_REGS.h enums.             //// 
+////        For other ADC Channels refer to ADC0_REGS.h enums.             //// 
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
 #include <stdint.h> 
 
-#include "uart_stdout.h"
-
+#include "uart_stdout_mcu.h"
+#include "FD32M0P.h"
 #include "vref.h"
-#include "gpio.h" 
+#include "gpio.h"
 #include "adc.h" 
 #include "../../hal/dma/dma.h"
 
-#include "EVENT_FABRIC_REGS.h"
-#include "EVENT_FABRIC_RW_API.h"
 #include "EVENT_FABRIC_CAPI.h"
-
-#include "UART_REGS.h"
-#include "UART_RW_API.h"
-
-#include "OTP_REGS.h"
-#include "OTP_RW_API.h"
-
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-#define ADC_REGS   ((ADC_REGS_s *) 0x40040000)
-#define VREF_REGS   ((VREF_REGS_s *) 0x3FFD2000)
-#define MCU_CTRL_REGS ((MCU_CTRL_REGS_s *) 0x3FFC0000)
-
-#define OTP_REGS    ((OTP_REGS_s *) 0x3FFC5000)
-#define UART0_REGS  ((UART_REGS_s *)  0x3ffcc000)
-
 
 typedef struct uart_sram_memory {
     uint32_t mem[1024];
 } uart_sram_memory_t;
 
 #define sram_mem_s    ((uart_sram_memory_t *)   0x200000F0)
-#define EVENT_FABRIC_REGS   ((EVENT_FABRIC_REGS_s *)      0x3FFC3000)     // EVENT_FABRIC_REGS Common APB Address Space
-#define DMA_REGS   ((DMA_REGS_s *)      0x3FFC2000)     // DMA Common APB Address Space  
-#define PL230_REGS ((PL230_REGS_s *)    0x3FFC1000)     // PL230 APB Address Space
 
-
-void UartStdOutInit1(UART_REGS_s * UART_REGS)/*{{{*/
+void UartStdOutInit1(UART_REGS_s * UART0_REGS)/*{{{*/
 {
     UART_PWR_EN_WRITE(UART0_REGS, 1, 0x7D);
 
-    UART_REGS->RST_CTRL.packed_w = 0x7D000001;
-    if((UART_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1){
-      UART_RST_CTRL_WRITE(UART_REGS, 0, 1, 0x7D);
+    UART0_REGS->RST_CTRL.packed_w = 0x7D000001;
+    if((UART0_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1){
+      UART_RST_CTRL_WRITE(UART0_REGS, 0, 1, 0x7D);
         }
     return;
 }/*}}}*/
@@ -89,17 +66,17 @@ int main(void) {
     analog_adc_channel  = ADC_CHNL_0;
     dma_src_addr        = 0x40040094 + (start_addr*4);
 
-    printf("ADC DMA Test\n");
+    UartPuts("ADC DMA Test\n");
  // Enabling clk for the dma
     //clk enable
     OTP_REGS->OTP[1].packed_w = 0x000000FF;
-    DMA_REGS->CLK_CTRL.packed_w = 0xBC000001;
+    DMA_MCU_REGS->CLK_CTRL.packed_w = 0xBC000001;
     
     //Soft Reset 
-    DMA_REGS->RST_CTRL.packed_w = 0xBC000001;
-    DMA_REGS->RST_CTRL.packed_w = 0xBC000000;
+    DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000001;
+    DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000000;
 
-    printf("Enabling VREF\n");
+    UartPuts("Enabling VREF\n");
     VREF_REGS->PWR_EN.packed_w = 0xAB000001;
     
     vref_cfg_struct.enable     = 0;
@@ -109,16 +86,16 @@ int main(void) {
     print_int_var("enable ", vref_cfg_struct.enable,0);
     print_int_var("vref_mode ", vref_cfg_struct.vref_mode,0);
 
-    ADC_REGS->PWR_EN.packed_w = 0xAB000001;
+    ADC0_REGS->PWR_EN.packed_w = 0xAB000001;
 
-    adc_samp_timer_cfg(ADC_REGS, 32000000, 3000000);
+    adc_samp_timer_cfg(ADC0_REGS, 32000000, 3000000);
 
     clk_cfg.clk_en  = 1;
     clk_cfg.clk_div = ADC_CLK_CTRL_CLK_DIV_BY_1;
     clk_cfg.clk_sel = ADC_CLK_SEL_APB;
 
-    adc_clk_cfg(ADC_REGS, clk_cfg);
-    clk_cfg         = get_adc_clk_cfg(ADC_REGS);
+    adc_clk_cfg(ADC0_REGS, clk_cfg);
+    clk_cfg         = get_adc_clk_cfg(ADC0_REGS);
     print_int_var("clk_en : ", clk_cfg.clk_en, 1);  
     print_int_var("clk_div : ",clk_cfg.clk_div, 1); 
     print_int_var("clk_sel : ", clk_cfg.clk_sel, 1);  
@@ -131,9 +108,9 @@ int main(void) {
     single_ch_cfg.dma_transfer_cnt  = 8;
     single_ch_cfg.fifo_en           = 1;
 
-    adc_single_ch_conv_cfg(ADC_REGS, single_ch_cfg);
+    adc_single_ch_conv_cfg(ADC0_REGS, single_ch_cfg);
 
-    single_ch_cfg = get_adc_single_ch_conv_cfg(ADC_REGS);
+    single_ch_cfg = get_adc_single_ch_conv_cfg(ADC0_REGS);
 
     print_int_var("repeat: ", single_ch_cfg.repeat,0);
     print_int_var("start_addr ", single_ch_cfg.start_addr,0);
@@ -148,28 +125,28 @@ int main(void) {
     chnl_cfg.hw_avg_en      = 1;
     chnl_cfg.bcs_en         = 0;
 
-    adc_chnl_cfg(ADC_REGS, chnl_cfg);
+    adc_chnl_cfg(ADC0_REGS, chnl_cfg);
     
     hw_avg_cfg.hw_sample_cnt        = ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_4;
     hw_avg_cfg.hw_avg_sample_div    = ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_2;
 
-    adc_hw_avg_cfg(ADC_REGS, hw_avg_cfg);
-    hw_avg_cfg = get_adc_hw_avg_cfg(ADC_REGS);
+    adc_hw_avg_cfg(ADC0_REGS, hw_avg_cfg);
+    hw_avg_cfg = get_adc_hw_avg_cfg(ADC0_REGS);
     print_int_var("hw_sample_cnt : ", hw_avg_cfg.hw_sample_cnt, 0);     
     print_int_var("hw_avg_sample_div : ", hw_avg_cfg.hw_avg_sample_div, 0);
 
-    dma_cfg = get_adc_dma_cfg(ADC_REGS);
+    dma_cfg = get_adc_dma_cfg(ADC0_REGS);
     print_int_var("dma_en : ", dma_cfg.dma_en, 0);     
     print_int_var("dma_transfer_cnt : ", dma_cfg.dma_transfer_cnt, 0);
 
-    read_fifo_en = get_adc_result_cfg(ADC_REGS);
+    read_fifo_en = get_adc_result_cfg(ADC0_REGS);
     print_int_var("fifo_en ", read_fifo_en, 0);
 
-    adc_en_conv(ADC_REGS, 1);
+    adc_en_conv(ADC0_REGS, 1);
 
-    //ADC_DMA_EN_0_WRITE(ADC_REGS, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    ADC_REGS->DMA_EN_0.packed_w = 0x00410041;
-    //ADC_REGS->DMA_EN_0.dma_done_dma_en = 1;
+    //ADC_DMA_EN_0_WRITE(ADC0_REGS, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    ADC0_REGS->DMA_EN_0.packed_w = 0x00410041;
+    //ADC0_REGS->DMA_EN_0.dma_done_dma_en = 1;
     
     
     iomux_cfg_struct.output_en = 0;
@@ -178,7 +155,7 @@ int main(void) {
     EVENT_FABRIC_DMA_PUB_N_WRITE(EVENT_FABRIC_REGS, 0, 2);
 
     //Initializing DMA
-    dma_init(PL230_REGS, 0x20000C00);
+    dma_init(DMA_PL230_REGS, 0x20000C00);
 
     //DMA Configuration
     dma_channel_cfg_t default_channel_cfg = CHANNEL_TRANSFER_CFG_DEFAULT;
@@ -197,15 +174,15 @@ int main(void) {
     primary_ch->dst_prot_ctrl = 0;         
     primary_ch->transfer_type = 1;
 
-    dma_channel_cfg(DMA_REGS, PL230_REGS, primary_ch, DMA_CHANNEL_0);
-    dma_channel_en_set(PL230_REGS, DMA_CHANNEL_0);
+    dma_channel_cfg(DMA_MCU_REGS, DMA_PL230_REGS, primary_ch, DMA_CHANNEL_0);
+    dma_channel_en_set(DMA_PL230_REGS, DMA_CHANNEL_0);
 
-    printf("** TRIGGERING ** \n");
+    UartPuts("** TRIGGERING ** \n");
 
     sw_trig = 3;
-    adc_sw_trig(ADC_REGS, sw_trig);
+    adc_sw_trig(ADC0_REGS, sw_trig);
 
-    while(ADC_REGS->INTR_STS.intr_first == ADC_INTR_EVENT_DMA_DONE_IDX);
+    while(ADC0_REGS->INTR_STS.intr_first == ADC_INTR_EVENT_DMA_DONE_IDX);
 
     int ii = 0;
     for(int cnt=0;cnt<32;cnt++){ 
