@@ -188,6 +188,7 @@ typedef struct
 #include "GPIO_REGS.h"
 #include "I2C_REGS.h"
 #include "IOMUX_REGS.h"
+#include "IOMUX_PIN_SEL.h"
 #include "MCU_CTRL_REGS.h"
 #include "OPAMP_REGS.h"
 #include "OTP_REGS.h"
