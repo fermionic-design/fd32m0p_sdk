@@ -26,10 +26,16 @@
 #include "FD32M0P.h"
 #include "uart.h"
 
+//define this to set UART1 as STDIO else UART0 by default 
 #ifdef UART1_STDIO
 #define UART_STDIO UART1_REGS
 #else
 #define UART_STDIO UART0_REGS
+#endif
+
+//define this to set a custom baud rate else it will be zero (ie highest baud rate supported by the system)
+#ifndef STDIO_BAUD_RATE 
+#define STDIO_BAUD_RATE 0
 #endif
 
 #define UartPuts(x) uart_puts(UART_STDIO, x)

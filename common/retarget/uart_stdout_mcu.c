@@ -5,8 +5,8 @@ void UartStdOutInit(void) {
     //configuring UART_STDIO for printing
     uart_cfg_s uart_stdio_cfg = { .clk_sel = UART_CLK_SEL_CLK_APB, 
                                   .clk_div = 0, 
-                                  .baud_rate = 0,//Change this to required baud rate 
-                                  .clk_freq = 32000,//Change this to actual clk freq on chip
+                                  .baud_rate = STDIO_BAUD_RATE,//Change this to required baud rate 
+                                  .clk_freq = SystemFrequency/1000,//Change this to actual clk freq on chip define XTAL in system_FD32M0P.c
                                   .oversampling = UART_CTRL_OS_FACTOR_3, //OS Factor 
                                   .word_length = UART_CFG_WRD_LEN_8_BITS, 
                                   .num_stop_bits = UART_CFG_STOP_BIT_ONE, 
