@@ -144,17 +144,17 @@ typedef union FLASH_ECED_STATUS_u {
 } FLASH_ECED_STATUS_u;
 
 typedef struct FLASH_REGS_s{
-    volatile FLASH_DESC_u DESC;
-    volatile FLASH_CLK_CTRL_u CLK_CTRL;
-    volatile FLASH_CTRL_u CTRL;
-    volatile FLASH_STATUS_u STATUS;
-    volatile FLASH_TIME_CTRL_u TIME_CTRL;
-    volatile FLASH_TIME_CTRL_1_u TIME_CTRL_1;
-    volatile FLASH_TIME_CTRL_2_u TIME_CTRL_2;
-    volatile FLASH_TIME_UPTD_u TIME_UPTD;
-    volatile FLASH_HSIZE_CTRL_u HSIZE_CTRL;
-    volatile FLASH_STS_u STS;
-    volatile FLASH_ECED_STATUS_u ECED_STATUS;
+    volatile  FLASH_DESC_u DESC;
+              FLASH_CLK_CTRL_u CLK_CTRL;
+    volatile  FLASH_CTRL_u CTRL;
+    volatile  FLASH_STATUS_u STATUS;
+    volatile  FLASH_TIME_CTRL_u TIME_CTRL;
+    volatile  FLASH_TIME_CTRL_1_u TIME_CTRL_1;
+    volatile  FLASH_TIME_CTRL_2_u TIME_CTRL_2;
+    volatile  FLASH_TIME_UPTD_u TIME_UPTD;
+    volatile  FLASH_HSIZE_CTRL_u HSIZE_CTRL;
+    volatile  FLASH_STS_u STS;
+    volatile  FLASH_ECED_STATUS_u ECED_STATUS;
 } FLASH_REGS_s;
 
 
