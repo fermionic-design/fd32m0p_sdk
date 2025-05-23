@@ -1,7 +1,22 @@
 #include "uart.h"
 
-//TODO:add comments before each function
+/*
+ *  ======== uart_init ========
+ */
+void uart_init(UART_REGS_s *regs)
+{
+    UART_PWR_EN_WRITE(regs, 1, UART_PWR_EN_PWR_EN_KEY);
+    UART_RST_CTRL_WRITE(regs, 1, 0, UART_RST_CTRL_RST_KEY);    
+    if((regs->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
+    {
+      UART_RST_CTRL_WRITE(regs, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY);
+    }
+    UART_CLKCFG_WRITE(regs, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
+}
 
+/*
+ *  ======== uart_cfg ========
+ */
 void uart_cfg(UART_REGS_s *regs, const uart_cfg_s *cfg)
 {
     regs->CLK_SEL.packed_w = (cfg->clk_sel | (UART_CLK_SEL_CLK_SEL_MASK<<16));
@@ -26,19 +41,9 @@ void uart_cfg(UART_REGS_s *regs, const uart_cfg_s *cfg)
     uart_baud_cfg(regs, cfg->baud_rate, (cfg->clk_freq)*1000, cfg->oversampling);
 }
 
-//uart power and rst initializations
-void uart_init(UART_REGS_s *regs)
-{
-    UART_PWR_EN_WRITE(regs, 1, UART_PWR_EN_PWR_EN_KEY);
-    UART_RST_CTRL_WRITE(regs, 1, 0, UART_RST_CTRL_RST_KEY);    
-    if((regs->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1)
-    {
-      UART_RST_CTRL_WRITE(regs, 0, 1, UART_RST_CTRL_RST_STS_CLR_KEY);
-    }
-    UART_CLKCFG_WRITE(regs, 1, UART_CLKCFG_BLCK_ASYNC_KEY);
-}
-
-//baud rate
+/*
+ *  ======== uart_baud_cfg ========
+ */
 void uart_baud_cfg(UART_REGS_s *regs, uint32_t baud_rate, uint32_t clk_freq, uint32_t oversampling)
 {
     int     den_pow;
@@ -84,33 +89,44 @@ void uart_baud_cfg(UART_REGS_s *regs, uint32_t baud_rate, uint32_t clk_freq, uin
     }
 }
 
-//clk enable
+/*
+ *  ======== uart_clk_en ========
+ */
 void uart_clk_en(UART_REGS_s *regs)
 {
     regs->CLK_CTRL.clk_en = 1;
 }
 
-//clk disable
+/*
+ *  ======== uart_clk_dis ========
+ */
 void uart_clk_dis(UART_REGS_s *regs)
 {
     regs->CLK_CTRL.clk_en = 0;
 }
 
-//uart enable
+/*
+ *  ======== uart_en ========
+ */
 void uart_en(UART_REGS_s *regs)
 {
+    //enable UART clk
     uart_clk_en(regs);
     regs->CTRL.uart_en = 1;
 
 }
 
-//uart_disable
+/*
+ *  ======== uart_dis ========
+ */
 void uart_dis(UART_REGS_s *regs)
 {
     regs->CTRL.uart_en = 0;
 }
 
-//fifo cfg
+/*
+ *  ======== uart_fifo_cfg ========
+ */
 void uart_fifo_cfg(UART_REGS_s *regs, const uart_fifo_cfg_s *fifo_cfg)
 {
     regs->FIFOLS.tx_fifo_ls = fifo_cfg->tx_fifo_lvl_sel;
@@ -118,11 +134,12 @@ void uart_fifo_cfg(UART_REGS_s *regs, const uart_fifo_cfg_s *fifo_cfg)
     regs->CTRL.fifo_en = fifo_cfg->fifo_en;
 }
 
-//txfifo fill non blocking
+/*
+ *  ======== uart_txfifo_fill_nonblocking ========
+ */
 uint32_t uart_txfifo_fill_nonblocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_t num_bytes)
 {
     uint32_t i;
-    uint32_t num_bytes_written;
     for(i = 0; i<num_bytes; i++)
     {
         if((regs->FIFOSTS.tx_fifo_full_sts == 1))
@@ -137,7 +154,9 @@ uint32_t uart_txfifo_fill_nonblocking(UART_REGS_s *regs, const uint8_t *buffer, 
     return i;
 }
 
-//txfifo fill non blocking static
+/*
+ *  ======== uart_txfifo_fill_static_nonblocking ========
+ */
 bool uart_txfifo_fill_static_nonblocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_t num_bytes, uint32_t rst_int_ctr)
 {
     static uint32_t i;
@@ -166,18 +185,23 @@ bool uart_txfifo_fill_static_nonblocking(UART_REGS_s *regs, const uint8_t *buffe
     return txn_done;
 }
 
-//txfifo fill blocking
+/*
+ *  ======== uart_txfifo_fill_blocking ========
+ */
 void uart_txfifo_fill_blocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_t num_bytes)
 {
     uint32_t i;
     for(i = 0; i<num_bytes; i++)
     {
+        //waits for tx fifo to be not full
         while((regs->FIFOSTS.tx_fifo_full_sts) == 1);
         uart_putc(regs, buffer[i]);
     }
 }
 
-//put string(blocking)
+/*
+ *  ======== uart_puts ========
+ */
 void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr)
 {
     unsigned char curr_char;
@@ -194,7 +218,9 @@ void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr)
     return;
 }
 
-//rxfifo drain non blocking
+/*
+ *  ======== uart_rxfifo_drain_nonblocking ========
+ */
 uint32_t uart_rxfifo_drain_nonblocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num_bytes)
 {
     uint32_t i;
@@ -212,7 +238,9 @@ uint32_t uart_rxfifo_drain_nonblocking(UART_REGS_s *regs, uint8_t *buffer, uint3
     return i;
 }
 
-//rx fifo drain non blocking static
+/*
+ *  ======== uart_rxfifo_drain_static_nonblocking ========
+ */
 bool uart_rxfifo_drain_static_nonblocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num_bytes, uint32_t rst_int_ctr)
 {
     static uint32_t i;
@@ -241,19 +269,24 @@ bool uart_rxfifo_drain_static_nonblocking(UART_REGS_s *regs, uint8_t *buffer, ui
     return txn_done;
 }
 
-//rx fifo drain(blocking)
+/*
+ *  ======== uart_rxfifo_drain_blocking ========
+ */
 void uart_rxfifo_drain_blocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num_bytes)
 {
     uint32_t i;
     for(i = 0; i<num_bytes; i++)
     {
-       while((regs->FIFOSTS.rx_fifo_empty_sts)==1);
-       buffer[i] = uart_getc(regs);
+        //waits for rx fifo to be not empty
+        while((regs->FIFOSTS.rx_fifo_empty_sts)==1);
+        buffer[i] = uart_getc(regs);
     }
        
 }
 
-//read uart cfg
+/*
+ *  ======== uart_read_cfg ========
+ */
 void uart_read_cfg(UART_REGS_s *regs, uart_cfg_s *rd_cfg)
 {
     rd_cfg->clk_sel = regs->CLK_SEL.clk_sel;
