@@ -10,10 +10,6 @@
 #include "GPIO_REGS.h"
 #include "GPIO_RW_API.h"
 
-#define DAC_REGS  ((DAC_REGS_s *) 0x3FFD1000)
-#define GPIO_REGS  ((GPIO_REGS_s *) 0x40010000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-
 typedef struct {
     DAC_CTRL0_DATA_FMT_E    data_fmt;
     uint32_t                enable;

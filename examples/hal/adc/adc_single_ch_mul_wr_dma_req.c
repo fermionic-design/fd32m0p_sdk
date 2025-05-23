@@ -27,22 +27,12 @@ typedef struct uart_sram_memory {
 
 #define sram_mem_s    ((uart_sram_memory_t *)   0x200000F0)
 
-void UartStdOutInit1(UART_REGS_s * UART0_REGS)/*{{{*/
-{
-    UART_PWR_EN_WRITE(UART0_REGS, 1, 0x7D);
-
-    UART0_REGS->RST_CTRL.packed_w = 0x7D000001;
-    if((UART0_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1){
-      UART_RST_CTRL_WRITE(UART0_REGS, 0, 1, 0x7D);
-        }
-    return;
-}/*}}}*/
 
 int main(void) {
 
     uint32_t i = 0;
     uint32_t obs_result[256];
-    UartStdOutInit1(UART0_REGS);
+    UartStdOutInit();
 
     uint32_t    start_addr, end_addr;
     uint32_t    analog_adc_channel;
@@ -77,7 +67,7 @@ int main(void) {
     DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000000;
 
     UartPuts("Enabling VREF\n");
-    VREF_REGS->PWR_EN.packed_w = 0xAB000001;
+    VREF_PWR_EN_WRITE(VREF_REGS, 1, VREF_PWR_EN_PWR_EN_KEY);
     
     vref_cfg_struct.enable     = 0;
     vref_cfg_struct.vref_mode  = 0;
@@ -86,7 +76,7 @@ int main(void) {
     print_int_var("enable ", vref_cfg_struct.enable,0);
     print_int_var("vref_mode ", vref_cfg_struct.vref_mode,0);
 
-    ADC0_REGS->PWR_EN.packed_w = 0xAB000001;
+    ADC_PWR_EN_WRITE(ADC0_REGS, 1, ADC_PWR_EN_PWR_EN_KEY);
 
     adc_samp_timer_cfg(ADC0_REGS, 32000000, 3000000);
 

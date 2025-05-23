@@ -20,12 +20,13 @@
 
 
 int main(void) {
-    int intr_val;
-    int intr_val_regs;
-    int failed = 0;
+    uint32_t intr_val;
+    uint32_t intr_val_regs;
+    uint32_t failed = 0;
+    uint32_t i;
+    uint32_t event_en0_reg, event_en1_reg;
+
     UartStdOutInit();
-    int i;
-    int event_en0_reg, event_en1_reg;
     IOMUX_PA_REG_s iomux_cfg_struct;
 
     iomux_cfg_struct.output_en        = 0;
@@ -38,12 +39,11 @@ int main(void) {
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 1;
     
-    for (i=0;i<29;i=i+1)
-    {
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
-    }
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 5);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 11);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 19);
 
-    GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
+    GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO INTR Test\n");

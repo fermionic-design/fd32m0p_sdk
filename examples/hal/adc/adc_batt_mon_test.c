@@ -11,11 +11,10 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
 #include <stdint.h> 
 
 #include "FD32M0P.h"
-#include "uart_stdout.h"
+#include "uart_stdout_mcu.h"
 
 #include "vref.h"
 #include "gpio.h" 
@@ -36,6 +35,9 @@ int main(void){
 
     temp_sense_en       = 0;
     start_addr          = DATA_CHNL_0;
+
+    UartStdOutInit();
+    UartPuts("ADC Battery Monitor Test\n");
 
     clk_cfg.clk_en                  = 1;
     clk_cfg.clk_div                 = ADC_CLK_CTRL_CLK_DIV_BY_7;
@@ -60,7 +62,7 @@ int main(void){
 
     ADC0_REGS->INTR_EN_0.packed_w = 0xFFFFFFFF; 
     ADC0_REGS->INTR_EN_1.packed_w = 0x7FFFFFFF;
-    ADC0_REGS->PWR_EN.packed_w = 0xAB000001;
+    ADC_PWR_EN_WRITE(ADC0_REGS, 1, ADC_PWR_EN_PWR_EN_KEY);
 
     iomux_cfg_struct.output_en = 0;
     iomux_cfg_struct.input_en  = 0;

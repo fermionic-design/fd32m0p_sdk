@@ -19,16 +19,34 @@
 
 int main(void) {
   
-    int intr_val;
-    int intr_val_regs;
-    int failed = 0;
-    int i,val;
-    UartStdOutInit();
+    uint32_t intr_val;
+    uint32_t intr_val_regs;
+    uint32_t failed = 0;
+    uint32_t i,val;
 
-    GPIO_REGS->PWR_EN.packed_w = 0xAB000001;
+    UartStdOutInit();
+    IOMUX_PA_REG_s iomux_cfg_struct;
+    GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO Wr Bit Test\n");
+
+    iomux_cfg_struct.output_en        = 1;
+    iomux_cfg_struct.input_en         = 0;
+    iomux_cfg_struct.drive_strength   = 0;
+    iomux_cfg_struct.slew_rate        = 0;
+    iomux_cfg_struct.pull_up          = 0;
+    iomux_cfg_struct.pull_down        = 0;
+    iomux_cfg_struct.hysteresis       = 0;
+    iomux_cfg_struct.sel              = 1;
+    iomux_cfg_struct.input_val        = 0;
+
+    for (i=0;i<28;i=i+1)
+    {
+        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        
+    }
+
     UartPuts("Writing 1 on Pin 1,6 and 27 on O/P of GPIO.\n");
     
     gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
@@ -49,11 +67,6 @@ int main(void) {
     val = GPIO_REGS->DOUT_27_24.packed_w;
     print_int_var("pin27 : ", val, 0);
     UartPuts("1 written to GPIO Pin 27. \n");
-
-    for (i=0;i<29;i=i+1)
-    {
-        IOMUX_PA_N_WRITE(IOMUX_REGS, i, 1, 0, 0, 0, 0, 0, 0, 1, 0);
-    }
 
     UartPuts("GPIO Write Bit Test ends.\n");   
     
