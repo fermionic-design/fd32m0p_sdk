@@ -18,7 +18,8 @@ void dac_cfg(DAC_REGS_s *regs, dac_cfg_s dac_cfg_struct){
 void dac_dma_cfg(DAC_REGS_s *regs, dac_dma_cfg_s dac_dma_cfg_struct){
     regs->CTRL2.fifo_th         = dac_dma_cfg_struct.fifo_th;
     regs->CTRL2.fifo_en         = dac_dma_cfg_struct.fifo_en;
-    regs->CTRL2.fifo_trig_sel   = dac_dma_cfg_struct.fifo_trig_sel; 
+    regs->CTRL2.fifo_trig_sel   = dac_dma_cfg_struct.fifo_trig_sel;
+    regs->CTRL2.dma_trig_en     = dac_dma_cfg_struct.dma_trig_en;
 }
 
 void dac_wr_code(DAC_REGS_s *regs, uint32_t dac_code){
@@ -44,6 +45,7 @@ dac_dma_cfg_s get_dac_dma_cfg(DAC_REGS_s *regs){
     dac_dma_cfg_struct.fifo_th          = regs->CTRL2.fifo_th;      
     dac_dma_cfg_struct.fifo_en          = regs->CTRL2.fifo_en;   
     dac_dma_cfg_struct.fifo_trig_sel    = regs->CTRL2.fifo_trig_sel;
+    dac_dma_cfg_struct.dma_trig_en      = regs->CTRL2.dma_trig_en;
     return dac_dma_cfg_struct;
 }
 

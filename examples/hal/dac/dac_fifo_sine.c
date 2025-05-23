@@ -1,64 +1,41 @@
-#include <stdio.h>
 #include <stdint.h>
 
-#include "uart_stdout.h"
-
-#include "UART_REGS.h"
-#include "UART_RW_API.h"
-
+#include "uart_stdout_mcu.h"
 #include "dac.h"
 #include "../../hal/dma/dma.h"
-
-#include "EVENT_FABRIC_REGS.h"
-#include "EVENT_FABRIC_RW_API.h"
 #include "EVENT_FABRIC_CAPI.h"
 
-#define UART0_REGS  ((UART_REGS_s *)  0x3ffcc000)
-#define EVENT_FABRIC_REGS   ((EVENT_FABRIC_REGS_s *)      0x3FFC3000)     // EVENT_FABRIC_REGS Common APB Address Space
-#define DMA_REGS   ((DMA_REGS_s *)      0x3FFC2000)     // DMA Common APB Address Space  
-#define PL230_REGS ((PL230_REGS_s *)    0x3FFC1000)     // PL230 APB Address Space 
-#define DAC_REGS  ((DAC_REGS_s *) 0x3FFD1000)
-#define IOMUX_REGS  ((IOMUX_REGS_s *) 0x3FFC4000 )
-
 const int sine_wave[] = { 4095, 4146, 4197, 4249, 4300, 4352, 4403, 4454, 4505, 4557, 4608, 4659, 4710, 4760, 4811, 4862, 4912, 4963, 5013, 5063, 5113, 5163, 5212, 5262, 5311, 5360, 5409, 5457, 5506, 5554, 5602, 5650, 5697, 5744, 5791, 5838, 5884, 5931, 5976, 6022, 6067, 6112, 6157, 6201, 6245, 6289, 6332, 6375, 6417, 6460, 6501, 6543, 6584, 6625, 6665, 6705, 6744, 6783, 6822, 6860, 6898, 6935, 6972, 7008, 7044, 7080, 7115, 7149, 7183, 7217, 7250, 7282, 7314, 7346, 7377, 7407, 7437, 7467, 7496, 7524, 7552, 7579, 7606, 7632, 7658, 7683, 7707, 7731, 7755, 7778, 7800, 7821, 7842, 7863, 7883, 7902, 7921, 7939, 7956, 7973, 7989, 8005, 8020, 8034, 8048, 8061, 8073, 8085, 8096, 8107, 8117, 8126, 8135, 8143, 8150, 8157, 8163, 8169, 8174, 8178, 8181, 8184, 8187, 8188, 8189, 8190, 8189, 8188, 8187, 8184, 8181, 8178, 8174, 8169, 8163, 8157, 8150, 8143, 8135, 8126, 8117, 8107, 8096, 8085, 8073, 8061, 8048, 8034, 8020, 8005, 7989, 7973, 7956, 7939, 7921, 7902, 7883, 7863, 7842, 7821, 7800, 7778, 7755, 7731, 7707, 7683, 7658, 7632, 7606, 7579, 7552, 7524, 7496, 7467, 7437, 7407, 7377, 7346, 7314, 7282, 7250, 7217, 7183, 7149, 7115, 7080, 7044, 7008, 6972, 6935, 6898, 6860, 6822, 6783, 6744, 6705, 6665, 6625, 6584, 6543, 6501, 6460, 6417, 6375, 6332, 6289, 6245, 6201, 6157, 6112, 6067, 6022, 5976, 5931, 5884, 5838, 5791, 5744, 5697, 5650, 5602, 5554, 5506, 5457, 5409, 5360, 5311, 5262, 5212, 5163, 5113, 5063, 5013, 4963, 4912, 4862, 4811, 4760, 4710, 4659, 4608, 4557, 4505, 4454, 4403, 4352, 4300, 4249, 4197, 4146, 4094, 4043, 3992, 3940, 3889, 3837, 3786, 3735, 3684, 3632, 3581, 3530, 3479, 3429, 3378, 3327, 3277, 3226, 3176, 3126, 3076, 3026, 2977, 2927, 2878, 2829, 2780, 2732, 2683, 2635, 2587, 2539, 2492, 2445, 2398, 2351, 2305, 2258, 2213, 2167, 2122, 2077, 2032, 1988, 1944, 1900, 1857, 1814, 1772, 1729, 1688, 1646, 1605, 1564, 1524, 1484, 1445, 1406, 1367, 1329, 1291, 1254, 1217, 1181, 1145, 1109, 1074, 1040, 1006, 972, 939, 907, 875, 843, 812, 782, 752, 722, 693, 665, 637, 610, 583, 557, 531, 506, 482, 458, 434, 411, 389, 368, 347, 326, 306, 287, 268, 250, 233, 216, 200, 184, 169, 155, 141, 128, 116, 104, 93, 82, 72, 63, 54, 46, 39, 32, 26, 20, 15, 11, 8, 5, 2, 1, 0, 0, 0, 1, 2, 5, 8, 11, 15, 20, 26, 32, 39, 46, 54, 63, 72, 82, 93, 104, 116, 128, 141, 155, 169, 184, 200, 216, 233, 250, 268, 287, 306, 326, 347, 368, 389, 411, 434, 458, 482, 506, 531, 557, 583, 610, 637, 665, 693, 722, 752, 782, 812, 843, 875, 907, 939, 972, 1006, 1040, 1074, 1109, 1145, 1181, 1217, 1254, 1291, 1329, 1367, 1406, 1445, 1484, 1524, 1564, 1605, 1646, 1688, 1729, 1772, 1814, 1857, 1900, 1944, 1988, 2032, 2077, 2122, 2167, 2213, 2258, 2305, 2351, 2398, 2445, 2492, 2539, 2587, 2635, 2683, 2732, 2780, 2829, 2878, 2927, 2977, 3026, 3076, 3126, 3176, 3226, 3277, 3327, 3378, 3429, 3479, 3530, 3581, 3632, 3684, 3735, 3786, 3837, 3889, 3940, 3992, 4043 };
-void UartStdOutInit1(UART_REGS_s * UART_REGS)/*{{{*/
-{
-    UART_PWR_EN_WRITE(UART_REGS, 1, 0x7D);
-
-    UART_REGS->RST_CTRL.packed_w = 0x7D000001;
-    if((UART_REGS->RST_STS.packed_w & UART_RST_STS_RST_STS_MASK) == 1){
-      UART_RST_CTRL_WRITE(UART_REGS, 0, 1, 0x7D);
-        }
-    return;
-}/*}}}*/
 
 int main(void) {
-    UartStdOutInit1(UART0_REGS);
+
+    UartStdOutInit();
     UartPuts("DAC FIFO Test.\n");
-    int dac_code;
-    int source_addr, num_samples;
+    uint32_t dac_code;
+    uint32_t source_addr, num_samples;
     num_samples = 500;
 
     dac_dma_cfg_s   dac_dma_cfg_struct;
     dac_cfg_s       dac_cfg_struct;
      
 
-    DAC_REGS->PWR_EN.packed_w = 0xAB000001;
+    DAC_PWR_EN_WRITE(DAC_REGS, 1, DAC_PWR_EN_PWR_EN_KEY);
     // Enabling clk for the dma
     //clk enable
-    DMA_REGS->CLK_CTRL.packed_w = 0xBC000001;
+    DMA_MCU_REGS->CLK_CTRL.packed_w = 0xBC000001;
     
     IOMUX_REGS->PA[15].output_en = 0;
     IOMUX_REGS->PA[15].pull_up = 0;
     IOMUX_REGS->PA[15].input_en = 0;
 
     //Soft Reset 
-    DMA_REGS->RST_CTRL.packed_w = 0xBC000001;
-    DMA_REGS->RST_CTRL.packed_w = 0xBC000000;
+    DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000001;
+    DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000000;
 
     dac_dma_cfg_struct.fifo_th = DAC_CTRL2_FIFO_TH_ALMOST_EMPTY;
     dac_dma_cfg_struct.fifo_en = 1;
     dac_dma_cfg_struct.fifo_trig_sel = DAC_CTRL2_FIFO_TRIG_SEL_FIFO_EMPTY;
+    dac_dma_cfg_struct.dma_trig_en = 1;
     dac_dma_cfg(DAC_REGS, dac_dma_cfg_struct);
 
     dac_dma_cfg_struct = get_dac_dma_cfg(DAC_REGS);
@@ -83,11 +60,11 @@ int main(void) {
     // PRIMARY CHANNEL CONFIG
     const int* ptr = sine_wave;
     // source_addr = 0x20000484 + (num_samples*4) - 4;
-    source_addr = (void*)&sine_wave[num_samples-1];
-    dma_init(PL230_REGS, 0x20000C00);
+    source_addr = (int)(uintptr_t)&sine_wave[num_samples-1];
+    dma_init(DMA_PL230_REGS, 0x20000C00);
 
     // Configuring dma channel configuration
-    printf("Configuring Primary Channel\n");
+    UartPuts("Configuring Primary Channel\n");
     dma_channel_cfg_t default_channel_cfg = CHANNEL_TRANSFER_CFG_DEFAULT;
     dma_channel_cfg_t *primary_ch = &default_channel_cfg;
 
@@ -105,15 +82,14 @@ int main(void) {
     primary_ch->dst_prot_ctrl = 0;         
     primary_ch->transfer_type = 1;
 
-    dma_channel_cfg(DMA_REGS, PL230_REGS, primary_ch, DMA_CHANNEL_8);
-    dma_channel_en_set(PL230_REGS, DMA_CHANNEL_8);
+    dma_channel_cfg(DMA_MCU_REGS, DMA_PL230_REGS, primary_ch, DMA_CHANNEL_8);
+    dma_channel_en_set(DMA_PL230_REGS, DMA_CHANNEL_8);
     
     //ENABLE DMA EVENT
-    DAC_REGS->CTRL2.dma_trig_en = 1;
+    //DAC_REGS->CTRL2.dma_trig_en = 1;
 
     for (int i = 0; i< 10000 ; i++ );
-    UartEndSimulation();
-    return 0;
-    return 0;
+    //UartEndSimulation();
+    //return 0;
 }
 
