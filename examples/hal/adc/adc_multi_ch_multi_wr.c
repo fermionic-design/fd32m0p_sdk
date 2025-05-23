@@ -12,12 +12,10 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
 #include <stdint.h> 
 
+#include "uart_stdout_mcu.h"
 #include "FD32M0P.h"
-#include "uart_stdout.h"
-
 #include "vref.h"
 #include "gpio.h" 
 #include "adc.h"
@@ -91,7 +89,7 @@ int main(void) {
     MCU_CTRL_REGS->HF_CLK_CTRL.use_precision_clk = 1;
     
     UartStdOutInit();
-    printf("ADC Basic Test\n");
+    UartPuts("ADC Basic Test\n");
     
     if(hw_avg_en)
     {
@@ -127,7 +125,7 @@ int main(void) {
     print_int_var("hw_avg_en ", chnl_cfg.hw_avg_en,0);
     print_int_var("bcs_en ", chnl_cfg.bcs_en,0);
 
-    ADC0_REGS->PWR_EN.packed_w = 0xAB000001;
+    ADC_PWR_EN_WRITE(ADC0_REGS, 1, ADC_PWR_EN_PWR_EN_KEY);
 
     clk_cfg.clk_en  = 1;
     clk_cfg.clk_div = ADC_CLK_CTRL_CLK_DIV_BY_5;
@@ -228,7 +226,7 @@ int main(void) {
 
     print_int_var("read_fifo_en", read_fifo_en, 0);
 
-    printf("**** ADC Triggered ****** \n");
+    UartPuts("**** ADC Triggered ****** \n");
 
     sw_trig = 3;
     adc_sw_trig(ADC0_REGS, sw_trig); 
