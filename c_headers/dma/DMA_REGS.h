@@ -861,13 +861,13 @@ typedef struct DMA_REGS_s{
     volatile  DMA_DBG_CTRL_u DBG_CTRL;
     volatile  DMA_INTR_STS_u INTR_STS;
     volatile  DMA_INTR_EVENT_u INTR_EVENT;
-              DMA_INTR_EN_0_u INTR_EN_0;
-              DMA_INTR_EN_1_u INTR_EN_1;
-              DMA_INTR_NMI_EN_0_u INTR_NMI_EN_0;
-              DMA_INTR_NMI_EN_1_u INTR_NMI_EN_1;
-              DMA_EVENT_EN_0_u EVENT_EN_0;
-              DMA_EVENT_EN_1_u EVENT_EN_1;
-              DMA_INTR_SW_SET_u INTR_SW_SET;
+    volatile  DMA_INTR_EN_0_u INTR_EN_0;
+    volatile  DMA_INTR_EN_1_u INTR_EN_1;
+    volatile  DMA_INTR_NMI_EN_0_u INTR_NMI_EN_0;
+    volatile  DMA_INTR_NMI_EN_1_u INTR_NMI_EN_1;
+    volatile  DMA_EVENT_EN_0_u EVENT_EN_0;
+    volatile  DMA_EVENT_EN_1_u EVENT_EN_1;
+    volatile  DMA_INTR_SW_SET_u INTR_SW_SET;
     volatile  DMA_CFG_0_u CFG_0;
     volatile  DMA_CFG_1_u CFG_1;
     volatile  DMA_CFG_2_u CFG_2;
@@ -967,8 +967,8 @@ typedef enum {
 } DMA_STRIDE_MODE_CFG_0_DST_INC_E;
 
 typedef enum {
-	DMA_ARBITRATION_DMA_RR_EN_SET = 0,
-	DMA_ARBITRATION_DMA_RR_EN_CLR = 1,
+	DMA_ARBITRATION_DMA_RR_EN_CLR = 0,
+	DMA_ARBITRATION_DMA_RR_EN_SET = 1,
 } DMA_ARBITRATION_DMA_RR_EN_E;
 
 #define DMA_DESC_MODULE_TYPE_OFS (0)

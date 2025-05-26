@@ -511,11 +511,11 @@ typedef struct SPI_REGS_s{
               SPI_DBG_CTRL_u DBG_CTRL;
     volatile  SPI_INTR_STS_u INTR_STS;
     volatile  SPI_INTR_EVENT_u INTR_EVENT;
-              SPI_INTR_EN_u INTR_EN;
-              SPI_INTR_TX_DMA_EN_u INTR_TX_DMA_EN;
-              SPI_INTR_RX_DMA_EN_u INTR_RX_DMA_EN;
-              SPI_INTR_NMI_u INTR_NMI;
-              SPI_INTR_SW_SET_u INTR_SW_SET;
+    volatile  SPI_INTR_EN_u INTR_EN;
+    volatile  SPI_INTR_TX_DMA_EN_u INTR_TX_DMA_EN;
+    volatile  SPI_INTR_RX_DMA_EN_u INTR_RX_DMA_EN;
+    volatile  SPI_INTR_NMI_u INTR_NMI;
+    volatile  SPI_INTR_SW_SET_u INTR_SW_SET;
               SPI_SPARE_CTRL_u SPARE_CTRL;
     volatile  SPI_SPARE_STS_u SPARE_STS;
 } SPI_REGS_s;
