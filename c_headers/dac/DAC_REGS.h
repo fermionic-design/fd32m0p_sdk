@@ -301,27 +301,27 @@ typedef union DAC_SPARE_STS_u {
 } DAC_SPARE_STS_u;
 
 typedef struct DAC_REGS_s{
-    volatile DAC_DESC_u DESC;
-    volatile DAC_PWR_EN_u PWR_EN;
-    volatile DAC_RST_CTRL_u RST_CTRL;
-    volatile DAC_RST_STS_u RST_STS;
-    volatile DAC_CLK_CTRL_u CLK_CTRL;
-    volatile DAC_INTR_STS_u INTR_STS;
-    volatile DAC_INTR_EVENT_u INTR_EVENT;
-    volatile DAC_INTR_EN_u INTR_EN;
-    volatile DAC_INTR_NMI_EN_u INTR_NMI_EN;
-    volatile DAC_EVENT_EN_u EVENT_EN;
-    volatile DAC_INTR_SW_SET_u INTR_SW_SET;
-    volatile DAC_EVENT_CTRL_u EVENT_CTRL;
-    volatile DAC_CTRL0_u CTRL0;
-    volatile DAC_CTRL1_u CTRL1;
-    volatile DAC_CTRL2_u CTRL2;
-    volatile DAC_CTRL3_u CTRL3;
-    volatile DAC_DATA_u DATA;
-    volatile DAC_CAL_CTRL_u CAL_CTRL;
-    volatile DAC_CAL_STS_u CAL_STS;
-    volatile DAC_SPARE_CTRL_u SPARE_CTRL;
-    volatile DAC_SPARE_STS_u SPARE_STS;
+    volatile  DAC_DESC_u DESC;
+    volatile  DAC_PWR_EN_u PWR_EN;
+    volatile  DAC_RST_CTRL_u RST_CTRL;
+    volatile  DAC_RST_STS_u RST_STS;
+              DAC_CLK_CTRL_u CLK_CTRL;
+    volatile  DAC_INTR_STS_u INTR_STS;
+    volatile  DAC_INTR_EVENT_u INTR_EVENT;
+    volatile  DAC_INTR_EN_u INTR_EN;
+    volatile  DAC_INTR_NMI_EN_u INTR_NMI_EN;
+    volatile  DAC_EVENT_EN_u EVENT_EN;
+    volatile  DAC_INTR_SW_SET_u INTR_SW_SET;
+              DAC_EVENT_CTRL_u EVENT_CTRL;
+              DAC_CTRL0_u CTRL0;
+              DAC_CTRL1_u CTRL1;
+              DAC_CTRL2_u CTRL2;
+              DAC_CTRL3_u CTRL3;
+    volatile  DAC_DATA_u DATA;
+              DAC_CAL_CTRL_u CAL_CTRL;
+    volatile  DAC_CAL_STS_u CAL_STS;
+              DAC_SPARE_CTRL_u SPARE_CTRL;
+    volatile  DAC_SPARE_STS_u SPARE_STS;
 } DAC_REGS_s;
 
 #define DAC_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)

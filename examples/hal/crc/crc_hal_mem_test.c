@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+////               CRC HAL MEM TEST                                       ////
+////    DESCRIPTION:                                                      ////      
+////        This is an example test to test crc computation over          ////
+////        over a memory range using both 16 and 32 polynomial           ////
+////                                                                      //// 
+//////////////////////////////////////////////////////////////////////////////
+
 #include <stdlib.h> 
 #include "FD32M0P.h"
 #include "crc.h"
@@ -29,7 +37,7 @@ uint16_t swap_bytes_16(uint16_t num)
 
 uint32_t rev_bits(uint32_t num, int size)
 {
-    unsigned int NO_OF_BITS = /*sizeof(num)*/ size * 8;
+    unsigned int NO_OF_BITS = size * 8;
     uint32_t reverse_num = 0;
     int i;
     for (i = 0; i < NO_OF_BITS; i++) {
@@ -103,11 +111,8 @@ uint16_t crc16_w(uint32_t* pData, int length, uint16_t i_seed)
 
     UartPuts("CRC 32 entering while\n");
     while (length--) { 
-        //UartPuts("CRC 32 entered while\n");
         Crc_32 ^= *(uint8_t *)pData++ << 24; 
-        //UartPuts("CRC 32 xor done\n");
         for (i=0; i < 8; i++) {
-             //UartPuts("CRC 32 enter for\n");
              Crc_32 =  Crc_32 & 0x80000000 ? ( Crc_32 << 1) ^ 0x04C11DB7 :  Crc_32 << 1; 
         }
     }
@@ -123,13 +128,10 @@ uint16_t crc16_w(uint32_t* pData, int length, uint16_t i_seed)
 
     UartPuts("CRC 32 entering while\n");
     while (length--) { 
-        //UartPuts("CRC 32 entered while\n");
         data_in_tmp = *(uint16_t *)pData++ ;
         data_in_tmp = swap_bytes_16(data_in_tmp);
         Crc_32 ^= data_in_tmp << 16; 
-        //UartPuts("CRC 32 xor done\n");
         for (i=0; i < 16; i++) {
-             //UartPuts("CRC 32 enter for\n");
              Crc_32 =  Crc_32 & 0x80000000 ? ( Crc_32 << 1) ^ 0x04C11DB7 :  Crc_32 << 1; 
         }
     }
@@ -198,18 +200,6 @@ int main(void) {
     td_s1.hw_data   = 0xABCD;
     td_s1.w_data    = 0xDEADBEAF;
 
-    for(int i=0; i<sizeof(td_s1.byte_data_arr); i++){
-        td_s1.byte_data_arr[i] = rand(); 
-    }
-    
-    for(int i=0; i<sizeof(td_s1.hw_data_arr)/2; i++){
-        td_s1.hw_data_arr[i] = rand(); 
-    }
-
-    for(int i=0; i<sizeof(td_s1.w_data_arr)/4; i++){
-        td_s1.w_data_arr[i] = rand(); 
-    }
-    
     //Generate an array of random numbers
     int num = rand()%50+1; 
     print_int_var("ARRAY length = ",num,0);
@@ -267,8 +257,6 @@ int main(void) {
             dut_crc_32 = crc_compute_8bit_mem_range(CRC_REGS, length, i_seed, mem_array);
         #endif
         
-        print_int_var("DUT CRC = ",dut_crc_32,1);
-
         i_seed = swap_bytes_32(i_seed);
         
         #ifdef crc_wrd_mem
@@ -279,13 +267,17 @@ int main(void) {
             tb_crc_32 = crc32_byte(mem_array, length, i_seed);
         #endif
 
-        gpio_print(tb_crc_32);
-
         if(dut_crc_32 == tb_crc_32)
+        {
             UartPuts("CRC 32 matched\n");
+        }
         else
+        {
             failed++;
-
+            UartPuts("CRC 32 did not match\n");
+            print_int_var("DUT CRC = ",dut_crc_32,1);
+            gpio_print(tb_crc_32);
+        }
         dut_crc_32 = 0;
         tb_crc_32  = 0;
     //________________________________________________________________________
@@ -307,19 +299,21 @@ int main(void) {
 
         dut_crc_16 = crc_compute_8bit_mem_range(CRC_REGS, length, i_seed_16, mem_array);
         
-        print_int_var("DUT CRC = ",dut_crc_16,1);
-
         i_seed_16 = swap_bytes_16(i_seed_16);   
 
         tb_crc_16 = crc16_byte(mem_array, length, i_seed_16);
 
-        //Write data to CRC_INPUT using memcpy()
-        gpio_print(tb_crc_16);
-
         if(dut_crc_16 == tb_crc_16)
+        {
             UartPuts("CRC 16 matched\n");
+        }
         else
+        {
             failed++;
+            UartPuts("CRC 16 did not match\n");
+            print_int_var("DUT CRC = ",dut_crc_16,1);
+            gpio_print(tb_crc_16);
+        }
 
         dut_crc_16 = 0;
         tb_crc_16  = 0;

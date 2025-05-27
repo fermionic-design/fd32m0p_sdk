@@ -90,13 +90,13 @@ typedef union CRC_CRCRESULT_u {
 } CRC_CRCRESULT_u;
 
 typedef struct CRC_REGS_s{
-    volatile CRC_PWR_EN_u PWR_EN;
-    volatile CRC_RST_CTRL_u RST_CTRL;
-    volatile CRC_RST_STS_u RST_STS;
-    volatile CRC_CRCCONFIG_u CRCCONFIG;
-    volatile CRC_CRCSEED_u CRCSEED;
-    volatile CRC_CRCINPUT_u CRCINPUT[1024];
-    volatile CRC_CRCRESULT_u CRCRESULT;
+    volatile  CRC_PWR_EN_u PWR_EN;
+    volatile  CRC_RST_CTRL_u RST_CTRL;
+    volatile  CRC_RST_STS_u RST_STS;
+              CRC_CRCCONFIG_u CRCCONFIG;
+    volatile  CRC_CRCSEED_u CRCSEED;
+    volatile  CRC_CRCINPUT_u CRCINPUT[1024];
+    volatile  CRC_CRCRESULT_u CRCRESULT;
 } CRC_REGS_s;
 
 #define CRC_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000D7U)

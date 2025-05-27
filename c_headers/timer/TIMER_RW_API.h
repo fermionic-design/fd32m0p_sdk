@@ -70,32 +70,29 @@ static inline void TIMER_GENERIC_EVENT_DIS_0_(TIMER_REGS_s * registers, uint32_t
         registers->EVENT_EN_0_1.packed_w = (1<<(intr_idx_mod_16+16));
 }
 
-static inline void TIMER_GENERIC_EVENT_EN_0_(TIMER_REGS_s * registers, uint32_t intr_idx){
+static inline void TIMER_GENERIC_EVENT_EN_1_(TIMER_REGS_s * registers, uint32_t intr_idx){
     uint32_t intr_idx_mod_16 = intr_idx%16;
     if(intr_idx<16)
-        registers->EVENT_EN_0_0.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
+        registers->EVENT_EN_1_0.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
     else if(intr_idx<32)
-        registers->EVENT_EN_0_1.packed_w = (1<<intr_idx_mod_16) + (1<<(intr_idx_mod_16+16));
+        registers->EVENT_EN_1_1.packed_w = (1<<intr_idx_mod_16) + (1<<(intr_idx_mod_16+16));
 }
 
-static inline void TIMER_GENERIC_EVENT_DIS_0_(TIMER_REGS_s * registers, uint32_t intr_idx){
+static inline void TIMER_GENERIC_EVENT_DIS_1_(TIMER_REGS_s * registers, uint32_t intr_idx){
     uint32_t intr_idx_mod_16 = intr_idx%16;
     if(intr_idx<16)
-        registers->EVENT_EN_0_0.packed_w = (1<<(intr_idx+16));
+        registers->EVENT_EN_1_0.packed_w = (1<<(intr_idx+16));
     else if(intr_idx<32)
-        registers->EVENT_EN_0_1.packed_w = (1<<(intr_idx_mod_16+16));
+        registers->EVENT_EN_1_1.packed_w = (1<<(intr_idx_mod_16+16));
 }
 
 static inline void TIMER_INTR_SW_SET(TIMER_REGS_s * registers, uint32_t intr_idx){
     registers->INTR_SW_SET.packed_w = 1<<intr_idx;
 }
 
-static inline void TIMER_GENERIC_EVENT_CTRL(TIMER_REGS_s * registers, uint32_t intr_idx){
-    registers->EVENT_CTRL.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
-}
-
-static inline void TIMER_GENERIC_EVENT_CTRL(TIMER_REGS_s * registers, uint32_t intr_idx){
-    registers->EVENT_CTRL.packed_w = (1<<(intr_idx+16));
+static inline void TIMER_EVENT_CTRL_WRITE(TIMER_REGS_s * registers, uint32_t chan_id0, uint32_t chan_id1) {
+    registers->EVENT_CTRL.packed_w = ((chan_id0<<TIMER_EVENT_CTRL_CHAN_ID0_OFS) & TIMER_EVENT_CTRL_CHAN_ID0_MASK)
+                                    +((chan_id1<<TIMER_EVENT_CTRL_CHAN_ID1_OFS) & TIMER_EVENT_CTRL_CHAN_ID1_MASK);
 }
 
 static inline void TIMER_CLK_CONFIG_WRITE(TIMER_REGS_s * registers, uint32_t clk_sel, uint32_t clk_div) {

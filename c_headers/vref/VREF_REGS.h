@@ -131,16 +131,16 @@ typedef union VREF_SPARE_STS_u {
 } VREF_SPARE_STS_u;
 
 typedef struct VREF_REGS_s{
-    volatile VREF_DESC_u DESC;
-    volatile VREF_PWR_EN_u PWR_EN;
-    volatile VREF_RST_CTRL_u RST_CTRL;
-    volatile VREF_RST_STS_u RST_STS;
-    volatile VREF_CLK_CTRL_u CLK_CTRL;
-    volatile VREF_STS_u STS;
-    volatile VREF_CTRL_u CTRL;
-    volatile VREF_SH_CTRL_u SH_CTRL;
-    volatile VREF_SPARE_CTRL_u SPARE_CTRL;
-    volatile VREF_SPARE_STS_u SPARE_STS;
+    volatile  VREF_DESC_u DESC;
+    volatile  VREF_PWR_EN_u PWR_EN;
+    volatile  VREF_RST_CTRL_u RST_CTRL;
+    volatile  VREF_RST_STS_u RST_STS;
+              VREF_CLK_CTRL_u CLK_CTRL;
+    volatile  VREF_STS_u STS;
+              VREF_CTRL_u CTRL;
+              VREF_SH_CTRL_u SH_CTRL;
+              VREF_SPARE_CTRL_u SPARE_CTRL;
+    volatile  VREF_SPARE_STS_u SPARE_STS;
 } VREF_REGS_s;
 
 #define VREF_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
