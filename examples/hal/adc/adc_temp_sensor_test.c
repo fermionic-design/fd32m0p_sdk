@@ -9,7 +9,6 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
 #include <stdint.h> 
 
 #include "FD32M0P.h"
@@ -68,7 +67,7 @@ int main(void){
     iomux_cfg_struct.output_en = 0;
     iomux_cfg_struct.input_en  = 0;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct,  24);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct,  23);
      
     adc_samp_timer_cfg(ADC0_REGS,/*IN CLK FREQ*/ 32000000, /*Desired Sampling Rate*/ 85106);
 
