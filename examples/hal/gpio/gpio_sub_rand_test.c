@@ -56,6 +56,7 @@ int main(void) {
     //GPIO_REGS->EVENT_EN1.packed_w = 0xFFFFFFFF;
     
     //dout = sram_mem_loc->mem[2];
+    dout = 0x00000400;
     gpio_dout(GPIO_REGS, dout);
     
     sub_en      =   1;
@@ -65,22 +66,22 @@ int main(void) {
     gpio_sub_cfg(GPIO_REGS, 0, sub_en, action, bit_num);
     
     sub_en      =   1; 
-    action      =   2;
+    action      =   0;
     bit_num     =   24;
 
     gpio_sub_cfg(GPIO_REGS, 1, sub_en, action, bit_num);
     
     print_int_var("SUB1 : ",GPIO_REGS->SUB_CFG[1].packed_w,1);
 
-    sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 0);
-    print_int_var("SUB_CFG0_sub_en : ",sub_cfg_val.sub_en, 1);
-    print_int_var("SUB_CFG0_action : ",sub_cfg_val.action, 1);
-    print_int_var("SUB_CFG0_bit_num : ",sub_cfg_val.bit_num, 1);
+    // sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 0);
+    // print_int_var("SUB_CFG0_sub_en : ",sub_cfg_val.sub_en, 1);
+    // print_int_var("SUB_CFG0_action : ",sub_cfg_val.action, 1);
+    // print_int_var("SUB_CFG0_bit_num : ",sub_cfg_val.bit_num, 1);
 
-    sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 1);
-    print_int_var("SUB_CFG1_sub_en : ",sub_cfg_val.sub_en, 1);
-    print_int_var("SUB_CFG1_action : ",sub_cfg_val.action, 1);
-    print_int_var("SUB_CFG1_bit_num : ",sub_cfg_val.bit_num, 1);
+    // sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 1);
+    // print_int_var("SUB_CFG1_sub_en : ",sub_cfg_val.sub_en, 1);
+    // print_int_var("SUB_CFG1_action : ",sub_cfg_val.action, 1);
+    // print_int_var("SUB_CFG1_bit_num : ",sub_cfg_val.bit_num, 1);
 
     EVENT_FABRIC_GEN_SUB_N_WRITE(EVENT_FABRIC_REGS, 3, 2);
     EVENT_FABRIC_GEN_PUB_N_WRITE(EVENT_FABRIC_REGS, 9, 2);
