@@ -24,18 +24,54 @@ void UartStdOutInit(void) {
     return;
 }
 
+void UartPuts(const unsigned char * data_char_arr){
+
+    UART_FIFOSTS_u fifosts;
+    unsigned char curr_char;
+    int num_transfers;
+    int trf_count;
+    do
+    {
+        do {
+            fifosts =  UART_STDIO->FIFOSTS;        
+        } while(fifosts.tx_fifo_full_sts);
+
+        if(fifosts.tx_fifo_empty_sts) {
+            UartPutc(*data_char_arr++);
+            if(*data_char_arr == 0) break;
+            UartPutc(*data_char_arr++);
+            if(*data_char_arr == 0) break;
+            UartPutc(*data_char_arr++);
+            if(*data_char_arr == 0) break;
+            UartPutc(*data_char_arr++);
+        } else if (fifosts.tx_fifo_almost_empty_sts) {
+            UartPutc(*data_char_arr++);
+            if(*data_char_arr == 0) break;
+            UartPutc(*data_char_arr++);
+            if(*data_char_arr == 0) break;
+            UartPutc(*data_char_arr++);
+        } else if (fifosts.tx_fifo_almost_full_sts) {
+            UartPutc(*data_char_arr++);
+        } else { //half full
+            UartPutc(*data_char_arr++);
+            if(*data_char_arr == 0) break;
+            UartPutc(*data_char_arr++);
+        }
+    } while(*data_char_arr != 0);
+    return;
+}
 //end of simulation
 void UartEndSimulation(void) {
-  uart_putc(UART_STDIO, (char) 0x4); // End of simulation
+  UartPutc((char) 0x4); // End of simulation
   while(1);
 }
 
 void UartPass(void) {
-  uart_putc(UART_STDIO, (char) 0x6); 
+  UartPutc((char) 0x6); 
 }
 
 void UartFail(void) {
-  uart_putc(UART_STDIO, (char) 0x15); 
+  UartPutc((char) 0x15); 
 }
 #include <stdbool.h>
 
@@ -57,7 +93,6 @@ void itoa_mcu(uint32_t value, char* str, int base) {
 
     char* ptr = str;
     char* ptr1 = str;
-    bool is_negative = false;
     
     // Handle 0 explicitly
     if (value == 0) {
@@ -79,11 +114,6 @@ void itoa_mcu(uint32_t value, char* str, int base) {
         }
     }
     
-    // Add negative sign if needed
-    if (is_negative) {
-        *ptr++ = '-';
-    }
-    
     // Terminate string
     *ptr-- = '\0';
     
@@ -100,21 +130,21 @@ void itoa_mcu(uint32_t value, char* str, int base) {
 void print_int_var(char *prefix, int var, bool is_hex) {
     char c[16]="";//,final[50]="";
 
-    uart_puts(UART_STDIO, prefix);
+    UartPuts(prefix);
 
     if(is_hex) { 
-        uart_puts(UART_STDIO, "0x");
+        UartPuts("0x");
         itoa_mcu((uint32_t) var, c, 16);
     } else {
         if(var < 0) {
             var = -var;
-            uart_puts(UART_STDIO, "-");
+            UartPuts("-");
         }
         itoa_mcu((uint32_t) var, c, 10); //convert int to char in base 10
     }
 
-    uart_puts(UART_STDIO, c);
-    uart_puts(UART_STDIO, "\n");
+    UartPuts(c);
+    UartPuts("\n");
     return;
 }
 

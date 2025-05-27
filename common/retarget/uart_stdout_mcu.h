@@ -38,9 +38,13 @@
 #define STDIO_BAUD_RATE 0
 #endif
 
-#define UartPuts(x) uart_puts(UART_STDIO, x)
+//#define UartPuts(x) uart_puts(UART_STDIO, x)
 
 void UartStdOutInit(void);
+__attribute__((section(".sram_code"))) void UartPuts(const unsigned char * data_char_arr);
+__attribute__((section(".sram_code"))) static inline void UartPutc(const unsigned char data_char) {
+    UART_STDIO->TXDATA[0].packed_w = data_char;
+}
 void UartEndSimulation(void);
 void UartPass(void);
 void UartFail(void);
