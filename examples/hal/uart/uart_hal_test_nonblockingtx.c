@@ -97,7 +97,6 @@ int main(void) {
     iomux_cfg_struct_rx.sel              = IOMUX_PIN_SEL_PA22_UART1_RX;
 
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rx, 22);
-<<<<<<< Updated upstream
    
     /* program proper cts and rts iomux pin cfg
     //cts port
@@ -113,22 +112,6 @@ int main(void) {
     iomux_cfg_struct_rts.sel              = IOMUX_PIN_SEL_PA15_UART1_RTS;
 
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rts, 15); */
-=======
-    
-    ////cts port
-    //iomux_cfg_struct_cts.output_en        = 0;
-    //iomux_cfg_struct_cts.input_en         = 1;
-    //iomux_cfg_struct_cts.sel              = IOMUX_PIN_SEL_PA14_UART1_CTS;
-//
-    //iomux_cfg(IOMUX_REGS, iomux_cfg_struct_cts, 14);
-//
-    ////rts port
-    //iomux_cfg_struct_rts.output_en        = 1;
-    //iomux_cfg_struct_rts.input_en         = 0;
-    //iomux_cfg_struct_rts.sel              = IOMUX_PIN_SEL_PA15_UART1_RTS;
-
-    //iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rts, 15);
->>>>>>> Stashed changes
 
     //*******************iomux cfg end********************
 
