@@ -207,7 +207,7 @@ void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr);
  */
 static inline uint8_t uart_putc(UART_REGS_s *regs, const unsigned char data_char)
 {
-    regs->TXDATA->uart_data = data_char;
+    regs->TXDATA[0].packed_w = data_char;
     return(data_char);
 }
 
