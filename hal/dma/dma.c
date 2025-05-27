@@ -27,13 +27,13 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
         src_end_pointer = dma_channel_cfg->src_addr;
     }
     else {
-        src_end_pointer = dma_channel_cfg->src_addr + ((1<<dma_channel_cfg->src_size)*dma_channel_cfg->total_transaction);
+        src_end_pointer = dma_channel_cfg->src_addr + ((1<<dma_channel_cfg->src_incr)*dma_channel_cfg->total_transaction);
     }
     if(dma_channel_cfg->dst_incr==DMA_SRC_INC_NO_INCR) {
         dst_end_pointer = dma_channel_cfg->dst_addr;
     }
     else {
-        dst_end_pointer = dma_channel_cfg->dst_addr + ((1<<dma_channel_cfg->dst_size)*dma_channel_cfg->total_transaction);
+        dst_end_pointer = dma_channel_cfg->dst_addr + ((1<<dma_channel_cfg->dst_incr)*dma_channel_cfg->total_transaction);
     }
 
     // Reading the channel configuration based pointer
