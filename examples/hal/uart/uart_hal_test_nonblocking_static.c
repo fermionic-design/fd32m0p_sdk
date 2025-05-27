@@ -53,7 +53,7 @@ int main(void) {
    //configuring UART0 for printing
     uart0_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
     uart0_cfg_struct.clk_div = 0;
-    uart0_cfg_struct.baud_rate = 0;
+    uart0_cfg_struct.baud_rate = 1500000;
     uart0_cfg_struct.clk_freq = 32000;
     uart0_cfg_struct.word_length = UART_CFG_WRD_LEN_8_BITS;
     uart0_cfg_struct.oversampling = UART_CTRL_OS_FACTOR_16;
@@ -90,30 +90,30 @@ int main(void) {
     //tx port
     iomux_cfg_struct_tx.output_en        = 1;
     iomux_cfg_struct_tx.input_en         = 0;
-    iomux_cfg_struct_tx.sel              = IOMUX_PIN_SEL_PA10_UART1_TX;
+    iomux_cfg_struct_tx.sel              = IOMUX_PIN_SEL_PA14_UART1_TX;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_tx, 10);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_tx, 14);
 
     //rx port
     iomux_cfg_struct_rx.output_en        = 0;
     iomux_cfg_struct_rx.input_en         = 1;
-    iomux_cfg_struct_rx.sel              = IOMUX_PIN_SEL_PA11_UART1_RX;
+    iomux_cfg_struct_rx.sel              = IOMUX_PIN_SEL_PA22_UART1_RX;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rx, 11);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rx, 22);
     
     //cts port
-    iomux_cfg_struct_cts.output_en        = 0;
-    iomux_cfg_struct_cts.input_en         = 1;
-    iomux_cfg_struct_cts.sel              = IOMUX_PIN_SEL_PA14_UART1_CTS;
+    //iomux_cfg_struct_cts.output_en        = 0;
+    //iomux_cfg_struct_cts.input_en         = 1;
+    //iomux_cfg_struct_cts.sel              = IOMUX_PIN_SEL_PA14_UART1_CTS;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_cts, 14);
+    //iomux_cfg(IOMUX_REGS, iomux_cfg_struct_cts, 14);
 
     //rts port
-    iomux_cfg_struct_rts.output_en        = 1;
-    iomux_cfg_struct_rts.input_en         = 0;
-    iomux_cfg_struct_rts.sel              = IOMUX_PIN_SEL_PA15_UART1_RTS;
+    //iomux_cfg_struct_rts.output_en        = 1;
+    //iomux_cfg_struct_rts.input_en         = 0;
+    //iomux_cfg_struct_rts.sel              = IOMUX_PIN_SEL_PA15_UART1_RTS;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rts, 15);
+    //iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rts, 15);
 
     //*******************iomux cfg end********************
 

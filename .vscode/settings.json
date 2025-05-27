@@ -5,6 +5,102 @@
             "makeArgs": ["TESTNAME=helloworld", "TESTFOLDER=examples/hal/bringup"]
         },
         {
+            "name": "uart_hal_blocking",
+            "makeArgs": ["TESTNAME=uart_hal_test_blocking", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK"]
+        },
+        {
+            "name": "uart0_hal_blocking",
+            "makeArgs": ["TESTNAME=uart0_hal_test", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -DUART1_STDIO"]
+        },
+        {
+            "name": "uart_hal_blocking_static",
+            "makeArgs": ["TESTNAME=uart_hal_test_blocking", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -DUART_HAL_TX_STATIC"]
+        },
+        {
+            "name": "uart0_hal_blocking_static",
+            "makeArgs": ["TESTNAME=uart0_hal_test", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -DUART_HAL_TX_STATIC -DUART1_STDIO"]
+        },
+        {
+            "name": "uart_hal_blocking_rxdrain",
+            "makeArgs": ["TESTNAME=uart_hal_test_blocking", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -Duart_rxdrain_blocking"]
+        },
+        {
+            "name": "uart0_hal_blocking_rxdrain",
+            "makeArgs": ["TESTNAME=uart0_hal_test", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -Duart_rxdrain_blocking -DUART1_STDIO"]
+        },
+        {
+            "name": "uart_hal_rx_nonblocking_txfill_blocking",
+            "makeArgs": ["TESTNAME=uart_hal_test_nonblocking_static", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -DUART_HAL_TX_STATIC -Duart_txfill_blocking -Dtx_blocking"]
+        },
+        {
+            "name": "uart_hal_rx_nonblocking_tx_putc",
+            "makeArgs": ["TESTNAME=uart_hal_test_nonblocking_static", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -DUART_HAL_TX_STATIC -Duart_tx_putchar -Dtx_blocking"]
+        },
+        {
+            "name": "uart_hal_nonblocking_static",
+            "makeArgs": ["TESTNAME=uart_hal_test_nonblocking_static", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -DUART_HAL_TX_STATIC"]
+        },
+        {
+            "name": "uart_hal_nonblocking_tx",
+            "makeArgs": ["TESTNAME=uart_hal_test_nonblockingtx", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -Duart_rx_non_static_nonblocking"]
+        },
+        {
+            "name": "crc_32_test",
+            "makeArgs": ["TESTNAME=crc_hal_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=0 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_32_test_byte",
+            "makeArgs": ["TESTNAME=crc_hal_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=0 -Dcrc_byte_input -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_32_test_hwrd",
+            "makeArgs": ["TESTNAME=crc_hal_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=0 -Dcrc_hwrd_input -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_32_test_wrd_array",
+            "makeArgs": ["TESTNAME=crc_hal_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=2 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_32_test_hwrd_array",
+            "makeArgs": ["TESTNAME=crc_hal_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=3 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_32_test_byte_array",
+            "makeArgs": ["TESTNAME=crc_hal_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=4 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_mem_test_hwrd",
+            "makeArgs": ["TESTNAME=crc_hal_mem_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-Dcrc_hwrd_mem -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_mem_test_wrd",
+            "makeArgs": ["TESTNAME=crc_hal_mem_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-Dcrc_wrd_mem -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_mem_test_byte",
+            "makeArgs": ["TESTNAME=crc_hal_mem_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_16_test",
+            "makeArgs": ["TESTNAME=crc_hal_poly16_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=0 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_16_test_multi_word",
+            "makeArgs": ["TESTNAME=crc_hal_poly16_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=1 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_16_test_wrd_array",
+            "makeArgs": ["TESTNAME=crc_hal_poly16_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=2 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_16_test_hwrd_array",
+            "makeArgs": ["TESTNAME=crc_hal_poly16_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=3 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "crc_16_test_byte_array",
+            "makeArgs": ["TESTNAME=crc_hal_poly16_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=4 -DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
             "name": "Print make version",
             "makeArgs": ["--version"]
         }

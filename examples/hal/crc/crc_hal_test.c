@@ -180,7 +180,7 @@ typedef struct test_data_s {
 } test_data_s;
 
 
-int main(void) {
+void main(void) {
 
     UartStdOutInit();
     UartPuts("CRC 32 hal test\n");
@@ -550,6 +550,4 @@ int main(void) {
         UartFail();
     }
     UartEndSimulation();
-
-    return 0;
 }
