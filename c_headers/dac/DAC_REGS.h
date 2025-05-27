@@ -308,10 +308,10 @@ typedef struct DAC_REGS_s{
               DAC_CLK_CTRL_u CLK_CTRL;
     volatile  DAC_INTR_STS_u INTR_STS;
     volatile  DAC_INTR_EVENT_u INTR_EVENT;
-              DAC_INTR_EN_u INTR_EN;
-              DAC_INTR_NMI_EN_u INTR_NMI_EN;
-              DAC_EVENT_EN_u EVENT_EN;
-              DAC_INTR_SW_SET_u INTR_SW_SET;
+    volatile  DAC_INTR_EN_u INTR_EN;
+    volatile  DAC_INTR_NMI_EN_u INTR_NMI_EN;
+    volatile  DAC_EVENT_EN_u EVENT_EN;
+    volatile  DAC_INTR_SW_SET_u INTR_SW_SET;
               DAC_EVENT_CTRL_u EVENT_CTRL;
               DAC_CTRL0_u CTRL0;
               DAC_CTRL1_u CTRL1;

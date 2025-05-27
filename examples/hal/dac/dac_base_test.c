@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 #include "uart_stdout_mcu.h"
-
+#include "gpio.h"
 #include "dac.h"
 
 int main(void) {
@@ -9,14 +9,17 @@ int main(void) {
     UartPuts("DAC Base Test.\n");
 
     uint32_t dac_code;
-
+    IOMUX_PA_REG_s iomux_cfg_struct;
     dac_cfg_s   dac_cfg_struct;
 
-    dac_code = 512;
+    dac_code = 4096;
 
     DAC_PWR_EN_WRITE(DAC_REGS, 1, DAC_PWR_EN_PWR_EN_KEY);
-    IOMUX_REGS->PA[15].pull_up = 0;
-    IOMUX_REGS->PA[15].input_en = 0;
+
+    iomux_cfg_struct.output_en        = 0;
+    iomux_cfg_struct.input_en         = 0;
+
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 15);
 
     dac_cfg_struct.data_fmt         = DAC_CTRL0_DATA_FMT_BINARY;
     dac_cfg_struct.enable           = 1;

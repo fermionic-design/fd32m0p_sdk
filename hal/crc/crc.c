@@ -1,8 +1,9 @@
 #include "crc.h"
 #include <string.h>
 
-//TODO: add comments before every function
-
+/*
+ *  ======== crc_cfg ========
+ */
 void crc_cfg(CRC_REGS_s *regs, const crc_cfg_s *cfg)
 {
     regs->CRCCONFIG.poly_type = cfg->poly_type;
@@ -12,11 +13,17 @@ void crc_cfg(CRC_REGS_s *regs, const crc_cfg_s *cfg)
     regs->CRCCONFIG.out_is_big_endian = cfg->out_is_big_endian;
 }
 
+/*
+ *  ======== crc_set_seed ========
+ */
 void crc_set_seed(CRC_REGS_s *regs, uint32_t seed)
 {
     regs->CRCSEED.packed_w = seed;
 }
 
+/*
+ *  ======== crc_feed_32bit_data ========
+ */
 void crc_feed_32bit_data(CRC_REGS_s *regs, const uint32_t *buffer, uint32_t length)
 {
     for(int i=0; i<length; i++)
@@ -25,6 +32,9 @@ void crc_feed_32bit_data(CRC_REGS_s *regs, const uint32_t *buffer, uint32_t leng
     }
 }
 
+/*
+ *  ======== crc_feed_16bit_data ========
+ */
 void crc_feed_16bit_data(CRC_REGS_s *regs, const uint16_t *buffer, uint32_t length)
 {
     for(int i=0; i<length; i++)
@@ -33,6 +43,9 @@ void crc_feed_16bit_data(CRC_REGS_s *regs, const uint16_t *buffer, uint32_t leng
     }
 }
 
+/*
+ *  ======== crc_feed_8bit_data ========
+ */
 void crc_feed_8bit_data(CRC_REGS_s *regs, const uint8_t *buffer, uint32_t length)
 {
     for(int i=0; i<length; i++)
@@ -41,11 +54,17 @@ void crc_feed_8bit_data(CRC_REGS_s *regs, const uint8_t *buffer, uint32_t length
     }
 }
 
+/*
+ *  ======== crc_get_result ========
+ */
 uint32_t crc_get_result(CRC_REGS_s *regs)
 {
     return(regs->CRCRESULT.packed_w);
 }
 
+/*
+ *  ======== crc_compute_32bit_block ========
+ */
 uint32_t crc_compute_32bit_block(CRC_REGS_s *regs,uint32_t length, const uint32_t *buffer, uint32_t seed)
 {
     uint32_t crc_result;
@@ -55,6 +74,9 @@ uint32_t crc_compute_32bit_block(CRC_REGS_s *regs,uint32_t length, const uint32_
     return crc_result;
 }
 
+/*
+ *  ======== crc_compute_16bit_block ========
+ */
 uint32_t crc_compute_16bit_block(CRC_REGS_s *regs, uint32_t length, const uint16_t *buffer, uint32_t seed)
 {
     uint32_t crc_result;
@@ -64,6 +86,9 @@ uint32_t crc_compute_16bit_block(CRC_REGS_s *regs, uint32_t length, const uint16
     return crc_result;
 }
 
+/*
+ *  ======== crc_compute_8bit_block ========
+ */
 uint32_t crc_compute_8bit_block(CRC_REGS_s *regs, uint32_t length, const uint8_t *buffer, uint32_t seed)
 {
     uint32_t crc_result;
@@ -73,6 +98,9 @@ uint32_t crc_compute_8bit_block(CRC_REGS_s *regs, uint32_t length, const uint8_t
     return crc_result;
 }
 
+/*
+ *  ======== crc_compute_32bit_mem_range ========
+ */
 uint32_t crc_compute_32bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t seed, const uint32_t *start_addr)
 {
     uint32_t crc_result;
@@ -82,6 +110,9 @@ uint32_t crc_compute_32bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t
     return crc_result;
 }
 
+/*
+ *  ======== crc_compute_16bit_mem_range ========
+ */
 uint32_t crc_compute_16bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t seed, const uint16_t *start_addr)
 {
     uint32_t crc_result;
@@ -91,6 +122,9 @@ uint32_t crc_compute_16bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t
     return crc_result;
 }
 
+/*
+ *  ======== crc_compute_8bit_mem_range ========
+ */
 uint32_t crc_compute_8bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t seed, const uint8_t *start_addr)
 {
     uint32_t crc_result;
@@ -100,6 +134,9 @@ uint32_t crc_compute_8bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t 
     return crc_result;    
 }
 
+/*
+ *  ======== crc_read_cfg ========
+ */
 void crc_read_cfg(CRC_REGS_s *regs, crc_cfg_s *rd_cfg)
 {
     rd_cfg->poly_type = regs->CRCCONFIG.poly_type;
