@@ -383,6 +383,8 @@ int main(void) {
             if(dut_crc_16 == tb_crc_16)
             {
                 UartPuts("CRC matched\n");
+                print_int_var("TB CRC = ",tb_crc_16,1);
+                print_int_var("DUT CRC = ", dut_crc_16,1);
             }
             else 
             {

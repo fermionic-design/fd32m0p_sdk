@@ -28,6 +28,7 @@ void uart_cfg(UART_REGS_s *regs, const uart_cfg_s *cfg)
     regs->CFG.stck_par = cfg->stick_parity;
     regs->CFG.stop_bit = cfg->num_stop_bits;
     regs->CTRL.uart_msb = cfg->msb_first;
+    regs->CTRL.majvote_en = cfg->majority_voting_en;
     regs->CTRL.loopback_en = cfg->loopback_en;
     regs->CTRL.tx_en = cfg->tx_en;
     regs->CTRL.rx_en = cfg->rx_en;
@@ -113,7 +114,6 @@ void uart_en(UART_REGS_s *regs)
     //enable UART clk
     uart_clk_en(regs);
     regs->CTRL.uart_en = 1;
-
 }
 
 /*

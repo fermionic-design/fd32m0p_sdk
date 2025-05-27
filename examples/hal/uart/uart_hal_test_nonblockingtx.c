@@ -27,7 +27,7 @@ int rst_int_ctr_rx;
 int num_bytes_wr_int;
 int num_bytes_written;
 int num_bytes_rd;
-int num_bytes_rd_int;
+volatile int num_bytes_rd_int;
 
 int main(void) {
 
@@ -87,17 +87,18 @@ int main(void) {
     //tx port
     iomux_cfg_struct_tx.output_en        = 1;
     iomux_cfg_struct_tx.input_en         = 0;
-    iomux_cfg_struct_tx.sel              = IOMUX_PIN_SEL_PA10_UART1_TX;
+    iomux_cfg_struct_tx.sel              = IOMUX_PIN_SEL_PA14_UART1_TX;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_tx, 10);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_tx, 14);
 
     //rx port
     iomux_cfg_struct_rx.output_en        = 0;
     iomux_cfg_struct_rx.input_en         = 1;
-    iomux_cfg_struct_rx.sel              = IOMUX_PIN_SEL_PA11_UART1_RX;
+    iomux_cfg_struct_rx.sel              = IOMUX_PIN_SEL_PA22_UART1_RX;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rx, 11);
-    
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rx, 22);
+   
+    /* program proper cts and rts iomux pin cfg
     //cts port
     iomux_cfg_struct_cts.output_en        = 0;
     iomux_cfg_struct_cts.input_en         = 1;
@@ -110,7 +111,7 @@ int main(void) {
     iomux_cfg_struct_rts.input_en         = 0;
     iomux_cfg_struct_rts.sel              = IOMUX_PIN_SEL_PA15_UART1_RTS;
 
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rts, 15);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_rts, 15); */
 
     //*******************iomux cfg end********************
 
