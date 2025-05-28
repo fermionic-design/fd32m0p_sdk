@@ -242,3 +242,12 @@ void spi_set_soft_cs(SPI_REGS_s *SPI_REGS_PTR) {
 void spi_clr_soft_cs(SPI_REGS_s *SPI_REGS_PTR) {
     SPI_REGS_PTR->CS_CTRL.soft_cs = 0;
 }
+
+bool spi_is_idle(SPI_REGS_s *SPI_REGS_PTR) {
+    uint32_t rdata;
+    rdata = SPI_REGS_PTR->INTR_EVENT.packed_w;
+    if(((rdata & SPI_INTR_EVENT_IDLE_MASK) >> SPI_INTR_EVENT_IDLE_OFS)!=1) {
+        return false;
+    }
+    return true;
+}
