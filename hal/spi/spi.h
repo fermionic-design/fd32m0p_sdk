@@ -63,5 +63,6 @@ void spi_tx_fifo_fill_word_blocking(SPI_REGS_s *SPI_REGS_PTR, const uint32_t *bu
 void spi_enable_cs(SPI_REGS_s *SPI_REGS_PTR, bool soft_cs_en, uint8_t cs_sel);
 void spi_set_soft_cs(SPI_REGS_s *SPI_REGS_PTR);
 void spi_clr_soft_cs(SPI_REGS_s *SPI_REGS_PTR);
+bool spi_is_idle(SPI_REGS_s *SPI_REGS_PTR);
 
 #endif

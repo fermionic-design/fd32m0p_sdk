@@ -135,11 +135,11 @@ typedef struct VREF_REGS_s{
     volatile  VREF_PWR_EN_u PWR_EN;
     volatile  VREF_RST_CTRL_u RST_CTRL;
     volatile  VREF_RST_STS_u RST_STS;
-              VREF_CLK_CTRL_u CLK_CTRL;
+    volatile  VREF_CLK_CTRL_u CLK_CTRL;
     volatile  VREF_STS_u STS;
-              VREF_CTRL_u CTRL;
-              VREF_SH_CTRL_u SH_CTRL;
-              VREF_SPARE_CTRL_u SPARE_CTRL;
+    volatile  VREF_CTRL_u CTRL;
+    volatile  VREF_SH_CTRL_u SH_CTRL;
+    volatile  VREF_SPARE_CTRL_u SPARE_CTRL;
     volatile  VREF_SPARE_STS_u SPARE_STS;
 } VREF_REGS_s;
 
