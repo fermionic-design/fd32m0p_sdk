@@ -93,7 +93,7 @@ typedef struct CRC_REGS_s{
     volatile  CRC_PWR_EN_u PWR_EN;
     volatile  CRC_RST_CTRL_u RST_CTRL;
     volatile  CRC_RST_STS_u RST_STS;
-              CRC_CRCCONFIG_u CRCCONFIG;
+    volatile  CRC_CRCCONFIG_u CRCCONFIG;
     volatile  CRC_CRCSEED_u CRCSEED;
     volatile  CRC_CRCINPUT_u CRCINPUT[1024];
     volatile  CRC_CRCRESULT_u CRCRESULT;
