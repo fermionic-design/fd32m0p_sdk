@@ -857,7 +857,7 @@ typedef struct DMA_REGS_s{
     volatile  DMA_PWR_EN_u PWR_EN;
     volatile  DMA_RST_CTRL_u RST_CTRL;
     volatile  DMA_RST_STS_u RST_STS;
-              DMA_CLK_CTRL_u CLK_CTRL;
+    volatile  DMA_CLK_CTRL_u CLK_CTRL;
     volatile  DMA_DBG_CTRL_u DBG_CTRL;
     volatile  DMA_INTR_STS_u INTR_STS;
     volatile  DMA_INTR_EVENT_u INTR_EVENT;

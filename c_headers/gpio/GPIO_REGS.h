@@ -812,7 +812,7 @@ typedef struct GPIO_REGS_s{
     volatile  GPIO_PWR_EN_u PWR_EN;
     volatile  GPIO_RST_CTRL_u RST_CTRL;
     volatile  GPIO_RST_STS_u RST_STS;
-              GPIO_CLK_CTRL_u CLK_CTRL;
+    volatile  GPIO_CLK_CTRL_u CLK_CTRL;
     volatile  GPIO_INTR_STS_u INTR_STS;
     volatile  GPIO_INTR_EVENT_u INTR_EVENT;
     volatile  GPIO_INTR_EN0_u INTR_EN0;
@@ -846,12 +846,12 @@ typedef struct GPIO_REGS_s{
     volatile  GPIO_DIN_27_24_u DIN_27_24;
     volatile  GPIO_DIN_31_28_u DIN_31_28;
     volatile  GPIO_DIN_u DIN;
-              GPIO_FILT_EN_0_u FILT_EN_0;
-              GPIO_FILT_EN_1_u FILT_EN_1;
-              GPIO_INTR_POL_0_u INTR_POL_0;
-              GPIO_INTR_POL_1_u INTR_POL_1;
-              GPIO_SUB_CFG_u SUB_CFG[2];
-              GPIO_DMA_WR_MASK_u DMA_WR_MASK;
+    volatile  GPIO_FILT_EN_0_u FILT_EN_0;
+    volatile  GPIO_FILT_EN_1_u FILT_EN_1;
+    volatile  GPIO_INTR_POL_0_u INTR_POL_0;
+    volatile  GPIO_INTR_POL_1_u INTR_POL_1;
+    volatile  GPIO_SUB_CFG_u SUB_CFG[2];
+    volatile  GPIO_DMA_WR_MASK_u DMA_WR_MASK;
 } GPIO_REGS_s;
 
 #define GPIO_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)

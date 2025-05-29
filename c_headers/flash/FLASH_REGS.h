@@ -145,7 +145,7 @@ typedef union FLASH_ECED_STATUS_u {
 
 typedef struct FLASH_REGS_s{
     volatile  FLASH_DESC_u DESC;
-              FLASH_CLK_CTRL_u CLK_CTRL;
+    volatile  FLASH_CLK_CTRL_u CLK_CTRL;
     volatile  FLASH_CTRL_u CTRL;
     volatile  FLASH_STATUS_u STATUS;
     volatile  FLASH_TIME_CTRL_u TIME_CTRL;

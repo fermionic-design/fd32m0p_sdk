@@ -104,10 +104,10 @@ typedef struct EVENT_FABRIC_REGS_s{
     volatile  EVENT_FABRIC_PWR_EN_u PWR_EN;
     volatile  EVENT_FABRIC_RST_CTRL_u RST_CTRL;
     volatile  EVENT_FABRIC_RST_STS_u RST_STS;
-              EVENT_FABRIC_CLK_CTRL_u CLK_CTRL;
-              EVENT_FABRIC_GEN_PUB_u GEN_PUB[25];
-              EVENT_FABRIC_GEN_SUB_u GEN_SUB[25];
-              EVENT_FABRIC_DMA_PUB_u DMA_PUB[16];
+    volatile  EVENT_FABRIC_CLK_CTRL_u CLK_CTRL;
+    volatile  EVENT_FABRIC_GEN_PUB_u GEN_PUB[25];
+    volatile  EVENT_FABRIC_GEN_SUB_u GEN_SUB[25];
+    volatile  EVENT_FABRIC_DMA_PUB_u DMA_PUB[16];
 } EVENT_FABRIC_REGS_s;
 
 #define EVENT_FABRIC_PWR_EN_PWR_EN_KEY ((uint32_t)0x00000069U)
