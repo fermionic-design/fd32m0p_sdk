@@ -30,7 +30,7 @@ int main(void) {
     GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
-    UartPuts("GPIO Base Test\n");
+    //UartPuts("GPIO Base Test\n");
   
     iomux_cfg_struct.output_en        = 1;
     iomux_cfg_struct.input_en         = 0;
@@ -42,19 +42,23 @@ int main(void) {
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
 
+    // iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
+    // iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
     for (i=0;i<28;i=i+1)
     {
+        if (i == 17) continue; // skipping UART TX IO MUX cfg.
+        ///print_int_var("i : ", i, 0);
         iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
         
     }
-
+    UartPuts("IO MUX CFG\n");
     gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
-   
+    UartPuts("Dout en \n");
     GPIO_GENERIC_EVENT_EN(GPIO_REGS, 10);
     GPIO_GENERIC_EVENT_EN(GPIO_REGS, 24);
     //GPIO_REGS->EVENT_EN0.packed_w = 0xFFFFFFFF;
     //GPIO_REGS->EVENT_EN1.packed_w = 0xFFFFFFFF;
-    
+    UartPuts("event en \n");
     //dout = sram_mem_loc->mem[2];
     dout = 0x00000400;
     gpio_dout(GPIO_REGS, dout);
@@ -70,18 +74,18 @@ int main(void) {
     bit_num     =   24;
 
     gpio_sub_cfg(GPIO_REGS, 1, sub_en, action, bit_num);
-    
+    UartPuts("sub_cfg en \n");
     print_int_var("SUB1 : ",GPIO_REGS->SUB_CFG[1].packed_w,1);
 
-    // sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 0);
-    // print_int_var("SUB_CFG0_sub_en : ",sub_cfg_val.sub_en, 1);
-    // print_int_var("SUB_CFG0_action : ",sub_cfg_val.action, 1);
-    // print_int_var("SUB_CFG0_bit_num : ",sub_cfg_val.bit_num, 1);
+    sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 0);
+    print_int_var("SUB_CFG0_sub_en : ",sub_cfg_val.sub_en, 1);
+    print_int_var("SUB_CFG0_action : ",sub_cfg_val.action, 1);
+    print_int_var("SUB_CFG0_bit_num : ",sub_cfg_val.bit_num, 1);
 
-    // sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 1);
-    // print_int_var("SUB_CFG1_sub_en : ",sub_cfg_val.sub_en, 1);
-    // print_int_var("SUB_CFG1_action : ",sub_cfg_val.action, 1);
-    // print_int_var("SUB_CFG1_bit_num : ",sub_cfg_val.bit_num, 1);
+    sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 1);
+    print_int_var("SUB_CFG1_sub_en : ",sub_cfg_val.sub_en, 1);
+    print_int_var("SUB_CFG1_action : ",sub_cfg_val.action, 1);
+    print_int_var("SUB_CFG1_bit_num : ",sub_cfg_val.bit_num, 1);
 
     EVENT_FABRIC_GEN_SUB_N_WRITE(EVENT_FABRIC_REGS, 3, 2);
     EVENT_FABRIC_GEN_PUB_N_WRITE(EVENT_FABRIC_REGS, 9, 2);
@@ -91,7 +95,7 @@ int main(void) {
 
     gpio_outs =  get_gpio_dout(GPIO_REGS);
     print_int_var("gpio_outs :  ",gpio_outs,1);
-
+    UartPuts("Test ENd\n");
     for (int i = 0; i< 10000 ; i++ );
     UartEndSimulation();
     return 0;

@@ -5,7 +5,7 @@
 ////        interrupt upon detection of rising edge at GPIO.              ////
 ////                                                                      ////
 ////    Board Setup:                                                      ////
-////        PA7 and PA20 are pins used in this example. Both pins should  //// 
+////        PA4 and PA24 are pins used in this example. Both pins should  //// 
 ////        be driven high and respective interrupts should be set.       ////
 ////                                                                      ////
 ////                                                                      ////
@@ -36,35 +36,45 @@ int main(void) {
     iomux_cfg_struct.pull_down        = 0;
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
-    iomux_cfg_struct.input_val        = 1;
+    iomux_cfg_struct.input_val        = 0;
     
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 7);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 20);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
 
     GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO INTR RSNG TEST\n");
+
     gpio_dout_en(GPIO_REGS, 0x00000000);
 
     UartPuts("Output is disabled on GPIO.\n");
 
-    GPIO_INTR_EVENT_EN(GPIO_REGS, 7);
+    GPIO_INTR_EVENT_EN(GPIO_REGS, 4);
     //GPIO_REGS->INTR_EN0.packed_w = 0x00800080;
     UartPuts("Enabled INTR 0. \n");
-    GPIO_INTR_EVENT_EN(GPIO_REGS, 20);
+    GPIO_INTR_EVENT_EN(GPIO_REGS, 24);
     //GPIO_REGS->INTR_EN1.packed_w = 0x00100010;
     UartPuts("Enabled INTR 1. \n");
 
-    gpio_intr_polarity_cfg(GPIO_REGS, 7, GPIO_INTR_POL_POS);
-    gpio_intr_polarity_cfg(GPIO_REGS, 20, GPIO_INTR_POL_POS);
+    print_int_var("intr_en0 : ", GPIO_REGS->INTR_EN0.packed_w, 1);     
+    print_int_var("intr_en1 : ", GPIO_REGS->INTR_EN1.packed_w, 1);    
+
+    gpio_intr_polarity_cfg(GPIO_REGS, 4, GPIO_INTR_POL_POS);
+    gpio_intr_polarity_cfg(GPIO_REGS, 24, GPIO_INTR_POL_POS);
     
-    UartPuts("Enabled INTR_POL_0 for Pin 7\n");
+    print_int_var("intr_pol0:4  : ", GPIO_REGS->INTR_POL_0.intr_pol_4, 1);     
+    print_int_var("intr_pol1:24 : ", GPIO_REGS->INTR_POL_1.intr_pol_24, 1);
 
-    UartPuts("Enabled INTR_POL_1 for Pin 20\n");
+    UartPuts("Enabled INTR_POL_0 for Pin 4\n");
 
-    intr_val = 0x00100080; 
+    UartPuts("Enabled INTR_POL_1 for Pin 24\n");
+
+    intr_val = 0x01000010; 
     while(GPIO_REGS->INTR_EVENT.packed_w != intr_val);
+        // {
+        //     print_int_var("intr_val : ", GPIO_REGS->INTR_EVENT.packed_w, 1);
+        // }
 
     if(GPIO_REGS->INTR_EVENT.packed_w == intr_val)
     {

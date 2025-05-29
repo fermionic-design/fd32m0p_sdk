@@ -30,7 +30,7 @@ int main(void) {
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO RD Base Test\n");
-    gpio_dout_en(GPIO_REGS, 0x00000000); 
+    //gpio_dout_en(GPIO_REGS, 0xFEFFFFEF); 
     UartPuts("All Pins are enabled on GPIO.\n");
    
     iomux_cfg_struct.output_en        = 0;
@@ -43,16 +43,23 @@ int main(void) {
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
 
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
+
+    iomux_cfg_struct.input_en         = 0;
     for (i=0;i<28;i=i+1)
     {
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        if(i == 17) continue;
+        if(i == 4) continue;
+        if(i == 24) continue;
         
+        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
     }
- 
-    while(gpio_din(GPIO_REGS) != 0);
+    UartPuts("Waiting for DIN\n");
+    //while(gpio_din(GPIO_REGS) != 0);
     din = gpio_din(GPIO_REGS);
 
-    print_int_var("din :", din, 0);
+    print_int_var("din :", din, 1);
     
     UartPuts("GPIO Read Test Ends\n");
 

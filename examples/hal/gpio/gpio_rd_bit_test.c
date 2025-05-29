@@ -41,23 +41,24 @@ int main(void) {
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
 
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
+
+    iomux_cfg_struct.input_en         = 0;
+
     for (i=0;i<28;i=i+1)
     {
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
-        
+        if(i == 17) continue;
+        if(i == 4) continue;
+        if(i == 24) continue;
+        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);  
     }
 
     while( gpio_din_pinwise(GPIO_REGS,4) != 1);   
     UartPuts("PA4 is set.\n");
 
-    while( gpio_din_pinwise(GPIO_REGS,7) != 1);   
-    UartPuts("PA7 is set.\n");
-
-    while( gpio_din_pinwise(GPIO_REGS,14) != 1);   
-    UartPuts("PA14 is set.\n");
-
-    while( gpio_din_pinwise(GPIO_REGS,15) != 1);   
-    UartPuts("PA15 is set.\n");
+    while( gpio_din_pinwise(GPIO_REGS,24) != 1);   
+    UartPuts("PA24 is set.\n");
 
     UartPuts("Read Test ends.\n");
     for (int i = 0; i< 1000 ; i++ );
