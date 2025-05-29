@@ -19,13 +19,13 @@
 #include "vref.h"
 #include "gpio.h" 
 #include "adc.h"
-
+#include "flash.h"
 
 int main(void) {
     volatile unsigned int read_sts;
     uint32_t i = 0;
-    uint32_t start_addr = ADC_CHNL_2;
-    uint32_t end_addr = ADC_CHNL_4;
+    uint32_t start_addr = ADC_CHNL_3;
+    uint32_t end_addr = ADC_CHNL_5;
     
     uint32_t hw_avg_en = 0;
     uint32_t avg_8_11 = 0;
@@ -40,7 +40,9 @@ int main(void) {
     uint32_t read_en_conv;
     uint32_t read_fifo_en, fifo_en;
     uint32_t samples, num_channel;
-
+ 
+    flash_config(FLASH_APB_REGS, FLASH_SETTING_CFG_32MHZ_HIGH_SPEED_3V);
+    OTP_REGS->OTP[1].packed_w = 0x000000FF;
     adc_timer_cfg_s             timer_cfg;
     adc_clk_cfg_s               clk_cfg;
     vref_cfg_s                  vref_cfg_struct;
@@ -51,7 +53,7 @@ int main(void) {
     adc_dma_cfg_s               dma_cfg;
 
     num_channel = end_addr - start_addr + 1;
-    samples     = 3;
+    samples     = 90;
     
     #if HW_AVG == 1
         hw_avg_en = 1;
@@ -83,10 +85,10 @@ int main(void) {
         avg_12_15 = 0;
     #endif
     
-    //Configuring MCU CTRL
-    MCU_CTRL_REGS->ANA_CLK_EN.hf_xo_or_ext_clk_ovrd_en = 1;
-    MCU_CTRL_REGS->ANA_CLK_EN.hf_xo_or_ext_clk_ovrd_val = 1;
-    MCU_CTRL_REGS->HF_CLK_CTRL.use_precision_clk = 1;
+    // //Configuring MCU CTRL
+    // MCU_CTRL_REGS->ANA_CLK_EN.hf_xo_or_ext_clk_ovrd_en = 1;
+    // MCU_CTRL_REGS->ANA_CLK_EN.hf_xo_or_ext_clk_ovrd_val = 1;
+    // MCU_CTRL_REGS->HF_CLK_CTRL.use_precision_clk = 1;
     
     UartStdOutInit();
     UartPuts("ADC Basic Test\n");
@@ -96,7 +98,7 @@ int main(void) {
         for(uint32_t hw = start_addr; hw < end_addr + 1; hw = hw+1)
         {
             chnl_cfg.data_channel   = hw;
-            chnl_cfg.channel_sel    = hw;
+            chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_CH3_PA24;
             chnl_cfg.vref_sel       = 0;
             chnl_cfg.hw_avg_en      = 1;
             chnl_cfg.bcs_en         = 0;
@@ -110,7 +112,7 @@ int main(void) {
         for(uint32_t hw = start_addr; hw < end_addr + 1; hw = hw+1)
         {
             chnl_cfg.data_channel   = hw;
-            chnl_cfg.channel_sel    = hw;
+            chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_CH3_PA24;
             chnl_cfg.vref_sel       = 0;
             chnl_cfg.hw_avg_en      = 0;
             chnl_cfg.bcs_en         = 0;
@@ -128,8 +130,8 @@ int main(void) {
     ADC_PWR_EN_WRITE(ADC0_REGS, 1, ADC_PWR_EN_PWR_EN_KEY);
 
     clk_cfg.clk_en  = 1;
-    clk_cfg.clk_div = ADC_CLK_CTRL_CLK_DIV_BY_5;
-    clk_cfg.clk_sel = ADC_CLK_SEL_HF;
+    clk_cfg.clk_div = ADC_CLK_CTRL_CLK_DIV_BY_8;
+    clk_cfg.clk_sel = ADC_CLK_SEL_AHB;
     print_int_var("before clk_en : ", clk_cfg.clk_en, 1);  
     print_int_var("before clk_div : ",clk_cfg.clk_div, 1); 
     print_int_var("before clk_sel : ", clk_cfg.clk_sel, 1);
@@ -141,7 +143,7 @@ int main(void) {
     print_int_var("clk_sel : ", clk_cfg.clk_sel, 1);
 
 
-    adc_samp_timer_cfg(ADC0_REGS,/*IN CLK FREQ*/ 4571428, /*Desired Sampling Rate*/ 50000);
+    adc_samp_timer_cfg(ADC0_REGS,/*IN CLK FREQ*/ 32000000, /*Desired Sampling Rate*/ 200000);
 
     timer_cfg   = get_adc_timer_cfg(ADC0_REGS);
 
@@ -152,25 +154,18 @@ int main(void) {
     ADC0_REGS->INTR_EN_0.packed_w = 0xFFFFFFFF; 
     ADC0_REGS->INTR_EN_1.packed_w = 0x7FFFFFFF;
 
-    uint32_t channel_sel[16];
+    iomux_cfg_struct.output_en        = 0;
+    iomux_cfg_struct.input_en         = 0;
+    //iomux_cfg_struct.pull_up          = 0;
+    //iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 25);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 27);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
 
-    for(uint32_t ii=0; ii<16; ii++)
-    {   
-        if (ii + 3 > 15)
-        {
-            channel_sel[ii] = ii + 3 - 15;
-        }
-        else 
-        {
-            channel_sel[ii] = ii + 3;
-        }
-    }
-   
     multi_ch_cfg.repeat            =    1;
     multi_ch_cfg.start_addr        =    start_addr;
     multi_ch_cfg.end_addr          =    end_addr;
     multi_ch_cfg.trig_src          =    ADC_CONV_CFG_TRIGGER_SOURCE_SW;
-    multi_ch_cfg.adc_res           =    ADC_CONV_CFG_ADC_RES_8_BIT;
+    multi_ch_cfg.adc_res           =    ADC_CONV_CFG_ADC_RES_12_BIT;
     multi_ch_cfg.dma_en            =    0;
     multi_ch_cfg.dma_transfer_cnt  =    0;
     multi_ch_cfg.fifo_en           =    0;
@@ -227,27 +222,33 @@ int main(void) {
     print_int_var("read_fifo_en", read_fifo_en, 0);
 
     UartPuts("**** ADC Triggered ****** \n");
-
     sw_trig = 3;
     adc_sw_trig(ADC0_REGS, sw_trig); 
-    for(int jj=0; jj<(samples/num_channel); jj++)
+    //print_int_var("num_channel", num_channel, 0);
+    for(int jj=0; jj<(samples/num_channel); jj=jj+1)
     {
-        for(int ii=0; ii< (num_channel) ; ii++){      
-            while ((ADC0_REGS->INTR_EVENT.packed_w & (1 << (ii + 10))) == 0);
-            obs_result[ii] = ADC0_REGS->RESULT[start_addr + ii].packed_w;
-            ADC0_REGS->INTR_EVENT.packed_w = (1 << (ii + 10));
+        for(int ii=0; ii< (num_channel) ; ii=ii+1){      
+            while ((ADC0_REGS->INTR_EVENT.packed_w & (1 << (ii + start_addr+8))) == 0);
+            print_int_var("CH: ", ii, 0);
+            print_int_var("res : ", ADC0_REGS->RESULT[start_addr + ii].packed_w, 0);
+            //obs_result[ii] = (ADC0_REGS->RESULT[start_addr + ii].packed_w & 0x00003FFF);
+            ADC0_REGS->INTR_EVENT.packed_w = (1 << (ii + start_addr+8));
             intr_sts = ADC0_REGS->INTR_EVENT.packed_w;
             if((intr_sts & ((1 << (ii + 8))))!= 0){
                 print_int_var("intr_sts",intr_sts,1);
-                print_int_var("*** intr not cleared ***", jj, 0);
+                print_int_var("*** intr not cleared ***", ii, 0);
             }
+            // if((jj >= 1)){
+            //     print_int_var("ADC_out ", obs_result[ii], 1);
+            // }
         }
     }
 
     adc_en_conv(ADC0_REGS, 0);
-    for (int i=0 ;  i < samples; i++){
-        print_int_var("ADC",obs_result[i],0);
-    }
+    // for (int i=0 ;  i < samples; i=i+1){
+    //     print_int_var("ADC : ",obs_result[i],0);
+    // }
+
     UartEndSimulation();
     return 0;
 

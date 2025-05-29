@@ -53,7 +53,7 @@ int main(void) {
     temp_sense_en       = 0;
     start_addr          = DATA_CHNL_0;
     end_addr            = DATA_CHNL_0;
-    analog_adc_channel  = ADC_CHNL_0;
+    analog_adc_channel  = ADC_CHNL_CFG_CHANNEL_SEL_CH2_PA25;
     dma_src_addr        = 0x40040094 + (start_addr*4);
 
     UartPuts("ADC DMA Test\n");
@@ -65,20 +65,26 @@ int main(void) {
     //Soft Reset 
     DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000001;
     DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000000;
-
+    MCU_CTRL_REGS->ANA_SPARE_OUT0.spare_out_0 = 0x09800000;
     UartPuts("Enabling VREF\n");
-    VREF_PWR_EN_WRITE(VREF_REGS, 1, VREF_PWR_EN_PWR_EN_KEY);
+    //VREF_PWR_EN_WRITE(VREF_REGS, 1, VREF_PWR_EN_PWR_EN_KEY);
     
-    vref_cfg_struct.enable     = 0;
-    vref_cfg_struct.vref_mode  = 0;
-    vref_cfg(VREF_REGS, IOMUX_REGS, MCU_CTRL_REGS, iomux_cfg_struct, vref_cfg_struct, temp_sense_en);
-    vref_cfg_struct = get_vref_cfg(VREF_REGS);
-    print_int_var("enable ", vref_cfg_struct.enable,0);
-    print_int_var("vref_mode ", vref_cfg_struct.vref_mode,0);
+    // vref_cfg_struct.enable     = 0;
+    // vref_cfg_struct.vref_mode  = 0;
+    // vref_cfg(VREF_REGS, IOMUX_REGS, MCU_CTRL_REGS, iomux_cfg_struct, vref_cfg_struct, temp_sense_en);
+    // vref_cfg_struct = get_vref_cfg(VREF_REGS);
+    // print_int_var("enable ", vref_cfg_struct.enable,0);
+    // print_int_var("vref_mode ", vref_cfg_struct.vref_mode,0);
 
     ADC_PWR_EN_WRITE(ADC0_REGS, 1, ADC_PWR_EN_PWR_EN_KEY);
 
-    adc_samp_timer_cfg(ADC0_REGS, 32000000, 3000000);
+    adc_samp_timer_cfg(ADC0_REGS, 32000000, 2000000);
+
+
+    timer_cfg = get_adc_timer_cfg(ADC0_REGS);
+    print_int_var("start_time : ", timer_cfg.start_time, 1);  
+    print_int_var("sample_time : ",timer_cfg.sample_time, 1); 
+    print_int_var("conv_time : ", timer_cfg.conv_time, 1);  
 
     clk_cfg.clk_en  = 1;
     clk_cfg.clk_div = ADC_CLK_CTRL_CLK_DIV_BY_1;
@@ -138,9 +144,16 @@ int main(void) {
     ADC0_REGS->DMA_EN_0.packed_w = 0x00410041;
     //ADC0_REGS->DMA_EN_0.dma_done_dma_en = 1;
     
-    
+    iomux_cfg_struct.input_en = 0;
     iomux_cfg_struct.output_en = 0;
-    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 28);
+    iomux_cfg_struct.pull_up = 0;
+    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 27);
+    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 26);
+    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 25);
+    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 24);
+    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 22);
+    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 20);
+    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 16);
 
     EVENT_FABRIC_DMA_PUB_N_WRITE(EVENT_FABRIC_REGS, 0, 2);
 
@@ -152,7 +165,7 @@ int main(void) {
     dma_channel_cfg_t *primary_ch = &default_channel_cfg;
 
     primary_ch->src_addr = dma_src_addr;            
-    primary_ch->dst_addr = 0x200002EC;            
+    primary_ch->dst_addr = 0x200000F0;            
     primary_ch->total_transaction = 127 ;   
     primary_ch->src_size = 2;            
     primary_ch->src_incr = 3;            
@@ -174,16 +187,22 @@ int main(void) {
 
     while(ADC0_REGS->INTR_STS.intr_first == ADC_INTR_EVENT_DMA_DONE_IDX);
 
+
+    
     int ii = 0;
-    for(int cnt=0;cnt<32;cnt++){ 
+    for(int cnt=0;cnt<128;cnt++){ 
         
         obs_result[ii] = (sram_mem_s->mem[cnt]) & (0x0000FFFF);
-        print_int_var("obs_result", obs_result[ii], 0);
+        print_int_var("obs_result ", obs_result[ii], 0);
         obs_result[ii+1] = ((sram_mem_s->mem[cnt]) >>16) & (0x0000FFFF);
-        print_int_var("obs_result", obs_result[ii+1],0);
+        print_int_var("obs_result ", obs_result[ii+1],0);
         ii= ii+2;
     }
+    for(int cnt=0;cnt<16;cnt++){
+        print_int_var("Result : ", ADC0_REGS->RESULT[start_addr + cnt].packed_w ,0);
+    }
 
+    adc_en_conv(ADC0_REGS, 0);
     UartEndSimulation();
     return 0;
 }
