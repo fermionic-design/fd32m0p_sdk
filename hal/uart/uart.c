@@ -298,6 +298,7 @@ void uart_read_cfg(UART_REGS_s *regs, uart_cfg_s *rd_cfg)
     rd_cfg->stick_parity = regs->CFG.stck_par;
     rd_cfg->num_stop_bits = regs->CFG.stop_bit;
     rd_cfg->msb_first = regs->CTRL.uart_msb;
+    rd_cfg->majority_voting_en = regs->CTRL.majvote_en;
     rd_cfg->loopback_en = regs->CTRL.loopback_en;
     rd_cfg->tx_en = regs->CTRL.tx_en;
     rd_cfg->rx_en = regs->CTRL.rx_en;
