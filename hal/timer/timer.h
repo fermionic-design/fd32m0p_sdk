@@ -65,14 +65,56 @@ typedef struct timer_output_chan_cfg_t{
     .out_init_val = 0                                              \
 }
 
+typedef struct timer_pwm_output_channel_action_cfg_t{
+    TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_E  cc2d_act;
+    TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_E  cc2u_act;
+    TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_E   ccd_act;
+    TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_E   ccu_act;
+    TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_E  load_act;
+    TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_E  zero_act;
+}timer_pwm_output_channel_action_cfg_t;
+
+#define TIMER_PWM_OUTPUT_CHANNEL_ACTION_CFG_DEFAULT { \
+    .cc2d_act = TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_DISABLE  ,\
+    .cc2u_act = TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_DISABLE  ,\
+    .ccd_act  = TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_DISABLE   ,\
+    .ccu_act  = TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_DISABLE   ,\
+    .load_act = TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_DISABLE  ,\
+    .zero_act = TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_DISABLE   \
+}
+
+typedef struct timer_capture_channel_ctrl_t{
+    TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_E   cap_cond;
+    TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_E  load_cond;
+    TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_E  zero_cond;
+    TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_E   adv_cond;
+}timer_capture_channel_ctrl_t;
+
+#define TIMER_CAPTURE_CHANNEL_CTRL_CFG_DEFAULT  {              \
+    .cap_cond   = TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_DISABLE   ,\
+    .load_cond  = TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_DISABLE  ,\
+    .zero_cond  = TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_DISABLE  ,\
+    .adv_cond   = TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_EACH_CLK   \
+}
+
 typedef struct timer_pwm_cfg_t{
-    timer_ctr_cfg_t           *ctr_cfg;
-    uint16_t                  pwm_period;
-    uint8_t                   chan_num;
-    uint16_t                  comp_val;
-    timer_output_chan_cfg_t   *out_chan_cfg; 
+    timer_ctr_cfg_t               ctr_cfg;
+    uint16_t                      pwm_period;
+    uint8_t                       chan_num;
+    uint16_t                      pwm_high_period;
+    timer_output_chan_cfg_t       out_chan_cfg;
+    timer_capture_channel_ctrl_t  cap_chan_ctrl;
     
 }timer_pwm_cfg_t;
+#define TIMER_PWM_CFG_DEFAULT {                                  \
+    .ctr_cfg          = TIMER_CTR_CFG_DEFAULT                   ,\
+    .pwm_period       = 100                                   ,\
+    .chan_num         = 0x0                                     ,\
+    .pwm_high_period  = 40                                    ,\
+    .out_chan_cfg     = TIMER_OUTPUT_CHAN_CFG_DEFAULT           ,\
+    .cap_chan_ctrl    = TIMER_CAPTURE_CHANNEL_CTRL_CFG_DEFAULT   \
+}
+
 /**
  * @brief   This function sets the clock configuration
  *
@@ -225,5 +267,15 @@ void timer_set_compare_val(TIMER_REGS_s *TIMER_REGS, uint8_t comp_val, uint8_t c
  *
  */
 void timer_set_pwm_cfg(TIMER_REGS_s *TIMER_REGS, timer_clk_cfg_t *clk_cfg, timer_pwm_cfg_t *pwm_cfg);
+
+/**
+ *
+ */
+void timer_set_pwm_output_channel_action_cfg(TIMER_REGS_s *TIMER_REGS, timer_pwm_output_channel_action_cfg_t *pwm_act_cfg, uint8_t chan_num); 
+
+/**
+ *
+ */
+void timer_set_capture_channel_ctrl(TIMER_REGS_s *TIMER_REGS, timer_capture_channel_ctrl_t *cap_chan_ctrl, uint8_t chan_num);
 
 #endif

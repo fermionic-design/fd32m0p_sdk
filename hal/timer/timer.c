@@ -277,7 +277,7 @@ void timer_delay_in_ms(TIMER_REGS_s *TIMER_REGS, uint16_t delay_in_ms) {
  * Sets the compare value for a particular channel
  */
 void timer_set_compare_val(TIMER_REGS_s *TIMER_REGS, uint8_t comp_val, uint8_t chan_num) {
-    if(chan_num == 0){
+    if(chan_num == 0) {
         TIMER_REGS->CC0_COMPARE_CTRL.comp_val_0 = comp_val; 
     } else if (chan_num == 1) {
         TIMER_REGS->CC1_COMPARE_CTRL.comp_val_1 = comp_val; 
@@ -288,23 +288,108 @@ void timer_set_compare_val(TIMER_REGS_s *TIMER_REGS, uint8_t comp_val, uint8_t c
     }
 }
 
+
+
+/**
+ * timer_set_pwm_output_channel_action_cfg
+ */
+void timer_set_pwm_output_channel_action_cfg(TIMER_REGS_s *TIMER_REGS,timer_pwm_output_channel_action_cfg_t *pwm_act_cfg, uint8_t chan_num) {
+    if(chan_num == 0) {
+        TIMER_REGS->CC0_CC_PWM_CFG.cc_out_cc2d_0  = pwm_act_cfg->cc2d_act; 
+        TIMER_REGS->CC0_CC_PWM_CFG.cc_out_cc2u_0  = pwm_act_cfg->cc2u_act; 
+        TIMER_REGS->CC0_CC_PWM_CFG.cc_out_ccd_0   = pwm_act_cfg->ccd_act ; 
+        TIMER_REGS->CC0_CC_PWM_CFG.cc_out_ccu_0   = pwm_act_cfg->ccu_act ; 
+        TIMER_REGS->CC0_CC_PWM_CFG.cc_out_load_0  = pwm_act_cfg->load_act; 
+        TIMER_REGS->CC0_CC_PWM_CFG.cc_out_zero_0  = pwm_act_cfg->zero_act; 
+    } else if(chan_num == 1) {
+        TIMER_REGS->CC1_CC_PWM_CFG.cc_out_cc2d_1  = pwm_act_cfg->cc2d_act; 
+        TIMER_REGS->CC1_CC_PWM_CFG.cc_out_cc2u_1  = pwm_act_cfg->cc2u_act; 
+        TIMER_REGS->CC1_CC_PWM_CFG.cc_out_ccd_1   = pwm_act_cfg->ccd_act ; 
+        TIMER_REGS->CC1_CC_PWM_CFG.cc_out_ccu_1   = pwm_act_cfg->ccu_act ; 
+        TIMER_REGS->CC1_CC_PWM_CFG.cc_out_load_1  = pwm_act_cfg->load_act; 
+        TIMER_REGS->CC1_CC_PWM_CFG.cc_out_zero_1  = pwm_act_cfg->zero_act; 
+    } else if(chan_num == 2) {
+        TIMER_REGS->CC2_CC_PWM_CFG.cc_out_cc2d_2  = pwm_act_cfg->cc2d_act; 
+        TIMER_REGS->CC2_CC_PWM_CFG.cc_out_cc2u_2  = pwm_act_cfg->cc2u_act; 
+        TIMER_REGS->CC2_CC_PWM_CFG.cc_out_ccd_2   = pwm_act_cfg->ccd_act ; 
+        TIMER_REGS->CC2_CC_PWM_CFG.cc_out_ccu_2   = pwm_act_cfg->ccu_act ; 
+        TIMER_REGS->CC2_CC_PWM_CFG.cc_out_load_2  = pwm_act_cfg->load_act; 
+        TIMER_REGS->CC2_CC_PWM_CFG.cc_out_zero_2  = pwm_act_cfg->zero_act; 
+    } else {
+        TIMER_REGS->CC3_CC_PWM_CFG.cc_out_cc2d_3  = pwm_act_cfg->cc2d_act; 
+        TIMER_REGS->CC3_CC_PWM_CFG.cc_out_cc2u_3  = pwm_act_cfg->cc2u_act; 
+        TIMER_REGS->CC3_CC_PWM_CFG.cc_out_ccd_3   = pwm_act_cfg->ccd_act ; 
+        TIMER_REGS->CC3_CC_PWM_CFG.cc_out_ccu_3   = pwm_act_cfg->ccu_act ; 
+        TIMER_REGS->CC3_CC_PWM_CFG.cc_out_load_3  = pwm_act_cfg->load_act; 
+        TIMER_REGS->CC3_CC_PWM_CFG.cc_out_zero_3  = pwm_act_cfg->zero_act; 
+    }
+}
+
+/**
+ * timer_set_capture_channel_ctrl
+ * Sets the conditions for a specific channel to control the timer counter
+ */
+void timer_set_capture_channel_ctrl(TIMER_REGS_s *TIMER_REGS, timer_capture_channel_ctrl_t *cap_chan_ctrl, uint8_t chan_num) {
+    if(chan_num == 0) {
+        TIMER_REGS->CC0_CAPTURE_CTRL.cap_cond_0   = cap_chan_ctrl->cap_cond; 
+        TIMER_REGS->CC0_CAPTURE_CTRL.load_cond_0  = cap_chan_ctrl->load_cond; 
+        TIMER_REGS->CC0_CAPTURE_CTRL.zero_cond_0  = cap_chan_ctrl->zero_cond; 
+        TIMER_REGS->CC0_CAPTURE_CTRL.adv_cond_0   = cap_chan_ctrl->adv_cond; 
+    } else if(chan_num == 1) {
+        TIMER_REGS->CC1_CAPTURE_CTRL.cap_cond_1   = cap_chan_ctrl->cap_cond; 
+        TIMER_REGS->CC1_CAPTURE_CTRL.load_cond_1  = cap_chan_ctrl->load_cond; 
+        TIMER_REGS->CC1_CAPTURE_CTRL.zero_cond_1  = cap_chan_ctrl->zero_cond; 
+        TIMER_REGS->CC1_CAPTURE_CTRL.adv_cond_1   = cap_chan_ctrl->adv_cond; 
+    } else if(chan_num == 2) {
+        TIMER_REGS->CC2_CAPTURE_CTRL.cap_cond_2   = cap_chan_ctrl->cap_cond; 
+        TIMER_REGS->CC2_CAPTURE_CTRL.load_cond_2  = cap_chan_ctrl->load_cond; 
+        TIMER_REGS->CC2_CAPTURE_CTRL.zero_cond_2  = cap_chan_ctrl->zero_cond; 
+        TIMER_REGS->CC2_CAPTURE_CTRL.adv_cond_2   = cap_chan_ctrl->adv_cond; 
+    } else {
+        TIMER_REGS->CC3_CAPTURE_CTRL.cap_cond_3   = cap_chan_ctrl->cap_cond; 
+        TIMER_REGS->CC3_CAPTURE_CTRL.load_cond_3  = cap_chan_ctrl->load_cond; 
+        TIMER_REGS->CC3_CAPTURE_CTRL.zero_cond_3  = cap_chan_ctrl->zero_cond; 
+        TIMER_REGS->CC3_CAPTURE_CTRL.adv_cond_3   = cap_chan_ctrl->adv_cond; 
+    }
+}
+
 /**
  * timer_set_pwm_cfg
  * Sets the PWM configuration for a particular channel
  */
 void timer_set_pwm_cfg(TIMER_REGS_s *TIMER_REGS, timer_clk_cfg_t *clk_cfg, timer_pwm_cfg_t *pwm_cfg) {
+    uint16_t load_val;
+    uint16_t comp_val;
+
+    timer_pwm_output_channel_action_cfg_t default_pwm_act_cfg = TIMER_PWM_OUTPUT_CHANNEL_ACTION_CFG_DEFAULT;
+    timer_pwm_output_channel_action_cfg_t *pwm_act_cfg        = &default_pwm_act_cfg;
+    
     timer_set_clk_cfg(TIMER_REGS, clk_cfg);
+ 
+    //up(edge aligned) counting repeat counter with load, zero and advance controls from chan0_coc unit
+    timer_set_counter_ctrl(TIMER_REGS, &pwm_cfg->ctr_cfg);
     
-    timer_set_counter_ctrl(TIMER_REGS, pwm_cfg->ctr_cfg);
-    
-    if(pwm_cfg->ctr_cfg->ctr_mode == TIMER_CTR_CTL_COUNT_MODE_UP || 
-       pwm_cfg->ctr_cfg->ctr_mode == TIMER_CTR_CTL_COUNT_MODE_DOWN        
-    ){
-        timer_set_load_val(TIMER_REGS, pwm_cfg->pwm_period - 1); 
+    if(pwm_cfg->ctr_cfg.ctr_mode == TIMER_CTR_CTL_COUNT_MODE_UP) {
+        load_val = pwm_cfg->pwm_period - 1;
+        comp_val = pwm_cfg->pwm_high_period; 
+        pwm_act_cfg->zero_act = TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_HIGH;
+        pwm_act_cfg->ccu_act  = TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_LOW;
+    } else if(pwm_cfg->ctr_cfg.ctr_mode == TIMER_CTR_CTL_COUNT_MODE_DOWN) {
+        load_val = pwm_cfg->pwm_period - 1;
+        comp_val = load_val - pwm_cfg->pwm_high_period; 
+        pwm_act_cfg->load_act = TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_HIGH;
+        pwm_act_cfg->ccd_act  = TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_LOW;
     } else {
-        timer_set_load_val(TIMER_REGS, pwm_cfg->pwm_period/2); 
+        load_val = pwm_cfg->pwm_period>>1;
+        comp_val = load_val - (pwm_cfg->pwm_high_period>>1); 
+        timer_set_load_val(TIMER_REGS, pwm_cfg->pwm_period>>1); 
+        pwm_act_cfg->ccu_act  = TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_HIGH;
+        pwm_act_cfg->ccd_act  = TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_LOW;
     }
 
-    timer_set_compare_val(TIMER_REGS, pwm_cfg->comp_val, pwm_cfg->chan_num);
-    timer_set_output_channel_cfg(TIMER_REGS, pwm_cfg->out_chan_cfg, pwm_cfg->chan_num);
+    timer_set_load_val(TIMER_REGS, load_val); 
+    timer_set_compare_val(TIMER_REGS, comp_val, pwm_cfg->chan_num);
+    timer_set_pwm_output_channel_action_cfg(TIMER_REGS, pwm_act_cfg, pwm_cfg->chan_num);
+    timer_set_output_channel_cfg(TIMER_REGS, &pwm_cfg->out_chan_cfg, pwm_cfg->chan_num);
+    timer_set_capture_channel_ctrl(TIMER_REGS, &pwm_cfg->cap_chan_ctrl, pwm_cfg->chan_num);
 }
