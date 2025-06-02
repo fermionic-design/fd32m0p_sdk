@@ -1,7 +1,7 @@
 GNG_CC      = arm-none-eabi-gcc
 GNU_OBJDUMP = arm-none-eabi-objdump
 GNU_OBJCOPY = arm-none-eabi-objcopy
-GNU_CC_FLAGS= -g -O3 -mthumb -mcpu=cortex-m0plus -fno-delete-null-pointer-checks -fms-extensions
+GNU_CC_FLAGS= -g -O3 -mthumb -mcpu=cortex-m0plus -fno-delete-null-pointer-checks -fms-extensions -Wall -Wextra -Wwrite-strings
 GNU_CC_FLAGS_BOOTLOADER = -g -O -mthumb -mcpu=cortex-m0plus -fno-delete-null-pointer-checks
 
 DEADCODESTRIP = -Wl,-static  -fdata-sections -ffunction-sections -Wl,--gc-sections 
