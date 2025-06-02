@@ -24,12 +24,9 @@ void UartStdOutInit(void) {
     return;
 }
 
-void UartPuts(const unsigned char * data_char_arr){
+void UartPuts(const char * data_char_arr){
 
     UART_FIFOSTS_u fifosts;
-    unsigned char curr_char;
-    int num_transfers;
-    int trf_count;
     do
     {
         do {
@@ -127,7 +124,7 @@ void itoa_mcu(uint32_t value, char* str, int base) {
     return;
 }
 
-void print_int_var(char *prefix, int var, bool is_hex) {
+void print_int_var(const char *prefix, int var, bool is_hex) {
     char c[16]="";//,final[50]="";
 
     UartPuts(prefix);

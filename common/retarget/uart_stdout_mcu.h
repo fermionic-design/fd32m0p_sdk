@@ -41,12 +41,12 @@
 //#define UartPuts(x) uart_puts(UART_STDIO, x)
 
 void UartStdOutInit(void);
-__attribute__((section(".sram_code"))) void UartPuts(const unsigned char * data_char_arr);
-__attribute__((section(".sram_code"))) static inline void UartPutc(const unsigned char data_char) {
+__attribute__((section(".sram_code"))) void UartPuts(const char * data_char_arr);
+__attribute__((section(".sram_code"))) static inline void UartPutc(const char data_char) {
     UART_STDIO->TXDATA[0].packed_w = data_char;
 }
 void UartEndSimulation(void);
 void UartPass(void);
 void UartFail(void);
 void itoa_mcu(uint32_t value, char* str, int base);
-void print_int_var(char *prefix, int var, bool is_hex);
+void print_int_var(const char *prefix, int var, bool is_hex);

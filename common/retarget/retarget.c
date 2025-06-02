@@ -70,17 +70,16 @@ label:  goto label;  /* endless loop */
 /******************************************************************************/
 #include <stdio.h>
 #include <sys/stat.h>
+#include "uart_stdout_mcu.h"
 
-extern unsigned char UartPutc(unsigned char my_ch);
-
-__attribute__ ((used))  int _write (int fd, char *ptr, int len)
+__attribute__ ((used))  int _write (int fd, char *ptr, uint32_t len)
 {
-  size_t i;
-  for (i=0; i<len;i++) {
+  (void) fd;
+  for (uint32_t i=0; i<len;i++) {
+    while((UART_STDIO->FIFOSTS.tx_fifo_full_sts) == 1);
     UartPutc(ptr[i]); // call character output function
-    }
+  }
   return len;
 }
-
 
 #endif
