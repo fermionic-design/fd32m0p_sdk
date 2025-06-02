@@ -1,11 +1,9 @@
-#include <stdio.h>
-#include "uart_stdout.h"
-#include "FLASH_REGS.h"
+#include"uart_stdout_mcu.h"
+#include "FD32M0P.h"
 
 #include "../../hal/flash/flash.h"
 
-#define FLASH_REGS    ((FLASH_REGS_s    *) 0x3FFDC000)
-#define FLASH_REG     ((inf_block_t     *) 0x00009000)
+#define FLASH_EEPROM     ((inf_block_t     *) 0x00009000)
 
 typedef union eeprom_mem_u {
     uint8_t packed_byte[4];
@@ -21,19 +19,19 @@ void main(void) {
     volatile int rdata;
     UartStdOutInit();
 
-    printf("Start Of Simulation\n");
+    UartPuts("Start Of Simulation\n");
   
-    flash_config(FLASH_REGS, FLASH_SETTING_CFG_48MHZ_HIGH_SPEED_3V);
+    flash_config(FLASH_APB_REGS, FLASH_SETTING_CFG_48MHZ_HIGH_SPEED_3V);
     
-    printf("Hello World. We are FermionIC Design Pvt Ltd.\n");
+    UartPuts("Hello World. We are FermionIC Design Pvt Ltd.\n");
     print_int_var(" a =",a,0);
     print_int_var(" a =",a,1);
 
-    rdata = FLASH_REG->mem[0].packed_byte[0];
+    rdata = FLASH_EEPROM->mem[0].packed_byte[0];
     //flash_factory_restore(FLASH_REGS);
-    printf("** TEST PASSED **\n");
+    UartPuts("** TEST PASSED **\n");
 
-    printf("End Of Simulation\n");
+    UartPuts("End Of Simulation\n");
 
     UartEndSimulation();
 }
