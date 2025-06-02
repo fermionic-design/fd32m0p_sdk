@@ -195,7 +195,7 @@ typedef struct
 #include "PL230_REGS.h"
 #include "RTC_REGS.h"
 #include "SPI_REGS.h"
-//#include "TIMER_REGS.h"
+#include "TIMER_REGS.h"
 //#include "TIMER_TIMG_NUM_INPUT2_REGS.h"
 #include "UART_REGS.h"
 #include "VREF_REGS.h"
@@ -244,10 +244,10 @@ typedef struct
 #define DAC_BASE            (APB_BASE + 0x11000UL)
 #define VREF_BASE           (APB_BASE + 0x12000UL)
 #define UART1_BASE          (APB_BASE + 0x13000UL)
-//#define TIMER_A0_BASE       (APB_BASE + 0x14000UL)
-//#define TIMER_A1_BASE       (APB_BASE + 0x15000UL)
-//#define TIMER_G0_BASE       (APB_BASE + 0x16000UL)
-//#define TIMER_G1_BASE       (APB_BASE + 0x17000UL)
+#define TIMER_A0_BASE       (APB_BASE + 0x14000UL)
+#define TIMER_A1_BASE       (APB_BASE + 0x15000UL)
+#define TIMER_G0_BASE       (APB_BASE + 0x16000UL)
+#define TIMER_G1_BASE       (APB_BASE + 0x17000UL)
 #define FLASH_APB_BASE      (APB_BASE + 0x1B000UL)
 //#define FLASH_APB_BASE      (APB_BASE + 0x1C000UL)
 #define OPA1_BASE           (APB_BASE + 0x1D000UL)
@@ -293,12 +293,11 @@ typedef struct
 #define DAC_REGS            ((DAC_REGS_s*)          DAC_BASE)            
 #define VREF_REGS           ((VREF_REGS_s*)         VREF_BASE)           
 #define UART1_REGS          ((UART_REGS_s*)         UART1_BASE)          
-//#define TIMER_A0_REGS       ((TIMER_REGS_s*)        TIMER_A0_BASE)       
-//#define TIMER_A1_REGS       ((TIMER_REGS_s*)        TIMER_A1_BASE)       
-//#define TIMER_G0_REGS       ((TIMER_REGS_s*)        TIMER_G0_BASE)       
-//#define TIMER_G1_REGS       ((TIMER_REGS_s*)        TIMER_G1_BASE)       
-#define FLASH_APB_REGS      ((FLASH_APB_REGS_s*)    FLASH_APB_BASE)      
-//#define FLASH_APB_REGS      ((FLASH_APB_REGS_s*)    FLASH_APB_BASE)      
+#define TIMER_A0_REGS       ((TIMER_REGS_s*)        TIMER_A0_BASE)       
+#define TIMER_A1_REGS       ((TIMER_REGS_s*)        TIMER_A1_BASE)       
+#define TIMER_G0_REGS       ((TIMER_REGS_s*)        TIMER_G0_BASE)       
+#define TIMER_G1_REGS       ((TIMER_REGS_s*)        TIMER_G1_BASE)       
+#define FLASH_APB_REGS      ((FLASH_REGS_s*)        FLASH_APB_BASE)      
 #define OPA1_REGS           ((OPA_REGS_s*)          OPA1_BASE)            
 #define SECURE_IP_REGS      ((SECURE_IP_REGS_s*)    SECURE_IP_BASE)      
 #define USB2_REGS           ((USB2_REGS_s*)         USB2_BASE)           

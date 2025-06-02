@@ -1,8 +1,8 @@
-#include  "EVENT_FABRIC_CAPI.h"
+#include  "event_fabric.h"
 
 
 void event_fabric_pub_to_dma_channel_cfg(EVENT_FABRIC_REGS_s * registers, EVENT_FABRIC_DMA_PUB_EVENT_ID_E pub_id,uint32_t chan_id){
-    EVENT_FABRIC_DMA_PUB_N_WRITE(registers,chan_id,pub_id);
+        EVENT_FABRIC_DMA_PUB_N_WRITE(registers,chan_id,pub_id);
 }
 
 
@@ -39,7 +39,6 @@ void get_event_fabric_full_chnl_cfg(EVENT_FABRIC_REGS_s * registers, chnl_cfg * 
             max_of_pub_sub = EVENT_FABRIC_NUMBER_OF_SUB;
         }
         
-        //print_int_var("chl_addr",chnl,1);
         for(int i=0; i< max_of_pub_sub; i++){
             if(i <= EVENT_FABRIC_NUMBER_OF_SUB ){
                 sub_chan_id = registers->GEN_SUB[i].packed_w;
