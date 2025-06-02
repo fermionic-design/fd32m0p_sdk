@@ -1,6 +1,10 @@
 #include "FD32M0P.h"
 #include"uart_stdout_mcu.h"
 #include "../../hal/spi/spi.h"
+#include "../../hal/timer/timer.h"
+
+#define TIMER_BASE_ADDRESS  0x3FFD4000 
+#define TIMER_REGS ((TIMER_REGS_s *) TIMER_BASE_ADDRESS) 
 
 void spi_flash_wr_en() {
     uint8_t rx_rdata;
@@ -69,6 +73,7 @@ void spi_flash_rd_data(uint32_t addr, uint32_t len, uint8_t *data) {
     for(int i=2; i>=0; i--) {
         spi_transmit_byte_blocking(SPI_REGS, addr >> (i*8));
     }
+    spi_transmit_byte_blocking(SPI_REGS, 0x00);
     spi_start_transaction(SPI_REGS);
     
     while(!(spi_is_idle(SPI_REGS)));
@@ -91,6 +96,27 @@ bool compare_data(uint32_t len, uint8_t *tx_data, uint8_t *rx_data) {
     }
     return true;
 }
+
+void timer_a0_disable(void){
+    //disable timer
+    timer_stop(TIMER_REGS);
+    timer_clk_disable(TIMER_REGS);
+    
+    //clear all interrupts
+    for(int i=0; i<19; i++){
+        TIMER_INTR_EVENT_CLEAR(TIMER_REGS, i);
+    }
+
+    //disable all interrupts
+    for(int i=0; i<19; i++){
+        TIMER_INTR_EVENT_DIS(TIMER_REGS, i); 
+    }
+    
+    //pwr_disable
+    TIMER_PWR_EN_WRITE(TIMER_REGS, 0, TIMER_PWR_EN_PWR_EN_KEY);
+}
+
+uint32_t ext_flash_addr = 0x1;
 
 void main() {
     // Initializing UART
@@ -148,11 +174,23 @@ void main() {
     
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
 
+    // Timer Configuration
+    NVIC_ClearPendingIRQ(17);
+    NVIC_EnableIRQ(17);
+    
+    timer_a0_disable();
+    //pwr_en
+    TIMER_PWR_EN_WRITE(TIMER_REGS, 1, TIMER_PWR_EN_PWR_EN_KEY);
+    
+    //soft reset
+    TIMER_RST_CTRL_WRITE(TIMER_REGS, 1, 0, TIMER_RST_CTRL_RST_KEY);
+    TIMER_RST_CTRL_WRITE(TIMER_REGS, 0, 0, TIMER_RST_CTRL_RST_KEY);
+    
     // SPI Power Enable
     SPI_PWR_EN_WRITE(SPI_REGS, 1, SPI_PWR_EN_PWR_EN_KEY);
 
     // Clock Settings
-    spi_set_clk_cfg(SPI_REGS, SPI_CLKSEL_CLK_SEL_CLK_SPI, 8);
+    spi_set_clk_cfg(SPI_REGS, SPI_CLKSEL_CLK_SEL_CLK_SPI,8);
 
     // SPI Configuration
     spi_cfg_t default_spi_cfg = SPI_CFG_DEFAULT;
@@ -177,30 +215,45 @@ void main() {
     SPI_INTR_EVENT_CLEAR(SPI_REGS, SPI_INTR_EVENT_IDLE_IDX);
 
     // W25 Flash
-    uint32_t ext_flash_addr = 0x1;
+    UartPuts("SPI Master Test1\n");
     spi_flash_wr_en();
+    UartPuts("SPI Master Test2\n");
     sector_erase(ext_flash_addr);
-    
-    for(int j=0; j<30; j++) {
-        for(int i=0; i<10000; i++) {
-            __asm("NOP");
+    UartPuts("SPI Master Test3\n");
+
+    //intr_en(ctr_ccu0)
+    TIMER_INTR_EVENT_EN(TIMER_REGS, TIMER_INTR_EVENT_CCU_0_IDX);
+
+    //delay_in_ms
+    timer_delay_in_ms(TIMER_REGS,500);  
+    UartPuts("timer\n");
+
+    while(1);
+}
+
+void TIMER_A0_IRQ_Handler(void){
+    uint8_t  intr_first;
+    intr_first = TIMER_REGS->INTR_STS.intr_first;
+
+    if(intr_first == TIMER_INTR_EVENT_CCU_0_IDX+1){
+        TIMER_INTR_EVENT_CLEAR(TIMER_REGS, TIMER_INTR_EVENT_CCU_0_IDX);
+        // Write and Read to the SPI Flash
+        UartPuts("SPI Master Test4\n");
+        spi_flash_wr_en();
+        uint8_t tx_data = 0xDE;
+        uint8_t rx_data;
+        spi_flash_wr_data(ext_flash_addr, 1, &tx_data);
+        spi_flash_rd_data(ext_flash_addr, 1, &rx_data);
+
+        bool compare_sts;
+        compare_sts =  compare_data(1, &tx_data, &rx_data);
+
+        if(compare_sts==true) {
+            UartPuts("test passed\n");
         }
+        else {
+            UartPuts("test failed\n");
+        }
+        UartEndSimulation();
     }
-
-    spi_flash_wr_en();
-    uint8_t tx_data[4] = {0xDE,0xAD,0xBE,0xEF};
-    uint8_t rx_data[4];
-    spi_flash_wr_data(ext_flash_addr, 4, tx_data);
-    spi_flash_rd_data(ext_flash_addr, 4, rx_data);
-
-    bool compare_sts;
-    compare_sts =  compare_data(4, tx_data, rx_data);
-
-    if(compare_sts==true) {
-        UartPuts("test passed\n");
-    }
-    else {
-        UartPuts("test failed\n");
-    }
-    UartEndSimulation();
-}  
+}

@@ -71,10 +71,12 @@ HAL_SRC_FILES = $(PRJ_HAL_DIR)/gpio/gpio.c \
 				$(PRJ_HAL_DIR)/vref/vref.c \
 				$(PRJ_HAL_DIR)/dac/dac.c \
 				$(PRJ_HAL_DIR)/dma/dma.c \
-				$(PRJ_HAL_DIR)/event_fabric/EVENT_FABRIC_CAPI.c \
+				$(PRJ_HAL_DIR)/event_fabric/event_fabric.c \
 				$(PRJ_HAL_DIR)/uart/uart.c \
 				$(PRJ_HAL_DIR)/timer/timer.c \
-				$(PRJ_HAL_DIR)/crc/crc.c
+				$(PRJ_HAL_DIR)/flash/flash.c \
+				$(PRJ_HAL_DIR)/crc/crc.c \
+				$(PRJ_HAL_DIR)/i2c/i2c.c
 
 HAL_INCDIR =-I $(PRJ_HAL_DIR)/common/ \
 			-I $(PRJ_HAL_DIR)/gpio/ \
@@ -85,7 +87,9 @@ HAL_INCDIR =-I $(PRJ_HAL_DIR)/common/ \
 			-I $(PRJ_HAL_DIR)/event_fabric/ \
 			-I $(PRJ_HAL_DIR)/uart/ \
 			-I $(PRJ_HAL_DIR)/timer/ \
-			-I $(PRJ_HAL_DIR)/crc/
+			-I $(PRJ_HAL_DIR)/crc/ \
+			-I $(PRJ_HAL_DIR)/flash/ \
+			-I $(PRJ_HAL_DIR)/i2c/
 
 test:
 ifeq ($(TESTFOLDER),)
