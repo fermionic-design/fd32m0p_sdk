@@ -126,7 +126,7 @@ void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS
 void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_samp_rate);
 void adc_hw_avg_cfg(ADC_REGS_s *regs, adc_hw_avg_cfg_s adc_hw_cfg);
 adc_clk_cfg_s get_adc_clk_cfg(ADC_REGS_s *regs);
-adc_chnl_cfg_s get_adc_chnl_cfg(ADC_REGS_s *regs);
+adc_chnl_cfg_s get_adc_chnl_cfg(ADC_REGS_s *regs, uint32_t data_channel);
 adc_dma_cfg_s get_adc_dma_cfg(ADC_REGS_s *regs);
 uint32_t get_adc_result_cfg(ADC_REGS_s *regs);
 adc_sw_trig_cfg_s get_adc_sw_trig(ADC_REGS_s *regs);

@@ -156,10 +156,11 @@ void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_sam
             {
                 samp_time  = 31;
                 start_time = total_timer - samp_time - conv_time;
-                if(start_time > 15)
+                if(start_time > 15){
                     UartPuts("Samp rate Too Low\n");              // Desired sampling rate cannot be achieved. Lowest possible sampling rate set
                     start_time = 15;
                     samp_rate_calculated = 1;
+                }
             }
             else
             {
@@ -193,12 +194,12 @@ adc_clk_cfg_s get_adc_clk_cfg(ADC_REGS_s *regs){
     return clk_cfg;
 }
 
-adc_chnl_cfg_s get_adc_chnl_cfg(ADC_REGS_s *regs){
+adc_chnl_cfg_s get_adc_chnl_cfg(ADC_REGS_s *regs, uint32_t data_channel){
     adc_chnl_cfg_s chnl_cfg;
-    chnl_cfg.channel_sel = regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel;
-    chnl_cfg.vref_sel    = regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel;
-    chnl_cfg.hw_avg_en   = regs->CHNL_CFG[chnl_cfg.data_channel].hw_avg_en;
-    chnl_cfg.bcs_en      = regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en;
+    chnl_cfg.channel_sel = regs->CHNL_CFG[data_channel].channel_sel;
+    chnl_cfg.vref_sel    = regs->CHNL_CFG[data_channel].vref_sel;
+    chnl_cfg.hw_avg_en   = regs->CHNL_CFG[data_channel].hw_avg_en;
+    chnl_cfg.bcs_en      = regs->CHNL_CFG[data_channel].bcs_en;
     return chnl_cfg;
 }
 
