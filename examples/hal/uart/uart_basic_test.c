@@ -1,3 +1,11 @@
+//////////////////////////////////////////////////////////////////////////////
+////               UART HAL BASIC TEST                                    ////
+////    DESCRIPTION:                                                      ////      
+////        This is an example test to configure UART with HAL            ////
+////        functions and print some strings                              ////
+////                                                                      //// 
+//////////////////////////////////////////////////////////////////////////////
+
 #include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
 #include "uart.h"
