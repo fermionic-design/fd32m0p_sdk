@@ -30,17 +30,17 @@ void adc_result_cfg(ADC_REGS_s *regs, uint32_t fifo_en){
 }
 
 void adc_sw_trig(ADC_REGS_s *regs, uint32_t sw_trig){
-    regs->SW_TRIGGER.packed_w    = 3;       //SW_TRIGGER_EN AND SW_TRIG BOTH ARE SET TO 1.
+    regs->SW_TRIGGER.packed_w    = sw_trig;       //SW_TRIGGER_EN AND SW_TRIG BOTH ARE SET TO 1.
 }
 
 void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_single_ch)/*{{{*/{
     if(adc_single_ch.repeat == 1)
     {
-        regs->CONV_CFG.conv_mode               = 1;                 // Single Channel Repeat
+        regs->CONV_CFG.conv_mode               = ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV;                 // Single Channel Repeat
     }
     else
     {
-        regs->CONV_CFG.conv_mode               = 0;                 // Single Channel Single Conv
+        regs->CONV_CFG.conv_mode               = ADC_CONV_CFG_CONV_MODE_SINGLE_CONV;                 // Single Channel Single Conv
     }
     regs->CONV_CFG.start_addr                  = adc_single_ch.start_addr;               
     regs->CONV_CFG.end_addr                    = 0;
@@ -55,11 +55,11 @@ void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_singl
 void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_ch)/*{{{*/{
     if(adc_multi_ch.repeat == 1)
     {
-        regs->CONV_CFG.conv_mode               = 3;
+        regs->CONV_CFG.conv_mode               = ADC_CONV_CFG_CONV_MODE_MULTI_CH_RPT_CONV;
     }
     else
     {
-        regs->CONV_CFG.conv_mode               = 2;
+        regs->CONV_CFG.conv_mode               = ADC_CONV_CFG_CONV_MODE_MULTI_CH_CONV;
     }
     regs->CONV_CFG.start_addr                  = adc_multi_ch.start_addr;               
     regs->CONV_CFG.end_addr                    = adc_multi_ch.end_addr;
@@ -78,11 +78,11 @@ void adc_en_conv(ADC_REGS_s *regs, uint32_t en_conv){
 void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs, adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg)/*{{{*/{
     if(adc_single_ch.repeat == 1)
     {
-        adc_regs->CONV_CFG.conv_mode                           = 1;
+        adc_regs->CONV_CFG.conv_mode                       = ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV;
     }
     else
     {
-        adc_regs->CONV_CFG.conv_mode                           = 0;
+        adc_regs->CONV_CFG.conv_mode                       = ADC_CONV_CFG_CONV_MODE_SINGLE_CONV;
     }
     adc_regs->CONV_CFG.start_addr                          = adc_single_ch.start_addr;               
     adc_regs->CONV_CFG.end_addr                            = 0;
@@ -91,27 +91,27 @@ void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s 
     adc_regs->DMA_REG.dma_en                               = adc_single_ch.dma_en;
     adc_regs->DMA_TRANSFER_CNT.dma_transfer_cnt            = adc_single_ch.dma_transfer_cnt;
     adc_regs->RESULT_CFG.fifo_en                           = adc_single_ch.dma_en;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel  = 11; // Ch 11 used for Temp Sensor
+    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel  = ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR; // Ch 11 used for Temp Sensor
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel     = chnl_cfg.vref_sel;
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].hw_avg_en    = chnl_cfg.hw_avg_en;
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en       = 0;
     adc_regs->BLOCK_ASYNC_REQ.block_async_req              = 1;
-    mcu_regs->ANA_SPARE_OUT0.spare_out_0          = 0x00000000; // Enables Temp Sensor (active low)
-    vref_regs->CTRL.enable                            = 1;
-    vref_regs->CTRL.vref_mode                         = 0; 
+    mcu_regs->ANA_SPARE_OUT0.spare_out_0                   = 0x00000000; // Enables Temp Sensor (active low)
+    vref_regs->CTRL.enable                                 = 1;
+    vref_regs->CTRL.vref_mode                              = VREF_CTRL_VREF_MODE_1P4V; 
 }/*}}}*/
 
 void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg)/*{{{*/{
     vref_regs->CTRL.enable                                  = 1;
-    vref_regs->CTRL.vref_mode                               = 1;            // 0: 1p4v 1:2p5v
+    vref_regs->CTRL.vref_mode                               = VREF_CTRL_VREF_MODE_2P5V;            // 0: 1p4v 1:2p5v
     mcu_regs->ANA_SPARE_OUT0.spare_out_0                    = 0x09800000;   // disables temp sensor through spare out regs.
     if(adc_single_ch.repeat == 1)
     {
-        adc_regs->CONV_CFG.conv_mode                        = 1;            // Single Channel Repeat
+        adc_regs->CONV_CFG.conv_mode                        = ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV;            // Single Channel Repeat
     }
     else
     {
-        adc_regs->CONV_CFG.conv_mode                        = 0;            // Single Channel Single Conv 
+        adc_regs->CONV_CFG.conv_mode                        = ADC_CONV_CFG_CONV_MODE_SINGLE_CONV;            // Single Channel Single Conv 
     }
     adc_regs->CONV_CFG.start_addr                           = adc_single_ch.start_addr;               
     adc_regs->CONV_CFG.end_addr                             = 0;            // Not needed in single channel.
@@ -120,7 +120,7 @@ void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS
     adc_regs->DMA_REG.dma_en                                = adc_single_ch.dma_en;
     adc_regs->DMA_TRANSFER_CNT.dma_transfer_cnt             = adc_single_ch.dma_transfer_cnt;
     adc_regs->RESULT_CFG.fifo_en                            = adc_single_ch.fifo_en;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel   = 15;           // Ch 15 for Batt Mon
+    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel   = ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON;           // Ch 15 for Batt Mon
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel      = chnl_cfg.vref_sel;
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].hw_avg_en     = chnl_cfg.hw_avg_en;
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en        = 0;            //Burnout Current Source enable set to 0
