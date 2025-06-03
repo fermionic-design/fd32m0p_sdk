@@ -40,7 +40,7 @@ typedef struct
 #define UART_CFG_DEFAULT { \
    .clk_sel         = UART_CLK_SEL_CLK_APB, \
    .clk_div         = 0, \
-   .oversampling    = 16, \
+   .oversampling    = UART_CTRL_OS_FACTOR_16, \
    .word_length     = UART_CFG_WRD_LEN_8_BITS, \
    .num_stop_bits   = UART_CFG_STOP_BIT_ONE, \
    .msb_first       = UART_CTRL_UART_MSB_LAST, \
@@ -194,7 +194,7 @@ void uart_txfifo_fill_blocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_
  *
  * @retval  void
  */
-void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr);
+void uart_puts(UART_REGS_s *regs, const char * data_char_arr);
 
 /**
  * @brief   This static inline function puts a charcter in UART transmit fifo,
@@ -273,5 +273,4 @@ static inline uint8_t uart_getc(UART_REGS_s *regs)
 void uart_read_cfg(UART_REGS_s *regs, uart_cfg_s *rd_cfg);
 
 #endif
-
 

@@ -202,9 +202,9 @@ void uart_txfifo_fill_blocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_
 /*
  *  ======== uart_puts ========
  */
-void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr)
+void uart_puts(UART_REGS_s *regs, const char * data_char_arr)
 {
-    unsigned char curr_char;
+    char curr_char;
     do
     {
         curr_char = *data_char_arr;
@@ -213,7 +213,7 @@ void uart_puts(UART_REGS_s *regs, const unsigned char * data_char_arr)
             while((regs->FIFOSTS.tx_fifo_full_sts) == 1);
             uart_putc(regs, curr_char);
         }
-        *data_char_arr++;
+        data_char_arr++;
     } while(curr_char != 0);
     return;
 }
@@ -310,5 +310,4 @@ void uart_read_cfg(UART_REGS_s *regs, uart_cfg_s *rd_cfg)
     rd_cfg->glitch_filter_width = regs->GFCTL.gf_width;
     rd_cfg->rx_timeout_val = regs->FIFOLS.rx_to;
 }
-    
 

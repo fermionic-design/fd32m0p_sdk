@@ -26,7 +26,7 @@ void crc_set_seed(CRC_REGS_s *regs, uint32_t seed)
  */
 void crc_feed_32bit_data(CRC_REGS_s *regs, const uint32_t *buffer, uint32_t length)
 {
-    for(int i=0; i<length; i++)
+    for(uint32_t i=0; i<length; i++)
     {
         regs->CRCINPUT[0].packed_w = buffer[i];
     }
@@ -37,7 +37,7 @@ void crc_feed_32bit_data(CRC_REGS_s *regs, const uint32_t *buffer, uint32_t leng
  */
 void crc_feed_16bit_data(CRC_REGS_s *regs, const uint16_t *buffer, uint32_t length)
 {
-    for(int i=0; i<length; i++)
+    for(uint32_t i=0; i<length; i++)
     {
         regs->CRCINPUT[0].packed_hw[0] = buffer[i];
     }
@@ -48,7 +48,7 @@ void crc_feed_16bit_data(CRC_REGS_s *regs, const uint16_t *buffer, uint32_t leng
  */
 void crc_feed_8bit_data(CRC_REGS_s *regs, const uint8_t *buffer, uint32_t length)
 {
-    for(int i=0; i<length; i++)
+    for(uint32_t i=0; i<length; i++)
     {
         regs->CRCINPUT[0].packed_byte[0] = buffer[i];
     }
@@ -65,7 +65,7 @@ uint32_t crc_get_result(CRC_REGS_s *regs)
 /*
  *  ======== crc_compute_32bit_block ========
  */
-uint32_t crc_compute_32bit_block(CRC_REGS_s *regs,uint32_t length, const uint32_t *buffer, uint32_t seed)
+uint32_t crc_compute_32bit_block(CRC_REGS_s *regs, uint32_t length, const uint32_t *buffer, uint32_t seed)
 {
     uint32_t crc_result;
     crc_set_seed(regs, seed);
@@ -105,7 +105,7 @@ uint32_t crc_compute_32bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t
 {
     uint32_t crc_result;
     crc_set_seed(regs, seed);
-    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_w, (start_addr), length*sizeof(uint32_t));
+    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_w, start_addr, length*sizeof(uint32_t));
     crc_result = crc_get_result(regs);
     return crc_result;
 }
@@ -117,7 +117,7 @@ uint32_t crc_compute_16bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t
 {
     uint32_t crc_result;
     crc_set_seed(regs, seed);
-    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_hw[0], (start_addr), length*sizeof(uint16_t));
+    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_hw[0], start_addr, length*sizeof(uint16_t));
     crc_result = crc_get_result(regs);
     return crc_result;
 }
@@ -129,7 +129,7 @@ uint32_t crc_compute_8bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t 
 {
     uint32_t crc_result;
     crc_set_seed(regs, seed);
-    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_byte[0], (start_addr), length);
+    memcpy((uint32_t *)&regs->CRCINPUT[0].packed_byte[0], start_addr, length);
     crc_result = crc_get_result(regs);
     return crc_result;    
 }
@@ -145,6 +145,4 @@ void crc_read_cfg(CRC_REGS_s *regs, crc_cfg_s *rd_cfg)
     rd_cfg->in_is_big_endian = regs->CRCCONFIG.in_is_big_endian;
     rd_cfg->out_is_big_endian = regs->CRCCONFIG.out_is_big_endian;
 }
-
-
 
