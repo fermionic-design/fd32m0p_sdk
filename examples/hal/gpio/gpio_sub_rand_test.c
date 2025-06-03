@@ -15,7 +15,7 @@
 #include "uart_stdout_mcu.h"
 #include "FD32M0P.h"
 #include "gpio.h"
-#include "EVENT_FABRIC_CAPI.h"
+#include "event.h"
 
 int main(void) {
     #if SEED
@@ -30,7 +30,7 @@ int main(void) {
     GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
-    //UartPuts("GPIO Base Test\n");
+    UartPuts("GPIO Subscriber Test\n");
   
     iomux_cfg_struct.output_en        = 1;
     iomux_cfg_struct.input_en         = 0;
@@ -42,12 +42,9 @@ int main(void) {
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
 
-    // iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
-    // iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
-    for (i=0;i<28;i=i+1)
+    for (int i=0;i<28;i=i+1)
     {
         if (i == 17) continue; // skipping UART TX IO MUX cfg.
-        ///print_int_var("i : ", i, 0);
         iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
         
     }
@@ -56,10 +53,7 @@ int main(void) {
     UartPuts("Dout en \n");
     GPIO_GENERIC_EVENT_EN(GPIO_REGS, 10);
     GPIO_GENERIC_EVENT_EN(GPIO_REGS, 24);
-    //GPIO_REGS->EVENT_EN0.packed_w = 0xFFFFFFFF;
-    //GPIO_REGS->EVENT_EN1.packed_w = 0xFFFFFFFF;
     UartPuts("event en \n");
-    //dout = sram_mem_loc->mem[2];
     dout = 0x00000400;
     gpio_dout(GPIO_REGS, dout);
     
@@ -95,8 +89,7 @@ int main(void) {
 
     gpio_outs =  get_gpio_dout(GPIO_REGS);
     print_int_var("gpio_outs :  ",gpio_outs,1);
-    UartPuts("Test ENd\n");
-    for (int i = 0; i< 10000 ; i++ );
+    UartPuts("Test End\n");
     UartEndSimulation();
     return 0;
 }

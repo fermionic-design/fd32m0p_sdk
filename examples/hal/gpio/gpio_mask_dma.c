@@ -15,11 +15,9 @@
 
 #include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
-
 #include "gpio.h"
 #include "../../hal/dma/dma.h"
-
-#include "EVENT_FABRIC_CAPI.h"
+#include "event.h"
 
 typedef struct sram_memory {
     uint32_t mem[1024];
@@ -114,8 +112,6 @@ int main(void) {
 
     dma_channel_cfg(DMA_MCU_REGS, DMA_PL230_REGS, primary_ch, DMA_CHANNEL_0);
     dma_channel_en_set(DMA_PL230_REGS, DMA_CHANNEL_0);
-
-
     do 
     { /* Wait until PL230 DMA controller return to idle state */
         current_state = (DMA_PL230_REGS->DMA_STATUS.packed_w >> 4)  & 0xF;
@@ -141,7 +137,6 @@ int main(void) {
         UartPuts("** TEST FAILED**\n");
         UartFail();
     }
-
     DMA_PL230_REGS->CHNL_ENABLE_CLR.packed_w = (1<<0);   /* disable channel 0 */
 
     UartPuts("End of Simulation\n");

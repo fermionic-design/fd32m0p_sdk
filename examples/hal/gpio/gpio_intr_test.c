@@ -112,8 +112,6 @@ int main(void) {
         UartPuts("** TEST FAILED**\n");
         UartFail();
     }
-
-    for (int i = 0; i< 10000 ; i++);
     UartEndSimulation();
     return 0;
 }

@@ -103,7 +103,6 @@ int main(void) {
         UartFail();
     }
 
-    for (int i = 0; i< 10000 ; i++ );
     UartEndSimulation();
     return 0;
     }

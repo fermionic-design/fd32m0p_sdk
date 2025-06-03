@@ -13,7 +13,6 @@
 
 #include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
-
 #include "vref.h"
 #include "gpio.h" 
 #include "adc.h"
@@ -53,7 +52,7 @@ int main(void){
     single_ch_cfg.fifo_en           = 0;
 
     chnl_cfg.data_channel   = start_addr;
-    chnl_cfg.channel_sel    = ADC_CHNL_11;
+    chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR;
     chnl_cfg.vref_sel       = 1;
     chnl_cfg.hw_avg_en      = 0;
     chnl_cfg.bcs_en         = 0;
@@ -66,7 +65,6 @@ int main(void){
 
     iomux_cfg_struct.output_en = 0;
     iomux_cfg_struct.input_en  = 0;
-
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct,  23);
      
     adc_samp_timer_cfg(ADC0_REGS,/*IN CLK FREQ*/ 32000000, /*Desired Sampling Rate*/ 85106);
@@ -83,4 +81,3 @@ int main(void){
     UartEndSimulation();
     return 0;   
 }
-

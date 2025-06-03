@@ -61,7 +61,6 @@ int main(void) {
     UartPuts("PA24 is set.\n");
 
     UartPuts("Read Test ends.\n");
-    for (int i = 0; i< 1000 ; i++ );
     UartEndSimulation();
     return 0;
 }

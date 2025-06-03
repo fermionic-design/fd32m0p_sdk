@@ -60,7 +60,6 @@ int main(void) {
     UartPuts("Enabled INTR_POL_0 \n");
     UartPuts("Enabled INTR_POL_1 \n");
 
-    for (int i = 0; i< 10000 ; i++ );
     UartEndSimulation();
     return 0;
 }
