@@ -56,7 +56,7 @@ typedef struct flash_timing_regs_cfg_t {
 } flash_timing_regs_cfg_t;
 
 /*!
- *  @brief  Default Values for flash with different mode of operations
+ *  @brief  Default Values for flash(High Speed) at 48MHz and 3.0 < VDD < 3.6
  */
 #define  FLASH_TIMING_CFG_48MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1, \
@@ -74,6 +74,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 4 \
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 32MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_32MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 3,\
@@ -90,6 +93,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 3\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 24MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_24MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 2,\
@@ -106,6 +112,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 2\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 16MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_16MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 1,\
@@ -122,6 +131,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 1\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 8MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_8MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 0,\
@@ -138,6 +150,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 0\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 4MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_4MHZ_HIGH_SPEED_3V { \
     .high_speed     = 1,\
     .tcsctrls       = 0,\
@@ -154,6 +169,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 0\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 48MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_48MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 4,\
@@ -170,6 +188,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 4\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 32MHz and 1.8 < VDD < 3.0
+ */
 #define  FLASH_TIMING_CFG_32MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 3,\
@@ -186,6 +207,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 3\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 24MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_24MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 2,\
@@ -202,6 +226,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 2\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 16MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_16MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 1,\
@@ -218,6 +245,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 1\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 8MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_8MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 0,\
@@ -234,6 +264,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 0\
 }
 
+/*!
+ *  @brief  Default Values for flash(High Speed) at 4MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_4MHZ_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 0,\
@@ -250,6 +283,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 0\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 48MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_48MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 4,\
@@ -266,6 +302,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 4\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 32MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_32MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 3,\
@@ -282,6 +321,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 3\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 24MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_24MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 2,\
@@ -298,6 +340,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 2\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 16MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_16MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 1,\
@@ -314,6 +359,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 1\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 8MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_8MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 0,\
@@ -330,6 +378,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 0\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 4MHz and 3.0 < VDD < 3.6
+ */
 #define FLASH_TIMING_CFG_4MHZ_LOW_POWER_3V { \
     .high_speed     = 0,\
     .tcsctrls       = 0,\
@@ -346,6 +397,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 0\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 48MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_48MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 4,\
@@ -362,6 +416,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 4\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 32MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_32MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 3,\
@@ -378,6 +435,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 3\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 24MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_24MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 2,\
@@ -394,6 +454,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 2\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 48MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_16MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 1,\
@@ -410,6 +473,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 1\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 16MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_8MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 0,\
@@ -426,6 +492,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 0\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 8MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_4MHZ_LOW_POWER_1P8V { \
     .high_speed     = 0,\
     .tcsctrls       = 0,\
@@ -442,6 +511,9 @@ typedef struct flash_timing_regs_cfg_t {
     .tbr            = 0\
 }
 
+/*!
+ *  @brief  Default Values for flash(Low Power) at 4MHz and 1.8 < VDD < 3.0
+ */
 #define FLASH_TIMING_CFG_DEF_HIGH_SPEED_1P8V { \
     .high_speed     = 1,\
     .tcsctrls       = 3,\
@@ -469,7 +541,7 @@ typedef struct flash_timing_regs_cfg_t {
 void flash_config(FLASH_REGS_s *FLASH_REGS, flash_setting_cfg_e flash_setting_cfg);
 
 /**
- * @brief   This function resets the flash to the factory setting (High speed, 1.8<VDD<3.0)
+ * @brief   This function resets the flash to the factory setting (High speed, 1.8 < VDD < 3.0)
  *
  * @param   flash_regs : pointer to flash register space
  *

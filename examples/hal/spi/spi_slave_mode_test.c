@@ -1,8 +1,9 @@
 #include "FD32M0P.h"
 #include"uart_stdout_mcu.h"
-#include "../../hal/spi/spi.h"
+#include "spi.h"
+#include "gpio.h"
 
-void main() {
+int main() {
     UartStdOutInit();
     UartPuts("SPI Slave Mode 0 Test\n");
 
@@ -93,6 +94,10 @@ void main() {
     SPI_INTR_EVENT_CLEAR(SPI_REGS, SPI_INTR_EVENT_RX_FIFO_TRG_LVL_IDX);
     
     spi_start_transaction(SPI_REGS);
+
+    while(1);
+
+    return 0;
 }
 
 void SPI_IRQ_Handler(void) {

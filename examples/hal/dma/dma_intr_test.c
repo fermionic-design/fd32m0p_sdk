@@ -1,6 +1,6 @@
 #include"uart_stdout_mcu.h"
 #include "FD32M0P.h"
-#include "../../hal/dma/dma.h"
+#include "dma.h"
 
 
 // SRAM Memory
@@ -11,7 +11,7 @@ typedef struct sram_memory {
 #define sram_mem_s    ((sram_memory_t *)   0x200000F0)
 #define sram_mem_d    ((sram_memory_t *)   0x200004F0)
 
-void main(){
+int main(){
     // initializing UART
     UartStdOutInit();
     UartPuts("DMA Basic Test\n");
@@ -57,6 +57,8 @@ void main(){
     dma_channel_sw_trig(DMA_PL230_REGS, DMA_CHANNEL_1);
 
     while(1);
+
+    return 0;
 }
 
 void DMA_IRQ_Handler(void)

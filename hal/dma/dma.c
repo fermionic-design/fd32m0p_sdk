@@ -41,7 +41,6 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
     // Calculating the pointer to the required channel configuration 
     volatile dma_mem_channel_cfg_t *ch = ((dma_mem_channel_cfg_t *)base_addr) + channel + (dma_channel_cfg->alternate_cfg_sel ? 16 : 0);
     volatile DMA_REPEATED_TRANSFER_CHNL_0_u *repeated_transfer_channels = (volatile DMA_REPEATED_TRANSFER_CHNL_0_u *) &DMA_REGS->REPEATED_TRANSFER_CHNL_0;
-    volatile DMA_EARLY_IRQ_0_u *early_irq_channels = (volatile DMA_EARLY_IRQ_0_u *) &DMA_REGS->EARLY_IRQ_0;
     // Updating channel configuration 
     ch->rsp = src_end_pointer;
     ch->rdp = dst_end_pointer;
@@ -81,7 +80,6 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
         DMA_REGS->REPEATED_TRANSFER_ALTERNATE_SEL.packed_w = dma_channel_cfg->alternate_cfg_sel;
         DMA_REGS->REPEATED_TRANSFER_EN.rptd_trnsfr_en = (1 << channel);
     }
-    // Early IRQ Configuration
     DMA_REGS->CFG_0.ctrl_base_ptr = PL230_REGS->CTRL_BASE_PTR.packed_w;
     DMA_REGS->CFG_1.alt_ctrl_base_ptr = PL230_REGS->ALT_CTRL_BASE_PTR.packed_w;
 }
