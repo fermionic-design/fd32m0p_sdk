@@ -77,9 +77,6 @@ int main(void)
     //set seed
     crc_set_seed(CRC_REGS, i_seed);
 
-    //configure crc regs
-    crc_cfg(CRC_REGS, &crc_config_struct);
-   
     //feed 32 bit word into crc engine
     crc_feed_32bit_data(CRC_REGS, &td_s1.w_data ,1);
     
