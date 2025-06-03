@@ -1,11 +1,17 @@
 #include "gpio.h"
 
+/*
+ *  ======== iomux_cfg ========
+ */
 void iomux_cfg(IOMUX_REGS_s *regs, IOMUX_PA_REG_s iomux_cfg,  uint32_t pin_num)/*{{{*/{
     IOMUX_PA_u temp;
     *(IOMUX_PA_REG_s *)&temp = iomux_cfg;
     regs->PA[pin_num].packed_w = temp.packed_w;   
 }/*}}}*/
 
+/*
+ *  ======== gpio_dout_pinwise ========
+ */
 void gpio_dout_pinwise(GPIO_REGS_s *regs, uint32_t pin_num, uint32_t dout_pin_val)/*{{{*/{
     switch(pin_num){
     case 0:
@@ -109,6 +115,9 @@ void gpio_dout_pinwise(GPIO_REGS_s *regs, uint32_t pin_num, uint32_t dout_pin_va
     }
 }/*}}}*/
 
+/*
+ *  ======== gpio_glitch_filter_cfg ========
+ */
 void gpio_glitch_filter_cfg(GPIO_REGS_s *regs, uint32_t pin_num, GPIO_FILT_EN_E filt_width_val)/*{{{*/{
     switch(pin_num){
     case 0:
@@ -212,6 +221,9 @@ void gpio_glitch_filter_cfg(GPIO_REGS_s *regs, uint32_t pin_num, GPIO_FILT_EN_E 
     }
 }/*}}}*/
 
+/*
+ *  ======== gpio_intr_polarity_cfg ========
+ */
 void gpio_intr_polarity_cfg(GPIO_REGS_s *regs, uint32_t pin_num, GPIO_INTR_POL_E intr_pol_val)/*{{{*/{
     switch(pin_num){
     case 0:
@@ -315,38 +327,62 @@ void gpio_intr_polarity_cfg(GPIO_REGS_s *regs, uint32_t pin_num, GPIO_INTR_POL_E
     }
 }/*}}}*/
 
+/*
+ *  ======== gpio_dma_cfg ========
+ */
 void gpio_dma_cfg(GPIO_REGS_s *regs, uint32_t dma_wr_mask){
     regs->DMA_WR_MASK.packed_w = dma_wr_mask;
 }
 
+/*
+ *  ======== gpio_din ========
+ */
 uint32_t gpio_din(GPIO_REGS_s *regs){
     uint32_t read_val;
     read_val = regs->DIN.packed_w;
     return read_val;
 }
 
+/*
+ *  ======== gpio_dout ========
+ */
 void gpio_dout(GPIO_REGS_s *regs, uint32_t dout){
     regs->DOUT.packed_w = dout;
 }
 
+/*
+ *  ======== gpio_dout_en ========
+ */
 void gpio_dout_en(GPIO_REGS_s *regs, uint32_t dout_en){
     regs->DOUT_EN.packed_w = dout_en;
 }
 
+/*
+ *  ======== gpio_set_en ========
+ */
 void gpio_set_en(GPIO_REGS_s *regs, uint32_t dout_en_set){
     regs->DOUT_EN_SET.packed_w = dout_en_set;
 }
 
+/*
+ *  ======== gpio_clr_en ========
+ */
 void gpio_clr_en(GPIO_REGS_s *regs, uint32_t dout_en_clr){
     regs->DOUT_EN_CLR.packed_w = dout_en_clr;
 }
 
+/*
+ *  ======== gpio_sub_cfg ========
+ */
 void gpio_sub_cfg(GPIO_REGS_s *regs, uint32_t sub_sel, uint32_t sub_en, uint32_t pin_action, uint32_t pin_num){
         regs->SUB_CFG[sub_sel].sub_en = sub_en;
         regs->SUB_CFG[sub_sel].action = pin_action;
         regs->SUB_CFG[sub_sel].bit_num = pin_num;
 }
 
+/*
+ *  ======== gpio_din_pinwise ========
+ */
 uint32_t gpio_din_pinwise(GPIO_REGS_s *regs, uint32_t pin_num)/*{{{*/{
     uint32_t val;
     switch(pin_num){
@@ -452,18 +488,30 @@ uint32_t gpio_din_pinwise(GPIO_REGS_s *regs, uint32_t pin_num)/*{{{*/{
     return val;
 }/*}}}*/
 
+/*
+ *  ======== gpio_set ========
+ */
 void gpio_set(GPIO_REGS_s *regs, uint32_t dout_set){
     regs->DOUT_SET.packed_w = dout_set;
 }
 
+/*
+ *  ======== gpio_clr ========
+ */
 void gpio_clr(GPIO_REGS_s *regs, uint32_t dout_clr){
     regs->DOUT_CLR.packed_w = dout_clr;
 }
 
+/*
+ *  ======== gpio_tgl ========
+ */
 void gpio_tgl(GPIO_REGS_s *regs, uint32_t dout_tgl){
     regs->DOUT_TGL.packed_w = dout_tgl;
 }
 
+/*
+ *  ======== get_gpio_glitch_filter_cfg ========
+ */
 uint32_t get_gpio_glitch_filter_cfg(GPIO_REGS_s *regs,uint32_t pin_num)/*{{{*/{
     uint32_t val;
     switch(pin_num){
@@ -569,6 +617,9 @@ uint32_t get_gpio_glitch_filter_cfg(GPIO_REGS_s *regs,uint32_t pin_num)/*{{{*/{
     return val; 
 }/*}}}*/
 
+/*
+ *  ======== get_gpio_intr_polarity_cfg ========
+ */
 uint32_t get_gpio_intr_polarity_cfg(GPIO_REGS_s *regs, uint32_t pin_num)/*{{{*/{
     uint32_t val;
     switch(pin_num){
@@ -674,6 +725,9 @@ uint32_t get_gpio_intr_polarity_cfg(GPIO_REGS_s *regs, uint32_t pin_num)/*{{{*/{
     return val;
 }/*}}}*/
 
+/*
+ *  ======== get_gpio_iomux_cfg ========
+ */
 IOMUX_PA_REG_s get_gpio_iomux_cfg(IOMUX_REGS_s *regs, uint32_t pin_num)/*{{{*/{
     
     IOMUX_PA_REG_s iomux_cfg;
@@ -692,6 +746,9 @@ IOMUX_PA_REG_s get_gpio_iomux_cfg(IOMUX_REGS_s *regs, uint32_t pin_num)/*{{{*/{
     return iomux_cfg;
 }/*}}}*/
 
+/*
+ *  ======== get_gpio_sub_cfg ========
+ */
 GPIO_SUB_CFG_REG_s get_gpio_sub_cfg(GPIO_REGS_s *regs, uint32_t sub_sel){
     GPIO_SUB_CFG_REG_s sub_cfg;
     sub_cfg.sub_en      = regs->SUB_CFG[sub_sel].sub_en;
@@ -700,18 +757,27 @@ GPIO_SUB_CFG_REG_s get_gpio_sub_cfg(GPIO_REGS_s *regs, uint32_t sub_sel){
     return sub_cfg;
 }
 
+/*
+ *  ======== get_gpio_dma_cfg ========
+ */
 uint32_t get_gpio_dma_cfg(GPIO_REGS_s *regs){
     uint32_t val;
     val = regs->DMA_WR_MASK.packed_w;
     return val;
 }
 
+/*
+ *  ======== get_gpio_dout ========
+ */
 uint32_t get_gpio_dout(GPIO_REGS_s *regs){
     uint32_t val;
     val = regs->DOUT.packed_w;
     return val;
 }
 
+/*
+ *  ======== get_gpio_dout_pinwise ========
+ */
 uint32_t get_gpio_dout_pinwise(GPIO_REGS_s *regs, uint32_t pin_num)/*{{{*/{
     uint32_t val;
     switch(pin_num){
