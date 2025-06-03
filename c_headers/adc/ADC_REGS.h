@@ -619,47 +619,47 @@ typedef union ADC_DMA_TRANSFER_CNT_u {
 } ADC_DMA_TRANSFER_CNT_u;
 
 typedef struct ADC_REGS_s{
-    volatile  ADC_DESC_u DESC;
-    volatile  ADC_PWR_EN_u PWR_EN;
-    volatile  ADC_RST_CTRL_u RST_CTRL;
-    volatile  ADC_RST_STS_u RST_STS;
-    volatile  ADC_DBG_CTRL_u DBG_CTRL;
-    volatile  ADC_CLK_CTRL_u CLK_CTRL;
-    volatile  ADC_CLK_SEL_u CLK_SEL;
-    volatile  ADC_INTR_EVENT_u INTR_EVENT;
-    volatile  ADC_INTR_EN_0_u INTR_EN_0;
-    volatile  ADC_INTR_EN_1_u INTR_EN_1;
-    volatile  ADC_DMA_EN_0_u DMA_EN_0;
-    volatile  ADC_DMA_EN_1_u DMA_EN_1;
-    volatile  ADC_EVENT_EN_0_u EVENT_EN_0;
-    volatile  ADC_EVENT_EN_1_u EVENT_EN_1;
-    volatile  ADC_INTR_NMI_EN_0_u INTR_NMI_EN_0;
-    volatile  ADC_INTR_NMI_EN_1_u INTR_NMI_EN_1;
-    volatile  ADC_INTR_STS_u INTR_STS;
-    volatile  ADC_INTR_SW_u INTR_SW;
-    volatile  ADC_CONV_CFG_u CONV_CFG;
-    volatile  ADC_CHNL_CFG_u CHNL_CFG[16];
-    volatile  ADC_RESULT_CFG_u RESULT_CFG;
-    volatile  ADC_HW_AVG_CFG_u HW_AVG_CFG;
-    volatile  ADC_RESULT_u RESULT[16];
-    volatile  ADC_TIMER_START_u TIMER_START;
-    volatile  ADC_TIMER_SAMPLE_u TIMER_SAMPLE;
-    volatile  ADC_TIMER_CONVERSION_u TIMER_CONVERSION;
-    volatile  ADC_WINDOW_COMP_u WINDOW_COMP;
-    volatile  ADC_STATUS_u STATUS;
-    volatile  ADC_DMA_REG_u DMA_REG;
-    volatile  ADC_POWER_DN_u POWER_DN;
-    volatile  ADC_SUBS_PORT_u SUBS_PORT;
-    volatile  ADC_PUBS_PORT_u PUBS_PORT;
-    volatile  ADC_CALIBRATION_REQ_u CALIBRATION_REQ;
-    volatile  ADC_BLOCK_ASYNC_REQ_u BLOCK_ASYNC_REQ;
-    volatile  ADC_SW_TRIGGER_u SW_TRIGGER;
-    volatile  ADC_SPARE_CTRL_u SPARE_CTRL;
-    volatile  ADC_SPARE_STS_u SPARE_STS;
-    volatile  ADC_EOC_ANA_u EOC_ANA;
-    volatile  ADC_TEMP_SENSOR_EN_u TEMP_SENSOR_EN;
-    volatile  ADC_SM_STATE_u SM_STATE;
-    volatile  ADC_DMA_TRANSFER_CNT_u DMA_TRANSFER_CNT;
+    volatile ADC_DESC_u DESC;
+    volatile ADC_PWR_EN_u PWR_EN;
+    volatile ADC_RST_CTRL_u RST_CTRL;
+    volatile ADC_RST_STS_u RST_STS;
+    volatile ADC_DBG_CTRL_u DBG_CTRL;
+    volatile ADC_CLK_CTRL_u CLK_CTRL;
+    volatile ADC_CLK_SEL_u CLK_SEL;
+    volatile ADC_INTR_EVENT_u INTR_EVENT;
+    volatile ADC_INTR_EN_0_u INTR_EN_0;
+    volatile ADC_INTR_EN_1_u INTR_EN_1;
+    volatile ADC_DMA_EN_0_u DMA_EN_0;
+    volatile ADC_DMA_EN_1_u DMA_EN_1;
+    volatile ADC_EVENT_EN_0_u EVENT_EN_0;
+    volatile ADC_EVENT_EN_1_u EVENT_EN_1;
+    volatile ADC_INTR_NMI_EN_0_u INTR_NMI_EN_0;
+    volatile ADC_INTR_NMI_EN_1_u INTR_NMI_EN_1;
+    volatile ADC_INTR_STS_u INTR_STS;
+    volatile ADC_INTR_SW_u INTR_SW;
+    volatile ADC_CONV_CFG_u CONV_CFG;
+    volatile ADC_CHNL_CFG_u CHNL_CFG[16];
+    volatile ADC_RESULT_CFG_u RESULT_CFG;
+    volatile ADC_HW_AVG_CFG_u HW_AVG_CFG;
+    volatile ADC_RESULT_u RESULT[16];
+    volatile ADC_TIMER_START_u TIMER_START;
+    volatile ADC_TIMER_SAMPLE_u TIMER_SAMPLE;
+    volatile ADC_TIMER_CONVERSION_u TIMER_CONVERSION;
+    volatile ADC_WINDOW_COMP_u WINDOW_COMP;
+    volatile ADC_STATUS_u STATUS;
+    volatile ADC_DMA_REG_u DMA_REG;
+    volatile ADC_POWER_DN_u POWER_DN;
+    volatile ADC_SUBS_PORT_u SUBS_PORT;
+    volatile ADC_PUBS_PORT_u PUBS_PORT;
+    volatile ADC_CALIBRATION_REQ_u CALIBRATION_REQ;
+    volatile ADC_BLOCK_ASYNC_REQ_u BLOCK_ASYNC_REQ;
+    volatile ADC_SW_TRIGGER_u SW_TRIGGER;
+    volatile ADC_SPARE_CTRL_u SPARE_CTRL;
+    volatile ADC_SPARE_STS_u SPARE_STS;
+    volatile ADC_EOC_ANA_u EOC_ANA;
+    volatile ADC_TEMP_SENSOR_EN_u TEMP_SENSOR_EN;
+    volatile ADC_SM_STATE_u SM_STATE;
+    volatile ADC_DMA_TRANSFER_CNT_u DMA_TRANSFER_CNT;
 } ADC_REGS_s;
 
 #define ADC_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
@@ -737,7 +737,8 @@ typedef enum {
 	ADC_CHNL_CFG_CHANNEL_SEL_CH7_PA18 = 7,
 	ADC_CHNL_CFG_CHANNEL_SEL_CH8_PA16 = 8,
 	ADC_CHNL_CFG_CHANNEL_SEL_CH9_PA15 = 9,
-	ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR = 12,
+	ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR = 11,
+	ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON = 15,
 } ADC_CHNL_CFG_CHANNEL_SEL_E;
 
 typedef enum {
