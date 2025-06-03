@@ -32,8 +32,8 @@ int num_bytes_rd_int;
 
 int main(void) {
 
-    NVIC_ClearPendingIRQ(15);
-    NVIC_EnableIRQ(15);
+    NVIC_ClearPendingIRQ(UART1_IRQn);
+    NVIC_EnableIRQ(UART1_IRQn);
 
     //set default configurations to the cfg structs
     uart_cfg_s uart0_cfg_struct = UART_CFG_DEFAULT;
@@ -42,21 +42,19 @@ int main(void) {
     uart_fifo_cfg_s uart1_fifo_cfg_struct = UART_FIFO_CFG_DEFAULT;    
     IOMUX_PA_REG_s iomux_cfg_struct_tx;
     IOMUX_PA_REG_s iomux_cfg_struct_rx;
+
+    /* uncomment and declare iomux cfg struct for cts and rts
     IOMUX_PA_REG_s iomux_cfg_struct_cts;
-    IOMUX_PA_REG_s iomux_cfg_struct_rts;
+    IOMUX_PA_REG_s iomux_cfg_struct_rts; */
 
 //******************************UART0******************************************
 
    //UART0 initialization
     uart_init(UART0_REGS);   
 
-   //configuring UART0 for printing
-    uart0_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
-    uart0_cfg_struct.clk_div = 0;
+   //configuring UART0 for printing, 1.5 MHz baud rate, 32 MHz clk freq
     uart0_cfg_struct.baud_rate = 1500000;
     uart0_cfg_struct.clk_freq = 32000;
-    uart0_cfg_struct.word_length = UART_CFG_WRD_LEN_8_BITS;
-    uart0_cfg_struct.oversampling = UART_CTRL_OS_FACTOR_16;
     uart0_cfg_struct.tx_en = UART_CTRL_TX_EN_HW;
 
     uart_cfg(UART0_REGS, &uart0_cfg_struct);
@@ -71,14 +69,9 @@ int main(void) {
     //UART1 initialization
     uart_init(UART1_REGS);   
 
-    //configuring UART1 for data transfer
-    uart1_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
-    uart1_cfg_struct.clk_div = 0;
+    //configuring UART1 for data transfer, 57600 baud rate, 32 MHz clk freq
     uart1_cfg_struct.baud_rate = 57600;
     uart1_cfg_struct.clk_freq = 32000;
-    uart1_cfg_struct.oversampling = UART_CTRL_OS_FACTOR_16;
-    uart1_cfg_struct.word_length = UART_CFG_WRD_LEN_8_BITS;
-    uart1_cfg_struct.msb_first = UART_CTRL_UART_MSB_LAST;
     uart1_cfg_struct.tx_en = UART_CTRL_TX_EN_HW;
     #ifdef LPBK
         uart1_cfg_struct.rx_en = 1;

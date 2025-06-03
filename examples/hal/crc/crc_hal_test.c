@@ -41,7 +41,7 @@ uint8_t rev_byte(uint8_t num)
     unsigned int NO_OF_BITS = 8;
     uint8_t reverse_num = 0;
     
-    int i;
+    unsigned int i;
     for (i = 0; i < NO_OF_BITS; i++) {
         if ((num & (1 << i)))
             reverse_num |= 1 << ((NO_OF_BITS - 1) - i);
@@ -79,7 +79,7 @@ uint32_t rev_bits_op_32(uint32_t num)
     unsigned int NO_OF_BITS = 32;
     uint32_t reverse_num = 0;
     
-    int i;
+    unsigned int i;
     for (i = 0; i < NO_OF_BITS; i++) {
         if ((num & (1 << i)))
             reverse_num |= 1 << ((NO_OF_BITS - 1) - i);
@@ -93,7 +93,7 @@ uint16_t rev_bits_op_16(uint16_t num)
     unsigned int NO_OF_BITS = 16;
     uint32_t reverse_num = 0;
     
-    int i;
+    unsigned int i;
     for (i = 0; i < NO_OF_BITS; i++) {
         if ((num & (1 << i)))
             reverse_num |= 1 << ((NO_OF_BITS - 1) - i);
@@ -180,7 +180,7 @@ typedef struct test_data_s {
 } test_data_s;
 
 
-void main(void) {
+int main(void) {
 
     UartStdOutInit();
     UartPuts("CRC 32 hal test\n");
@@ -192,17 +192,14 @@ void main(void) {
     //variable to print
     uint32_t i_seed= 0;
     int failed = 0;
-    uint8_t pass = 0;
 
     //variable declaration
     uint32_t config_val = 0x00000001; 
-    uint32_t random_i_num = 0;
     uint32_t length = 8;
     uint8_t i_bit_rev, o_bit_rev, in_big_en, o_big_en, seed_rev; 
 
     //config struct
     crc_cfg_s crc_config_struct = CRC_CFG_DEFAULT;
-    crc_cfg_s rd_crc_cfg_struct;
 
     //structure - int type input data sample
     test_data_s td_s1;
@@ -237,6 +234,7 @@ void main(void) {
 
 
     #if CRC_CHECK == 0
+        crc_cfg_s rd_crc_cfg_struct;
     //-------------------------------------------------------------------------------------
     //input type:single WORD, Config:input big endian - seed little endian, seed:0xFFFF, Input_data:0xAABBCCDD 
     //-------------------------------------------------------------------------------------
@@ -302,6 +300,7 @@ void main(void) {
     //-------------------------------------------------------------------------------------
     //input type:single WORD, Config:all combinations, seed:random, Input_data:random 
     //-------------------------------------------------------------------------------------
+        uint32_t random_i_num = 0;
         UartPuts("TEST-> input type:single WORD, Config:all combinations\n");
         UartPuts("TEST-> seed:random, Input_data:random\n");
 
@@ -389,7 +388,7 @@ void main(void) {
             i_seed = rand();
             print_int_var("SEED = ",i_seed, 1);
 
-            for(int i=0; i<length; i++){
+            for(uint32_t i=0; i<length; i++){
                 td_s1.w_data_arr[i] = rand(); 
             }
     
@@ -410,7 +409,6 @@ void main(void) {
                 print_int_var("TB CRC = ",tb_crc_32,1);    
             }
 
-            pass = 0;
             dut_crc_32 = 0;
             tb_crc_32  = 0;
         }
@@ -449,7 +447,7 @@ void main(void) {
             //CRC_SEED -addr: 0x40020010
             i_seed = rand();
 
-            for(int i=0; i<length; i++){
+            for(uint32_t i=0; i<length; i++){
                 td_s1.hw_data_arr[i] = rand(); 
             }
             dut_crc_32=crc_compute_16bit_block(CRC_REGS, length, td_s1.hw_data_arr, i_seed);
@@ -471,7 +469,6 @@ void main(void) {
 
             }
 
-            pass = 0;
             dut_crc_32 = 0;
             tb_crc_32  = 0;
         }
@@ -509,7 +506,7 @@ void main(void) {
             //CRC_SEED -addr: 0x40020010
             i_seed = rand();
 
-            for(int i=0; i<length; i++){
+            for(uint32_t i=0; i<length; i++){
                 td_s1.byte_data_arr[i] = rand(); 
             }
             
@@ -530,7 +527,6 @@ void main(void) {
                 print_int_var("TB CRC = ",tb_crc_32,1);
             }
 
-            pass = 0;
             dut_crc_32 = 0;
             tb_crc_32  = 0;
         }
@@ -550,4 +546,6 @@ void main(void) {
         UartFail();
     }
     UartEndSimulation();
+
+    return 0;
 }

@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////
-////               UART0 HAL BLOCKING TEST                                 ////
+////               UART0 HAL BLOCKING TEST                                ////
 ////    DESCRIPTION:                                                      ////      
-////        This is an example test to test UART0 RX blocking and          ////
+////        This is an example test to test UART0 RX blocking and         ////
 ////        TX non blocking data transfer functionality in loopback       ////
 ////        mode                                                          ////
 ////                                                                      //// 
@@ -28,30 +28,29 @@ int num_bytes_written;
 
 int main(void) {
 
-    NVIC_ClearPendingIRQ(14);
-    NVIC_EnableIRQ(14);
+    NVIC_ClearPendingIRQ(UART0_IRQn);
+    NVIC_EnableIRQ(UART0_IRQn);
 
     //set default configurations to the cfg structs
     uart_cfg_s uart0_cfg_struct = UART_CFG_DEFAULT;
     uart_cfg_s uart1_cfg_struct = UART_CFG_DEFAULT;
     uart_fifo_cfg_s uart0_fifo_cfg_struct = UART_FIFO_CFG_DEFAULT;    
     IOMUX_PA_REG_s iomux_cfg_struct_tx;
+
+    /* uncomment and declare iomux cfg struct for rx, cts and rts
     IOMUX_PA_REG_s iomux_cfg_struct_rx;
     IOMUX_PA_REG_s iomux_cfg_struct_cts;
-    IOMUX_PA_REG_s iomux_cfg_struct_rts;
+    IOMUX_PA_REG_s iomux_cfg_struct_rts; */
+
 
 //******************************UART1******************************************
 
    //UART1 initialization
     uart_init(UART1_REGS);
 
-   //configuring UART1 for printing
-    uart1_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
-    uart1_cfg_struct.clk_div = 0;
+   //configuring UART1 for printing, 1.5 MHz baud rate, 32 MHz clk freq
     uart1_cfg_struct.baud_rate = 1500000;
     uart1_cfg_struct.clk_freq = 32000;
-    uart1_cfg_struct.word_length = UART_CFG_WRD_LEN_8_BITS;
-    uart1_cfg_struct.oversampling = UART_CTRL_OS_FACTOR_16;
     uart1_cfg_struct.tx_en = UART_CTRL_TX_EN_HW;
 
     uart_cfg(UART1_REGS, &uart1_cfg_struct);
@@ -72,14 +71,9 @@ int main(void) {
     //UART0 initialization
     uart_init(UART0_REGS);
 
-    //configuring UART0 for data transfer
-    uart0_cfg_struct.clk_sel = UART_CLK_SEL_CLK_APB;
-    uart0_cfg_struct.clk_div = 0;
+    //configuring UART0 for data transfer, 921600 baud rate, 32 MHz clk freq
     uart0_cfg_struct.baud_rate = 921600;
     uart0_cfg_struct.clk_freq = 32000;
-    uart0_cfg_struct.oversampling = UART_CTRL_OS_FACTOR_16;
-    uart0_cfg_struct.word_length = UART_CFG_WRD_LEN_8_BITS;
-    uart0_cfg_struct.msb_first = UART_CTRL_UART_MSB_LAST;
     uart0_cfg_struct.tx_en = UART_CTRL_TX_EN_HW;
     #ifdef LPBK
         uart0_cfg_struct.rx_en = 1;
