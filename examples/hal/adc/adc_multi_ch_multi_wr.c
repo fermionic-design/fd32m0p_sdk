@@ -22,69 +22,30 @@
 #include "flash.h"
 
 int main(void) {
-    volatile unsigned int read_sts;
-    uint32_t i = 0;
     uint32_t start_addr = DATA_CHNL_2;
     uint32_t end_addr = DATA_CHNL_4;
     
     uint32_t hw_avg_en = 0;
-    uint32_t avg_8_11 = 0;
-    uint32_t avg_8_9 = 0;
-    uint32_t avg_12_13 = 0;
-    uint32_t avg_12_15 = 0;
-    uint32_t actual_val;
-    uint32_t obs_result[90];
     volatile uint32_t intr_sts;
-    uint32_t iii;
     uint32_t sw_trig;
     uint32_t read_en_conv;
     uint32_t read_fifo_en, fifo_en;
     uint32_t samples, num_channel;
- 
+    uint32_t data_channel;
+
     flash_config(FLASH_APB_REGS, FLASH_SETTING_CFG_32MHZ_HIGH_SPEED_3V);
 
     OTP_REGS->OTP[1].packed_w = 0x000000FF;
     adc_timer_cfg_s             timer_cfg;
     adc_clk_cfg_s               clk_cfg;
-    vref_cfg_s                  vref_cfg_struct;
     adc_multi_ch_conv_cfg_s     multi_ch_cfg;
     adc_chnl_cfg_s              chnl_cfg;
-    adc_hw_avg_cfg_s            hw_avg_cfg;
     IOMUX_PA_REG_s              iomux_cfg_struct;
     adc_dma_cfg_s               dma_cfg;
+    adc_hw_avg_cfg_s            hw_avg_cfg;
 
     num_channel = end_addr - start_addr + 1;
     samples     = 90;
-    
-    #if HW_AVG == 1
-        hw_avg_en = 1;
-    #else
-        hw_avg_en = 0;
-    #endif
-    
-    #if AVG_8_11 == 1
-        avg_8_11 = 1;
-    #else
-        avg_8_11 = 0;
-    #endif
-    
-    #if AVG_8_9 == 1
-        avg_8_9 = 1;
-    #else
-        avg_8_9 = 0;
-    #endif
-    
-    #if AVG_12_13 == 1
-        avg_12_13 = 1;
-    #else
-        avg_12_13 = 0;
-    #endif
-    
-    #if AVG_12_15 == 1
-        avg_12_15 = 1;
-    #else
-        avg_12_15 = 0;
-    #endif
     
     UartStdOutInit();
     UartPuts("ADC Basic Test\n");
@@ -102,6 +63,7 @@ int main(void) {
         }
         hw_avg_cfg.hw_sample_cnt        = ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_64;
         hw_avg_cfg.hw_avg_sample_div    = ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_8;
+        adc_hw_avg_cfg(ADC0_REGS, hw_avg_cfg);  
     }
     else 
     {
@@ -115,8 +77,8 @@ int main(void) {
             adc_chnl_cfg(ADC0_REGS, chnl_cfg);
         }
     }
-
-    chnl_cfg = get_adc_chnl_cfg(ADC0_REGS); 
+    data_channel = chnl_cfg.data_channel;
+    chnl_cfg = get_adc_chnl_cfg(ADC0_REGS, data_channel); 
     print_int_var("data_channel ", chnl_cfg.data_channel,0);
     print_int_var("channel_sel ", chnl_cfg.channel_sel,0);
     print_int_var("vref_sel ", chnl_cfg.vref_sel,0);
@@ -201,9 +163,9 @@ int main(void) {
     sw_trig = 3;
     adc_sw_trig(ADC0_REGS, sw_trig); 
 
-    for(int jj=0; jj<(samples/num_channel); jj=jj+1)
+    for(uint32_t jj=0; jj<(samples/num_channel); jj=jj+1)
     {
-        for(int ii=0; ii< (num_channel) ; ii=ii+1){      
+        for(uint32_t ii=0; ii< (num_channel) ; ii=ii+1){      
             while ((ADC0_REGS->INTR_EVENT.packed_w & (1 << (ii + start_addr+8))) == 0);
             print_int_var("CH: ", ii, 0);
             print_int_var("res : ", ADC0_REGS->RESULT[start_addr + ii].packed_w, 0);

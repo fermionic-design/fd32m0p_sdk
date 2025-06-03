@@ -16,8 +16,9 @@
 #include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
 #include "gpio.h"
+#include "event_fabric.h"
 #include "../../hal/dma/dma.h"
-#include "event.h"
+
 
 typedef struct sram_memory {
     uint32_t mem[1024];
@@ -35,7 +36,6 @@ int main(void) {
     uint32_t gpio_mask=0;
     uint32_t gpio_dout=0;
     uint32_t gpio_data_out=0;
-    uint32_t gpio_data=0;
     uint32_t i;
 
     IOMUX_PA_REG_s iomux_cfg_struct;
@@ -87,11 +87,6 @@ int main(void) {
         sram_mem_s->mem[i] = rand();
     }
 
-    sram_memory_t   *ptr_s, *ptr_d;
-
-    ptr_s = sram_mem_s;
-    ptr_d = sram_mem_d;
-
     UartPuts("Configuring Primary Channel\n");
     
     //Initializing DMA
@@ -103,7 +98,7 @@ int main(void) {
 
     primary_ch->src_addr = 0x200000F0;            
     primary_ch->dst_addr = 0x40060058;            
-    primary_ch->total_transaction = 1;   
+    primary_ch->total_transaction = N;   
     primary_ch->src_size = 2;  
     primary_ch->src_incr = 2;            
     primary_ch->dst_size = 2;            

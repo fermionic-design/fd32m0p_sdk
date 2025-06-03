@@ -21,7 +21,6 @@
 
 int main(void) {
 
-    uint32_t iomux_val;
     uint32_t iomux_val_rd;
     uint32_t failed = 0;
     uint32_t i;

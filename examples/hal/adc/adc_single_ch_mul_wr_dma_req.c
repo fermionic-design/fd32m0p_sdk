@@ -30,29 +30,25 @@ typedef struct uart_sram_memory {
 
 int main(void) {
 
-    uint32_t i = 0;
     uint16_t obs_result[256];
     UartStdOutInit();
-
-    uint32_t    start_addr, end_addr;
+    
+    uint32_t    data_channel;
+    uint32_t    start_addr;
     uint32_t    analog_adc_channel;
     uint32_t    dma_src_addr;
-    uint32_t    temp_sense_en;
     uint32_t    sw_trig;
     uint32_t    read_fifo_en;
 
     adc_timer_cfg_s             timer_cfg;
     adc_clk_cfg_s               clk_cfg;
-    vref_cfg_s                  vref_cfg_struct;
     adc_single_ch_conv_cfg_s    single_ch_cfg;
     adc_chnl_cfg_s              chnl_cfg;
     adc_hw_avg_cfg_s            hw_avg_cfg;
     IOMUX_PA_REG_s              iomux_cfg_struct;
     adc_dma_cfg_s               dma_cfg;
 
-    temp_sense_en       = 0;
     start_addr          = DATA_CHNL_0;
-    end_addr            = DATA_CHNL_0;
     analog_adc_channel  = ADC_CHNL_CFG_CHANNEL_SEL_CH0_PA27;
     dma_src_addr        = 0x40040094 + (start_addr*4);
 
@@ -109,8 +105,9 @@ int main(void) {
     chnl_cfg.bcs_en         = 0;
 
     adc_chnl_cfg(ADC0_REGS, chnl_cfg);
-    
-    chnl_cfg = get_adc_chnl_cfg(ADC0_REGS);
+
+    data_channel    = chnl_cfg.data_channel;
+    chnl_cfg = get_adc_chnl_cfg(ADC0_REGS, data_channel);
 
     print_int_var("data_channel: ", chnl_cfg.data_channel,0);
     print_int_var("channel_sel ", chnl_cfg.channel_sel,0);

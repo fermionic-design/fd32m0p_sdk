@@ -20,8 +20,6 @@
 
 
 int main(void) {
-    uint32_t failed = 0;
-    uint32_t din;
     uint32_t i;
 
     UartStdOutInit();

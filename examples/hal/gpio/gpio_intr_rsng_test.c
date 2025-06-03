@@ -21,9 +21,7 @@
 
 int main(void) {
     uint32_t intr_val;
-    uint32_t intr_val_regs;
     uint32_t failed = 0;  
-    uint32_t i;
 
     UartStdOutInit();   
     IOMUX_PA_REG_s iomux_cfg_struct;

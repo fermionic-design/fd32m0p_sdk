@@ -19,19 +19,15 @@
 
 int main(void){
    
-    uint32_t    temp_sense_en;
     uint32_t    start_addr;
     uint32_t    adc_out;
     uint32_t    sw_trig;
 
-    adc_timer_cfg_s             timer_cfg;
     adc_clk_cfg_s               clk_cfg;
     adc_single_ch_conv_cfg_s    single_ch_cfg;
     adc_chnl_cfg_s              chnl_cfg; 
     IOMUX_PA_REG_s              iomux_cfg_struct;    
-    vref_cfg_s                  vref_cfg_struct;
 
-    temp_sense_en       = 1;
     start_addr          = DATA_CHNL_0;
 
     UartStdOutInit();

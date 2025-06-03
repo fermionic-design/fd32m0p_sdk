@@ -19,12 +19,11 @@
 
 
 int main(void) {
-    volatile unsigned int read_sts;
-    uint32_t i = 0;
     uint32_t start_addr = DATA_CHNL_0;
     volatile uint32_t intr_sts;
     uint32_t sw_trig;
     uint32_t read_en_conv;
+    uint32_t data_channel;
 
     OTP_REGS->OTP[1].packed_w = 0x000000FF;
     adc_timer_cfg_s             timer_cfg;
@@ -42,7 +41,9 @@ int main(void) {
     chnl_cfg.hw_avg_en      = 0;
     chnl_cfg.bcs_en         = 0;
     adc_chnl_cfg(ADC0_REGS, chnl_cfg);
-    chnl_cfg = get_adc_chnl_cfg(ADC0_REGS); 
+    data_channel = chnl_cfg.data_channel;
+
+    chnl_cfg = get_adc_chnl_cfg(ADC0_REGS, data_channel); 
     print_int_var("data_channel ", chnl_cfg.data_channel,0);
     print_int_var("channel_sel ", chnl_cfg.channel_sel,0);
     print_int_var("vref_sel ", chnl_cfg.vref_sel,0);
