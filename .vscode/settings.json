@@ -117,6 +117,10 @@
             "makeArgs": ["TESTNAME=dac_fifo_sine", "TESTFOLDER=examples/hal/dac", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
+            "name": "adc_basic_test",
+            "makeArgs": ["TESTNAME=adc_basic_test", "TESTFOLDER=examples/hal/adc", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
             "name": "adc_temp_test",
             "makeArgs": ["TESTNAME=adc_temp_sensor_test", "TESTFOLDER=examples/hal/adc", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
