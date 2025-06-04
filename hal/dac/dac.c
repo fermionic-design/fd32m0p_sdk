@@ -1,5 +1,8 @@
 #include "dac.h"
 
+/*
+ *  ======== dac_cfg ========
+ */
 void dac_cfg(DAC_REGS_s *regs, dac_cfg_s dac_cfg_struct){
     regs->CTRL0.data_fmt        = dac_cfg_struct.data_fmt;
     regs->CTRL0.enable          = dac_cfg_struct.enable;
@@ -15,6 +18,9 @@ void dac_cfg(DAC_REGS_s *regs, dac_cfg_s dac_cfg_struct){
     }
 }
 
+/*
+ *  ======== dac_dma_cfg ========
+ */
 void dac_dma_cfg(DAC_REGS_s *regs, dac_dma_cfg_s dac_dma_cfg_struct){
     regs->CTRL2.fifo_th         = dac_dma_cfg_struct.fifo_th;
     regs->CTRL2.fifo_en         = dac_dma_cfg_struct.fifo_en;
@@ -22,10 +28,16 @@ void dac_dma_cfg(DAC_REGS_s *regs, dac_dma_cfg_s dac_dma_cfg_struct){
     regs->CTRL2.dma_trig_en     = dac_dma_cfg_struct.dma_trig_en;
 }
 
+/*
+ *  ======== dac_wr_code ========
+ */
 void dac_wr_code(DAC_REGS_s *regs, uint32_t dac_code){
     regs->DATA.dac_code = dac_code;
 }
 
+/*
+ *  ======== get_dac_cfg ========
+ */
 dac_cfg_s get_dac_cfg(DAC_REGS_s *regs){
     dac_cfg_s dac_cfg_struct;  
     dac_cfg_struct.data_fmt      = regs->CTRL0.data_fmt;
@@ -40,6 +52,9 @@ dac_cfg_s get_dac_cfg(DAC_REGS_s *regs){
     return dac_cfg_struct;
 }
 
+/*
+ *  ======== get_dac_dma_cfg ========
+ */
 dac_dma_cfg_s get_dac_dma_cfg(DAC_REGS_s *regs){
     dac_dma_cfg_s dac_dma_cfg_struct;
     dac_dma_cfg_struct.fifo_th          = regs->CTRL2.fifo_th;      
@@ -49,6 +64,9 @@ dac_dma_cfg_s get_dac_dma_cfg(DAC_REGS_s *regs){
     return dac_dma_cfg_struct;
 }
 
+/*
+ *  ======== get_dac_wr_code ========
+ */
 uint32_t get_dac_wr_code(DAC_REGS_s *regs){
     uint32_t dac_code;
     dac_code = regs->DATA.dac_code;
