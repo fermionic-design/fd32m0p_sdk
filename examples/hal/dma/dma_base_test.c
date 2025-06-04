@@ -1,6 +1,6 @@
 #include"uart_stdout_mcu.h"
 #include "FD32M0P.h"
-#include "../../hal/dma/dma.h"
+#include "dma.h"
 
 // SRAM Memory
 typedef struct sram_memory {
@@ -15,7 +15,7 @@ int main(){
     UartStdOutInit();
     UartPuts("DMA Basic Test\n");
     
-    uint32_t failed;
+    uint32_t failed = 0;
     uint32_t N=10;
     
     // Clk Enable

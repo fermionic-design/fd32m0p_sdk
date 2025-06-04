@@ -3,104 +3,161 @@
 
 #include <stdint.h>
 
-typedef struct UART_DESC_REG_s {
+/** @defgroup UART
+ *  @{
+ */
+/** @defgroup UART_REGISTERS 
+ *  @{
+ */
+/** @defgroup UART_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int module_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } UART_DESC_REG_s;
 
-typedef union UART_DESC_u {
+typedef union {
+    /** @ref UART_DESC_REG_s */
     UART_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_DESC_u;
 
-typedef struct UART_PWR_EN_REG_s {
+/** @} end of UART_DESC_REG */ 
+
+/** @defgroup UART_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } UART_PWR_EN_REG_s;
 
-typedef union UART_PWR_EN_u {
+typedef union {
+    /** @ref UART_PWR_EN_REG_s */
     UART_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_PWR_EN_u;
 
-typedef struct UART_RST_CTRL_REG_s {
+/** @} end of UART_PWR_EN_REG */ 
+
+/** @defgroup UART_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } UART_RST_CTRL_REG_s;
 
-typedef union UART_RST_CTRL_u {
+typedef union {
+    /** @ref UART_RST_CTRL_REG_s */
     UART_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_RST_CTRL_u;
 
-typedef struct UART_RST_STS_REG_s {
+/** @} end of UART_RST_CTRL_REG */ 
+
+/** @defgroup UART_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } UART_RST_STS_REG_s;
 
-typedef union UART_RST_STS_u {
+typedef union {
+    /** @ref UART_RST_STS_REG_s */
     UART_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_RST_STS_u;
 
-typedef struct UART_CLK_CTRL_REG_s {
+/** @} end of UART_RST_STS_REG */ 
+
+/** @defgroup UART_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_en:1; // 
 } UART_CLK_CTRL_REG_s;
 
-typedef union UART_CLK_CTRL_u {
+typedef union {
+    /** @ref UART_CLK_CTRL_REG_s */
     UART_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_CLK_CTRL_u;
 
-typedef struct UART_CLK_SEL_REG_s {
+/** @} end of UART_CLK_CTRL_REG */ 
+
+/** @defgroup UART_CLK_SEL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_sel:2; // 
 } UART_CLK_SEL_REG_s;
 
-typedef union UART_CLK_SEL_u {
+typedef union {
+    /** @ref UART_CLK_SEL_REG_s */
     UART_CLK_SEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_CLK_SEL_u;
 
-typedef struct UART_CLK_DIV_REG_s {
+/** @} end of UART_CLK_SEL_REG */ 
+
+/** @defgroup UART_CLK_DIV_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_div:4; // 
 } UART_CLK_DIV_REG_s;
 
-typedef union UART_CLK_DIV_u {
+typedef union {
+    /** @ref UART_CLK_DIV_REG_s */
     UART_CLK_DIV_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_CLK_DIV_u;
 
-typedef struct UART_DBG_CTRL_REG_s {
+/** @} end of UART_CLK_DIV_REG */ 
+
+/** @defgroup UART_DBG_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int run_on_halt:1; // 
     unsigned int soft_stop:1; // 
 } UART_DBG_CTRL_REG_s;
 
-typedef union UART_DBG_CTRL_u {
+typedef union {
+    /** @ref UART_DBG_CTRL_REG_s */
     UART_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_DBG_CTRL_u;
 
-typedef struct UART_INTR_EVENT_REG_s {
+/** @} end of UART_DBG_CTRL_REG */ 
+
+/** @defgroup UART_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rcv_timeout:1; // 
     unsigned int frame_err:1; // 
     unsigned int parity_err:1; // 
@@ -127,14 +184,20 @@ typedef struct UART_INTR_EVENT_REG_s {
     unsigned int dma_done_rx_intr:1; // 
 } UART_INTR_EVENT_REG_s;
 
-typedef union UART_INTR_EVENT_u {
+typedef union {
+    /** @ref UART_INTR_EVENT_REG_s */
     UART_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_INTR_EVENT_u;
 
-typedef struct UART_INTR_EN0_REG_s {
+/** @} end of UART_INTR_EVENT_REG */ 
+
+/** @defgroup UART_INTR_EN0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rcv_timeout_en:1; // 
     unsigned int frame_err_en:1; // 
     unsigned int parity_err_en:1; // 
@@ -153,14 +216,20 @@ typedef struct UART_INTR_EN0_REG_s {
     unsigned int rcv_posedge_en:1; // 
 } UART_INTR_EN0_REG_s;
 
-typedef union UART_INTR_EN0_u {
+typedef union {
+    /** @ref UART_INTR_EN0_REG_s */
     UART_INTR_EN0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_INTR_EN0_u;
 
-typedef struct UART_INTR_EN1_REG_s {
+/** @} end of UART_INTR_EN0_REG */ 
+
+/** @defgroup UART_INTR_EN1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_int_en:1; // 
     unsigned int tx_int_en:1; // 
     unsigned int cts_int_en:1; // 
@@ -171,14 +240,20 @@ typedef struct UART_INTR_EN1_REG_s {
     unsigned int dma_done_rx_intr_en:1; // 
 } UART_INTR_EN1_REG_s;
 
-typedef union UART_INTR_EN1_u {
+typedef union {
+    /** @ref UART_INTR_EN1_REG_s */
     UART_INTR_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_INTR_EN1_u;
 
-typedef struct UART_INTR_NMI_EN0_REG_s {
+/** @} end of UART_INTR_EN1_REG */ 
+
+/** @defgroup UART_INTR_NMI_EN0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rcv_timeout_nmi_en:1; // 
     unsigned int frame_err_nmi_en:1; // 
     unsigned int parity_err_nmi_en:1; // 
@@ -197,14 +272,20 @@ typedef struct UART_INTR_NMI_EN0_REG_s {
     unsigned int rcv_posedge_nmi_en:1; // 
 } UART_INTR_NMI_EN0_REG_s;
 
-typedef union UART_INTR_NMI_EN0_u {
+typedef union {
+    /** @ref UART_INTR_NMI_EN0_REG_s */
     UART_INTR_NMI_EN0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_INTR_NMI_EN0_u;
 
-typedef struct UART_INTR_NMI_EN1_REG_s {
+/** @} end of UART_INTR_NMI_EN0_REG */ 
+
+/** @defgroup UART_INTR_NMI_EN1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_int_nmi_en:1; // 
     unsigned int tx_int_nmi_en:1; // 
     unsigned int cts_int_nmi_en:1; // 
@@ -215,14 +296,20 @@ typedef struct UART_INTR_NMI_EN1_REG_s {
     unsigned int dma_done_rx_intr_nmi_en:1; // 
 } UART_INTR_NMI_EN1_REG_s;
 
-typedef union UART_INTR_NMI_EN1_u {
+typedef union {
+    /** @ref UART_INTR_NMI_EN1_REG_s */
     UART_INTR_NMI_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_INTR_NMI_EN1_u;
 
-typedef struct UART_INTR_SW_SET_REG_s {
+/** @} end of UART_INTR_NMI_EN1_REG */ 
+
+/** @defgroup UART_INTR_SW_SET_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rcv_timeout_sw_set:1; // 
     unsigned int frame_err_sw_set:1; // 
     unsigned int parity_err_sw_set:1; // 
@@ -249,14 +336,20 @@ typedef struct UART_INTR_SW_SET_REG_s {
     unsigned int dma_done_rx_intr_sw_set:1; // 
 } UART_INTR_SW_SET_REG_s;
 
-typedef union UART_INTR_SW_SET_u {
+typedef union {
+    /** @ref UART_INTR_SW_SET_REG_s */
     UART_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_INTR_SW_SET_u;
 
-typedef struct UART_DMA_RX_EVENT_EN0_REG_s {
+/** @} end of UART_INTR_SW_SET_REG */ 
+
+/** @defgroup UART_DMA_RX_EVENT_EN0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_rx_rcv_timeout_en:1; // 
     unsigned int dma_rx_frame_err_en:1; // 
     unsigned int dma_rx_parity_err_en:1; // 
@@ -275,14 +368,20 @@ typedef struct UART_DMA_RX_EVENT_EN0_REG_s {
     unsigned int dma_rx_rcv_posedge_en:1; // 
 } UART_DMA_RX_EVENT_EN0_REG_s;
 
-typedef union UART_DMA_RX_EVENT_EN0_u {
+typedef union {
+    /** @ref UART_DMA_RX_EVENT_EN0_REG_s */
     UART_DMA_RX_EVENT_EN0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_DMA_RX_EVENT_EN0_u;
 
-typedef struct UART_DMA_RX_EVENT_EN1_REG_s {
+/** @} end of UART_DMA_RX_EVENT_EN0_REG */ 
+
+/** @defgroup UART_DMA_RX_EVENT_EN1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_rx_rx_int_en:1; // 
     unsigned int dma_rx_tx_int_en:1; // 
     unsigned int dma_rx_cts_int_en:1; // 
@@ -293,14 +392,20 @@ typedef struct UART_DMA_RX_EVENT_EN1_REG_s {
     unsigned int dma_rx_dma_done_rx_intr_en:1; // 
 } UART_DMA_RX_EVENT_EN1_REG_s;
 
-typedef union UART_DMA_RX_EVENT_EN1_u {
+typedef union {
+    /** @ref UART_DMA_RX_EVENT_EN1_REG_s */
     UART_DMA_RX_EVENT_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_DMA_RX_EVENT_EN1_u;
 
-typedef struct UART_DMA_TX_EVENT_EN0_REG_s {
+/** @} end of UART_DMA_RX_EVENT_EN1_REG */ 
+
+/** @defgroup UART_DMA_TX_EVENT_EN0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_tx_rcv_timeout_en:1; // 
     unsigned int dma_tx_frame_err_en:1; // 
     unsigned int dma_tx_parity_err_en:1; // 
@@ -319,14 +424,20 @@ typedef struct UART_DMA_TX_EVENT_EN0_REG_s {
     unsigned int dma_tx_rcv_posedge_en:1; // 
 } UART_DMA_TX_EVENT_EN0_REG_s;
 
-typedef union UART_DMA_TX_EVENT_EN0_u {
+typedef union {
+    /** @ref UART_DMA_TX_EVENT_EN0_REG_s */
     UART_DMA_TX_EVENT_EN0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_DMA_TX_EVENT_EN0_u;
 
-typedef struct UART_DMA_TX_EVENT_EN1_REG_s {
+/** @} end of UART_DMA_TX_EVENT_EN0_REG */ 
+
+/** @defgroup UART_DMA_TX_EVENT_EN1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_tx_rx_int_en:1; // 
     unsigned int dma_tx_tx_int_en:1; // 
     unsigned int dma_tx_cts_int_en:1; // 
@@ -337,51 +448,75 @@ typedef struct UART_DMA_TX_EVENT_EN1_REG_s {
     unsigned int dma_tx_dma_done_rx_intr_en:1; // 
 } UART_DMA_TX_EVENT_EN1_REG_s;
 
-typedef union UART_DMA_TX_EVENT_EN1_u {
+typedef union {
+    /** @ref UART_DMA_TX_EVENT_EN1_REG_s */
     UART_DMA_TX_EVENT_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_DMA_TX_EVENT_EN1_u;
 
-typedef struct UART_INTR_STS_REG_s {
+/** @} end of UART_DMA_TX_EVENT_EN1_REG */ 
+
+/** @defgroup UART_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:6; // 
 } UART_INTR_STS_REG_s;
 
-typedef union UART_INTR_STS_u {
+typedef union {
+    /** @ref UART_INTR_STS_REG_s */
     UART_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_INTR_STS_u;
 
-typedef struct UART_CLKCFG_REG_s {
+/** @} end of UART_INTR_STS_REG */ 
+
+/** @defgroup UART_CLKCFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int blck_async:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int async_req_en_key:8; // 
 } UART_CLKCFG_REG_s;
 
-typedef union UART_CLKCFG_u {
+typedef union {
+    /** @ref UART_CLKCFG_REG_s */
     UART_CLKCFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_CLKCFG_u;
 
-typedef struct UART_FIFOLS_REG_s {
+/** @} end of UART_CLKCFG_REG */ 
+
+/** @defgroup UART_FIFOLS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int tx_fifo_ls:2; // 
     unsigned int rx_to:4; // 
     unsigned int rx_fifo_ls:2; // 
 } UART_FIFOLS_REG_s;
 
-typedef union UART_FIFOLS_u {
+typedef union {
+    /** @ref UART_FIFOLS_REG_s */
     UART_FIFOLS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_FIFOLS_u;
 
-typedef struct UART_FIFOSTS_REG_s {
+/** @} end of UART_FIFOLS_REG */ 
+
+/** @defgroup UART_FIFOSTS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int tx_fifo_full_sts:1; // 
     unsigned int tx_fifo_almost_full_sts:1; // 
     unsigned int tx_fifo_empty_sts:1; // 
@@ -392,14 +527,20 @@ typedef struct UART_FIFOSTS_REG_s {
     unsigned int rx_fifo_almost_empty_sts:1; // 
 } UART_FIFOSTS_REG_s;
 
-typedef union UART_FIFOSTS_u {
+typedef union {
+    /** @ref UART_FIFOSTS_REG_s */
     UART_FIFOSTS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_FIFOSTS_u;
 
-typedef struct UART_CFG_REG_s {
+/** @} end of UART_FIFOSTS_REG */ 
+
+/** @defgroup UART_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int wrd_len:2; // 2'b00 for 5 bit data, 2'b01 for 6 bit data, 2'b10 for 7 bit data, 2'b11 for 8 bit data
     unsigned int par_en:1; // 
     unsigned int evn_par:1; // 
@@ -408,69 +549,105 @@ typedef struct UART_CFG_REG_s {
     unsigned int send_idle:1; // 
 } UART_CFG_REG_s;
 
-typedef union UART_CFG_u {
+typedef union {
+    /** @ref UART_CFG_REG_s */
     UART_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_CFG_u;
 
-typedef struct UART_GFCTL_REG_s {
+/** @} end of UART_CFG_REG */ 
+
+/** @defgroup UART_GFCTL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int gf_width:6; // 
 } UART_GFCTL_REG_s;
 
-typedef union UART_GFCTL_u {
+typedef union {
+    /** @ref UART_GFCTL_REG_s */
     UART_GFCTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_GFCTL_u;
 
-typedef struct UART_TXDATA_REG_s {
+/** @} end of UART_GFCTL_REG */ 
+
+/** @defgroup UART_TXDATA_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int uart_data:8; // 
 } UART_TXDATA_REG_s;
 
-typedef union UART_TXDATA_u {
+typedef union {
+    /** @ref UART_TXDATA_REG_s */
     UART_TXDATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_TXDATA_u;
 
-typedef struct UART_RXDATA_REG_s {
+/** @} end of UART_TXDATA_REG */ 
+
+/** @defgroup UART_RXDATA_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int uart_result:12; // 
 } UART_RXDATA_REG_s;
 
-typedef union UART_RXDATA_u {
+typedef union {
+    /** @ref UART_RXDATA_REG_s */
     UART_RXDATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_RXDATA_u;
 
-typedef struct UART_BRDNUM_REG_s {
+/** @} end of UART_RXDATA_REG */ 
+
+/** @defgroup UART_BRDNUM_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int num_m:32; // choose appropriate num_m to generate closst m/n value
 } UART_BRDNUM_REG_s;
 
-typedef union UART_BRDNUM_u {
+typedef union {
+    /** @ref UART_BRDNUM_REG_s */
     UART_BRDNUM_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_BRDNUM_u;
 
-typedef struct UART_BRDDEN_REG_s {
+/** @} end of UART_BRDNUM_REG */ 
+
+/** @defgroup UART_BRDDEN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int den_n:32; // den_n represents 2^n here
 } UART_BRDDEN_REG_s;
 
-typedef union UART_BRDDEN_u {
+typedef union {
+    /** @ref UART_BRDDEN_REG_s */
     UART_BRDDEN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_BRDDEN_u;
 
-typedef struct UART_CTRL_REG_s {
+/** @} end of UART_BRDDEN_REG */ 
+
+/** @defgroup UART_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int uart_en:1; // 
     unsigned int uart_msb:1; // data sent msb first
     unsigned int majvote_en:1; // enable majority voting
@@ -487,61 +664,90 @@ typedef struct UART_CTRL_REG_s {
     unsigned int rts_val:1; // 
 } UART_CTRL_REG_s;
 
-typedef union UART_CTRL_u {
+typedef union {
+    /** @ref UART_CTRL_REG_s */
     UART_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_CTRL_u;
 
-typedef struct UART_ADDR_REG_s {
+/** @} end of UART_CTRL_REG */ 
+
+/** @defgroup UART_ADDR_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int uart_addr:8; // 
 } UART_ADDR_REG_s;
 
-typedef union UART_ADDR_u {
+typedef union {
+    /** @ref UART_ADDR_REG_s */
     UART_ADDR_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_ADDR_u;
 
-typedef struct UART_ADDRMASK_REG_s {
+/** @} end of UART_ADDR_REG */ 
+
+/** @defgroup UART_ADDRMASK_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int addr_mask:8; // 
 } UART_ADDRMASK_REG_s;
 
-typedef union UART_ADDRMASK_u {
+typedef union {
+    /** @ref UART_ADDRMASK_REG_s */
     UART_ADDRMASK_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_ADDRMASK_u;
 
-typedef struct UART_STS_REG_s {
+/** @} end of UART_ADDRMASK_REG */ 
+
+/** @defgroup UART_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cts_sts:1; // 
     unsigned int busy:1; // 
     unsigned int idle:1; // 
 } UART_STS_REG_s;
 
-typedef union UART_STS_u {
+typedef union {
+    /** @ref UART_STS_REG_s */
     UART_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_STS_u;
 
-typedef struct UART_FSM_STS_REG_s {
+/** @} end of UART_STS_REG */ 
+
+/** @defgroup UART_FSM_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int tx_state:3; // 
     unsigned int rx_state:4; // bit counter
 } UART_FSM_STS_REG_s;
 
-typedef union UART_FSM_STS_u {
+typedef union {
+    /** @ref UART_FSM_STS_REG_s */
     UART_FSM_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } UART_FSM_STS_u;
 
-typedef struct UART_REGS_s{
+/** @} end of UART_FSM_STS_REG */ 
+
+/** @} end of UART_REGISTERS */ 
+
+typedef struct {
     volatile  UART_DESC_u DESC;
     volatile  UART_PWR_EN_u PWR_EN;
     volatile  UART_RST_CTRL_u RST_CTRL;
@@ -577,11 +783,19 @@ typedef struct UART_REGS_s{
     volatile  UART_FSM_STS_u FSM_STS;
 } UART_REGS_s;
 
+/** @defgroup UART_KEY 
+ *  @{
+ */
 #define UART_PWR_EN_PWR_EN_KEY ((uint32_t)0x0000007DU)
 #define UART_RST_CTRL_RST_KEY ((uint32_t)0x0000007DU)
 #define UART_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x0000007DU)
 #define UART_CLKCFG_BLCK_ASYNC_KEY ((uint32_t)0x0000007DU)
+/** @} end of UART_KEY*/ 
 
+
+/** @defgroup UART_INTERRUPTS 
+ *  @{
+ */
 #define UART_INTR_EVENT_RCV_TIMEOUT_IDX (0)
 #define UART_INTR_EVENT_FRAME_ERR_IDX (1)
 #define UART_INTR_EVENT_PARITY_ERR_IDX (2)
@@ -606,6 +820,11 @@ typedef struct UART_REGS_s{
 #define UART_INTR_EVENT_EOT_IDX (21)
 #define UART_INTR_EVENT_DMA_DONE_TX_INTR_IDX (22)
 #define UART_INTR_EVENT_DMA_DONE_RX_INTR_IDX (23)
+/** @} end of UART_INTERRUPTS */ 
+
+/** @defgroup UART_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	UART_CLK_SEL_CLK_APB = 0,
@@ -678,7 +897,12 @@ typedef enum {
 	UART_FSM_STS_TX_STATE_PARITY_GEN = 4,
 	UART_FSM_STS_TX_STATE_STOP_BITS = 5,
 } UART_FSM_STS_TX_STATE_E;
+/** @} end of UART_ENUM */ 
 
+
+/** @defgroup UART_REGISTER_FLAGS 
+ *  @{
+ */
 #define UART_DESC_MODULE_TYPE_OFS (0)
 #define UART_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define UART_DESC_MODULE_SUBTYPE_OFS (8)
@@ -1089,5 +1313,9 @@ typedef enum {
 #define UART_FSM_STS_TX_STATE_MASK ((uint32_t)0x00000007U)
 #define UART_FSM_STS_RX_STATE_OFS (3)
 #define UART_FSM_STS_RX_STATE_MASK ((uint32_t)0x00000078U)
+/** @} end of UART_REGISTER_FLAGS */ 
+
+/** @} end of UART */
+
 
 #endif

@@ -18,10 +18,7 @@
 
 
 int main(void) {
-  
-    uint32_t intr_val;
-    uint32_t intr_val_regs;
-    uint32_t failed = 0;
+
     uint32_t i,val;
 
     UartStdOutInit();
@@ -43,8 +40,8 @@ int main(void) {
 
     for (i=0;i<28;i=i+1)
     {
+        if (i == 17) continue; // skipping UART TX IO MUX cfg.
         iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
-        
     }
 
     UartPuts("Writing 1 on Pin 1,6 and 27 on O/P of GPIO.\n");
@@ -69,8 +66,6 @@ int main(void) {
     UartPuts("1 written to GPIO Pin 27. \n");
 
     UartPuts("GPIO Write Bit Test ends.\n");   
-    
-    for (int i = 0; i< 10000 ; i++);
     UartEndSimulation();
     return 0;
 }

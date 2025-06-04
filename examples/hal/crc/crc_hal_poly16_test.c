@@ -43,7 +43,7 @@ uint8_t rev_byte(uint8_t num)
     unsigned int NO_OF_BITS = 8;
     uint8_t reverse_num = 0;
     
-    int i;
+    unsigned int i;
     for (i = 0; i < NO_OF_BITS; i++) {
         if ((num & (1 << i)))
             reverse_num |= 1 << ((NO_OF_BITS - 1) - i);
@@ -85,7 +85,7 @@ uint16_t rev_bits_op_16(uint16_t num)
     unsigned int NO_OF_BITS = 16;
     uint32_t reverse_num = 0;
     
-    int i;
+    unsigned int i;
     for (i = 0; i < NO_OF_BITS; i++) {
         if ((num & (1 << i)))
             reverse_num |= 1 << ((NO_OF_BITS - 1) - i);
@@ -150,7 +150,6 @@ uint16_t crc16_hw_features(uint16_t* pData, int length, uint16_t i_seed, uint8_t
 #if CRC_CHECK <= 2  
 uint16_t crc16_w_features(uint32_t* pData, int length, uint16_t i_seed, uint8_t seed_rev, uint8_t i_bit_rev, uint8_t o_bit_rev, uint8_t i_big_en, uint8_t o_big_en) 
 {
-    uint16_t i;
     uint16_t  Crc_16 = (seed_rev == 0)? i_seed : swap_bytes_16(i_seed);   
     uint32_t data_in_tmp;
     uint16_t data_h, data_l;
@@ -200,7 +199,6 @@ int main(void) {
     //variable to print on GPIO
     uint16_t i_seed= 0;
     int failed = 0;
-    uint8_t pass = 0;
 
     //variable declaration
     uint32_t config_val = 0x00000001; 
@@ -210,7 +208,6 @@ int main(void) {
 
     //config struct
     crc_cfg_s crc_config_struct = CRC_CFG_DEFAULT;
-    crc_cfg_s rd_crc_cfg_struct;
 
     //structure - int type input data sample
     test_data_s td_s1;
@@ -277,7 +274,6 @@ int main(void) {
             print_int_var("DUT CRC = ", dut_crc_16,1);
         }
 
-        pass = 0;
         dut_crc_16 = 0;
         tb_crc_16  = 0;
     //________________________________________________________________________
@@ -371,7 +367,7 @@ int main(void) {
             i_seed = rand();
             gpio_print(i_seed);
 
-            for(int i=0; i<length; i++){
+            for(uint32_t i=0; i<length; i++){
                 td_s1.w_data_arr[i] = rand(); 
             }
     
@@ -394,7 +390,6 @@ int main(void) {
                 print_int_var("DUT CRC = ", dut_crc_16,1);
             }
 
-            pass = 0;
             dut_crc_16 = 0;
             tb_crc_16  = 0;
         }
@@ -432,7 +427,7 @@ int main(void) {
             i_seed = rand();
             gpio_print(i_seed);
 
-            for(int i=0; i<length; i++){
+            for(uint32_t i=0; i<length; i++){
                 td_s1.hw_data_arr[i] = rand(); 
             }
             dut_crc_16=crc_compute_16bit_block(CRC_REGS, length, td_s1.hw_data_arr, i_seed);
@@ -452,7 +447,6 @@ int main(void) {
                 print_int_var("TB CRC = ",tb_crc_16,1);
             }
 
-            pass = 0;
             dut_crc_16 = 0;
             tb_crc_16  = 0;
         }
@@ -488,7 +482,7 @@ int main(void) {
             i_seed = rand();
             gpio_print(i_seed);
 
-            for(int i=0; i<length; i++){
+            for(uint32_t i=0; i<length; i++){
                 td_s1.byte_data_arr[i] = rand(); 
             }
             dut_crc_16 = crc_compute_8bit_block(CRC_REGS, length, td_s1.byte_data_arr, i_seed);
@@ -509,7 +503,6 @@ int main(void) {
                 print_int_var("TB CRC = ",tb_crc_16,1);
             }
 
-            pass = 0;
             dut_crc_16 = 0;
             tb_crc_16  = 0;
         }

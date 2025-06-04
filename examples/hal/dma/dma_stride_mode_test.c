@@ -1,6 +1,6 @@
 #include"uart_stdout_mcu.h"
 #include "FD32M0P.h"
-#include "../../hal/dma/dma.h"
+#include "dma.h"
 
 // SRAM Memory
 typedef struct sram_memory {
@@ -11,7 +11,6 @@ typedef struct sram_memory {
 #define sram_mem_d    ((sram_memory_t *)   0x200004F0)
 
 int main(void) {
-    unsigned int current_state;
     unsigned int N;
     int failed = 0;
 
@@ -60,7 +59,7 @@ int main(void) {
     while(!dma_is_idle(DMA_PL230_REGS));
 
     // DMA DATA Check
-    for(int i = 0; i < N; i++){
+    for(uint32_t i = 0; i < N; i++){
         if(sram_mem_s->mem[i*channel_cfg->stride_src_incr] == sram_mem_d->mem[i*channel_cfg->stride_dst_incr])
             UartPuts("DATA Matching\n");
         else{

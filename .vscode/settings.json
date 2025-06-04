@@ -5,6 +5,10 @@
             "makeArgs": ["TESTNAME=helloworld", "TESTFOLDER=examples/hal/bringup"]
         },
         {
+            "name": "uart_hal_basic",
+            "makeArgs": ["TESTNAME=uart_basic_test", "TESTFOLDER=examples/hal/uart"]
+        },
+        {
             "name": "uart_hal_blocking",
             "makeArgs": ["TESTNAME=uart_hal_test_blocking", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK"]
         },
@@ -43,6 +47,10 @@
         {
             "name": "uart_hal_nonblocking_tx",
             "makeArgs": ["TESTNAME=uart_hal_test_nonblockingtx", "TESTFOLDER=examples/hal/uart", "TEST_DEFINE=-DDATA_LEN=7 -DLPBK -Duart_rx_non_static_nonblocking"]
+        },
+        {
+            "name": "crc_basic_test",
+            "makeArgs": ["TESTNAME=crc_basic_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
             "name": "crc_32_test",
@@ -107,6 +115,10 @@
         {
             "name": "dac_fifo",
             "makeArgs": ["TESTNAME=dac_fifo_sine", "TESTFOLDER=examples/hal/dac", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "adc_basic_test",
+            "makeArgs": ["TESTNAME=adc_basic_test", "TESTFOLDER=examples/hal/adc", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
             "name": "adc_temp_test",

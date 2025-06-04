@@ -39,7 +39,7 @@ uint32_t rev_bits(uint32_t num, int size)
 {
     unsigned int NO_OF_BITS = size * 8;
     uint32_t reverse_num = 0;
-    int i;
+    unsigned int i;
     for (i = 0; i < NO_OF_BITS; i++) {
         if ((num & (1 << i)))
             reverse_num |= 1 << ((NO_OF_BITS - 1) - i);
@@ -81,7 +81,6 @@ uint16_t crc16_hw(uint16_t* pData, int length, uint16_t i_seed)
 
 uint16_t crc16_w(uint32_t* pData, int length, uint16_t i_seed) 
 {
-    uint16_t i;
     uint16_t  Crc_16 = i_seed;   //Seed value
     uint32_t data_in_tmp;
     uint16_t data_h, data_l;
@@ -194,12 +193,6 @@ int main(void) {
     //config struct
     crc_cfg_s crc_config_struct = CRC_CFG_DEFAULT;
 
-    //structure - int type input data sample
-    test_data_s td_s1;
-    td_s1.byte_data = 0xA5;
-    td_s1.hw_data   = 0xABCD;
-    td_s1.w_data    = 0xDEADBEAF;
-
     //Generate an array of random numbers
     int num = rand()%50+1; 
     print_int_var("ARRAY length = ",num,0);
@@ -207,7 +200,7 @@ int main(void) {
     uint8_t mem_array[num];// = { 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77/*, 0x88*/};
     uint16_t mem_array_hw[num];
     uint32_t mem_array_w[num];
-    for(int i=0; i<length; i++){
+    for(uint32_t i=0; i<length; i++){
         mem_array[i] = rand();
         mem_array_hw[i] = rand();
         mem_array_w[i] = rand();

@@ -1,6 +1,6 @@
 #include"uart_stdout_mcu.h"
 #include "FD32M0P.h"
-#include "../../hal/dma/dma.h"
+#include "dma.h"
 
 // SRAM Memory
 typedef struct sram_memory {
@@ -12,10 +12,10 @@ typedef struct sram_memory {
 
 int main(void) {
     
-    unsigned int N;
+    uint32_t N;
     int failed = 0;
-    unsigned int init_val = 0x01;
-    unsigned int incr_val = 0x02;
+    uint32_t init_val = 0x01;
+    uint32_t incr_val = 0x02;
 
     UartStdOutInit();
     UartPuts("DMA Fill mode Test\n");
@@ -61,7 +61,7 @@ int main(void) {
     while(!dma_is_idle(DMA_PL230_REGS));
 
     // Checker
-    for(int i = 0; i < N; i++){
+    for(uint32_t i = 0; i < N; i++){
         if(sram_mem_d->mem[i] == init_val+(i*incr_val))
             UartPuts("DATA Matching\n");
         else{

@@ -188,4 +188,3 @@ void crc_read_cfg(CRC_REGS_s *regs, crc_cfg_s *rd_cfg);
 
 #endif
 
-

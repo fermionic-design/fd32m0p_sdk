@@ -1,6 +1,6 @@
 #include"uart_stdout_mcu.h"
 #include "FD32M0P.h"
-#include "../../hal/dma/dma.h"
+#include "dma.h"
 
 // SRAM Memory
 typedef struct sram_memory {
@@ -21,12 +21,12 @@ void dma_req_gen(int N, int R) {
     }
 }
 
-void main() {
+int main() {
     // Initializing UART
     UartStdOutInit();
     
     UartPuts("DMA Repeated Transaction Test\n");
-    uint32_t failed;
+    uint32_t failed = 0;
     uint32_t R;
     uint32_t N;
     
@@ -71,7 +71,7 @@ void main() {
     dma_req_gen(N,R);
     while(!(dma_is_idle(DMA_PL230_REGS))); 
 
-    for(int i = 0; i < (N - (1<<R)); i++){
+    for(uint32_t i = 0; i < (N - (1<<R)); i++){
         if(sram_mem_s->mem[i] == sram_mem_d->mem[i])
             UartPuts("DATA Matching\n");
         else{
@@ -89,7 +89,7 @@ void main() {
     dma_req_gen(N,R);
     while(!(dma_is_idle(DMA_PL230_REGS))); 
 
-    for(int i = 0; i < (N-(1<<R)); i++){
+    for(uint32_t i = 0; i < (N-(1<<R)); i++){
         if(sram_mem_s->mem[i] == sram_mem_d->mem[i])
             UartPuts("DATA Matching\n");
         else{
@@ -105,4 +105,5 @@ void main() {
     
     UartPuts("End of Simulation\n");
     UartEndSimulation();
+    return 0;
 }

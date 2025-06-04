@@ -1,7 +1,8 @@
 #include "FD32M0P.h"
 #include"uart_stdout_mcu.h"
-#include "../../hal/spi/spi.h"
-#include "../../hal/timer/timer.h"
+#include "spi.h"
+#include "timer.h"
+#include "gpio.h"
 
 #define TIMER_BASE_ADDRESS  0x3FFD4000 
 #define TIMER_REGS ((TIMER_REGS_s *) TIMER_BASE_ADDRESS) 
@@ -50,7 +51,7 @@ void spi_flash_wr_data(uint32_t addr, uint32_t len, uint8_t *data) {
     for(int i=2; i>=0; i--) {
         spi_transmit_byte_blocking(SPI_REGS, addr >> (i*8));
     }
-    for(int i=0; i<len; i++) {
+    for(uint32_t i=0; i<len; i++) {
         spi_transmit_byte_blocking(SPI_REGS, data[i]);
     }
     spi_start_transaction(SPI_REGS);
@@ -58,7 +59,7 @@ void spi_flash_wr_data(uint32_t addr, uint32_t len, uint8_t *data) {
     while(!(spi_is_idle(SPI_REGS)));
     SPI_INTR_EVENT_CLEAR(SPI_REGS, SPI_INTR_EVENT_IDLE_IDX);
 
-    for(int i=0; i<(4+len); i++) {
+    for(uint32_t i=0; i<(4+len); i++) {
         rx_rdata_status = spi_receive_byte_non_blocking(SPI_REGS, &rx_rdata);
     }
     spi_disable(SPI_REGS);
@@ -79,7 +80,7 @@ void spi_flash_rd_data(uint32_t addr, uint32_t len, uint8_t *data) {
     while(!(spi_is_idle(SPI_REGS)));
     SPI_INTR_EVENT_CLEAR(SPI_REGS, SPI_INTR_EVENT_IDLE_IDX);   
  
-    for(int i=0; i<(4+len); i++) {
+    for(uint32_t i=0; i<(4+len); i++) {
         rx_rdata_status = spi_receive_byte_non_blocking(SPI_REGS, &rx_rdata);
         if(i>=4) {
             data[i-4] = rx_rdata;
@@ -89,7 +90,7 @@ void spi_flash_rd_data(uint32_t addr, uint32_t len, uint8_t *data) {
 }
 
 bool compare_data(uint32_t len, uint8_t *tx_data, uint8_t *rx_data) {
-    for(int i=0; i<len; i++) {
+    for(uint32_t i=0; i<len; i++) {
         if(tx_data[i]!=rx_data[i]) {
             return false;
         }
@@ -118,7 +119,7 @@ void timer_a0_disable(void){
 
 uint32_t ext_flash_addr = 0x1;
 
-void main() {
+int main() {
     // Initializing UART
     UartStdOutInit();
     UartPuts("SPI Master Test\n");
@@ -229,6 +230,8 @@ void main() {
     UartPuts("timer\n");
 
     while(1);
+
+    return 0;
 }
 
 void TIMER_A0_IRQ_Handler(void){

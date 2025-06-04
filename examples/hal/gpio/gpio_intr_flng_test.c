@@ -21,9 +21,7 @@
 
 int main(void) {
     uint32_t intr_val;
-    uint32_t intr_val_regs;
     uint32_t failed = 0;
-    uint32_t i;
     UartStdOutInit();
     IOMUX_PA_REG_s iomux_cfg_struct;
 
@@ -52,13 +50,9 @@ int main(void) {
     GPIO_INTR_EVENT_EN(GPIO_REGS, 24);
     print_int_var("intr_en0 : ", GPIO_REGS->INTR_EN0.packed_w, 1);     
     print_int_var("intr_en1 : ", GPIO_REGS->INTR_EN1.packed_w, 1);    
-    //GPIO_REGS->INTR_EN0.packed_w = 0x00100010;
     UartPuts("Enabled INTR 0. \n");
-
-    //GPIO_REGS->INTR_EN1.packed_w = 0x01000100;
     UartPuts("Enabled INTR 1. \n");
 
-    //for(i=4;i<5;i=i+1)
     gpio_intr_polarity_cfg(GPIO_REGS, 4, GPIO_INTR_POL_NEG);
     gpio_intr_polarity_cfg(GPIO_REGS, 24, GPIO_INTR_POL_NEG);
 
@@ -76,11 +70,8 @@ int main(void) {
     UartPuts("Enabled INTR_POL_1 on Pin 24\n");
 
     intr_val = 0x01000010; 
-    //intr_val_regs = GPIO_REGS->INTR_EVENT.packed_w;
 
-    while(GPIO_REGS->INTR_EVENT.packed_w != intr_val);//{
-       //print_int_var("INTR : ", GPIO_REGS->INTR_EVENT.packed_w, 1);
-    //}
+    while(GPIO_REGS->INTR_EVENT.packed_w != intr_val);
 
     if(GPIO_REGS->INTR_EVENT.packed_w == intr_val)
     {
@@ -103,7 +94,6 @@ int main(void) {
         UartFail();
     }
 
-    for (int i = 0; i< 10000 ; i++ );
     UartEndSimulation();
     return 0;
     }

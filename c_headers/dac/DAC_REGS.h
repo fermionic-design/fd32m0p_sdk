@@ -3,81 +3,126 @@
 
 #include <stdint.h>
 
-typedef struct DAC_DESC_REG_s {
+/** @defgroup DAC
+ *  @{
+ */
+/** @defgroup DAC_REGISTERS 
+ *  @{
+ */
+/** @defgroup DAC_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int modue_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } DAC_DESC_REG_s;
 
-typedef union DAC_DESC_u {
+typedef union {
+    /** @ref DAC_DESC_REG_s */
     DAC_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_DESC_u;
 
-typedef struct DAC_PWR_EN_REG_s {
+/** @} end of DAC_DESC_REG */ 
+
+/** @defgroup DAC_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } DAC_PWR_EN_REG_s;
 
-typedef union DAC_PWR_EN_u {
+typedef union {
+    /** @ref DAC_PWR_EN_REG_s */
     DAC_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_PWR_EN_u;
 
-typedef struct DAC_RST_CTRL_REG_s {
+/** @} end of DAC_PWR_EN_REG */ 
+
+/** @defgroup DAC_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } DAC_RST_CTRL_REG_s;
 
-typedef union DAC_RST_CTRL_u {
+typedef union {
+    /** @ref DAC_RST_CTRL_REG_s */
     DAC_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_RST_CTRL_u;
 
-typedef struct DAC_RST_STS_REG_s {
+/** @} end of DAC_RST_CTRL_REG */ 
+
+/** @defgroup DAC_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } DAC_RST_STS_REG_s;
 
-typedef union DAC_RST_STS_u {
+typedef union {
+    /** @ref DAC_RST_STS_REG_s */
     DAC_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_RST_STS_u;
 
-typedef struct DAC_CLK_CTRL_REG_s {
+/** @} end of DAC_RST_STS_REG */ 
+
+/** @defgroup DAC_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_en:1; // 
 } DAC_CLK_CTRL_REG_s;
 
-typedef union DAC_CLK_CTRL_u {
+typedef union {
+    /** @ref DAC_CLK_CTRL_REG_s */
     DAC_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_CLK_CTRL_u;
 
-typedef struct DAC_INTR_STS_REG_s {
+/** @} end of DAC_CLK_CTRL_REG */ 
+
+/** @defgroup DAC_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:8; // 
 } DAC_INTR_STS_REG_s;
 
-typedef union DAC_INTR_STS_u {
+typedef union {
+    /** @ref DAC_INTR_STS_REG_s */
     DAC_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_INTR_STS_u;
 
-typedef struct DAC_INTR_EVENT_REG_s {
+/** @} end of DAC_INTR_STS_REG */ 
+
+/** @defgroup DAC_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dac_rdy:1; // 
     unsigned int fifo_full:1; // 
     unsigned int fifo_almost_full:1; // 
@@ -88,14 +133,20 @@ typedef struct DAC_INTR_EVENT_REG_s {
     unsigned int dma_done:1; // 
 } DAC_INTR_EVENT_REG_s;
 
-typedef union DAC_INTR_EVENT_u {
+typedef union {
+    /** @ref DAC_INTR_EVENT_REG_s */
     DAC_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_INTR_EVENT_u;
 
-typedef struct DAC_INTR_EN_REG_s {
+/** @} end of DAC_INTR_EVENT_REG */ 
+
+/** @defgroup DAC_INTR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dac_rdy_en:1; // 
     unsigned int fifo_full_en:1; // 
     unsigned int fifo_almost_full_en:1; // 
@@ -106,14 +157,20 @@ typedef struct DAC_INTR_EN_REG_s {
     unsigned int dma_done_en:1; // 
 } DAC_INTR_EN_REG_s;
 
-typedef union DAC_INTR_EN_u {
+typedef union {
+    /** @ref DAC_INTR_EN_REG_s */
     DAC_INTR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_INTR_EN_u;
 
-typedef struct DAC_INTR_NMI_EN_REG_s {
+/** @} end of DAC_INTR_EN_REG */ 
+
+/** @defgroup DAC_INTR_NMI_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dac_rdy_nmi_en:1; // 
     unsigned int fifo_full_nmi_en:1; // 
     unsigned int fifo_almost_full_nmi_en:1; // 
@@ -124,14 +181,20 @@ typedef struct DAC_INTR_NMI_EN_REG_s {
     unsigned int dma_done_nmi_en:1; // 
 } DAC_INTR_NMI_EN_REG_s;
 
-typedef union DAC_INTR_NMI_EN_u {
+typedef union {
+    /** @ref DAC_INTR_NMI_EN_REG_s */
     DAC_INTR_NMI_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_INTR_NMI_EN_u;
 
-typedef struct DAC_EVENT_EN_REG_s {
+/** @} end of DAC_INTR_NMI_EN_REG */ 
+
+/** @defgroup DAC_EVENT_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dac_rdy_event_en:1; // 
     unsigned int fifo_full_event_en:1; // 
     unsigned int fifo_almost_full_event_en:1; // 
@@ -142,14 +205,20 @@ typedef struct DAC_EVENT_EN_REG_s {
     unsigned int dma_done_event_en:1; // 
 } DAC_EVENT_EN_REG_s;
 
-typedef union DAC_EVENT_EN_u {
+typedef union {
+    /** @ref DAC_EVENT_EN_REG_s */
     DAC_EVENT_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_EVENT_EN_u;
 
-typedef struct DAC_INTR_SW_SET_REG_s {
+/** @} end of DAC_EVENT_EN_REG */ 
+
+/** @defgroup DAC_INTR_SW_SET_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dac_rdy_sw_set:1; // 
     unsigned int fifo_full_sw_set:1; // 
     unsigned int fifo_almost_full_sw_set:1; // 
@@ -160,25 +229,37 @@ typedef struct DAC_INTR_SW_SET_REG_s {
     unsigned int dma_done_sw_set:1; // 
 } DAC_INTR_SW_SET_REG_s;
 
-typedef union DAC_INTR_SW_SET_u {
+typedef union {
+    /** @ref DAC_INTR_SW_SET_REG_s */
     DAC_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_INTR_SW_SET_u;
 
-typedef struct DAC_EVENT_CTRL_REG_s {
+/** @} end of DAC_INTR_SW_SET_REG */ 
+
+/** @defgroup DAC_EVENT_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int chan_id0:4; // 
 } DAC_EVENT_CTRL_REG_s;
 
-typedef union DAC_EVENT_CTRL_u {
+typedef union {
+    /** @ref DAC_EVENT_CTRL_REG_s */
     DAC_EVENT_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_EVENT_CTRL_u;
 
-typedef struct DAC_CTRL0_REG_s {
+/** @} end of DAC_EVENT_CTRL_REG */ 
+
+/** @defgroup DAC_CTRL0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int enable:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int res:1; // 
@@ -186,14 +267,20 @@ typedef struct DAC_CTRL0_REG_s {
     unsigned int data_fmt:1; // 
 } DAC_CTRL0_REG_s;
 
-typedef union DAC_CTRL0_u {
+typedef union {
+    /** @ref DAC_CTRL0_REG_s */
     DAC_CTRL0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_CTRL0_u;
 
-typedef struct DAC_CTRL1_REG_s {
+/** @} end of DAC_CTRL0_REG */ 
+
+/** @defgroup DAC_CTRL1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int amp_en:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int amp_hiz:1; // 
@@ -203,14 +290,20 @@ typedef struct DAC_CTRL1_REG_s {
     unsigned int out_en:1; // 
 } DAC_CTRL1_REG_s;
 
-typedef union DAC_CTRL1_u {
+typedef union {
+    /** @ref DAC_CTRL1_REG_s */
     DAC_CTRL1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_CTRL1_u;
 
-typedef struct DAC_CTRL2_REG_s {
+/** @} end of DAC_CTRL1_REG */ 
+
+/** @defgroup DAC_CTRL2_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int fifo_en:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int fifo_th:2; // 
@@ -220,87 +313,128 @@ typedef struct DAC_CTRL2_REG_s {
     unsigned int dma_trig_en:1; // 
 } DAC_CTRL2_REG_s;
 
-typedef union DAC_CTRL2_u {
+typedef union {
+    /** @ref DAC_CTRL2_REG_s */
     DAC_CTRL2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_CTRL2_u;
 
-typedef struct DAC_CTRL3_REG_s {
+/** @} end of DAC_CTRL2_REG */ 
+
+/** @defgroup DAC_CTRL3_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int samp_tim_en:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int samp_tim_rate:4; // 
 } DAC_CTRL3_REG_s;
 
-typedef union DAC_CTRL3_u {
+typedef union {
+    /** @ref DAC_CTRL3_REG_s */
     DAC_CTRL3_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_CTRL3_u;
 
-typedef struct DAC_DATA_REG_s {
+/** @} end of DAC_CTRL3_REG */ 
+
+/** @defgroup DAC_DATA_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dac_code:13; // 
 } DAC_DATA_REG_s;
 
-typedef union DAC_DATA_u {
+typedef union {
+    /** @ref DAC_DATA_REG_s */
     DAC_DATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_DATA_u;
 
-typedef struct DAC_CAL_CTRL_REG_s {
+/** @} end of DAC_DATA_REG */ 
+
+/** @defgroup DAC_CAL_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cal_en:1; // 
     unsigned int cal_sel:1; // 
 } DAC_CAL_CTRL_REG_s;
 
-typedef union DAC_CAL_CTRL_u {
+typedef union {
+    /** @ref DAC_CAL_CTRL_REG_s */
     DAC_CAL_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_CAL_CTRL_u;
 
-typedef struct DAC_CAL_STS_REG_s {
+/** @} end of DAC_CAL_CTRL_REG */ 
+
+/** @defgroup DAC_CAL_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cal_done:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int cal_data:7; // 
 } DAC_CAL_STS_REG_s;
 
-typedef union DAC_CAL_STS_u {
+typedef union {
+    /** @ref DAC_CAL_STS_REG_s */
     DAC_CAL_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_CAL_STS_u;
 
-typedef struct DAC_SPARE_CTRL_REG_s {
+/** @} end of DAC_CAL_STS_REG */ 
+
+/** @defgroup DAC_SPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cfg0:8; // 
     unsigned int cfg1:8; // 
 } DAC_SPARE_CTRL_REG_s;
 
-typedef union DAC_SPARE_CTRL_u {
+typedef union {
+    /** @ref DAC_SPARE_CTRL_REG_s */
     DAC_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_SPARE_CTRL_u;
 
-typedef struct DAC_SPARE_STS_REG_s {
+/** @} end of DAC_SPARE_CTRL_REG */ 
+
+/** @defgroup DAC_SPARE_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int sts0:8; // 
     unsigned int sts1:8; // 
 } DAC_SPARE_STS_REG_s;
 
-typedef union DAC_SPARE_STS_u {
+typedef union {
+    /** @ref DAC_SPARE_STS_REG_s */
     DAC_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DAC_SPARE_STS_u;
 
-typedef struct DAC_REGS_s{
+/** @} end of DAC_SPARE_STS_REG */ 
+
+/** @} end of DAC_REGISTERS */ 
+
+typedef struct {
     volatile  DAC_DESC_u DESC;
     volatile  DAC_PWR_EN_u PWR_EN;
     volatile  DAC_RST_CTRL_u RST_CTRL;
@@ -324,10 +458,18 @@ typedef struct DAC_REGS_s{
     volatile  DAC_SPARE_STS_u SPARE_STS;
 } DAC_REGS_s;
 
+/** @defgroup DAC_KEY 
+ *  @{
+ */
 #define DAC_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
 #define DAC_RST_CTRL_RST_KEY ((uint32_t)0x000000ABU)
 #define DAC_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x000000ABU)
+/** @} end of DAC_KEY*/ 
 
+
+/** @defgroup DAC_INTERRUPTS 
+ *  @{
+ */
 #define DAC_INTR_EVENT_DAC_RDY_IDX (0)
 #define DAC_INTR_EVENT_FIFO_FULL_IDX (1)
 #define DAC_INTR_EVENT_FIFO_ALMOST_FULL_IDX (2)
@@ -336,6 +478,11 @@ typedef struct DAC_REGS_s{
 #define DAC_INTR_EVENT_FIFO_OVERFLOW_IDX (5)
 #define DAC_INTR_EVENT_FIFO_UNDERFLOW_IDX (6)
 #define DAC_INTR_EVENT_DMA_DONE_IDX (7)
+/** @} end of DAC_INTERRUPTS */ 
+
+/** @defgroup DAC_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	DAC_CTRL0_RES_8BIT = 0,
@@ -361,7 +508,12 @@ typedef enum {
 	DAC_CTRL2_FIFO_TRIG_SEL_HW_TRIGGER = 0,
 	DAC_CTRL2_FIFO_TRIG_SEL_FIFO_EMPTY = 1,
 } DAC_CTRL2_FIFO_TRIG_SEL_E;
+/** @} end of DAC_ENUM */ 
 
+
+/** @defgroup DAC_REGISTER_FLAGS 
+ *  @{
+ */
 #define DAC_DESC_MODULE_TYPE_OFS (0)
 #define DAC_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define DAC_DESC_MODUE_SUBTYPE_OFS (8)
@@ -512,5 +664,9 @@ typedef enum {
 #define DAC_SPARE_STS_STS0_MASK ((uint32_t)0x000000FFU)
 #define DAC_SPARE_STS_STS1_OFS (8)
 #define DAC_SPARE_STS_STS1_MASK ((uint32_t)0x0000FF00U)
+/** @} end of DAC_REGISTER_FLAGS */ 
+
+/** @} end of DAC */
+
 
 #endif

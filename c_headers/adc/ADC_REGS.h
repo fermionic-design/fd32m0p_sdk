@@ -3,94 +3,145 @@
 
 #include <stdint.h>
 
-typedef struct ADC_DESC_REG_s {
+/** @defgroup ADC
+ *  @{
+ */
+/** @defgroup ADC_REGISTERS 
+ *  @{
+ */
+/** @defgroup ADC_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int module_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } ADC_DESC_REG_s;
 
-typedef union ADC_DESC_u {
+typedef union {
+    /** @ref ADC_DESC_REG_s */
     ADC_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DESC_u;
 
-typedef struct ADC_PWR_EN_REG_s {
+/** @} end of ADC_DESC_REG */ 
+
+/** @defgroup ADC_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } ADC_PWR_EN_REG_s;
 
-typedef union ADC_PWR_EN_u {
+typedef union {
+    /** @ref ADC_PWR_EN_REG_s */
     ADC_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_PWR_EN_u;
 
-typedef struct ADC_RST_CTRL_REG_s {
+/** @} end of ADC_PWR_EN_REG */ 
+
+/** @defgroup ADC_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } ADC_RST_CTRL_REG_s;
 
-typedef union ADC_RST_CTRL_u {
+typedef union {
+    /** @ref ADC_RST_CTRL_REG_s */
     ADC_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_RST_CTRL_u;
 
-typedef struct ADC_RST_STS_REG_s {
+/** @} end of ADC_RST_CTRL_REG */ 
+
+/** @defgroup ADC_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } ADC_RST_STS_REG_s;
 
-typedef union ADC_RST_STS_u {
+typedef union {
+    /** @ref ADC_RST_STS_REG_s */
     ADC_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_RST_STS_u;
 
-typedef struct ADC_DBG_CTRL_REG_s {
+/** @} end of ADC_RST_STS_REG */ 
+
+/** @defgroup ADC_DBG_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int stop_on_halt:1; // 
     unsigned int soft_stop:1; // 
 } ADC_DBG_CTRL_REG_s;
 
-typedef union ADC_DBG_CTRL_u {
+typedef union {
+    /** @ref ADC_DBG_CTRL_REG_s */
     ADC_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DBG_CTRL_u;
 
-typedef struct ADC_CLK_CTRL_REG_s {
+/** @} end of ADC_DBG_CTRL_REG */ 
+
+/** @defgroup ADC_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_en:1; // 
     unsigned int clk_div:3; // 
 } ADC_CLK_CTRL_REG_s;
 
-typedef union ADC_CLK_CTRL_u {
+typedef union {
+    /** @ref ADC_CLK_CTRL_REG_s */
     ADC_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CLK_CTRL_u;
 
-typedef struct ADC_CLK_SEL_REG_s {
+/** @} end of ADC_CLK_CTRL_REG */ 
+
+/** @defgroup ADC_CLK_SEL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_sel:2; // 
 } ADC_CLK_SEL_REG_s;
 
-typedef union ADC_CLK_SEL_u {
+typedef union {
+    /** @ref ADC_CLK_SEL_REG_s */
     ADC_CLK_SEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CLK_SEL_u;
 
-typedef struct ADC_INTR_EVENT_REG_s {
+/** @} end of ADC_CLK_SEL_REG */ 
+
+/** @defgroup ADC_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_flag:1; // 
     unsigned int ov_flag:1; // 
     unsigned int seq_ov_flow:1; // 
@@ -117,14 +168,20 @@ typedef struct ADC_INTR_EVENT_REG_s {
     unsigned int result15_flag:1; // 
 } ADC_INTR_EVENT_REG_s;
 
-typedef union ADC_INTR_EVENT_u {
+typedef union {
+    /** @ref ADC_INTR_EVENT_REG_s */
     ADC_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_EVENT_u;
 
-typedef struct ADC_INTR_EN_0_REG_s {
+/** @} end of ADC_INTR_EVENT_REG */ 
+
+/** @defgroup ADC_INTR_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_flag_en:1; // 
     unsigned int ov_flag_en:1; // 
     unsigned int seq_ov_flow_en:1; // 
@@ -143,14 +200,20 @@ typedef struct ADC_INTR_EN_0_REG_s {
     unsigned int result7_flag_en:1; // 
 } ADC_INTR_EN_0_REG_s;
 
-typedef union ADC_INTR_EN_0_u {
+typedef union {
+    /** @ref ADC_INTR_EN_0_REG_s */
     ADC_INTR_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_EN_0_u;
 
-typedef struct ADC_INTR_EN_1_REG_s {
+/** @} end of ADC_INTR_EN_0_REG */ 
+
+/** @defgroup ADC_INTR_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result8_flag_en:1; // 
     unsigned int result9_flag_en:1; // 
     unsigned int result10_flag_en:1; // 
@@ -161,14 +224,20 @@ typedef struct ADC_INTR_EN_1_REG_s {
     unsigned int result15_flag_en:1; // 
 } ADC_INTR_EN_1_REG_s;
 
-typedef union ADC_INTR_EN_1_u {
+typedef union {
+    /** @ref ADC_INTR_EN_1_REG_s */
     ADC_INTR_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_EN_1_u;
 
-typedef struct ADC_DMA_EN_0_REG_s {
+/** @} end of ADC_INTR_EN_1_REG */ 
+
+/** @defgroup ADC_DMA_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_en:1; // 
     unsigned int ov_dma_en:1; // 
     unsigned int seq_ov_dma_en:1; // 
@@ -187,14 +256,20 @@ typedef struct ADC_DMA_EN_0_REG_s {
     unsigned int result7_dma_en:1; // 
 } ADC_DMA_EN_0_REG_s;
 
-typedef union ADC_DMA_EN_0_u {
+typedef union {
+    /** @ref ADC_DMA_EN_0_REG_s */
     ADC_DMA_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DMA_EN_0_u;
 
-typedef struct ADC_DMA_EN_1_REG_s {
+/** @} end of ADC_DMA_EN_0_REG */ 
+
+/** @defgroup ADC_DMA_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result8_dma_en:1; // 
     unsigned int result9_dma_en:1; // 
     unsigned int result10_dma_en:1; // 
@@ -205,14 +280,20 @@ typedef struct ADC_DMA_EN_1_REG_s {
     unsigned int result15_dma_en:1; // 
 } ADC_DMA_EN_1_REG_s;
 
-typedef union ADC_DMA_EN_1_u {
+typedef union {
+    /** @ref ADC_DMA_EN_1_REG_s */
     ADC_DMA_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DMA_EN_1_u;
 
-typedef struct ADC_EVENT_EN_0_REG_s {
+/** @} end of ADC_DMA_EN_1_REG */ 
+
+/** @defgroup ADC_EVENT_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_event_en:1; // 
     unsigned int ov_flag_event_en:1; // 
     unsigned int seq_ov_flow_event_en:1; // 
@@ -231,14 +312,20 @@ typedef struct ADC_EVENT_EN_0_REG_s {
     unsigned int result7_event_en:1; // 
 } ADC_EVENT_EN_0_REG_s;
 
-typedef union ADC_EVENT_EN_0_u {
+typedef union {
+    /** @ref ADC_EVENT_EN_0_REG_s */
     ADC_EVENT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_EVENT_EN_0_u;
 
-typedef struct ADC_EVENT_EN_1_REG_s {
+/** @} end of ADC_EVENT_EN_0_REG */ 
+
+/** @defgroup ADC_EVENT_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result8_event_en:1; // 
     unsigned int result9_event_en:1; // 
     unsigned int result10_event_en:1; // 
@@ -249,14 +336,20 @@ typedef struct ADC_EVENT_EN_1_REG_s {
     unsigned int result15_event_en:1; // 
 } ADC_EVENT_EN_1_REG_s;
 
-typedef union ADC_EVENT_EN_1_u {
+typedef union {
+    /** @ref ADC_EVENT_EN_1_REG_s */
     ADC_EVENT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_EVENT_EN_1_u;
 
-typedef struct ADC_INTR_NMI_EN_0_REG_s {
+/** @} end of ADC_EVENT_EN_1_REG */ 
+
+/** @defgroup ADC_INTR_NMI_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_flag_nmi_en:1; // 
     unsigned int ov_flag_nmi_en:1; // 
     unsigned int seq_ov_flow_nmi_en:1; // 
@@ -275,14 +368,20 @@ typedef struct ADC_INTR_NMI_EN_0_REG_s {
     unsigned int result7_flag_nmi_en:1; // 
 } ADC_INTR_NMI_EN_0_REG_s;
 
-typedef union ADC_INTR_NMI_EN_0_u {
+typedef union {
+    /** @ref ADC_INTR_NMI_EN_0_REG_s */
     ADC_INTR_NMI_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_NMI_EN_0_u;
 
-typedef struct ADC_INTR_NMI_EN_1_REG_s {
+/** @} end of ADC_INTR_NMI_EN_0_REG */ 
+
+/** @defgroup ADC_INTR_NMI_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result8_flag_nmi_en:1; // 
     unsigned int result9_flag_nmi_en:1; // 
     unsigned int result10_flag_nmi_en:1; // 
@@ -293,25 +392,37 @@ typedef struct ADC_INTR_NMI_EN_1_REG_s {
     unsigned int result15_flag_nmi_en:1; // 
 } ADC_INTR_NMI_EN_1_REG_s;
 
-typedef union ADC_INTR_NMI_EN_1_u {
+typedef union {
+    /** @ref ADC_INTR_NMI_EN_1_REG_s */
     ADC_INTR_NMI_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_NMI_EN_1_u;
 
-typedef struct ADC_INTR_STS_REG_s {
+/** @} end of ADC_INTR_NMI_EN_1_REG */ 
+
+/** @defgroup ADC_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:8; // 
 } ADC_INTR_STS_REG_s;
 
-typedef union ADC_INTR_STS_u {
+typedef union {
+    /** @ref ADC_INTR_STS_REG_s */
     ADC_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_STS_u;
 
-typedef struct ADC_INTR_SW_REG_s {
+/** @} end of ADC_INTR_STS_REG */ 
+
+/** @defgroup ADC_INTR_SW_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_flag_sw_set:1; // 
     unsigned int ov_flag_sw_set:1; // 
     unsigned int seq_ov_flow_sw_set:1; // 
@@ -338,14 +449,20 @@ typedef struct ADC_INTR_SW_REG_s {
     unsigned int result15_flag_sw_set:1; // 
 } ADC_INTR_SW_REG_s;
 
-typedef union ADC_INTR_SW_u {
+typedef union {
+    /** @ref ADC_INTR_SW_REG_s */
     ADC_INTR_SW_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_SW_u;
 
-typedef struct ADC_CONV_CFG_REG_s {
+/** @} end of ADC_INTR_SW_REG */ 
+
+/** @defgroup ADC_CONV_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int conv_mode:2; // 
     unsigned int start_addr:4; // 
     unsigned int end_addr:4; // 
@@ -354,14 +471,20 @@ typedef struct ADC_CONV_CFG_REG_s {
     unsigned int en_conv:1; // 
 } ADC_CONV_CFG_REG_s;
 
-typedef union ADC_CONV_CFG_u {
+typedef union {
+    /** @ref ADC_CONV_CFG_REG_s */
     ADC_CONV_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CONV_CFG_u;
 
-typedef struct ADC_CHNL_CFG_REG_s {
+/** @} end of ADC_CONV_CFG_REG */ 
+
+/** @defgroup ADC_CHNL_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int channel_sel:4; // 
     unsigned int vref_sel:2; // 
     unsigned int hw_avg_en:1; // 
@@ -369,256 +492,387 @@ typedef struct ADC_CHNL_CFG_REG_s {
     unsigned int bcs_en:1; // 
 } ADC_CHNL_CFG_REG_s;
 
-typedef union ADC_CHNL_CFG_u {
+typedef union {
+    /** @ref ADC_CHNL_CFG_REG_s */
     ADC_CHNL_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CHNL_CFG_u;
 
-typedef struct ADC_RESULT_CFG_REG_s {
+/** @} end of ADC_CHNL_CFG_REG */ 
+
+/** @defgroup ADC_RESULT_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int fifo_en:1; // 
 } ADC_RESULT_CFG_REG_s;
 
-typedef union ADC_RESULT_CFG_u {
+typedef union {
+    /** @ref ADC_RESULT_CFG_REG_s */
     ADC_RESULT_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_RESULT_CFG_u;
 
-typedef struct ADC_HW_AVG_CFG_REG_s {
+/** @} end of ADC_RESULT_CFG_REG */ 
+
+/** @defgroup ADC_HW_AVG_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int hw_sample_cnt:4; // 
     unsigned int hw_avg_sample_div:4; // 
 } ADC_HW_AVG_CFG_REG_s;
 
-typedef union ADC_HW_AVG_CFG_u {
+typedef union {
+    /** @ref ADC_HW_AVG_CFG_REG_s */
     ADC_HW_AVG_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_HW_AVG_CFG_u;
 
-typedef struct ADC_RESULT_REG_s {
+/** @} end of ADC_HW_AVG_CFG_REG */ 
+
+/** @defgroup ADC_RESULT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result:16; // 
 } ADC_RESULT_REG_s;
 
-typedef union ADC_RESULT_u {
+typedef union {
+    /** @ref ADC_RESULT_REG_s */
     ADC_RESULT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_RESULT_u;
 
-typedef struct ADC_TIMER_START_REG_s {
+/** @} end of ADC_RESULT_REG */ 
+
+/** @defgroup ADC_TIMER_START_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int timer_cnt_start:4; // 
 } ADC_TIMER_START_REG_s;
 
-typedef union ADC_TIMER_START_u {
+typedef union {
+    /** @ref ADC_TIMER_START_REG_s */
     ADC_TIMER_START_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_TIMER_START_u;
 
-typedef struct ADC_TIMER_SAMPLE_REG_s {
+/** @} end of ADC_TIMER_START_REG */ 
+
+/** @defgroup ADC_TIMER_SAMPLE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int timer_cnt_sample:5; // 
 } ADC_TIMER_SAMPLE_REG_s;
 
-typedef union ADC_TIMER_SAMPLE_u {
+typedef union {
+    /** @ref ADC_TIMER_SAMPLE_REG_s */
     ADC_TIMER_SAMPLE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_TIMER_SAMPLE_u;
 
-typedef struct ADC_TIMER_CONVERSION_REG_s {
+/** @} end of ADC_TIMER_SAMPLE_REG */ 
+
+/** @defgroup ADC_TIMER_CONVERSION_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int timer_cnt_conversion:8; // 
 } ADC_TIMER_CONVERSION_REG_s;
 
-typedef union ADC_TIMER_CONVERSION_u {
+typedef union {
+    /** @ref ADC_TIMER_CONVERSION_REG_s */
     ADC_TIMER_CONVERSION_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_TIMER_CONVERSION_u;
 
-typedef struct ADC_WINDOW_COMP_REG_s {
+/** @} end of ADC_TIMER_CONVERSION_REG */ 
+
+/** @defgroup ADC_WINDOW_COMP_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int window_comp_th_low:16; // 
     unsigned int window_comp_th_high:16; // 
 } ADC_WINDOW_COMP_REG_s;
 
-typedef union ADC_WINDOW_COMP_u {
+typedef union {
+    /** @ref ADC_WINDOW_COMP_REG_s */
     ADC_WINDOW_COMP_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_WINDOW_COMP_u;
 
-typedef struct ADC_STATUS_REG_s {
+/** @} end of ADC_WINDOW_COMP_REG */ 
+
+/** @defgroup ADC_STATUS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int adc_busy:1; // 
 } ADC_STATUS_REG_s;
 
-typedef union ADC_STATUS_u {
+typedef union {
+    /** @ref ADC_STATUS_REG_s */
     ADC_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_STATUS_u;
 
-typedef struct ADC_DMA_REG_REG_s {
+/** @} end of ADC_STATUS_REG */ 
+
+/** @defgroup ADC_DMA_REG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_en:1; // 
 } ADC_DMA_REG_REG_s;
 
-typedef union ADC_DMA_REG_u {
+typedef union {
+    /** @ref ADC_DMA_REG_REG_s */
     ADC_DMA_REG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DMA_REG_u;
 
-typedef struct ADC_POWER_DN_REG_s {
+/** @} end of ADC_DMA_REG_REG */ 
+
+/** @defgroup ADC_POWER_DN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_dn:1; // 
 } ADC_POWER_DN_REG_s;
 
-typedef union ADC_POWER_DN_u {
+typedef union {
+    /** @ref ADC_POWER_DN_REG_s */
     ADC_POWER_DN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_POWER_DN_u;
 
-typedef struct ADC_SUBS_PORT_REG_s {
+/** @} end of ADC_POWER_DN_REG */ 
+
+/** @defgroup ADC_SUBS_PORT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int subs_port:4; // 
 } ADC_SUBS_PORT_REG_s;
 
-typedef union ADC_SUBS_PORT_u {
+typedef union {
+    /** @ref ADC_SUBS_PORT_REG_s */
     ADC_SUBS_PORT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SUBS_PORT_u;
 
-typedef struct ADC_PUBS_PORT_REG_s {
+/** @} end of ADC_SUBS_PORT_REG */ 
+
+/** @defgroup ADC_PUBS_PORT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pubs_port:4; // 
 } ADC_PUBS_PORT_REG_s;
 
-typedef union ADC_PUBS_PORT_u {
+typedef union {
+    /** @ref ADC_PUBS_PORT_REG_s */
     ADC_PUBS_PORT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_PUBS_PORT_u;
 
-typedef struct ADC_CALIBRATION_REQ_REG_s {
+/** @} end of ADC_PUBS_PORT_REG */ 
+
+/** @defgroup ADC_CALIBRATION_REQ_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cal_req:1; // 
     unsigned int cal_done:1; // 
     unsigned int cal_ctrl:18; // 
 } ADC_CALIBRATION_REQ_REG_s;
 
-typedef union ADC_CALIBRATION_REQ_u {
+typedef union {
+    /** @ref ADC_CALIBRATION_REQ_REG_s */
     ADC_CALIBRATION_REQ_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CALIBRATION_REQ_u;
 
-typedef struct ADC_BLOCK_ASYNC_REQ_REG_s {
+/** @} end of ADC_CALIBRATION_REQ_REG */ 
+
+/** @defgroup ADC_BLOCK_ASYNC_REQ_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int block_async_req:1; // 
 } ADC_BLOCK_ASYNC_REQ_REG_s;
 
-typedef union ADC_BLOCK_ASYNC_REQ_u {
+typedef union {
+    /** @ref ADC_BLOCK_ASYNC_REQ_REG_s */
     ADC_BLOCK_ASYNC_REQ_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_BLOCK_ASYNC_REQ_u;
 
-typedef struct ADC_SW_TRIGGER_REG_s {
+/** @} end of ADC_BLOCK_ASYNC_REQ_REG */ 
+
+/** @defgroup ADC_SW_TRIGGER_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int sw_trigger:1; // 
     unsigned int sw_trigger_en:1; // 
 } ADC_SW_TRIGGER_REG_s;
 
-typedef union ADC_SW_TRIGGER_u {
+typedef union {
+    /** @ref ADC_SW_TRIGGER_REG_s */
     ADC_SW_TRIGGER_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SW_TRIGGER_u;
 
-typedef struct ADC_SPARE_CTRL_REG_s {
+/** @} end of ADC_SW_TRIGGER_REG */ 
+
+/** @defgroup ADC_SPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int adc_cfg0:8; // 
     unsigned int adc_cfg1:8; // 
     unsigned int adc_cfg2:8; // 
     unsigned int adc_cfg3:8; // 
 } ADC_SPARE_CTRL_REG_s;
 
-typedef union ADC_SPARE_CTRL_u {
+typedef union {
+    /** @ref ADC_SPARE_CTRL_REG_s */
     ADC_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SPARE_CTRL_u;
 
-typedef struct ADC_SPARE_STS_REG_s {
+/** @} end of ADC_SPARE_CTRL_REG */ 
+
+/** @defgroup ADC_SPARE_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int adc_sts0:8; // 
     unsigned int adc_sts1:8; // 
     unsigned int adc_sts2:8; // 
     unsigned int adc_sts3:8; // 
 } ADC_SPARE_STS_REG_s;
 
-typedef union ADC_SPARE_STS_u {
+typedef union {
+    /** @ref ADC_SPARE_STS_REG_s */
     ADC_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SPARE_STS_u;
 
-typedef struct ADC_EOC_ANA_REG_s {
+/** @} end of ADC_SPARE_STS_REG */ 
+
+/** @defgroup ADC_EOC_ANA_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int eoc_ana:1; // 
 } ADC_EOC_ANA_REG_s;
 
-typedef union ADC_EOC_ANA_u {
+typedef union {
+    /** @ref ADC_EOC_ANA_REG_s */
     ADC_EOC_ANA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_EOC_ANA_u;
 
-typedef struct ADC_TEMP_SENSOR_EN_REG_s {
+/** @} end of ADC_EOC_ANA_REG */ 
+
+/** @defgroup ADC_TEMP_SENSOR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int temp_sensor_en:1; // 
 } ADC_TEMP_SENSOR_EN_REG_s;
 
-typedef union ADC_TEMP_SENSOR_EN_u {
+typedef union {
+    /** @ref ADC_TEMP_SENSOR_EN_REG_s */
     ADC_TEMP_SENSOR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_TEMP_SENSOR_EN_u;
 
-typedef struct ADC_SM_STATE_REG_s {
+/** @} end of ADC_TEMP_SENSOR_EN_REG */ 
+
+/** @defgroup ADC_SM_STATE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int curr_state:4; // 
 } ADC_SM_STATE_REG_s;
 
-typedef union ADC_SM_STATE_u {
+typedef union {
+    /** @ref ADC_SM_STATE_REG_s */
     ADC_SM_STATE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SM_STATE_u;
 
-typedef struct ADC_DMA_TRANSFER_CNT_REG_s {
+/** @} end of ADC_SM_STATE_REG */ 
+
+/** @defgroup ADC_DMA_TRANSFER_CNT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_transfer_cnt:4; // 
 } ADC_DMA_TRANSFER_CNT_REG_s;
 
-typedef union ADC_DMA_TRANSFER_CNT_u {
+typedef union {
+    /** @ref ADC_DMA_TRANSFER_CNT_REG_s */
     ADC_DMA_TRANSFER_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DMA_TRANSFER_CNT_u;
 
-typedef struct ADC_REGS_s{
+/** @} end of ADC_DMA_TRANSFER_CNT_REG */ 
+
+/** @} end of ADC_REGISTERS */ 
+
+typedef struct {
     volatile  ADC_DESC_u DESC;
     volatile  ADC_PWR_EN_u PWR_EN;
     volatile  ADC_RST_CTRL_u RST_CTRL;
@@ -662,10 +916,18 @@ typedef struct ADC_REGS_s{
     volatile  ADC_DMA_TRANSFER_CNT_u DMA_TRANSFER_CNT;
 } ADC_REGS_s;
 
+/** @defgroup ADC_KEY 
+ *  @{
+ */
 #define ADC_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
 #define ADC_RST_CTRL_RST_KEY ((uint32_t)0x000000ABU)
 #define ADC_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x000000ABU)
+/** @} end of ADC_KEY*/ 
 
+
+/** @defgroup ADC_INTERRUPTS 
+ *  @{
+ */
 #define ADC_INTR_EVENT_TRIG_TO_DMA_FLAG_IDX (0)
 #define ADC_INTR_EVENT_OV_FLAG_IDX (1)
 #define ADC_INTR_EVENT_SEQ_OV_FLOW_IDX (2)
@@ -690,6 +952,11 @@ typedef struct ADC_REGS_s{
 #define ADC_INTR_EVENT_RESULT13_FLAG_IDX (21)
 #define ADC_INTR_EVENT_RESULT14_FLAG_IDX (22)
 #define ADC_INTR_EVENT_RESULT15_FLAG_IDX (23)
+/** @} end of ADC_INTERRUPTS */ 
+
+/** @defgroup ADC_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	ADC_CLK_CTRL_CLK_DIV_BY_1 = 0,
@@ -737,7 +1004,8 @@ typedef enum {
 	ADC_CHNL_CFG_CHANNEL_SEL_CH7_PA18 = 7,
 	ADC_CHNL_CFG_CHANNEL_SEL_CH8_PA16 = 8,
 	ADC_CHNL_CFG_CHANNEL_SEL_CH9_PA15 = 9,
-	ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR = 12,
+	ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR = 11,
+	ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON = 15,
 } ADC_CHNL_CFG_CHANNEL_SEL_E;
 
 typedef enum {
@@ -766,7 +1034,12 @@ typedef enum {
 	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_64 = 6,
 	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_128 = 7,
 } ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_E;
+/** @} end of ADC_ENUM */ 
 
+
+/** @defgroup ADC_REGISTER_FLAGS 
+ *  @{
+ */
 #define ADC_DESC_MODULE_TYPE_OFS (0)
 #define ADC_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define ADC_DESC_MODULE_SUBTYPE_OFS (8)
@@ -1173,5 +1446,9 @@ typedef enum {
 #define ADC_SM_STATE_CURR_STATE_MASK ((uint32_t)0x0000000FU)
 #define ADC_DMA_TRANSFER_CNT_DMA_TRANSFER_CNT_OFS (0)
 #define ADC_DMA_TRANSFER_CNT_DMA_TRANSFER_CNT_MASK ((uint32_t)0x0000000FU)
+/** @} end of ADC_REGISTER_FLAGS */ 
+
+/** @} end of ADC */
+
 
 #endif

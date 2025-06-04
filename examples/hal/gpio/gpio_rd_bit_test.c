@@ -20,8 +20,6 @@
 
 
 int main(void) {
-    uint32_t failed = 0;
-    uint32_t din;
     uint32_t i;
 
     UartStdOutInit();
@@ -61,7 +59,6 @@ int main(void) {
     UartPuts("PA24 is set.\n");
 
     UartPuts("Read Test ends.\n");
-    for (int i = 0; i< 1000 ; i++ );
     UartEndSimulation();
     return 0;
 }

@@ -15,11 +15,10 @@
 
 #include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
-
 #include "gpio.h"
+#include "event_fabric.h"
 #include "../../hal/dma/dma.h"
 
-#include "EVENT_FABRIC_CAPI.h"
 
 typedef struct sram_memory {
     uint32_t mem[1024];
@@ -37,7 +36,6 @@ int main(void) {
     uint32_t gpio_mask=0;
     uint32_t gpio_dout=0;
     uint32_t gpio_data_out=0;
-    uint32_t gpio_data=0;
     uint32_t i;
 
     IOMUX_PA_REG_s iomux_cfg_struct;
@@ -89,11 +87,6 @@ int main(void) {
         sram_mem_s->mem[i] = rand();
     }
 
-    sram_memory_t   *ptr_s, *ptr_d;
-
-    ptr_s = sram_mem_s;
-    ptr_d = sram_mem_d;
-
     UartPuts("Configuring Primary Channel\n");
     
     //Initializing DMA
@@ -105,7 +98,7 @@ int main(void) {
 
     primary_ch->src_addr = 0x200000F0;            
     primary_ch->dst_addr = 0x40060058;            
-    primary_ch->total_transaction = 1;   
+    primary_ch->total_transaction = N;   
     primary_ch->src_size = 2;  
     primary_ch->src_incr = 2;            
     primary_ch->dst_size = 2;            
@@ -114,8 +107,6 @@ int main(void) {
 
     dma_channel_cfg(DMA_MCU_REGS, DMA_PL230_REGS, primary_ch, DMA_CHANNEL_0);
     dma_channel_en_set(DMA_PL230_REGS, DMA_CHANNEL_0);
-
-
     do 
     { /* Wait until PL230 DMA controller return to idle state */
         current_state = (DMA_PL230_REGS->DMA_STATUS.packed_w >> 4)  & 0xF;
@@ -141,7 +132,6 @@ int main(void) {
         UartPuts("** TEST FAILED**\n");
         UartFail();
     }
-
     DMA_PL230_REGS->CHNL_ENABLE_CLR.packed_w = (1<<0);   /* disable channel 0 */
 
     UartPuts("End of Simulation\n");

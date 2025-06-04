@@ -13,26 +13,21 @@
 
 #include "FD32M0P.h"
 #include "uart_stdout_mcu.h"
-
 #include "vref.h"
 #include "gpio.h" 
 #include "adc.h"
 
 int main(void){
    
-    uint32_t    temp_sense_en;
     uint32_t    start_addr;
     uint32_t    adc_out;
     uint32_t    sw_trig;
 
-    adc_timer_cfg_s             timer_cfg;
     adc_clk_cfg_s               clk_cfg;
     adc_single_ch_conv_cfg_s    single_ch_cfg;
     adc_chnl_cfg_s              chnl_cfg; 
     IOMUX_PA_REG_s              iomux_cfg_struct;    
-    vref_cfg_s                  vref_cfg_struct;
 
-    temp_sense_en       = 1;
     start_addr          = DATA_CHNL_0;
 
     UartStdOutInit();
@@ -53,7 +48,7 @@ int main(void){
     single_ch_cfg.fifo_en           = 0;
 
     chnl_cfg.data_channel   = start_addr;
-    chnl_cfg.channel_sel    = ADC_CHNL_11;
+    chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR;
     chnl_cfg.vref_sel       = 1;
     chnl_cfg.hw_avg_en      = 0;
     chnl_cfg.bcs_en         = 0;
@@ -66,7 +61,6 @@ int main(void){
 
     iomux_cfg_struct.output_en = 0;
     iomux_cfg_struct.input_en  = 0;
-
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct,  23);
      
     adc_samp_timer_cfg(ADC0_REGS,/*IN CLK FREQ*/ 32000000, /*Desired Sampling Rate*/ 85106);
@@ -83,4 +77,3 @@ int main(void){
     UartEndSimulation();
     return 0;   
 }
-

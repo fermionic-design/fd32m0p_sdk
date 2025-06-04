@@ -21,7 +21,6 @@
 
 int main(void) {
 
-    uint32_t iomux_val;
     uint32_t iomux_val_rd;
     uint32_t failed = 0;
     uint32_t i;
@@ -92,7 +91,6 @@ int main(void) {
         UartFail();
     }
 
-    for (int i = 0; i< 10000 ; i++ );
     UartEndSimulation();
     return 0;
 }

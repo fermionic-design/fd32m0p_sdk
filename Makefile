@@ -10,6 +10,15 @@ PRJ_DIR = ./
 
 SOFTWARE_DIR= $(PRJ_DIR)/
 
+TOOLS_DIR = ./tools
+
+FLASHTOOL = $(TOOLS_DIR)/bootstrap_loader/flash_prog.py
+
+PYTHON_PATH ?= C:/Users/deepe/Documents/GitHub/fd32m0p/venv/Scripts/python
+
+COM_PORT ?= COM10
+BAUD_RATE ?= 9600
+
 PRJ_CHEADER_DIR = $(SOFTWARE_DIR)/c_headers/
 PRJ_HAL_DIR = $(SOFTWARE_DIR)/hal/
 
@@ -75,6 +84,7 @@ HAL_SRC_FILES = $(PRJ_HAL_DIR)/gpio/gpio.c \
 				$(PRJ_HAL_DIR)/uart/uart.c \
 				$(PRJ_HAL_DIR)/timer/timer.c \
 				$(PRJ_HAL_DIR)/flash/flash.c \
+				$(PRJ_HAL_DIR)/spi/spi.c \
 				$(PRJ_HAL_DIR)/crc/crc.c \
 				$(PRJ_HAL_DIR)/i2c/i2c.c
 
@@ -89,6 +99,7 @@ HAL_INCDIR =-I $(PRJ_HAL_DIR)/common/ \
 			-I $(PRJ_HAL_DIR)/timer/ \
 			-I $(PRJ_HAL_DIR)/crc/ \
 			-I $(PRJ_HAL_DIR)/flash/ \
+			-I $(PRJ_HAL_DIR)/spi/ \
 			-I $(PRJ_HAL_DIR)/i2c/
 
 test:
@@ -124,3 +135,6 @@ endif
 	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o -O binary ${C_COMPILE_DIR}/$(TESTNAME).bin
 	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o --pad-to 32768 -O binary ${C_COMPILE_DIR}/$(TESTNAME)_32KB.bin
 	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o -O verilog ${C_COMPILE_DIR}/$(TESTNAME).hex
+
+flash: test
+	$(PYTHON_PATH) $(FLASHTOOL) -b $(C_COMPILE_DIR)/$(TESTNAME)_32KB.bin -p 1 -c $(COM_PORT) -r $(BAUD_RATE) 

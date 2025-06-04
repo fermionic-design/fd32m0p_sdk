@@ -3,32 +3,53 @@
 
 #include <stdint.h>
 
-typedef struct FLASH_DESC_REG_s {
+/** @defgroup FLASH
+ *  @{
+ */
+/** @defgroup FLASH_REGISTERS 
+ *  @{
+ */
+/** @defgroup FLASH_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int modue_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } FLASH_DESC_REG_s;
 
-typedef union FLASH_DESC_u {
+typedef union {
+    /** @ref FLASH_DESC_REG_s */
     FLASH_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_DESC_u;
 
-typedef struct FLASH_CLK_CTRL_REG_s {
+/** @} end of FLASH_DESC_REG */ 
+
+/** @defgroup FLASH_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_en:1; // 
 } FLASH_CLK_CTRL_REG_s;
 
-typedef union FLASH_CLK_CTRL_u {
+typedef union {
+    /** @ref FLASH_CLK_CTRL_REG_s */
     FLASH_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_CLK_CTRL_u;
 
-typedef struct FLASH_CTRL_REG_s {
+/** @} end of FLASH_CLK_CTRL_REG */ 
+
+/** @defgroup FLASH_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clen:1; // 
     unsigned int srl:1; // 
     unsigned int isavb:1; // 
@@ -36,25 +57,37 @@ typedef struct FLASH_CTRL_REG_s {
     unsigned int cpecc:1; // 
 } FLASH_CTRL_REG_s;
 
-typedef union FLASH_CTRL_u {
+typedef union {
+    /** @ref FLASH_CTRL_REG_s */
     FLASH_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_CTRL_u;
 
-typedef struct FLASH_STATUS_REG_s {
+/** @} end of FLASH_CTRL_REG */ 
+
+/** @defgroup FLASH_STATUS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int eced:1; // 
 } FLASH_STATUS_REG_s;
 
-typedef union FLASH_STATUS_u {
+typedef union {
+    /** @ref FLASH_STATUS_REG_s */
     FLASH_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_STATUS_u;
 
-typedef struct FLASH_TIME_CTRL_REG_s {
+/** @} end of FLASH_STATUS_REG */ 
+
+/** @defgroup FLASH_TIME_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int tcsctrls:4; // 
     unsigned int tras:6; // 
     unsigned int eeprom_tras:8; // 
@@ -62,14 +95,20 @@ typedef struct FLASH_TIME_CTRL_REG_s {
     unsigned int eeprom_trc:8; // 
 } FLASH_TIME_CTRL_REG_s;
 
-typedef union FLASH_TIME_CTRL_u {
+typedef union {
+    /** @ref FLASH_TIME_CTRL_REG_s */
     FLASH_TIME_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_TIME_CTRL_u;
 
-typedef struct FLASH_TIME_CTRL_1_REG_s {
+/** @} end of FLASH_TIME_CTRL_REG */ 
+
+/** @defgroup FLASH_TIME_CTRL_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int tadhr:1; // 
     unsigned int rtw:8; // 
     unsigned int tads:1; // 
@@ -77,73 +116,108 @@ typedef struct FLASH_TIME_CTRL_1_REG_s {
     unsigned int tpwcsh:4; // 
 } FLASH_TIME_CTRL_1_REG_s;
 
-typedef union FLASH_TIME_CTRL_1_u {
+typedef union {
+    /** @ref FLASH_TIME_CTRL_1_REG_s */
     FLASH_TIME_CTRL_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_TIME_CTRL_1_u;
 
-typedef struct FLASH_TIME_CTRL_2_REG_s {
+/** @} end of FLASH_TIME_CTRL_1_REG */ 
+
+/** @defgroup FLASH_TIME_CTRL_2_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int twrc:4; // 
     unsigned int twes:18; // 
     unsigned int tbr:4; // 
     unsigned int wtw:6; // 
 } FLASH_TIME_CTRL_2_REG_s;
 
-typedef union FLASH_TIME_CTRL_2_u {
+typedef union {
+    /** @ref FLASH_TIME_CTRL_2_REG_s */
     FLASH_TIME_CTRL_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_TIME_CTRL_2_u;
 
-typedef struct FLASH_TIME_UPTD_REG_s {
+/** @} end of FLASH_TIME_CTRL_2_REG */ 
+
+/** @defgroup FLASH_TIME_UPTD_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int flash_config_done:1; // 
 } FLASH_TIME_UPTD_REG_s;
 
-typedef union FLASH_TIME_UPTD_u {
+typedef union {
+    /** @ref FLASH_TIME_UPTD_REG_s */
     FLASH_TIME_UPTD_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_TIME_UPTD_u;
 
-typedef struct FLASH_HSIZE_CTRL_REG_s {
+/** @} end of FLASH_TIME_UPTD_REG */ 
+
+/** @defgroup FLASH_HSIZE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int force_hsize_val:3; // 
     unsigned int force_hsize_en:1; // 
 } FLASH_HSIZE_CTRL_REG_s;
 
-typedef union FLASH_HSIZE_CTRL_u {
+typedef union {
+    /** @ref FLASH_HSIZE_CTRL_REG_s */
     FLASH_HSIZE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_HSIZE_CTRL_u;
 
-typedef struct FLASH_STS_REG_s {
+/** @} end of FLASH_HSIZE_CTRL_REG */ 
+
+/** @defgroup FLASH_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int flash_pstate:5; // 
 } FLASH_STS_REG_s;
 
-typedef union FLASH_STS_u {
+typedef union {
+    /** @ref FLASH_STS_REG_s */
     FLASH_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_STS_u;
 
-typedef struct FLASH_ECED_STATUS_REG_s {
+/** @} end of FLASH_STS_REG */ 
+
+/** @defgroup FLASH_ECED_STATUS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int eced_sts:32; // 
 } FLASH_ECED_STATUS_REG_s;
 
-typedef union FLASH_ECED_STATUS_u {
+typedef union {
+    /** @ref FLASH_ECED_STATUS_REG_s */
     FLASH_ECED_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } FLASH_ECED_STATUS_u;
 
-typedef struct FLASH_REGS_s{
+/** @} end of FLASH_ECED_STATUS_REG */ 
+
+/** @} end of FLASH_REGISTERS */ 
+
+typedef struct {
     volatile  FLASH_DESC_u DESC;
     volatile  FLASH_CLK_CTRL_u CLK_CTRL;
     volatile  FLASH_CTRL_u CTRL;
@@ -157,7 +231,20 @@ typedef struct FLASH_REGS_s{
     volatile  FLASH_ECED_STATUS_u ECED_STATUS;
 } FLASH_REGS_s;
 
+/** @defgroup FLASH_KEY 
+ *  @{
+ */
+/** @} end of FLASH_KEY*/ 
 
+
+/** @defgroup FLASH_INTERRUPTS 
+ *  @{
+ */
+/** @} end of FLASH_INTERRUPTS */ 
+
+/** @defgroup FLASH_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	FLASH_CTRL_CLEN_NORMAL_MODE = 0,
@@ -189,7 +276,12 @@ typedef enum {
 	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_HALF_WORD = 1,
 	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_WORD = 2,
 } FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_E;
+/** @} end of FLASH_ENUM */ 
 
+
+/** @defgroup FLASH_REGISTER_FLAGS 
+ *  @{
+ */
 #define FLASH_DESC_MODULE_TYPE_OFS (0)
 #define FLASH_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define FLASH_DESC_MODUE_SUBTYPE_OFS (8)
@@ -250,5 +342,9 @@ typedef enum {
 #define FLASH_STS_FLASH_PSTATE_MASK ((uint32_t)0x0000001FU)
 #define FLASH_ECED_STATUS_ECED_STS_OFS (0)
 #define FLASH_ECED_STATUS_ECED_STS_MASK ((uint32_t)0xFFFFFFFFU)
+/** @} end of FLASH_REGISTER_FLAGS */ 
+
+/** @} end of FLASH */
+
 
 #endif

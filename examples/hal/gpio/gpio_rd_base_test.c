@@ -19,7 +19,6 @@
 
 
 int main(void) {
-    uint32_t failed = 0;
     uint32_t din = 0;
     uint32_t i;
 
@@ -30,7 +29,6 @@ int main(void) {
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO RD Base Test\n");
-    //gpio_dout_en(GPIO_REGS, 0xFEFFFFEF); 
     UartPuts("All Pins are enabled on GPIO.\n");
    
     iomux_cfg_struct.output_en        = 0;
@@ -62,8 +60,6 @@ int main(void) {
     print_int_var("din :", din, 1);
     
     UartPuts("GPIO Read Test Ends\n");
-
-    for (int i = 0; i< 10000 ; i++);
     UartEndSimulation();
     return 0;
 }

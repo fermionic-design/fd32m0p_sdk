@@ -21,7 +21,6 @@
 
 int main(void) {
     uint32_t intr_val;
-    uint32_t intr_val_regs;
     uint32_t failed = 0;
     uint32_t i;
     uint32_t event_en0_reg, event_en1_reg;
@@ -112,8 +111,6 @@ int main(void) {
         UartPuts("** TEST FAILED**\n");
         UartFail();
     }
-
-    for (int i = 0; i< 10000 ; i++);
     UartEndSimulation();
     return 0;
 }

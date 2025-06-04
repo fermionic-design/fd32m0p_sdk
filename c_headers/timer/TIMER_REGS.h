@@ -3,81 +3,126 @@
 
 #include <stdint.h>
 
-typedef struct TIMER_DESC_REG_s {
+/** @defgroup TIMER
+ *  @{
+ */
+/** @defgroup TIMER_REGISTERS 
+ *  @{
+ */
+/** @defgroup TIMER_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int modue_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } TIMER_DESC_REG_s;
 
-typedef union TIMER_DESC_u {
+typedef union {
+    /** @ref TIMER_DESC_REG_s */
     TIMER_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_DESC_u;
 
-typedef struct TIMER_PWR_EN_REG_s {
+/** @} end of TIMER_DESC_REG */ 
+
+/** @defgroup TIMER_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } TIMER_PWR_EN_REG_s;
 
-typedef union TIMER_PWR_EN_u {
+typedef union {
+    /** @ref TIMER_PWR_EN_REG_s */
     TIMER_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_PWR_EN_u;
 
-typedef struct TIMER_RST_CTRL_REG_s {
+/** @} end of TIMER_PWR_EN_REG */ 
+
+/** @defgroup TIMER_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } TIMER_RST_CTRL_REG_s;
 
-typedef union TIMER_RST_CTRL_u {
+typedef union {
+    /** @ref TIMER_RST_CTRL_REG_s */
     TIMER_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_RST_CTRL_u;
 
-typedef struct TIMER_RST_STS_REG_s {
+/** @} end of TIMER_RST_CTRL_REG */ 
+
+/** @defgroup TIMER_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } TIMER_RST_STS_REG_s;
 
-typedef union TIMER_RST_STS_u {
+typedef union {
+    /** @ref TIMER_RST_STS_REG_s */
     TIMER_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_RST_STS_u;
 
-typedef struct TIMER_CLK_CTRL_REG_s {
+/** @} end of TIMER_RST_STS_REG */ 
+
+/** @defgroup TIMER_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_en:1; // 
 } TIMER_CLK_CTRL_REG_s;
 
-typedef union TIMER_CLK_CTRL_u {
+typedef union {
+    /** @ref TIMER_CLK_CTRL_REG_s */
     TIMER_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CLK_CTRL_u;
 
-typedef struct TIMER_INTR_STS_REG_s {
+/** @} end of TIMER_CLK_CTRL_REG */ 
+
+/** @defgroup TIMER_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:6; // 
 } TIMER_INTR_STS_REG_s;
 
-typedef union TIMER_INTR_STS_u {
+typedef union {
+    /** @ref TIMER_INTR_STS_REG_s */
     TIMER_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INTR_STS_u;
 
-typedef struct TIMER_INTR_EVENT_REG_s {
+/** @} end of TIMER_INTR_STS_REG */ 
+
+/** @defgroup TIMER_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_zero:1; // 
     unsigned int ctr_load:1; // 
     unsigned int ccd_0:1; // 
@@ -99,14 +144,20 @@ typedef struct TIMER_INTR_EVENT_REG_s {
     unsigned int qei_err:1; // 
 } TIMER_INTR_EVENT_REG_s;
 
-typedef union TIMER_INTR_EVENT_u {
+typedef union {
+    /** @ref TIMER_INTR_EVENT_REG_s */
     TIMER_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INTR_EVENT_u;
 
-typedef struct TIMER_INTR_EN_0_REG_s {
+/** @} end of TIMER_INTR_EVENT_REG */ 
+
+/** @defgroup TIMER_INTR_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_zero_en:1; // 
     unsigned int ctr_load_en:1; // 
     unsigned int ccd_0_en:1; // 
@@ -125,27 +176,39 @@ typedef struct TIMER_INTR_EN_0_REG_s {
     unsigned int trig_ov_en:1; // 
 } TIMER_INTR_EN_0_REG_s;
 
-typedef union TIMER_INTR_EN_0_u {
+typedef union {
+    /** @ref TIMER_INTR_EN_0_REG_s */
     TIMER_INTR_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INTR_EN_0_u;
 
-typedef struct TIMER_INTR_EN_1_REG_s {
+/** @} end of TIMER_INTR_EN_0_REG */ 
+
+/** @defgroup TIMER_INTR_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rctr_zero_en:1; // 
     unsigned int qei_ctr_dc_en:1; // 
     unsigned int qei_err_en:1; // 
 } TIMER_INTR_EN_1_REG_s;
 
-typedef union TIMER_INTR_EN_1_u {
+typedef union {
+    /** @ref TIMER_INTR_EN_1_REG_s */
     TIMER_INTR_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INTR_EN_1_u;
 
-typedef struct TIMER_INTR_NMI_EN_0_REG_s {
+/** @} end of TIMER_INTR_EN_1_REG */ 
+
+/** @defgroup TIMER_INTR_NMI_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_zero_nmi_en:1; // 
     unsigned int ctr_load_nmi_en:1; // 
     unsigned int ccd_0_nmi_en:1; // 
@@ -164,27 +227,39 @@ typedef struct TIMER_INTR_NMI_EN_0_REG_s {
     unsigned int trig_ov_nmi_en:1; // 
 } TIMER_INTR_NMI_EN_0_REG_s;
 
-typedef union TIMER_INTR_NMI_EN_0_u {
+typedef union {
+    /** @ref TIMER_INTR_NMI_EN_0_REG_s */
     TIMER_INTR_NMI_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INTR_NMI_EN_0_u;
 
-typedef struct TIMER_INTR_NMI_EN_1_REG_s {
+/** @} end of TIMER_INTR_NMI_EN_0_REG */ 
+
+/** @defgroup TIMER_INTR_NMI_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rctr_zero_nmi_en:1; // 
     unsigned int qei_ctr_dc_nmi_en:1; // 
     unsigned int qei_err_nmi_en:1; // 
 } TIMER_INTR_NMI_EN_1_REG_s;
 
-typedef union TIMER_INTR_NMI_EN_1_u {
+typedef union {
+    /** @ref TIMER_INTR_NMI_EN_1_REG_s */
     TIMER_INTR_NMI_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INTR_NMI_EN_1_u;
 
-typedef struct TIMER_EVENT_EN_0_0_REG_s {
+/** @} end of TIMER_INTR_NMI_EN_1_REG */ 
+
+/** @defgroup TIMER_EVENT_EN_0_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_zero_event_en_0:1; // 
     unsigned int ctr_load_event_en_0:1; // 
     unsigned int ccd_0_event_en_0:1; // 
@@ -203,27 +278,39 @@ typedef struct TIMER_EVENT_EN_0_0_REG_s {
     unsigned int trig_ov_event_en_0:1; // 
 } TIMER_EVENT_EN_0_0_REG_s;
 
-typedef union TIMER_EVENT_EN_0_0_u {
+typedef union {
+    /** @ref TIMER_EVENT_EN_0_0_REG_s */
     TIMER_EVENT_EN_0_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_EVENT_EN_0_0_u;
 
-typedef struct TIMER_EVENT_EN_0_1_REG_s {
+/** @} end of TIMER_EVENT_EN_0_0_REG */ 
+
+/** @defgroup TIMER_EVENT_EN_0_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rctr_zero_event_en_0:1; // 
     unsigned int qei_ctr_dc_event_en_0:1; // 
     unsigned int qei_err_event_en_0:1; // 
 } TIMER_EVENT_EN_0_1_REG_s;
 
-typedef union TIMER_EVENT_EN_0_1_u {
+typedef union {
+    /** @ref TIMER_EVENT_EN_0_1_REG_s */
     TIMER_EVENT_EN_0_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_EVENT_EN_0_1_u;
 
-typedef struct TIMER_EVENT_EN_1_0_REG_s {
+/** @} end of TIMER_EVENT_EN_0_1_REG */ 
+
+/** @defgroup TIMER_EVENT_EN_1_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_zero_event_en_1:1; // 
     unsigned int ctr_load_event_en_1:1; // 
     unsigned int ccd_0_event_en_1:1; // 
@@ -242,27 +329,39 @@ typedef struct TIMER_EVENT_EN_1_0_REG_s {
     unsigned int trig_ov_event_en_1:1; // 
 } TIMER_EVENT_EN_1_0_REG_s;
 
-typedef union TIMER_EVENT_EN_1_0_u {
+typedef union {
+    /** @ref TIMER_EVENT_EN_1_0_REG_s */
     TIMER_EVENT_EN_1_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_EVENT_EN_1_0_u;
 
-typedef struct TIMER_EVENT_EN_1_1_REG_s {
+/** @} end of TIMER_EVENT_EN_1_0_REG */ 
+
+/** @defgroup TIMER_EVENT_EN_1_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rctr_zero_event_en_1:1; // 
     unsigned int qei_ctr_dc_event_en_1:1; // 
     unsigned int qei_err_event_en_1:1; // 
 } TIMER_EVENT_EN_1_1_REG_s;
 
-typedef union TIMER_EVENT_EN_1_1_u {
+typedef union {
+    /** @ref TIMER_EVENT_EN_1_1_REG_s */
     TIMER_EVENT_EN_1_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_EVENT_EN_1_1_u;
 
-typedef struct TIMER_INTR_SW_SET_REG_s {
+/** @} end of TIMER_EVENT_EN_1_1_REG */ 
+
+/** @defgroup TIMER_INTR_SW_SET_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_zero_sw_set:1; // 
     unsigned int ctr_load_sw_set:1; // 
     unsigned int ccd_0_sw_set:1; // 
@@ -284,192 +383,282 @@ typedef struct TIMER_INTR_SW_SET_REG_s {
     unsigned int qei_err_sw_set:1; // 
 } TIMER_INTR_SW_SET_REG_s;
 
-typedef union TIMER_INTR_SW_SET_u {
+typedef union {
+    /** @ref TIMER_INTR_SW_SET_REG_s */
     TIMER_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INTR_SW_SET_u;
 
-typedef struct TIMER_EVENT_CTRL_REG_s {
+/** @} end of TIMER_INTR_SW_SET_REG */ 
+
+/** @defgroup TIMER_EVENT_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int chan_id0:4; // 
     unsigned int chan_id1:4; // 
 } TIMER_EVENT_CTRL_REG_s;
 
-typedef union TIMER_EVENT_CTRL_u {
+typedef union {
+    /** @ref TIMER_EVENT_CTRL_REG_s */
     TIMER_EVENT_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_EVENT_CTRL_u;
 
-typedef struct TIMER_CLK_CONFIG_REG_s {
+/** @} end of TIMER_EVENT_CTRL_REG */ 
+
+/** @defgroup TIMER_CLK_CONFIG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_sel:2; // 
     unsigned int clk_div:11; // 
 } TIMER_CLK_CONFIG_REG_s;
 
-typedef union TIMER_CLK_CONFIG_u {
+typedef union {
+    /** @ref TIMER_CLK_CONFIG_REG_s */
     TIMER_CLK_CONFIG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CLK_CONFIG_u;
 
-typedef struct TIMER_TRIG_IN_REG_s {
+/** @} end of TIMER_CLK_CONFIG_REG */ 
+
+/** @defgroup TIMER_TRIG_IN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_en:1; // 
     unsigned int trig_sel:5; // 
 } TIMER_TRIG_IN_REG_s;
 
-typedef union TIMER_TRIG_IN_u {
+typedef union {
+    /** @ref TIMER_TRIG_IN_REG_s */
     TIMER_TRIG_IN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_TRIG_IN_u;
 
-typedef struct TIMER_TRIG_OUT_REG_s {
+/** @} end of TIMER_TRIG_IN_REG */ 
+
+/** @defgroup TIMER_TRIG_OUT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_out_en:1; // 
     unsigned int trig_sw_en:1; // 
     unsigned int trig_hw_en:1; // 
     unsigned int trig_hw_sel:4; // 
 } TIMER_TRIG_OUT_REG_s;
 
-typedef union TIMER_TRIG_OUT_u {
+typedef union {
+    /** @ref TIMER_TRIG_OUT_REG_s */
     TIMER_TRIG_OUT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_TRIG_OUT_u;
 
-typedef struct TIMER_INPUT_FILTER_CC_0_REG_s {
+/** @} end of TIMER_TRIG_OUT_REG */ 
+
+/** @defgroup TIMER_INPUT_FILTER_CC_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int filter_en_0:1; // 
     unsigned int is_consecutive_prd_0:1; // 
     unsigned int filter_period_0:2; // 
 } TIMER_INPUT_FILTER_CC_0_REG_s;
 
-typedef union TIMER_INPUT_FILTER_CC_0_u {
+typedef union {
+    /** @ref TIMER_INPUT_FILTER_CC_0_REG_s */
     TIMER_INPUT_FILTER_CC_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INPUT_FILTER_CC_0_u;
 
-typedef struct TIMER_INPUT_FILTER_CC_1_REG_s {
+/** @} end of TIMER_INPUT_FILTER_CC_0_REG */ 
+
+/** @defgroup TIMER_INPUT_FILTER_CC_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int filter_en_1:1; // 
     unsigned int is_consecutive_prd_1:1; // 
     unsigned int filter_period_1:2; // 
 } TIMER_INPUT_FILTER_CC_1_REG_s;
 
-typedef union TIMER_INPUT_FILTER_CC_1_u {
+typedef union {
+    /** @ref TIMER_INPUT_FILTER_CC_1_REG_s */
     TIMER_INPUT_FILTER_CC_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INPUT_FILTER_CC_1_u;
 
-typedef struct TIMER_INPUT_FILTER_CC_2_REG_s {
+/** @} end of TIMER_INPUT_FILTER_CC_1_REG */ 
+
+/** @defgroup TIMER_INPUT_FILTER_CC_2_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int filter_en_2:1; // 
     unsigned int is_consecutive_prd_2:1; // 
     unsigned int filter_period_2:2; // 
 } TIMER_INPUT_FILTER_CC_2_REG_s;
 
-typedef union TIMER_INPUT_FILTER_CC_2_u {
+typedef union {
+    /** @ref TIMER_INPUT_FILTER_CC_2_REG_s */
     TIMER_INPUT_FILTER_CC_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INPUT_FILTER_CC_2_u;
 
-typedef struct TIMER_INPUT_FILTER_CC_3_REG_s {
+/** @} end of TIMER_INPUT_FILTER_CC_2_REG */ 
+
+/** @defgroup TIMER_INPUT_FILTER_CC_3_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int filter_en_3:1; // 
     unsigned int is_consecutive_prd_3:1; // 
     unsigned int filter_period_3:2; // 
 } TIMER_INPUT_FILTER_CC_3_REG_s;
 
-typedef union TIMER_INPUT_FILTER_CC_3_u {
+typedef union {
+    /** @ref TIMER_INPUT_FILTER_CC_3_REG_s */
     TIMER_INPUT_FILTER_CC_3_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INPUT_FILTER_CC_3_u;
 
-typedef struct TIMER_INPUT_CC_0_REG_s {
+/** @} end of TIMER_INPUT_FILTER_CC_3_REG */ 
+
+/** @defgroup TIMER_INPUT_CC_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int input_sel_0:4; // 
     unsigned int input_inv_0:1; // 
 } TIMER_INPUT_CC_0_REG_s;
 
-typedef union TIMER_INPUT_CC_0_u {
+typedef union {
+    /** @ref TIMER_INPUT_CC_0_REG_s */
     TIMER_INPUT_CC_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INPUT_CC_0_u;
 
-typedef struct TIMER_INPUT_CC_1_REG_s {
+/** @} end of TIMER_INPUT_CC_0_REG */ 
+
+/** @defgroup TIMER_INPUT_CC_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int input_sel_1:4; // 
     unsigned int input_inv_1:1; // 
 } TIMER_INPUT_CC_1_REG_s;
 
-typedef union TIMER_INPUT_CC_1_u {
+typedef union {
+    /** @ref TIMER_INPUT_CC_1_REG_s */
     TIMER_INPUT_CC_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INPUT_CC_1_u;
 
-typedef struct TIMER_INPUT_CC_2_REG_s {
+/** @} end of TIMER_INPUT_CC_1_REG */ 
+
+/** @defgroup TIMER_INPUT_CC_2_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int input_sel_2:4; // 
     unsigned int input_inv_2:1; // 
 } TIMER_INPUT_CC_2_REG_s;
 
-typedef union TIMER_INPUT_CC_2_u {
+typedef union {
+    /** @ref TIMER_INPUT_CC_2_REG_s */
     TIMER_INPUT_CC_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INPUT_CC_2_u;
 
-typedef struct TIMER_INPUT_CC_3_REG_s {
+/** @} end of TIMER_INPUT_CC_2_REG */ 
+
+/** @defgroup TIMER_INPUT_CC_3_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int input_sel_3:4; // 
     unsigned int input_inv_3:1; // 
 } TIMER_INPUT_CC_3_REG_s;
 
-typedef union TIMER_INPUT_CC_3_u {
+typedef union {
+    /** @ref TIMER_INPUT_CC_3_REG_s */
     TIMER_INPUT_CC_3_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_INPUT_CC_3_u;
 
-typedef struct TIMER_CC0_CMN_CTRL_REG_s {
+/** @} end of TIMER_INPUT_CC_3_REG */ 
+
+/** @defgroup TIMER_CC0_CMN_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int is_capture_0:1; // 
     unsigned int cc2d_sel_0:3; // 
     unsigned int cc2u_sel_0:3; // 
     unsigned int suppress_coc_event_gen_0:1; // 
 } TIMER_CC0_CMN_CTRL_REG_s;
 
-typedef union TIMER_CC0_CMN_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC0_CMN_CTRL_REG_s */
     TIMER_CC0_CMN_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC0_CMN_CTRL_u;
 
-typedef struct TIMER_CC1_CMN_CTRL_REG_s {
+/** @} end of TIMER_CC0_CMN_CTRL_REG */ 
+
+/** @defgroup TIMER_CC1_CMN_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int is_capture_1:1; // 
     unsigned int cc2d_sel_1:3; // 
     unsigned int cc2u_sel_1:3; // 
     unsigned int suppress_coc_event_gen_1:1; // 
 } TIMER_CC1_CMN_CTRL_REG_s;
 
-typedef union TIMER_CC1_CMN_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC1_CMN_CTRL_REG_s */
     TIMER_CC1_CMN_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC1_CMN_CTRL_u;
 
-typedef struct TIMER_CC0_CAPTURE_CTRL_REG_s {
+/** @} end of TIMER_CC1_CMN_CTRL_REG */ 
+
+/** @defgroup TIMER_CC0_CAPTURE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cap_cond_0:2; // 
     unsigned int load_cond_0:2; // 
     unsigned int zero_cond_0:2; // 
@@ -477,14 +666,20 @@ typedef struct TIMER_CC0_CAPTURE_CTRL_REG_s {
     unsigned int cap_val_0:16; // 
 } TIMER_CC0_CAPTURE_CTRL_REG_s;
 
-typedef union TIMER_CC0_CAPTURE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC0_CAPTURE_CTRL_REG_s */
     TIMER_CC0_CAPTURE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC0_CAPTURE_CTRL_u;
 
-typedef struct TIMER_CC1_CAPTURE_CTRL_REG_s {
+/** @} end of TIMER_CC0_CAPTURE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC1_CAPTURE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cap_cond_1:2; // 
     unsigned int load_cond_1:2; // 
     unsigned int zero_cond_1:2; // 
@@ -492,68 +687,98 @@ typedef struct TIMER_CC1_CAPTURE_CTRL_REG_s {
     unsigned int cap_val_1:16; // 
 } TIMER_CC1_CAPTURE_CTRL_REG_s;
 
-typedef union TIMER_CC1_CAPTURE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC1_CAPTURE_CTRL_REG_s */
     TIMER_CC1_CAPTURE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC1_CAPTURE_CTRL_u;
 
-typedef struct TIMER_CC0_COMPARE_CTRL_REG_s {
+/** @} end of TIMER_CC1_CAPTURE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC0_COMPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int comp_val_0:16; // 
     unsigned int comp_val_update_method_0:3; // 
     unsigned int ccact_update_method_0:3; // 
 } TIMER_CC0_COMPARE_CTRL_REG_s;
 
-typedef union TIMER_CC0_COMPARE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC0_COMPARE_CTRL_REG_s */
     TIMER_CC0_COMPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC0_COMPARE_CTRL_u;
 
-typedef struct TIMER_CC1_COMPARE_CTRL_REG_s {
+/** @} end of TIMER_CC0_COMPARE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC1_COMPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int comp_val_1:16; // 
     unsigned int comp_val_update_method_1:3; // 
     unsigned int ccact_update_method_1:3; // 
 } TIMER_CC1_COMPARE_CTRL_REG_s;
 
-typedef union TIMER_CC1_COMPARE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC1_COMPARE_CTRL_REG_s */
     TIMER_CC1_COMPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC1_COMPARE_CTRL_u;
 
-typedef struct TIMER_CC2_CMN_CTRL_REG_s {
+/** @} end of TIMER_CC1_COMPARE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC2_CMN_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int is_capture_2:1; // 
     unsigned int cc2d_sel_2:3; // 
     unsigned int cc2u_sel_2:3; // 
     unsigned int suppress_coc_event_gen_2:1; // 
 } TIMER_CC2_CMN_CTRL_REG_s;
 
-typedef union TIMER_CC2_CMN_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC2_CMN_CTRL_REG_s */
     TIMER_CC2_CMN_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC2_CMN_CTRL_u;
 
-typedef struct TIMER_CC3_CMN_CTRL_REG_s {
+/** @} end of TIMER_CC2_CMN_CTRL_REG */ 
+
+/** @defgroup TIMER_CC3_CMN_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int is_capture_3:1; // 
     unsigned int cc2d_sel_3:3; // 
     unsigned int cc2u_sel_3:3; // 
     unsigned int suppress_coc_event_gen_3:1; // 
 } TIMER_CC3_CMN_CTRL_REG_s;
 
-typedef union TIMER_CC3_CMN_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC3_CMN_CTRL_REG_s */
     TIMER_CC3_CMN_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC3_CMN_CTRL_u;
 
-typedef struct TIMER_CC2_CAPTURE_CTRL_REG_s {
+/** @} end of TIMER_CC3_CMN_CTRL_REG */ 
+
+/** @defgroup TIMER_CC2_CAPTURE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cap_cond_2:2; // 
     unsigned int load_cond_2:2; // 
     unsigned int zero_cond_2:2; // 
@@ -561,14 +786,20 @@ typedef struct TIMER_CC2_CAPTURE_CTRL_REG_s {
     unsigned int cap_val_2:16; // 
 } TIMER_CC2_CAPTURE_CTRL_REG_s;
 
-typedef union TIMER_CC2_CAPTURE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC2_CAPTURE_CTRL_REG_s */
     TIMER_CC2_CAPTURE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC2_CAPTURE_CTRL_u;
 
-typedef struct TIMER_CC3_CAPTURE_CTRL_REG_s {
+/** @} end of TIMER_CC2_CAPTURE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC3_CAPTURE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cap_cond_3:2; // 
     unsigned int load_cond_3:2; // 
     unsigned int zero_cond_3:2; // 
@@ -576,86 +807,128 @@ typedef struct TIMER_CC3_CAPTURE_CTRL_REG_s {
     unsigned int cap_val_3:16; // 
 } TIMER_CC3_CAPTURE_CTRL_REG_s;
 
-typedef union TIMER_CC3_CAPTURE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC3_CAPTURE_CTRL_REG_s */
     TIMER_CC3_CAPTURE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC3_CAPTURE_CTRL_u;
 
-typedef struct TIMER_CC2_COMPARE_CTRL_REG_s {
+/** @} end of TIMER_CC3_CAPTURE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC2_COMPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int comp_val_2:16; // 
     unsigned int comp_val_update_method_2:3; // 
     unsigned int ccact_update_method_2:3; // 
 } TIMER_CC2_COMPARE_CTRL_REG_s;
 
-typedef union TIMER_CC2_COMPARE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC2_COMPARE_CTRL_REG_s */
     TIMER_CC2_COMPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC2_COMPARE_CTRL_u;
 
-typedef struct TIMER_CC3_COMPARE_CTRL_REG_s {
+/** @} end of TIMER_CC2_COMPARE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC3_COMPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int comp_val_3:16; // 
     unsigned int comp_val_update_method_3:3; // 
     unsigned int ccact_update_method_3:3; // 
 } TIMER_CC3_COMPARE_CTRL_REG_s;
 
-typedef union TIMER_CC3_COMPARE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC3_COMPARE_CTRL_REG_s */
     TIMER_CC3_COMPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC3_COMPARE_CTRL_u;
 
-typedef struct TIMER_CC4_CMN_CTRL_REG_s {
+/** @} end of TIMER_CC3_COMPARE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC4_CMN_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int suppress_coc_event_gen_4:1; // 
 } TIMER_CC4_CMN_CTRL_REG_s;
 
-typedef union TIMER_CC4_CMN_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC4_CMN_CTRL_REG_s */
     TIMER_CC4_CMN_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC4_CMN_CTRL_u;
 
-typedef struct TIMER_CC5_CMN_CTRL_REG_s {
+/** @} end of TIMER_CC4_CMN_CTRL_REG */ 
+
+/** @defgroup TIMER_CC5_CMN_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int suppress_coc_event_gen_5:1; // 
 } TIMER_CC5_CMN_CTRL_REG_s;
 
-typedef union TIMER_CC5_CMN_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC5_CMN_CTRL_REG_s */
     TIMER_CC5_CMN_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC5_CMN_CTRL_u;
 
-typedef struct TIMER_CC4_COMPARE_CTRL_REG_s {
+/** @} end of TIMER_CC5_CMN_CTRL_REG */ 
+
+/** @defgroup TIMER_CC4_COMPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int comp_val_4:16; // 
     unsigned int comp_val_update_method_4:3; // 
 } TIMER_CC4_COMPARE_CTRL_REG_s;
 
-typedef union TIMER_CC4_COMPARE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC4_COMPARE_CTRL_REG_s */
     TIMER_CC4_COMPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC4_COMPARE_CTRL_u;
 
-typedef struct TIMER_CC5_COMPARE_CTRL_REG_s {
+/** @} end of TIMER_CC4_COMPARE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC5_COMPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int comp_val_5:16; // 
     unsigned int comp_val_update_method_5:3; // 
 } TIMER_CC5_COMPARE_CTRL_REG_s;
 
-typedef union TIMER_CC5_COMPARE_CTRL_u {
+typedef union {
+    /** @ref TIMER_CC5_COMPARE_CTRL_REG_s */
     TIMER_CC5_COMPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC5_COMPARE_CTRL_u;
 
-typedef struct TIMER_CC0_CC_PWM_CFG_REG_s {
+/** @} end of TIMER_CC5_COMPARE_CTRL_REG */ 
+
+/** @defgroup TIMER_CC0_CC_PWM_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_cc2d_0:2; // 
     unsigned int cc_out_cc2u_0:2; // 
     unsigned int cc_out_ccd_0:2; // 
@@ -666,14 +939,20 @@ typedef struct TIMER_CC0_CC_PWM_CFG_REG_s {
     unsigned int cc_out_fault_exit_0:3; // 
 } TIMER_CC0_CC_PWM_CFG_REG_s;
 
-typedef union TIMER_CC0_CC_PWM_CFG_u {
+typedef union {
+    /** @ref TIMER_CC0_CC_PWM_CFG_REG_s */
     TIMER_CC0_CC_PWM_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC0_CC_PWM_CFG_u;
 
-typedef struct TIMER_CC1_CC_PWM_CFG_REG_s {
+/** @} end of TIMER_CC0_CC_PWM_CFG_REG */ 
+
+/** @defgroup TIMER_CC1_CC_PWM_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_cc2d_1:2; // 
     unsigned int cc_out_cc2u_1:2; // 
     unsigned int cc_out_ccd_1:2; // 
@@ -684,14 +963,20 @@ typedef struct TIMER_CC1_CC_PWM_CFG_REG_s {
     unsigned int cc_out_fault_exit_1:3; // 
 } TIMER_CC1_CC_PWM_CFG_REG_s;
 
-typedef union TIMER_CC1_CC_PWM_CFG_u {
+typedef union {
+    /** @ref TIMER_CC1_CC_PWM_CFG_REG_s */
     TIMER_CC1_CC_PWM_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC1_CC_PWM_CFG_u;
 
-typedef struct TIMER_CC2_CC_PWM_CFG_REG_s {
+/** @} end of TIMER_CC1_CC_PWM_CFG_REG */ 
+
+/** @defgroup TIMER_CC2_CC_PWM_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_cc2d_2:2; // 
     unsigned int cc_out_cc2u_2:2; // 
     unsigned int cc_out_ccd_2:2; // 
@@ -702,14 +987,20 @@ typedef struct TIMER_CC2_CC_PWM_CFG_REG_s {
     unsigned int cc_out_fault_exit_2:3; // 
 } TIMER_CC2_CC_PWM_CFG_REG_s;
 
-typedef union TIMER_CC2_CC_PWM_CFG_u {
+typedef union {
+    /** @ref TIMER_CC2_CC_PWM_CFG_REG_s */
     TIMER_CC2_CC_PWM_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC2_CC_PWM_CFG_u;
 
-typedef struct TIMER_CC3_CC_PWM_CFG_REG_s {
+/** @} end of TIMER_CC2_CC_PWM_CFG_REG */ 
+
+/** @defgroup TIMER_CC3_CC_PWM_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_cc2d_3:2; // 
     unsigned int cc_out_cc2u_3:2; // 
     unsigned int cc_out_ccd_3:2; // 
@@ -720,140 +1011,206 @@ typedef struct TIMER_CC3_CC_PWM_CFG_REG_s {
     unsigned int cc_out_fault_exit_3:3; // 
 } TIMER_CC3_CC_PWM_CFG_REG_s;
 
-typedef union TIMER_CC3_CC_PWM_CFG_u {
+typedef union {
+    /** @ref TIMER_CC3_CC_PWM_CFG_REG_s */
     TIMER_CC3_CC_PWM_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC3_CC_PWM_CFG_u;
 
-typedef struct TIMER_DEADBAND_CFG_REG_s {
+/** @} end of TIMER_CC3_CC_PWM_CFG_REG */ 
+
+/** @defgroup TIMER_DEADBAND_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int db_mode:1; // 
     unsigned int db_rise_delay:12; // 
     unsigned int db_fall_delay:12; // 
 } TIMER_DEADBAND_CFG_REG_s;
 
-typedef union TIMER_DEADBAND_CFG_u {
+typedef union {
+    /** @ref TIMER_DEADBAND_CFG_REG_s */
     TIMER_DEADBAND_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_DEADBAND_CFG_u;
 
-typedef struct TIMER_CC0_OUTPUT_CTL_REG_s {
+/** @} end of TIMER_DEADBAND_CFG_REG */ 
+
+/** @defgroup TIMER_CC0_OUTPUT_CTL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_sel_0:4; // 
     unsigned int cc_out_inv_0:1; // 
     unsigned int cc_out_val_init_0:1; // 
 } TIMER_CC0_OUTPUT_CTL_REG_s;
 
-typedef union TIMER_CC0_OUTPUT_CTL_u {
+typedef union {
+    /** @ref TIMER_CC0_OUTPUT_CTL_REG_s */
     TIMER_CC0_OUTPUT_CTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC0_OUTPUT_CTL_u;
 
-typedef struct TIMER_CC1_OUTPUT_CTL_REG_s {
+/** @} end of TIMER_CC0_OUTPUT_CTL_REG */ 
+
+/** @defgroup TIMER_CC1_OUTPUT_CTL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_sel_1:4; // 
     unsigned int cc_out_inv_1:1; // 
     unsigned int cc_out_val_init_1:1; // 
 } TIMER_CC1_OUTPUT_CTL_REG_s;
 
-typedef union TIMER_CC1_OUTPUT_CTL_u {
+typedef union {
+    /** @ref TIMER_CC1_OUTPUT_CTL_REG_s */
     TIMER_CC1_OUTPUT_CTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC1_OUTPUT_CTL_u;
 
-typedef struct TIMER_CC0_SW_FORCE_REG_s {
+/** @} end of TIMER_CC1_OUTPUT_CTL_REG */ 
+
+/** @defgroup TIMER_CC0_SW_FORCE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_sw_force_0:2; // 
     unsigned int cc_cmpl_out_sw_force_0:2; // 
 } TIMER_CC0_SW_FORCE_REG_s;
 
-typedef union TIMER_CC0_SW_FORCE_u {
+typedef union {
+    /** @ref TIMER_CC0_SW_FORCE_REG_s */
     TIMER_CC0_SW_FORCE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC0_SW_FORCE_u;
 
-typedef struct TIMER_CC1_SW_FORCE_REG_s {
+/** @} end of TIMER_CC0_SW_FORCE_REG */ 
+
+/** @defgroup TIMER_CC1_SW_FORCE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_sw_force_1:2; // 
     unsigned int cc_cmpl_out_sw_force_1:2; // 
 } TIMER_CC1_SW_FORCE_REG_s;
 
-typedef union TIMER_CC1_SW_FORCE_u {
+typedef union {
+    /** @ref TIMER_CC1_SW_FORCE_REG_s */
     TIMER_CC1_SW_FORCE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC1_SW_FORCE_u;
 
-typedef struct TIMER_CC2_OUTPUT_CTL_REG_s {
+/** @} end of TIMER_CC1_SW_FORCE_REG */ 
+
+/** @defgroup TIMER_CC2_OUTPUT_CTL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_sel_2:4; // 
     unsigned int cc_out_inv_2:1; // 
     unsigned int cc_out_val_init_2:1; // 
 } TIMER_CC2_OUTPUT_CTL_REG_s;
 
-typedef union TIMER_CC2_OUTPUT_CTL_u {
+typedef union {
+    /** @ref TIMER_CC2_OUTPUT_CTL_REG_s */
     TIMER_CC2_OUTPUT_CTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC2_OUTPUT_CTL_u;
 
-typedef struct TIMER_CC3_OUTPUT_CTL_REG_s {
+/** @} end of TIMER_CC2_OUTPUT_CTL_REG */ 
+
+/** @defgroup TIMER_CC3_OUTPUT_CTL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_sel_3:4; // 
     unsigned int cc_out_inv_3:1; // 
     unsigned int cc_out_val_init_3:1; // 
 } TIMER_CC3_OUTPUT_CTL_REG_s;
 
-typedef union TIMER_CC3_OUTPUT_CTL_u {
+typedef union {
+    /** @ref TIMER_CC3_OUTPUT_CTL_REG_s */
     TIMER_CC3_OUTPUT_CTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC3_OUTPUT_CTL_u;
 
-typedef struct TIMER_CC2_SW_FORCE_REG_s {
+/** @} end of TIMER_CC3_OUTPUT_CTL_REG */ 
+
+/** @defgroup TIMER_CC2_SW_FORCE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_sw_force_2:2; // 
     unsigned int cc_cmpl_out_sw_force_2:2; // 
 } TIMER_CC2_SW_FORCE_REG_s;
 
-typedef union TIMER_CC2_SW_FORCE_u {
+typedef union {
+    /** @ref TIMER_CC2_SW_FORCE_REG_s */
     TIMER_CC2_SW_FORCE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC2_SW_FORCE_u;
 
-typedef struct TIMER_CC3_SW_FORCE_REG_s {
+/** @} end of TIMER_CC2_SW_FORCE_REG */ 
+
+/** @defgroup TIMER_CC3_SW_FORCE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cc_out_sw_force_3:2; // 
     unsigned int cc_cmpl_out_sw_force_3:2; // 
 } TIMER_CC3_SW_FORCE_REG_s;
 
-typedef union TIMER_CC3_SW_FORCE_u {
+typedef union {
+    /** @ref TIMER_CC3_SW_FORCE_REG_s */
     TIMER_CC3_SW_FORCE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CC3_SW_FORCE_u;
 
-typedef struct TIMER_FAULT_IN_CTL_REG_s {
+/** @} end of TIMER_CC3_SW_FORCE_REG */ 
+
+/** @defgroup TIMER_FAULT_IN_CTL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int fault_filter_en:1; // 
     unsigned int fault_is_consecutive_period:1; // 
     unsigned int fault_filter_period:2; // 
 } TIMER_FAULT_IN_CTL_REG_s;
 
-typedef union TIMER_FAULT_IN_CTL_u {
+typedef union {
+    /** @ref TIMER_FAULT_IN_CTL_REG_s */
     TIMER_FAULT_IN_CTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_FAULT_IN_CTL_u;
 
-typedef struct TIMER_FAULT_SRC_CTL_REG_s {
+/** @} end of TIMER_FAULT_IN_CTL_REG */ 
+
+/** @defgroup TIMER_FAULT_SRC_CTL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int fault_ext2_en:1; // 
     unsigned int fault_ext1_en:1; // 
     unsigned int fault_ext0_en:1; // 
@@ -873,14 +1230,20 @@ typedef struct TIMER_FAULT_SRC_CTL_REG_s {
     unsigned int fault_latch_sel:2; // 
 } TIMER_FAULT_SRC_CTL_REG_s;
 
-typedef union TIMER_FAULT_SRC_CTL_u {
+typedef union {
+    /** @ref TIMER_FAULT_SRC_CTL_REG_s */
     TIMER_FAULT_SRC_CTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_FAULT_SRC_CTL_u;
 
-typedef struct TIMER_CTR_CTL_REG_s {
+/** @} end of TIMER_FAULT_SRC_CTL_REG */ 
+
+/** @defgroup TIMER_CTR_CTL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_en:1; // 
     unsigned int repeat_mode:1; // 
     unsigned int count_mode:2; // 
@@ -894,91 +1257,138 @@ typedef struct TIMER_CTR_CTL_REG_s {
     unsigned int ctr_after_debug:2; // 
 } TIMER_CTR_CTL_REG_s;
 
-typedef union TIMER_CTR_CTL_u {
+typedef union {
+    /** @ref TIMER_CTR_CTL_REG_s */
     TIMER_CTR_CTL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CTR_CTL_u;
 
-typedef struct TIMER_CTR_VAL_REG_s {
+/** @} end of TIMER_CTR_CTL_REG */ 
+
+/** @defgroup TIMER_CTR_VAL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_val:16; // 
 } TIMER_CTR_VAL_REG_s;
 
-typedef union TIMER_CTR_VAL_u {
+typedef union {
+    /** @ref TIMER_CTR_VAL_REG_s */
     TIMER_CTR_VAL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CTR_VAL_u;
 
-typedef struct TIMER_CTR_LOAD_VAL_REG_s {
+/** @} end of TIMER_CTR_VAL_REG */ 
+
+/** @defgroup TIMER_CTR_LOAD_VAL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctr_load_val:16; // 
 } TIMER_CTR_LOAD_VAL_REG_s;
 
-typedef union TIMER_CTR_LOAD_VAL_u {
+typedef union {
+    /** @ref TIMER_CTR_LOAD_VAL_REG_s */
     TIMER_CTR_LOAD_VAL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CTR_LOAD_VAL_u;
 
-typedef struct TIMER_CTR_PL_VAL_REG_s {
+/** @} end of TIMER_CTR_LOAD_VAL_REG */ 
+
+/** @defgroup TIMER_CTR_PL_VAL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pl_val:16; // 
 } TIMER_CTR_PL_VAL_REG_s;
 
-typedef union TIMER_CTR_PL_VAL_u {
+typedef union {
+    /** @ref TIMER_CTR_PL_VAL_REG_s */
     TIMER_CTR_PL_VAL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_CTR_PL_VAL_u;
 
-typedef struct TIMER_DEBUG_CTRL_REG_s {
+/** @} end of TIMER_CTR_PL_VAL_REG */ 
+
+/** @defgroup TIMER_DEBUG_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int run_in_halt_mode:1; // 
 } TIMER_DEBUG_CTRL_REG_s;
 
-typedef union TIMER_DEBUG_CTRL_u {
+typedef union {
+    /** @ref TIMER_DEBUG_CTRL_REG_s */
     TIMER_DEBUG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_DEBUG_CTRL_u;
 
-typedef struct TIMER_RCTR_VAL_REG_s {
+/** @} end of TIMER_DEBUG_CTRL_REG */ 
+
+/** @defgroup TIMER_RCTR_VAL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rctr_val:8; // 
 } TIMER_RCTR_VAL_REG_s;
 
-typedef union TIMER_RCTR_VAL_u {
+typedef union {
+    /** @ref TIMER_RCTR_VAL_REG_s */
     TIMER_RCTR_VAL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_RCTR_VAL_u;
 
-typedef struct TIMER_RCTR_LOAD_VAL_REG_s {
+/** @} end of TIMER_RCTR_VAL_REG */ 
+
+/** @defgroup TIMER_RCTR_LOAD_VAL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rctr_load_val:8; // 
 } TIMER_RCTR_LOAD_VAL_REG_s;
 
-typedef union TIMER_RCTR_LOAD_VAL_u {
+typedef union {
+    /** @ref TIMER_RCTR_LOAD_VAL_REG_s */
     TIMER_RCTR_LOAD_VAL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_RCTR_LOAD_VAL_u;
 
-typedef struct TIMER_QEI_DIR_REG_s {
+/** @} end of TIMER_RCTR_LOAD_VAL_REG */ 
+
+/** @defgroup TIMER_QEI_DIR_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int qei_dir:1; // 
 } TIMER_QEI_DIR_REG_s;
 
-typedef union TIMER_QEI_DIR_u {
+typedef union {
+    /** @ref TIMER_QEI_DIR_REG_s */
     TIMER_QEI_DIR_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } TIMER_QEI_DIR_u;
 
-typedef struct TIMER_REGS_s{
+/** @} end of TIMER_QEI_DIR_REG */ 
+
+/** @} end of TIMER_REGISTERS */ 
+
+typedef struct {
     volatile  TIMER_DESC_u DESC;
     volatile  TIMER_PWR_EN_u PWR_EN;
     volatile  TIMER_RST_CTRL_u RST_CTRL;
@@ -1048,10 +1458,18 @@ typedef struct TIMER_REGS_s{
     volatile  TIMER_QEI_DIR_u QEI_DIR;
 } TIMER_REGS_s;
 
+/** @defgroup TIMER_KEY 
+ *  @{
+ */
 #define TIMER_PWR_EN_PWR_EN_KEY ((uint32_t)0x00000099U)
 #define TIMER_RST_CTRL_RST_KEY ((uint32_t)0x00000099U)
 #define TIMER_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x00000099U)
+/** @} end of TIMER_KEY*/ 
 
+
+/** @defgroup TIMER_INTERRUPTS 
+ *  @{
+ */
 #define TIMER_INTR_EVENT_CTR_ZERO_IDX (0)
 #define TIMER_INTR_EVENT_CTR_LOAD_IDX (1)
 #define TIMER_INTR_EVENT_CCD_0_IDX (2)
@@ -1071,6 +1489,11 @@ typedef struct TIMER_REGS_s{
 #define TIMER_INTR_EVENT_RCTR_ZERO_IDX (16)
 #define TIMER_INTR_EVENT_QEI_CTR_DC_IDX (17)
 #define TIMER_INTR_EVENT_QEI_ERR_IDX (18)
+/** @} end of TIMER_INTERRUPTS */ 
+
+/** @defgroup TIMER_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	TIMER_CLK_CONFIG_CLK_SEL_CLK_LF = 0,
@@ -1456,35 +1879,35 @@ typedef enum {
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_E;
 
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_DISABLE = 0,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_DISABLE = 1,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_HIGH = 1,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_LOW = 2,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_TOGGLE = 3,
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_E;
 
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_DISABLE = 0,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_DISABLE = 2,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_HIGH = 1,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_LOW = 2,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_TOGGLE = 3,
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_E;
 
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_DISABLE = 0,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_DISABLE = 3,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_HIGH = 1,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_LOW = 2,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_TOGGLE = 3,
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_E;
 
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_DISABLE = 0,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_DISABLE = 4,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_HIGH = 1,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_LOW = 2,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_TOGGLE = 3,
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_E;
 
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_DISABLE = 0,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_DISABLE = 5,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_HIGH = 1,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_LOW = 2,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_TOGGLE = 3,
@@ -1499,7 +1922,7 @@ typedef enum {
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_E;
 
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_DISABLE = 0,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_DISABLE = 1,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_HIGH = 1,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_LOW = 2,
 	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_TOGGLE = 3,
@@ -1844,7 +2267,12 @@ typedef enum {
 	TIMER_QEI_DIR_CLOCK = 0,
 	TIMER_QEI_DIR_ANTI_CLOCK = 1,
 } TIMER_QEI_DIR_E;
+/** @} end of TIMER_ENUM */ 
 
+
+/** @defgroup TIMER_REGISTER_FLAGS 
+ *  @{
+ */
 #define TIMER_DESC_MODULE_TYPE_OFS (0)
 #define TIMER_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define TIMER_DESC_MODUE_SUBTYPE_OFS (8)
@@ -2451,5 +2879,9 @@ typedef enum {
 #define TIMER_RCTR_LOAD_VAL_RCTR_LOAD_VAL_MASK ((uint32_t)0x000000FFU)
 #define TIMER_QEI_DIR_QEI_DIR_OFS (0)
 #define TIMER_QEI_DIR_QEI_DIR_MASK ((uint32_t)0x00000001U)
+/** @} end of TIMER_REGISTER_FLAGS */ 
+
+/** @} end of TIMER */
+
 
 #endif
