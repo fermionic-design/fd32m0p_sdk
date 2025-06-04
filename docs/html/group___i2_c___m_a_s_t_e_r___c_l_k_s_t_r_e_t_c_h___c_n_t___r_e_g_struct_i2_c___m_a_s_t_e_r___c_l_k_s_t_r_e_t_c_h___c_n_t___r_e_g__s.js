@@ -1,0 +1,4 @@
+var group___i2_c___m_a_s_t_e_r___c_l_k_s_t_r_e_t_c_h___c_n_t___r_e_g_struct_i2_c___m_a_s_t_e_r___c_l_k_s_t_r_e_t_c_h___c_n_t___r_e_g__s =
+[
+    [ "mst_max_clkstretch_cnt", "group___i2_c___m_a_s_t_e_r___c_l_k_s_t_r_e_t_c_h___c_n_t___r_e_g.html#a1c430456d7320b3703523abbacb37de1", null ]
+];

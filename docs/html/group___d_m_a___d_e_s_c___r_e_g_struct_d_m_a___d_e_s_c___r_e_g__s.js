@@ -1,0 +1,7 @@
+var group___d_m_a___d_e_s_c___r_e_g_struct_d_m_a___d_e_s_c___r_e_g__s =
+[
+    [ "module_type", "group___d_m_a___d_e_s_c___r_e_g.html#aa27ee769114119a7136fa023b0f2c24e", null ],
+    [ "modue_subtype", "group___d_m_a___d_e_s_c___r_e_g.html#a1d3177a43466535b7009927ed2e7eca5", null ],
+    [ "major_rev", "group___d_m_a___d_e_s_c___r_e_g.html#ac515897f1a4e89a8d96d3345d865f894", null ],
+    [ "minor_rev", "group___d_m_a___d_e_s_c___r_e_g.html#a1414c818d985f94405ae811313c3c6ca", null ]
+];

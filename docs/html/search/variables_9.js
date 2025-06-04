@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['lf_5fclk_5fctrl_0',['LF_CLK_CTRL',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a14dcc1d9350f8584c09c7b0b73ebe8b5',1,'MCU_CTRL_REGS_s']]],
+  ['lf_5fclk_5fsel_1',['lf_clk_sel',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#abc1c644f12b2090f64287a9588fbcb88',1,'MCU_CTRL_LF_CLK_CTRL_REG_s']]],
+  ['lf_5fosc_5fen_2',['lf_osc_en',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a4fae69b3a988c7251e366828e6db030f',1,'MCU_CTRL_LF_CLK_CTRL_REG_s']]],
+  ['lf_5fosc_5fpwr_5fen_3',['lf_osc_pwr_en',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a1d1a722dbed4409e412cce511c6f98c8',1,'MCU_CTRL_CLK_PWR_EN_REG_s']]],
+  ['lf_5fxo_5fcfg0_4',['lf_xo_cfg0',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#ae1787590f337477f9671b206fc5c1ee2',1,'MCU_CTRL_XO_CFG_STS_REG_s']]],
+  ['lf_5fxo_5fen_5',['lf_xo_en',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a90714ac208f7ba38cfc34faab10b4714',1,'MCU_CTRL_LF_CLK_CTRL_REG_s']]],
+  ['lf_5fxo_5fpwr_5fen_6',['lf_xo_pwr_en',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#ae1244560055f621ad8c4027f4f2b8d29',1,'MCU_CTRL_CLK_PWR_EN_REG_s']]],
+  ['lf_5fxo_5fsts0_7',['lf_xo_sts0',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#aeb6ef014cd5acd8d2517731c1e04e685',1,'MCU_CTRL_XO_CFG_STS_REG_s']]],
+  ['lfosc_5fcfg0_8',['lfosc_cfg0',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a8e35fa6fc361654bea1a9535ba7efdd4',1,'MCU_CTRL_LF_CLK_CTRL_REG_s']]],
+  ['load_5fact_9',['load_act',['../timer_8h.html#aceb913017e816951b06540e77c4c161b',1,'timer_pwm_output_channel_action_cfg_t']]],
+  ['load_5fcond_10',['load_cond',['../timer_8h.html#af95590a5763820fd3341cb43768bf8b4',1,'timer_capture_channel_ctrl_t']]],
+  ['load_5fcond_5f0_11',['load_cond_0',['../group___t_i_m_e_r___c_c0___c_a_p_t_u_r_e___c_t_r_l___r_e_g.html#ad2ea87c0b6d7b2c5438d60b86f6ad56a',1,'TIMER_CC0_CAPTURE_CTRL_REG_s::load_cond_0'],['../_t_i_m_e_r___t_i_m_g___n_u_m___i_n_p_u_t2___r_e_g_s_8h.html#ab394ad09d5a32b3f3749b236802d9ae2',1,'TIMER_TIMG_NUM_INPUT2_CC0_CAPTURE_CTRL_REG_s::load_cond_0']]],
+  ['load_5fcond_5f1_12',['load_cond_1',['../group___t_i_m_e_r___c_c1___c_a_p_t_u_r_e___c_t_r_l___r_e_g.html#a4a3f74a975aff3c0b0d2f1bb13deec52',1,'TIMER_CC1_CAPTURE_CTRL_REG_s::load_cond_1'],['../_t_i_m_e_r___t_i_m_g___n_u_m___i_n_p_u_t2___r_e_g_s_8h.html#ae52b958a8d6e783098046cd9198e774d',1,'TIMER_TIMG_NUM_INPUT2_CC1_CAPTURE_CTRL_REG_s::load_cond_1']]],
+  ['load_5fcond_5f2_13',['load_cond_2',['../group___t_i_m_e_r___c_c2___c_a_p_t_u_r_e___c_t_r_l___r_e_g.html#a796e06fd97d2c96c64e3aa6514e21606',1,'TIMER_CC2_CAPTURE_CTRL_REG_s']]],
+  ['load_5fcond_5f3_14',['load_cond_3',['../group___t_i_m_e_r___c_c3___c_a_p_t_u_r_e___c_t_r_l___r_e_g.html#aa144cf31591939a5ad2aa07267f2f386',1,'TIMER_CC3_CAPTURE_CTRL_REG_s']]],
+  ['loopback_5fctrl_15',['LOOPBACK_CTRL',['../group___s_p_i___m_e_m_o_r_y___m_a_p.html#a878446ace87db1207be3c226ffe8943f',1,'SPI_REGS_s']]],
+  ['loopback_5fen_16',['loopback_en',['../group___u_a_r_t___c_t_r_l___r_e_g.html#a238651662c59d1d6790976cac8d2e764',1,'UART_CTRL_REG_s::loopback_en'],['../uart_8h.html#aefa2d3927f3c96dbad30aaf5ec3c4d8f',1,'uart_cfg_s::loopback_en']]],
+  ['loopback_5fmode_17',['loopback_mode',['../group___s_p_i___l_o_o_p_b_a_c_k___c_t_r_l___r_e_g.html#ab79776283abed41fe85ad8df2e82bdae',1,'SPI_LOOPBACK_CTRL_REG_s']]],
+  ['low_5fpower_5fmode_18',['low_power_mode',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#ab76a96164144fcddcab7bee3bb2d66f3',1,'MCU_CTRL_PMODE_CFG_REG_s']]],
+  ['lpbk_5fmode_19',['lpbk_mode',['../group___i2_c___m_a_s_t_e_r___c_f_g___r_e_g.html#a1e98f168bb0076316fa33c3c814c3133',1,'I2C_MASTER_CFG_REG_s']]]
+];

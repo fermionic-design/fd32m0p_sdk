@@ -1,0 +1,38 @@
+var _c_r_c___r_e_g_s_8h =
+[
+    [ "CRC_PWR_EN_PWR_EN_KEY", "group___c_r_c___k_e_y.html#gaf16c46f73eda6309763b10ab8a43a07b", null ],
+    [ "CRC_RST_CTRL_RST_KEY", "group___c_r_c___k_e_y.html#gaa0c85cecca1b41c9195a9bcf36938a99", null ],
+    [ "CRC_RST_CTRL_RST_STS_CLR_KEY", "group___c_r_c___k_e_y.html#ga86fe594280956980b9434bc4b29d3103", null ],
+    [ "CRC_PWR_EN_PWR_EN_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gae483bbbfa7dac41f3a21c3505c095a4d", null ],
+    [ "CRC_PWR_EN_PWR_EN_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gad5058eacbbee937764852097e0c8fffe", null ],
+    [ "CRC_PWR_EN_PWR_EN_KEY_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gac145a413d5547f141973dda2eec15f12", null ],
+    [ "CRC_PWR_EN_PWR_EN_KEY_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga10f60caa01ed5c5d8c40af153f720b4e", null ],
+    [ "CRC_RST_CTRL_RST_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga8e95a217e6ac390dcaf886f2a93fcdb2", null ],
+    [ "CRC_RST_CTRL_RST_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gab6430d9e1a06952ce94277d0d5d50821", null ],
+    [ "CRC_RST_CTRL_RST_STS_CLR_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gaae85a1fc30e9e8086c2b48f5cb134e0a", null ],
+    [ "CRC_RST_CTRL_RST_STS_CLR_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga89d365684a010ff11a779cbc1b9bdadf", null ],
+    [ "CRC_RST_CTRL_RST_KEY_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gaacde56bb52f02760e6c961ed968c2dd6", null ],
+    [ "CRC_RST_CTRL_RST_KEY_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gadeee18879a8b332cce079b7b06348b30", null ],
+    [ "CRC_RST_STS_RST_STS_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gacf577398c73d06e08d420237c1d4b9be", null ],
+    [ "CRC_RST_STS_RST_STS_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga06c0e7db521f61541ebf71fbbb8b516d", null ],
+    [ "CRC_CRCCONFIG_POLY_TYPE_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga4b2279b6cd124ec865ebc6152623de1b", null ],
+    [ "CRC_CRCCONFIG_POLY_TYPE_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gad18f1d2920c233e9329edeebf2a2c6ff", null ],
+    [ "CRC_CRCCONFIG_INPUT_BIT_REV_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga657d430c3d59af0bf5580ce3ae0f9df4", null ],
+    [ "CRC_CRCCONFIG_INPUT_BIT_REV_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gaf40906c498a7c137af50ab8cfbd8b1b6", null ],
+    [ "CRC_CRCCONFIG_OUTPUT_BIT_REV_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga6151ff2c6ead74ef4b5d52b7dc3c090a", null ],
+    [ "CRC_CRCCONFIG_OUTPUT_BIT_REV_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga37c1a4c00736912031db01bf07399e5e", null ],
+    [ "CRC_CRCCONFIG_IN_IS_BIG_ENDIAN_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gade688e6af6b14f4d66765b307bf626d4", null ],
+    [ "CRC_CRCCONFIG_IN_IS_BIG_ENDIAN_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gae342e8017a4d446bbb5d40090105d5f5", null ],
+    [ "CRC_CRCCONFIG_OUT_IS_BIG_ENDIAN_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga177b87ac9573897f6d389846a92cc858", null ],
+    [ "CRC_CRCCONFIG_OUT_IS_BIG_ENDIAN_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga712b32bdc3c954063918defd73d1aada", null ],
+    [ "CRC_CRCSEED_SEED_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gab684350c9c7be7cef4f851e87bba4829", null ],
+    [ "CRC_CRCSEED_SEED_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga15ae2b97ad9809e9e6a8888abab0e0dd", null ],
+    [ "CRC_CRCINPUT_DATA_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gaf2aba9f54b51bc9b312ade58bd216207", null ],
+    [ "CRC_CRCINPUT_DATA_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga682d43e0318265cb423f209a8bf0725e", null ],
+    [ "CRC_CRCRESULT_RESULT_OFS", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga8b7d752cafff48933ea1f32f261f926f", null ],
+    [ "CRC_CRCRESULT_RESULT_MASK", "group___c_r_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga7154e13792d7de93730c511cce7bf3d1", null ],
+    [ "CRC_CRCCONFIG_POLY_TYPE_E", "group___c_r_c___c_r_c_c_o_n_f_i_g___r_e_g.html#ga0427226eb6f865e67d3136001f48be48", [
+      [ "CRC_CRCCONFIG_POLY_TYPE_32_BIT", "group___c_r_c___c_r_c_c_o_n_f_i_g___r_e_g.html#gga0427226eb6f865e67d3136001f48be48a22d2b03cb151864b4776c554994731a5", null ],
+      [ "CRC_CRCCONFIG_POLY_TYPE_16_BIT", "group___c_r_c___c_r_c_c_o_n_f_i_g___r_e_g.html#gga0427226eb6f865e67d3136001f48be48a342bae8fc5f909397db33ccbb02d6801", null ]
+    ] ]
+];

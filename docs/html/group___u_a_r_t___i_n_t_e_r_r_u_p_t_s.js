@@ -1,0 +1,27 @@
+var group___u_a_r_t___i_n_t_e_r_r_u_p_t_s =
+[
+    [ "UART_INTR_EVENT_RCV_TIMEOUT_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga7ea1c877131ecd5aa7f3860e870c71ae", null ],
+    [ "UART_INTR_EVENT_FRAME_ERR_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gacdd15f0d54e44428e15adfcce9cf8f79", null ],
+    [ "UART_INTR_EVENT_PARITY_ERR_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gaa066b819eeb30e94299da1e773916b0e", null ],
+    [ "UART_INTR_EVENT_UNDERFLOW_ERR_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga971e9d520172b422d84a3310bfbe87ac", null ],
+    [ "UART_INTR_EVENT_OVERFLOW_ERR_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga4e37770bd32b295cf859b9ba01084311", null ],
+    [ "UART_INTR_EVENT_MAJ_VOTE_ERR_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gab3633151522255afb9cfbf7f751acbef", null ],
+    [ "UART_INTR_EVENT_TX_FIFO_ALMOST_FULL_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gada39876a1227592ae240cb067c85d151", null ],
+    [ "UART_INTR_EVENT_TX_FIFO_FULL_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gac7e6a953e74a356d5416f1d3e7706c23", null ],
+    [ "UART_INTR_EVENT_TX_FIFO_ALMOST_EMPTY_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga49b58abe34d32639d1c3c75e9cc33337", null ],
+    [ "UART_INTR_EVENT_TX_FIFO_EMPTY_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga290e9d6fa58d4b67cbb0985423d3704e", null ],
+    [ "UART_INTR_EVENT_RX_FIFO_ALMOST_FULL_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gac8d2a1d66670b0d63c4551242a5bbc54", null ],
+    [ "UART_INTR_EVENT_RX_FIFO_FULL_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga1eb01e38eb3a0f9e2cf6bcd5171f1c45", null ],
+    [ "UART_INTR_EVENT_RX_FIFO_ALMOST_EMPTY_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga49b3039bc2d1e35005acf1f7eb1b1a4e", null ],
+    [ "UART_INTR_EVENT_RX_FIFO_EMPTY_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gaea29880f8ad6295b03945aa47b3b65ce", null ],
+    [ "UART_INTR_EVENT_RCV_NEGEDGE_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga04872391d83c13d13f2d9336f058cb98", null ],
+    [ "UART_INTR_EVENT_RCV_POSEDGE_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gaf0c914105135a5e8837b6e41a465f535", null ],
+    [ "UART_INTR_EVENT_RX_INT_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga32dc97d196eafea1b1ecf5fb2541cfd5", null ],
+    [ "UART_INTR_EVENT_TX_INT_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga9a562451296a90be422220e09e7c5128", null ],
+    [ "UART_INTR_EVENT_CTS_INT_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gae1274bb60d255cc2d56854917906e058", null ],
+    [ "UART_INTR_EVENT_ADDR_MATCH_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga84890eeb67a302a8b913403158647c83", null ],
+    [ "UART_INTR_EVENT_BAUD_ERR_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gaa6fc905a9521084770f19118bc126c8e", null ],
+    [ "UART_INTR_EVENT_EOT_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga99a1cf6323e577eb23629097c63c3acc", null ],
+    [ "UART_INTR_EVENT_DMA_DONE_TX_INTR_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gaacecb7575d4bd596e783ea5b6c8cdb5d", null ],
+    [ "UART_INTR_EVENT_DMA_DONE_RX_INTR_IDX", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#gac06864f2e08b45218f6faa031da8b14e", null ]
+];

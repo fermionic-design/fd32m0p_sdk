@@ -1,0 +1,27 @@
+var group___a_d_c___i_n_t_e_r_r_u_p_t_s =
+[
+    [ "ADC_INTR_EVENT_TRIG_TO_DMA_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gab01b4f4b4086085fbcc264701afd55b9", null ],
+    [ "ADC_INTR_EVENT_OV_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gae5d5226b900252e80c18caa1daa440e6", null ],
+    [ "ADC_INTR_EVENT_SEQ_OV_FLOW_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga779583c17fbdb88fd73157a483e7d2d0", null ],
+    [ "ADC_INTR_EVENT_WC_IN_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gab0e1a1633df266419b1e1957a89b86fa", null ],
+    [ "ADC_INTR_EVENT_WC_HIGH_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gaaa7bffefcc78778e5492764cf2f77276", null ],
+    [ "ADC_INTR_EVENT_WC_LOW_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga167644f0fa31121c9a789e212e33205f", null ],
+    [ "ADC_INTR_EVENT_DMA_DONE_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga91bbc5cee731fd13fcb735ca8909cb88", null ],
+    [ "ADC_INTR_EVENT_UF_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gaa6a50bf19a910c032c881f649d00ab79", null ],
+    [ "ADC_INTR_EVENT_RESULT0_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga005a077186e888d37497279586490e0f", null ],
+    [ "ADC_INTR_EVENT_RESULT1_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga408a945e80dc11a96330abd9fc1d6afd", null ],
+    [ "ADC_INTR_EVENT_RESULT2_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga447ef927a71976fb742bc5c08f5b94b4", null ],
+    [ "ADC_INTR_EVENT_RESULT3_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga69d16f929dcaf147bb3564b43a8568ac", null ],
+    [ "ADC_INTR_EVENT_RESULT4_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga42103ca45168a578d0296bacf65107b0", null ],
+    [ "ADC_INTR_EVENT_RESULT5_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gac90786622ef1e4d20a5150198f044c9c", null ],
+    [ "ADC_INTR_EVENT_RESULT6_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga117eeb1070ea297620206e24420d181f", null ],
+    [ "ADC_INTR_EVENT_RESULT7_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gad4fc802e7a772e1431710550078b1692", null ],
+    [ "ADC_INTR_EVENT_RESULT8_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga4ad6939845a4c55090f6c3afa7ac18c2", null ],
+    [ "ADC_INTR_EVENT_RESULT9_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga706d248c9816301532385c40adcbcf82", null ],
+    [ "ADC_INTR_EVENT_RESULT10_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga68ba51eb91ad30cf44aad60d930e885f", null ],
+    [ "ADC_INTR_EVENT_RESULT11_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gabc03d4abb4a92d77c9d5b130a0b4d627", null ],
+    [ "ADC_INTR_EVENT_RESULT12_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga5bdf59423fc814883a9259290d606614", null ],
+    [ "ADC_INTR_EVENT_RESULT13_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#gadd56c29dd549da08a2f7cb092222bd6b", null ],
+    [ "ADC_INTR_EVENT_RESULT14_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga7003e9dceb376bd2a38a9eb740ffca84", null ],
+    [ "ADC_INTR_EVENT_RESULT15_FLAG_IDX", "group___a_d_c___i_n_t_e_r_r_u_p_t_s.html#ga949aecc1afc8b9c77aa7e8070380aa28", null ]
+];

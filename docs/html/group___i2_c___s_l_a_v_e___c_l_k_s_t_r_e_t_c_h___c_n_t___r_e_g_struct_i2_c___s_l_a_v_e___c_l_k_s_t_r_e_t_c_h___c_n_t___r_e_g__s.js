@@ -1,0 +1,4 @@
+var group___i2_c___s_l_a_v_e___c_l_k_s_t_r_e_t_c_h___c_n_t___r_e_g_struct_i2_c___s_l_a_v_e___c_l_k_s_t_r_e_t_c_h___c_n_t___r_e_g__s =
+[
+    [ "slv_max_clkstretch_cnt", "group___i2_c___s_l_a_v_e___c_l_k_s_t_r_e_t_c_h___c_n_t___r_e_g.html#a9cd3c87d3732c78d15f2f5e496d2b54a", null ]
+];

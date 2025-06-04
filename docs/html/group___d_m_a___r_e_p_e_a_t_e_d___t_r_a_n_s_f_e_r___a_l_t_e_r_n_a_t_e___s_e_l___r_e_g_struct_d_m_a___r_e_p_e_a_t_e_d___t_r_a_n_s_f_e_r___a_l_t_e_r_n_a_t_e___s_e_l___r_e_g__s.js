@@ -1,0 +1,4 @@
+var group___d_m_a___r_e_p_e_a_t_e_d___t_r_a_n_s_f_e_r___a_l_t_e_r_n_a_t_e___s_e_l___r_e_g_struct_d_m_a___r_e_p_e_a_t_e_d___t_r_a_n_s_f_e_r___a_l_t_e_r_n_a_t_e___s_e_l___r_e_g__s =
+[
+    [ "rptd_trnsfr_alternate_sel", "group___d_m_a___r_e_p_e_a_t_e_d___t_r_a_n_s_f_e_r___a_l_t_e_r_n_a_t_e___s_e_l___r_e_g.html#aef8d8de712b2af3f7c777bd759c24155", null ]
+];

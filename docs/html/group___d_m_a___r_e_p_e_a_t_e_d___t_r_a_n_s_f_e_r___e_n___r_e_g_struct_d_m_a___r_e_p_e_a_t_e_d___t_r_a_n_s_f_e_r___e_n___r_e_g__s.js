@@ -1,0 +1,4 @@
+var group___d_m_a___r_e_p_e_a_t_e_d___t_r_a_n_s_f_e_r___e_n___r_e_g_struct_d_m_a___r_e_p_e_a_t_e_d___t_r_a_n_s_f_e_r___e_n___r_e_g__s =
+[
+    [ "rptd_trnsfr_en", "group___d_m_a___r_e_p_e_a_t_e_d___t_r_a_n_s_f_e_r___e_n___r_e_g.html#a6135d350e13ba4f193a45f96cb08e96f", null ]
+];

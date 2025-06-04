@@ -1,0 +1,26 @@
+var adc_8c =
+[
+    [ "adc_clk_cfg", "adc_8c.html#ad818ba45e82cf3c0774b63bb1ea3bf4e", null ],
+    [ "adc_chnl_cfg", "adc_8c.html#a9b494014e2faeec82abf9e490af1d66b", null ],
+    [ "adc_result", "adc_8c.html#ae71cd53a6b23608a9dfa26f0d4211a18", null ],
+    [ "adc_dma_cfg", "adc_8c.html#a2b074dcde7002e50d3f74ce314037154", null ],
+    [ "adc_result_cfg", "adc_8c.html#a131946dc3b28ad3bf2282fb3ab23fb9d", null ],
+    [ "adc_sw_trig", "adc_8c.html#a567677fcb06356a96b76f786a02e644c", null ],
+    [ "adc_single_ch_conv_cfg", "adc_8c.html#ac716f324b8d78d5d73dd393cf46961d9", null ],
+    [ "adc_multi_ch_conv_cfg", "adc_8c.html#a8629199d86170424a05734b01cb1df25", null ],
+    [ "adc_en_conv", "adc_8c.html#af093bf10c419ec16651e69fc04beabca", null ],
+    [ "adc_temp_cfg", "adc_8c.html#a895243e5bea518e3d1ab618675381d71", null ],
+    [ "adc_batt_mon_cfg", "adc_8c.html#aec5e2d236c031418b6e82abfbca53fbe", null ],
+    [ "adc_samp_timer_cfg", "adc_8c.html#a460e9a4ea4840f4defd438fd9bafea6d", null ],
+    [ "adc_hw_avg_cfg", "adc_8c.html#a2ec1cefa1d49d8a6b7fb7a81894c36a9", null ],
+    [ "get_adc_clk_cfg", "adc_8c.html#a7b0cc83026437584a4af2aa4f009f584", null ],
+    [ "get_adc_chnl_cfg", "adc_8c.html#a3687ac6168f2511a29dc0fe9b96b7854", null ],
+    [ "get_adc_dma_cfg", "adc_8c.html#a036744edca7ee2df0c95182f7bf03eb0", null ],
+    [ "get_adc_result_cfg", "adc_8c.html#aeb3150de1e60d1543d77c265cfa1dace", null ],
+    [ "get_adc_sw_trig", "adc_8c.html#a6d6460b2571b97afd6cf4e6c03a0f80c", null ],
+    [ "get_adc_single_ch_conv_cfg", "adc_8c.html#a0507a766908ebfb7efc5500cdf32bde0", null ],
+    [ "get_adc_multi_ch_conv_cfg", "adc_8c.html#ade8071b52615c84d123dcdb769d8c31d", null ],
+    [ "get_adc_en_conv", "adc_8c.html#a898701f435e5e4025a75199bdad83680", null ],
+    [ "get_adc_timer_cfg", "adc_8c.html#a6db6386bf73a1425997e6056a371efe4", null ],
+    [ "get_adc_hw_avg_cfg", "adc_8c.html#a97c3df9e4d2eec08e893ea521647806f", null ]
+];

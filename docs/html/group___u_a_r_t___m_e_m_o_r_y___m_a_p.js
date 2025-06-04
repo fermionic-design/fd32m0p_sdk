@@ -1,0 +1,38 @@
+var group___u_a_r_t___m_e_m_o_r_y___m_a_p =
+[
+    [ "UART_REGS_s", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#struct_u_a_r_t___r_e_g_s__s", [
+      [ "DESC", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a2d387e72168f898316d4cf41961952ba", null ],
+      [ "PWR_EN", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a56e81ed9a98a6a87069022d5e163914c", null ],
+      [ "RST_CTRL", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#af2ae4039d00ad7724291e5e2e224bd91", null ],
+      [ "RST_STS", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#aa521ef7a27bf900718844230f0c27672", null ],
+      [ "CLK_CTRL", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a133fafddb209c5a80140a39cd00f8622", null ],
+      [ "CLK_SEL", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a8173b999df86727cf2916dccf071b279", null ],
+      [ "CLK_DIV", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a504833f663cc011a5d667a5e77d50c55", null ],
+      [ "DBG_CTRL", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a69c9444d7e95fa1783aa82097a989e28", null ],
+      [ "INTR_EVENT", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a7abb6a9007b3927f724541cd496f7465", null ],
+      [ "INTR_EN0", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#aaa05cf43800db816523f171b0d0b34a4", null ],
+      [ "INTR_EN1", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#aebebdc2f7ad87a0cebe99e6bbf3fa5e1", null ],
+      [ "INTR_NMI_EN0", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a64feb0b3f999ad54bc17fd0291e2ae71", null ],
+      [ "INTR_NMI_EN1", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a45f262f6efd0ff30592e4602475d10ad", null ],
+      [ "INTR_SW_SET", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a968e814521494b5cd25c7675a2b02e38", null ],
+      [ "DMA_RX_EVENT_EN0", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#ae4b5c48e2f8272b7c53b92edf3eac638", null ],
+      [ "DMA_RX_EVENT_EN1", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a7b8481dd166758aaa892ef9d8ef7389e", null ],
+      [ "DMA_TX_EVENT_EN0", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a6bc25d44f990ddc61efa3de234670640", null ],
+      [ "DMA_TX_EVENT_EN1", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a642e60a3225a2cb87aeb930fd6363df9", null ],
+      [ "INTR_STS", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#ad80aca2d4846a15205ce70aa40599e71", null ],
+      [ "CLKCFG", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a1f0b7b4a5dcbe6b7eedee4d9f12fb0ad", null ],
+      [ "FIFOLS", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#ad22a315eba1958055347ec12a36fd179", null ],
+      [ "FIFOSTS", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a5384c7d2dbfae7f101d18d14a89666b7", null ],
+      [ "CFG", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a33ee68b3c35b865d191b666d8a674423", null ],
+      [ "GFCTL", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a6c765d97c53e8c6c4ec0294800f6912a", null ],
+      [ "TXDATA", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#aa4874c31f0a343255743b2cc338c1810", null ],
+      [ "RXDATA", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#ab372d47e25ffb37619abe7e5ac17b8eb", null ],
+      [ "BRDNUM", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a4f47a93bfc67b9ec5da4d6e79ae6ce4d", null ],
+      [ "BRDDEN", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#afc40fdb5e5250c1489424f28f54815d4", null ],
+      [ "CTRL", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#af8a5b7dd0e95e6106fa8d311fba2d9f6", null ],
+      [ "ADDR", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a35f967f6a84187e9e71d6ad044f2a83a", null ],
+      [ "ADDRMASK", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a9f6e81ccbe12698f0d02ef6908394634", null ],
+      [ "STS", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a5fbf40ce9242edac10636fdca4063903", null ],
+      [ "FSM_STS", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a92eefc299595dab0f29ead6e4b414b45", null ]
+    ] ]
+];
