@@ -11,7 +11,6 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-
 #include <stdint.h> 
 
 #include "FD32M0P.h"
@@ -38,7 +37,6 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = IOMUX_PIN_SEL_PA6_GPIO;
     iomux_cfg_struct.input_val        = 0;
-  
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 6);
 
     GPIO_INTR_EVENT_EN(GPIO_REGS, 6);
@@ -47,7 +45,6 @@ int main(void) {
     UartPuts("All Pins are set for input on GPIO.\n");
 
     gpio_glitch_filter_cfg(GPIO_REGS, 6, GPIO_FILT_EN_WIDTH_4);
-    
     val = get_gpio_glitch_filter_cfg(GPIO_REGS, 6);
     print_int_var("FILT_EN_6 :",val,0);
 
@@ -55,7 +52,6 @@ int main(void) {
     {
         gpio_intr_polarity_cfg(GPIO_REGS, i, GPIO_INTR_POL_BOTH);
     }
-    
     UartPuts("Enabled INTR_POL_0 \n");
     UartPuts("Enabled INTR_POL_1 \n");
 

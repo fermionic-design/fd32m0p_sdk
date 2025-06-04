@@ -10,14 +10,11 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-
 #include <stdint.h> 
 
 #include "uart_stdout_mcu.h"
 #include "FD32M0P.h"
-
 #include "gpio.h"
-
 
 int main(void) {
 
@@ -31,10 +28,9 @@ int main(void) {
     GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
-    UartPuts("GPIO CLR Base Test\n");
+    UartPuts("GPIO Clr Test\n");
     
     gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
-    
     UartPuts("All Pins are enabled on GPIO.\n");
 
     iomux_cfg_struct.output_en        = 1;
@@ -90,8 +86,6 @@ int main(void) {
         UartPuts("** GPIO CLR TEST FAILED**\n");
         UartFail();
     }
-
     UartEndSimulation();
     return 0;
 }
-

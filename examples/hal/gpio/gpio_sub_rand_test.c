@@ -9,7 +9,6 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-
 #include <stdint.h> 
 
 #include "uart_stdout_mcu.h"
@@ -41,7 +40,6 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-
     for (int i=0;i<28;i=i+1)
     {
         if (i == 17) continue; // skipping UART TX IO MUX cfg.
@@ -60,16 +58,12 @@ int main(void) {
     sub_en      =   1;
     action      =   0;
     bit_num     =   10;
-    
     gpio_sub_cfg(GPIO_REGS, 0, sub_en, action, bit_num);
     
     sub_en      =   1; 
     action      =   0;
     bit_num     =   24;
-
     gpio_sub_cfg(GPIO_REGS, 1, sub_en, action, bit_num);
-    UartPuts("sub_cfg en \n");
-    print_int_var("SUB1 : ",GPIO_REGS->SUB_CFG[1].packed_w,1);
 
     sub_cfg_val = get_gpio_sub_cfg(GPIO_REGS, 0);
     print_int_var("SUB_CFG0_sub_en : ",sub_cfg_val.sub_en, 1);

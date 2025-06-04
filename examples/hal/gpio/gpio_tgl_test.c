@@ -31,9 +31,6 @@ int main(void) {
     GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
-    UartPuts("GPIO TGL Base Test\n");
-    UartPuts("Writing AAAA_AAAA on O/P of GPIO.\n");
-    
     gpio_dout_en(GPIO_REGS, 0xFFFFFFFF);
     UartPuts("All Pins are enabled on GPIO.\n");
 
@@ -52,7 +49,6 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-
     for (i=0;i<28;i=i+1)
     {
         if (i == 17) continue; // skipping UART TX IO MUX cfg.
@@ -61,7 +57,6 @@ int main(void) {
 
     iomux_val = 0x05555555;
     iomux_val_rd = get_gpio_dout(GPIO_REGS);
-
     if(iomux_val_rd == iomux_val)
     {
         UartPuts("-- Correct Value is set. --\n");
@@ -84,4 +79,4 @@ int main(void) {
     }
     UartEndSimulation();
     return 0;
-    }
+}

@@ -9,13 +9,11 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-
 #include <stdint.h> 
 
 #include "uart_stdout_mcu.h"
 #include "FD32M0P.h"
 #include "gpio.h"
-
 
 int main(void) {
 
@@ -37,7 +35,6 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-
     for (i=0;i<28;i=i+1)
     {
         if (i == 17) continue; // skipping UART TX IO MUX cfg.

@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////////
+////                        DAC BASIC TEST                                ////
+////    DESCRIPTION:                                                      ////      
+////        This is DAC basic test. DAC code is written and output        ////
+////        can be observed on PA15                                       ////
+////    Board Setup:                                                      ////
+////        PA15 - DAC output                                             ////
+////                                                                      ////
+//////////////////////////////////////////////////////////////////////////////
+
 #include <stdint.h>
 
 #include "uart_stdout_mcu.h"

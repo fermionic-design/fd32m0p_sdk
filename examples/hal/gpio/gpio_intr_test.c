@@ -11,13 +11,11 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-
 #include <stdint.h>
 
 #include "uart_stdout_mcu.h"
 #include "FD32M0P.h"
 #include "gpio.h"
-
 
 int main(void) {
     uint32_t intr_val;
@@ -45,13 +43,12 @@ int main(void) {
     UartPuts("Power EN Reg Written.\n");
 
     UartPuts("GPIO INTR Test\n");
-    gpio_dout_en(GPIO_REGS, 0x00000000);
 
+    gpio_dout_en(GPIO_REGS, 0x00000000);
     UartPuts("Output is disabled on GPIO.\n");
 
     GPIO_INTR_EVENT_EN(GPIO_REGS, 4);
     GPIO_INTR_EVENT_EN(GPIO_REGS, 24);
-
     UartPuts("Enabled INTR 0. \n");
     UartPuts("Enabled INTR 1. \n");
 
@@ -73,7 +70,6 @@ int main(void) {
     UartPuts("Enabled INTR_POL_1 \n");
     
     intr_val    = 0x01000010;
-
     while(GPIO_REGS->INTR_EVENT.packed_w != intr_val){
         print_int_var("intr_val", GPIO_REGS->INTR_EVENT.packed_w, 1);
     };

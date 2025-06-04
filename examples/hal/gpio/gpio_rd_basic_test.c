@@ -17,7 +17,6 @@
 #include "FD32M0P.h"
 #include "gpio.h"
 
-
 int main(void) {
     uint32_t din = 0;
     uint32_t i;
@@ -28,9 +27,8 @@ int main(void) {
     GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
 
-    UartPuts("GPIO RD Base Test\n");
-    UartPuts("All Pins are enabled on GPIO.\n");
-   
+    UartPuts("GPIO RD Basic Test\n");
+ 
     iomux_cfg_struct.output_en        = 0;
     iomux_cfg_struct.input_en         = 1;
     iomux_cfg_struct.drive_strength   = 0;
@@ -40,10 +38,8 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
-
     iomux_cfg_struct.input_en         = 0;
     for (i=0;i<28;i=i+1)
     {
@@ -53,10 +49,9 @@ int main(void) {
         
         iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
     }
-    UartPuts("Waiting for DIN\n");
-    //while(gpio_din(GPIO_REGS) != 0);
+    UartPuts("All Pins are enabled on GPIO.\n");
+    UartPuts("Waiting for DIN\n");  
     din = gpio_din(GPIO_REGS);
-
     print_int_var("din :", din, 1);
     
     UartPuts("GPIO Read Test Ends\n");

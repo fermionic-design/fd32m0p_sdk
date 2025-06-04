@@ -11,13 +11,11 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-
 #include <stdint.h> 
 
 #include "uart_stdout_mcu.h"
 #include "FD32M0P.h"
 #include "gpio.h"
-
 
 int main(void) {
     uint32_t intr_val;
@@ -35,7 +33,6 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-    
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
 
@@ -49,10 +46,8 @@ int main(void) {
     UartPuts("Output is disabled on GPIO.\n");
 
     GPIO_INTR_EVENT_EN(GPIO_REGS, 4);
-    //GPIO_REGS->INTR_EN0.packed_w = 0x00800080;
     UartPuts("Enabled INTR 0. \n");
     GPIO_INTR_EVENT_EN(GPIO_REGS, 24);
-    //GPIO_REGS->INTR_EN1.packed_w = 0x00100010;
     UartPuts("Enabled INTR 1. \n");
 
     print_int_var("intr_en0 : ", GPIO_REGS->INTR_EN0.packed_w, 1);     
@@ -65,15 +60,10 @@ int main(void) {
     print_int_var("intr_pol1:24 : ", GPIO_REGS->INTR_POL_1.intr_pol_24, 1);
 
     UartPuts("Enabled INTR_POL_0 for Pin 4\n");
-
     UartPuts("Enabled INTR_POL_1 for Pin 24\n");
 
     intr_val = 0x01000010; 
     while(GPIO_REGS->INTR_EVENT.packed_w != intr_val);
-        // {
-        //     print_int_var("intr_val : ", GPIO_REGS->INTR_EVENT.packed_w, 1);
-        // }
-
     if(GPIO_REGS->INTR_EVENT.packed_w == intr_val)
     {
         UartPuts("-- Correct Value is set. --\n");
@@ -94,7 +84,6 @@ int main(void) {
         UartPuts("** GPIO INTR RSNG TEST FAILED **\n");
         UartFail();
     }
-
     UartEndSimulation();
     return 0;
 }

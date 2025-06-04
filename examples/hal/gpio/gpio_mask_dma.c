@@ -9,7 +9,6 @@
 ////                                                                      ////
 //////////////////////////////////////////////////////////////////////////////
 
-
 #include <stdlib.h>
 #include <stdint.h>
 
@@ -17,8 +16,7 @@
 #include "uart_stdout_mcu.h"
 #include "gpio.h"
 #include "event_fabric.h"
-#include "../../hal/dma/dma.h"
-
+#include "dma.h"
 
 typedef struct sram_memory {
     uint32_t mem[1024];
@@ -26,8 +24,6 @@ typedef struct sram_memory {
 
 #define sram_mem_s    ((sram_memory_t *)   0x200000F0)
 #define sram_mem_d    ((sram_memory_t *)   0x200004F0)
-
-/*}}}*/
 
 int main(void) {
     uint32_t current_state;
@@ -51,17 +47,14 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-
     for (i=0;i<28;i=i+1)
     {
         if(i == 17) continue;
         iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
         
     }
-    //clk enable    //to do
+
     DMA_MCU_REGS->CLK_CTRL.packed_w = 0xBC000001;
-    
-    //Soft Reset  //to do 
     DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000001;
     DMA_MCU_REGS->RST_CTRL.packed_w = 0xBC000000;
     
@@ -88,7 +81,6 @@ int main(void) {
     }
 
     UartPuts("Configuring Primary Channel\n");
-    
     //Initializing DMA
     dma_init(DMA_PL230_REGS, 0x20000C00);
 

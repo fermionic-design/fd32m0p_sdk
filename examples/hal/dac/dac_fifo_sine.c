@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////////
+////                        DAC FIFO TEST                                 ////
+////    DESCRIPTION:                                                      ////      
+////        This is DAC FIFO test. DAC codes of a sine wave are written.  ////
+////        A sine wave can be observed on PA15.                          ////
+////    Board Setup:                                                      ////
+////        PA15 - DAC output                                             ////
+////                                                                      ////
+//////////////////////////////////////////////////////////////////////////////
+
 #include <stdint.h>
 
 #include "uart_stdout_mcu.h"

@@ -47,24 +47,20 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-
     for (i=0;i<28;i=i+1)
     {
         if (i == 17) continue; // skipping UART TX IO MUX cfg.
         iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
-    }
-        
+    }    
     UartPuts("All Pins are set for output. \n");
 
     gpio_set(GPIO_REGS, 0xFFFFFFFF);
     UartPuts("All pins are set on GPIO.\n");
-
     gpio_set_en(GPIO_REGS, 0xFFFFFFFF);
     UartPuts("All pins are set on GPIO.\n");
 
     iomux_val = 0x0FFFFFFF;
     iomux_val_rd = get_gpio_dout(GPIO_REGS);
-
     if(iomux_val_rd == iomux_val)
     {
         UartPuts("-- Correct Value is set. --\n");
@@ -87,5 +83,4 @@ int main(void) {
     }
     UartEndSimulation();
     return 0;
-    }
-
+}

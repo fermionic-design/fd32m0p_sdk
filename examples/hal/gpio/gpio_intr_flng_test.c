@@ -15,9 +15,7 @@
 
 #include "uart_stdout_mcu.h"
 #include "FD32M0P.h"
-
 #include "gpio.h"
-
 
 int main(void) {
     uint32_t intr_val;
@@ -34,7 +32,6 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-    
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
 
@@ -66,13 +63,10 @@ int main(void) {
     print_int_var("intr_pol1 : ", GPIO_REGS->INTR_POL_1.intr_pol_24, 1);
 
     UartPuts("Enabled INTR_POL_0 on Pin 4 \n");
-
     UartPuts("Enabled INTR_POL_1 on Pin 24\n");
 
     intr_val = 0x01000010; 
-
     while(GPIO_REGS->INTR_EVENT.packed_w != intr_val);
-
     if(GPIO_REGS->INTR_EVENT.packed_w == intr_val)
     {
         UartPuts("-- Correct Value is set. --\n");
@@ -96,4 +90,4 @@ int main(void) {
 
     UartEndSimulation();
     return 0;
-    }
+}
