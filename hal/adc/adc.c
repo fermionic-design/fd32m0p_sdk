@@ -1,12 +1,19 @@
 #include "adc.h"
 #include "uart_stdout_mcu.h"
 
+/*
+ *  ======== adc_clk_cfg ========
+ */
 void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg){
     regs->CLK_CTRL.clk_en  = clk_cfg.clk_en;
     regs->CLK_CTRL.clk_div = clk_cfg.clk_div;
     regs->CLK_SEL.packed_w  = (ADC_CLK_SEL_CLK_SEL_MASK<<16 | clk_cfg.clk_sel);
 }
 
+
+/*
+ *  ======== adc_chnl_cfg ========
+ */
 void adc_chnl_cfg(ADC_REGS_s *regs, adc_chnl_cfg_s chnl_cfg){
     regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel  = chnl_cfg.channel_sel;
     regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel     = chnl_cfg.vref_sel;
@@ -14,25 +21,40 @@ void adc_chnl_cfg(ADC_REGS_s *regs, adc_chnl_cfg_s chnl_cfg){
     regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en       = chnl_cfg.bcs_en;
 }
 
+/*
+ *  ======== adc_result ========
+ */
 uint32_t adc_result(ADC_REGS_s *regs, uint32_t data_channel){
     uint32_t adc_out;
     adc_out = regs->RESULT[data_channel].result;
     return adc_out;
 }
 
+/*
+ *  ======== adc_dma_cfg ========
+ */
 void adc_dma_cfg(ADC_REGS_s *regs, adc_dma_cfg_s dma_cfg){
     regs->DMA_REG.dma_en                       = dma_cfg.dma_en;
     regs->DMA_TRANSFER_CNT.dma_transfer_cnt    = dma_cfg.dma_transfer_cnt;
 }
 
+/*
+ *  ======== adc_result_cfg ========
+ */
 void adc_result_cfg(ADC_REGS_s *regs, uint32_t fifo_en){
     regs->RESULT_CFG.fifo_en   = fifo_en;
 }
 
+/*
+ *  ======== adc_sw_trig ========
+ */
 void adc_sw_trig(ADC_REGS_s *regs, uint32_t sw_trig){
     regs->SW_TRIGGER.packed_w    = sw_trig;       //SW_TRIGGER_EN AND SW_TRIG BOTH ARE SET TO 1.
 }
 
+/*
+ *  ======== adc_single_ch_conv_cfg ========
+ */
 void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_single_ch)/*{{{*/{
     if(adc_single_ch.repeat == 1)
     {
@@ -52,6 +74,9 @@ void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_singl
     regs->BLOCK_ASYNC_REQ.block_async_req      = 1;
 }/*}}}*/
 
+/*
+ *  ======== adc_multi_ch_conv_cfg ========
+ */
 void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_ch)/*{{{*/{
     if(adc_multi_ch.repeat == 1)
     {
@@ -71,10 +96,16 @@ void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_c
     regs->BLOCK_ASYNC_REQ.block_async_req      = 1;
 }/*}}}*/
 
+/*
+ *  ======== adc_en_conv ========
+ */
 void adc_en_conv(ADC_REGS_s *regs, uint32_t en_conv){
     regs->CONV_CFG.en_conv = en_conv;
 }
 
+/*
+ *  ======== adc_temp_cfg ========
+ */
 void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs, adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg)/*{{{*/{
     if(adc_single_ch.repeat == 1)
     {
@@ -101,6 +132,9 @@ void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s 
     vref_regs->CTRL.vref_mode                              = VREF_CTRL_VREF_MODE_1P4V; 
 }/*}}}*/
 
+/*
+ *  ======== adc_batt_mon_cfg ========
+ */
 void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg)/*{{{*/{
     vref_regs->CTRL.enable                                  = 1;
     vref_regs->CTRL.vref_mode                               = VREF_CTRL_VREF_MODE_2P5V;            // 0: 1p4v 1:2p5v
@@ -126,6 +160,9 @@ void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS
     adc_regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en        = 0;            //Burnout Current Source enable set to 0
 }/*}}}*/
 
+/*
+ *  ======== adc_samp_timer_cfg ========
+ */
 void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_samp_rate)/*{{{*/{
     
     uint32_t adc_clk, adc_clk_div, total_timer, conv_time, samp_time, start_time;
@@ -181,11 +218,17 @@ void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_sam
     
 }/*}}}*/
 
+/*
+ *  ======== adc_hw_avg_cfg ========
+ */
 void adc_hw_avg_cfg(ADC_REGS_s *regs, adc_hw_avg_cfg_s adc_hw_cfg){
     regs->HW_AVG_CFG.hw_sample_cnt     = adc_hw_cfg.hw_sample_cnt;
     regs->HW_AVG_CFG.hw_avg_sample_div = adc_hw_cfg.hw_avg_sample_div;
 }
 
+/*
+ *  ======== get_adc_clk_cfg ========
+ */
 adc_clk_cfg_s get_adc_clk_cfg(ADC_REGS_s *regs){   
     adc_clk_cfg_s clk_cfg;
     clk_cfg.clk_en  = regs->CLK_CTRL.clk_en; 
@@ -194,6 +237,9 @@ adc_clk_cfg_s get_adc_clk_cfg(ADC_REGS_s *regs){
     return clk_cfg;
 }
 
+/*
+ *  ======== get_adc_chnl_cfg ========
+ */
 adc_chnl_cfg_s get_adc_chnl_cfg(ADC_REGS_s *regs, uint32_t data_channel){
     adc_chnl_cfg_s chnl_cfg;
     chnl_cfg.channel_sel = regs->CHNL_CFG[data_channel].channel_sel;
@@ -203,6 +249,9 @@ adc_chnl_cfg_s get_adc_chnl_cfg(ADC_REGS_s *regs, uint32_t data_channel){
     return chnl_cfg;
 }
 
+/*
+ *  ======== get_adc_dma_cfg ========
+ */
 adc_dma_cfg_s get_adc_dma_cfg(ADC_REGS_s *regs){
     adc_dma_cfg_s dma_cfg;
     dma_cfg.dma_en              = regs->DMA_REG.dma_en;
@@ -210,12 +259,18 @@ adc_dma_cfg_s get_adc_dma_cfg(ADC_REGS_s *regs){
     return dma_cfg;
 }
 
+/*
+ *  ======== get_adc_result_cfg ========
+ */
 uint32_t get_adc_result_cfg(ADC_REGS_s *regs){
     uint32_t result_cfg;
     result_cfg = regs->RESULT_CFG.fifo_en;
     return result_cfg;
 }
 
+/*
+ *  ======== get_adc_sw_trig ========
+ */
 adc_sw_trig_cfg_s get_adc_sw_trig(ADC_REGS_s *regs){
     adc_sw_trig_cfg_s adc_sw_trig;
     adc_sw_trig.sw_trigger      = regs->SW_TRIGGER.sw_trigger;
@@ -223,6 +278,9 @@ adc_sw_trig_cfg_s get_adc_sw_trig(ADC_REGS_s *regs){
     return adc_sw_trig;
 }
 
+/*
+ *  ======== get_adc_single_ch_conv_cfg ========
+ */
 adc_single_ch_conv_cfg_s get_adc_single_ch_conv_cfg(ADC_REGS_s *regs)/*{{{*/{
     adc_single_ch_conv_cfg_s adc_single_ch;
     adc_single_ch.repeat           = regs->CONV_CFG.conv_mode;
@@ -235,6 +293,9 @@ adc_single_ch_conv_cfg_s get_adc_single_ch_conv_cfg(ADC_REGS_s *regs)/*{{{*/{
     return adc_single_ch;
 }/*}}}*/
 
+/*
+ *  ======== get_adc_multi_ch_conv_cfg ========
+ */
 adc_multi_ch_conv_cfg_s get_adc_multi_ch_conv_cfg(ADC_REGS_s *regs)/*{{{*/{
     adc_multi_ch_conv_cfg_s adc_multi_ch;
     
@@ -249,12 +310,18 @@ adc_multi_ch_conv_cfg_s get_adc_multi_ch_conv_cfg(ADC_REGS_s *regs)/*{{{*/{
     return adc_multi_ch;
 }/*}}}*/
 
+/*
+ *  ======== get_adc_en_conv ========
+ */
 uint32_t get_adc_en_conv(ADC_REGS_s *regs){
     uint32_t val;
     val = regs->CONV_CFG.en_conv;
     return val;
 }
 
+/*
+ *  ======== get_adc_timer_cfg ========
+ */
 adc_timer_cfg_s get_adc_timer_cfg(ADC_REGS_s *regs){
     adc_timer_cfg_s adc_timer_cfg;
     adc_timer_cfg.start_time = regs->TIMER_START.timer_cnt_start;           
@@ -263,6 +330,9 @@ adc_timer_cfg_s get_adc_timer_cfg(ADC_REGS_s *regs){
     return adc_timer_cfg; 
 }
 
+/*
+ *  ======== get_adc_hw_avg_cfg ========
+ */
 adc_hw_avg_cfg_s get_adc_hw_avg_cfg(ADC_REGS_s *regs){
     adc_hw_avg_cfg_s adc_hw_cfg;
     adc_hw_cfg.hw_sample_cnt = regs->HW_AVG_CFG.hw_sample_cnt;

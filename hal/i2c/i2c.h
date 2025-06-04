@@ -26,9 +26,9 @@ typedef struct i2c_counter_cfg {
     .mst_sda_stop_cnt = 66          ,\
     .mst_stop_start_buffer_cnt = 78 ,\
     .mst_restart_setup_cnt = 78     ,\
-    .mst_max_clkstretch_cnt = 800   ,\
-    .slv_max_clkstretch_cnt = 800   ,\
-    .smbus_timeout_cnt = 700         \
+    .mst_max_clkstretch_cnt = 5000   ,\
+    .slv_max_clkstretch_cnt = 5000   ,\
+    .smbus_timeout_cnt = 5000        \
 }
 
 typedef struct i2c_slv_cfg {
@@ -101,7 +101,6 @@ uint8_t i2c_txfifo_fill_nonblocking(I2C_REGS_s *regs, const uint8_t *buffer, uin
 void i2c_txfifo_fill_blocking(I2C_REGS_s *regs, const uint8_t *buffer, uint8_t num_bytes);
 uint8_t i2c_rxfifo_drain_nonblocking(I2C_REGS_s *regs, uint8_t *buffer, uint8_t num_bytes);
 void i2c_rxfifo_drain_blocking(I2C_REGS_s *regs, uint8_t *buffer, uint8_t num_bytes);
-void i2c_slv_transfer(I2C_REGS_s *regs, const uint8_t *write_buffer, const uint8_t *read_buffer, uint8_t num_bytes);
 bool i2c_slv_rd_wr_sts_get(I2C_REGS_s *regs);
 void i2c_slv_sts_get(I2C_REGS_s *regs, i2c_slv_sts_t *i2c_slv_sts);
 void i2c_wait_for_slv_start(I2C_REGS_s *regs);

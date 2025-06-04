@@ -109,8 +109,8 @@
             "makeArgs": ["TESTNAME=crc_hal_poly16_test", "TESTFOLDER=examples/hal/crc", "TEST_DEFINE=-DCRC_CHECK=4 -DSTDIO_BAUD_RATE=1500000"]
         },
         {
-            "name": "dac_base",
-            "makeArgs": ["TESTNAME=dac_base_test", "TESTFOLDER=examples/hal/dac", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+            "name": "dac_basic_test",
+            "makeArgs": ["TESTNAME=dac_basic_test", "TESTFOLDER=examples/hal/dac", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
             "name": "dac_fifo",

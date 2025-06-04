@@ -10,6 +10,9 @@
 #include "GPIO_REGS.h"
 #include "GPIO_RW_API.h"
 
+/*!
+ *  @brief  DAC Configuration Struct
+ */
 typedef struct {
     DAC_CTRL0_DATA_FMT_E    data_fmt;
     uint32_t                enable;
@@ -22,6 +25,9 @@ typedef struct {
     uint32_t                samp_tim_rate;
 } dac_cfg_s;
 
+/*!
+ *  @brief  DAC DMA Configuration Struct
+ */
 typedef struct {
     uint32_t                    dma_trig_en;
     DAC_CTRL2_FIFO_TH_E         fifo_th;
@@ -29,11 +35,61 @@ typedef struct {
     DAC_CTRL2_FIFO_TRIG_SEL_E   fifo_trig_sel;
 } dac_dma_cfg_s;
 
+/**
+ * @brief   This function configures DAC
+ *
+ * @param   dac_regs : pointer to the DAC register space
+ * @param   dac_cfg_struct : DAC configuration struct
+ *  
+ * @retval  void
+ */
 void dac_cfg(DAC_REGS_s *regs, dac_cfg_s dac_cfg_struct);
+
+/**
+ * @brief   This function configures DAC for DMA application
+ *
+ * @param   dac_regs : pointer to the DAC register space
+ * @param   dac_dma_cfg_struct : DAC DMA configuration struct
+ *  
+ * @retval  void
+ */
 void dac_dma_cfg(DAC_REGS_s *regs, dac_dma_cfg_s dac_dma_cfg_struct);
+
+/**
+ * @brief   This function writes DAC code in DAC.
+ *
+ * @param   dac_regs : pointer to the DAC register space
+ * @param   dac_code : DAC code
+ *  
+ * @retval  void
+ */
 void dac_wr_code(DAC_REGS_s *regs, uint32_t dac_code);
+
+/**
+ * @brief   This function returns DAC configuration.
+ *
+ * @param   dac_regs : pointer to the DAC register space
+ *  
+ * @retval  DAC configuration
+ */
 dac_cfg_s get_dac_cfg(DAC_REGS_s *regs);
+
+/**
+ * @brief   This function returns DAC DMA configuration.
+ *
+ * @param   dac_regs : pointer to the DAC register space
+ *  
+ * @retval  DAC DMA configuration
+ */
 dac_dma_cfg_s get_dac_dma_cfg(DAC_REGS_s *regs);
+
+/**
+ * @brief   This function returns DAC code.
+ *
+ * @param   dac_regs : pointer to the DAC register space
+ *  
+ * @retval  DAC code
+ */
 uint32_t get_dac_wr_code(DAC_REGS_s *regs);
 
 #endif
