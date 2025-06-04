@@ -93,13 +93,8 @@ void i2c_rxfifo_drain_blocking(I2C_REGS_s *regs, uint8_t *buffer, uint8_t num_by
     }
 }
 
-void i2c_slv_transfer(I2C_REGS_s *regs, const uint8_t *write_buffer, const uint8_t *read_buffer, uint8_t num_bytes){
-
-}
-
 bool i2c_slv_rd_wr_sts_get(I2C_REGS_s *regs){
     return regs->SPARE_STS.sts0;
-
 }
 
 void i2c_slv_sts_get(I2C_REGS_s *regs, i2c_slv_sts_t *i2c_slv_sts){
@@ -119,29 +114,32 @@ void i2c_wait_for_slv_start(I2C_REGS_s *regs){
     while(regs->INTR_EVENT.slv_start != 1){
         __asm("NOP");
     }
-    I2C_INTR_EVENT_CLEAR(regs, 2);
+    I2C_INTR_EVENT_CLEAR(regs, I2C_INTR_EVENT_SLV_START_IDX);
 }
 
 void i2c_wait_for_rx_done(I2C_REGS_s *regs){
     while(regs->INTR_EVENT.rx_done != 1){
         __asm("NOP");
     }
-    I2C_INTR_EVENT_CLEAR(regs, 5);
+    I2C_INTR_EVENT_CLEAR(regs, I2C_INTR_EVENT_RX_DONE_IDX);
 }
 
 void i2c_wait_for_tx_done(I2C_REGS_s *regs){
     while(regs->INTR_EVENT.tx_done != 1){
         __asm("NOP");
     }
-    I2C_INTR_EVENT_CLEAR(regs, 4);
+    I2C_INTR_EVENT_CLEAR(regs, I2C_INTR_EVENT_TX_DONE_IDX);
 
 }
 
 bool i2c_poll_for_slv_stop(I2C_REGS_s *regs){
-    if (regs->INTR_EVENT.slv_stop != 1){
-        //__asm("NOP");
-        I2C_INTR_EVENT_CLEAR(regs, 3);
-        return 1;
+    
+    for (uint8_t i = 0; i<15; i++)
+    {
+        if (regs->INTR_EVENT.slv_stop == 1){
+            I2C_INTR_EVENT_CLEAR(regs, I2C_INTR_EVENT_SLV_STOP_IDX);
+            return 1;
+        }
     }
     return 0;
 
