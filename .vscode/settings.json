@@ -165,12 +165,16 @@
             "makeArgs": ["TESTNAME=gpio_sub_rand_test", "TESTFOLDER=examples/hal/gpio" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
-            "name": "gpio_rd_base",
-            "makeArgs": ["TESTNAME=gpio_rd_base_test", "TESTFOLDER=examples/hal/gpio" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+            "name": "gpio_rd_basic",
+            "makeArgs": ["TESTNAME=gpio_rd_basic_test", "TESTFOLDER=examples/hal/gpio" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
             "name": "gpio_rd_bit",
             "makeArgs": ["TESTNAME=gpio_rd_bit_test", "TESTFOLDER=examples/hal/gpio" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "gpio_wr_basic",
+            "makeArgs": ["TESTNAME=gpio_wr_basic_bit_test", "TESTFOLDER=examples/hal/gpio" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
             "name": "gpio_dma",
@@ -182,4 +186,7 @@
         }
     ],
     "makefile.makePath": "C:\\Program Files (x86)\\GnuWin32\\bin",
+    "files.associations": {
+        "fd32m0p.h": "c"
+    },
 }
