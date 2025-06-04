@@ -917,37 +917,37 @@ typedef union {
  *  @{
  */
 typedef struct {
-    /** @ref GPIO_FILT_EN_0_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_0:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_1_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_1:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_2_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_2:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_3_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_3:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_4_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_4:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_5_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_5:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_6_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_6:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_7_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_7:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_8_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_8:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_9_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_9:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_10_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_10:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_11_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_11:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_12_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_12:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_13_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_13:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_14_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_14:2; // 
-    /** @ref GPIO_FILT_EN_0_FILT_EN_15_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_15:2; // 
 } GPIO_FILT_EN_0_REG_s;
 
@@ -965,37 +965,37 @@ typedef union {
  *  @{
  */
 typedef struct {
-    /** @ref GPIO_FILT_EN_1_FILT_EN_16_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_16:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_17_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_17:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_18_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_18:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_19_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_19:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_20_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_20:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_21_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_21:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_22_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_22:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_23_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_23:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_24_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_24:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_25_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_25:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_26_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_26:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_27_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_27:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_28_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_28:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_29_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_29:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_30_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_30:2; // 
-    /** @ref GPIO_FILT_EN_1_FILT_EN_31_E */
+    /** @ref GPIO_FILT_EN_E */
     unsigned int filt_en_31:2; // 
 } GPIO_FILT_EN_1_REG_s;
 
@@ -1013,37 +1013,37 @@ typedef union {
  *  @{
  */
 typedef struct {
-    /** @ref GPIO_INTR_POL_0_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_0:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_1_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_1:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_2_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_2:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_3_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_3:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_4_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_4:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_5_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_5:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_6_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_6:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_7_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_7:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_8_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_8:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_9_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_9:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_10_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_10:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_11_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_11:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_12_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_12:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_13_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_13:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_14_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_14:2; // 
-    /** @ref GPIO_INTR_POL_0_INTR_POL_15_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_15:2; // 
 } GPIO_INTR_POL_0_REG_s;
 
@@ -1061,37 +1061,37 @@ typedef union {
  *  @{
  */
 typedef struct {
-    /** @ref GPIO_INTR_POL_1_INTR_POL_16_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_16:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_17_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_17:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_18_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_18:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_19_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_19:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_20_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_20:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_21_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_21:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_22_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_22:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_23_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_23:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_24_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_24:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_25_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_25:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_26_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_26:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_27_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_27:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_28_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_28:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_29_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_29:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_30_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_30:2; // 
-    /** @ref GPIO_INTR_POL_1_INTR_POL_31_E */
+    /** @ref GPIO_INTR_POL_E */
     unsigned int intr_pol_31:2; // 
 } GPIO_INTR_POL_1_REG_s;
 
