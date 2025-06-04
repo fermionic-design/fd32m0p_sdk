@@ -35,6 +35,7 @@ typedef union {
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref DAC_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } DAC_PWR_EN_REG_s;
 
@@ -55,6 +56,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref DAC_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } DAC_RST_CTRL_REG_s;
 
@@ -261,8 +263,10 @@ typedef union {
  */
 typedef struct {
     unsigned int enable:1; // 
+    /** @ref DAC_CTRL0_RES_E */
     unsigned int rsvd_0:7; // 
     unsigned int res:1; // 
+    /** @ref DAC_CTRL0_DATA_FMT_E */
     unsigned int rsvd_1:7; // 
     unsigned int data_fmt:1; // 
 } DAC_CTRL0_REG_s;
@@ -284,6 +288,7 @@ typedef struct {
     unsigned int amp_en:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int amp_hiz:1; // 
+    /** @ref DAC_CTRL1_VREFP_SEL_E */
     unsigned int rsvd_1:7; // 
     unsigned int vrefp_sel:1; // 
     unsigned int rsvd_2:7; // 
@@ -305,8 +310,10 @@ typedef union {
  */
 typedef struct {
     unsigned int fifo_en:1; // 
+    /** @ref DAC_CTRL2_FIFO_TH_E */
     unsigned int rsvd_0:7; // 
     unsigned int fifo_th:2; // 
+    /** @ref DAC_CTRL2_FIFO_TRIG_SEL_E */
     unsigned int rsvd_1:6; // 
     unsigned int fifo_trig_sel:2; // 
     unsigned int rsvd_2:6; // 
@@ -434,29 +441,34 @@ typedef union {
 
 /** @} end of DAC_REGISTERS */ 
 
+/** @defgroup DAC_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  DAC_DESC_u DESC;
-    volatile  DAC_PWR_EN_u PWR_EN;
-    volatile  DAC_RST_CTRL_u RST_CTRL;
-    volatile  DAC_RST_STS_u RST_STS;
-    volatile  DAC_CLK_CTRL_u CLK_CTRL;
-    volatile  DAC_INTR_STS_u INTR_STS;
-    volatile  DAC_INTR_EVENT_u INTR_EVENT;
-    volatile  DAC_INTR_EN_u INTR_EN;
-    volatile  DAC_INTR_NMI_EN_u INTR_NMI_EN;
-    volatile  DAC_EVENT_EN_u EVENT_EN;
-    volatile  DAC_INTR_SW_SET_u INTR_SW_SET;
-    volatile  DAC_EVENT_CTRL_u EVENT_CTRL;
-    volatile  DAC_CTRL0_u CTRL0;
-    volatile  DAC_CTRL1_u CTRL1;
-    volatile  DAC_CTRL2_u CTRL2;
-    volatile  DAC_CTRL3_u CTRL3;
-    volatile  DAC_DATA_u DATA;
-    volatile  DAC_CAL_CTRL_u CAL_CTRL;
-    volatile  DAC_CAL_STS_u CAL_STS;
-    volatile  DAC_SPARE_CTRL_u SPARE_CTRL;
-    volatile  DAC_SPARE_STS_u SPARE_STS;
+    volatile  DAC_DESC_u DESC; ///< 0x00000000
+    volatile  DAC_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  DAC_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  DAC_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  DAC_CLK_CTRL_u CLK_CTRL; ///< 0x00000010
+    volatile  DAC_INTR_STS_u INTR_STS; ///< 0x00000014
+    volatile  DAC_INTR_EVENT_u INTR_EVENT; ///< 0x00000018
+    volatile  DAC_INTR_EN_u INTR_EN; ///< 0x0000001C
+    volatile  DAC_INTR_NMI_EN_u INTR_NMI_EN; ///< 0x00000020
+    volatile  DAC_EVENT_EN_u EVENT_EN; ///< 0x00000024
+    volatile  DAC_INTR_SW_SET_u INTR_SW_SET; ///< 0x00000028
+    volatile  DAC_EVENT_CTRL_u EVENT_CTRL; ///< 0x0000002C
+    volatile  DAC_CTRL0_u CTRL0; ///< 0x00000030
+    volatile  DAC_CTRL1_u CTRL1; ///< 0x00000034
+    volatile  DAC_CTRL2_u CTRL2; ///< 0x00000038
+    volatile  DAC_CTRL3_u CTRL3; ///< 0x0000003C
+    volatile  DAC_DATA_u DATA; ///< 0x00000040
+    volatile  DAC_CAL_CTRL_u CAL_CTRL; ///< 0x00000044
+    volatile  DAC_CAL_STS_u CAL_STS; ///< 0x00000048
+    volatile  DAC_SPARE_CTRL_u SPARE_CTRL; ///< 0x0000004C
+    volatile  DAC_SPARE_STS_u SPARE_STS; ///< 0x00000050
 } DAC_REGS_s;
+
+/** @} end of DAC_MEMORY_MAP */ 
 
 /** @defgroup DAC_KEY 
  *  @{
@@ -480,36 +492,46 @@ typedef struct {
 #define DAC_INTR_EVENT_DMA_DONE_IDX (7)
 /** @} end of DAC_INTERRUPTS */ 
 
-/** @defgroup DAC_ENUM 
+/** @addtogroup DAC_CTRL0_REG  
  *  @{
  */
-
 typedef enum {
-	DAC_CTRL0_RES_8BIT = 0,
-	DAC_CTRL0_RES_13BIT = 1,
+	DAC_CTRL0_RES_8BIT = 0, ///< 0x0
+	DAC_CTRL0_RES_13BIT = 1, ///< 0x1
 } DAC_CTRL0_RES_E;
-
+/** @} */
+/** @addtogroup DAC_CTRL0_REG  
+ *  @{
+ */
 typedef enum {
-	DAC_CTRL0_DATA_FMT_BINARY = 0,
-	DAC_CTRL0_DATA_FMT_TWOS_COMPLEMENT = 1,
+	DAC_CTRL0_DATA_FMT_BINARY = 0, ///< 0x0
+	DAC_CTRL0_DATA_FMT_TWOS_COMPLEMENT = 1, ///< 0x1
 } DAC_CTRL0_DATA_FMT_E;
-
+/** @} */
+/** @addtogroup DAC_CTRL1_REG  
+ *  @{
+ */
 typedef enum {
-	DAC_CTRL1_VREFP_SEL_EXT = 0,
-	DAC_CTRL1_VREFP_SEL_INT = 1,
+	DAC_CTRL1_VREFP_SEL_EXT = 0, ///< 0x0
+	DAC_CTRL1_VREFP_SEL_INT = 1, ///< 0x1
 } DAC_CTRL1_VREFP_SEL_E;
-
+/** @} */
+/** @addtogroup DAC_CTRL2_REG  
+ *  @{
+ */
 typedef enum {
-	DAC_CTRL2_FIFO_TH_EMPTY = 0,
-	DAC_CTRL2_FIFO_TH_ALMOST_EMPTY = 1,
+	DAC_CTRL2_FIFO_TH_EMPTY = 0, ///< 0x0
+	DAC_CTRL2_FIFO_TH_ALMOST_EMPTY = 1, ///< 0x1
 } DAC_CTRL2_FIFO_TH_E;
-
+/** @} */
+/** @addtogroup DAC_CTRL2_REG  
+ *  @{
+ */
 typedef enum {
-	DAC_CTRL2_FIFO_TRIG_SEL_HW_TRIGGER = 0,
-	DAC_CTRL2_FIFO_TRIG_SEL_FIFO_EMPTY = 1,
+	DAC_CTRL2_FIFO_TRIG_SEL_HW_TRIGGER = 0, ///< 0x0
+	DAC_CTRL2_FIFO_TRIG_SEL_FIFO_EMPTY = 1, ///< 0x1
 } DAC_CTRL2_FIFO_TRIG_SEL_E;
-/** @} end of DAC_ENUM */ 
-
+/** @} */
 
 /** @defgroup DAC_REGISTER_FLAGS 
  *  @{

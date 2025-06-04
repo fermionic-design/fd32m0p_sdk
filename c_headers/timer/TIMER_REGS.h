@@ -35,6 +35,7 @@ typedef union {
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref TIMER_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } TIMER_PWR_EN_REG_s;
 
@@ -55,6 +56,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref TIMER_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } TIMER_RST_CTRL_REG_s;
 
@@ -415,6 +417,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CLK_CONFIG_CLK_SEL_E */
     unsigned int clk_sel:2; // 
     unsigned int clk_div:11; // 
 } TIMER_CLK_CONFIG_REG_s;
@@ -434,6 +437,7 @@ typedef union {
  */
 typedef struct {
     unsigned int trig_en:1; // 
+    /** @ref TIMER_TRIG_IN_TRIG_SEL_E */
     unsigned int trig_sel:5; // 
 } TIMER_TRIG_IN_REG_s;
 
@@ -454,6 +458,7 @@ typedef struct {
     unsigned int trig_out_en:1; // 
     unsigned int trig_sw_en:1; // 
     unsigned int trig_hw_en:1; // 
+    /** @ref TIMER_TRIG_OUT_TRIG_HW_SEL_E */
     unsigned int trig_hw_sel:4; // 
 } TIMER_TRIG_OUT_REG_s;
 
@@ -473,6 +478,7 @@ typedef union {
 typedef struct {
     unsigned int filter_en_0:1; // 
     unsigned int is_consecutive_prd_0:1; // 
+    /** @ref TIMER_INPUT_FILTER_CC_0_FILTER_PERIOD_0_E */
     unsigned int filter_period_0:2; // 
 } TIMER_INPUT_FILTER_CC_0_REG_s;
 
@@ -492,6 +498,7 @@ typedef union {
 typedef struct {
     unsigned int filter_en_1:1; // 
     unsigned int is_consecutive_prd_1:1; // 
+    /** @ref TIMER_INPUT_FILTER_CC_1_FILTER_PERIOD_1_E */
     unsigned int filter_period_1:2; // 
 } TIMER_INPUT_FILTER_CC_1_REG_s;
 
@@ -511,6 +518,7 @@ typedef union {
 typedef struct {
     unsigned int filter_en_2:1; // 
     unsigned int is_consecutive_prd_2:1; // 
+    /** @ref TIMER_INPUT_FILTER_CC_2_FILTER_PERIOD_2_E */
     unsigned int filter_period_2:2; // 
 } TIMER_INPUT_FILTER_CC_2_REG_s;
 
@@ -530,6 +538,7 @@ typedef union {
 typedef struct {
     unsigned int filter_en_3:1; // 
     unsigned int is_consecutive_prd_3:1; // 
+    /** @ref TIMER_INPUT_FILTER_CC_3_FILTER_PERIOD_3_E */
     unsigned int filter_period_3:2; // 
 } TIMER_INPUT_FILTER_CC_3_REG_s;
 
@@ -547,6 +556,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_INPUT_CC_0_INPUT_SEL_0_E */
     unsigned int input_sel_0:4; // 
     unsigned int input_inv_0:1; // 
 } TIMER_INPUT_CC_0_REG_s;
@@ -619,8 +629,11 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC0_CMN_CTRL_IS_CAPTURE_0_E */
     unsigned int is_capture_0:1; // 
+    /** @ref TIMER_CC0_CMN_CTRL_CC2D_SEL_0_E */
     unsigned int cc2d_sel_0:3; // 
+    /** @ref TIMER_CC0_CMN_CTRL_CC2U_SEL_0_E */
     unsigned int cc2u_sel_0:3; // 
     unsigned int suppress_coc_event_gen_0:1; // 
 } TIMER_CC0_CMN_CTRL_REG_s;
@@ -639,8 +652,11 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC1_CMN_CTRL_IS_CAPTURE_1_E */
     unsigned int is_capture_1:1; // 
+    /** @ref TIMER_CC1_CMN_CTRL_CC2D_SEL_1_E */
     unsigned int cc2d_sel_1:3; // 
+    /** @ref TIMER_CC1_CMN_CTRL_CC2U_SEL_1_E */
     unsigned int cc2u_sel_1:3; // 
     unsigned int suppress_coc_event_gen_1:1; // 
 } TIMER_CC1_CMN_CTRL_REG_s;
@@ -659,9 +675,13 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_E */
     unsigned int cap_cond_0:2; // 
+    /** @ref TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_E */
     unsigned int load_cond_0:2; // 
+    /** @ref TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_E */
     unsigned int zero_cond_0:2; // 
+    /** @ref TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_E */
     unsigned int adv_cond_0:3; // 
     unsigned int cap_val_0:16; // 
 } TIMER_CC0_CAPTURE_CTRL_REG_s;
@@ -680,9 +700,13 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_E */
     unsigned int cap_cond_1:2; // 
+    /** @ref TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_E */
     unsigned int load_cond_1:2; // 
+    /** @ref TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_E */
     unsigned int zero_cond_1:2; // 
+    /** @ref TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_E */
     unsigned int adv_cond_1:3; // 
     unsigned int cap_val_1:16; // 
 } TIMER_CC1_CAPTURE_CTRL_REG_s;
@@ -702,7 +726,9 @@ typedef union {
  */
 typedef struct {
     unsigned int comp_val_0:16; // 
+    /** @ref TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_E */
     unsigned int comp_val_update_method_0:3; // 
+    /** @ref TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_E */
     unsigned int ccact_update_method_0:3; // 
 } TIMER_CC0_COMPARE_CTRL_REG_s;
 
@@ -721,7 +747,9 @@ typedef union {
  */
 typedef struct {
     unsigned int comp_val_1:16; // 
+    /** @ref TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_E */
     unsigned int comp_val_update_method_1:3; // 
+    /** @ref TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_E */
     unsigned int ccact_update_method_1:3; // 
 } TIMER_CC1_COMPARE_CTRL_REG_s;
 
@@ -739,8 +767,11 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC2_CMN_CTRL_IS_CAPTURE_2_E */
     unsigned int is_capture_2:1; // 
+    /** @ref TIMER_CC2_CMN_CTRL_CC2D_SEL_2_E */
     unsigned int cc2d_sel_2:3; // 
+    /** @ref TIMER_CC2_CMN_CTRL_CC2U_SEL_2_E */
     unsigned int cc2u_sel_2:3; // 
     unsigned int suppress_coc_event_gen_2:1; // 
 } TIMER_CC2_CMN_CTRL_REG_s;
@@ -759,8 +790,11 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC3_CMN_CTRL_IS_CAPTURE_3_E */
     unsigned int is_capture_3:1; // 
+    /** @ref TIMER_CC3_CMN_CTRL_CC2D_SEL_3_E */
     unsigned int cc2d_sel_3:3; // 
+    /** @ref TIMER_CC3_CMN_CTRL_CC2U_SEL_3_E */
     unsigned int cc2u_sel_3:3; // 
     unsigned int suppress_coc_event_gen_3:1; // 
 } TIMER_CC3_CMN_CTRL_REG_s;
@@ -779,9 +813,13 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_E */
     unsigned int cap_cond_2:2; // 
+    /** @ref TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_E */
     unsigned int load_cond_2:2; // 
+    /** @ref TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_E */
     unsigned int zero_cond_2:2; // 
+    /** @ref TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_E */
     unsigned int adv_cond_2:3; // 
     unsigned int cap_val_2:16; // 
 } TIMER_CC2_CAPTURE_CTRL_REG_s;
@@ -800,9 +838,13 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_E */
     unsigned int cap_cond_3:2; // 
+    /** @ref TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_E */
     unsigned int load_cond_3:2; // 
+    /** @ref TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_E */
     unsigned int zero_cond_3:2; // 
+    /** @ref TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_E */
     unsigned int adv_cond_3:3; // 
     unsigned int cap_val_3:16; // 
 } TIMER_CC3_CAPTURE_CTRL_REG_s;
@@ -822,7 +864,9 @@ typedef union {
  */
 typedef struct {
     unsigned int comp_val_2:16; // 
+    /** @ref TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_E */
     unsigned int comp_val_update_method_2:3; // 
+    /** @ref TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_E */
     unsigned int ccact_update_method_2:3; // 
 } TIMER_CC2_COMPARE_CTRL_REG_s;
 
@@ -841,7 +885,9 @@ typedef union {
  */
 typedef struct {
     unsigned int comp_val_3:16; // 
+    /** @ref TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_E */
     unsigned int comp_val_update_method_3:3; // 
+    /** @ref TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_E */
     unsigned int ccact_update_method_3:3; // 
 } TIMER_CC3_COMPARE_CTRL_REG_s;
 
@@ -894,6 +940,7 @@ typedef union {
  */
 typedef struct {
     unsigned int comp_val_4:16; // 
+    /** @ref TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_E */
     unsigned int comp_val_update_method_4:3; // 
 } TIMER_CC4_COMPARE_CTRL_REG_s;
 
@@ -912,6 +959,7 @@ typedef union {
  */
 typedef struct {
     unsigned int comp_val_5:16; // 
+    /** @ref TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_E */
     unsigned int comp_val_update_method_5:3; // 
 } TIMER_CC5_COMPARE_CTRL_REG_s;
 
@@ -929,13 +977,21 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_E */
     unsigned int cc_out_cc2d_0:2; // 
+    /** @ref TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_E */
     unsigned int cc_out_cc2u_0:2; // 
+    /** @ref TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_E */
     unsigned int cc_out_ccd_0:2; // 
+    /** @ref TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_E */
     unsigned int cc_out_ccu_0:2; // 
+    /** @ref TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_E */
     unsigned int cc_out_load_0:2; // 
+    /** @ref TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_E */
     unsigned int cc_out_zero_0:2; // 
+    /** @ref TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_E */
     unsigned int cc_out_fault_entry_0:3; // 
+    /** @ref TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_E */
     unsigned int cc_out_fault_exit_0:3; // 
 } TIMER_CC0_CC_PWM_CFG_REG_s;
 
@@ -953,13 +1009,21 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_E */
     unsigned int cc_out_cc2d_1:2; // 
+    /** @ref TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_E */
     unsigned int cc_out_cc2u_1:2; // 
+    /** @ref TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_E */
     unsigned int cc_out_ccd_1:2; // 
+    /** @ref TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_E */
     unsigned int cc_out_ccu_1:2; // 
+    /** @ref TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_E */
     unsigned int cc_out_load_1:2; // 
+    /** @ref TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_E */
     unsigned int cc_out_zero_1:2; // 
+    /** @ref TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_E */
     unsigned int cc_out_fault_entry_1:3; // 
+    /** @ref TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_E */
     unsigned int cc_out_fault_exit_1:3; // 
 } TIMER_CC1_CC_PWM_CFG_REG_s;
 
@@ -977,13 +1041,21 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_E */
     unsigned int cc_out_cc2d_2:2; // 
+    /** @ref TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_E */
     unsigned int cc_out_cc2u_2:2; // 
+    /** @ref TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_E */
     unsigned int cc_out_ccd_2:2; // 
+    /** @ref TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_E */
     unsigned int cc_out_ccu_2:2; // 
+    /** @ref TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_E */
     unsigned int cc_out_load_2:2; // 
+    /** @ref TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_E */
     unsigned int cc_out_zero_2:2; // 
+    /** @ref TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_E */
     unsigned int cc_out_fault_entry_2:3; // 
+    /** @ref TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_E */
     unsigned int cc_out_fault_exit_2:3; // 
 } TIMER_CC2_CC_PWM_CFG_REG_s;
 
@@ -1001,13 +1073,21 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_E */
     unsigned int cc_out_cc2d_3:2; // 
+    /** @ref TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_E */
     unsigned int cc_out_cc2u_3:2; // 
+    /** @ref TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_E */
     unsigned int cc_out_ccd_3:2; // 
+    /** @ref TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_E */
     unsigned int cc_out_ccu_3:2; // 
+    /** @ref TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_E */
     unsigned int cc_out_load_3:2; // 
+    /** @ref TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_E */
     unsigned int cc_out_zero_3:2; // 
+    /** @ref TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_E */
     unsigned int cc_out_fault_entry_3:3; // 
+    /** @ref TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_E */
     unsigned int cc_out_fault_exit_3:3; // 
 } TIMER_CC3_CC_PWM_CFG_REG_s;
 
@@ -1044,6 +1124,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_E */
     unsigned int cc_out_sel_0:4; // 
     unsigned int cc_out_inv_0:1; // 
     unsigned int cc_out_val_init_0:1; // 
@@ -1063,6 +1144,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_E */
     unsigned int cc_out_sel_1:4; // 
     unsigned int cc_out_inv_1:1; // 
     unsigned int cc_out_val_init_1:1; // 
@@ -1082,7 +1164,9 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC0_SW_FORCE_CC_OUT_SW_FORCE_0_E */
     unsigned int cc_out_sw_force_0:2; // 
+    /** @ref TIMER_CC0_SW_FORCE_CC_CMPL_OUT_SW_FORCE_0_E */
     unsigned int cc_cmpl_out_sw_force_0:2; // 
 } TIMER_CC0_SW_FORCE_REG_s;
 
@@ -1100,7 +1184,9 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC1_SW_FORCE_CC_OUT_SW_FORCE_1_E */
     unsigned int cc_out_sw_force_1:2; // 
+    /** @ref TIMER_CC1_SW_FORCE_CC_CMPL_OUT_SW_FORCE_1_E */
     unsigned int cc_cmpl_out_sw_force_1:2; // 
 } TIMER_CC1_SW_FORCE_REG_s;
 
@@ -1118,6 +1204,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_E */
     unsigned int cc_out_sel_2:4; // 
     unsigned int cc_out_inv_2:1; // 
     unsigned int cc_out_val_init_2:1; // 
@@ -1137,6 +1224,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_E */
     unsigned int cc_out_sel_3:4; // 
     unsigned int cc_out_inv_3:1; // 
     unsigned int cc_out_val_init_3:1; // 
@@ -1156,7 +1244,9 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC2_SW_FORCE_CC_OUT_SW_FORCE_2_E */
     unsigned int cc_out_sw_force_2:2; // 
+    /** @ref TIMER_CC2_SW_FORCE_CC_CMPL_OUT_SW_FORCE_2_E */
     unsigned int cc_cmpl_out_sw_force_2:2; // 
 } TIMER_CC2_SW_FORCE_REG_s;
 
@@ -1174,7 +1264,9 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_CC3_SW_FORCE_CC_OUT_SW_FORCE_3_E */
     unsigned int cc_out_sw_force_3:2; // 
+    /** @ref TIMER_CC3_SW_FORCE_CC_CMPL_OUT_SW_FORCE_3_E */
     unsigned int cc_cmpl_out_sw_force_3:2; // 
 } TIMER_CC3_SW_FORCE_REG_s;
 
@@ -1194,6 +1286,7 @@ typedef union {
 typedef struct {
     unsigned int fault_filter_en:1; // 
     unsigned int fault_is_consecutive_period:1; // 
+    /** @ref TIMER_FAULT_IN_CTL_FAULT_FILTER_PERIOD_E */
     unsigned int fault_filter_period:2; // 
 } TIMER_FAULT_IN_CTL_REG_s;
 
@@ -1227,6 +1320,7 @@ typedef struct {
     unsigned int trig_is_fault:1; // 
     unsigned int fault_in_en:1; // 
     unsigned int fault_dependent_on_input:1; // 
+    /** @ref TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_E */
     unsigned int fault_latch_sel:2; // 
 } TIMER_FAULT_SRC_CTL_REG_s;
 
@@ -1246,14 +1340,21 @@ typedef union {
 typedef struct {
     unsigned int ctr_en:1; // 
     unsigned int repeat_mode:1; // 
+    /** @ref TIMER_CTR_CTL_COUNT_MODE_E */
     unsigned int count_mode:2; // 
+    /** @ref TIMER_CTR_CTL_CTR_ZERO_CTRL_E */
     unsigned int ctr_zero_ctrl:3; // 
+    /** @ref TIMER_CTR_CTL_CTR_LOAD_CTRL_E */
     unsigned int ctr_load_ctrl:3; // 
+    /** @ref TIMER_CTR_CTL_CTR_ADV_CTRL_E */
     unsigned int ctr_adv_ctrl:3; // 
     unsigned int suppress_ctr_event_gen:1; // 
     unsigned int pl_en:1; // 
+    /** @ref TIMER_CTR_CTL_CTR_DURING_FAULT_E */
     unsigned int ctr_during_fault:1; // 
+    /** @ref TIMER_CTR_CTL_CTR_EXIT_FAULT_E */
     unsigned int ctr_exit_fault:2; // 
+    /** @ref TIMER_CTR_CTL_CTR_AFTER_DEBUG_E */
     unsigned int ctr_after_debug:2; // 
 } TIMER_CTR_CTL_REG_s;
 
@@ -1373,6 +1474,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref TIMER_QEI_DIR_E */
     unsigned int qei_dir:1; // 
 } TIMER_QEI_DIR_REG_s;
 
@@ -1388,75 +1490,80 @@ typedef union {
 
 /** @} end of TIMER_REGISTERS */ 
 
+/** @defgroup TIMER_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  TIMER_DESC_u DESC;
-    volatile  TIMER_PWR_EN_u PWR_EN;
-    volatile  TIMER_RST_CTRL_u RST_CTRL;
-    volatile  TIMER_RST_STS_u RST_STS;
-    volatile  TIMER_CLK_CTRL_u CLK_CTRL;
-    volatile  TIMER_INTR_STS_u INTR_STS;
-    volatile  TIMER_INTR_EVENT_u INTR_EVENT;
-    volatile  TIMER_INTR_EN_0_u INTR_EN_0;
-    volatile  TIMER_INTR_EN_1_u INTR_EN_1;
-    volatile  TIMER_INTR_NMI_EN_0_u INTR_NMI_EN_0;
-    volatile  TIMER_INTR_NMI_EN_1_u INTR_NMI_EN_1;
-    volatile  TIMER_EVENT_EN_0_0_u EVENT_EN_0_0;
-    volatile  TIMER_EVENT_EN_0_1_u EVENT_EN_0_1;
-    volatile  TIMER_EVENT_EN_1_0_u EVENT_EN_1_0;
-    volatile  TIMER_EVENT_EN_1_1_u EVENT_EN_1_1;
-    volatile  TIMER_INTR_SW_SET_u INTR_SW_SET;
-    volatile  TIMER_EVENT_CTRL_u EVENT_CTRL;
-    volatile  TIMER_CLK_CONFIG_u CLK_CONFIG;
-    volatile  TIMER_TRIG_IN_u TRIG_IN;
-    volatile  TIMER_TRIG_OUT_u TRIG_OUT;
-    volatile  TIMER_INPUT_FILTER_CC_0_u INPUT_FILTER_CC_0;
-    volatile  TIMER_INPUT_FILTER_CC_1_u INPUT_FILTER_CC_1;
-    volatile  TIMER_INPUT_FILTER_CC_2_u INPUT_FILTER_CC_2;
-    volatile  TIMER_INPUT_FILTER_CC_3_u INPUT_FILTER_CC_3;
-    volatile  TIMER_INPUT_CC_0_u INPUT_CC_0;
-    volatile  TIMER_INPUT_CC_1_u INPUT_CC_1;
-    volatile  TIMER_INPUT_CC_2_u INPUT_CC_2;
-    volatile  TIMER_INPUT_CC_3_u INPUT_CC_3;
-    volatile  TIMER_CC0_CMN_CTRL_u CC0_CMN_CTRL;
-    volatile  TIMER_CC1_CMN_CTRL_u CC1_CMN_CTRL;
-    volatile  TIMER_CC0_CAPTURE_CTRL_u CC0_CAPTURE_CTRL;
-    volatile  TIMER_CC1_CAPTURE_CTRL_u CC1_CAPTURE_CTRL;
-    volatile  TIMER_CC0_COMPARE_CTRL_u CC0_COMPARE_CTRL;
-    volatile  TIMER_CC1_COMPARE_CTRL_u CC1_COMPARE_CTRL;
-    volatile  TIMER_CC2_CMN_CTRL_u CC2_CMN_CTRL;
-    volatile  TIMER_CC3_CMN_CTRL_u CC3_CMN_CTRL;
-    volatile  TIMER_CC2_CAPTURE_CTRL_u CC2_CAPTURE_CTRL;
-    volatile  TIMER_CC3_CAPTURE_CTRL_u CC3_CAPTURE_CTRL;
-    volatile  TIMER_CC2_COMPARE_CTRL_u CC2_COMPARE_CTRL;
-    volatile  TIMER_CC3_COMPARE_CTRL_u CC3_COMPARE_CTRL;
-    volatile  TIMER_CC4_CMN_CTRL_u CC4_CMN_CTRL;
-    volatile  TIMER_CC5_CMN_CTRL_u CC5_CMN_CTRL;
-    volatile  TIMER_CC4_COMPARE_CTRL_u CC4_COMPARE_CTRL;
-    volatile  TIMER_CC5_COMPARE_CTRL_u CC5_COMPARE_CTRL;
-    volatile  TIMER_CC0_CC_PWM_CFG_u CC0_CC_PWM_CFG;
-    volatile  TIMER_CC1_CC_PWM_CFG_u CC1_CC_PWM_CFG;
-    volatile  TIMER_CC2_CC_PWM_CFG_u CC2_CC_PWM_CFG;
-    volatile  TIMER_CC3_CC_PWM_CFG_u CC3_CC_PWM_CFG;
-    volatile  TIMER_DEADBAND_CFG_u DEADBAND_CFG;
-    volatile  TIMER_CC0_OUTPUT_CTL_u CC0_OUTPUT_CTL;
-    volatile  TIMER_CC1_OUTPUT_CTL_u CC1_OUTPUT_CTL;
-    volatile  TIMER_CC0_SW_FORCE_u CC0_SW_FORCE;
-    volatile  TIMER_CC1_SW_FORCE_u CC1_SW_FORCE;
-    volatile  TIMER_CC2_OUTPUT_CTL_u CC2_OUTPUT_CTL;
-    volatile  TIMER_CC3_OUTPUT_CTL_u CC3_OUTPUT_CTL;
-    volatile  TIMER_CC2_SW_FORCE_u CC2_SW_FORCE;
-    volatile  TIMER_CC3_SW_FORCE_u CC3_SW_FORCE;
-    volatile  TIMER_FAULT_IN_CTL_u FAULT_IN_CTL;
-    volatile  TIMER_FAULT_SRC_CTL_u FAULT_SRC_CTL;
-    volatile  TIMER_CTR_CTL_u CTR_CTL;
-    volatile  TIMER_CTR_VAL_u CTR_VAL;
-    volatile  TIMER_CTR_LOAD_VAL_u CTR_LOAD_VAL;
-    volatile  TIMER_CTR_PL_VAL_u CTR_PL_VAL;
-    volatile  TIMER_DEBUG_CTRL_u DEBUG_CTRL;
-    volatile  TIMER_RCTR_VAL_u RCTR_VAL;
-    volatile  TIMER_RCTR_LOAD_VAL_u RCTR_LOAD_VAL;
-    volatile  TIMER_QEI_DIR_u QEI_DIR;
+    volatile  TIMER_DESC_u DESC; ///< 0x00000000
+    volatile  TIMER_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  TIMER_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  TIMER_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  TIMER_CLK_CTRL_u CLK_CTRL; ///< 0x00000010
+    volatile  TIMER_INTR_STS_u INTR_STS; ///< 0x00000014
+    volatile  TIMER_INTR_EVENT_u INTR_EVENT; ///< 0x00000018
+    volatile  TIMER_INTR_EN_0_u INTR_EN_0; ///< 0x0000001C
+    volatile  TIMER_INTR_EN_1_u INTR_EN_1; ///< 0x00000020
+    volatile  TIMER_INTR_NMI_EN_0_u INTR_NMI_EN_0; ///< 0x00000024
+    volatile  TIMER_INTR_NMI_EN_1_u INTR_NMI_EN_1; ///< 0x00000028
+    volatile  TIMER_EVENT_EN_0_0_u EVENT_EN_0_0; ///< 0x0000002C
+    volatile  TIMER_EVENT_EN_0_1_u EVENT_EN_0_1; ///< 0x00000030
+    volatile  TIMER_EVENT_EN_1_0_u EVENT_EN_1_0; ///< 0x00000034
+    volatile  TIMER_EVENT_EN_1_1_u EVENT_EN_1_1; ///< 0x00000038
+    volatile  TIMER_INTR_SW_SET_u INTR_SW_SET; ///< 0x0000003C
+    volatile  TIMER_EVENT_CTRL_u EVENT_CTRL; ///< 0x00000040
+    volatile  TIMER_CLK_CONFIG_u CLK_CONFIG; ///< 0x00000044
+    volatile  TIMER_TRIG_IN_u TRIG_IN; ///< 0x00000048
+    volatile  TIMER_TRIG_OUT_u TRIG_OUT; ///< 0x0000004C
+    volatile  TIMER_INPUT_FILTER_CC_0_u INPUT_FILTER_CC_0; ///< 0x00000050
+    volatile  TIMER_INPUT_FILTER_CC_1_u INPUT_FILTER_CC_1; ///< 0x00000054
+    volatile  TIMER_INPUT_FILTER_CC_2_u INPUT_FILTER_CC_2; ///< 0x00000058
+    volatile  TIMER_INPUT_FILTER_CC_3_u INPUT_FILTER_CC_3; ///< 0x0000005C
+    volatile  TIMER_INPUT_CC_0_u INPUT_CC_0; ///< 0x00000060
+    volatile  TIMER_INPUT_CC_1_u INPUT_CC_1; ///< 0x00000064
+    volatile  TIMER_INPUT_CC_2_u INPUT_CC_2; ///< 0x00000068
+    volatile  TIMER_INPUT_CC_3_u INPUT_CC_3; ///< 0x0000006C
+    volatile  TIMER_CC0_CMN_CTRL_u CC0_CMN_CTRL; ///< 0x00000070
+    volatile  TIMER_CC1_CMN_CTRL_u CC1_CMN_CTRL; ///< 0x00000074
+    volatile  TIMER_CC0_CAPTURE_CTRL_u CC0_CAPTURE_CTRL; ///< 0x00000078
+    volatile  TIMER_CC1_CAPTURE_CTRL_u CC1_CAPTURE_CTRL; ///< 0x0000007C
+    volatile  TIMER_CC0_COMPARE_CTRL_u CC0_COMPARE_CTRL; ///< 0x00000080
+    volatile  TIMER_CC1_COMPARE_CTRL_u CC1_COMPARE_CTRL; ///< 0x00000084
+    volatile  TIMER_CC2_CMN_CTRL_u CC2_CMN_CTRL; ///< 0x00000088
+    volatile  TIMER_CC3_CMN_CTRL_u CC3_CMN_CTRL; ///< 0x0000008C
+    volatile  TIMER_CC2_CAPTURE_CTRL_u CC2_CAPTURE_CTRL; ///< 0x00000090
+    volatile  TIMER_CC3_CAPTURE_CTRL_u CC3_CAPTURE_CTRL; ///< 0x00000094
+    volatile  TIMER_CC2_COMPARE_CTRL_u CC2_COMPARE_CTRL; ///< 0x00000098
+    volatile  TIMER_CC3_COMPARE_CTRL_u CC3_COMPARE_CTRL; ///< 0x0000009C
+    volatile  TIMER_CC4_CMN_CTRL_u CC4_CMN_CTRL; ///< 0x000000A0
+    volatile  TIMER_CC5_CMN_CTRL_u CC5_CMN_CTRL; ///< 0x000000A4
+    volatile  TIMER_CC4_COMPARE_CTRL_u CC4_COMPARE_CTRL; ///< 0x000000A8
+    volatile  TIMER_CC5_COMPARE_CTRL_u CC5_COMPARE_CTRL; ///< 0x000000AC
+    volatile  TIMER_CC0_CC_PWM_CFG_u CC0_CC_PWM_CFG; ///< 0x000000B0
+    volatile  TIMER_CC1_CC_PWM_CFG_u CC1_CC_PWM_CFG; ///< 0x000000B4
+    volatile  TIMER_CC2_CC_PWM_CFG_u CC2_CC_PWM_CFG; ///< 0x000000B8
+    volatile  TIMER_CC3_CC_PWM_CFG_u CC3_CC_PWM_CFG; ///< 0x000000BC
+    volatile  TIMER_DEADBAND_CFG_u DEADBAND_CFG; ///< 0x000000C0
+    volatile  TIMER_CC0_OUTPUT_CTL_u CC0_OUTPUT_CTL; ///< 0x000000C4
+    volatile  TIMER_CC1_OUTPUT_CTL_u CC1_OUTPUT_CTL; ///< 0x000000C8
+    volatile  TIMER_CC0_SW_FORCE_u CC0_SW_FORCE; ///< 0x000000CC
+    volatile  TIMER_CC1_SW_FORCE_u CC1_SW_FORCE; ///< 0x000000D0
+    volatile  TIMER_CC2_OUTPUT_CTL_u CC2_OUTPUT_CTL; ///< 0x000000D4
+    volatile  TIMER_CC3_OUTPUT_CTL_u CC3_OUTPUT_CTL; ///< 0x000000D8
+    volatile  TIMER_CC2_SW_FORCE_u CC2_SW_FORCE; ///< 0x000000DC
+    volatile  TIMER_CC3_SW_FORCE_u CC3_SW_FORCE; ///< 0x000000E0
+    volatile  TIMER_FAULT_IN_CTL_u FAULT_IN_CTL; ///< 0x000000E4
+    volatile  TIMER_FAULT_SRC_CTL_u FAULT_SRC_CTL; ///< 0x000000E8
+    volatile  TIMER_CTR_CTL_u CTR_CTL; ///< 0x000000EC
+    volatile  TIMER_CTR_VAL_u CTR_VAL; ///< 0x000000F0
+    volatile  TIMER_CTR_LOAD_VAL_u CTR_LOAD_VAL; ///< 0x000000F4
+    volatile  TIMER_CTR_PL_VAL_u CTR_PL_VAL; ///< 0x000000F8
+    volatile  TIMER_DEBUG_CTRL_u DEBUG_CTRL; ///< 0x000000FC
+    volatile  TIMER_RCTR_VAL_u RCTR_VAL; ///< 0x00000100
+    volatile  TIMER_RCTR_LOAD_VAL_u RCTR_LOAD_VAL; ///< 0x00000104
+    volatile  TIMER_QEI_DIR_u QEI_DIR; ///< 0x00000108
 } TIMER_REGS_s;
+
+/** @} end of TIMER_MEMORY_MAP */ 
 
 /** @defgroup TIMER_KEY 
  *  @{
@@ -1491,784 +1598,1079 @@ typedef struct {
 #define TIMER_INTR_EVENT_QEI_ERR_IDX (18)
 /** @} end of TIMER_INTERRUPTS */ 
 
-/** @defgroup TIMER_ENUM 
+/** @addtogroup TIMER_CLK_CONFIG_REG  
  *  @{
  */
-
 typedef enum {
-	TIMER_CLK_CONFIG_CLK_SEL_CLK_LF = 0,
-	TIMER_CLK_CONFIG_CLK_SEL_CLK_4MHZ = 1,
-	TIMER_CLK_CONFIG_CLK_SEL_CLK_BUS = 2,
+	TIMER_CLK_CONFIG_CLK_SEL_CLK_LF = 0, ///< 0x0
+	TIMER_CLK_CONFIG_CLK_SEL_CLK_4MHZ = 1, ///< 0x1
+	TIMER_CLK_CONFIG_CLK_SEL_CLK_BUS = 2, ///< 0x2
 } TIMER_CLK_CONFIG_CLK_SEL_E;
-
+/** @} */
+/** @addtogroup TIMER_TRIG_IN_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_TRIG_IN_TRIG_SEL_TIMA0_TRIG = 0,
-	TIMER_TRIG_IN_TRIG_SEL_TIMA1_TRIG = 1,
-	TIMER_TRIG_IN_TRIG_SEL_TIMG0_TRIG = 2,
-	TIMER_TRIG_IN_TRIG_SEL_TIMG1_TRIG = 3,
-	TIMER_TRIG_IN_TRIG_SEL_TIMG2_TRIG = 4,
-	TIMER_TRIG_IN_TRIG_SEL_TIMG3_TRIG = 5,
-	TIMER_TRIG_IN_TRIG_SEL_TIMG4_TRIG = 6,
+	TIMER_TRIG_IN_TRIG_SEL_TIMA0_TRIG = 0, ///< 0x0
+	TIMER_TRIG_IN_TRIG_SEL_TIMA1_TRIG = 1, ///< 0x1
+	TIMER_TRIG_IN_TRIG_SEL_TIMG0_TRIG = 2, ///< 0x2
+	TIMER_TRIG_IN_TRIG_SEL_TIMG1_TRIG = 3, ///< 0x3
+	TIMER_TRIG_IN_TRIG_SEL_TIMG2_TRIG = 4, ///< 0x4
+	TIMER_TRIG_IN_TRIG_SEL_TIMG3_TRIG = 5, ///< 0x5
+	TIMER_TRIG_IN_TRIG_SEL_TIMG4_TRIG = 6, ///< 0x6
 } TIMER_TRIG_IN_TRIG_SEL_E;
-
+/** @} */
+/** @addtogroup TIMER_TRIG_OUT_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_TRIG_OUT_TRIG_HW_SEL_SUB_0 = 0,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_SUB_1 = 1,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_ZERO = 2,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_LOAD = 3,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCD0 = 4,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCD1 = 5,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCD2 = 6,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCD3 = 7,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCU0 = 8,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCU1 = 9,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCU2 = 10,
-	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCU3 = 11,
+	TIMER_TRIG_OUT_TRIG_HW_SEL_SUB_0 = 0, ///< 0x0
+	TIMER_TRIG_OUT_TRIG_HW_SEL_SUB_1 = 1, ///< 0x1
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_ZERO = 2, ///< 0x2
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_LOAD = 3, ///< 0x3
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCD0 = 4, ///< 0x4
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCD1 = 5, ///< 0x5
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCD2 = 6, ///< 0x6
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCD3 = 7, ///< 0x7
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCU0 = 8, ///< 0x8
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCU1 = 9, ///< 0x9
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCU2 = 10, ///< 0xa
+	TIMER_TRIG_OUT_TRIG_HW_SEL_CTR_CCU3 = 11, ///< 0xb
 } TIMER_TRIG_OUT_TRIG_HW_SEL_E;
-
+/** @} */
+/** @addtogroup TIMER_INPUT_FILTER_CC_0_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_INPUT_FILTER_CC_0_FILTER_PERIOD_0_WIDTH_3 = 0,
-	TIMER_INPUT_FILTER_CC_0_FILTER_PERIOD_0_WIDTH_5 = 1,
-	TIMER_INPUT_FILTER_CC_0_FILTER_PERIOD_0_WIDTH_8 = 2,
+	TIMER_INPUT_FILTER_CC_0_FILTER_PERIOD_0_WIDTH_3 = 0, ///< 0x0
+	TIMER_INPUT_FILTER_CC_0_FILTER_PERIOD_0_WIDTH_5 = 1, ///< 0x1
+	TIMER_INPUT_FILTER_CC_0_FILTER_PERIOD_0_WIDTH_8 = 2, ///< 0x2
 } TIMER_INPUT_FILTER_CC_0_FILTER_PERIOD_0_E;
-
+/** @} */
+/** @addtogroup TIMER_INPUT_FILTER_CC_1_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_INPUT_FILTER_CC_1_FILTER_PERIOD_1_WIDTH_3 = 0,
-	TIMER_INPUT_FILTER_CC_1_FILTER_PERIOD_1_WIDTH_5 = 1,
-	TIMER_INPUT_FILTER_CC_1_FILTER_PERIOD_1_WIDTH_8 = 2,
+	TIMER_INPUT_FILTER_CC_1_FILTER_PERIOD_1_WIDTH_3 = 0, ///< 0x0
+	TIMER_INPUT_FILTER_CC_1_FILTER_PERIOD_1_WIDTH_5 = 1, ///< 0x1
+	TIMER_INPUT_FILTER_CC_1_FILTER_PERIOD_1_WIDTH_8 = 2, ///< 0x2
 } TIMER_INPUT_FILTER_CC_1_FILTER_PERIOD_1_E;
-
+/** @} */
+/** @addtogroup TIMER_INPUT_FILTER_CC_2_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_INPUT_FILTER_CC_2_FILTER_PERIOD_2_WIDTH_3 = 0,
-	TIMER_INPUT_FILTER_CC_2_FILTER_PERIOD_2_WIDTH_5 = 1,
-	TIMER_INPUT_FILTER_CC_2_FILTER_PERIOD_2_WIDTH_8 = 2,
+	TIMER_INPUT_FILTER_CC_2_FILTER_PERIOD_2_WIDTH_3 = 0, ///< 0x0
+	TIMER_INPUT_FILTER_CC_2_FILTER_PERIOD_2_WIDTH_5 = 1, ///< 0x1
+	TIMER_INPUT_FILTER_CC_2_FILTER_PERIOD_2_WIDTH_8 = 2, ///< 0x2
 } TIMER_INPUT_FILTER_CC_2_FILTER_PERIOD_2_E;
-
+/** @} */
+/** @addtogroup TIMER_INPUT_FILTER_CC_3_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_INPUT_FILTER_CC_3_FILTER_PERIOD_3_WIDTH_3 = 0,
-	TIMER_INPUT_FILTER_CC_3_FILTER_PERIOD_3_WIDTH_5 = 1,
-	TIMER_INPUT_FILTER_CC_3_FILTER_PERIOD_3_WIDTH_8 = 2,
+	TIMER_INPUT_FILTER_CC_3_FILTER_PERIOD_3_WIDTH_3 = 0, ///< 0x0
+	TIMER_INPUT_FILTER_CC_3_FILTER_PERIOD_3_WIDTH_5 = 1, ///< 0x1
+	TIMER_INPUT_FILTER_CC_3_FILTER_PERIOD_3_WIDTH_8 = 2, ///< 0x2
 } TIMER_INPUT_FILTER_CC_3_FILTER_PERIOD_3_E;
-
+/** @} */
+/** @addtogroup TIMER_INPUT_CC_0_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_INPUT_CC_0_INPUT_SEL_0_CCPIN_X = 0,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_CCPIN_XPAIR = 1,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_CCPIN_0 = 2,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_TRIGGER_IN = 3,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_XOR_OF_HALL_INPUTS = 4,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_SUB_0 = 5,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_SUB_1 = 6,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_COMPARATOR_0 = 7,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_COMPARATOR_1 = 8,
-	TIMER_INPUT_CC_0_INPUT_SEL_0_COMPARATOR_2 = 9,
+	TIMER_INPUT_CC_0_INPUT_SEL_0_CCPIN_X = 0, ///< 0x0
+	TIMER_INPUT_CC_0_INPUT_SEL_0_CCPIN_XPAIR = 1, ///< 0x1
+	TIMER_INPUT_CC_0_INPUT_SEL_0_CCPIN_0 = 2, ///< 0x2
+	TIMER_INPUT_CC_0_INPUT_SEL_0_TRIGGER_IN = 3, ///< 0x3
+	TIMER_INPUT_CC_0_INPUT_SEL_0_XOR_OF_HALL_INPUTS = 4, ///< 0x4
+	TIMER_INPUT_CC_0_INPUT_SEL_0_SUB_0 = 5, ///< 0x5
+	TIMER_INPUT_CC_0_INPUT_SEL_0_SUB_1 = 6, ///< 0x6
+	TIMER_INPUT_CC_0_INPUT_SEL_0_COMPARATOR_0 = 7, ///< 0x7
+	TIMER_INPUT_CC_0_INPUT_SEL_0_COMPARATOR_1 = 8, ///< 0x8
+	TIMER_INPUT_CC_0_INPUT_SEL_0_COMPARATOR_2 = 9, ///< 0x9
 } TIMER_INPUT_CC_0_INPUT_SEL_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CMN_CTRL_IS_CAPTURE_0_COMPARE_MODE = 0,
-	TIMER_CC0_CMN_CTRL_IS_CAPTURE_0_CAPTURE_MODE = 1,
+	TIMER_CC0_CMN_CTRL_IS_CAPTURE_0_COMPARE_MODE = 0, ///< 0x0
+	TIMER_CC0_CMN_CTRL_IS_CAPTURE_0_CAPTURE_MODE = 1, ///< 0x1
 } TIMER_CC0_CMN_CTRL_IS_CAPTURE_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_0_CCD_EVENT = 0,
-	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_1_CCD_EVENT = 1,
-	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_2_CCD_EVENT = 2,
-	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_3_CCD_EVENT = 3,
-	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_4_CCD_EVENT = 4,
-	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_5_CCD_EVENT = 5,
+	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_0_CCD_EVENT = 0, ///< 0x0
+	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_1_CCD_EVENT = 1, ///< 0x1
+	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_2_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_3_CCD_EVENT = 3, ///< 0x3
+	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_4_CCD_EVENT = 4, ///< 0x4
+	TIMER_CC0_CMN_CTRL_CC2D_SEL_0_CHANNEL_5_CCD_EVENT = 5, ///< 0x5
 } TIMER_CC0_CMN_CTRL_CC2D_SEL_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_0_CCU_EVENT = 0,
-	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_1_CCU_EVENT = 1,
-	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_2_CCU_EVENT = 2,
-	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_3_CCU_EVENT = 3,
-	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_4_CCU_EVENT = 4,
-	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_5_CCU_EVENT = 5,
+	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_0_CCU_EVENT = 0, ///< 0x0
+	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_1_CCU_EVENT = 1, ///< 0x1
+	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_2_CCU_EVENT = 2, ///< 0x2
+	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_3_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_4_CCU_EVENT = 4, ///< 0x4
+	TIMER_CC0_CMN_CTRL_CC2U_SEL_0_CHANNEL_5_CCU_EVENT = 5, ///< 0x5
 } TIMER_CC0_CMN_CTRL_CC2U_SEL_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CMN_CTRL_IS_CAPTURE_1_COMPARE_MODE = 0,
-	TIMER_CC1_CMN_CTRL_IS_CAPTURE_1_CAPTURE_MODE = 1,
+	TIMER_CC1_CMN_CTRL_IS_CAPTURE_1_COMPARE_MODE = 0, ///< 0x0
+	TIMER_CC1_CMN_CTRL_IS_CAPTURE_1_CAPTURE_MODE = 1, ///< 0x1
 } TIMER_CC1_CMN_CTRL_IS_CAPTURE_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_0_CCD_EVENT = 0,
-	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_1_CCD_EVENT = 1,
-	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_2_CCD_EVENT = 2,
-	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_3_CCD_EVENT = 3,
-	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_4_CCD_EVENT = 4,
-	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_5_CCD_EVENT = 5,
+	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_0_CCD_EVENT = 0, ///< 0x0
+	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_1_CCD_EVENT = 1, ///< 0x1
+	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_2_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_3_CCD_EVENT = 3, ///< 0x3
+	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_4_CCD_EVENT = 4, ///< 0x4
+	TIMER_CC1_CMN_CTRL_CC2D_SEL_1_CHANNEL_5_CCD_EVENT = 5, ///< 0x5
 } TIMER_CC1_CMN_CTRL_CC2D_SEL_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_0_CCU_EVENT = 0,
-	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_1_CCU_EVENT = 1,
-	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_2_CCU_EVENT = 2,
-	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_3_CCU_EVENT = 3,
-	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_4_CCU_EVENT = 4,
-	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_5_CCU_EVENT = 5,
+	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_0_CCU_EVENT = 0, ///< 0x0
+	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_1_CCU_EVENT = 1, ///< 0x1
+	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_2_CCU_EVENT = 2, ///< 0x2
+	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_3_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_4_CCU_EVENT = 4, ///< 0x4
+	TIMER_CC1_CMN_CTRL_CC2U_SEL_1_CHANNEL_5_CCU_EVENT = 5, ///< 0x5
 } TIMER_CC1_CMN_CTRL_CC2U_SEL_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_DISABLE = 0,
-	TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_INPUT_RISING_EDGE = 1,
-	TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_INPUT_FALLING_EDGE = 2,
-	TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_INPUT_EITHER_EDGE = 3,
+	TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_DISABLE = 0, ///< 0x0
+	TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC0_CAPTURE_CTRL_CAP_COND_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_DISABLE = 0,
-	TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_INPUT_RISING_EDGE = 1,
-	TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_INPUT_FALLING_EDGE = 2,
-	TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_INPUT_EITHER_EDGE = 3,
+	TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_DISABLE = 0, ///< 0x0
+	TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC0_CAPTURE_CTRL_LOAD_COND_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_DISABLE = 0,
-	TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_INPUT_RISING_EDGE = 1,
-	TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_INPUT_FALLING_EDGE = 2,
-	TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_INPUT_EITHER_EDGE = 3,
+	TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_DISABLE = 0, ///< 0x0
+	TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC0_CAPTURE_CTRL_ZERO_COND_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_EACH_CLK = 0,
-	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_INPUT_RISING_EDGE = 1,
-	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_INPUT_FALLING_EDGE = 2,
-	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_INPUT_EITHER_EDGE = 3,
-	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_INPUT_LEVEL_HIGH = 4,
+	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_EACH_CLK = 0, ///< 0x0
+	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_INPUT_EITHER_EDGE = 3, ///< 0x3
+	TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_INPUT_LEVEL_HIGH = 4, ///< 0x4
 } TIMER_CC0_CAPTURE_CTRL_ADV_COND_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_DISABLE = 0,
-	TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_INPUT_RISING_EDGE = 1,
-	TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_INPUT_FALLING_EDGE = 2,
-	TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_INPUT_EITHER_EDGE = 3,
+	TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_DISABLE = 0, ///< 0x0
+	TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC1_CAPTURE_CTRL_CAP_COND_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_DISABLE = 0,
-	TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_INPUT_RISING_EDGE = 1,
-	TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_INPUT_FALLING_EDGE = 2,
-	TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_INPUT_EITHER_EDGE = 3,
+	TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_DISABLE = 0, ///< 0x0
+	TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC1_CAPTURE_CTRL_LOAD_COND_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_DISABLE = 0,
-	TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_INPUT_RISING_EDGE = 1,
-	TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_INPUT_FALLING_EDGE = 2,
-	TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_INPUT_EITHER_EDGE = 3,
+	TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_DISABLE = 0, ///< 0x0
+	TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC1_CAPTURE_CTRL_ZERO_COND_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_DISABLE = 0,
-	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_INPUT_RISING_EDGE = 1,
-	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_INPUT_FALLING_EDGE = 2,
-	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_INPUT_EITHER_EDGE = 3,
-	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_INPUT_LEVEL_HIGH = 4,
+	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_DISABLE = 0, ///< 0x0
+	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_INPUT_EITHER_EDGE = 3, ///< 0x3
+	TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_INPUT_LEVEL_HIGH = 4, ///< 0x4
 } TIMER_CC1_CAPTURE_CTRL_ADV_COND_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_IMMEDIATE = 0,
-	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_ZERO_EVENT = 1,
-	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_CHANNEL_0_CCD_EVENT = 2,
-	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_CHANNEL_0_CCU_EVENT = 3,
-	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_TRIGGER_PULSE = 6,
+	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_CHANNEL_0_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_CHANNEL_0_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC0_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_IMMEDIATE = 0,
-	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_ZERO_EVENT = 1,
-	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_CHANNEL_0_CCD_EVENT = 2,
-	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_CHANNEL_0_CCU_EVENT = 3,
-	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_TRIGGER_PULSE = 6,
+	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_CHANNEL_0_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_CHANNEL_0_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC0_COMPARE_CTRL_CCACT_UPDATE_METHOD_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_IMMEDIATE = 0,
-	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_ZERO_EVENT = 1,
-	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_CHANNEL_1_CCD_EVENT = 2,
-	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_CHANNEL_1_CCU_EVENT = 3,
-	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_TRIGGER_PULSE = 6,
+	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_CHANNEL_1_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_CHANNEL_1_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC1_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_IMMEDIATE = 0,
-	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_ZERO_EVENT = 1,
-	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_CHANNEL_1_CCD_EVENT = 2,
-	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_CHANNEL_1_CCU_EVENT = 3,
-	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_TRIGGER_PULSE = 6,
+	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_CHANNEL_1_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_CHANNEL_1_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC1_COMPARE_CTRL_CCACT_UPDATE_METHOD_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CMN_CTRL_IS_CAPTURE_2_COMPARE_MODE = 0,
-	TIMER_CC2_CMN_CTRL_IS_CAPTURE_2_CAPTURE_MODE = 1,
+	TIMER_CC2_CMN_CTRL_IS_CAPTURE_2_COMPARE_MODE = 0, ///< 0x0
+	TIMER_CC2_CMN_CTRL_IS_CAPTURE_2_CAPTURE_MODE = 1, ///< 0x1
 } TIMER_CC2_CMN_CTRL_IS_CAPTURE_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_0_CCD_EVENT = 0,
-	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_1_CCD_EVENT = 1,
-	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_2_CCD_EVENT = 2,
-	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_3_CCD_EVENT = 3,
-	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_4_CCD_EVENT = 4,
-	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_5_CCD_EVENT = 5,
+	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_0_CCD_EVENT = 0, ///< 0x0
+	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_1_CCD_EVENT = 1, ///< 0x1
+	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_2_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_3_CCD_EVENT = 3, ///< 0x3
+	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_4_CCD_EVENT = 4, ///< 0x4
+	TIMER_CC2_CMN_CTRL_CC2D_SEL_2_CHANNEL_5_CCD_EVENT = 5, ///< 0x5
 } TIMER_CC2_CMN_CTRL_CC2D_SEL_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_0_CCU_EVENT = 0,
-	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_1_CCU_EVENT = 1,
-	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_2_CCU_EVENT = 2,
-	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_3_CCU_EVENT = 3,
-	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_4_CCU_EVENT = 4,
-	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_5_CCU_EVENT = 5,
+	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_0_CCU_EVENT = 0, ///< 0x0
+	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_1_CCU_EVENT = 1, ///< 0x1
+	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_2_CCU_EVENT = 2, ///< 0x2
+	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_3_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_4_CCU_EVENT = 4, ///< 0x4
+	TIMER_CC2_CMN_CTRL_CC2U_SEL_2_CHANNEL_5_CCU_EVENT = 5, ///< 0x5
 } TIMER_CC2_CMN_CTRL_CC2U_SEL_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CMN_CTRL_IS_CAPTURE_3_COMPARE_MODE = 0,
-	TIMER_CC3_CMN_CTRL_IS_CAPTURE_3_CAPTURE_MODE = 1,
+	TIMER_CC3_CMN_CTRL_IS_CAPTURE_3_COMPARE_MODE = 0, ///< 0x0
+	TIMER_CC3_CMN_CTRL_IS_CAPTURE_3_CAPTURE_MODE = 1, ///< 0x1
 } TIMER_CC3_CMN_CTRL_IS_CAPTURE_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_0_CCD_EVENT = 0,
-	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_1_CCD_EVENT = 1,
-	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_2_CCD_EVENT = 2,
-	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_3_CCD_EVENT = 3,
-	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_4_CCD_EVENT = 4,
-	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_5_CCD_EVENT = 5,
+	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_0_CCD_EVENT = 0, ///< 0x0
+	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_1_CCD_EVENT = 1, ///< 0x1
+	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_2_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_3_CCD_EVENT = 3, ///< 0x3
+	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_4_CCD_EVENT = 4, ///< 0x4
+	TIMER_CC3_CMN_CTRL_CC2D_SEL_3_CHANNEL_5_CCD_EVENT = 5, ///< 0x5
 } TIMER_CC3_CMN_CTRL_CC2D_SEL_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CMN_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_0_CCU_EVENT = 0,
-	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_1_CCU_EVENT = 1,
-	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_2_CCU_EVENT = 2,
-	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_3_CCU_EVENT = 3,
-	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_4_CCU_EVENT = 4,
-	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_5_CCU_EVENT = 5,
+	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_0_CCU_EVENT = 0, ///< 0x0
+	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_1_CCU_EVENT = 1, ///< 0x1
+	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_2_CCU_EVENT = 2, ///< 0x2
+	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_3_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_4_CCU_EVENT = 4, ///< 0x4
+	TIMER_CC3_CMN_CTRL_CC2U_SEL_3_CHANNEL_5_CCU_EVENT = 5, ///< 0x5
 } TIMER_CC3_CMN_CTRL_CC2U_SEL_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_DISABLE = 0,
-	TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_INPUT_RISING_EDGE = 1,
-	TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_INPUT_FALLING_EDGE = 2,
-	TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_INPUT_EITHER_EDGE = 3,
+	TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_DISABLE = 0, ///< 0x0
+	TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC2_CAPTURE_CTRL_CAP_COND_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_DISABLE = 0,
-	TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_INPUT_RISING_EDGE = 1,
-	TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_INPUT_FALLING_EDGE = 2,
-	TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_INPUT_EITHER_EDGE = 3,
+	TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_DISABLE = 0, ///< 0x0
+	TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC2_CAPTURE_CTRL_LOAD_COND_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_DISABLE = 0,
-	TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_INPUT_RISING_EDGE = 1,
-	TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_INPUT_FALLING_EDGE = 2,
-	TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_INPUT_EITHER_EDGE = 3,
+	TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_DISABLE = 0, ///< 0x0
+	TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC2_CAPTURE_CTRL_ZERO_COND_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_DISABLE = 0,
-	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_INPUT_RISING_EDGE = 1,
-	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_INPUT_FALLING_EDGE = 2,
-	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_INPUT_EITHER_EDGE = 3,
-	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_INPUT_LEVEL_HIGH = 4,
+	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_DISABLE = 0, ///< 0x0
+	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_INPUT_EITHER_EDGE = 3, ///< 0x3
+	TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_INPUT_LEVEL_HIGH = 4, ///< 0x4
 } TIMER_CC2_CAPTURE_CTRL_ADV_COND_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_DISABLE = 0,
-	TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_INPUT_RISING_EDGE = 1,
-	TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_INPUT_FALLING_EDGE = 2,
-	TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_INPUT_EITHER_EDGE = 3,
+	TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_DISABLE = 0, ///< 0x0
+	TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC3_CAPTURE_CTRL_CAP_COND_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_DISABLE = 0,
-	TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_INPUT_RISING_EDGE = 1,
-	TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_INPUT_FALLING_EDGE = 2,
-	TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_INPUT_EITHER_EDGE = 3,
+	TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_DISABLE = 0, ///< 0x0
+	TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC3_CAPTURE_CTRL_LOAD_COND_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_DISABLE = 0,
-	TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_INPUT_RISING_EDGE = 1,
-	TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_INPUT_FALLING_EDGE = 2,
-	TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_INPUT_EITHER_EDGE = 3,
+	TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_DISABLE = 0, ///< 0x0
+	TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_INPUT_EITHER_EDGE = 3, ///< 0x3
 } TIMER_CC3_CAPTURE_CTRL_ZERO_COND_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CAPTURE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_DISABLE = 0,
-	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_INPUT_RISING_EDGE = 1,
-	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_INPUT_FALLING_EDGE = 2,
-	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_INPUT_EITHER_EDGE = 3,
-	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_INPUT_LEVEL_HIGH = 4,
+	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_DISABLE = 0, ///< 0x0
+	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_INPUT_RISING_EDGE = 1, ///< 0x1
+	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_INPUT_FALLING_EDGE = 2, ///< 0x2
+	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_INPUT_EITHER_EDGE = 3, ///< 0x3
+	TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_INPUT_LEVEL_HIGH = 4, ///< 0x4
 } TIMER_CC3_CAPTURE_CTRL_ADV_COND_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_IMMEDIATE = 0,
-	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_ZERO_EVENT = 1,
-	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_CHANNEL_2_CCD_EVENT = 2,
-	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_CHANNEL_2_CCU_EVENT = 3,
-	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_TRIGGER_PULSE = 6,
+	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_CHANNEL_2_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_CHANNEL_2_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC2_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_IMMEDIATE = 0,
-	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_ZERO_EVENT = 1,
-	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_CHANNEL_2_CCD_EVENT = 2,
-	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_CHANNEL_2_CCU_EVENT = 3,
-	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_TRIGGER_PULSE = 6,
+	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_CHANNEL_2_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_CHANNEL_2_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC2_COMPARE_CTRL_CCACT_UPDATE_METHOD_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_IMMEDIATE = 0,
-	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_ZERO_EVENT = 1,
-	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_CHANNEL_3_CCD_EVENT = 2,
-	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_CHANNEL_3_CCU_EVENT = 3,
-	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_TRIGGER_PULSE = 6,
+	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_CHANNEL_3_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_CHANNEL_3_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC3_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_IMMEDIATE = 0,
-	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_ZERO_EVENT = 1,
-	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_CHANNEL_3_CCD_EVENT = 2,
-	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_CHANNEL_3_CCU_EVENT = 3,
-	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_TRIGGER_PULSE = 6,
+	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_CHANNEL_3_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_CHANNEL_3_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC3_COMPARE_CTRL_CCACT_UPDATE_METHOD_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC4_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_IMMEDIATE = 0,
-	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_ZERO_EVENT = 1,
-	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_CHANNEL_4_CCD_EVENT = 2,
-	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_CHANNEL_4_CCU_EVENT = 3,
-	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_TRIGGER_PULSE = 6,
+	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_CHANNEL_4_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_CHANNEL_4_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC4_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_4_E;
-
+/** @} */
+/** @addtogroup TIMER_CC5_COMPARE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_IMMEDIATE = 0,
-	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_ZERO_EVENT = 1,
-	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_CHANNEL_5_CCD_EVENT = 2,
-	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_CHANNEL_5_CCU_EVENT = 3,
-	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_ZERO_OR_LOAD_EVENT = 4,
-	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5,
-	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_TRIGGER_PULSE = 6,
+	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_IMMEDIATE = 0, ///< 0x0
+	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_ZERO_EVENT = 1, ///< 0x1
+	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_CHANNEL_5_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_CHANNEL_5_CCU_EVENT = 3, ///< 0x3
+	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_ZERO_OR_LOAD_EVENT = 4, ///< 0x4
+	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_ZERO_EVENT_AND_REPEAT_CTR_ZERO_EVENT = 5, ///< 0x5
+	TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_TRIGGER_PULSE = 6, ///< 0x6
 } TIMER_CC5_COMPARE_CTRL_COMP_VAL_UPDATE_METHOD_5_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_DISABLE = 0,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_HIGH = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_LOW = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_TOGGLE = 3,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_DISABLE = 0, ///< 0x0
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_LOW = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_TOGGLE = 3, ///< 0x3
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2D_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_DISABLE = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_HIGH = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_LOW = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_TOGGLE = 3,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_DISABLE = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_LOW = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_TOGGLE = 3, ///< 0x3
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_CC2U_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_DISABLE = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_HIGH = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_LOW = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_TOGGLE = 3,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_DISABLE = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_LOW = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_TOGGLE = 3, ///< 0x3
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_CCD_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_DISABLE = 3,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_HIGH = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_LOW = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_TOGGLE = 3,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_DISABLE = 3, ///< 0x3
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_LOW = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_TOGGLE = 3, ///< 0x3
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_CCU_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_DISABLE = 4,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_HIGH = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_LOW = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_TOGGLE = 3,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_DISABLE = 4, ///< 0x4
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_LOW = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_TOGGLE = 3, ///< 0x3
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_LOAD_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_DISABLE = 5,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_HIGH = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_LOW = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_TOGGLE = 3,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_DISABLE = 5, ///< 0x5
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_LOW = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_TOGGLE = 3, ///< 0x3
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_ZERO_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_DISABLE = 0,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_HIGH = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_LOW = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_TOGGLE = 3,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_HIGHZ = 4,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_DISABLE = 0, ///< 0x0
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_LOW = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_TOGGLE = 3, ///< 0x3
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_HIGHZ = 4, ///< 0x4
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_DISABLE = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_HIGH = 1,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_LOW = 2,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_TOGGLE = 3,
-	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_HIGHZ = 4,
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_DISABLE = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_LOW = 2, ///< 0x2
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_TOGGLE = 3, ///< 0x3
+	TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_HIGHZ = 4, ///< 0x4
 } TIMER_CC0_CC_PWM_CFG_CC_OUT_FAULT_EXIT_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_DISABLE = 0,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_HIGH = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_LOW = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_TOGGLE = 3,
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_DISABLE = 0, ///< 0x0
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_LOW = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_TOGGLE = 3, ///< 0x3
 } TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2D_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_DISABLE = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_HIGH = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_LOW = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_TOGGLE = 3,
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_DISABLE = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_LOW = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_TOGGLE = 3, ///< 0x3
 } TIMER_CC1_CC_PWM_CFG_CC_OUT_CC2U_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_DISABLE = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_HIGH = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_LOW = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_TOGGLE = 3,
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_DISABLE = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_LOW = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_TOGGLE = 3, ///< 0x3
 } TIMER_CC1_CC_PWM_CFG_CC_OUT_CCD_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_DISABLE = 3,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_HIGH = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_LOW = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_TOGGLE = 3,
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_DISABLE = 3, ///< 0x3
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_LOW = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_TOGGLE = 3, ///< 0x3
 } TIMER_CC1_CC_PWM_CFG_CC_OUT_CCU_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_DISABLE = 4,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_HIGH = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_LOW = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_TOGGLE = 3,
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_DISABLE = 4, ///< 0x4
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_LOW = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_TOGGLE = 3, ///< 0x3
 } TIMER_CC1_CC_PWM_CFG_CC_OUT_LOAD_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_DISABLE = 5,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_HIGH = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_LOW = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_TOGGLE = 3,
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_DISABLE = 5, ///< 0x5
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_LOW = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_TOGGLE = 3, ///< 0x3
 } TIMER_CC1_CC_PWM_CFG_CC_OUT_ZERO_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_DISABLE = 0,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_HIGH = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_LOW = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_TOGGLE = 3,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_HIGHZ = 4,
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_DISABLE = 0, ///< 0x0
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_LOW = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_TOGGLE = 3, ///< 0x3
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_HIGHZ = 4, ///< 0x4
 } TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_DISABLE = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_HIGH = 1,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_LOW = 2,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_TOGGLE = 3,
-	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_HIGHZ = 4,
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_DISABLE = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_LOW = 2, ///< 0x2
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_TOGGLE = 3, ///< 0x3
+	TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_HIGHZ = 4, ///< 0x4
 } TIMER_CC1_CC_PWM_CFG_CC_OUT_FAULT_EXIT_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_DISABLE = 0,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_HIGH = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_LOW = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_TOGGLE = 3,
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_DISABLE = 0, ///< 0x0
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_LOW = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_TOGGLE = 3, ///< 0x3
 } TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2D_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_DISABLE = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_HIGH = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_LOW = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_TOGGLE = 3,
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_DISABLE = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_LOW = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_TOGGLE = 3, ///< 0x3
 } TIMER_CC2_CC_PWM_CFG_CC_OUT_CC2U_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_DISABLE = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_HIGH = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_LOW = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_TOGGLE = 3,
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_DISABLE = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_LOW = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_TOGGLE = 3, ///< 0x3
 } TIMER_CC2_CC_PWM_CFG_CC_OUT_CCD_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_DISABLE = 3,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_HIGH = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_LOW = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_TOGGLE = 3,
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_DISABLE = 3, ///< 0x3
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_LOW = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_TOGGLE = 3, ///< 0x3
 } TIMER_CC2_CC_PWM_CFG_CC_OUT_CCU_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_DISABLE = 4,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_HIGH = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_LOW = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_TOGGLE = 3,
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_DISABLE = 4, ///< 0x4
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_LOW = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_TOGGLE = 3, ///< 0x3
 } TIMER_CC2_CC_PWM_CFG_CC_OUT_LOAD_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_DISABLE = 5,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_HIGH = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_LOW = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_TOGGLE = 3,
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_DISABLE = 5, ///< 0x5
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_LOW = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_TOGGLE = 3, ///< 0x3
 } TIMER_CC2_CC_PWM_CFG_CC_OUT_ZERO_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_DISABLE = 0,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_HIGH = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_LOW = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_TOGGLE = 3,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_HIGHZ = 4,
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_DISABLE = 0, ///< 0x0
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_LOW = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_TOGGLE = 3, ///< 0x3
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_HIGHZ = 4, ///< 0x4
 } TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_DISABLE = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_HIGH = 1,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_LOW = 2,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_TOGGLE = 3,
-	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_HIGHZ = 4,
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_DISABLE = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_LOW = 2, ///< 0x2
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_TOGGLE = 3, ///< 0x3
+	TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_HIGHZ = 4, ///< 0x4
 } TIMER_CC2_CC_PWM_CFG_CC_OUT_FAULT_EXIT_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_DISABLE = 0,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_HIGH = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_LOW = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_TOGGLE = 3,
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_DISABLE = 0, ///< 0x0
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_LOW = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_TOGGLE = 3, ///< 0x3
 } TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2D_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_DISABLE = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_HIGH = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_LOW = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_TOGGLE = 3,
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_DISABLE = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_LOW = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_TOGGLE = 3, ///< 0x3
 } TIMER_CC3_CC_PWM_CFG_CC_OUT_CC2U_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_DISABLE = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_HIGH = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_LOW = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_TOGGLE = 3,
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_DISABLE = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_LOW = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_TOGGLE = 3, ///< 0x3
 } TIMER_CC3_CC_PWM_CFG_CC_OUT_CCD_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_DISABLE = 3,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_HIGH = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_LOW = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_TOGGLE = 3,
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_DISABLE = 3, ///< 0x3
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_LOW = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_TOGGLE = 3, ///< 0x3
 } TIMER_CC3_CC_PWM_CFG_CC_OUT_CCU_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_DISABLE = 4,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_HIGH = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_LOW = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_TOGGLE = 3,
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_DISABLE = 4, ///< 0x4
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_LOW = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_TOGGLE = 3, ///< 0x3
 } TIMER_CC3_CC_PWM_CFG_CC_OUT_LOAD_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_DISABLE = 5,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_HIGH = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_LOW = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_TOGGLE = 3,
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_DISABLE = 5, ///< 0x5
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_LOW = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_TOGGLE = 3, ///< 0x3
 } TIMER_CC3_CC_PWM_CFG_CC_OUT_ZERO_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_DISABLE = 0,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_HIGH = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_LOW = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_TOGGLE = 3,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_HIGHZ = 4,
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_DISABLE = 0, ///< 0x0
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_LOW = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_TOGGLE = 3, ///< 0x3
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_HIGHZ = 4, ///< 0x4
 } TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_ENTRY_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_CC_PWM_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_DISABLE = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_HIGH = 1,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_LOW = 2,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_TOGGLE = 3,
-	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_HIGHZ = 4,
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_DISABLE = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_LOW = 2, ///< 0x2
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_TOGGLE = 3, ///< 0x3
+	TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_HIGHZ = 4, ///< 0x4
 } TIMER_CC3_CC_PWM_CFG_CC_OUT_FAULT_EXIT_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_OUTPUT_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_PWM_OUTPUT = 0,
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_LOAD_EVENT = 1,
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_CCU_OR_CCD_EVENT = 2,
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_ZERO_EVENT = 4,
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_FAULT_EVENT = 6,
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_CCPIN_INPUT_0 = 8,
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_CCPIN_INPUT_1 = 9,
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_DEADBAND_PWM_OUTPUT = 12,
-	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_CTR_DIRECTION = 13,
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_PWM_OUTPUT = 0, ///< 0x0
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_LOAD_EVENT = 1, ///< 0x1
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_CCU_OR_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_ZERO_EVENT = 4, ///< 0x4
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_FAULT_EVENT = 6, ///< 0x6
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_CCPIN_INPUT_0 = 8, ///< 0x8
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_CCPIN_INPUT_1 = 9, ///< 0x9
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_DEADBAND_PWM_OUTPUT = 12, ///< 0xc
+	TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_CTR_DIRECTION = 13, ///< 0xd
 } TIMER_CC0_OUTPUT_CTL_CC_OUT_SEL_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_OUTPUT_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_PWM_OUTPUT = 0,
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_LOAD_EVENT = 1,
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_CCU_OR_CCD_EVENT = 2,
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_ZERO_EVENT = 4,
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_FAULT_EVENT = 6,
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_CCPIN_INPUT_1 = 8,
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_CCPIN_INPUT_0 = 9,
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_DEADBAND_PWM_OUTPUT = 12,
-	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_CTR_DIRECTION = 13,
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_PWM_OUTPUT = 0, ///< 0x0
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_LOAD_EVENT = 1, ///< 0x1
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_CCU_OR_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_ZERO_EVENT = 4, ///< 0x4
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_FAULT_EVENT = 6, ///< 0x6
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_CCPIN_INPUT_1 = 8, ///< 0x8
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_CCPIN_INPUT_0 = 9, ///< 0x9
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_DEADBAND_PWM_OUTPUT = 12, ///< 0xc
+	TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_CTR_DIRECTION = 13, ///< 0xd
 } TIMER_CC1_OUTPUT_CTL_CC_OUT_SEL_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_SW_FORCE_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_SW_FORCE_CC_OUT_SW_FORCE_0_DISABLE = 0,
-	TIMER_CC0_SW_FORCE_CC_OUT_SW_FORCE_0_HIGH = 1,
-	TIMER_CC0_SW_FORCE_CC_OUT_SW_FORCE_0_LOW = 2,
+	TIMER_CC0_SW_FORCE_CC_OUT_SW_FORCE_0_DISABLE = 0, ///< 0x0
+	TIMER_CC0_SW_FORCE_CC_OUT_SW_FORCE_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_SW_FORCE_CC_OUT_SW_FORCE_0_LOW = 2, ///< 0x2
 } TIMER_CC0_SW_FORCE_CC_OUT_SW_FORCE_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC0_SW_FORCE_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC0_SW_FORCE_CC_CMPL_OUT_SW_FORCE_0_DISABLE = 1,
-	TIMER_CC0_SW_FORCE_CC_CMPL_OUT_SW_FORCE_0_HIGH = 1,
-	TIMER_CC0_SW_FORCE_CC_CMPL_OUT_SW_FORCE_0_LOW = 2,
+	TIMER_CC0_SW_FORCE_CC_CMPL_OUT_SW_FORCE_0_DISABLE = 1, ///< 0x1
+	TIMER_CC0_SW_FORCE_CC_CMPL_OUT_SW_FORCE_0_HIGH = 1, ///< 0x1
+	TIMER_CC0_SW_FORCE_CC_CMPL_OUT_SW_FORCE_0_LOW = 2, ///< 0x2
 } TIMER_CC0_SW_FORCE_CC_CMPL_OUT_SW_FORCE_0_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_SW_FORCE_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_SW_FORCE_CC_OUT_SW_FORCE_1_DISABLE = 2,
-	TIMER_CC1_SW_FORCE_CC_OUT_SW_FORCE_1_HIGH = 1,
-	TIMER_CC1_SW_FORCE_CC_OUT_SW_FORCE_1_LOW = 2,
+	TIMER_CC1_SW_FORCE_CC_OUT_SW_FORCE_1_DISABLE = 2, ///< 0x2
+	TIMER_CC1_SW_FORCE_CC_OUT_SW_FORCE_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_SW_FORCE_CC_OUT_SW_FORCE_1_LOW = 2, ///< 0x2
 } TIMER_CC1_SW_FORCE_CC_OUT_SW_FORCE_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC1_SW_FORCE_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC1_SW_FORCE_CC_CMPL_OUT_SW_FORCE_1_DISABLE = 3,
-	TIMER_CC1_SW_FORCE_CC_CMPL_OUT_SW_FORCE_1_HIGH = 1,
-	TIMER_CC1_SW_FORCE_CC_CMPL_OUT_SW_FORCE_1_LOW = 2,
+	TIMER_CC1_SW_FORCE_CC_CMPL_OUT_SW_FORCE_1_DISABLE = 3, ///< 0x3
+	TIMER_CC1_SW_FORCE_CC_CMPL_OUT_SW_FORCE_1_HIGH = 1, ///< 0x1
+	TIMER_CC1_SW_FORCE_CC_CMPL_OUT_SW_FORCE_1_LOW = 2, ///< 0x2
 } TIMER_CC1_SW_FORCE_CC_CMPL_OUT_SW_FORCE_1_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_OUTPUT_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_PWM_OUTPUT = 0,
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_LOAD_EVENT = 1,
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_CCU_OR_CCD_EVENT = 2,
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_ZERO_EVENT = 4,
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_FAULT_EVENT = 6,
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_CCPIN_INPUT_2 = 8,
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_CCPIN_INPUT_3 = 9,
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_DEADBAND_PWM_OUTPUT = 12,
-	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_CTR_DIRECTION = 13,
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_PWM_OUTPUT = 0, ///< 0x0
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_LOAD_EVENT = 1, ///< 0x1
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_CCU_OR_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_ZERO_EVENT = 4, ///< 0x4
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_FAULT_EVENT = 6, ///< 0x6
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_CCPIN_INPUT_2 = 8, ///< 0x8
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_CCPIN_INPUT_3 = 9, ///< 0x9
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_DEADBAND_PWM_OUTPUT = 12, ///< 0xc
+	TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_CTR_DIRECTION = 13, ///< 0xd
 } TIMER_CC2_OUTPUT_CTL_CC_OUT_SEL_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_OUTPUT_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_PWM_OUTPUT = 0,
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_LOAD_EVENT = 1,
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_CCU_OR_CCD_EVENT = 2,
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_ZERO_EVENT = 4,
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_FAULT_EVENT = 6,
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_CCPIN_INPUT_3 = 8,
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_CCPIN_INPUT_2 = 9,
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_DEADBAND_PWM_OUTPUT = 12,
-	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_CTR_DIRECTION = 13,
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_PWM_OUTPUT = 0, ///< 0x0
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_LOAD_EVENT = 1, ///< 0x1
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_CCU_OR_CCD_EVENT = 2, ///< 0x2
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_ZERO_EVENT = 4, ///< 0x4
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_FAULT_EVENT = 6, ///< 0x6
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_CCPIN_INPUT_3 = 8, ///< 0x8
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_CCPIN_INPUT_2 = 9, ///< 0x9
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_DEADBAND_PWM_OUTPUT = 12, ///< 0xc
+	TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_CTR_DIRECTION = 13, ///< 0xd
 } TIMER_CC3_OUTPUT_CTL_CC_OUT_SEL_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_SW_FORCE_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_SW_FORCE_CC_OUT_SW_FORCE_2_DISABLE = 0,
-	TIMER_CC2_SW_FORCE_CC_OUT_SW_FORCE_2_HIGH = 1,
-	TIMER_CC2_SW_FORCE_CC_OUT_SW_FORCE_2_LOW = 2,
+	TIMER_CC2_SW_FORCE_CC_OUT_SW_FORCE_2_DISABLE = 0, ///< 0x0
+	TIMER_CC2_SW_FORCE_CC_OUT_SW_FORCE_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_SW_FORCE_CC_OUT_SW_FORCE_2_LOW = 2, ///< 0x2
 } TIMER_CC2_SW_FORCE_CC_OUT_SW_FORCE_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC2_SW_FORCE_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC2_SW_FORCE_CC_CMPL_OUT_SW_FORCE_2_DISABLE = 0,
-	TIMER_CC2_SW_FORCE_CC_CMPL_OUT_SW_FORCE_2_HIGH = 1,
-	TIMER_CC2_SW_FORCE_CC_CMPL_OUT_SW_FORCE_2_LOW = 2,
+	TIMER_CC2_SW_FORCE_CC_CMPL_OUT_SW_FORCE_2_DISABLE = 0, ///< 0x0
+	TIMER_CC2_SW_FORCE_CC_CMPL_OUT_SW_FORCE_2_HIGH = 1, ///< 0x1
+	TIMER_CC2_SW_FORCE_CC_CMPL_OUT_SW_FORCE_2_LOW = 2, ///< 0x2
 } TIMER_CC2_SW_FORCE_CC_CMPL_OUT_SW_FORCE_2_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_SW_FORCE_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_SW_FORCE_CC_OUT_SW_FORCE_3_DISABLE = 1,
-	TIMER_CC3_SW_FORCE_CC_OUT_SW_FORCE_3_HIGH = 1,
-	TIMER_CC3_SW_FORCE_CC_OUT_SW_FORCE_3_LOW = 2,
+	TIMER_CC3_SW_FORCE_CC_OUT_SW_FORCE_3_DISABLE = 1, ///< 0x1
+	TIMER_CC3_SW_FORCE_CC_OUT_SW_FORCE_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_SW_FORCE_CC_OUT_SW_FORCE_3_LOW = 2, ///< 0x2
 } TIMER_CC3_SW_FORCE_CC_OUT_SW_FORCE_3_E;
-
+/** @} */
+/** @addtogroup TIMER_CC3_SW_FORCE_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CC3_SW_FORCE_CC_CMPL_OUT_SW_FORCE_3_DISABLE = 2,
-	TIMER_CC3_SW_FORCE_CC_CMPL_OUT_SW_FORCE_3_HIGH = 1,
-	TIMER_CC3_SW_FORCE_CC_CMPL_OUT_SW_FORCE_3_LOW = 2,
+	TIMER_CC3_SW_FORCE_CC_CMPL_OUT_SW_FORCE_3_DISABLE = 2, ///< 0x2
+	TIMER_CC3_SW_FORCE_CC_CMPL_OUT_SW_FORCE_3_HIGH = 1, ///< 0x1
+	TIMER_CC3_SW_FORCE_CC_CMPL_OUT_SW_FORCE_3_LOW = 2, ///< 0x2
 } TIMER_CC3_SW_FORCE_CC_CMPL_OUT_SW_FORCE_3_E;
-
+/** @} */
+/** @addtogroup TIMER_FAULT_IN_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_FAULT_IN_CTL_FAULT_FILTER_PERIOD_WIDTH_3 = 0,
-	TIMER_FAULT_IN_CTL_FAULT_FILTER_PERIOD_WIDTH_5 = 1,
-	TIMER_FAULT_IN_CTL_FAULT_FILTER_PERIOD_WIDTH_8 = 2,
+	TIMER_FAULT_IN_CTL_FAULT_FILTER_PERIOD_WIDTH_3 = 0, ///< 0x0
+	TIMER_FAULT_IN_CTL_FAULT_FILTER_PERIOD_WIDTH_5 = 1, ///< 0x1
+	TIMER_FAULT_IN_CTL_FAULT_FILTER_PERIOD_WIDTH_8 = 2, ///< 0x2
 } TIMER_FAULT_IN_CTL_FAULT_FILTER_PERIOD_E;
-
+/** @} */
+/** @addtogroup TIMER_FAULT_SRC_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_CLR_ON_FAULT_INPUT_DEASSERTION = 0,
-	TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_CLR_ON_FAULT_EVENT_DEASSERTION = 1,
-	TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_CLR_ON_ZERO_EVENT = 2,
-	TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_CLR_ON_LOAD_EVENT = 3,
+	TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_CLR_ON_FAULT_INPUT_DEASSERTION = 0, ///< 0x0
+	TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_CLR_ON_FAULT_EVENT_DEASSERTION = 1, ///< 0x1
+	TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_CLR_ON_ZERO_EVENT = 2, ///< 0x2
+	TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_CLR_ON_LOAD_EVENT = 3, ///< 0x3
 } TIMER_FAULT_SRC_CTL_FAULT_LATCH_SEL_E;
-
+/** @} */
+/** @addtogroup TIMER_CTR_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CTR_CTL_COUNT_MODE_UP = 0,
-	TIMER_CTR_CTL_COUNT_MODE_DOWN = 1,
-	TIMER_CTR_CTL_COUNT_MODE_UP_DOWN = 2,
-	TIMER_CTR_CTL_COUNT_MODE_DOWN_UP = 3,
+	TIMER_CTR_CTL_COUNT_MODE_UP = 0, ///< 0x0
+	TIMER_CTR_CTL_COUNT_MODE_DOWN = 1, ///< 0x1
+	TIMER_CTR_CTL_COUNT_MODE_UP_DOWN = 2, ///< 0x2
+	TIMER_CTR_CTL_COUNT_MODE_DOWN_UP = 3, ///< 0x3
 } TIMER_CTR_CTL_COUNT_MODE_E;
-
+/** @} */
+/** @addtogroup TIMER_CTR_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CTR_CTL_CTR_ZERO_CTRL_CHANNEL_0_ZERO_COND = 0,
-	TIMER_CTR_CTL_CTR_ZERO_CTRL_CHANNEL_1_ZERO_COND = 1,
-	TIMER_CTR_CTL_CTR_ZERO_CTRL_CHANNEL_2_ZERO_COND = 2,
-	TIMER_CTR_CTL_CTR_ZERO_CTRL_CHANNEL_3_ZERO_COND = 3,
-	TIMER_CTR_CTL_CTR_ZERO_CTRL_QEI_TWO_INPUT_MODE = 4,
-	TIMER_CTR_CTL_CTR_ZERO_CTRL_QEI_THREE_INPUT_MODE = 5,
+	TIMER_CTR_CTL_CTR_ZERO_CTRL_CHANNEL_0_ZERO_COND = 0, ///< 0x0
+	TIMER_CTR_CTL_CTR_ZERO_CTRL_CHANNEL_1_ZERO_COND = 1, ///< 0x1
+	TIMER_CTR_CTL_CTR_ZERO_CTRL_CHANNEL_2_ZERO_COND = 2, ///< 0x2
+	TIMER_CTR_CTL_CTR_ZERO_CTRL_CHANNEL_3_ZERO_COND = 3, ///< 0x3
+	TIMER_CTR_CTL_CTR_ZERO_CTRL_QEI_TWO_INPUT_MODE = 4, ///< 0x4
+	TIMER_CTR_CTL_CTR_ZERO_CTRL_QEI_THREE_INPUT_MODE = 5, ///< 0x5
 } TIMER_CTR_CTL_CTR_ZERO_CTRL_E;
-
+/** @} */
+/** @addtogroup TIMER_CTR_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CTR_CTL_CTR_LOAD_CTRL_CHANNEL_0_LOAD_COND = 0,
-	TIMER_CTR_CTL_CTR_LOAD_CTRL_CHANNEL_1_LOAD_COND = 1,
-	TIMER_CTR_CTL_CTR_LOAD_CTRL_CHANNEL_2_LOAD_COND = 2,
-	TIMER_CTR_CTL_CTR_LOAD_CTRL_CHANNEL_3_LOAD_COND = 3,
-	TIMER_CTR_CTL_CTR_LOAD_CTRL_QEI_TWO_INPUT_MODE = 4,
-	TIMER_CTR_CTL_CTR_LOAD_CTRL_QEI_THREE_INPUT_MODE = 5,
+	TIMER_CTR_CTL_CTR_LOAD_CTRL_CHANNEL_0_LOAD_COND = 0, ///< 0x0
+	TIMER_CTR_CTL_CTR_LOAD_CTRL_CHANNEL_1_LOAD_COND = 1, ///< 0x1
+	TIMER_CTR_CTL_CTR_LOAD_CTRL_CHANNEL_2_LOAD_COND = 2, ///< 0x2
+	TIMER_CTR_CTL_CTR_LOAD_CTRL_CHANNEL_3_LOAD_COND = 3, ///< 0x3
+	TIMER_CTR_CTL_CTR_LOAD_CTRL_QEI_TWO_INPUT_MODE = 4, ///< 0x4
+	TIMER_CTR_CTL_CTR_LOAD_CTRL_QEI_THREE_INPUT_MODE = 5, ///< 0x5
 } TIMER_CTR_CTL_CTR_LOAD_CTRL_E;
-
+/** @} */
+/** @addtogroup TIMER_CTR_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CTR_CTL_CTR_ADV_CTRL_CHANNEL_0_ADV_COND = 0,
-	TIMER_CTR_CTL_CTR_ADV_CTRL_CHANNEL_1_ADV_COND = 1,
-	TIMER_CTR_CTL_CTR_ADV_CTRL_CHANNEL_2_ADV_COND = 2,
-	TIMER_CTR_CTL_CTR_ADV_CTRL_CHANNEL_3_ADV_COND = 3,
-	TIMER_CTR_CTL_CTR_ADV_CTRL_QEI_TWO_INPUT_MODE = 4,
-	TIMER_CTR_CTL_CTR_ADV_CTRL_QEI_THREE_INPUT_MODE = 5,
+	TIMER_CTR_CTL_CTR_ADV_CTRL_CHANNEL_0_ADV_COND = 0, ///< 0x0
+	TIMER_CTR_CTL_CTR_ADV_CTRL_CHANNEL_1_ADV_COND = 1, ///< 0x1
+	TIMER_CTR_CTL_CTR_ADV_CTRL_CHANNEL_2_ADV_COND = 2, ///< 0x2
+	TIMER_CTR_CTL_CTR_ADV_CTRL_CHANNEL_3_ADV_COND = 3, ///< 0x3
+	TIMER_CTR_CTL_CTR_ADV_CTRL_QEI_TWO_INPUT_MODE = 4, ///< 0x4
+	TIMER_CTR_CTL_CTR_ADV_CTRL_QEI_THREE_INPUT_MODE = 5, ///< 0x5
 } TIMER_CTR_CTL_CTR_ADV_CTRL_E;
-
+/** @} */
+/** @addtogroup TIMER_CTR_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CTR_CTL_CTR_DURING_FAULT_ADVANCE = 0,
-	TIMER_CTR_CTL_CTR_DURING_FAULT_SUSPEND = 1,
+	TIMER_CTR_CTL_CTR_DURING_FAULT_ADVANCE = 0, ///< 0x0
+	TIMER_CTR_CTL_CTR_DURING_FAULT_SUSPEND = 1, ///< 0x1
 } TIMER_CTR_CTL_CTR_DURING_FAULT_E;
-
+/** @} */
+/** @addtogroup TIMER_CTR_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CTR_CTL_CTR_EXIT_FAULT_RESUME = 0,
-	TIMER_CTR_CTL_CTR_EXIT_FAULT_START_FROM_ZERO = 1,
-	TIMER_CTR_CTL_CTR_EXIT_FAULT_START_FROM_LOAD = 2,
+	TIMER_CTR_CTL_CTR_EXIT_FAULT_RESUME = 0, ///< 0x0
+	TIMER_CTR_CTL_CTR_EXIT_FAULT_START_FROM_ZERO = 1, ///< 0x1
+	TIMER_CTR_CTL_CTR_EXIT_FAULT_START_FROM_LOAD = 2, ///< 0x2
 } TIMER_CTR_CTL_CTR_EXIT_FAULT_E;
-
+/** @} */
+/** @addtogroup TIMER_CTR_CTL_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_CTR_CTL_CTR_AFTER_DEBUG_RESUME = 0,
-	TIMER_CTR_CTL_CTR_AFTER_DEBUG_START_FROM_ZERO = 1,
-	TIMER_CTR_CTL_CTR_AFTER_DEBUG_START_FROM_LOAD = 2,
+	TIMER_CTR_CTL_CTR_AFTER_DEBUG_RESUME = 0, ///< 0x0
+	TIMER_CTR_CTL_CTR_AFTER_DEBUG_START_FROM_ZERO = 1, ///< 0x1
+	TIMER_CTR_CTL_CTR_AFTER_DEBUG_START_FROM_LOAD = 2, ///< 0x2
 } TIMER_CTR_CTL_CTR_AFTER_DEBUG_E;
-
+/** @} */
+/** @addtogroup TIMER_QEI_DIR_REG  
+ *  @{
+ */
 typedef enum {
-	TIMER_QEI_DIR_CLOCK = 0,
-	TIMER_QEI_DIR_ANTI_CLOCK = 1,
+	TIMER_QEI_DIR_CLOCK = 0, ///< 0x0
+	TIMER_QEI_DIR_ANTI_CLOCK = 1, ///< 0x1
 } TIMER_QEI_DIR_E;
-/** @} end of TIMER_ENUM */ 
-
+/** @} */
 
 /** @defgroup TIMER_REGISTER_FLAGS 
  *  @{

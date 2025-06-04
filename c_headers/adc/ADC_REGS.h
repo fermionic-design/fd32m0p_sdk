@@ -35,6 +35,7 @@ typedef union {
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref ADC_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } ADC_PWR_EN_REG_s;
 
@@ -55,6 +56,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref ADC_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } ADC_RST_CTRL_REG_s;
 
@@ -108,6 +110,7 @@ typedef union {
  */
 typedef struct {
     unsigned int clk_en:1; // 
+    /** @ref ADC_CLK_CTRL_CLK_DIV_E */
     unsigned int clk_div:3; // 
 } ADC_CLK_CTRL_REG_s;
 
@@ -125,6 +128,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref ADC_CLK_SEL_E */
     unsigned int clk_sel:2; // 
 } ADC_CLK_SEL_REG_s;
 
@@ -463,10 +467,13 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref ADC_CONV_CFG_CONV_MODE_E */
     unsigned int conv_mode:2; // 
     unsigned int start_addr:4; // 
     unsigned int end_addr:4; // 
+    /** @ref ADC_CONV_CFG_TRIGGER_SOURCE_E */
     unsigned int trigger_source:1; // 
+    /** @ref ADC_CONV_CFG_ADC_RES_E */
     unsigned int adc_res:2; // 
     unsigned int en_conv:1; // 
 } ADC_CONV_CFG_REG_s;
@@ -485,7 +492,9 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref ADC_CHNL_CFG_CHANNEL_SEL_E */
     unsigned int channel_sel:4; // 
+    /** @ref ADC_CHNL_CFG_VREF_SEL_E */
     unsigned int vref_sel:2; // 
     unsigned int hw_avg_en:1; // 
     unsigned int window_comp_en:1; // 
@@ -523,7 +532,9 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref ADC_HW_AVG_CFG_HW_SAMPLE_CNT_E */
     unsigned int hw_sample_cnt:4; // 
+    /** @ref ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_E */
     unsigned int hw_avg_sample_div:4; // 
 } ADC_HW_AVG_CFG_REG_s;
 
@@ -872,49 +883,54 @@ typedef union {
 
 /** @} end of ADC_REGISTERS */ 
 
+/** @defgroup ADC_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  ADC_DESC_u DESC;
-    volatile  ADC_PWR_EN_u PWR_EN;
-    volatile  ADC_RST_CTRL_u RST_CTRL;
-    volatile  ADC_RST_STS_u RST_STS;
-    volatile  ADC_DBG_CTRL_u DBG_CTRL;
-    volatile  ADC_CLK_CTRL_u CLK_CTRL;
-    volatile  ADC_CLK_SEL_u CLK_SEL;
-    volatile  ADC_INTR_EVENT_u INTR_EVENT;
-    volatile  ADC_INTR_EN_0_u INTR_EN_0;
-    volatile  ADC_INTR_EN_1_u INTR_EN_1;
-    volatile  ADC_DMA_EN_0_u DMA_EN_0;
-    volatile  ADC_DMA_EN_1_u DMA_EN_1;
-    volatile  ADC_EVENT_EN_0_u EVENT_EN_0;
-    volatile  ADC_EVENT_EN_1_u EVENT_EN_1;
-    volatile  ADC_INTR_NMI_EN_0_u INTR_NMI_EN_0;
-    volatile  ADC_INTR_NMI_EN_1_u INTR_NMI_EN_1;
-    volatile  ADC_INTR_STS_u INTR_STS;
-    volatile  ADC_INTR_SW_u INTR_SW;
-    volatile  ADC_CONV_CFG_u CONV_CFG;
-    volatile  ADC_CHNL_CFG_u CHNL_CFG[16];
-    volatile  ADC_RESULT_CFG_u RESULT_CFG;
-    volatile  ADC_HW_AVG_CFG_u HW_AVG_CFG;
-    volatile  ADC_RESULT_u RESULT[16];
-    volatile  ADC_TIMER_START_u TIMER_START;
-    volatile  ADC_TIMER_SAMPLE_u TIMER_SAMPLE;
-    volatile  ADC_TIMER_CONVERSION_u TIMER_CONVERSION;
-    volatile  ADC_WINDOW_COMP_u WINDOW_COMP;
-    volatile  ADC_STATUS_u STATUS;
-    volatile  ADC_DMA_REG_u DMA_REG;
-    volatile  ADC_POWER_DN_u POWER_DN;
-    volatile  ADC_SUBS_PORT_u SUBS_PORT;
-    volatile  ADC_PUBS_PORT_u PUBS_PORT;
-    volatile  ADC_CALIBRATION_REQ_u CALIBRATION_REQ;
-    volatile  ADC_BLOCK_ASYNC_REQ_u BLOCK_ASYNC_REQ;
-    volatile  ADC_SW_TRIGGER_u SW_TRIGGER;
-    volatile  ADC_SPARE_CTRL_u SPARE_CTRL;
-    volatile  ADC_SPARE_STS_u SPARE_STS;
-    volatile  ADC_EOC_ANA_u EOC_ANA;
-    volatile  ADC_TEMP_SENSOR_EN_u TEMP_SENSOR_EN;
-    volatile  ADC_SM_STATE_u SM_STATE;
-    volatile  ADC_DMA_TRANSFER_CNT_u DMA_TRANSFER_CNT;
+    volatile  ADC_DESC_u DESC; ///< 0x00000000
+    volatile  ADC_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  ADC_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  ADC_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  ADC_DBG_CTRL_u DBG_CTRL; ///< 0x00000010
+    volatile  ADC_CLK_CTRL_u CLK_CTRL; ///< 0x00000014
+    volatile  ADC_CLK_SEL_u CLK_SEL; ///< 0x00000018
+    volatile  ADC_INTR_EVENT_u INTR_EVENT; ///< 0x0000001C
+    volatile  ADC_INTR_EN_0_u INTR_EN_0; ///< 0x00000020
+    volatile  ADC_INTR_EN_1_u INTR_EN_1; ///< 0x00000024
+    volatile  ADC_DMA_EN_0_u DMA_EN_0; ///< 0x00000028
+    volatile  ADC_DMA_EN_1_u DMA_EN_1; ///< 0x0000002C
+    volatile  ADC_EVENT_EN_0_u EVENT_EN_0; ///< 0x00000030
+    volatile  ADC_EVENT_EN_1_u EVENT_EN_1; ///< 0x00000034
+    volatile  ADC_INTR_NMI_EN_0_u INTR_NMI_EN_0; ///< 0x00000038
+    volatile  ADC_INTR_NMI_EN_1_u INTR_NMI_EN_1; ///< 0x0000003C
+    volatile  ADC_INTR_STS_u INTR_STS; ///< 0x00000040
+    volatile  ADC_INTR_SW_u INTR_SW; ///< 0x00000044
+    volatile  ADC_CONV_CFG_u CONV_CFG; ///< 0x00000048
+    volatile  ADC_CHNL_CFG_u CHNL_CFG[16]; ///< 0x0000004C
+    volatile  ADC_RESULT_CFG_u RESULT_CFG; ///< 0x0000008C
+    volatile  ADC_HW_AVG_CFG_u HW_AVG_CFG; ///< 0x00000090
+    volatile  ADC_RESULT_u RESULT[16]; ///< 0x00000094
+    volatile  ADC_TIMER_START_u TIMER_START; ///< 0x000000D4
+    volatile  ADC_TIMER_SAMPLE_u TIMER_SAMPLE; ///< 0x000000D8
+    volatile  ADC_TIMER_CONVERSION_u TIMER_CONVERSION; ///< 0x000000DC
+    volatile  ADC_WINDOW_COMP_u WINDOW_COMP; ///< 0x000000E0
+    volatile  ADC_STATUS_u STATUS; ///< 0x000000E4
+    volatile  ADC_DMA_REG_u DMA_REG; ///< 0x000000E8
+    volatile  ADC_POWER_DN_u POWER_DN; ///< 0x000000EC
+    volatile  ADC_SUBS_PORT_u SUBS_PORT; ///< 0x000000F0
+    volatile  ADC_PUBS_PORT_u PUBS_PORT; ///< 0x000000F4
+    volatile  ADC_CALIBRATION_REQ_u CALIBRATION_REQ; ///< 0x000000F8
+    volatile  ADC_BLOCK_ASYNC_REQ_u BLOCK_ASYNC_REQ; ///< 0x000000FC
+    volatile  ADC_SW_TRIGGER_u SW_TRIGGER; ///< 0x00000100
+    volatile  ADC_SPARE_CTRL_u SPARE_CTRL; ///< 0x00000104
+    volatile  ADC_SPARE_STS_u SPARE_STS; ///< 0x00000108
+    volatile  ADC_EOC_ANA_u EOC_ANA; ///< 0x0000010C
+    volatile  ADC_TEMP_SENSOR_EN_u TEMP_SENSOR_EN; ///< 0x00000110
+    volatile  ADC_SM_STATE_u SM_STATE; ///< 0x00000114
+    volatile  ADC_DMA_TRANSFER_CNT_u DMA_TRANSFER_CNT; ///< 0x00000118
 } ADC_REGS_s;
+
+/** @} end of ADC_MEMORY_MAP */ 
 
 /** @defgroup ADC_KEY 
  *  @{
@@ -954,88 +970,110 @@ typedef struct {
 #define ADC_INTR_EVENT_RESULT15_FLAG_IDX (23)
 /** @} end of ADC_INTERRUPTS */ 
 
-/** @defgroup ADC_ENUM 
+/** @addtogroup ADC_CLK_CTRL_REG  
  *  @{
  */
-
 typedef enum {
-	ADC_CLK_CTRL_CLK_DIV_BY_1 = 0,
-	ADC_CLK_CTRL_CLK_DIV_BY_2 = 1,
-	ADC_CLK_CTRL_CLK_DIV_BY_3 = 2,
-	ADC_CLK_CTRL_CLK_DIV_BY_4 = 3,
-	ADC_CLK_CTRL_CLK_DIV_BY_5 = 4,
-	ADC_CLK_CTRL_CLK_DIV_BY_6 = 5,
-	ADC_CLK_CTRL_CLK_DIV_BY_7 = 6,
-	ADC_CLK_CTRL_CLK_DIV_BY_8 = 7,
+	ADC_CLK_CTRL_CLK_DIV_BY_1 = 0, ///< 0x0
+	ADC_CLK_CTRL_CLK_DIV_BY_2 = 1, ///< 0x1
+	ADC_CLK_CTRL_CLK_DIV_BY_3 = 2, ///< 0x2
+	ADC_CLK_CTRL_CLK_DIV_BY_4 = 3, ///< 0x3
+	ADC_CLK_CTRL_CLK_DIV_BY_5 = 4, ///< 0x4
+	ADC_CLK_CTRL_CLK_DIV_BY_6 = 5, ///< 0x5
+	ADC_CLK_CTRL_CLK_DIV_BY_7 = 6, ///< 0x6
+	ADC_CLK_CTRL_CLK_DIV_BY_8 = 7, ///< 0x7
 } ADC_CLK_CTRL_CLK_DIV_E;
-
+/** @} */
+/** @addtogroup ADC_CLK_SEL_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CLK_SEL_APB = 0,
-	ADC_CLK_SEL_AHB = 1,
-	ADC_CLK_SEL_HF = 2,
+	ADC_CLK_SEL_APB = 0, ///< 0x0
+	ADC_CLK_SEL_AHB = 1, ///< 0x1
+	ADC_CLK_SEL_HF = 2, ///< 0x2
 } ADC_CLK_SEL_E;
-
+/** @} */
+/** @addtogroup ADC_CONV_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CONV_CFG_CONV_MODE_SINGLE_CONV = 0,
-	ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV = 1,
-	ADC_CONV_CFG_CONV_MODE_MULTI_CH_CONV = 2,
-	ADC_CONV_CFG_CONV_MODE_MULTI_CH_RPT_CONV = 3,
+	ADC_CONV_CFG_CONV_MODE_SINGLE_CONV = 0, ///< 0x0
+	ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV = 1, ///< 0x1
+	ADC_CONV_CFG_CONV_MODE_MULTI_CH_CONV = 2, ///< 0x2
+	ADC_CONV_CFG_CONV_MODE_MULTI_CH_RPT_CONV = 3, ///< 0x3
 } ADC_CONV_CFG_CONV_MODE_E;
-
+/** @} */
+/** @addtogroup ADC_CONV_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CONV_CFG_TRIGGER_SOURCE_HW = 0,
-	ADC_CONV_CFG_TRIGGER_SOURCE_SW = 1,
+	ADC_CONV_CFG_TRIGGER_SOURCE_HW = 0, ///< 0x0
+	ADC_CONV_CFG_TRIGGER_SOURCE_SW = 1, ///< 0x1
 } ADC_CONV_CFG_TRIGGER_SOURCE_E;
-
+/** @} */
+/** @addtogroup ADC_CONV_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CONV_CFG_ADC_RES_8_BIT = 0,
-	ADC_CONV_CFG_ADC_RES_10_BIT = 1,
-	ADC_CONV_CFG_ADC_RES_12_BIT = 2,
+	ADC_CONV_CFG_ADC_RES_8_BIT = 0, ///< 0x0
+	ADC_CONV_CFG_ADC_RES_10_BIT = 1, ///< 0x1
+	ADC_CONV_CFG_ADC_RES_12_BIT = 2, ///< 0x2
 } ADC_CONV_CFG_ADC_RES_E;
-
+/** @} */
+/** @addtogroup ADC_CHNL_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CHNL_CFG_CHANNEL_SEL_CH0_PA27 = 0,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH1_PA26 = 1,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH2_PA25 = 2,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH3_PA24 = 3,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH4_PA22 = 4,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH5_PA21 = 5,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH6_PA20 = 6,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH7_PA18 = 7,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH8_PA16 = 8,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH9_PA15 = 9,
-	ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR = 11,
-	ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON = 15,
+	ADC_CHNL_CFG_CHANNEL_SEL_CH0_PA27 = 0, ///< 0x0
+	ADC_CHNL_CFG_CHANNEL_SEL_CH1_PA26 = 1, ///< 0x1
+	ADC_CHNL_CFG_CHANNEL_SEL_CH2_PA25 = 2, ///< 0x2
+	ADC_CHNL_CFG_CHANNEL_SEL_CH3_PA24 = 3, ///< 0x3
+	ADC_CHNL_CFG_CHANNEL_SEL_CH4_PA22 = 4, ///< 0x4
+	ADC_CHNL_CFG_CHANNEL_SEL_CH5_PA21 = 5, ///< 0x5
+	ADC_CHNL_CFG_CHANNEL_SEL_CH6_PA20 = 6, ///< 0x6
+	ADC_CHNL_CFG_CHANNEL_SEL_CH7_PA18 = 7, ///< 0x7
+	ADC_CHNL_CFG_CHANNEL_SEL_CH8_PA16 = 8, ///< 0x8
+	ADC_CHNL_CFG_CHANNEL_SEL_CH9_PA15 = 9, ///< 0x9
+	ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR = 11, ///< 0xb
+	ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON = 15, ///< 0xf
 } ADC_CHNL_CFG_CHANNEL_SEL_E;
-
+/** @} */
+/** @addtogroup ADC_CHNL_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CHNL_CFG_VREF_SEL_EXT = 0,
-	ADC_CHNL_CFG_VREF_SEL_INT = 1,
+	ADC_CHNL_CFG_VREF_SEL_EXT = 0, ///< 0x0
+	ADC_CHNL_CFG_VREF_SEL_INT = 1, ///< 0x1
 } ADC_CHNL_CFG_VREF_SEL_E;
-
+/** @} */
+/** @addtogroup ADC_HW_AVG_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_0 = 0,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_2 = 1,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_4 = 2,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_8 = 3,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_16 = 4,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_32 = 5,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_64 = 6,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_128 = 7,
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_0 = 0, ///< 0x0
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_2 = 1, ///< 0x1
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_4 = 2, ///< 0x2
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_8 = 3, ///< 0x3
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_16 = 4, ///< 0x4
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_32 = 5, ///< 0x5
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_64 = 6, ///< 0x6
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_128 = 7, ///< 0x7
 } ADC_HW_AVG_CFG_HW_SAMPLE_CNT_E;
-
+/** @} */
+/** @addtogroup ADC_HW_AVG_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_1 = 0,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_2 = 1,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_4 = 2,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_8 = 3,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_16 = 4,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_32 = 5,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_64 = 6,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_128 = 7,
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_1 = 0, ///< 0x0
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_2 = 1, ///< 0x1
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_4 = 2, ///< 0x2
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_8 = 3, ///< 0x3
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_16 = 4, ///< 0x4
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_32 = 5, ///< 0x5
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_64 = 6, ///< 0x6
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_128 = 7, ///< 0x7
 } ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_E;
-/** @} end of ADC_ENUM */ 
-
+/** @} */
 
 /** @defgroup ADC_REGISTER_FLAGS 
  *  @{

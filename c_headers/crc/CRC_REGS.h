@@ -15,6 +15,7 @@
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref CRC_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } CRC_PWR_EN_REG_s;
 
@@ -35,6 +36,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref CRC_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } CRC_RST_CTRL_REG_s;
 
@@ -69,6 +71,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref CRC_CRCCONFIG_POLY_TYPE_E */
     unsigned int poly_type:1; // 
     unsigned int input_bit_rev:1; // 
     unsigned int output_bit_rev:1; // 
@@ -139,15 +142,20 @@ typedef union {
 
 /** @} end of CRC_REGISTERS */ 
 
+/** @defgroup CRC_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  CRC_PWR_EN_u PWR_EN;
-    volatile  CRC_RST_CTRL_u RST_CTRL;
-    volatile  CRC_RST_STS_u RST_STS;
-    volatile  CRC_CRCCONFIG_u CRCCONFIG;
-    volatile  CRC_CRCSEED_u CRCSEED;
-    volatile  CRC_CRCINPUT_u CRCINPUT[1024];
-    volatile  CRC_CRCRESULT_u CRCRESULT;
+    volatile  CRC_PWR_EN_u PWR_EN; ///< 0x00000000
+    volatile  CRC_RST_CTRL_u RST_CTRL; ///< 0x00000004
+    volatile  CRC_RST_STS_u RST_STS; ///< 0x00000008
+    volatile  CRC_CRCCONFIG_u CRCCONFIG; ///< 0x0000000C
+    volatile  CRC_CRCSEED_u CRCSEED; ///< 0x00000010
+    volatile  CRC_CRCINPUT_u CRCINPUT[1024]; ///< 0x00000014
+    volatile  CRC_CRCRESULT_u CRCRESULT; ///< 0x00001014
 } CRC_REGS_s;
+
+/** @} end of CRC_MEMORY_MAP */ 
 
 /** @defgroup CRC_KEY 
  *  @{
@@ -163,16 +171,14 @@ typedef struct {
  */
 /** @} end of CRC_INTERRUPTS */ 
 
-/** @defgroup CRC_ENUM 
+/** @addtogroup CRC_CRCCONFIG_REG  
  *  @{
  */
-
 typedef enum {
-	CRC_CRCCONFIG_POLY_TYPE_32_BIT = 0,
-	CRC_CRCCONFIG_POLY_TYPE_16_BIT = 1,
+	CRC_CRCCONFIG_POLY_TYPE_32_BIT = 0, ///< 0x0
+	CRC_CRCCONFIG_POLY_TYPE_16_BIT = 1, ///< 0x1
 } CRC_CRCCONFIG_POLY_TYPE_E;
-/** @} end of CRC_ENUM */ 
-
+/** @} */
 
 /** @defgroup CRC_REGISTER_FLAGS 
  *  @{

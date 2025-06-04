@@ -50,10 +50,15 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref FLASH_CTRL_CLEN_E */
     unsigned int clen:1; // 
+    /** @ref FLASH_CTRL_SRL_E */
     unsigned int srl:1; // 
+    /** @ref FLASH_CTRL_ISAVB_E */
     unsigned int isavb:1; // 
+    /** @ref FLASH_CTRL_RDECC_E */
     unsigned int rdecc:1; // 
+    /** @ref FLASH_CTRL_CPECC_E */
     unsigned int cpecc:1; // 
 } FLASH_CTRL_REG_s;
 
@@ -167,6 +172,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_E */
     unsigned int force_hsize_val:3; // 
     unsigned int force_hsize_en:1; // 
 } FLASH_HSIZE_CTRL_REG_s;
@@ -217,19 +223,24 @@ typedef union {
 
 /** @} end of FLASH_REGISTERS */ 
 
+/** @defgroup FLASH_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  FLASH_DESC_u DESC;
-    volatile  FLASH_CLK_CTRL_u CLK_CTRL;
-    volatile  FLASH_CTRL_u CTRL;
-    volatile  FLASH_STATUS_u STATUS;
-    volatile  FLASH_TIME_CTRL_u TIME_CTRL;
-    volatile  FLASH_TIME_CTRL_1_u TIME_CTRL_1;
-    volatile  FLASH_TIME_CTRL_2_u TIME_CTRL_2;
-    volatile  FLASH_TIME_UPTD_u TIME_UPTD;
-    volatile  FLASH_HSIZE_CTRL_u HSIZE_CTRL;
-    volatile  FLASH_STS_u STS;
-    volatile  FLASH_ECED_STATUS_u ECED_STATUS;
+    volatile  FLASH_DESC_u DESC; ///< 0x00000000
+    volatile  FLASH_CLK_CTRL_u CLK_CTRL; ///< 0x00000004
+    volatile  FLASH_CTRL_u CTRL; ///< 0x00000008
+    volatile  FLASH_STATUS_u STATUS; ///< 0x0000000C
+    volatile  FLASH_TIME_CTRL_u TIME_CTRL; ///< 0x00000010
+    volatile  FLASH_TIME_CTRL_1_u TIME_CTRL_1; ///< 0x00000014
+    volatile  FLASH_TIME_CTRL_2_u TIME_CTRL_2; ///< 0x00000018
+    volatile  FLASH_TIME_UPTD_u TIME_UPTD; ///< 0x0000001C
+    volatile  FLASH_HSIZE_CTRL_u HSIZE_CTRL; ///< 0x00000020
+    volatile  FLASH_STS_u STS; ///< 0x00000024
+    volatile  FLASH_ECED_STATUS_u ECED_STATUS; ///< 0x00000028
 } FLASH_REGS_s;
+
+/** @} end of FLASH_MEMORY_MAP */ 
 
 /** @defgroup FLASH_KEY 
  *  @{
@@ -242,42 +253,55 @@ typedef struct {
  */
 /** @} end of FLASH_INTERRUPTS */ 
 
-/** @defgroup FLASH_ENUM 
+/** @addtogroup FLASH_CTRL_REG  
  *  @{
  */
-
 typedef enum {
-	FLASH_CTRL_CLEN_NORMAL_MODE = 0,
-	FLASH_CTRL_CLEN_TEST_MODE = 1,
+	FLASH_CTRL_CLEN_NORMAL_MODE = 0, ///< 0x0
+	FLASH_CTRL_CLEN_TEST_MODE = 1, ///< 0x1
 } FLASH_CTRL_CLEN_E;
-
+/** @} */
+/** @addtogroup FLASH_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	FLASH_CTRL_SRL_DEFAULT = 0,
-	FLASH_CTRL_SRL_SHADOW = 1,
+	FLASH_CTRL_SRL_DEFAULT = 0, ///< 0x0
+	FLASH_CTRL_SRL_SHADOW = 1, ///< 0x1
 } FLASH_CTRL_SRL_E;
-
+/** @} */
+/** @addtogroup FLASH_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	FLASH_CTRL_ISAVB_LOW_POWER = 0,
-	FLASH_CTRL_ISAVB_HIGH_SPEED = 1,
+	FLASH_CTRL_ISAVB_LOW_POWER = 0, ///< 0x0
+	FLASH_CTRL_ISAVB_HIGH_SPEED = 1, ///< 0x1
 } FLASH_CTRL_ISAVB_E;
-
+/** @} */
+/** @addtogroup FLASH_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	FLASH_CTRL_RDECC_DEFAULT = 0,
-	FLASH_CTRL_RDECC_ECC_SWITCHING = 1,
+	FLASH_CTRL_RDECC_DEFAULT = 0, ///< 0x0
+	FLASH_CTRL_RDECC_ECC_SWITCHING = 1, ///< 0x1
 } FLASH_CTRL_RDECC_E;
-
+/** @} */
+/** @addtogroup FLASH_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	FLASH_CTRL_CPECC_OFF = 0,
-	FLASH_CTRL_CPECC_ON = 1,
+	FLASH_CTRL_CPECC_OFF = 0, ///< 0x0
+	FLASH_CTRL_CPECC_ON = 1, ///< 0x1
 } FLASH_CTRL_CPECC_E;
-
+/** @} */
+/** @addtogroup FLASH_HSIZE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_BYTE = 0,
-	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_HALF_WORD = 1,
-	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_WORD = 2,
+	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_BYTE = 0, ///< 0x0
+	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_HALF_WORD = 1, ///< 0x1
+	FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_WORD = 2, ///< 0x2
 } FLASH_HSIZE_CTRL_FORCE_HSIZE_VAL_E;
-/** @} end of FLASH_ENUM */ 
-
+/** @} */
 
 /** @defgroup FLASH_REGISTER_FLAGS 
  *  @{

@@ -35,6 +35,7 @@ typedef union {
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref I2C_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } I2C_PWR_EN_REG_s;
 
@@ -55,6 +56,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref I2C_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } I2C_RST_CTRL_REG_s;
 
@@ -90,6 +92,7 @@ typedef union {
  */
 typedef struct {
     unsigned int en_async_clk_req:1; // 
+    /** @ref I2C_CLK_CTRL_CLKSEL_E */
     unsigned int clksel:1; // 
     unsigned int clkdiv:3; // 
     unsigned int hold_cnt:3; // 
@@ -583,6 +586,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref I2C_SLAVE_CTRL_SLV_ADDR_MODE_E */
     unsigned int slv_addr_mode:1; // 0 : 7 bit addressing   -- 1 : 10 bit addressing
     unsigned int slv_low_pwr_wakeup_en:1; // Enables wakeup from low power mode
     unsigned int slv_def_dev_addr_en:1; // Enables default device address matching
@@ -594,7 +598,9 @@ typedef struct {
     unsigned int slv_enable:1; // Enables the slave
     unsigned int slv_addr2_en:1; // Enables matching with addr2
     unsigned int slv_addr2_mask:7; // 0 : Disables bit checking for particular bit   -- 1 : Enables bit checking for particular bit
+    /** @ref I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_E */
     unsigned int slv_txwait_stale_fifo:1; // 1 : Gives tx fifo empty notification to fsm even if fifo is not actually empty, but the data is stale
+    /** @ref I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_E */
     unsigned int slv_txempty_intr_on_tx_req:1; // 1, generates txempty intr when tx is empty and clk stretching is taking place.   -- 0, generates tx empty intr whenever fifo is empty
 } I2C_SLAVE_CTRL_REG_s;
 
@@ -675,6 +681,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_E */
     unsigned int slv_ackval:1; // Sw writes the ack val 0 or 1 in this register for addr and data
 } I2C_SLAVE_BYTE_ACK_REG_s;
 
@@ -826,8 +833,10 @@ typedef union {
 typedef struct {
     unsigned int mst_enable:1; // Enables the master
     unsigned int mst_clkstretch_en:1; // enables clk stretch feature in master
+    /** @ref I2C_MASTER_CFG_LPBK_MODE_E */
     unsigned int lpbk_mode:1; // enables loopback mode
     unsigned int mst_auto_ack_en:1; // 1 : Automatically Acknowledges the last rx byte based on what value is there in mst_Ackval  -- 0 : Manually acknowledge the last byte based on what value is written to mst_Ackval register at the ack state, clk stretchong ios done till sw doesnt write onto this register
+    /** @ref I2C_MASTER_CFG_MST_ADDR_MODE_E */
     unsigned int mst_addr_mode:1; // 0 : 7 bit addressing  -- 1: 10 bit addrresssing
     unsigned int mst_slv_addr_cfg:10; // Configure the slave addr in which master wants to send data
 } I2C_MASTER_CFG_REG_s;
@@ -851,8 +860,10 @@ typedef struct {
     unsigned int mst_burst_len:12; // Total bytes to be transfered
     unsigned int rsvd_1:4; // 1 : Generates start condition
     unsigned int mst_start:1; // 1 : Generates start condition
+    /** @ref I2C_MASTER_CTRL_MST_DIR_E */
     unsigned int mst_dir:1; // 0 : write 1 : Read
     unsigned int mst_stop:1; // 1 : Generates stop condition after burst length is transfered
+    /** @ref I2C_MASTER_CTRL_MST_RD_ON_TXEMPTY_E */
     unsigned int mst_rd_on_txempty:1; // 1 : Enables tx transfers till tx fifo is emoty then does repeat start with read for the burst length specified
 } I2C_MASTER_CTRL_REG_s;
 
@@ -870,6 +881,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref I2C_MASTER_ACK_VAL_MST_ACKVAL_E */
     unsigned int mst_ackval:1; // Ack val for last rx byte
 } I2C_MASTER_ACK_VAL_REG_s;
 
@@ -946,52 +958,57 @@ typedef union {
 
 /** @} end of I2C_REGISTERS */ 
 
+/** @defgroup I2C_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  I2C_DESC_u DESC;
-    volatile  I2C_PWR_EN_u PWR_EN;
-    volatile  I2C_RST_CTRL_u RST_CTRL;
-    volatile  I2C_RST_STS_u RST_STS;
-    volatile  I2C_CLK_CTRL_u CLK_CTRL;
-    volatile  I2C_DBG_CTRL_u DBG_CTRL;
-    volatile  I2C_MASTER_SCL_GEN_u MASTER_SCL_GEN;
-    volatile  I2C_MASTER_TIMING_CONSTRAINT_u MASTER_TIMING_CONSTRAINT;
-    volatile  I2C_MASTER_CLKSTRETCH_CNT_u MASTER_CLKSTRETCH_CNT;
-    volatile  I2C_SLAVE_CLKSTRETCH_CNT_u SLAVE_CLKSTRETCH_CNT;
-    volatile  I2C_SMBUS_TIMEOUT_CNT_u SMBUS_TIMEOUT_CNT;
-    volatile  I2C_INTR_STS_u INTR_STS;
-    volatile  I2C_INTR_EVENT_u INTR_EVENT;
-    volatile  I2C_INTR_EN_0_u INTR_EN_0;
-    volatile  I2C_INTR_EN_1_u INTR_EN_1;
-    volatile  I2C_INTR_NMI_EN_0_u INTR_NMI_EN_0;
-    volatile  I2C_INTR_NMI_EN_1_u INTR_NMI_EN_1;
-    volatile  I2C_RX_DMA_EVENT_EN_0_u RX_DMA_EVENT_EN_0;
-    volatile  I2C_RX_DMA_EVENT_EN_1_u RX_DMA_EVENT_EN_1;
-    volatile  I2C_TX_DMA_EVENT_EN_0_u TX_DMA_EVENT_EN_0;
-    volatile  I2C_TX_DMA_EVENT_EN_1_u TX_DMA_EVENT_EN_1;
-    volatile  I2C_INTR_SW_SET_0_u INTR_SW_SET_0;
-    volatile  I2C_INTR_SW_SET_1_u INTR_SW_SET_1;
-    volatile  I2C_SPARE_CTRL_u SPARE_CTRL;
-    volatile  I2C_SPARE_STS_u SPARE_STS;
-    volatile  I2C_GLITCH_FILTER_CFG_u GLITCH_FILTER_CFG;
-    volatile  I2C_SLAVE_CTRL_u SLAVE_CTRL;
-    volatile  I2C_SLAVE_ADDR_u SLAVE_ADDR;
-    volatile  I2C_SLAVE_STS_u SLAVE_STS;
-    volatile  I2C_SLAVE_ACK_CFG_u SLAVE_ACK_CFG;
-    volatile  I2C_SLAVE_BYTE_ACK_u SLAVE_BYTE_ACK;
-    volatile  I2C_FIFO_CTRL_u FIFO_CTRL;
-    volatile  I2C_RXDATA_u RXDATA[2];
-    volatile  I2C_TXDATA_u TXDATA[2];
-    volatile  I2C_FIFO_STS_u FIFO_STS;
-    volatile  I2C_PEC_CTRL_u PEC_CTRL;
-    volatile  I2C_PEC_STS_u PEC_STS;
-    volatile  I2C_CRC_OUT_BYTE_u CRC_OUT_BYTE;
-    volatile  I2C_MASTER_CFG_u MASTER_CFG;
-    volatile  I2C_MASTER_CTRL_u MASTER_CTRL;
-    volatile  I2C_MASTER_ACK_VAL_u MASTER_ACK_VAL;
-    volatile  I2C_MASTER_STS_u MASTER_STS;
-    volatile  I2C_MASTER_MON_u MASTER_MON;
-    volatile  I2C_FSM_STATUS_u FSM_STATUS;
+    volatile  I2C_DESC_u DESC; ///< 0x00000000
+    volatile  I2C_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  I2C_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  I2C_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  I2C_CLK_CTRL_u CLK_CTRL; ///< 0x00000010
+    volatile  I2C_DBG_CTRL_u DBG_CTRL; ///< 0x00000014
+    volatile  I2C_MASTER_SCL_GEN_u MASTER_SCL_GEN; ///< 0x00000018
+    volatile  I2C_MASTER_TIMING_CONSTRAINT_u MASTER_TIMING_CONSTRAINT; ///< 0x0000001C
+    volatile  I2C_MASTER_CLKSTRETCH_CNT_u MASTER_CLKSTRETCH_CNT; ///< 0x00000020
+    volatile  I2C_SLAVE_CLKSTRETCH_CNT_u SLAVE_CLKSTRETCH_CNT; ///< 0x00000024
+    volatile  I2C_SMBUS_TIMEOUT_CNT_u SMBUS_TIMEOUT_CNT; ///< 0x00000028
+    volatile  I2C_INTR_STS_u INTR_STS; ///< 0x0000002C
+    volatile  I2C_INTR_EVENT_u INTR_EVENT; ///< 0x00000030
+    volatile  I2C_INTR_EN_0_u INTR_EN_0; ///< 0x00000034
+    volatile  I2C_INTR_EN_1_u INTR_EN_1; ///< 0x00000038
+    volatile  I2C_INTR_NMI_EN_0_u INTR_NMI_EN_0; ///< 0x0000003C
+    volatile  I2C_INTR_NMI_EN_1_u INTR_NMI_EN_1; ///< 0x00000040
+    volatile  I2C_RX_DMA_EVENT_EN_0_u RX_DMA_EVENT_EN_0; ///< 0x00000044
+    volatile  I2C_RX_DMA_EVENT_EN_1_u RX_DMA_EVENT_EN_1; ///< 0x00000048
+    volatile  I2C_TX_DMA_EVENT_EN_0_u TX_DMA_EVENT_EN_0; ///< 0x0000004C
+    volatile  I2C_TX_DMA_EVENT_EN_1_u TX_DMA_EVENT_EN_1; ///< 0x00000050
+    volatile  I2C_INTR_SW_SET_0_u INTR_SW_SET_0; ///< 0x00000054
+    volatile  I2C_INTR_SW_SET_1_u INTR_SW_SET_1; ///< 0x00000058
+    volatile  I2C_SPARE_CTRL_u SPARE_CTRL; ///< 0x0000005C
+    volatile  I2C_SPARE_STS_u SPARE_STS; ///< 0x00000060
+    volatile  I2C_GLITCH_FILTER_CFG_u GLITCH_FILTER_CFG; ///< 0x00000064
+    volatile  I2C_SLAVE_CTRL_u SLAVE_CTRL; ///< 0x00000068
+    volatile  I2C_SLAVE_ADDR_u SLAVE_ADDR; ///< 0x0000006C
+    volatile  I2C_SLAVE_STS_u SLAVE_STS; ///< 0x00000070
+    volatile  I2C_SLAVE_ACK_CFG_u SLAVE_ACK_CFG; ///< 0x00000074
+    volatile  I2C_SLAVE_BYTE_ACK_u SLAVE_BYTE_ACK; ///< 0x00000078
+    volatile  I2C_FIFO_CTRL_u FIFO_CTRL; ///< 0x0000007C
+    volatile  I2C_RXDATA_u RXDATA[2]; ///< 0x00000080
+    volatile  I2C_TXDATA_u TXDATA[2]; ///< 0x00000088
+    volatile  I2C_FIFO_STS_u FIFO_STS; ///< 0x00000090
+    volatile  I2C_PEC_CTRL_u PEC_CTRL; ///< 0x00000094
+    volatile  I2C_PEC_STS_u PEC_STS; ///< 0x00000098
+    volatile  I2C_CRC_OUT_BYTE_u CRC_OUT_BYTE; ///< 0x0000009C
+    volatile  I2C_MASTER_CFG_u MASTER_CFG; ///< 0x000000A0
+    volatile  I2C_MASTER_CTRL_u MASTER_CTRL; ///< 0x000000A4
+    volatile  I2C_MASTER_ACK_VAL_u MASTER_ACK_VAL; ///< 0x000000A8
+    volatile  I2C_MASTER_STS_u MASTER_STS; ///< 0x000000AC
+    volatile  I2C_MASTER_MON_u MASTER_MON; ///< 0x000000B0
+    volatile  I2C_FSM_STATUS_u FSM_STATUS; ///< 0x000000B4
 } I2C_REGS_s;
+
+/** @} end of I2C_MEMORY_MAP */ 
 
 /** @defgroup I2C_KEY 
  *  @{
@@ -1027,61 +1044,86 @@ typedef struct {
 #define I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_IDX (19)
 /** @} end of I2C_INTERRUPTS */ 
 
-/** @defgroup I2C_ENUM 
+/** @addtogroup I2C_CLK_CTRL_REG  
  *  @{
  */
-
 typedef enum {
-	I2C_CLK_CTRL_CLKSEL_4MHZ = 0,
-	I2C_CLK_CTRL_CLKSEL_AHB = 1,
+	I2C_CLK_CTRL_CLKSEL_4MHZ = 0, ///< 0x0
+	I2C_CLK_CTRL_CLKSEL_AHB = 1, ///< 0x1
 } I2C_CLK_CTRL_CLKSEL_E;
-
+/** @} */
+/** @addtogroup I2C_SLAVE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_SLAVE_CTRL_SLV_ADDR_MODE_7_BIT = 0,
-	I2C_SLAVE_CTRL_SLV_ADDR_MODE_10_BIT = 1,
+	I2C_SLAVE_CTRL_SLV_ADDR_MODE_7_BIT = 0, ///< 0x0
+	I2C_SLAVE_CTRL_SLV_ADDR_MODE_10_BIT = 1, ///< 0x1
 } I2C_SLAVE_CTRL_SLV_ADDR_MODE_E;
-
+/** @} */
+/** @addtogroup I2C_SLAVE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_NOT_TREATED_AS_EMPTY = 0,
-	I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_TREATED_AS_EMPTY = 1,
+	I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_NOT_TREATED_AS_EMPTY = 0, ///< 0x0
+	I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_TREATED_AS_EMPTY = 1, ///< 0x1
 } I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_E;
-
+/** @} */
+/** @addtogroup I2C_SLAVE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_AGNOSTIC = 0,
-	I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_REQUIRED = 1,
+	I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_AGNOSTIC = 0, ///< 0x0
+	I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_REQUIRED = 1, ///< 0x1
 } I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_E;
-
+/** @} */
+/** @addtogroup I2C_SLAVE_BYTE_ACK_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_ACK = 0,
-	I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_NACK = 1,
+	I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_ACK = 0, ///< 0x0
+	I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_NACK = 1, ///< 0x1
 } I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_E;
-
+/** @} */
+/** @addtogroup I2C_MASTER_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_MASTER_CFG_LPBK_MODE_DISABLE = 0,
-	I2C_MASTER_CFG_LPBK_MODE_ENABLE = 1,
+	I2C_MASTER_CFG_LPBK_MODE_DISABLE = 0, ///< 0x0
+	I2C_MASTER_CFG_LPBK_MODE_ENABLE = 1, ///< 0x1
 } I2C_MASTER_CFG_LPBK_MODE_E;
-
+/** @} */
+/** @addtogroup I2C_MASTER_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_MASTER_CFG_MST_ADDR_MODE_7_BIT = 0,
-	I2C_MASTER_CFG_MST_ADDR_MODE_10_BIT = 1,
+	I2C_MASTER_CFG_MST_ADDR_MODE_7_BIT = 0, ///< 0x0
+	I2C_MASTER_CFG_MST_ADDR_MODE_10_BIT = 1, ///< 0x1
 } I2C_MASTER_CFG_MST_ADDR_MODE_E;
-
+/** @} */
+/** @addtogroup I2C_MASTER_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_MASTER_CTRL_MST_DIR_WRITE = 0,
-	I2C_MASTER_CTRL_MST_DIR_READ = 1,
+	I2C_MASTER_CTRL_MST_DIR_WRITE = 0, ///< 0x0
+	I2C_MASTER_CTRL_MST_DIR_READ = 1, ///< 0x1
 } I2C_MASTER_CTRL_MST_DIR_E;
-
+/** @} */
+/** @addtogroup I2C_MASTER_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_MASTER_CTRL_MST_RD_ON_TXEMPTY_DISABLED = 0,
-	I2C_MASTER_CTRL_MST_RD_ON_TXEMPTY_ENABLED = 1,
+	I2C_MASTER_CTRL_MST_RD_ON_TXEMPTY_DISABLED = 0, ///< 0x0
+	I2C_MASTER_CTRL_MST_RD_ON_TXEMPTY_ENABLED = 1, ///< 0x1
 } I2C_MASTER_CTRL_MST_RD_ON_TXEMPTY_E;
-
+/** @} */
+/** @addtogroup I2C_MASTER_ACK_VAL_REG  
+ *  @{
+ */
 typedef enum {
-	I2C_MASTER_ACK_VAL_MST_ACKVAL_ACK = 0,
-	I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK = 1,
+	I2C_MASTER_ACK_VAL_MST_ACKVAL_ACK = 0, ///< 0x0
+	I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK = 1, ///< 0x1
 } I2C_MASTER_ACK_VAL_MST_ACKVAL_E;
-/** @} end of I2C_ENUM */ 
-
+/** @} */
 
 /** @defgroup I2C_REGISTER_FLAGS 
  *  @{

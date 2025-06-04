@@ -35,6 +35,7 @@ typedef union {
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref DMA_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } DMA_PWR_EN_REG_s;
 
@@ -55,6 +56,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref DMA_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } DMA_RST_CTRL_REG_s;
 
@@ -553,7 +555,9 @@ typedef struct {
     unsigned int stride_mode_chnl_no:4; // 
     unsigned int src_stride_val:4; // 
     unsigned int dst_stride_val:4; // 
+    /** @ref DMA_STRIDE_MODE_CFG_0_SRC_INC_E */
     unsigned int src_inc:2; // 
+    /** @ref DMA_STRIDE_MODE_CFG_0_DST_INC_E */
     unsigned int dst_inc:2; // 
 } DMA_STRIDE_MODE_CFG_0_REG_s;
 
@@ -1200,6 +1204,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref DMA_ARBITRATION_DMA_RR_EN_E */
     unsigned int dma_rr_en:1; // 
 } DMA_ARBITRATION_REG_s;
 
@@ -1232,70 +1237,75 @@ typedef union {
 
 /** @} end of DMA_REGISTERS */ 
 
+/** @defgroup DMA_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  DMA_DESC_u DESC;
-    volatile  DMA_PWR_EN_u PWR_EN;
-    volatile  DMA_RST_CTRL_u RST_CTRL;
-    volatile  DMA_RST_STS_u RST_STS;
-    volatile  DMA_CLK_CTRL_u CLK_CTRL;
-    volatile  DMA_DBG_CTRL_u DBG_CTRL;
-    volatile  DMA_INTR_STS_u INTR_STS;
-    volatile  DMA_INTR_EVENT_u INTR_EVENT;
-    volatile  DMA_INTR_EN_0_u INTR_EN_0;
-    volatile  DMA_INTR_EN_1_u INTR_EN_1;
-    volatile  DMA_INTR_NMI_EN_0_u INTR_NMI_EN_0;
-    volatile  DMA_INTR_NMI_EN_1_u INTR_NMI_EN_1;
-    volatile  DMA_EVENT_EN_0_u EVENT_EN_0;
-    volatile  DMA_EVENT_EN_1_u EVENT_EN_1;
-    volatile  DMA_INTR_SW_SET_u INTR_SW_SET;
-    volatile  DMA_CFG_0_u CFG_0;
-    volatile  DMA_CFG_1_u CFG_1;
-    volatile  DMA_CFG_2_u CFG_2;
-    volatile  DMA_WAITONREQ_u WAITONREQ;
-    volatile  DMA_FILL_MODE_u FILL_MODE;
-    volatile  DMA_FILL_MODE_CFG_u FILL_MODE_CFG;
-    volatile  DMA_STRIDE_MODE_u STRIDE_MODE;
-    volatile  DMA_STRIDE_MODE_CFG_0_u STRIDE_MODE_CFG_0;
-    volatile  DMA_STRIDE_MODE_CFG_1_u STRIDE_MODE_CFG_1;
-    volatile  DMA_STRIDE_MODE_CFG_2_u STRIDE_MODE_CFG_2;
-    volatile  DMA_EARLY_IRQ_0_u EARLY_IRQ_0;
-    volatile  DMA_EARLY_IRQ_1_u EARLY_IRQ_1;
-    volatile  DMA_EARLY_IRQ_2_u EARLY_IRQ_2;
-    volatile  DMA_EARLY_IRQ_3_u EARLY_IRQ_3;
-    volatile  DMA_EARLY_IRQ_4_u EARLY_IRQ_4;
-    volatile  DMA_EARLY_IRQ_5_u EARLY_IRQ_5;
-    volatile  DMA_EARLY_IRQ_6_u EARLY_IRQ_6;
-    volatile  DMA_EARLY_IRQ_7_u EARLY_IRQ_7;
-    volatile  DMA_EARLY_IRQ_8_u EARLY_IRQ_8;
-    volatile  DMA_EARLY_IRQ_9_u EARLY_IRQ_9;
-    volatile  DMA_EARLY_IRQ_10_u EARLY_IRQ_10;
-    volatile  DMA_EARLY_IRQ_11_u EARLY_IRQ_11;
-    volatile  DMA_EARLY_IRQ_12_u EARLY_IRQ_12;
-    volatile  DMA_EARLY_IRQ_13_u EARLY_IRQ_13;
-    volatile  DMA_EARLY_IRQ_14_u EARLY_IRQ_14;
-    volatile  DMA_EARLY_IRQ_15_u EARLY_IRQ_15;
-    volatile  DMA_EARLY_IRQ_CFG_u EARLY_IRQ_CFG;
-    volatile  DMA_REPEATED_TRANSFER_EN_u REPEATED_TRANSFER_EN;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_0_u REPEATED_TRANSFER_CHNL_0;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_1_u REPEATED_TRANSFER_CHNL_1;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_2_u REPEATED_TRANSFER_CHNL_2;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_3_u REPEATED_TRANSFER_CHNL_3;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_4_u REPEATED_TRANSFER_CHNL_4;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_5_u REPEATED_TRANSFER_CHNL_5;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_6_u REPEATED_TRANSFER_CHNL_6;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_7_u REPEATED_TRANSFER_CHNL_7;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_8_u REPEATED_TRANSFER_CHNL_8;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_9_u REPEATED_TRANSFER_CHNL_9;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_10_u REPEATED_TRANSFER_CHNL_10;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_11_u REPEATED_TRANSFER_CHNL_11;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_12_u REPEATED_TRANSFER_CHNL_12;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_13_u REPEATED_TRANSFER_CHNL_13;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_14_u REPEATED_TRANSFER_CHNL_14;
-    volatile  DMA_REPEATED_TRANSFER_CHNL_15_u REPEATED_TRANSFER_CHNL_15;
-    volatile  DMA_REPEATED_TRANSFER_ALTERNATE_SEL_u REPEATED_TRANSFER_ALTERNATE_SEL;
-    volatile  DMA_ARBITRATION_u ARBITRATION;
-    volatile  DMA_ARBITRATION_MASK_u ARBITRATION_MASK;
+    volatile  DMA_DESC_u DESC; ///< 0x00000000
+    volatile  DMA_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  DMA_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  DMA_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  DMA_CLK_CTRL_u CLK_CTRL; ///< 0x00000010
+    volatile  DMA_DBG_CTRL_u DBG_CTRL; ///< 0x00000014
+    volatile  DMA_INTR_STS_u INTR_STS; ///< 0x00000018
+    volatile  DMA_INTR_EVENT_u INTR_EVENT; ///< 0x0000001C
+    volatile  DMA_INTR_EN_0_u INTR_EN_0; ///< 0x00000020
+    volatile  DMA_INTR_EN_1_u INTR_EN_1; ///< 0x00000024
+    volatile  DMA_INTR_NMI_EN_0_u INTR_NMI_EN_0; ///< 0x00000028
+    volatile  DMA_INTR_NMI_EN_1_u INTR_NMI_EN_1; ///< 0x0000002C
+    volatile  DMA_EVENT_EN_0_u EVENT_EN_0; ///< 0x00000030
+    volatile  DMA_EVENT_EN_1_u EVENT_EN_1; ///< 0x00000034
+    volatile  DMA_INTR_SW_SET_u INTR_SW_SET; ///< 0x00000038
+    volatile  DMA_CFG_0_u CFG_0; ///< 0x0000003C
+    volatile  DMA_CFG_1_u CFG_1; ///< 0x00000040
+    volatile  DMA_CFG_2_u CFG_2; ///< 0x00000044
+    volatile  DMA_WAITONREQ_u WAITONREQ; ///< 0x00000048
+    volatile  DMA_FILL_MODE_u FILL_MODE; ///< 0x0000004C
+    volatile  DMA_FILL_MODE_CFG_u FILL_MODE_CFG; ///< 0x00000050
+    volatile  DMA_STRIDE_MODE_u STRIDE_MODE; ///< 0x00000054
+    volatile  DMA_STRIDE_MODE_CFG_0_u STRIDE_MODE_CFG_0; ///< 0x00000058
+    volatile  DMA_STRIDE_MODE_CFG_1_u STRIDE_MODE_CFG_1; ///< 0x0000005C
+    volatile  DMA_STRIDE_MODE_CFG_2_u STRIDE_MODE_CFG_2; ///< 0x00000060
+    volatile  DMA_EARLY_IRQ_0_u EARLY_IRQ_0; ///< 0x00000064
+    volatile  DMA_EARLY_IRQ_1_u EARLY_IRQ_1; ///< 0x00000068
+    volatile  DMA_EARLY_IRQ_2_u EARLY_IRQ_2; ///< 0x0000006C
+    volatile  DMA_EARLY_IRQ_3_u EARLY_IRQ_3; ///< 0x00000070
+    volatile  DMA_EARLY_IRQ_4_u EARLY_IRQ_4; ///< 0x00000074
+    volatile  DMA_EARLY_IRQ_5_u EARLY_IRQ_5; ///< 0x00000078
+    volatile  DMA_EARLY_IRQ_6_u EARLY_IRQ_6; ///< 0x0000007C
+    volatile  DMA_EARLY_IRQ_7_u EARLY_IRQ_7; ///< 0x00000080
+    volatile  DMA_EARLY_IRQ_8_u EARLY_IRQ_8; ///< 0x00000084
+    volatile  DMA_EARLY_IRQ_9_u EARLY_IRQ_9; ///< 0x00000088
+    volatile  DMA_EARLY_IRQ_10_u EARLY_IRQ_10; ///< 0x0000008C
+    volatile  DMA_EARLY_IRQ_11_u EARLY_IRQ_11; ///< 0x00000090
+    volatile  DMA_EARLY_IRQ_12_u EARLY_IRQ_12; ///< 0x00000094
+    volatile  DMA_EARLY_IRQ_13_u EARLY_IRQ_13; ///< 0x00000098
+    volatile  DMA_EARLY_IRQ_14_u EARLY_IRQ_14; ///< 0x0000009C
+    volatile  DMA_EARLY_IRQ_15_u EARLY_IRQ_15; ///< 0x000000A0
+    volatile  DMA_EARLY_IRQ_CFG_u EARLY_IRQ_CFG; ///< 0x000000A4
+    volatile  DMA_REPEATED_TRANSFER_EN_u REPEATED_TRANSFER_EN; ///< 0x000000A8
+    volatile  DMA_REPEATED_TRANSFER_CHNL_0_u REPEATED_TRANSFER_CHNL_0; ///< 0x000000AC
+    volatile  DMA_REPEATED_TRANSFER_CHNL_1_u REPEATED_TRANSFER_CHNL_1; ///< 0x000000B0
+    volatile  DMA_REPEATED_TRANSFER_CHNL_2_u REPEATED_TRANSFER_CHNL_2; ///< 0x000000B4
+    volatile  DMA_REPEATED_TRANSFER_CHNL_3_u REPEATED_TRANSFER_CHNL_3; ///< 0x000000B8
+    volatile  DMA_REPEATED_TRANSFER_CHNL_4_u REPEATED_TRANSFER_CHNL_4; ///< 0x000000BC
+    volatile  DMA_REPEATED_TRANSFER_CHNL_5_u REPEATED_TRANSFER_CHNL_5; ///< 0x000000C0
+    volatile  DMA_REPEATED_TRANSFER_CHNL_6_u REPEATED_TRANSFER_CHNL_6; ///< 0x000000C4
+    volatile  DMA_REPEATED_TRANSFER_CHNL_7_u REPEATED_TRANSFER_CHNL_7; ///< 0x000000C8
+    volatile  DMA_REPEATED_TRANSFER_CHNL_8_u REPEATED_TRANSFER_CHNL_8; ///< 0x000000CC
+    volatile  DMA_REPEATED_TRANSFER_CHNL_9_u REPEATED_TRANSFER_CHNL_9; ///< 0x000000D0
+    volatile  DMA_REPEATED_TRANSFER_CHNL_10_u REPEATED_TRANSFER_CHNL_10; ///< 0x000000D4
+    volatile  DMA_REPEATED_TRANSFER_CHNL_11_u REPEATED_TRANSFER_CHNL_11; ///< 0x000000D8
+    volatile  DMA_REPEATED_TRANSFER_CHNL_12_u REPEATED_TRANSFER_CHNL_12; ///< 0x000000DC
+    volatile  DMA_REPEATED_TRANSFER_CHNL_13_u REPEATED_TRANSFER_CHNL_13; ///< 0x000000E0
+    volatile  DMA_REPEATED_TRANSFER_CHNL_14_u REPEATED_TRANSFER_CHNL_14; ///< 0x000000E4
+    volatile  DMA_REPEATED_TRANSFER_CHNL_15_u REPEATED_TRANSFER_CHNL_15; ///< 0x000000E8
+    volatile  DMA_REPEATED_TRANSFER_ALTERNATE_SEL_u REPEATED_TRANSFER_ALTERNATE_SEL; ///< 0x000000EC
+    volatile  DMA_ARBITRATION_u ARBITRATION; ///< 0x000000F0
+    volatile  DMA_ARBITRATION_MASK_u ARBITRATION_MASK; ///< 0x000000F4
 } DMA_REGS_s;
+
+/** @} end of DMA_MEMORY_MAP */ 
 
 /** @defgroup DMA_KEY 
  *  @{
@@ -1343,28 +1353,32 @@ typedef struct {
 #define DMA_INTR_EVENT_EARLY_IRQ_15_IDX (31)
 /** @} end of DMA_INTERRUPTS */ 
 
-/** @defgroup DMA_ENUM 
+/** @addtogroup DMA_STRIDE_MODE_CFG_0_REG  
  *  @{
  */
-
 typedef enum {
-	DMA_STRIDE_MODE_CFG_0_SRC_INC_BYTE = 0,
-	DMA_STRIDE_MODE_CFG_0_SRC_INC_HALF_WORD = 1,
-	DMA_STRIDE_MODE_CFG_0_SRC_INC_WORD = 2,
+	DMA_STRIDE_MODE_CFG_0_SRC_INC_BYTE = 0, ///< 0x0
+	DMA_STRIDE_MODE_CFG_0_SRC_INC_HALF_WORD = 1, ///< 0x1
+	DMA_STRIDE_MODE_CFG_0_SRC_INC_WORD = 2, ///< 0x2
 } DMA_STRIDE_MODE_CFG_0_SRC_INC_E;
-
+/** @} */
+/** @addtogroup DMA_STRIDE_MODE_CFG_0_REG  
+ *  @{
+ */
 typedef enum {
-	DMA_STRIDE_MODE_CFG_0_DST_INC_BYTE = 0,
-	DMA_STRIDE_MODE_CFG_0_DST_INC_HALF_WORD = 1,
-	DMA_STRIDE_MODE_CFG_0_DST_INC_WORD = 2,
+	DMA_STRIDE_MODE_CFG_0_DST_INC_BYTE = 0, ///< 0x0
+	DMA_STRIDE_MODE_CFG_0_DST_INC_HALF_WORD = 1, ///< 0x1
+	DMA_STRIDE_MODE_CFG_0_DST_INC_WORD = 2, ///< 0x2
 } DMA_STRIDE_MODE_CFG_0_DST_INC_E;
-
+/** @} */
+/** @addtogroup DMA_ARBITRATION_REG  
+ *  @{
+ */
 typedef enum {
-	DMA_ARBITRATION_DMA_RR_EN_CLR = 0,
-	DMA_ARBITRATION_DMA_RR_EN_SET = 1,
+	DMA_ARBITRATION_DMA_RR_EN_CLR = 0, ///< 0x0
+	DMA_ARBITRATION_DMA_RR_EN_SET = 1, ///< 0x1
 } DMA_ARBITRATION_DMA_RR_EN_E;
-/** @} end of DMA_ENUM */ 
-
+/** @} */
 
 /** @defgroup DMA_REGISTER_FLAGS 
  *  @{

@@ -35,6 +35,7 @@ typedef union {
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref UART_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } UART_PWR_EN_REG_s;
 
@@ -55,6 +56,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref UART_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } UART_RST_CTRL_REG_s;
 
@@ -106,6 +108,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref UART_CLK_SEL_E */
     unsigned int clk_sel:2; // 
 } UART_CLK_SEL_REG_s;
 
@@ -481,6 +484,7 @@ typedef union {
 typedef struct {
     unsigned int blck_async:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref UART_CLKCFG_BLCK_ASYNC_KEY */
     unsigned int async_req_en_key:8; // 
 } UART_CLKCFG_REG_s;
 
@@ -498,8 +502,10 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref UART_FIFOLS_TX_FIFO_LS_E */
     unsigned int tx_fifo_ls:2; // 
     unsigned int rx_to:4; // 
+    /** @ref UART_FIFOLS_RX_FIFO_LS_E */
     unsigned int rx_fifo_ls:2; // 
 } UART_FIFOLS_REG_s;
 
@@ -541,10 +547,13 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref UART_CFG_WRD_LEN_E */
     unsigned int wrd_len:2; // 2'b00 for 5 bit data, 2'b01 for 6 bit data, 2'b10 for 7 bit data, 2'b11 for 8 bit data
     unsigned int par_en:1; // 
     unsigned int evn_par:1; // 
+    /** @ref UART_CFG_STCK_PAR_E */
     unsigned int stck_par:1; // 
+    /** @ref UART_CFG_STOP_BIT_E */
     unsigned int stop_bit:1; // 
     unsigned int send_idle:1; // 
 } UART_CFG_REG_s;
@@ -649,15 +658,20 @@ typedef union {
  */
 typedef struct {
     unsigned int uart_en:1; // 
+    /** @ref UART_CTRL_UART_MSB_E */
     unsigned int uart_msb:1; // data sent msb first
     unsigned int majvote_en:1; // enable majority voting
     unsigned int fifo_en:1; // 
+    /** @ref UART_CTRL_OS_E */
     unsigned int os:5; // oversampling value = 16, 8 or 3
     unsigned int loopback_en:1; // 
     unsigned int mode:2; // 2'b00 for normal uart operation
+    /** @ref UART_CTRL_TX_EN_E */
     unsigned int tx_en:1; // 
     unsigned int rx_en:1; // 
+    /** @ref UART_CTRL_TX_OUT_EN_E */
     unsigned int tx_out_en:1; // 
+    /** @ref UART_CTRL_TX_OUT_CTRL_E */
     unsigned int tx_out_ctrl:1; // 
     unsigned int cts_en:1; // 
     unsigned int rts_en:1; // 
@@ -731,6 +745,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref UART_FSM_STS_TX_STATE_E */
     unsigned int tx_state:3; // 
     unsigned int rx_state:4; // bit counter
 } UART_FSM_STS_REG_s;
@@ -747,41 +762,46 @@ typedef union {
 
 /** @} end of UART_REGISTERS */ 
 
+/** @defgroup UART_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  UART_DESC_u DESC;
-    volatile  UART_PWR_EN_u PWR_EN;
-    volatile  UART_RST_CTRL_u RST_CTRL;
-    volatile  UART_RST_STS_u RST_STS;
-    volatile  UART_CLK_CTRL_u CLK_CTRL;
-    volatile  UART_CLK_SEL_u CLK_SEL;
-    volatile  UART_CLK_DIV_u CLK_DIV;
-    volatile  UART_DBG_CTRL_u DBG_CTRL;
-    volatile  UART_INTR_EVENT_u INTR_EVENT;
-    volatile  UART_INTR_EN0_u INTR_EN0;
-    volatile  UART_INTR_EN1_u INTR_EN1;
-    volatile  UART_INTR_NMI_EN0_u INTR_NMI_EN0;
-    volatile  UART_INTR_NMI_EN1_u INTR_NMI_EN1;
-    volatile  UART_INTR_SW_SET_u INTR_SW_SET;
-    volatile  UART_DMA_RX_EVENT_EN0_u DMA_RX_EVENT_EN0;
-    volatile  UART_DMA_RX_EVENT_EN1_u DMA_RX_EVENT_EN1;
-    volatile  UART_DMA_TX_EVENT_EN0_u DMA_TX_EVENT_EN0;
-    volatile  UART_DMA_TX_EVENT_EN1_u DMA_TX_EVENT_EN1;
-    volatile  UART_INTR_STS_u INTR_STS;
-    volatile  UART_CLKCFG_u CLKCFG;
-    volatile  UART_FIFOLS_u FIFOLS;
-    volatile  UART_FIFOSTS_u FIFOSTS;
-    volatile  UART_CFG_u CFG;
-    volatile  UART_GFCTL_u GFCTL;
-    volatile  UART_TXDATA_u TXDATA[2];
-    volatile  UART_RXDATA_u RXDATA[2];
-    volatile  UART_BRDNUM_u BRDNUM;
-    volatile  UART_BRDDEN_u BRDDEN;
-    volatile  UART_CTRL_u CTRL;
-    volatile  UART_ADDR_u ADDR;
-    volatile  UART_ADDRMASK_u ADDRMASK;
-    volatile  UART_STS_u STS;
-    volatile  UART_FSM_STS_u FSM_STS;
+    volatile  UART_DESC_u DESC; ///< 0x00000000
+    volatile  UART_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  UART_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  UART_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  UART_CLK_CTRL_u CLK_CTRL; ///< 0x00000010
+    volatile  UART_CLK_SEL_u CLK_SEL; ///< 0x00000014
+    volatile  UART_CLK_DIV_u CLK_DIV; ///< 0x00000018
+    volatile  UART_DBG_CTRL_u DBG_CTRL; ///< 0x0000001C
+    volatile  UART_INTR_EVENT_u INTR_EVENT; ///< 0x00000020
+    volatile  UART_INTR_EN0_u INTR_EN0; ///< 0x00000024
+    volatile  UART_INTR_EN1_u INTR_EN1; ///< 0x00000028
+    volatile  UART_INTR_NMI_EN0_u INTR_NMI_EN0; ///< 0x0000002C
+    volatile  UART_INTR_NMI_EN1_u INTR_NMI_EN1; ///< 0x00000030
+    volatile  UART_INTR_SW_SET_u INTR_SW_SET; ///< 0x00000034
+    volatile  UART_DMA_RX_EVENT_EN0_u DMA_RX_EVENT_EN0; ///< 0x00000038
+    volatile  UART_DMA_RX_EVENT_EN1_u DMA_RX_EVENT_EN1; ///< 0x0000003C
+    volatile  UART_DMA_TX_EVENT_EN0_u DMA_TX_EVENT_EN0; ///< 0x00000040
+    volatile  UART_DMA_TX_EVENT_EN1_u DMA_TX_EVENT_EN1; ///< 0x00000044
+    volatile  UART_INTR_STS_u INTR_STS; ///< 0x00000048
+    volatile  UART_CLKCFG_u CLKCFG; ///< 0x0000004C
+    volatile  UART_FIFOLS_u FIFOLS; ///< 0x00000050
+    volatile  UART_FIFOSTS_u FIFOSTS; ///< 0x00000054
+    volatile  UART_CFG_u CFG; ///< 0x00000058
+    volatile  UART_GFCTL_u GFCTL; ///< 0x0000005C
+    volatile  UART_TXDATA_u TXDATA[2]; ///< 0x00000060
+    volatile  UART_RXDATA_u RXDATA[2]; ///< 0x00000068
+    volatile  UART_BRDNUM_u BRDNUM; ///< 0x00000070
+    volatile  UART_BRDDEN_u BRDDEN; ///< 0x00000074
+    volatile  UART_CTRL_u CTRL; ///< 0x00000078
+    volatile  UART_ADDR_u ADDR; ///< 0x0000007C
+    volatile  UART_ADDRMASK_u ADDRMASK; ///< 0x00000080
+    volatile  UART_STS_u STS; ///< 0x00000084
+    volatile  UART_FSM_STS_u FSM_STS; ///< 0x00000088
 } UART_REGS_s;
+
+/** @} end of UART_MEMORY_MAP */ 
 
 /** @defgroup UART_KEY 
  *  @{
@@ -822,83 +842,114 @@ typedef struct {
 #define UART_INTR_EVENT_DMA_DONE_RX_INTR_IDX (23)
 /** @} end of UART_INTERRUPTS */ 
 
-/** @defgroup UART_ENUM 
+/** @addtogroup UART_CLK_SEL_REG  
  *  @{
  */
-
 typedef enum {
-	UART_CLK_SEL_CLK_APB = 0,
-	UART_CLK_SEL_CLK_4MHZ = 1,
-	UART_CLK_SEL_CLK_LF = 2,
+	UART_CLK_SEL_CLK_APB = 0, ///< 0x0
+	UART_CLK_SEL_CLK_4MHZ = 1, ///< 0x1
+	UART_CLK_SEL_CLK_LF = 2, ///< 0x2
 } UART_CLK_SEL_E;
-
+/** @} */
+/** @addtogroup UART_FIFOLS_REG  
+ *  @{
+ */
 typedef enum {
-	UART_FIFOLS_TX_FIFO_LS_EMPTY = 0,
-	UART_FIFOLS_TX_FIFO_LS_ALMOST_EMPTY = 1,
-	UART_FIFOLS_TX_FIFO_LS_HALF_FULL = 2,
-	UART_FIFOLS_TX_FIFO_LS_ALMOST_FULL = 3,
+	UART_FIFOLS_TX_FIFO_LS_EMPTY = 0, ///< 0x0
+	UART_FIFOLS_TX_FIFO_LS_ALMOST_EMPTY = 1, ///< 0x1
+	UART_FIFOLS_TX_FIFO_LS_HALF_FULL = 2, ///< 0x2
+	UART_FIFOLS_TX_FIFO_LS_ALMOST_FULL = 3, ///< 0x3
 } UART_FIFOLS_TX_FIFO_LS_E;
-
+/** @} */
+/** @addtogroup UART_FIFOLS_REG  
+ *  @{
+ */
 typedef enum {
-	UART_FIFOLS_RX_FIFO_LS_ALMOST_EMPTY = 0,
-	UART_FIFOLS_RX_FIFO_LS_HALF_FULL = 1,
-	UART_FIFOLS_RX_FIFO_LS_ALMOST_FULL = 2,
-	UART_FIFOLS_RX_FIFO_LS_FULL = 3,
+	UART_FIFOLS_RX_FIFO_LS_ALMOST_EMPTY = 0, ///< 0x0
+	UART_FIFOLS_RX_FIFO_LS_HALF_FULL = 1, ///< 0x1
+	UART_FIFOLS_RX_FIFO_LS_ALMOST_FULL = 2, ///< 0x2
+	UART_FIFOLS_RX_FIFO_LS_FULL = 3, ///< 0x3
 } UART_FIFOLS_RX_FIFO_LS_E;
-
+/** @} */
+/** @addtogroup UART_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	UART_CFG_WRD_LEN_5_BITS = 0,
-	UART_CFG_WRD_LEN_6_BITS = 1,
-	UART_CFG_WRD_LEN_7_BITS = 2,
-	UART_CFG_WRD_LEN_8_BITS = 3,
+	UART_CFG_WRD_LEN_5_BITS = 0, ///< 0x0
+	UART_CFG_WRD_LEN_6_BITS = 1, ///< 0x1
+	UART_CFG_WRD_LEN_7_BITS = 2, ///< 0x2
+	UART_CFG_WRD_LEN_8_BITS = 3, ///< 0x3
 } UART_CFG_WRD_LEN_E;
-
+/** @} */
+/** @addtogroup UART_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	UART_CFG_STCK_PAR_ZERO = 0,
-	UART_CFG_STCK_PAR_ONE = 1,
+	UART_CFG_STCK_PAR_ZERO = 0, ///< 0x0
+	UART_CFG_STCK_PAR_ONE = 1, ///< 0x1
 } UART_CFG_STCK_PAR_E;
-
+/** @} */
+/** @addtogroup UART_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	UART_CFG_STOP_BIT_ONE = 0,
-	UART_CFG_STOP_BIT_TWO = 1,
+	UART_CFG_STOP_BIT_ONE = 0, ///< 0x0
+	UART_CFG_STOP_BIT_TWO = 1, ///< 0x1
 } UART_CFG_STOP_BIT_E;
-
+/** @} */
+/** @addtogroup UART_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	UART_CTRL_UART_MSB_LAST = 0,
-	UART_CTRL_UART_MSB_FIRST = 1,
+	UART_CTRL_UART_MSB_LAST = 0, ///< 0x0
+	UART_CTRL_UART_MSB_FIRST = 1, ///< 0x1
 } UART_CTRL_UART_MSB_E;
-
+/** @} */
+/** @addtogroup UART_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	UART_CTRL_OS_FACTOR_3 = 3,
-	UART_CTRL_OS_FACTOR_8 = 8,
-	UART_CTRL_OS_FACTOR_16 = 16,
+	UART_CTRL_OS_FACTOR_3 = 3, ///< 0x3
+	UART_CTRL_OS_FACTOR_8 = 8, ///< 0x8
+	UART_CTRL_OS_FACTOR_16 = 16, ///< 0x10
 } UART_CTRL_OS_E;
-
+/** @} */
+/** @addtogroup UART_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	UART_CTRL_TX_EN_SW = 0,
-	UART_CTRL_TX_EN_HW = 1,
+	UART_CTRL_TX_EN_SW = 0, ///< 0x0
+	UART_CTRL_TX_EN_HW = 1, ///< 0x1
 } UART_CTRL_TX_EN_E;
-
+/** @} */
+/** @addtogroup UART_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	UART_CTRL_TX_OUT_EN_SW_PULL_UP = 0,
-	UART_CTRL_TX_OUT_EN_SW_TX_OUT_CTRL = 1,
+	UART_CTRL_TX_OUT_EN_SW_PULL_UP = 0, ///< 0x0
+	UART_CTRL_TX_OUT_EN_SW_TX_OUT_CTRL = 1, ///< 0x1
 } UART_CTRL_TX_OUT_EN_E;
-
+/** @} */
+/** @addtogroup UART_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	UART_CTRL_TX_OUT_CTRL_SW_PULL_DOWN = 0,
-	UART_CTRL_TX_OUT_CTRL_SW_PULL_UP = 1,
+	UART_CTRL_TX_OUT_CTRL_SW_PULL_DOWN = 0, ///< 0x0
+	UART_CTRL_TX_OUT_CTRL_SW_PULL_UP = 1, ///< 0x1
 } UART_CTRL_TX_OUT_CTRL_E;
-
+/** @} */
+/** @addtogroup UART_FSM_STS_REG  
+ *  @{
+ */
 typedef enum {
-	UART_FSM_STS_TX_STATE_IDLE = 0,
-	UART_FSM_STS_TX_STATE_NOP_MODE = 1,
-	UART_FSM_STS_TX_STATE_START_BIT = 2,
-	UART_FSM_STS_TX_STATE_SHIFT_REG = 3,
-	UART_FSM_STS_TX_STATE_PARITY_GEN = 4,
-	UART_FSM_STS_TX_STATE_STOP_BITS = 5,
+	UART_FSM_STS_TX_STATE_IDLE = 0, ///< 0x0
+	UART_FSM_STS_TX_STATE_NOP_MODE = 1, ///< 0x1
+	UART_FSM_STS_TX_STATE_START_BIT = 2, ///< 0x2
+	UART_FSM_STS_TX_STATE_SHIFT_REG = 3, ///< 0x3
+	UART_FSM_STS_TX_STATE_PARITY_GEN = 4, ///< 0x4
+	UART_FSM_STS_TX_STATE_STOP_BITS = 5, ///< 0x5
 } UART_FSM_STS_TX_STATE_E;
-/** @} end of UART_ENUM */ 
-
+/** @} */
 
 /** @defgroup UART_REGISTER_FLAGS 
  *  @{

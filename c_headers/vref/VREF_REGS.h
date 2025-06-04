@@ -35,6 +35,7 @@ typedef union {
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref VREF_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } VREF_PWR_EN_REG_s;
 
@@ -55,6 +56,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref VREF_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } VREF_RST_CTRL_REG_s;
 
@@ -89,7 +91,9 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref VREF_CLK_CTRL_CLK_SEL_E */
     unsigned int clk_sel:2; // 0: clk_lf 1: clk_4mhz 2: clk_ahb 3: clk_apb
+    /** @ref VREF_CLK_CTRL_CLK_DIV_E */
     unsigned int rsvd_0:6; // clk divide ratio for sample and hold logic
     unsigned int clk_div:3; // clk divide ratio for sample and hold logic
 } VREF_CLK_CTRL_REG_s;
@@ -126,6 +130,7 @@ typedef union {
  */
 typedef struct {
     unsigned int enable:1; // enable VREF Buffer
+    /** @ref VREF_CTRL_VREF_MODE_E */
     unsigned int rsvd_0:7; // 0: 1.4V 1: 2.5V
     unsigned int vref_mode:1; // 0: 1.4V 1: 2.5V
     unsigned int rsvd_1:7; // enable sample and hold mode
@@ -198,18 +203,23 @@ typedef union {
 
 /** @} end of VREF_REGISTERS */ 
 
+/** @defgroup VREF_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  VREF_DESC_u DESC;
-    volatile  VREF_PWR_EN_u PWR_EN;
-    volatile  VREF_RST_CTRL_u RST_CTRL;
-    volatile  VREF_RST_STS_u RST_STS;
-    volatile  VREF_CLK_CTRL_u CLK_CTRL;
-    volatile  VREF_STS_u STS;
-    volatile  VREF_CTRL_u CTRL;
-    volatile  VREF_SH_CTRL_u SH_CTRL;
-    volatile  VREF_SPARE_CTRL_u SPARE_CTRL;
-    volatile  VREF_SPARE_STS_u SPARE_STS;
+    volatile  VREF_DESC_u DESC; ///< 0x00000000
+    volatile  VREF_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  VREF_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  VREF_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  VREF_CLK_CTRL_u CLK_CTRL; ///< 0x00000010
+    volatile  VREF_STS_u STS; ///< 0x00000014
+    volatile  VREF_CTRL_u CTRL; ///< 0x00000018
+    volatile  VREF_SH_CTRL_u SH_CTRL; ///< 0x0000001C
+    volatile  VREF_SPARE_CTRL_u SPARE_CTRL; ///< 0x00000020
+    volatile  VREF_SPARE_STS_u SPARE_STS; ///< 0x00000024
 } VREF_REGS_s;
+
+/** @} end of VREF_MEMORY_MAP */ 
 
 /** @defgroup VREF_KEY 
  *  @{
@@ -225,33 +235,37 @@ typedef struct {
  */
 /** @} end of VREF_INTERRUPTS */ 
 
-/** @defgroup VREF_ENUM 
+/** @addtogroup VREF_CLK_CTRL_REG  
  *  @{
  */
-
 typedef enum {
-	VREF_CLK_CTRL_CLK_SEL_LF = 0,
-	VREF_CLK_CTRL_CLK_SEL_4MHZ = 1,
-	VREF_CLK_CTRL_CLK_SEL_APB = 2,
+	VREF_CLK_CTRL_CLK_SEL_LF = 0, ///< 0x0
+	VREF_CLK_CTRL_CLK_SEL_4MHZ = 1, ///< 0x1
+	VREF_CLK_CTRL_CLK_SEL_APB = 2, ///< 0x2
 } VREF_CLK_CTRL_CLK_SEL_E;
-
+/** @} */
+/** @addtogroup VREF_CLK_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	VREF_CLK_CTRL_CLK_DIV_BY_1 = 0,
-	VREF_CLK_CTRL_CLK_DIV_BY_2 = 1,
-	VREF_CLK_CTRL_CLK_DIV_BY_3 = 2,
-	VREF_CLK_CTRL_CLK_DIV_BY_4 = 3,
-	VREF_CLK_CTRL_CLK_DIV_BY_5 = 4,
-	VREF_CLK_CTRL_CLK_DIV_BY_6 = 5,
-	VREF_CLK_CTRL_CLK_DIV_BY_7 = 6,
-	VREF_CLK_CTRL_CLK_DIV_BY_8 = 7,
+	VREF_CLK_CTRL_CLK_DIV_BY_1 = 0, ///< 0x0
+	VREF_CLK_CTRL_CLK_DIV_BY_2 = 1, ///< 0x1
+	VREF_CLK_CTRL_CLK_DIV_BY_3 = 2, ///< 0x2
+	VREF_CLK_CTRL_CLK_DIV_BY_4 = 3, ///< 0x3
+	VREF_CLK_CTRL_CLK_DIV_BY_5 = 4, ///< 0x4
+	VREF_CLK_CTRL_CLK_DIV_BY_6 = 5, ///< 0x5
+	VREF_CLK_CTRL_CLK_DIV_BY_7 = 6, ///< 0x6
+	VREF_CLK_CTRL_CLK_DIV_BY_8 = 7, ///< 0x7
 } VREF_CLK_CTRL_CLK_DIV_E;
-
+/** @} */
+/** @addtogroup VREF_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	VREF_CTRL_VREF_MODE_1P4V = 0,
-	VREF_CTRL_VREF_MODE_2P5V = 1,
+	VREF_CTRL_VREF_MODE_1P4V = 0, ///< 0x0
+	VREF_CTRL_VREF_MODE_2P5V = 1, ///< 0x1
 } VREF_CTRL_VREF_MODE_E;
-/** @} end of VREF_ENUM */ 
-
+/** @} */
 
 /** @defgroup VREF_REGISTER_FLAGS 
  *  @{

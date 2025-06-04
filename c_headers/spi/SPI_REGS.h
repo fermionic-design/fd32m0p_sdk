@@ -35,6 +35,7 @@ typedef union {
 typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref SPI_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } SPI_PWR_EN_REG_s;
 
@@ -55,6 +56,7 @@ typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref SPI_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } SPI_RST_CTRL_REG_s;
 
@@ -123,6 +125,7 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref SPI_CLKSEL_CLK_SEL_E */
     unsigned int clk_sel:2; // Selects the source for clk_spi 0: clk_ahb 1: clk_4mhz, 2: clk_lf
 } SPI_CLKSEL_REG_s;
 
@@ -140,7 +143,9 @@ typedef union {
  *  @{
  */
 typedef struct {
+    /** @ref SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_E */
     unsigned int clock_polarity:1; // 
+    /** @ref SPI_MOT_MOD_CNTRL_CLOCK_PHASE_E */
     unsigned int rsvd_0:7; // 
     unsigned int clock_phase:1; // 
 } SPI_MOT_MOD_CNTRL_REG_s;
@@ -236,8 +241,10 @@ typedef union {
  */
 typedef struct {
     unsigned int spi_en:1; // 
+    /** @ref SPI_MODE_CTRL_PERIPHERAL_MODE_E */
     unsigned int rsvd_0:7; // 0: Controller 1: peripheral
     unsigned int peripheral_mode:1; // 0: Controller 1: peripheral
+    /** @ref SPI_MODE_CTRL_FRAME_FORMAT_E */
     unsigned int rsvd_1:7; // 0: Motoroal format 1: TI format 2: DSPI 3: QSPI
     unsigned int frame_format:3; // 0: Motoroal format 1: TI format 2: DSPI 3: QSPI
 } SPI_MODE_CTRL_REG_s;
@@ -695,42 +702,47 @@ typedef union {
 
 /** @} end of SPI_REGISTERS */ 
 
+/** @defgroup SPI_MEMORY_MAP 
+ *  @{
+ */
 typedef struct {
-    volatile  SPI_DESC_u DESC;
-    volatile  SPI_PWR_EN_u PWR_EN;
-    volatile  SPI_RST_CTRL_u RST_CTRL;
-    volatile  SPI_RST_STS_u RST_STS;
-    volatile  SPI_CLK_CTRL_u CLK_CTRL;
-    volatile  SPI_CLK_DIV_u CLK_DIV;
-    volatile  SPI_CLKSEL_u CLKSEL;
-    volatile  SPI_MOT_MOD_CNTRL_u MOT_MOD_CNTRL;
-    volatile  SPI_PARITY_CTRL_u PARITY_CTRL;
-    volatile  SPI_CMD_DATA_CTRL_u CMD_DATA_CTRL;
-    volatile  SPI_LOOPBACK_CTRL_u LOOPBACK_CTRL;
-    volatile  SPI_DATAFRAME_CTRL_u DATAFRAME_CTRL;
-    volatile  SPI_MODE_CTRL_u MODE_CTRL;
-    volatile  SPI_CS_CTRL_u CS_CTRL;
-    volatile  SPI_CS_SETUP_HOLD_CNT_u CS_SETUP_HOLD_CNT;
-    volatile  SPI_SCLK_CTRL_u SCLK_CTRL;
-    volatile  SPI_QSPI_CTRL_u QSPI_CTRL;
-    volatile  SPI_DSPI_CTRL_u DSPI_CTRL;
-    volatile  SPI_TX_CTRL_u TX_CTRL;
-    volatile  SPI_RX_CTRL_u RX_CTRL;
-    volatile  SPI_INT_FIFO_LVL_SEL_u INT_FIFO_LVL_SEL;
-    volatile  SPI_STS_u STS;
-    volatile  SPI_TX_FIFO_u TX_FIFO[4];
-    volatile  SPI_RX_FIFO_u RX_FIFO[4];
-    volatile  SPI_DBG_CTRL_u DBG_CTRL;
-    volatile  SPI_INTR_STS_u INTR_STS;
-    volatile  SPI_INTR_EVENT_u INTR_EVENT;
-    volatile  SPI_INTR_EN_u INTR_EN;
-    volatile  SPI_INTR_TX_DMA_EN_u INTR_TX_DMA_EN;
-    volatile  SPI_INTR_RX_DMA_EN_u INTR_RX_DMA_EN;
-    volatile  SPI_INTR_NMI_u INTR_NMI;
-    volatile  SPI_INTR_SW_SET_u INTR_SW_SET;
-    volatile  SPI_SPARE_CTRL_u SPARE_CTRL;
-    volatile  SPI_SPARE_STS_u SPARE_STS;
+    volatile  SPI_DESC_u DESC; ///< 0x00000000
+    volatile  SPI_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  SPI_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  SPI_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  SPI_CLK_CTRL_u CLK_CTRL; ///< 0x00000010
+    volatile  SPI_CLK_DIV_u CLK_DIV; ///< 0x00000014
+    volatile  SPI_CLKSEL_u CLKSEL; ///< 0x00000018
+    volatile  SPI_MOT_MOD_CNTRL_u MOT_MOD_CNTRL; ///< 0x0000001C
+    volatile  SPI_PARITY_CTRL_u PARITY_CTRL; ///< 0x00000020
+    volatile  SPI_CMD_DATA_CTRL_u CMD_DATA_CTRL; ///< 0x00000024
+    volatile  SPI_LOOPBACK_CTRL_u LOOPBACK_CTRL; ///< 0x00000028
+    volatile  SPI_DATAFRAME_CTRL_u DATAFRAME_CTRL; ///< 0x0000002C
+    volatile  SPI_MODE_CTRL_u MODE_CTRL; ///< 0x00000030
+    volatile  SPI_CS_CTRL_u CS_CTRL; ///< 0x00000034
+    volatile  SPI_CS_SETUP_HOLD_CNT_u CS_SETUP_HOLD_CNT; ///< 0x00000038
+    volatile  SPI_SCLK_CTRL_u SCLK_CTRL; ///< 0x0000003C
+    volatile  SPI_QSPI_CTRL_u QSPI_CTRL; ///< 0x00000040
+    volatile  SPI_DSPI_CTRL_u DSPI_CTRL; ///< 0x00000044
+    volatile  SPI_TX_CTRL_u TX_CTRL; ///< 0x00000048
+    volatile  SPI_RX_CTRL_u RX_CTRL; ///< 0x0000004C
+    volatile  SPI_INT_FIFO_LVL_SEL_u INT_FIFO_LVL_SEL; ///< 0x00000050
+    volatile  SPI_STS_u STS; ///< 0x00000054
+    volatile  SPI_TX_FIFO_u TX_FIFO[4]; ///< 0x00000058
+    volatile  SPI_RX_FIFO_u RX_FIFO[4]; ///< 0x00000068
+    volatile  SPI_DBG_CTRL_u DBG_CTRL; ///< 0x00000078
+    volatile  SPI_INTR_STS_u INTR_STS; ///< 0x0000007C
+    volatile  SPI_INTR_EVENT_u INTR_EVENT; ///< 0x00000080
+    volatile  SPI_INTR_EN_u INTR_EN; ///< 0x00000084
+    volatile  SPI_INTR_TX_DMA_EN_u INTR_TX_DMA_EN; ///< 0x00000088
+    volatile  SPI_INTR_RX_DMA_EN_u INTR_RX_DMA_EN; ///< 0x0000008C
+    volatile  SPI_INTR_NMI_u INTR_NMI; ///< 0x00000090
+    volatile  SPI_INTR_SW_SET_u INTR_SW_SET; ///< 0x00000094
+    volatile  SPI_SPARE_CTRL_u SPARE_CTRL; ///< 0x00000098
+    volatile  SPI_SPARE_STS_u SPARE_STS; ///< 0x0000009C
 } SPI_REGS_s;
+
+/** @} end of SPI_MEMORY_MAP */ 
 
 /** @defgroup SPI_KEY 
  *  @{
@@ -757,37 +769,47 @@ typedef struct {
 #define SPI_INTR_EVENT_RX_FIFO_FULL_IDX (10)
 /** @} end of SPI_INTERRUPTS */ 
 
-/** @defgroup SPI_ENUM 
+/** @addtogroup SPI_CLKSEL_REG  
  *  @{
  */
-
 typedef enum {
-	SPI_CLKSEL_CLK_SEL_CLK_SPI = 0,
-	SPI_CLKSEL_CLK_SEL_CLK_4MHZ = 1,
-	SPI_CLKSEL_CLK_SEL_CLK_LF = 2,
+	SPI_CLKSEL_CLK_SEL_CLK_SPI = 0, ///< 0x0
+	SPI_CLKSEL_CLK_SEL_CLK_4MHZ = 1, ///< 0x1
+	SPI_CLKSEL_CLK_SEL_CLK_LF = 2, ///< 0x2
 } SPI_CLKSEL_CLK_SEL_E;
-
+/** @} */
+/** @addtogroup SPI_MOT_MOD_CNTRL_REG  
+ *  @{
+ */
 typedef enum {
-	SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_LOW = 0,
-	SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_HIGH = 1,
+	SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_LOW = 0, ///< 0x0
+	SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_HIGH = 1, ///< 0x1
 } SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_E;
-
+/** @} */
+/** @addtogroup SPI_MOT_MOD_CNTRL_REG  
+ *  @{
+ */
 typedef enum {
-	SPI_MOT_MOD_CNTRL_CLOCK_PHASE_LEADING = 0,
-	SPI_MOT_MOD_CNTRL_CLOCK_PHASE_TRAILING = 1,
+	SPI_MOT_MOD_CNTRL_CLOCK_PHASE_LEADING = 0, ///< 0x0
+	SPI_MOT_MOD_CNTRL_CLOCK_PHASE_TRAILING = 1, ///< 0x1
 } SPI_MOT_MOD_CNTRL_CLOCK_PHASE_E;
-
+/** @} */
+/** @addtogroup SPI_MODE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	SPI_MODE_CTRL_PERIPHERAL_MODE_CONTROLLER = 0,
-	SPI_MODE_CTRL_PERIPHERAL_MODE_PERIPHERAL = 1,
+	SPI_MODE_CTRL_PERIPHERAL_MODE_CONTROLLER = 0, ///< 0x0
+	SPI_MODE_CTRL_PERIPHERAL_MODE_PERIPHERAL = 1, ///< 0x1
 } SPI_MODE_CTRL_PERIPHERAL_MODE_E;
-
+/** @} */
+/** @addtogroup SPI_MODE_CTRL_REG  
+ *  @{
+ */
 typedef enum {
-	SPI_MODE_CTRL_FRAME_FORMAT_MOTOROLA = 0,
-	SPI_MODE_CTRL_FRAME_FORMAT_TI = 1,
+	SPI_MODE_CTRL_FRAME_FORMAT_MOTOROLA = 0, ///< 0x0
+	SPI_MODE_CTRL_FRAME_FORMAT_TI = 1, ///< 0x1
 } SPI_MODE_CTRL_FRAME_FORMAT_E;
-/** @} end of SPI_ENUM */ 
-
+/** @} */
 
 /** @defgroup SPI_REGISTER_FLAGS 
  *  @{
