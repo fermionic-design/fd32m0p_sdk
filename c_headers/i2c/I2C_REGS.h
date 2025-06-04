@@ -3,59 +3,92 @@
 
 #include <stdint.h>
 
-typedef struct I2C_DESC_REG_s {
+/** @defgroup I2C
+ *  @{
+ */
+/** @defgroup I2C_REGISTERS 
+ *  @{
+ */
+/** @defgroup I2C_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int modue_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } I2C_DESC_REG_s;
 
-typedef union I2C_DESC_u {
+typedef union {
+    /** @ref I2C_DESC_REG_s */
     I2C_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_DESC_u;
 
-typedef struct I2C_PWR_EN_REG_s {
+/** @} end of I2C_DESC_REG */ 
+
+/** @defgroup I2C_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } I2C_PWR_EN_REG_s;
 
-typedef union I2C_PWR_EN_u {
+typedef union {
+    /** @ref I2C_PWR_EN_REG_s */
     I2C_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_PWR_EN_u;
 
-typedef struct I2C_RST_CTRL_REG_s {
+/** @} end of I2C_PWR_EN_REG */ 
+
+/** @defgroup I2C_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } I2C_RST_CTRL_REG_s;
 
-typedef union I2C_RST_CTRL_u {
+typedef union {
+    /** @ref I2C_RST_CTRL_REG_s */
     I2C_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_RST_CTRL_u;
 
-typedef struct I2C_RST_STS_REG_s {
+/** @} end of I2C_RST_CTRL_REG */ 
+
+/** @defgroup I2C_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } I2C_RST_STS_REG_s;
 
-typedef union I2C_RST_STS_u {
+typedef union {
+    /** @ref I2C_RST_STS_REG_s */
     I2C_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_RST_STS_u;
 
-typedef struct I2C_CLK_CTRL_REG_s {
+/** @} end of I2C_RST_STS_REG */ 
+
+/** @defgroup I2C_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int en_async_clk_req:1; // 
     unsigned int clksel:1; // 
     unsigned int clkdiv:3; // 
@@ -63,96 +96,144 @@ typedef struct I2C_CLK_CTRL_REG_s {
     unsigned int setup_cnt:3; // Max for 32Mhz clk 250ns in standard mode.  -- 0 : invalid -- 1 : scl released at same clk cycle as ack/nack generated -- 2 : scl released 1 clk cycle after ack/nack generated and so on
 } I2C_CLK_CTRL_REG_s;
 
-typedef union I2C_CLK_CTRL_u {
+typedef union {
+    /** @ref I2C_CLK_CTRL_REG_s */
     I2C_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_CLK_CTRL_u;
 
-typedef struct I2C_DBG_CTRL_REG_s {
+/** @} end of I2C_CLK_CTRL_REG */ 
+
+/** @defgroup I2C_DBG_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int run_on_halt:1; // 
     unsigned int soft_stop:1; // 
 } I2C_DBG_CTRL_REG_s;
 
-typedef union I2C_DBG_CTRL_u {
+typedef union {
+    /** @ref I2C_DBG_CTRL_REG_s */
     I2C_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_DBG_CTRL_u;
 
-typedef struct I2C_MASTER_SCL_GEN_REG_s {
+/** @} end of I2C_DBG_CTRL_REG */ 
+
+/** @defgroup I2C_MASTER_SCL_GEN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_scl_cnt_high_val:8; // Max for 32Mhz clk 4us in standard mode
     unsigned int mst_scl_cnt_low_val:8; // Max for 32Mhz clk 4.7us in standard mode
 } I2C_MASTER_SCL_GEN_REG_s;
 
-typedef union I2C_MASTER_SCL_GEN_u {
+typedef union {
+    /** @ref I2C_MASTER_SCL_GEN_REG_s */
     I2C_MASTER_SCL_GEN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_MASTER_SCL_GEN_u;
 
-typedef struct I2C_MASTER_TIMING_CONSTRAINT_REG_s {
+/** @} end of I2C_MASTER_SCL_GEN_REG */ 
+
+/** @defgroup I2C_MASTER_TIMING_CONSTRAINT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_scl_start_cnt:8; // Max for 32Mhz clk 4us in standard mode (Start Hold time)
     unsigned int mst_sda_stop_cnt:8; // Max for 32Mhz 4us (Stop Setup Time)
     unsigned int mst_stop_start_buffer_cnt:8; // Max for 32Mhz 4.7us (Minimum time between stop and start)
     unsigned int mst_restart_setup_cnt:8; // 
 } I2C_MASTER_TIMING_CONSTRAINT_REG_s;
 
-typedef union I2C_MASTER_TIMING_CONSTRAINT_u {
+typedef union {
+    /** @ref I2C_MASTER_TIMING_CONSTRAINT_REG_s */
     I2C_MASTER_TIMING_CONSTRAINT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_MASTER_TIMING_CONSTRAINT_u;
 
-typedef struct I2C_MASTER_CLKSTRETCH_CNT_REG_s {
+/** @} end of I2C_MASTER_TIMING_CONSTRAINT_REG */ 
+
+/** @defgroup I2C_MASTER_CLKSTRETCH_CNT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_max_clkstretch_cnt:32; // max for 32Mhz 10ms (Maximum time for which master and clk stretch)
 } I2C_MASTER_CLKSTRETCH_CNT_REG_s;
 
-typedef union I2C_MASTER_CLKSTRETCH_CNT_u {
+typedef union {
+    /** @ref I2C_MASTER_CLKSTRETCH_CNT_REG_s */
     I2C_MASTER_CLKSTRETCH_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_MASTER_CLKSTRETCH_CNT_u;
 
-typedef struct I2C_SLAVE_CLKSTRETCH_CNT_REG_s {
+/** @} end of I2C_MASTER_CLKSTRETCH_CNT_REG */ 
+
+/** @defgroup I2C_SLAVE_CLKSTRETCH_CNT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int slv_max_clkstretch_cnt:32; // Max for 32Mhz 25ms (Maximum time slave can clk stretch)
 } I2C_SLAVE_CLKSTRETCH_CNT_REG_s;
 
-typedef union I2C_SLAVE_CLKSTRETCH_CNT_u {
+typedef union {
+    /** @ref I2C_SLAVE_CLKSTRETCH_CNT_REG_s */
     I2C_SLAVE_CLKSTRETCH_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SLAVE_CLKSTRETCH_CNT_u;
 
-typedef struct I2C_SMBUS_TIMEOUT_CNT_REG_s {
+/** @} end of I2C_SLAVE_CLKSTRETCH_CNT_REG */ 
+
+/** @defgroup I2C_SMBUS_TIMEOUT_CNT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int smbus_timeout_cnt:32; // max for 32Mhz 35ms (Maximum time scl low allowed when external device is stretching)
 } I2C_SMBUS_TIMEOUT_CNT_REG_s;
 
-typedef union I2C_SMBUS_TIMEOUT_CNT_u {
+typedef union {
+    /** @ref I2C_SMBUS_TIMEOUT_CNT_REG_s */
     I2C_SMBUS_TIMEOUT_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SMBUS_TIMEOUT_CNT_u;
 
-typedef struct I2C_INTR_STS_REG_s {
+/** @} end of I2C_SMBUS_TIMEOUT_CNT_REG */ 
+
+/** @defgroup I2C_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:6; // 
 } I2C_INTR_STS_REG_s;
 
-typedef union I2C_INTR_STS_u {
+typedef union {
+    /** @ref I2C_INTR_STS_REG_s */
     I2C_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_INTR_STS_u;
 
-typedef struct I2C_INTR_EVENT_REG_s {
+/** @} end of I2C_INTR_STS_REG */ 
+
+/** @defgroup I2C_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int arb_lost:1; // 
     unsigned int slv_gencall_intr:1; // 
     unsigned int slv_start:1; // 
@@ -175,14 +256,20 @@ typedef struct I2C_INTR_EVENT_REG_s {
     unsigned int rxfifo_almost_full_intr:1; // 
 } I2C_INTR_EVENT_REG_s;
 
-typedef union I2C_INTR_EVENT_u {
+typedef union {
+    /** @ref I2C_INTR_EVENT_REG_s */
     I2C_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_INTR_EVENT_u;
 
-typedef struct I2C_INTR_EN_0_REG_s {
+/** @} end of I2C_INTR_EVENT_REG */ 
+
+/** @defgroup I2C_INTR_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int arb_lost_en:1; // 
     unsigned int slv_gencall_intr_en:1; // 
     unsigned int slv_start_en:1; // 
@@ -201,28 +288,40 @@ typedef struct I2C_INTR_EN_0_REG_s {
     unsigned int mst_nack_en:1; // 
 } I2C_INTR_EN_0_REG_s;
 
-typedef union I2C_INTR_EN_0_u {
+typedef union {
+    /** @ref I2C_INTR_EN_0_REG_s */
     I2C_INTR_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_INTR_EN_0_u;
 
-typedef struct I2C_INTR_EN_1_REG_s {
+/** @} end of I2C_INTR_EN_0_REG */ 
+
+/** @defgroup I2C_INTR_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_done_rx_en:1; // 
     unsigned int dma_done_tx_en:1; // 
     unsigned int txfifo_almost_empty_intr_en:1; // 
     unsigned int rxfifo_almost_full_intr_en:1; // 
 } I2C_INTR_EN_1_REG_s;
 
-typedef union I2C_INTR_EN_1_u {
+typedef union {
+    /** @ref I2C_INTR_EN_1_REG_s */
     I2C_INTR_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_INTR_EN_1_u;
 
-typedef struct I2C_INTR_NMI_EN_0_REG_s {
+/** @} end of I2C_INTR_EN_1_REG */ 
+
+/** @defgroup I2C_INTR_NMI_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int arb_lost_nmi_en:1; // 
     unsigned int slv_gencall_intr_nmi_en:1; // 
     unsigned int slv_start_nmi_en:1; // 
@@ -241,28 +340,40 @@ typedef struct I2C_INTR_NMI_EN_0_REG_s {
     unsigned int mst_nack_nmi_en:1; // 
 } I2C_INTR_NMI_EN_0_REG_s;
 
-typedef union I2C_INTR_NMI_EN_0_u {
+typedef union {
+    /** @ref I2C_INTR_NMI_EN_0_REG_s */
     I2C_INTR_NMI_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_INTR_NMI_EN_0_u;
 
-typedef struct I2C_INTR_NMI_EN_1_REG_s {
+/** @} end of I2C_INTR_NMI_EN_0_REG */ 
+
+/** @defgroup I2C_INTR_NMI_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_done_rx_nmi_en:1; // 
     unsigned int dma_done_tx_nmi_en:1; // 
     unsigned int txfifo_almost_empty_intr_nmi_en:1; // 
     unsigned int rxfifo_almost_full_intr_nmi_en:1; // 
 } I2C_INTR_NMI_EN_1_REG_s;
 
-typedef union I2C_INTR_NMI_EN_1_u {
+typedef union {
+    /** @ref I2C_INTR_NMI_EN_1_REG_s */
     I2C_INTR_NMI_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_INTR_NMI_EN_1_u;
 
-typedef struct I2C_RX_DMA_EVENT_EN_0_REG_s {
+/** @} end of I2C_INTR_NMI_EN_1_REG */ 
+
+/** @defgroup I2C_RX_DMA_EVENT_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_dma_arb_lost_en:1; // 
     unsigned int rx_dma_slv_gencall_intr_en:1; // 
     unsigned int rx_dma_slv_start_en:1; // 
@@ -281,28 +392,40 @@ typedef struct I2C_RX_DMA_EVENT_EN_0_REG_s {
     unsigned int rx_dma_mst_nack_en:1; // 
 } I2C_RX_DMA_EVENT_EN_0_REG_s;
 
-typedef union I2C_RX_DMA_EVENT_EN_0_u {
+typedef union {
+    /** @ref I2C_RX_DMA_EVENT_EN_0_REG_s */
     I2C_RX_DMA_EVENT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_RX_DMA_EVENT_EN_0_u;
 
-typedef struct I2C_RX_DMA_EVENT_EN_1_REG_s {
+/** @} end of I2C_RX_DMA_EVENT_EN_0_REG */ 
+
+/** @defgroup I2C_RX_DMA_EVENT_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_dma_dma_done_rx_en:1; // 
     unsigned int rx_dma_dma_done_tx_en:1; // 
     unsigned int rx_dma_txfifo_almost_empty_intr_en:1; // 
     unsigned int rx_dma_rxfifo_almost_full_intr_en:1; // 
 } I2C_RX_DMA_EVENT_EN_1_REG_s;
 
-typedef union I2C_RX_DMA_EVENT_EN_1_u {
+typedef union {
+    /** @ref I2C_RX_DMA_EVENT_EN_1_REG_s */
     I2C_RX_DMA_EVENT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_RX_DMA_EVENT_EN_1_u;
 
-typedef struct I2C_TX_DMA_EVENT_EN_0_REG_s {
+/** @} end of I2C_RX_DMA_EVENT_EN_1_REG */ 
+
+/** @defgroup I2C_TX_DMA_EVENT_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int tx_dma_arb_lost_en:1; // 
     unsigned int tx_dma_slv_gencall_intr_en:1; // 
     unsigned int tx_dma_slv_start_en:1; // 
@@ -321,28 +444,40 @@ typedef struct I2C_TX_DMA_EVENT_EN_0_REG_s {
     unsigned int tx_dma_mst_nack_en:1; // 
 } I2C_TX_DMA_EVENT_EN_0_REG_s;
 
-typedef union I2C_TX_DMA_EVENT_EN_0_u {
+typedef union {
+    /** @ref I2C_TX_DMA_EVENT_EN_0_REG_s */
     I2C_TX_DMA_EVENT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_TX_DMA_EVENT_EN_0_u;
 
-typedef struct I2C_TX_DMA_EVENT_EN_1_REG_s {
+/** @} end of I2C_TX_DMA_EVENT_EN_0_REG */ 
+
+/** @defgroup I2C_TX_DMA_EVENT_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int tx_dma_dma_done_rx_en:1; // 
     unsigned int tx_dma_dma_done_tx_en:1; // 
     unsigned int tx_dma_txfifo_almost_empty_intr_en:1; // 
     unsigned int tx_dma_rxfifo_almost_full_intr_en:1; // 
 } I2C_TX_DMA_EVENT_EN_1_REG_s;
 
-typedef union I2C_TX_DMA_EVENT_EN_1_u {
+typedef union {
+    /** @ref I2C_TX_DMA_EVENT_EN_1_REG_s */
     I2C_TX_DMA_EVENT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_TX_DMA_EVENT_EN_1_u;
 
-typedef struct I2C_INTR_SW_SET_0_REG_s {
+/** @} end of I2C_TX_DMA_EVENT_EN_1_REG */ 
+
+/** @defgroup I2C_INTR_SW_SET_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int arb_lost_sw_set:1; // 
     unsigned int slv_gencall_intr_sw_set:1; // 
     unsigned int slv_start_sw_set:1; // 
@@ -361,63 +496,93 @@ typedef struct I2C_INTR_SW_SET_0_REG_s {
     unsigned int mst_nack_sw_set:1; // 
 } I2C_INTR_SW_SET_0_REG_s;
 
-typedef union I2C_INTR_SW_SET_0_u {
+typedef union {
+    /** @ref I2C_INTR_SW_SET_0_REG_s */
     I2C_INTR_SW_SET_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_INTR_SW_SET_0_u;
 
-typedef struct I2C_INTR_SW_SET_1_REG_s {
+/** @} end of I2C_INTR_SW_SET_0_REG */ 
+
+/** @defgroup I2C_INTR_SW_SET_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_done_rx_sw_set:1; // 
     unsigned int dma_done_tx_sw_set:1; // 
     unsigned int txfifo_almost_empty_intr_sw_set:1; // 
     unsigned int rxfifo_almost_full_intr_sw_set:1; // 
 } I2C_INTR_SW_SET_1_REG_s;
 
-typedef union I2C_INTR_SW_SET_1_u {
+typedef union {
+    /** @ref I2C_INTR_SW_SET_1_REG_s */
     I2C_INTR_SW_SET_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_INTR_SW_SET_1_u;
 
-typedef struct I2C_SPARE_CTRL_REG_s {
+/** @} end of I2C_INTR_SW_SET_1_REG */ 
+
+/** @defgroup I2C_SPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cfg0:8; // 
     unsigned int cfg1:8; // 
 } I2C_SPARE_CTRL_REG_s;
 
-typedef union I2C_SPARE_CTRL_u {
+typedef union {
+    /** @ref I2C_SPARE_CTRL_REG_s */
     I2C_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SPARE_CTRL_u;
 
-typedef struct I2C_SPARE_STS_REG_s {
+/** @} end of I2C_SPARE_CTRL_REG */ 
+
+/** @defgroup I2C_SPARE_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int sts0:8; // 
     unsigned int sts1:8; // 
 } I2C_SPARE_STS_REG_s;
 
-typedef union I2C_SPARE_STS_u {
+typedef union {
+    /** @ref I2C_SPARE_STS_REG_s */
     I2C_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SPARE_STS_u;
 
-typedef struct I2C_GLITCH_FILTER_CFG_REG_s {
+/** @} end of I2C_SPARE_STS_REG */ 
+
+/** @defgroup I2C_GLITCH_FILTER_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int gf_width:3; // Glitch filter width
 } I2C_GLITCH_FILTER_CFG_REG_s;
 
-typedef union I2C_GLITCH_FILTER_CFG_u {
+typedef union {
+    /** @ref I2C_GLITCH_FILTER_CFG_REG_s */
     I2C_GLITCH_FILTER_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_GLITCH_FILTER_CFG_u;
 
-typedef struct I2C_SLAVE_CTRL_REG_s {
+/** @} end of I2C_GLITCH_FILTER_CFG_REG */ 
+
+/** @defgroup I2C_SLAVE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int slv_addr_mode:1; // 0 : 7 bit addressing   -- 1 : 10 bit addressing
     unsigned int slv_low_pwr_wakeup_en:1; // Enables wakeup from low power mode
     unsigned int slv_def_dev_addr_en:1; // Enables default device address matching
@@ -433,27 +598,39 @@ typedef struct I2C_SLAVE_CTRL_REG_s {
     unsigned int slv_txempty_intr_on_tx_req:1; // 1, generates txempty intr when tx is empty and clk stretching is taking place.   -- 0, generates tx empty intr whenever fifo is empty
 } I2C_SLAVE_CTRL_REG_s;
 
-typedef union I2C_SLAVE_CTRL_u {
+typedef union {
+    /** @ref I2C_SLAVE_CTRL_REG_s */
     I2C_SLAVE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SLAVE_CTRL_u;
 
-typedef struct I2C_SLAVE_ADDR_REG_s {
+/** @} end of I2C_SLAVE_CTRL_REG */ 
+
+/** @defgroup I2C_SLAVE_ADDR_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int slv_addr1:10; // 
     unsigned int rsvd_0:6; // 
     unsigned int slv_addr2:10; // 
 } I2C_SLAVE_ADDR_REG_s;
 
-typedef union I2C_SLAVE_ADDR_u {
+typedef union {
+    /** @ref I2C_SLAVE_ADDR_REG_s */
     I2C_SLAVE_ADDR_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SLAVE_ADDR_u;
 
-typedef struct I2C_SLAVE_STS_REG_s {
+/** @} end of I2C_SLAVE_ADDR_REG */ 
+
+/** @defgroup I2C_SLAVE_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int slv_rx_req:1; // Clk stretching is going on and slave is waiting for rx fifo to be cleared
     unsigned int slv_tx_req:1; // clk stetching is going on and slv is waiting for data to be written into tx fifo
     unsigned int slv_addr2_sel:1; // addr matched with addr2
@@ -466,37 +643,55 @@ typedef struct I2C_SLAVE_STS_REG_s {
     unsigned int slv_busbsy:1; // slv is busy
 } I2C_SLAVE_STS_REG_s;
 
-typedef union I2C_SLAVE_STS_u {
+typedef union {
+    /** @ref I2C_SLAVE_STS_REG_s */
     I2C_SLAVE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SLAVE_STS_u;
 
-typedef struct I2C_SLAVE_ACK_CFG_REG_s {
+/** @} end of I2C_SLAVE_STS_REG */ 
+
+/** @defgroup I2C_SLAVE_ACK_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int slv_auto_ack_en:1; // Enables automatic ack for rx data
     unsigned int slv_addr_auto_ack_en:1; // Enables automatic ack for slv addr
 } I2C_SLAVE_ACK_CFG_REG_s;
 
-typedef union I2C_SLAVE_ACK_CFG_u {
+typedef union {
+    /** @ref I2C_SLAVE_ACK_CFG_REG_s */
     I2C_SLAVE_ACK_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SLAVE_ACK_CFG_u;
 
-typedef struct I2C_SLAVE_BYTE_ACK_REG_s {
+/** @} end of I2C_SLAVE_ACK_CFG_REG */ 
+
+/** @defgroup I2C_SLAVE_BYTE_ACK_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int slv_ackval:1; // Sw writes the ack val 0 or 1 in this register for addr and data
 } I2C_SLAVE_BYTE_ACK_REG_s;
 
-typedef union I2C_SLAVE_BYTE_ACK_u {
+typedef union {
+    /** @ref I2C_SLAVE_BYTE_ACK_REG_s */
     I2C_SLAVE_BYTE_ACK_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_SLAVE_BYTE_ACK_u;
 
-typedef struct I2C_FIFO_CTRL_REG_s {
+/** @} end of I2C_SLAVE_BYTE_ACK_REG */ 
+
+/** @defgroup I2C_FIFO_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rxfifo_en:1; // Enables rx fifo
     unsigned int txfifo_en:1; // enables tx fifo
     unsigned int rsvd_0:6; // flushes rx fifo
@@ -505,36 +700,54 @@ typedef struct I2C_FIFO_CTRL_REG_s {
     unsigned int txfifo_flush:1; // flushes tx fifo
 } I2C_FIFO_CTRL_REG_s;
 
-typedef union I2C_FIFO_CTRL_u {
+typedef union {
+    /** @ref I2C_FIFO_CTRL_REG_s */
     I2C_FIFO_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_FIFO_CTRL_u;
 
-typedef struct I2C_RXDATA_REG_s {
+/** @} end of I2C_FIFO_CTRL_REG */ 
+
+/** @defgroup I2C_RXDATA_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rxdata:10; // 
 } I2C_RXDATA_REG_s;
 
-typedef union I2C_RXDATA_u {
+typedef union {
+    /** @ref I2C_RXDATA_REG_s */
     I2C_RXDATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_RXDATA_u;
 
-typedef struct I2C_TXDATA_REG_s {
+/** @} end of I2C_RXDATA_REG */ 
+
+/** @defgroup I2C_TXDATA_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int txdata:8; // 
 } I2C_TXDATA_REG_s;
 
-typedef union I2C_TXDATA_u {
+typedef union {
+    /** @ref I2C_TXDATA_REG_s */
     I2C_TXDATA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_TXDATA_u;
 
-typedef struct I2C_FIFO_STS_REG_s {
+/** @} end of I2C_TXDATA_REG */ 
+
+/** @defgroup I2C_FIFO_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int txfifo_flush_sts:1; // 
     unsigned int rxfifo_flush_sts:1; // 
     unsigned int txfifo_empty_sts:1; // 
@@ -545,48 +758,72 @@ typedef struct I2C_FIFO_STS_REG_s {
     unsigned int rxfifo_full_sts:1; // 
 } I2C_FIFO_STS_REG_s;
 
-typedef union I2C_FIFO_STS_u {
+typedef union {
+    /** @ref I2C_FIFO_STS_REG_s */
     I2C_FIFO_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_FIFO_STS_u;
 
-typedef struct I2C_PEC_CTRL_REG_s {
+/** @} end of I2C_FIFO_STS_REG */ 
+
+/** @defgroup I2C_PEC_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pec_en:1; // 
 } I2C_PEC_CTRL_REG_s;
 
-typedef union I2C_PEC_CTRL_u {
+typedef union {
+    /** @ref I2C_PEC_CTRL_REG_s */
     I2C_PEC_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_PEC_CTRL_u;
 
-typedef struct I2C_PEC_STS_REG_s {
+/** @} end of I2C_PEC_CTRL_REG */ 
+
+/** @defgroup I2C_PEC_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pec_error:1; // 
 } I2C_PEC_STS_REG_s;
 
-typedef union I2C_PEC_STS_u {
+typedef union {
+    /** @ref I2C_PEC_STS_REG_s */
     I2C_PEC_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_PEC_STS_u;
 
-typedef struct I2C_CRC_OUT_BYTE_REG_s {
+/** @} end of I2C_PEC_STS_REG */ 
+
+/** @defgroup I2C_CRC_OUT_BYTE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int slv_crc_out_byte:8; // 
     unsigned int mst_crc_out_byte:8; // 
 } I2C_CRC_OUT_BYTE_REG_s;
 
-typedef union I2C_CRC_OUT_BYTE_u {
+typedef union {
+    /** @ref I2C_CRC_OUT_BYTE_REG_s */
     I2C_CRC_OUT_BYTE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_CRC_OUT_BYTE_u;
 
-typedef struct I2C_MASTER_CFG_REG_s {
+/** @} end of I2C_CRC_OUT_BYTE_REG */ 
+
+/** @defgroup I2C_MASTER_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_enable:1; // Enables the master
     unsigned int mst_clkstretch_en:1; // enables clk stretch feature in master
     unsigned int lpbk_mode:1; // enables loopback mode
@@ -595,14 +832,20 @@ typedef struct I2C_MASTER_CFG_REG_s {
     unsigned int mst_slv_addr_cfg:10; // Configure the slave addr in which master wants to send data
 } I2C_MASTER_CFG_REG_s;
 
-typedef union I2C_MASTER_CFG_u {
+typedef union {
+    /** @ref I2C_MASTER_CFG_REG_s */
     I2C_MASTER_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_MASTER_CFG_u;
 
-typedef struct I2C_MASTER_CTRL_REG_s {
+/** @} end of I2C_MASTER_CFG_REG */ 
+
+/** @defgroup I2C_MASTER_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_cmd_vld:1; // Valid for the master ctrl register, sw have to write this bit to indicate a start of new transaction
     unsigned int rsvd_0:7; // Total bytes to be transfered
     unsigned int mst_burst_len:12; // Total bytes to be transfered
@@ -613,25 +856,37 @@ typedef struct I2C_MASTER_CTRL_REG_s {
     unsigned int mst_rd_on_txempty:1; // 1 : Enables tx transfers till tx fifo is emoty then does repeat start with read for the burst length specified
 } I2C_MASTER_CTRL_REG_s;
 
-typedef union I2C_MASTER_CTRL_u {
+typedef union {
+    /** @ref I2C_MASTER_CTRL_REG_s */
     I2C_MASTER_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_MASTER_CTRL_u;
 
-typedef struct I2C_MASTER_ACK_VAL_REG_s {
+/** @} end of I2C_MASTER_CTRL_REG */ 
+
+/** @defgroup I2C_MASTER_ACK_VAL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_ackval:1; // Ack val for last rx byte
 } I2C_MASTER_ACK_VAL_REG_s;
 
-typedef union I2C_MASTER_ACK_VAL_u {
+typedef union {
+    /** @ref I2C_MASTER_ACK_VAL_REG_s */
     I2C_MASTER_ACK_VAL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_MASTER_ACK_VAL_u;
 
-typedef struct I2C_MASTER_STS_REG_s {
+/** @} end of I2C_MASTER_ACK_VAL_REG */ 
+
+/** @defgroup I2C_MASTER_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_busbsy:1; // 
     unsigned int mst_idle:1; // 
     unsigned int mst_arblost:1; // 
@@ -642,39 +897,56 @@ typedef struct I2C_MASTER_STS_REG_s {
     unsigned int mst_word_cnt:12; // 
 } I2C_MASTER_STS_REG_s;
 
-typedef union I2C_MASTER_STS_u {
+typedef union {
+    /** @ref I2C_MASTER_STS_REG_s */
     I2C_MASTER_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_MASTER_STS_u;
 
-typedef struct I2C_MASTER_MON_REG_s {
+/** @} end of I2C_MASTER_STS_REG */ 
+
+/** @defgroup I2C_MASTER_MON_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_sda_state:1; // 
     unsigned int mst_scl_state:1; // 
 } I2C_MASTER_MON_REG_s;
 
-typedef union I2C_MASTER_MON_u {
+typedef union {
+    /** @ref I2C_MASTER_MON_REG_s */
     I2C_MASTER_MON_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_MASTER_MON_u;
 
-typedef struct I2C_FSM_STATUS_REG_s {
+/** @} end of I2C_MASTER_MON_REG */ 
+
+/** @defgroup I2C_FSM_STATUS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int mst_state:4; // 
     unsigned int slv_state:4; // 
     unsigned int slv_quick_cmd_state:3; // 
 } I2C_FSM_STATUS_REG_s;
 
-typedef union I2C_FSM_STATUS_u {
+typedef union {
+    /** @ref I2C_FSM_STATUS_REG_s */
     I2C_FSM_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } I2C_FSM_STATUS_u;
 
-typedef struct I2C_REGS_s{
+/** @} end of I2C_FSM_STATUS_REG */ 
+
+/** @} end of I2C_REGISTERS */ 
+
+typedef struct {
     volatile  I2C_DESC_u DESC;
     volatile  I2C_PWR_EN_u PWR_EN;
     volatile  I2C_RST_CTRL_u RST_CTRL;
@@ -721,10 +993,18 @@ typedef struct I2C_REGS_s{
     volatile  I2C_FSM_STATUS_u FSM_STATUS;
 } I2C_REGS_s;
 
+/** @defgroup I2C_KEY 
+ *  @{
+ */
 #define I2C_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
 #define I2C_RST_CTRL_RST_KEY ((uint32_t)0x000000ABU)
 #define I2C_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x000000ABU)
+/** @} end of I2C_KEY*/ 
 
+
+/** @defgroup I2C_INTERRUPTS 
+ *  @{
+ */
 #define I2C_INTR_EVENT_ARB_LOST_IDX (0)
 #define I2C_INTR_EVENT_SLV_GENCALL_INTR_IDX (1)
 #define I2C_INTR_EVENT_SLV_START_IDX (2)
@@ -745,6 +1025,11 @@ typedef struct I2C_REGS_s{
 #define I2C_INTR_EVENT_DMA_DONE_TX_IDX (17)
 #define I2C_INTR_EVENT_TXFIFO_ALMOST_EMPTY_INTR_IDX (18)
 #define I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_IDX (19)
+/** @} end of I2C_INTERRUPTS */ 
+
+/** @defgroup I2C_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	I2C_CLK_CTRL_CLKSEL_4MHZ = 0,
@@ -795,7 +1080,12 @@ typedef enum {
 	I2C_MASTER_ACK_VAL_MST_ACKVAL_ACK = 0,
 	I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK = 1,
 } I2C_MASTER_ACK_VAL_MST_ACKVAL_E;
+/** @} end of I2C_ENUM */ 
 
+
+/** @defgroup I2C_REGISTER_FLAGS 
+ *  @{
+ */
 #define I2C_DESC_MODULE_TYPE_OFS (0)
 #define I2C_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define I2C_DESC_MODUE_SUBTYPE_OFS (8)
@@ -1244,5 +1534,9 @@ typedef enum {
 #define I2C_FSM_STATUS_SLV_STATE_MASK ((uint32_t)0x000000F0U)
 #define I2C_FSM_STATUS_SLV_QUICK_CMD_STATE_OFS (8)
 #define I2C_FSM_STATUS_SLV_QUICK_CMD_STATE_MASK ((uint32_t)0x00000700U)
+/** @} end of I2C_REGISTER_FLAGS */ 
+
+/** @} end of I2C */
+
 
 #endif

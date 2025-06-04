@@ -3,81 +3,126 @@
 
 #include <stdint.h>
 
-typedef struct GPIO_DESC_REG_s {
+/** @defgroup GPIO
+ *  @{
+ */
+/** @defgroup GPIO_REGISTERS 
+ *  @{
+ */
+/** @defgroup GPIO_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int modue_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } GPIO_DESC_REG_s;
 
-typedef union GPIO_DESC_u {
+typedef union {
+    /** @ref GPIO_DESC_REG_s */
     GPIO_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DESC_u;
 
-typedef struct GPIO_PWR_EN_REG_s {
+/** @} end of GPIO_DESC_REG */ 
+
+/** @defgroup GPIO_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } GPIO_PWR_EN_REG_s;
 
-typedef union GPIO_PWR_EN_u {
+typedef union {
+    /** @ref GPIO_PWR_EN_REG_s */
     GPIO_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_PWR_EN_u;
 
-typedef struct GPIO_RST_CTRL_REG_s {
+/** @} end of GPIO_PWR_EN_REG */ 
+
+/** @defgroup GPIO_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } GPIO_RST_CTRL_REG_s;
 
-typedef union GPIO_RST_CTRL_u {
+typedef union {
+    /** @ref GPIO_RST_CTRL_REG_s */
     GPIO_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_RST_CTRL_u;
 
-typedef struct GPIO_RST_STS_REG_s {
+/** @} end of GPIO_RST_CTRL_REG */ 
+
+/** @defgroup GPIO_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } GPIO_RST_STS_REG_s;
 
-typedef union GPIO_RST_STS_u {
+typedef union {
+    /** @ref GPIO_RST_STS_REG_s */
     GPIO_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_RST_STS_u;
 
-typedef struct GPIO_CLK_CTRL_REG_s {
+/** @} end of GPIO_RST_STS_REG */ 
+
+/** @defgroup GPIO_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int en_async_clk_req:1; // 
 } GPIO_CLK_CTRL_REG_s;
 
-typedef union GPIO_CLK_CTRL_u {
+typedef union {
+    /** @ref GPIO_CLK_CTRL_REG_s */
     GPIO_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_CLK_CTRL_u;
 
-typedef struct GPIO_INTR_STS_REG_s {
+/** @} end of GPIO_CLK_CTRL_REG */ 
+
+/** @defgroup GPIO_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:8; // 
 } GPIO_INTR_STS_REG_s;
 
-typedef union GPIO_INTR_STS_u {
+typedef union {
+    /** @ref GPIO_INTR_STS_REG_s */
     GPIO_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_STS_u;
 
-typedef struct GPIO_INTR_EVENT_REG_s {
+/** @} end of GPIO_INTR_STS_REG */ 
+
+/** @defgroup GPIO_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr0:1; // 
     unsigned int intr1:1; // 
     unsigned int intr2:1; // 
@@ -112,14 +157,20 @@ typedef struct GPIO_INTR_EVENT_REG_s {
     unsigned int intr31:1; // 
 } GPIO_INTR_EVENT_REG_s;
 
-typedef union GPIO_INTR_EVENT_u {
+typedef union {
+    /** @ref GPIO_INTR_EVENT_REG_s */
     GPIO_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_EVENT_u;
 
-typedef struct GPIO_INTR_EN0_REG_s {
+/** @} end of GPIO_INTR_EVENT_REG */ 
+
+/** @defgroup GPIO_INTR_EN0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr0_en:1; // 
     unsigned int intr1_en:1; // 
     unsigned int intr2_en:1; // 
@@ -138,14 +189,20 @@ typedef struct GPIO_INTR_EN0_REG_s {
     unsigned int intr15_en:1; // 
 } GPIO_INTR_EN0_REG_s;
 
-typedef union GPIO_INTR_EN0_u {
+typedef union {
+    /** @ref GPIO_INTR_EN0_REG_s */
     GPIO_INTR_EN0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_EN0_u;
 
-typedef struct GPIO_INTR_EN1_REG_s {
+/** @} end of GPIO_INTR_EN0_REG */ 
+
+/** @defgroup GPIO_INTR_EN1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr16_en:1; // 
     unsigned int intr17_en:1; // 
     unsigned int intr18_en:1; // 
@@ -164,14 +221,20 @@ typedef struct GPIO_INTR_EN1_REG_s {
     unsigned int intr31_en:1; // 
 } GPIO_INTR_EN1_REG_s;
 
-typedef union GPIO_INTR_EN1_u {
+typedef union {
+    /** @ref GPIO_INTR_EN1_REG_s */
     GPIO_INTR_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_EN1_u;
 
-typedef struct GPIO_INTR_NMI_EN0_REG_s {
+/** @} end of GPIO_INTR_EN1_REG */ 
+
+/** @defgroup GPIO_INTR_NMI_EN0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr0_nmi_en:1; // 
     unsigned int intr1_nmi_en:1; // 
     unsigned int intr2_nmi_en:1; // 
@@ -190,14 +253,20 @@ typedef struct GPIO_INTR_NMI_EN0_REG_s {
     unsigned int intr15_nmi_en:1; // 
 } GPIO_INTR_NMI_EN0_REG_s;
 
-typedef union GPIO_INTR_NMI_EN0_u {
+typedef union {
+    /** @ref GPIO_INTR_NMI_EN0_REG_s */
     GPIO_INTR_NMI_EN0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_NMI_EN0_u;
 
-typedef struct GPIO_INTR_NMI_EN1_REG_s {
+/** @} end of GPIO_INTR_NMI_EN0_REG */ 
+
+/** @defgroup GPIO_INTR_NMI_EN1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr16_nmi_en:1; // 
     unsigned int intr17_nmi_en:1; // 
     unsigned int intr18_nmi_en:1; // 
@@ -216,14 +285,20 @@ typedef struct GPIO_INTR_NMI_EN1_REG_s {
     unsigned int intr31_nmi_en:1; // 
 } GPIO_INTR_NMI_EN1_REG_s;
 
-typedef union GPIO_INTR_NMI_EN1_u {
+typedef union {
+    /** @ref GPIO_INTR_NMI_EN1_REG_s */
     GPIO_INTR_NMI_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_NMI_EN1_u;
 
-typedef struct GPIO_EVENT_EN0_REG_s {
+/** @} end of GPIO_INTR_NMI_EN1_REG */ 
+
+/** @defgroup GPIO_EVENT_EN0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr0_event_en:1; // 
     unsigned int intr1_event_en:1; // 
     unsigned int intr2_event_en:1; // 
@@ -242,14 +317,20 @@ typedef struct GPIO_EVENT_EN0_REG_s {
     unsigned int intr15_event_en:1; // 
 } GPIO_EVENT_EN0_REG_s;
 
-typedef union GPIO_EVENT_EN0_u {
+typedef union {
+    /** @ref GPIO_EVENT_EN0_REG_s */
     GPIO_EVENT_EN0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_EVENT_EN0_u;
 
-typedef struct GPIO_EVENT_EN1_REG_s {
+/** @} end of GPIO_EVENT_EN0_REG */ 
+
+/** @defgroup GPIO_EVENT_EN1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr16_event_en:1; // 
     unsigned int intr17_event_en:1; // 
     unsigned int intr18_event_en:1; // 
@@ -268,14 +349,20 @@ typedef struct GPIO_EVENT_EN1_REG_s {
     unsigned int intr31_event_en:1; // 
 } GPIO_EVENT_EN1_REG_s;
 
-typedef union GPIO_EVENT_EN1_u {
+typedef union {
+    /** @ref GPIO_EVENT_EN1_REG_s */
     GPIO_EVENT_EN1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_EVENT_EN1_u;
 
-typedef struct GPIO_INTR_SW_SET_REG_s {
+/** @} end of GPIO_EVENT_EN1_REG */ 
+
+/** @defgroup GPIO_INTR_SW_SET_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr0_sw_set:1; // 
     unsigned int intr1_sw_set:1; // 
     unsigned int intr2_sw_set:1; // 
@@ -310,14 +397,20 @@ typedef struct GPIO_INTR_SW_SET_REG_s {
     unsigned int intr31_sw_set:1; // 
 } GPIO_INTR_SW_SET_REG_s;
 
-typedef union GPIO_INTR_SW_SET_u {
+typedef union {
+    /** @ref GPIO_INTR_SW_SET_REG_s */
     GPIO_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_SW_SET_u;
 
-typedef struct GPIO_DOUT_3_0_REG_s {
+/** @} end of GPIO_INTR_SW_SET_REG */ 
+
+/** @defgroup GPIO_DOUT_3_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_0:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int dout_1:1; // 
@@ -327,14 +420,20 @@ typedef struct GPIO_DOUT_3_0_REG_s {
     unsigned int dout_3:1; // 
 } GPIO_DOUT_3_0_REG_s;
 
-typedef union GPIO_DOUT_3_0_u {
+typedef union {
+    /** @ref GPIO_DOUT_3_0_REG_s */
     GPIO_DOUT_3_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_3_0_u;
 
-typedef struct GPIO_DOUT_7_4_REG_s {
+/** @} end of GPIO_DOUT_3_0_REG */ 
+
+/** @defgroup GPIO_DOUT_7_4_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_4:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int dout_5:1; // 
@@ -344,14 +443,20 @@ typedef struct GPIO_DOUT_7_4_REG_s {
     unsigned int dout_7:1; // 
 } GPIO_DOUT_7_4_REG_s;
 
-typedef union GPIO_DOUT_7_4_u {
+typedef union {
+    /** @ref GPIO_DOUT_7_4_REG_s */
     GPIO_DOUT_7_4_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_7_4_u;
 
-typedef struct GPIO_DOUT_11_8_REG_s {
+/** @} end of GPIO_DOUT_7_4_REG */ 
+
+/** @defgroup GPIO_DOUT_11_8_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_8:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int dout_9:1; // 
@@ -361,14 +466,20 @@ typedef struct GPIO_DOUT_11_8_REG_s {
     unsigned int dout_11:1; // 
 } GPIO_DOUT_11_8_REG_s;
 
-typedef union GPIO_DOUT_11_8_u {
+typedef union {
+    /** @ref GPIO_DOUT_11_8_REG_s */
     GPIO_DOUT_11_8_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_11_8_u;
 
-typedef struct GPIO_DOUT_15_12_REG_s {
+/** @} end of GPIO_DOUT_11_8_REG */ 
+
+/** @defgroup GPIO_DOUT_15_12_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_12:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int dout_13:1; // 
@@ -378,14 +489,20 @@ typedef struct GPIO_DOUT_15_12_REG_s {
     unsigned int dout_15:1; // 
 } GPIO_DOUT_15_12_REG_s;
 
-typedef union GPIO_DOUT_15_12_u {
+typedef union {
+    /** @ref GPIO_DOUT_15_12_REG_s */
     GPIO_DOUT_15_12_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_15_12_u;
 
-typedef struct GPIO_DOUT_19_16_REG_s {
+/** @} end of GPIO_DOUT_15_12_REG */ 
+
+/** @defgroup GPIO_DOUT_19_16_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_16:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int dout_17:1; // 
@@ -395,14 +512,20 @@ typedef struct GPIO_DOUT_19_16_REG_s {
     unsigned int dout_19:1; // 
 } GPIO_DOUT_19_16_REG_s;
 
-typedef union GPIO_DOUT_19_16_u {
+typedef union {
+    /** @ref GPIO_DOUT_19_16_REG_s */
     GPIO_DOUT_19_16_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_19_16_u;
 
-typedef struct GPIO_DOUT_23_20_REG_s {
+/** @} end of GPIO_DOUT_19_16_REG */ 
+
+/** @defgroup GPIO_DOUT_23_20_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_20:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int dout_21:1; // 
@@ -412,14 +535,20 @@ typedef struct GPIO_DOUT_23_20_REG_s {
     unsigned int dout_23:1; // 
 } GPIO_DOUT_23_20_REG_s;
 
-typedef union GPIO_DOUT_23_20_u {
+typedef union {
+    /** @ref GPIO_DOUT_23_20_REG_s */
     GPIO_DOUT_23_20_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_23_20_u;
 
-typedef struct GPIO_DOUT_27_24_REG_s {
+/** @} end of GPIO_DOUT_23_20_REG */ 
+
+/** @defgroup GPIO_DOUT_27_24_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_24:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int dout_25:1; // 
@@ -429,14 +558,20 @@ typedef struct GPIO_DOUT_27_24_REG_s {
     unsigned int dout_27:1; // 
 } GPIO_DOUT_27_24_REG_s;
 
-typedef union GPIO_DOUT_27_24_u {
+typedef union {
+    /** @ref GPIO_DOUT_27_24_REG_s */
     GPIO_DOUT_27_24_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_27_24_u;
 
-typedef struct GPIO_DOUT_31_28_REG_s {
+/** @} end of GPIO_DOUT_27_24_REG */ 
+
+/** @defgroup GPIO_DOUT_31_28_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_28:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int dout_29:1; // 
@@ -446,91 +581,139 @@ typedef struct GPIO_DOUT_31_28_REG_s {
     unsigned int dout_31:1; // 
 } GPIO_DOUT_31_28_REG_s;
 
-typedef union GPIO_DOUT_31_28_u {
+typedef union {
+    /** @ref GPIO_DOUT_31_28_REG_s */
     GPIO_DOUT_31_28_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_31_28_u;
 
-typedef struct GPIO_DOUT_REG_s {
+/** @} end of GPIO_DOUT_31_28_REG */ 
+
+/** @defgroup GPIO_DOUT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout:32; // 
 } GPIO_DOUT_REG_s;
 
-typedef union GPIO_DOUT_u {
+typedef union {
+    /** @ref GPIO_DOUT_REG_s */
     GPIO_DOUT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_u;
 
-typedef struct GPIO_DOUT_SET_REG_s {
+/** @} end of GPIO_DOUT_REG */ 
+
+/** @defgroup GPIO_DOUT_SET_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_set:32; // 
 } GPIO_DOUT_SET_REG_s;
 
-typedef union GPIO_DOUT_SET_u {
+typedef union {
+    /** @ref GPIO_DOUT_SET_REG_s */
     GPIO_DOUT_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_SET_u;
 
-typedef struct GPIO_DOUT_CLR_REG_s {
+/** @} end of GPIO_DOUT_SET_REG */ 
+
+/** @defgroup GPIO_DOUT_CLR_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_clr:32; // 
 } GPIO_DOUT_CLR_REG_s;
 
-typedef union GPIO_DOUT_CLR_u {
+typedef union {
+    /** @ref GPIO_DOUT_CLR_REG_s */
     GPIO_DOUT_CLR_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_CLR_u;
 
-typedef struct GPIO_DOUT_TGL_REG_s {
+/** @} end of GPIO_DOUT_CLR_REG */ 
+
+/** @defgroup GPIO_DOUT_TGL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_tgl:32; // 
 } GPIO_DOUT_TGL_REG_s;
 
-typedef union GPIO_DOUT_TGL_u {
+typedef union {
+    /** @ref GPIO_DOUT_TGL_REG_s */
     GPIO_DOUT_TGL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_TGL_u;
 
-typedef struct GPIO_DOUT_EN_REG_s {
+/** @} end of GPIO_DOUT_TGL_REG */ 
+
+/** @defgroup GPIO_DOUT_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_en:32; // 
 } GPIO_DOUT_EN_REG_s;
 
-typedef union GPIO_DOUT_EN_u {
+typedef union {
+    /** @ref GPIO_DOUT_EN_REG_s */
     GPIO_DOUT_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_EN_u;
 
-typedef struct GPIO_DOUT_EN_SET_REG_s {
+/** @} end of GPIO_DOUT_EN_REG */ 
+
+/** @defgroup GPIO_DOUT_EN_SET_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_en_set:32; // 
 } GPIO_DOUT_EN_SET_REG_s;
 
-typedef union GPIO_DOUT_EN_SET_u {
+typedef union {
+    /** @ref GPIO_DOUT_EN_SET_REG_s */
     GPIO_DOUT_EN_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_EN_SET_u;
 
-typedef struct GPIO_DOUT_EN_CLR_REG_s {
+/** @} end of GPIO_DOUT_EN_SET_REG */ 
+
+/** @defgroup GPIO_DOUT_EN_CLR_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dout_en_clr:32; // 
 } GPIO_DOUT_EN_CLR_REG_s;
 
-typedef union GPIO_DOUT_EN_CLR_u {
+typedef union {
+    /** @ref GPIO_DOUT_EN_CLR_REG_s */
     GPIO_DOUT_EN_CLR_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DOUT_EN_CLR_u;
 
-typedef struct GPIO_DIN_3_0_REG_s {
+/** @} end of GPIO_DOUT_EN_CLR_REG */ 
+
+/** @defgroup GPIO_DIN_3_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din_0:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int din_1:1; // 
@@ -540,14 +723,20 @@ typedef struct GPIO_DIN_3_0_REG_s {
     unsigned int din_3:1; // 
 } GPIO_DIN_3_0_REG_s;
 
-typedef union GPIO_DIN_3_0_u {
+typedef union {
+    /** @ref GPIO_DIN_3_0_REG_s */
     GPIO_DIN_3_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_3_0_u;
 
-typedef struct GPIO_DIN_7_4_REG_s {
+/** @} end of GPIO_DIN_3_0_REG */ 
+
+/** @defgroup GPIO_DIN_7_4_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din_4:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int din_5:1; // 
@@ -557,14 +746,20 @@ typedef struct GPIO_DIN_7_4_REG_s {
     unsigned int din_7:1; // 
 } GPIO_DIN_7_4_REG_s;
 
-typedef union GPIO_DIN_7_4_u {
+typedef union {
+    /** @ref GPIO_DIN_7_4_REG_s */
     GPIO_DIN_7_4_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_7_4_u;
 
-typedef struct GPIO_DIN_11_8_REG_s {
+/** @} end of GPIO_DIN_7_4_REG */ 
+
+/** @defgroup GPIO_DIN_11_8_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din_8:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int din_9:1; // 
@@ -574,14 +769,20 @@ typedef struct GPIO_DIN_11_8_REG_s {
     unsigned int din_11:1; // 
 } GPIO_DIN_11_8_REG_s;
 
-typedef union GPIO_DIN_11_8_u {
+typedef union {
+    /** @ref GPIO_DIN_11_8_REG_s */
     GPIO_DIN_11_8_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_11_8_u;
 
-typedef struct GPIO_DIN_15_12_REG_s {
+/** @} end of GPIO_DIN_11_8_REG */ 
+
+/** @defgroup GPIO_DIN_15_12_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din_12:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int din_13:1; // 
@@ -591,14 +792,20 @@ typedef struct GPIO_DIN_15_12_REG_s {
     unsigned int din_15:1; // 
 } GPIO_DIN_15_12_REG_s;
 
-typedef union GPIO_DIN_15_12_u {
+typedef union {
+    /** @ref GPIO_DIN_15_12_REG_s */
     GPIO_DIN_15_12_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_15_12_u;
 
-typedef struct GPIO_DIN_19_16_REG_s {
+/** @} end of GPIO_DIN_15_12_REG */ 
+
+/** @defgroup GPIO_DIN_19_16_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din_16:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int din_17:1; // 
@@ -608,14 +815,20 @@ typedef struct GPIO_DIN_19_16_REG_s {
     unsigned int din_19:1; // 
 } GPIO_DIN_19_16_REG_s;
 
-typedef union GPIO_DIN_19_16_u {
+typedef union {
+    /** @ref GPIO_DIN_19_16_REG_s */
     GPIO_DIN_19_16_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_19_16_u;
 
-typedef struct GPIO_DIN_23_20_REG_s {
+/** @} end of GPIO_DIN_19_16_REG */ 
+
+/** @defgroup GPIO_DIN_23_20_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din_20:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int din_21:1; // 
@@ -625,14 +838,20 @@ typedef struct GPIO_DIN_23_20_REG_s {
     unsigned int din_23:1; // 
 } GPIO_DIN_23_20_REG_s;
 
-typedef union GPIO_DIN_23_20_u {
+typedef union {
+    /** @ref GPIO_DIN_23_20_REG_s */
     GPIO_DIN_23_20_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_23_20_u;
 
-typedef struct GPIO_DIN_27_24_REG_s {
+/** @} end of GPIO_DIN_23_20_REG */ 
+
+/** @defgroup GPIO_DIN_27_24_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din_24:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int din_25:1; // 
@@ -642,14 +861,20 @@ typedef struct GPIO_DIN_27_24_REG_s {
     unsigned int din_27:1; // 
 } GPIO_DIN_27_24_REG_s;
 
-typedef union GPIO_DIN_27_24_u {
+typedef union {
+    /** @ref GPIO_DIN_27_24_REG_s */
     GPIO_DIN_27_24_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_27_24_u;
 
-typedef struct GPIO_DIN_31_28_REG_s {
+/** @} end of GPIO_DIN_27_24_REG */ 
+
+/** @defgroup GPIO_DIN_31_28_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din_28:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int din_29:1; // 
@@ -659,25 +884,37 @@ typedef struct GPIO_DIN_31_28_REG_s {
     unsigned int din_31:1; // 
 } GPIO_DIN_31_28_REG_s;
 
-typedef union GPIO_DIN_31_28_u {
+typedef union {
+    /** @ref GPIO_DIN_31_28_REG_s */
     GPIO_DIN_31_28_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_31_28_u;
 
-typedef struct GPIO_DIN_REG_s {
+/** @} end of GPIO_DIN_31_28_REG */ 
+
+/** @defgroup GPIO_DIN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int din:32; // 
 } GPIO_DIN_REG_s;
 
-typedef union GPIO_DIN_u {
+typedef union {
+    /** @ref GPIO_DIN_REG_s */
     GPIO_DIN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DIN_u;
 
-typedef struct GPIO_FILT_EN_0_REG_s {
+/** @} end of GPIO_DIN_REG */ 
+
+/** @defgroup GPIO_FILT_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int filt_en_0:2; // 
     unsigned int filt_en_1:2; // 
     unsigned int filt_en_2:2; // 
@@ -696,14 +933,20 @@ typedef struct GPIO_FILT_EN_0_REG_s {
     unsigned int filt_en_15:2; // 
 } GPIO_FILT_EN_0_REG_s;
 
-typedef union GPIO_FILT_EN_0_u {
+typedef union {
+    /** @ref GPIO_FILT_EN_0_REG_s */
     GPIO_FILT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_FILT_EN_0_u;
 
-typedef struct GPIO_FILT_EN_1_REG_s {
+/** @} end of GPIO_FILT_EN_0_REG */ 
+
+/** @defgroup GPIO_FILT_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int filt_en_16:2; // 
     unsigned int filt_en_17:2; // 
     unsigned int filt_en_18:2; // 
@@ -722,14 +965,20 @@ typedef struct GPIO_FILT_EN_1_REG_s {
     unsigned int filt_en_31:2; // 
 } GPIO_FILT_EN_1_REG_s;
 
-typedef union GPIO_FILT_EN_1_u {
+typedef union {
+    /** @ref GPIO_FILT_EN_1_REG_s */
     GPIO_FILT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_FILT_EN_1_u;
 
-typedef struct GPIO_INTR_POL_0_REG_s {
+/** @} end of GPIO_FILT_EN_1_REG */ 
+
+/** @defgroup GPIO_INTR_POL_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_pol_0:2; // 
     unsigned int intr_pol_1:2; // 
     unsigned int intr_pol_2:2; // 
@@ -748,14 +997,20 @@ typedef struct GPIO_INTR_POL_0_REG_s {
     unsigned int intr_pol_15:2; // 
 } GPIO_INTR_POL_0_REG_s;
 
-typedef union GPIO_INTR_POL_0_u {
+typedef union {
+    /** @ref GPIO_INTR_POL_0_REG_s */
     GPIO_INTR_POL_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_POL_0_u;
 
-typedef struct GPIO_INTR_POL_1_REG_s {
+/** @} end of GPIO_INTR_POL_0_REG */ 
+
+/** @defgroup GPIO_INTR_POL_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_pol_16:2; // 
     unsigned int intr_pol_17:2; // 
     unsigned int intr_pol_18:2; // 
@@ -774,14 +1029,20 @@ typedef struct GPIO_INTR_POL_1_REG_s {
     unsigned int intr_pol_31:2; // 
 } GPIO_INTR_POL_1_REG_s;
 
-typedef union GPIO_INTR_POL_1_u {
+typedef union {
+    /** @ref GPIO_INTR_POL_1_REG_s */
     GPIO_INTR_POL_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_INTR_POL_1_u;
 
-typedef struct GPIO_SUB_CFG_REG_s {
+/** @} end of GPIO_INTR_POL_1_REG */ 
+
+/** @defgroup GPIO_SUB_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int sub_en:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int action:2; // 
@@ -789,25 +1050,36 @@ typedef struct GPIO_SUB_CFG_REG_s {
     unsigned int bit_num:5; // 
 } GPIO_SUB_CFG_REG_s;
 
-typedef union GPIO_SUB_CFG_u {
+typedef union {
+    /** @ref GPIO_SUB_CFG_REG_s */
     GPIO_SUB_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_SUB_CFG_u;
 
-typedef struct GPIO_DMA_WR_MASK_REG_s {
+/** @} end of GPIO_SUB_CFG_REG */ 
+
+/** @defgroup GPIO_DMA_WR_MASK_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_wr_mask:32; // 
 } GPIO_DMA_WR_MASK_REG_s;
 
-typedef union GPIO_DMA_WR_MASK_u {
+typedef union {
+    /** @ref GPIO_DMA_WR_MASK_REG_s */
     GPIO_DMA_WR_MASK_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } GPIO_DMA_WR_MASK_u;
 
-typedef struct GPIO_REGS_s{
+/** @} end of GPIO_DMA_WR_MASK_REG */ 
+
+/** @} end of GPIO_REGISTERS */ 
+
+typedef struct {
     volatile  GPIO_DESC_u DESC;
     volatile  GPIO_PWR_EN_u PWR_EN;
     volatile  GPIO_RST_CTRL_u RST_CTRL;
@@ -854,10 +1126,18 @@ typedef struct GPIO_REGS_s{
     volatile  GPIO_DMA_WR_MASK_u DMA_WR_MASK;
 } GPIO_REGS_s;
 
+/** @defgroup GPIO_KEY 
+ *  @{
+ */
 #define GPIO_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
 #define GPIO_RST_CTRL_RST_KEY ((uint32_t)0x000000ABU)
 #define GPIO_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x000000ABU)
+/** @} end of GPIO_KEY*/ 
 
+
+/** @defgroup GPIO_INTERRUPTS 
+ *  @{
+ */
 #define GPIO_INTR_EVENT_INTR0_IDX (0)
 #define GPIO_INTR_EVENT_INTR1_IDX (1)
 #define GPIO_INTR_EVENT_INTR2_IDX (2)
@@ -890,6 +1170,11 @@ typedef struct GPIO_REGS_s{
 #define GPIO_INTR_EVENT_INTR29_IDX (29)
 #define GPIO_INTR_EVENT_INTR30_IDX (30)
 #define GPIO_INTR_EVENT_INTR31_IDX (31)
+/** @} end of GPIO_INTERRUPTS */ 
+
+/** @defgroup GPIO_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	GPIO_FILT_EN_WIDTH_0 = 0,
@@ -910,7 +1195,12 @@ typedef enum {
 	GPIO_SUB_CFG_ACTION_CLR = 1,
 	GPIO_SUB_CFG_ACTION_TGL = 2,
 } GPIO_SUB_CFG_ACTION_E;
+/** @} end of GPIO_ENUM */ 
 
+
+/** @defgroup GPIO_REGISTER_FLAGS 
+ *  @{
+ */
 #define GPIO_DESC_MODULE_TYPE_OFS (0)
 #define GPIO_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define GPIO_DESC_MODUE_SUBTYPE_OFS (8)
@@ -1535,5 +1825,9 @@ typedef enum {
 #define GPIO_SUB_CFG_BIT_NUM_MASK ((uint32_t)0x001F0000U)
 #define GPIO_DMA_WR_MASK_DMA_WR_MASK_OFS (0)
 #define GPIO_DMA_WR_MASK_DMA_WR_MASK_MASK ((uint32_t)0xFFFFFFFFU)
+/** @} end of GPIO_REGISTER_FLAGS */ 
+
+/** @} end of GPIO */
+
 
 #endif

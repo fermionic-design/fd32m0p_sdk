@@ -3,103 +3,159 @@
 
 #include <stdint.h>
 
-typedef struct EVENT_FABRIC_DESC_REG_s {
+/** @defgroup EVENT_FABRIC
+ *  @{
+ */
+/** @defgroup EVENT_FABRIC_REGISTERS 
+ *  @{
+ */
+/** @defgroup EVENT_FABRIC_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int modue_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } EVENT_FABRIC_DESC_REG_s;
 
-typedef union EVENT_FABRIC_DESC_u {
+typedef union {
+    /** @ref EVENT_FABRIC_DESC_REG_s */
     EVENT_FABRIC_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } EVENT_FABRIC_DESC_u;
 
-typedef struct EVENT_FABRIC_PWR_EN_REG_s {
+/** @} end of EVENT_FABRIC_DESC_REG */ 
+
+/** @defgroup EVENT_FABRIC_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } EVENT_FABRIC_PWR_EN_REG_s;
 
-typedef union EVENT_FABRIC_PWR_EN_u {
+typedef union {
+    /** @ref EVENT_FABRIC_PWR_EN_REG_s */
     EVENT_FABRIC_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } EVENT_FABRIC_PWR_EN_u;
 
-typedef struct EVENT_FABRIC_RST_CTRL_REG_s {
+/** @} end of EVENT_FABRIC_PWR_EN_REG */ 
+
+/** @defgroup EVENT_FABRIC_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } EVENT_FABRIC_RST_CTRL_REG_s;
 
-typedef union EVENT_FABRIC_RST_CTRL_u {
+typedef union {
+    /** @ref EVENT_FABRIC_RST_CTRL_REG_s */
     EVENT_FABRIC_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } EVENT_FABRIC_RST_CTRL_u;
 
-typedef struct EVENT_FABRIC_RST_STS_REG_s {
+/** @} end of EVENT_FABRIC_RST_CTRL_REG */ 
+
+/** @defgroup EVENT_FABRIC_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } EVENT_FABRIC_RST_STS_REG_s;
 
-typedef union EVENT_FABRIC_RST_STS_u {
+typedef union {
+    /** @ref EVENT_FABRIC_RST_STS_REG_s */
     EVENT_FABRIC_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } EVENT_FABRIC_RST_STS_u;
 
-typedef struct EVENT_FABRIC_CLK_CTRL_REG_s {
+/** @} end of EVENT_FABRIC_RST_STS_REG */ 
+
+/** @defgroup EVENT_FABRIC_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_en:1; // 
 } EVENT_FABRIC_CLK_CTRL_REG_s;
 
-typedef union EVENT_FABRIC_CLK_CTRL_u {
+typedef union {
+    /** @ref EVENT_FABRIC_CLK_CTRL_REG_s */
     EVENT_FABRIC_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } EVENT_FABRIC_CLK_CTRL_u;
 
-typedef struct EVENT_FABRIC_GEN_PUB_REG_s {
+/** @} end of EVENT_FABRIC_CLK_CTRL_REG */ 
+
+/** @defgroup EVENT_FABRIC_GEN_PUB_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int gen_pub_chan_id:4; // 0: Disconnect; 1-15: 15 channels
 } EVENT_FABRIC_GEN_PUB_REG_s;
 
-typedef union EVENT_FABRIC_GEN_PUB_u {
+typedef union {
+    /** @ref EVENT_FABRIC_GEN_PUB_REG_s */
     EVENT_FABRIC_GEN_PUB_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } EVENT_FABRIC_GEN_PUB_u;
 
-typedef struct EVENT_FABRIC_GEN_SUB_REG_s {
+/** @} end of EVENT_FABRIC_GEN_PUB_REG */ 
+
+/** @defgroup EVENT_FABRIC_GEN_SUB_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int gen_sub_chan_id:4; // 0: Disconnect; 1-15: 15 channels
 } EVENT_FABRIC_GEN_SUB_REG_s;
 
-typedef union EVENT_FABRIC_GEN_SUB_u {
+typedef union {
+    /** @ref EVENT_FABRIC_GEN_SUB_REG_s */
     EVENT_FABRIC_GEN_SUB_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } EVENT_FABRIC_GEN_SUB_u;
 
-typedef struct EVENT_FABRIC_DMA_PUB_REG_s {
+/** @} end of EVENT_FABRIC_GEN_SUB_REG */ 
+
+/** @defgroup EVENT_FABRIC_DMA_PUB_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_pub_event_id:6; // 0: Disconnect; 1-x: x event ids: which event is connected to this dma channel
 } EVENT_FABRIC_DMA_PUB_REG_s;
 
-typedef union EVENT_FABRIC_DMA_PUB_u {
+typedef union {
+    /** @ref EVENT_FABRIC_DMA_PUB_REG_s */
     EVENT_FABRIC_DMA_PUB_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } EVENT_FABRIC_DMA_PUB_u;
 
-typedef struct EVENT_FABRIC_REGS_s{
+/** @} end of EVENT_FABRIC_DMA_PUB_REG */ 
+
+/** @} end of EVENT_FABRIC_REGISTERS */ 
+
+typedef struct {
     volatile  EVENT_FABRIC_DESC_u DESC;
     volatile  EVENT_FABRIC_PWR_EN_u PWR_EN;
     volatile  EVENT_FABRIC_RST_CTRL_u RST_CTRL;
@@ -110,10 +166,23 @@ typedef struct EVENT_FABRIC_REGS_s{
     volatile  EVENT_FABRIC_DMA_PUB_u DMA_PUB[16];
 } EVENT_FABRIC_REGS_s;
 
+/** @defgroup EVENT_FABRIC_KEY 
+ *  @{
+ */
 #define EVENT_FABRIC_PWR_EN_PWR_EN_KEY ((uint32_t)0x00000069U)
 #define EVENT_FABRIC_RST_CTRL_RST_KEY ((uint32_t)0x00000069U)
 #define EVENT_FABRIC_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x00000069U)
+/** @} end of EVENT_FABRIC_KEY*/ 
 
+
+/** @defgroup EVENT_FABRIC_INTERRUPTS 
+ *  @{
+ */
+/** @} end of EVENT_FABRIC_INTERRUPTS */ 
+
+/** @defgroup EVENT_FABRIC_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	EVENT_FABRIC_GEN_PUB_CHAN_ID_DISCONNECT = 0,
@@ -170,7 +239,12 @@ typedef enum {
 	EVENT_FABRIC_DMA_PUB_EVENT_ID_SPI_RX = 13,
 	EVENT_FABRIC_DMA_PUB_EVENT_ID_USB2 = 14,
 } EVENT_FABRIC_DMA_PUB_EVENT_ID_E;
+/** @} end of EVENT_FABRIC_ENUM */ 
 
+
+/** @defgroup EVENT_FABRIC_REGISTER_FLAGS 
+ *  @{
+ */
 #define EVENT_FABRIC_DESC_MODULE_TYPE_OFS (0)
 #define EVENT_FABRIC_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define EVENT_FABRIC_DESC_MODUE_SUBTYPE_OFS (8)
@@ -199,5 +273,9 @@ typedef enum {
 #define EVENT_FABRIC_GEN_SUB_GEN_SUB_CHAN_ID_MASK ((uint32_t)0x0000000FU)
 #define EVENT_FABRIC_DMA_PUB_DMA_PUB_EVENT_ID_OFS (0)
 #define EVENT_FABRIC_DMA_PUB_DMA_PUB_EVENT_ID_MASK ((uint32_t)0x0000003FU)
+/** @} end of EVENT_FABRIC_REGISTER_FLAGS */ 
+
+/** @} end of EVENT_FABRIC */
+
 
 #endif

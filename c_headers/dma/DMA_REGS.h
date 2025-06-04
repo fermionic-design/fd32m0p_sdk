@@ -3,92 +3,143 @@
 
 #include <stdint.h>
 
-typedef struct DMA_DESC_REG_s {
+/** @defgroup DMA
+ *  @{
+ */
+/** @defgroup DMA_REGISTERS 
+ *  @{
+ */
+/** @defgroup DMA_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int modue_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } DMA_DESC_REG_s;
 
-typedef union DMA_DESC_u {
+typedef union {
+    /** @ref DMA_DESC_REG_s */
     DMA_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_DESC_u;
 
-typedef struct DMA_PWR_EN_REG_s {
+/** @} end of DMA_DESC_REG */ 
+
+/** @defgroup DMA_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } DMA_PWR_EN_REG_s;
 
-typedef union DMA_PWR_EN_u {
+typedef union {
+    /** @ref DMA_PWR_EN_REG_s */
     DMA_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_PWR_EN_u;
 
-typedef struct DMA_RST_CTRL_REG_s {
+/** @} end of DMA_PWR_EN_REG */ 
+
+/** @defgroup DMA_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } DMA_RST_CTRL_REG_s;
 
-typedef union DMA_RST_CTRL_u {
+typedef union {
+    /** @ref DMA_RST_CTRL_REG_s */
     DMA_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_RST_CTRL_u;
 
-typedef struct DMA_RST_STS_REG_s {
+/** @} end of DMA_RST_CTRL_REG */ 
+
+/** @defgroup DMA_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } DMA_RST_STS_REG_s;
 
-typedef union DMA_RST_STS_u {
+typedef union {
+    /** @ref DMA_RST_STS_REG_s */
     DMA_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_RST_STS_u;
 
-typedef struct DMA_CLK_CTRL_REG_s {
+/** @} end of DMA_RST_STS_REG */ 
+
+/** @defgroup DMA_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_en:1; // 
 } DMA_CLK_CTRL_REG_s;
 
-typedef union DMA_CLK_CTRL_u {
+typedef union {
+    /** @ref DMA_CLK_CTRL_REG_s */
     DMA_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_CLK_CTRL_u;
 
-typedef struct DMA_DBG_CTRL_REG_s {
+/** @} end of DMA_CLK_CTRL_REG */ 
+
+/** @defgroup DMA_DBG_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int halt_mode:1; // 
 } DMA_DBG_CTRL_REG_s;
 
-typedef union DMA_DBG_CTRL_u {
+typedef union {
+    /** @ref DMA_DBG_CTRL_REG_s */
     DMA_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_DBG_CTRL_u;
 
-typedef struct DMA_INTR_STS_REG_s {
+/** @} end of DMA_DBG_CTRL_REG */ 
+
+/** @defgroup DMA_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:6; // 
 } DMA_INTR_STS_REG_s;
 
-typedef union DMA_INTR_STS_u {
+typedef union {
+    /** @ref DMA_INTR_STS_REG_s */
     DMA_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_INTR_STS_u;
 
-typedef struct DMA_INTR_EVENT_REG_s {
+/** @} end of DMA_INTR_STS_REG */ 
+
+/** @defgroup DMA_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_done_0:1; // 
     unsigned int dma_done_1:1; // 
     unsigned int dma_done_2:1; // 
@@ -123,14 +174,20 @@ typedef struct DMA_INTR_EVENT_REG_s {
     unsigned int early_irq_15:1; // 
 } DMA_INTR_EVENT_REG_s;
 
-typedef union DMA_INTR_EVENT_u {
+typedef union {
+    /** @ref DMA_INTR_EVENT_REG_s */
     DMA_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_INTR_EVENT_u;
 
-typedef struct DMA_INTR_EN_0_REG_s {
+/** @} end of DMA_INTR_EVENT_REG */ 
+
+/** @defgroup DMA_INTR_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_done_en_0:1; // 
     unsigned int dma_done_en_1:1; // 
     unsigned int dma_done_en_2:1; // 
@@ -149,14 +206,20 @@ typedef struct DMA_INTR_EN_0_REG_s {
     unsigned int dma_done_en_15:1; // 
 } DMA_INTR_EN_0_REG_s;
 
-typedef union DMA_INTR_EN_0_u {
+typedef union {
+    /** @ref DMA_INTR_EN_0_REG_s */
     DMA_INTR_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_INTR_EN_0_u;
 
-typedef struct DMA_INTR_EN_1_REG_s {
+/** @} end of DMA_INTR_EN_0_REG */ 
+
+/** @defgroup DMA_INTR_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int early_irq_en_0:1; // 
     unsigned int early_irq_en_1:1; // 
     unsigned int early_irq_en_2:1; // 
@@ -175,14 +238,20 @@ typedef struct DMA_INTR_EN_1_REG_s {
     unsigned int early_irq_en_15:1; // 
 } DMA_INTR_EN_1_REG_s;
 
-typedef union DMA_INTR_EN_1_u {
+typedef union {
+    /** @ref DMA_INTR_EN_1_REG_s */
     DMA_INTR_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_INTR_EN_1_u;
 
-typedef struct DMA_INTR_NMI_EN_0_REG_s {
+/** @} end of DMA_INTR_EN_1_REG */ 
+
+/** @defgroup DMA_INTR_NMI_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_done_nmi_en_0:1; // 
     unsigned int dma_done_nmi_en_1:1; // 
     unsigned int dma_done_nmi_en_2:1; // 
@@ -201,14 +270,20 @@ typedef struct DMA_INTR_NMI_EN_0_REG_s {
     unsigned int dma_done_nmi_en_15:1; // 
 } DMA_INTR_NMI_EN_0_REG_s;
 
-typedef union DMA_INTR_NMI_EN_0_u {
+typedef union {
+    /** @ref DMA_INTR_NMI_EN_0_REG_s */
     DMA_INTR_NMI_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_INTR_NMI_EN_0_u;
 
-typedef struct DMA_INTR_NMI_EN_1_REG_s {
+/** @} end of DMA_INTR_NMI_EN_0_REG */ 
+
+/** @defgroup DMA_INTR_NMI_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int early_irq_nmi_en_0:1; // 
     unsigned int early_irq_nmi_en_1:1; // 
     unsigned int early_irq_nmi_en_2:1; // 
@@ -227,14 +302,20 @@ typedef struct DMA_INTR_NMI_EN_1_REG_s {
     unsigned int early_irq_nmi_en_15:1; // 
 } DMA_INTR_NMI_EN_1_REG_s;
 
-typedef union DMA_INTR_NMI_EN_1_u {
+typedef union {
+    /** @ref DMA_INTR_NMI_EN_1_REG_s */
     DMA_INTR_NMI_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_INTR_NMI_EN_1_u;
 
-typedef struct DMA_EVENT_EN_0_REG_s {
+/** @} end of DMA_INTR_NMI_EN_1_REG */ 
+
+/** @defgroup DMA_EVENT_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_done_event_en_0:1; // 
     unsigned int dma_done_event_en_1:1; // 
     unsigned int dma_done_event_en_2:1; // 
@@ -253,14 +334,20 @@ typedef struct DMA_EVENT_EN_0_REG_s {
     unsigned int dma_done_event_en_15:1; // 
 } DMA_EVENT_EN_0_REG_s;
 
-typedef union DMA_EVENT_EN_0_u {
+typedef union {
+    /** @ref DMA_EVENT_EN_0_REG_s */
     DMA_EVENT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EVENT_EN_0_u;
 
-typedef struct DMA_EVENT_EN_1_REG_s {
+/** @} end of DMA_EVENT_EN_0_REG */ 
+
+/** @defgroup DMA_EVENT_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int early_irq_event_en_0:1; // 
     unsigned int early_irq_event_en_1:1; // 
     unsigned int early_irq_event_en_2:1; // 
@@ -279,14 +366,20 @@ typedef struct DMA_EVENT_EN_1_REG_s {
     unsigned int early_irq_event_en_15:1; // 
 } DMA_EVENT_EN_1_REG_s;
 
-typedef union DMA_EVENT_EN_1_u {
+typedef union {
+    /** @ref DMA_EVENT_EN_1_REG_s */
     DMA_EVENT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EVENT_EN_1_u;
 
-typedef struct DMA_INTR_SW_SET_REG_s {
+/** @} end of DMA_EVENT_EN_1_REG */ 
+
+/** @defgroup DMA_INTR_SW_SET_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_done_sw_set_0:1; // 
     unsigned int dma_done_sw_set_1:1; // 
     unsigned int dma_done_sw_set_2:1; // 
@@ -321,94 +414,142 @@ typedef struct DMA_INTR_SW_SET_REG_s {
     unsigned int early_irq_sw_set_15:1; // 
 } DMA_INTR_SW_SET_REG_s;
 
-typedef union DMA_INTR_SW_SET_u {
+typedef union {
+    /** @ref DMA_INTR_SW_SET_REG_s */
     DMA_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_INTR_SW_SET_u;
 
-typedef struct DMA_CFG_0_REG_s {
+/** @} end of DMA_INTR_SW_SET_REG */ 
+
+/** @defgroup DMA_CFG_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int ctrl_base_ptr:32; // 
 } DMA_CFG_0_REG_s;
 
-typedef union DMA_CFG_0_u {
+typedef union {
+    /** @ref DMA_CFG_0_REG_s */
     DMA_CFG_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_CFG_0_u;
 
-typedef struct DMA_CFG_1_REG_s {
+/** @} end of DMA_CFG_0_REG */ 
+
+/** @defgroup DMA_CFG_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int alt_ctrl_base_ptr:32; // 
 } DMA_CFG_1_REG_s;
 
-typedef union DMA_CFG_1_u {
+typedef union {
+    /** @ref DMA_CFG_1_REG_s */
     DMA_CFG_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_CFG_1_u;
 
-typedef struct DMA_CFG_2_REG_s {
+/** @} end of DMA_CFG_1_REG */ 
+
+/** @defgroup DMA_CFG_2_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int chnls_minus_1:5; // 
     unsigned int master_enable:1; // 
 } DMA_CFG_2_REG_s;
 
-typedef union DMA_CFG_2_u {
+typedef union {
+    /** @ref DMA_CFG_2_REG_s */
     DMA_CFG_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_CFG_2_u;
 
-typedef struct DMA_WAITONREQ_REG_s {
+/** @} end of DMA_CFG_2_REG */ 
+
+/** @defgroup DMA_WAITONREQ_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int waitonreq:16; // 
 } DMA_WAITONREQ_REG_s;
 
-typedef union DMA_WAITONREQ_u {
+typedef union {
+    /** @ref DMA_WAITONREQ_REG_s */
     DMA_WAITONREQ_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_WAITONREQ_u;
 
-typedef struct DMA_FILL_MODE_REG_s {
+/** @} end of DMA_WAITONREQ_REG */ 
+
+/** @defgroup DMA_FILL_MODE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int fill_mode_en:1; // 
 } DMA_FILL_MODE_REG_s;
 
-typedef union DMA_FILL_MODE_u {
+typedef union {
+    /** @ref DMA_FILL_MODE_REG_s */
     DMA_FILL_MODE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_FILL_MODE_u;
 
-typedef struct DMA_FILL_MODE_CFG_REG_s {
+/** @} end of DMA_FILL_MODE_REG */ 
+
+/** @defgroup DMA_FILL_MODE_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int fill_mode_chnl_no:4; // 
     unsigned int fill_mode_incr_val:8; // 
     unsigned int fill_mode_init_val:8; // 
 } DMA_FILL_MODE_CFG_REG_s;
 
-typedef union DMA_FILL_MODE_CFG_u {
+typedef union {
+    /** @ref DMA_FILL_MODE_CFG_REG_s */
     DMA_FILL_MODE_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_FILL_MODE_CFG_u;
 
-typedef struct DMA_STRIDE_MODE_REG_s {
+/** @} end of DMA_FILL_MODE_CFG_REG */ 
+
+/** @defgroup DMA_STRIDE_MODE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int stride_mode_en:1; // 
 } DMA_STRIDE_MODE_REG_s;
 
-typedef union DMA_STRIDE_MODE_u {
+typedef union {
+    /** @ref DMA_STRIDE_MODE_REG_s */
     DMA_STRIDE_MODE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_STRIDE_MODE_u;
 
-typedef struct DMA_STRIDE_MODE_CFG_0_REG_s {
+/** @} end of DMA_STRIDE_MODE_REG */ 
+
+/** @defgroup DMA_STRIDE_MODE_CFG_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int stride_mode_chnl_no:4; // 
     unsigned int src_stride_val:4; // 
     unsigned int dst_stride_val:4; // 
@@ -416,443 +557,682 @@ typedef struct DMA_STRIDE_MODE_CFG_0_REG_s {
     unsigned int dst_inc:2; // 
 } DMA_STRIDE_MODE_CFG_0_REG_s;
 
-typedef union DMA_STRIDE_MODE_CFG_0_u {
+typedef union {
+    /** @ref DMA_STRIDE_MODE_CFG_0_REG_s */
     DMA_STRIDE_MODE_CFG_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_STRIDE_MODE_CFG_0_u;
 
-typedef struct DMA_STRIDE_MODE_CFG_1_REG_s {
+/** @} end of DMA_STRIDE_MODE_CFG_0_REG */ 
+
+/** @defgroup DMA_STRIDE_MODE_CFG_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int stride_mode_src_base_addr:32; // 
 } DMA_STRIDE_MODE_CFG_1_REG_s;
 
-typedef union DMA_STRIDE_MODE_CFG_1_u {
+typedef union {
+    /** @ref DMA_STRIDE_MODE_CFG_1_REG_s */
     DMA_STRIDE_MODE_CFG_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_STRIDE_MODE_CFG_1_u;
 
-typedef struct DMA_STRIDE_MODE_CFG_2_REG_s {
+/** @} end of DMA_STRIDE_MODE_CFG_1_REG */ 
+
+/** @defgroup DMA_STRIDE_MODE_CFG_2_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int stride_mode_dst_base_addr:32; // 
 } DMA_STRIDE_MODE_CFG_2_REG_s;
 
-typedef union DMA_STRIDE_MODE_CFG_2_u {
+typedef union {
+    /** @ref DMA_STRIDE_MODE_CFG_2_REG_s */
     DMA_STRIDE_MODE_CFG_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_STRIDE_MODE_CFG_2_u;
 
-typedef struct DMA_EARLY_IRQ_0_REG_s {
+/** @} end of DMA_STRIDE_MODE_CFG_2_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl0:10; // 
 } DMA_EARLY_IRQ_0_REG_s;
 
-typedef union DMA_EARLY_IRQ_0_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_0_REG_s */
     DMA_EARLY_IRQ_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_0_u;
 
-typedef struct DMA_EARLY_IRQ_1_REG_s {
+/** @} end of DMA_EARLY_IRQ_0_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl1:10; // 
 } DMA_EARLY_IRQ_1_REG_s;
 
-typedef union DMA_EARLY_IRQ_1_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_1_REG_s */
     DMA_EARLY_IRQ_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_1_u;
 
-typedef struct DMA_EARLY_IRQ_2_REG_s {
+/** @} end of DMA_EARLY_IRQ_1_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_2_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl2:10; // 
 } DMA_EARLY_IRQ_2_REG_s;
 
-typedef union DMA_EARLY_IRQ_2_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_2_REG_s */
     DMA_EARLY_IRQ_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_2_u;
 
-typedef struct DMA_EARLY_IRQ_3_REG_s {
+/** @} end of DMA_EARLY_IRQ_2_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_3_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl3:10; // 
 } DMA_EARLY_IRQ_3_REG_s;
 
-typedef union DMA_EARLY_IRQ_3_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_3_REG_s */
     DMA_EARLY_IRQ_3_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_3_u;
 
-typedef struct DMA_EARLY_IRQ_4_REG_s {
+/** @} end of DMA_EARLY_IRQ_3_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_4_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl4:10; // 
 } DMA_EARLY_IRQ_4_REG_s;
 
-typedef union DMA_EARLY_IRQ_4_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_4_REG_s */
     DMA_EARLY_IRQ_4_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_4_u;
 
-typedef struct DMA_EARLY_IRQ_5_REG_s {
+/** @} end of DMA_EARLY_IRQ_4_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_5_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl5:10; // 
 } DMA_EARLY_IRQ_5_REG_s;
 
-typedef union DMA_EARLY_IRQ_5_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_5_REG_s */
     DMA_EARLY_IRQ_5_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_5_u;
 
-typedef struct DMA_EARLY_IRQ_6_REG_s {
+/** @} end of DMA_EARLY_IRQ_5_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_6_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl6:10; // 
 } DMA_EARLY_IRQ_6_REG_s;
 
-typedef union DMA_EARLY_IRQ_6_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_6_REG_s */
     DMA_EARLY_IRQ_6_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_6_u;
 
-typedef struct DMA_EARLY_IRQ_7_REG_s {
+/** @} end of DMA_EARLY_IRQ_6_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_7_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl7:10; // 
 } DMA_EARLY_IRQ_7_REG_s;
 
-typedef union DMA_EARLY_IRQ_7_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_7_REG_s */
     DMA_EARLY_IRQ_7_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_7_u;
 
-typedef struct DMA_EARLY_IRQ_8_REG_s {
+/** @} end of DMA_EARLY_IRQ_7_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_8_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl8:10; // 
 } DMA_EARLY_IRQ_8_REG_s;
 
-typedef union DMA_EARLY_IRQ_8_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_8_REG_s */
     DMA_EARLY_IRQ_8_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_8_u;
 
-typedef struct DMA_EARLY_IRQ_9_REG_s {
+/** @} end of DMA_EARLY_IRQ_8_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_9_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl9:10; // 
 } DMA_EARLY_IRQ_9_REG_s;
 
-typedef union DMA_EARLY_IRQ_9_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_9_REG_s */
     DMA_EARLY_IRQ_9_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_9_u;
 
-typedef struct DMA_EARLY_IRQ_10_REG_s {
+/** @} end of DMA_EARLY_IRQ_9_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_10_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl10:10; // 
 } DMA_EARLY_IRQ_10_REG_s;
 
-typedef union DMA_EARLY_IRQ_10_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_10_REG_s */
     DMA_EARLY_IRQ_10_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_10_u;
 
-typedef struct DMA_EARLY_IRQ_11_REG_s {
+/** @} end of DMA_EARLY_IRQ_10_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_11_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl11:10; // 
 } DMA_EARLY_IRQ_11_REG_s;
 
-typedef union DMA_EARLY_IRQ_11_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_11_REG_s */
     DMA_EARLY_IRQ_11_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_11_u;
 
-typedef struct DMA_EARLY_IRQ_12_REG_s {
+/** @} end of DMA_EARLY_IRQ_11_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_12_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl12:10; // 
 } DMA_EARLY_IRQ_12_REG_s;
 
-typedef union DMA_EARLY_IRQ_12_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_12_REG_s */
     DMA_EARLY_IRQ_12_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_12_u;
 
-typedef struct DMA_EARLY_IRQ_13_REG_s {
+/** @} end of DMA_EARLY_IRQ_12_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_13_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl13:10; // 
 } DMA_EARLY_IRQ_13_REG_s;
 
-typedef union DMA_EARLY_IRQ_13_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_13_REG_s */
     DMA_EARLY_IRQ_13_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_13_u;
 
-typedef struct DMA_EARLY_IRQ_14_REG_s {
+/** @} end of DMA_EARLY_IRQ_13_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_14_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl14:10; // 
 } DMA_EARLY_IRQ_14_REG_s;
 
-typedef union DMA_EARLY_IRQ_14_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_14_REG_s */
     DMA_EARLY_IRQ_14_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_14_u;
 
-typedef struct DMA_EARLY_IRQ_15_REG_s {
+/** @} end of DMA_EARLY_IRQ_14_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_15_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rem_transaction_chnl15:10; // 
 } DMA_EARLY_IRQ_15_REG_s;
 
-typedef union DMA_EARLY_IRQ_15_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_15_REG_s */
     DMA_EARLY_IRQ_15_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_15_u;
 
-typedef struct DMA_EARLY_IRQ_CFG_REG_s {
+/** @} end of DMA_EARLY_IRQ_15_REG */ 
+
+/** @defgroup DMA_EARLY_IRQ_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int early_irq_alternate_sel:16; // 
 } DMA_EARLY_IRQ_CFG_REG_s;
 
-typedef union DMA_EARLY_IRQ_CFG_u {
+typedef union {
+    /** @ref DMA_EARLY_IRQ_CFG_REG_s */
     DMA_EARLY_IRQ_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_EARLY_IRQ_CFG_u;
 
-typedef struct DMA_REPEATED_TRANSFER_EN_REG_s {
+/** @} end of DMA_EARLY_IRQ_CFG_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_en:16; // 
 } DMA_REPEATED_TRANSFER_EN_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_EN_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_EN_REG_s */
     DMA_REPEATED_TRANSFER_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_EN_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_0_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_EN_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl0:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_0_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_0_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_0_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_0_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_1_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_0_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl1:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_1_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_1_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_1_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_1_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_2_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_1_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_2_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl2:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_2_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_2_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_2_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_2_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_2_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_3_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_2_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_3_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl3:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_3_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_3_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_3_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_3_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_3_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_4_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_3_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_4_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl4:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_4_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_4_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_4_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_4_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_4_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_5_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_4_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_5_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl5:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_5_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_5_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_5_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_5_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_5_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_6_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_5_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_6_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl6:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_6_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_6_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_6_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_6_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_6_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_7_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_6_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_7_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl7:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_7_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_7_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_7_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_7_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_7_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_8_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_7_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_8_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl8:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_8_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_8_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_8_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_8_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_8_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_9_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_8_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_9_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl9:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_9_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_9_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_9_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_9_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_9_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_10_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_9_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_10_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl10:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_10_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_10_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_10_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_10_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_10_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_11_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_10_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_11_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl11:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_11_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_11_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_11_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_11_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_11_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_12_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_11_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_12_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl12:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_12_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_12_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_12_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_12_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_12_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_13_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_12_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_13_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl13:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_13_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_13_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_13_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_13_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_13_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_14_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_13_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_14_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl14:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_14_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_14_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_14_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_14_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_14_u;
 
-typedef struct DMA_REPEATED_TRANSFER_CHNL_15_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_14_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_CHNL_15_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_total_transaction_chnl15:10; // 
 } DMA_REPEATED_TRANSFER_CHNL_15_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_CHNL_15_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_CHNL_15_REG_s */
     DMA_REPEATED_TRANSFER_CHNL_15_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_CHNL_15_u;
 
-typedef struct DMA_REPEATED_TRANSFER_ALTERNATE_SEL_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_CHNL_15_REG */ 
+
+/** @defgroup DMA_REPEATED_TRANSFER_ALTERNATE_SEL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rptd_trnsfr_alternate_sel:16; // 
 } DMA_REPEATED_TRANSFER_ALTERNATE_SEL_REG_s;
 
-typedef union DMA_REPEATED_TRANSFER_ALTERNATE_SEL_u {
+typedef union {
+    /** @ref DMA_REPEATED_TRANSFER_ALTERNATE_SEL_REG_s */
     DMA_REPEATED_TRANSFER_ALTERNATE_SEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_REPEATED_TRANSFER_ALTERNATE_SEL_u;
 
-typedef struct DMA_ARBITRATION_REG_s {
+/** @} end of DMA_REPEATED_TRANSFER_ALTERNATE_SEL_REG */ 
+
+/** @defgroup DMA_ARBITRATION_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_rr_en:1; // 
 } DMA_ARBITRATION_REG_s;
 
-typedef union DMA_ARBITRATION_u {
+typedef union {
+    /** @ref DMA_ARBITRATION_REG_s */
     DMA_ARBITRATION_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_ARBITRATION_u;
 
-typedef struct DMA_ARBITRATION_MASK_REG_s {
+/** @} end of DMA_ARBITRATION_REG */ 
+
+/** @defgroup DMA_ARBITRATION_MASK_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_rr_mask:16; // 
 } DMA_ARBITRATION_MASK_REG_s;
 
-typedef union DMA_ARBITRATION_MASK_u {
+typedef union {
+    /** @ref DMA_ARBITRATION_MASK_REG_s */
     DMA_ARBITRATION_MASK_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } DMA_ARBITRATION_MASK_u;
 
-typedef struct DMA_REGS_s{
+/** @} end of DMA_ARBITRATION_MASK_REG */ 
+
+/** @} end of DMA_REGISTERS */ 
+
+typedef struct {
     volatile  DMA_DESC_u DESC;
     volatile  DMA_PWR_EN_u PWR_EN;
     volatile  DMA_RST_CTRL_u RST_CTRL;
@@ -917,10 +1297,18 @@ typedef struct DMA_REGS_s{
     volatile  DMA_ARBITRATION_MASK_u ARBITRATION_MASK;
 } DMA_REGS_s;
 
+/** @defgroup DMA_KEY 
+ *  @{
+ */
 #define DMA_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000BCU)
 #define DMA_RST_CTRL_RST_KEY ((uint32_t)0x000000BCU)
 #define DMA_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x000000BCU)
+/** @} end of DMA_KEY*/ 
 
+
+/** @defgroup DMA_INTERRUPTS 
+ *  @{
+ */
 #define DMA_INTR_EVENT_DMA_DONE_0_IDX (0)
 #define DMA_INTR_EVENT_DMA_DONE_1_IDX (1)
 #define DMA_INTR_EVENT_DMA_DONE_2_IDX (2)
@@ -953,6 +1341,11 @@ typedef struct DMA_REGS_s{
 #define DMA_INTR_EVENT_EARLY_IRQ_13_IDX (29)
 #define DMA_INTR_EVENT_EARLY_IRQ_14_IDX (30)
 #define DMA_INTR_EVENT_EARLY_IRQ_15_IDX (31)
+/** @} end of DMA_INTERRUPTS */ 
+
+/** @defgroup DMA_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	DMA_STRIDE_MODE_CFG_0_SRC_INC_BYTE = 0,
@@ -970,7 +1363,12 @@ typedef enum {
 	DMA_ARBITRATION_DMA_RR_EN_CLR = 0,
 	DMA_ARBITRATION_DMA_RR_EN_SET = 1,
 } DMA_ARBITRATION_DMA_RR_EN_E;
+/** @} end of DMA_ENUM */ 
 
+
+/** @defgroup DMA_REGISTER_FLAGS 
+ *  @{
+ */
 #define DMA_DESC_MODULE_TYPE_OFS (0)
 #define DMA_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define DMA_DESC_MODUE_SUBTYPE_OFS (8)
@@ -1425,5 +1823,9 @@ typedef enum {
 #define DMA_ARBITRATION_DMA_RR_EN_MASK ((uint32_t)0x00000001U)
 #define DMA_ARBITRATION_MASK_DMA_RR_MASK_OFS (0)
 #define DMA_ARBITRATION_MASK_DMA_RR_MASK_MASK ((uint32_t)0x0000FFFFU)
+/** @} end of DMA_REGISTER_FLAGS */ 
+
+/** @} end of DMA */
+
 
 #endif

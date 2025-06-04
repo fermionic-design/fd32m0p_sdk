@@ -3,142 +3,217 @@
 
 #include <stdint.h>
 
-typedef struct SPI_DESC_REG_s {
+/** @defgroup SPI
+ *  @{
+ */
+/** @defgroup SPI_REGISTERS 
+ *  @{
+ */
+/** @defgroup SPI_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int module_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } SPI_DESC_REG_s;
 
-typedef union SPI_DESC_u {
+typedef union {
+    /** @ref SPI_DESC_REG_s */
     SPI_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_DESC_u;
 
-typedef struct SPI_PWR_EN_REG_s {
+/** @} end of SPI_DESC_REG */ 
+
+/** @defgroup SPI_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
     unsigned int pwr_en_key:8; // 
 } SPI_PWR_EN_REG_s;
 
-typedef union SPI_PWR_EN_u {
+typedef union {
+    /** @ref SPI_PWR_EN_REG_s */
     SPI_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_PWR_EN_u;
 
-typedef struct SPI_RST_CTRL_REG_s {
+/** @} end of SPI_PWR_EN_REG */ 
+
+/** @defgroup SPI_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
     unsigned int rst_key:8; // 
 } SPI_RST_CTRL_REG_s;
 
-typedef union SPI_RST_CTRL_u {
+typedef union {
+    /** @ref SPI_RST_CTRL_REG_s */
     SPI_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_RST_CTRL_u;
 
-typedef struct SPI_RST_STS_REG_s {
+/** @} end of SPI_RST_CTRL_REG */ 
+
+/** @defgroup SPI_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } SPI_RST_STS_REG_s;
 
-typedef union SPI_RST_STS_u {
+typedef union {
+    /** @ref SPI_RST_STS_REG_s */
     SPI_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_RST_STS_u;
 
-typedef struct SPI_CLK_CTRL_REG_s {
+/** @} end of SPI_RST_STS_REG */ 
+
+/** @defgroup SPI_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_scaler:10; // Scaler value on top CLK_DIV to generate master SPI clock
 } SPI_CLK_CTRL_REG_s;
 
-typedef union SPI_CLK_CTRL_u {
+typedef union {
+    /** @ref SPI_CLK_CTRL_REG_s */
     SPI_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_CLK_CTRL_u;
 
-typedef struct SPI_CLK_DIV_REG_s {
+/** @} end of SPI_CLK_CTRL_REG */ 
+
+/** @defgroup SPI_CLK_DIV_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int div_ratio:5; // Clock division value of the clock selected by CLKSEL. Division value is added by 1 to the programmed value
 } SPI_CLK_DIV_REG_s;
 
-typedef union SPI_CLK_DIV_u {
+typedef union {
+    /** @ref SPI_CLK_DIV_REG_s */
     SPI_CLK_DIV_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_CLK_DIV_u;
 
-typedef struct SPI_CLKSEL_REG_s {
+/** @} end of SPI_CLK_DIV_REG */ 
+
+/** @defgroup SPI_CLKSEL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_sel:2; // Selects the source for clk_spi 0: clk_ahb 1: clk_4mhz, 2: clk_lf
 } SPI_CLKSEL_REG_s;
 
-typedef union SPI_CLKSEL_u {
+typedef union {
+    /** @ref SPI_CLKSEL_REG_s */
     SPI_CLKSEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_CLKSEL_u;
 
-typedef struct SPI_MOT_MOD_CNTRL_REG_s {
+/** @} end of SPI_CLKSEL_REG */ 
+
+/** @defgroup SPI_MOT_MOD_CNTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clock_polarity:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int clock_phase:1; // 
 } SPI_MOT_MOD_CNTRL_REG_s;
 
-typedef union SPI_MOT_MOD_CNTRL_u {
+typedef union {
+    /** @ref SPI_MOT_MOD_CNTRL_REG_s */
     SPI_MOT_MOD_CNTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_MOT_MOD_CNTRL_u;
 
-typedef struct SPI_PARITY_CTRL_REG_s {
+/** @} end of SPI_MOT_MOD_CNTRL_REG */ 
+
+/** @defgroup SPI_PARITY_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int parity_en:1; // 
     unsigned int rsvd_0:7; // 
     unsigned int even_parity:1; // 
 } SPI_PARITY_CTRL_REG_s;
 
-typedef union SPI_PARITY_CTRL_u {
+typedef union {
+    /** @ref SPI_PARITY_CTRL_REG_s */
     SPI_PARITY_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_PARITY_CTRL_u;
 
-typedef struct SPI_CMD_DATA_CTRL_REG_s {
+/** @} end of SPI_PARITY_CTRL_REG */ 
+
+/** @defgroup SPI_CMD_DATA_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cmd_data_mode_en:1; // 
     unsigned int rsvd_0:7; // Matser mode
     unsigned int cmd_data_mode_val:4; // Matser mode
 } SPI_CMD_DATA_CTRL_REG_s;
 
-typedef union SPI_CMD_DATA_CTRL_u {
+typedef union {
+    /** @ref SPI_CMD_DATA_CTRL_REG_s */
     SPI_CMD_DATA_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_CMD_DATA_CTRL_u;
 
-typedef struct SPI_LOOPBACK_CTRL_REG_s {
+/** @} end of SPI_CMD_DATA_CTRL_REG */ 
+
+/** @defgroup SPI_LOOPBACK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int loopback_mode:1; // 
 } SPI_LOOPBACK_CTRL_REG_s;
 
-typedef union SPI_LOOPBACK_CTRL_u {
+typedef union {
+    /** @ref SPI_LOOPBACK_CTRL_REG_s */
     SPI_LOOPBACK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_LOOPBACK_CTRL_u;
 
-typedef struct SPI_DATAFRAME_CTRL_REG_s {
+/** @} end of SPI_LOOPBACK_CTRL_REG */ 
+
+/** @defgroup SPI_DATAFRAME_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int data_size_sel:5; // Number of bits on data frame
     unsigned int rsvd_0:3; // 1: msb is transmitted first 0: lsb is transmitted first
     unsigned int msb_first:1; // 1: msb is transmitted first 0: lsb is transmitted first
@@ -146,14 +221,20 @@ typedef struct SPI_DATAFRAME_CTRL_REG_s {
     unsigned int data_out_disable:1; // Unused
 } SPI_DATAFRAME_CTRL_REG_s;
 
-typedef union SPI_DATAFRAME_CTRL_u {
+typedef union {
+    /** @ref SPI_DATAFRAME_CTRL_REG_s */
     SPI_DATAFRAME_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_DATAFRAME_CTRL_u;
 
-typedef struct SPI_MODE_CTRL_REG_s {
+/** @} end of SPI_DATAFRAME_CTRL_REG */ 
+
+/** @defgroup SPI_MODE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int spi_en:1; // 
     unsigned int rsvd_0:7; // 0: Controller 1: peripheral
     unsigned int peripheral_mode:1; // 0: Controller 1: peripheral
@@ -161,14 +242,20 @@ typedef struct SPI_MODE_CTRL_REG_s {
     unsigned int frame_format:3; // 0: Motoroal format 1: TI format 2: DSPI 3: QSPI
 } SPI_MODE_CTRL_REG_s;
 
-typedef union SPI_MODE_CTRL_u {
+typedef union {
+    /** @ref SPI_MODE_CTRL_REG_s */
     SPI_MODE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_MODE_CTRL_u;
 
-typedef struct SPI_CS_CTRL_REG_s {
+/** @} end of SPI_MODE_CTRL_REG */ 
+
+/** @defgroup SPI_CS_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cs_sel:5; // 
     unsigned int rsvd_0:3; // Soft ware control for driving cs is enabled
     unsigned int soft_cs_en:1; // Soft ware control for driving cs is enabled
@@ -176,37 +263,55 @@ typedef struct SPI_CS_CTRL_REG_s {
     unsigned int soft_cs:1; // 
 } SPI_CS_CTRL_REG_s;
 
-typedef union SPI_CS_CTRL_u {
+typedef union {
+    /** @ref SPI_CS_CTRL_REG_s */
     SPI_CS_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_CS_CTRL_u;
 
-typedef struct SPI_CS_SETUP_HOLD_CNT_REG_s {
+/** @} end of SPI_CS_CTRL_REG */ 
+
+/** @defgroup SPI_CS_SETUP_HOLD_CNT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cs_setup_cnt:8; // Num of clk_spi cycle of CS setup time
     unsigned int cs_hold_cnt:8; // Num of clk_spi cycle of CS hold time
 } SPI_CS_SETUP_HOLD_CNT_REG_s;
 
-typedef union SPI_CS_SETUP_HOLD_CNT_u {
+typedef union {
+    /** @ref SPI_CS_SETUP_HOLD_CNT_REG_s */
     SPI_CS_SETUP_HOLD_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_CS_SETUP_HOLD_CNT_u;
 
-typedef struct SPI_SCLK_CTRL_REG_s {
+/** @} end of SPI_CS_SETUP_HOLD_CNT_REG */ 
+
+/** @defgroup SPI_SCLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int sclk_removal:1; // Used in master mode: 0: SCLK stops after receive is done 1: SCLK stops after transmission is done
 } SPI_SCLK_CTRL_REG_s;
 
-typedef union SPI_SCLK_CTRL_u {
+typedef union {
+    /** @ref SPI_SCLK_CTRL_REG_s */
     SPI_SCLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_SCLK_CTRL_u;
 
-typedef struct SPI_QSPI_CTRL_REG_s {
+/** @} end of SPI_SCLK_CTRL_REG */ 
+
+/** @defgroup SPI_QSPI_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int qspi_first:1; // 0: Frames in normal mode are sent/received first 1: Frames in QSPI mode are sent/received first
     unsigned int rsvd_0:7; // Number of SPI frames in normal mode
     unsigned int nrml_spi_frames_in_qspi:8; // Number of SPI frames in normal mode
@@ -214,14 +319,20 @@ typedef struct SPI_QSPI_CTRL_REG_s {
     unsigned int frames_in_wmode_in_qspi:8; // Applicable only for TX
 } SPI_QSPI_CTRL_REG_s;
 
-typedef union SPI_QSPI_CTRL_u {
+typedef union {
+    /** @ref SPI_QSPI_CTRL_REG_s */
     SPI_QSPI_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_QSPI_CTRL_u;
 
-typedef struct SPI_DSPI_CTRL_REG_s {
+/** @} end of SPI_QSPI_CTRL_REG */ 
+
+/** @defgroup SPI_DSPI_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dspi_first:1; // 0: Frames in normal mode are sent/received first 1: Frames in DSPI mode are sent/received first
     unsigned int rsvd_0:7; // Number of SPI frames in normal mode
     unsigned int nrml_spi_frames_in_dspi:8; // Number of SPI frames in normal mode
@@ -229,51 +340,75 @@ typedef struct SPI_DSPI_CTRL_REG_s {
     unsigned int frames_in_wmode_in_dspi:8; // Applicable only for TX
 } SPI_DSPI_CTRL_REG_s;
 
-typedef union SPI_DSPI_CTRL_u {
+typedef union {
+    /** @ref SPI_DSPI_CTRL_REG_s */
     SPI_DSPI_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_DSPI_CTRL_u;
 
-typedef struct SPI_TX_CTRL_REG_s {
+/** @} end of SPI_DSPI_CTRL_REG */ 
+
+/** @defgroup SPI_TX_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int repeat_tx_data:8; // Number of SPI frames to be repeated after FIFO is empty
 } SPI_TX_CTRL_REG_s;
 
-typedef union SPI_TX_CTRL_u {
+typedef union {
+    /** @ref SPI_TX_CTRL_REG_s */
     SPI_TX_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_TX_CTRL_u;
 
-typedef struct SPI_RX_CTRL_REG_s {
+/** @} end of SPI_TX_CTRL_REG */ 
+
+/** @defgroup SPI_RX_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int receive_timeout:8; // In slave mode, timeout for RX  not receing any data to generate interrupt. Timeout is specified in number of clk_spi cycles
     unsigned int ignore_rx_cnt:8; // number of SPI frames RX should ignore
     unsigned int dly_sample_on_rx:4; // 
 } SPI_RX_CTRL_REG_s;
 
-typedef union SPI_RX_CTRL_u {
+typedef union {
+    /** @ref SPI_RX_CTRL_REG_s */
     SPI_RX_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_RX_CTRL_u;
 
-typedef struct SPI_INT_FIFO_LVL_SEL_REG_s {
+/** @} end of SPI_RX_CTRL_REG */ 
+
+/** @defgroup SPI_INT_FIFO_LVL_SEL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_fifo_lvl_int:4; // 
     unsigned int rsvd_0:4; // 
     unsigned int tx_fifo_lvl_int:4; // 
 } SPI_INT_FIFO_LVL_SEL_REG_s;
 
-typedef union SPI_INT_FIFO_LVL_SEL_u {
+typedef union {
+    /** @ref SPI_INT_FIFO_LVL_SEL_REG_s */
     SPI_INT_FIFO_LVL_SEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_INT_FIFO_LVL_SEL_u;
 
-typedef struct SPI_STS_REG_s {
+/** @} end of SPI_INT_FIFO_LVL_SEL_REG */ 
+
+/** @defgroup SPI_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int spi_busy_sts:1; // 
     unsigned int rx_fifo_full_sts:1; // 
     unsigned int rx_fifo_empty_sts:1; // 
@@ -281,59 +416,89 @@ typedef struct SPI_STS_REG_s {
     unsigned int tx_fifo_empty_sts:1; // 
 } SPI_STS_REG_s;
 
-typedef union SPI_STS_u {
+typedef union {
+    /** @ref SPI_STS_REG_s */
     SPI_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_STS_u;
 
-typedef struct SPI_TX_FIFO_REG_s {
+/** @} end of SPI_STS_REG */ 
+
+/** @defgroup SPI_TX_FIFO_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int tx_fifo:32; // 
 } SPI_TX_FIFO_REG_s;
 
-typedef union SPI_TX_FIFO_u {
+typedef union {
+    /** @ref SPI_TX_FIFO_REG_s */
     SPI_TX_FIFO_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_TX_FIFO_u;
 
-typedef struct SPI_RX_FIFO_REG_s {
+/** @} end of SPI_TX_FIFO_REG */ 
+
+/** @defgroup SPI_RX_FIFO_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_fifo:32; // 
 } SPI_RX_FIFO_REG_s;
 
-typedef union SPI_RX_FIFO_u {
+typedef union {
+    /** @ref SPI_RX_FIFO_REG_s */
     SPI_RX_FIFO_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_RX_FIFO_u;
 
-typedef struct SPI_DBG_CTRL_REG_s {
+/** @} end of SPI_RX_FIFO_REG */ 
+
+/** @defgroup SPI_DBG_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int stop_on_halt:1; // 
     unsigned int soft_stop:1; // 
 } SPI_DBG_CTRL_REG_s;
 
-typedef union SPI_DBG_CTRL_u {
+typedef union {
+    /** @ref SPI_DBG_CTRL_REG_s */
     SPI_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_DBG_CTRL_u;
 
-typedef struct SPI_INTR_STS_REG_s {
+/** @} end of SPI_DBG_CTRL_REG */ 
+
+/** @defgroup SPI_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:5; // 
 } SPI_INTR_STS_REG_s;
 
-typedef union SPI_INTR_STS_u {
+typedef union {
+    /** @ref SPI_INTR_STS_REG_s */
     SPI_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_INTR_STS_u;
 
-typedef struct SPI_INTR_EVENT_REG_s {
+/** @} end of SPI_INTR_STS_REG */ 
+
+/** @defgroup SPI_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_fifo_overflow:1; // 
     unsigned int parity_error:1; // 
     unsigned int rx_timeout:1; // 
@@ -347,14 +512,20 @@ typedef struct SPI_INTR_EVENT_REG_s {
     unsigned int rx_fifo_full:1; // 
 } SPI_INTR_EVENT_REG_s;
 
-typedef union SPI_INTR_EVENT_u {
+typedef union {
+    /** @ref SPI_INTR_EVENT_REG_s */
     SPI_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_INTR_EVENT_u;
 
-typedef struct SPI_INTR_EN_REG_s {
+/** @} end of SPI_INTR_EVENT_REG */ 
+
+/** @defgroup SPI_INTR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_fifo_overflow_en:1; // 
     unsigned int parity_error_en:1; // 
     unsigned int rx_timeout_en:1; // 
@@ -368,14 +539,20 @@ typedef struct SPI_INTR_EN_REG_s {
     unsigned int rx_fifo_full_en:1; // 
 } SPI_INTR_EN_REG_s;
 
-typedef union SPI_INTR_EN_u {
+typedef union {
+    /** @ref SPI_INTR_EN_REG_s */
     SPI_INTR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_INTR_EN_u;
 
-typedef struct SPI_INTR_TX_DMA_EN_REG_s {
+/** @} end of SPI_INTR_EN_REG */ 
+
+/** @defgroup SPI_INTR_TX_DMA_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_fifo_overflow_tx_dma_en:1; // 
     unsigned int parity_error_tx_dma_en:1; // 
     unsigned int rx_timeout_tx_dma_en:1; // 
@@ -389,14 +566,20 @@ typedef struct SPI_INTR_TX_DMA_EN_REG_s {
     unsigned int rx_fifo_full_tx_dma_en:1; // 
 } SPI_INTR_TX_DMA_EN_REG_s;
 
-typedef union SPI_INTR_TX_DMA_EN_u {
+typedef union {
+    /** @ref SPI_INTR_TX_DMA_EN_REG_s */
     SPI_INTR_TX_DMA_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_INTR_TX_DMA_EN_u;
 
-typedef struct SPI_INTR_RX_DMA_EN_REG_s {
+/** @} end of SPI_INTR_TX_DMA_EN_REG */ 
+
+/** @defgroup SPI_INTR_RX_DMA_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_fifo_overflow_rx_dma_en:1; // 
     unsigned int parity_error_rx_dma_en:1; // 
     unsigned int rx_timeout_rx_dma_en:1; // 
@@ -410,14 +593,20 @@ typedef struct SPI_INTR_RX_DMA_EN_REG_s {
     unsigned int rx_fifo_full_rx_dma_en:1; // 
 } SPI_INTR_RX_DMA_EN_REG_s;
 
-typedef union SPI_INTR_RX_DMA_EN_u {
+typedef union {
+    /** @ref SPI_INTR_RX_DMA_EN_REG_s */
     SPI_INTR_RX_DMA_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_INTR_RX_DMA_EN_u;
 
-typedef struct SPI_INTR_NMI_REG_s {
+/** @} end of SPI_INTR_RX_DMA_EN_REG */ 
+
+/** @defgroup SPI_INTR_NMI_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_fifo_overflow_nmi_en:1; // 
     unsigned int parity_error_nmi_en:1; // 
     unsigned int rx_timeout_nmi_en:1; // 
@@ -431,14 +620,20 @@ typedef struct SPI_INTR_NMI_REG_s {
     unsigned int rx_fifo_full_nmi_en:1; // 
 } SPI_INTR_NMI_REG_s;
 
-typedef union SPI_INTR_NMI_u {
+typedef union {
+    /** @ref SPI_INTR_NMI_REG_s */
     SPI_INTR_NMI_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_INTR_NMI_u;
 
-typedef struct SPI_INTR_SW_SET_REG_s {
+/** @} end of SPI_INTR_NMI_REG */ 
+
+/** @defgroup SPI_INTR_SW_SET_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rx_fifo_overflow_sw_set:1; // 
     unsigned int parity_error_sw_set:1; // 
     unsigned int rx_timeout_sw_set:1; // 
@@ -452,38 +647,55 @@ typedef struct SPI_INTR_SW_SET_REG_s {
     unsigned int rx_fifo_full_sw_set:1; // 
 } SPI_INTR_SW_SET_REG_s;
 
-typedef union SPI_INTR_SW_SET_u {
+typedef union {
+    /** @ref SPI_INTR_SW_SET_REG_s */
     SPI_INTR_SW_SET_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_INTR_SW_SET_u;
 
-typedef struct SPI_SPARE_CTRL_REG_s {
+/** @} end of SPI_INTR_SW_SET_REG */ 
+
+/** @defgroup SPI_SPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cfg0:8; // 
     unsigned int cfg1:8; // 
 } SPI_SPARE_CTRL_REG_s;
 
-typedef union SPI_SPARE_CTRL_u {
+typedef union {
+    /** @ref SPI_SPARE_CTRL_REG_s */
     SPI_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_SPARE_CTRL_u;
 
-typedef struct SPI_SPARE_STS_REG_s {
+/** @} end of SPI_SPARE_CTRL_REG */ 
+
+/** @defgroup SPI_SPARE_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int sts0:8; // 
     unsigned int sts1:8; // 
 } SPI_SPARE_STS_REG_s;
 
-typedef union SPI_SPARE_STS_u {
+typedef union {
+    /** @ref SPI_SPARE_STS_REG_s */
     SPI_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } SPI_SPARE_STS_u;
 
-typedef struct SPI_REGS_s{
+/** @} end of SPI_SPARE_STS_REG */ 
+
+/** @} end of SPI_REGISTERS */ 
+
+typedef struct {
     volatile  SPI_DESC_u DESC;
     volatile  SPI_PWR_EN_u PWR_EN;
     volatile  SPI_RST_CTRL_u RST_CTRL;
@@ -520,10 +732,18 @@ typedef struct SPI_REGS_s{
     volatile  SPI_SPARE_STS_u SPARE_STS;
 } SPI_REGS_s;
 
+/** @defgroup SPI_KEY 
+ *  @{
+ */
 #define SPI_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
 #define SPI_RST_CTRL_RST_KEY ((uint32_t)0x000000ABU)
 #define SPI_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x000000ABU)
+/** @} end of SPI_KEY*/ 
 
+
+/** @defgroup SPI_INTERRUPTS 
+ *  @{
+ */
 #define SPI_INTR_EVENT_RX_FIFO_OVERFLOW_IDX (0)
 #define SPI_INTR_EVENT_PARITY_ERROR_IDX (1)
 #define SPI_INTR_EVENT_RX_TIMEOUT_IDX (2)
@@ -535,6 +755,11 @@ typedef struct SPI_REGS_s{
 #define SPI_INTR_EVENT_TX_DMA_DONE_IDX (8)
 #define SPI_INTR_EVENT_TX_FIFO_UNDERFLOW_IDX (9)
 #define SPI_INTR_EVENT_RX_FIFO_FULL_IDX (10)
+/** @} end of SPI_INTERRUPTS */ 
+
+/** @defgroup SPI_ENUM 
+ *  @{
+ */
 
 typedef enum {
 	SPI_CLKSEL_CLK_SEL_CLK_SPI = 0,
@@ -561,7 +786,12 @@ typedef enum {
 	SPI_MODE_CTRL_FRAME_FORMAT_MOTOROLA = 0,
 	SPI_MODE_CTRL_FRAME_FORMAT_TI = 1,
 } SPI_MODE_CTRL_FRAME_FORMAT_E;
+/** @} end of SPI_ENUM */ 
 
+
+/** @defgroup SPI_REGISTER_FLAGS 
+ *  @{
+ */
 #define SPI_DESC_MODULE_TYPE_OFS (0)
 #define SPI_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define SPI_DESC_MODULE_SUBTYPE_OFS (8)
@@ -814,5 +1044,9 @@ typedef enum {
 #define SPI_SPARE_STS_STS0_MASK ((uint32_t)0x000000FFU)
 #define SPI_SPARE_STS_STS1_OFS (8)
 #define SPI_SPARE_STS_STS1_MASK ((uint32_t)0x0000FF00U)
+/** @} end of SPI_REGISTER_FLAGS */ 
+
+/** @} end of SPI */
+
 
 #endif
