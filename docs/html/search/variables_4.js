@@ -115,7 +115,7 @@ var searchData=
   ['eot_5fsw_5fset_112',['eot_sw_set',['../group___u_a_r_t___i_n_t_r___s_w___s_e_t___r_e_g.html#a487b0b4cd18e14a54f00fccefef17218',1,'UART_INTR_SW_SET_REG_s']]],
   ['err_5fclr_113',['ERR_CLR',['../_p_l230___r_e_g_s_8h.html#a50eb0f03d52cfbeeea0b8136ebe966c9',1,'PL230_REGS_s']]],
   ['err_5fclr_114',['err_clr',['../_p_l230___r_e_g_s_8h.html#afd4d1a56876c8554e1d39c0190d81f55',1,'PL230_ERR_CLR_REG_s']]],
-  ['even_5fparity_115',['even_parity',['../group___s_p_i___p_a_r_i_t_y___c_t_r_l___r_e_g.html#a37d14e142af90f91d912475d45b7a61a',1,'SPI_PARITY_CTRL_REG_s::even_parity'],['../uart_8h.html#a597e59543d1d2ad468aa9f1daf5cf2cf',1,'uart_cfg_s::even_parity']]],
+  ['even_5fparity_115',['even_parity',['../group___s_p_i___p_a_r_i_t_y___c_t_r_l___r_e_g.html#a37d14e142af90f91d912475d45b7a61a',1,'SPI_PARITY_CTRL_REG_s::even_parity'],['../group___u_a_r_t___h_a_l.html#a597e59543d1d2ad468aa9f1daf5cf2cf',1,'uart_cfg_s::even_parity']]],
   ['even_5fpartiy_116',['even_partiy',['../spi_8h.html#a29db9599ff96706b11d88fafd1573572',1,'spi_cfg_t']]],
   ['event_5fctrl_117',['EVENT_CTRL',['../group___d_a_c___m_e_m_o_r_y___m_a_p.html#a6e2763fa971e0a66dcbc037de4636bbe',1,'DAC_REGS_s::EVENT_CTRL'],['../group___t_i_m_e_r___m_e_m_o_r_y___m_a_p.html#ac4f082ca1d381923877de850aec4fe66',1,'TIMER_REGS_s::EVENT_CTRL']]],
   ['event_5fen_118',['EVENT_EN',['../_c_o_m_p___r_e_g_s_8h.html#a9933a0dc52ca06c2c80752d782b363a0',1,'COMP_REGS_s::EVENT_EN'],['../group___d_a_c___m_e_m_o_r_y___m_a_p.html#ac97b99a9241ef251f0a9a1432e90fe26',1,'DAC_REGS_s::EVENT_EN'],['../_r_t_c___r_e_g_s_8h.html#a46bbb421a7de65b9c67781346de604c8',1,'RTC_REGS_s::EVENT_EN'],['../_w_a_t_c_h_d_o_g___r_e_g_s_8h.html#ab9ad6cbbe6ec345643b0e3c3e5ea13f1',1,'WATCHDOG_REGS_s::EVENT_EN']]],

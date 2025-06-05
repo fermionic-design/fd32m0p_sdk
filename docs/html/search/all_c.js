@@ -155,10 +155,10 @@ var searchData=
   ['out_5fen_152',['out_en',['../group___d_a_c___c_t_r_l1___r_e_g.html#af7005ed1116e6ab3613a3e2c1ba0c845',1,'DAC_CTRL1_REG_s::out_en'],['../_o_p_a_m_p___r_e_g_s_8h.html#a14ff52de39d562df76fb80824987de0c',1,'OPAMP_CTRL0_REG_s::out_en'],['../dac_8h.html#a99a8730f5211925a96c7d6e02d6afc8f',1,'dac_cfg_s::out_en']]],
   ['out_5finit_5fval_153',['out_init_val',['../timer_8h.html#a17dd85595ac7dcb9068efcd1be51c1f5',1,'timer_output_chan_cfg_t']]],
   ['out_5finv_154',['out_inv',['../timer_8h.html#a5f7cb09f842402a2d0e8b362b1ecfee1',1,'timer_output_chan_cfg_t']]],
-  ['out_5fis_5fbig_5fendian_155',['out_is_big_endian',['../group___c_r_c___c_r_c_c_o_n_f_i_g___r_e_g.html#a30a6b9676aff9e5346faddb93c83110d',1,'CRC_CRCCONFIG_REG_s::out_is_big_endian'],['../crc_8h.html#aa5b3c6f9713a3b5e917548c9177de3db',1,'crc_cfg_s::out_is_big_endian']]],
+  ['out_5fis_5fbig_5fendian_155',['out_is_big_endian',['../group___c_r_c___c_r_c_c_o_n_f_i_g___r_e_g.html#a30a6b9676aff9e5346faddb93c83110d',1,'CRC_CRCCONFIG_REG_s::out_is_big_endian'],['../group___c_r_c___h_a_l.html#aa5b3c6f9713a3b5e917548c9177de3db',1,'crc_cfg_s::out_is_big_endian']]],
   ['out_5fpol_156',['out_pol',['../_c_o_m_p___r_e_g_s_8h.html#a00f9bd76ea5d15fff20e66e58c91fee3',1,'COMP_OUT_CTRL0_REG_s']]],
   ['out_5fsel_157',['out_sel',['../timer_8h.html#a714b8d09bbb536026c8d85674335d98e',1,'timer_output_chan_cfg_t']]],
-  ['output_5fbit_5frev_158',['output_bit_rev',['../group___c_r_c___c_r_c_c_o_n_f_i_g___r_e_g.html#a52921e3332f92295b685c704987754e4',1,'CRC_CRCCONFIG_REG_s::output_bit_rev'],['../crc_8h.html#a7a7cf571b4067788e2fcecc3db15f1d6',1,'crc_cfg_s::output_bit_rev']]],
+  ['output_5fbit_5frev_158',['output_bit_rev',['../group___c_r_c___c_r_c_c_o_n_f_i_g___r_e_g.html#a52921e3332f92295b685c704987754e4',1,'CRC_CRCCONFIG_REG_s::output_bit_rev'],['../group___c_r_c___h_a_l.html#a7a7cf571b4067788e2fcecc3db15f1d6',1,'crc_cfg_s::output_bit_rev']]],
   ['output_5fen_159',['output_en',['../_i_o_m_u_x___r_e_g_s_8h.html#aa56786ceb4fb62860fb12e84fb50f503',1,'IOMUX_PA_REG_s']]],
   ['ov_5fdma_5fen_160',['ov_dma_en',['../group___a_d_c___d_m_a___e_n__0___r_e_g.html#acdc5009f2d38a2248027beac4305f307',1,'ADC_DMA_EN_0_REG_s']]],
   ['ov_5fflag_161',['ov_flag',['../group___a_d_c___i_n_t_r___e_v_e_n_t___r_e_g.html#a5bb6cf3ff00d1f535e1aee5ee87aeda4',1,'ADC_INTR_EVENT_REG_s']]],
@@ -170,5 +170,5 @@ var searchData=
   ['overflow_5ferr_5fen_167',['overflow_err_en',['../group___u_a_r_t___i_n_t_r___e_n0___r_e_g.html#a2d56b271013ba164edc3ab4f7a7d4e3c',1,'UART_INTR_EN0_REG_s']]],
   ['overflow_5ferr_5fnmi_5fen_168',['overflow_err_nmi_en',['../group___u_a_r_t___i_n_t_r___n_m_i___e_n0___r_e_g.html#a084efd367e0782db69175f9d800e453c',1,'UART_INTR_NMI_EN0_REG_s']]],
   ['overflow_5ferr_5fsw_5fset_169',['overflow_err_sw_set',['../group___u_a_r_t___i_n_t_r___s_w___s_e_t___r_e_g.html#a5d1a1f640f2160b85fa12c019b871d23',1,'UART_INTR_SW_SET_REG_s']]],
-  ['oversampling_170',['oversampling',['../uart_8h.html#a3802eed998d8bb644d76755a32ec1f26',1,'uart_cfg_s']]]
+  ['oversampling_170',['oversampling',['../group___u_a_r_t___h_a_l.html#a3802eed998d8bb644d76755a32ec1f26',1,'uart_cfg_s']]]
 ];

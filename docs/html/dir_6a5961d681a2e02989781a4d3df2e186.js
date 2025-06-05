@@ -1,6 +1,5 @@
 var dir_6a5961d681a2e02989781a4d3df2e186 =
 [
     [ "timer.c", "timer_8c.html", "timer_8c" ],
-    [ "timer.h", "timer_8h.html", "timer_8h" ],
-    [ "timer_structs.h", "timer__structs_8h.html", "timer__structs_8h" ]
+    [ "timer.h", "timer_8h.html", "timer_8h" ]
 ];

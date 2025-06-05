@@ -4,7 +4,7 @@ var searchData=
   ['vref_1',['VREF',['../group___v_r_e_f.html',1,'']]],
   ['vref_2ec_2',['vref.c',['../vref_8c.html',1,'']]],
   ['vref_2eh_3',['vref.h',['../vref_8h.html',1,'']]],
-  ['vref_5fcfg_4',['vref_cfg',['../vref_8c.html#a246cd4e32a10611881fc4981d5ae394a',1,'vref_cfg(VREF_REGS_s *vref_regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s *mcu_regs, IOMUX_PA_REG_s iomux_cfg_struct, vref_cfg_s vref_cfg_struct, uint32_t temp_sense_en):&#160;vref.c'],['../vref_8h.html#a0eb82b1f506be7b69db5009a847b12ec',1,'vref_cfg(VREF_REGS_s *regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s *mcu_regs, IOMUX_PA_REG_s iomux_cfg_struct, vref_cfg_s vref_cfg_struct, uint32_t temp_sense_en):&#160;vref.c']]],
+  ['vref_5fcfg_4',['vref_cfg',['../vref_8c.html#a246cd4e32a10611881fc4981d5ae394a',1,'vref_cfg(VREF_REGS_s *vref_regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s *mcu_regs, IOMUX_PA_REG_s iomux_cfg_struct, vref_cfg_s vref_cfg_struct, uint32_t temp_sense_en):&#160;vref.c'],['../vref_8h.html#a246cd4e32a10611881fc4981d5ae394a',1,'vref_cfg(VREF_REGS_s *vref_regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s *mcu_regs, IOMUX_PA_REG_s iomux_cfg_struct, vref_cfg_s vref_cfg_struct, uint32_t temp_sense_en):&#160;vref.c']]],
   ['vref_5fcfg0_5',['vref_cfg0',['../group___v_r_e_f___s_p_a_r_e___c_t_r_l___r_e_g.html#ad086deabd4ad3c6a2fb7e7ed71e7ddf1',1,'VREF_SPARE_CTRL_REG_s']]],
   ['vref_5fcfg1_6',['vref_cfg1',['../group___v_r_e_f___s_p_a_r_e___c_t_r_l___r_e_g.html#a98beac65f25a23b0bf1ad473bc5614f1',1,'VREF_SPARE_CTRL_REG_s']]],
   ['vref_5fcfg_5fs_7',['vref_cfg_s',['../vref_8h.html#structvref__cfg__s',1,'']]],

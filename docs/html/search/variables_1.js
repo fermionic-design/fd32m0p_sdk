@@ -4,7 +4,7 @@ var searchData=
   ['baud_5ferr_5fen_1',['baud_err_en',['../group___u_a_r_t___i_n_t_r___e_n1___r_e_g.html#a9e841f06003eb2800e0eb4dd8ee0ccd9',1,'UART_INTR_EN1_REG_s']]],
   ['baud_5ferr_5fnmi_5fen_2',['baud_err_nmi_en',['../group___u_a_r_t___i_n_t_r___n_m_i___e_n1___r_e_g.html#a2ba56916642ffadc4f2d6663749cc5f6',1,'UART_INTR_NMI_EN1_REG_s']]],
   ['baud_5ferr_5fsw_5fset_3',['baud_err_sw_set',['../group___u_a_r_t___i_n_t_r___s_w___s_e_t___r_e_g.html#a4f8497d815d9e8c9552c96cb7978e82d',1,'UART_INTR_SW_SET_REG_s']]],
-  ['baud_5frate_4',['baud_rate',['../uart_8h.html#a4f2cf3a9561ff90c3a1b9cbebe36dd1e',1,'uart_cfg_s']]],
+  ['baud_5frate_4',['baud_rate',['../group___u_a_r_t___h_a_l.html#a4f2cf3a9561ff90c3a1b9cbebe36dd1e',1,'uart_cfg_s']]],
   ['bcr_5fcfg0_5',['BCR_CFG0',['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a50e913a4162fd1af5fb5314eb9691877',1,'BOOTLOADER_BCR_CFG0_u::BCR_CFG0'],['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#ad7af83e4671367ec6691ad5f476c6cc0',1,'BOOTLOADER_REGS_s::BCR_CFG0']]],
   ['bcr_5fcfg1_6',['BCR_CFG1',['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a57577c04e6ec8f6694a462ed4e2b782a',1,'BOOTLOADER_BCR_CFG1_u::BCR_CFG1'],['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a6261a4a2d3827562edf563480956fd70',1,'BOOTLOADER_REGS_s::BCR_CFG1']]],
   ['bcr_5fcfg2_7',['BCR_CFG2',['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a63e511db807a1b35da09984fb25dab6c',1,'BOOTLOADER_BCR_CFG2_u::BCR_CFG2'],['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a21b5038ceaa13b954e69b85bde108d0e',1,'BOOTLOADER_REGS_s::BCR_CFG2']]],
@@ -40,9 +40,8 @@ var searchData=
   ['bsl_5fpwd_37',['BSL_PWD',['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#af7fa6a0963ada040742b3bd63b5d69b8',1,'BOOTLOADER_BSL_PWD_REG_s::BSL_PWD'],['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a6217be80e9646f7c343971fdb5d84589',1,'BOOTLOADER_BSL_PWD_u::BSL_PWD'],['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#aaa03b03255ea9755f77ee7227dbe1357',1,'BOOTLOADER_REGS_s::BSL_PWD']]],
   ['bsl_5fuart_5fcfg0_38',['BSL_UART_CFG0',['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a8ff7813406d7dcf18cdb209dba6b815d',1,'BOOTLOADER_BSL_UART_CFG0_u::BSL_UART_CFG0'],['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a9fd761560a04415e76ed35dd033c2703',1,'BOOTLOADER_REGS_s::BSL_UART_CFG0']]],
   ['bsl_5fuart_5fcfg1_39',['BSL_UART_CFG1',['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#ae69a0cb51b252b37e2c3551dd58f4f62',1,'BOOTLOADER_BSL_UART_CFG1_u::BSL_UART_CFG1'],['../_b_o_o_t_l_o_a_d_e_r___r_e_g_s_8h.html#a8ee41bd00eded56e83fedae379267a1d',1,'BOOTLOADER_REGS_s::BSL_UART_CFG1']]],
-  ['burst_5flen_40',['burst_len',['../i2c__structs_8h.html#af4a277700b9a35e8b97e04ea939431a2',1,'I2C_TX_FIFO_REF_DATA_s']]],
-  ['bus_5fclk_5fforce_41',['BUS_CLK_FORCE',['../_r_t_c___r_e_g_s_8h.html#aef558b2098d4f32411547cb13a62525e',1,'RTC_REGS_s']]],
-  ['bus_5fclk_5fforce_5f32mhz_42',['bus_clk_force_32mhz',['../_r_t_c___r_e_g_s_8h.html#a4e5d57598369aed2659ea76a34216c7a',1,'RTC_BUS_CLK_FORCE_REG_s']]],
-  ['bus_5fclk_5fforce_5fkey_43',['bus_clk_force_key',['../_r_t_c___r_e_g_s_8h.html#a1ff244f7f77d5aa75b7ffabb4d84a980',1,'RTC_BUS_CLK_FORCE_REG_s']]],
-  ['busy_44',['busy',['../group___u_a_r_t___s_t_s___r_e_g.html#a1bf4b17b29a08d60131b38d6231147bd',1,'UART_STS_REG_s']]]
+  ['bus_5fclk_5fforce_40',['BUS_CLK_FORCE',['../_r_t_c___r_e_g_s_8h.html#aef558b2098d4f32411547cb13a62525e',1,'RTC_REGS_s']]],
+  ['bus_5fclk_5fforce_5f32mhz_41',['bus_clk_force_32mhz',['../_r_t_c___r_e_g_s_8h.html#a4e5d57598369aed2659ea76a34216c7a',1,'RTC_BUS_CLK_FORCE_REG_s']]],
+  ['bus_5fclk_5fforce_5fkey_42',['bus_clk_force_key',['../_r_t_c___r_e_g_s_8h.html#a1ff244f7f77d5aa75b7ffabb4d84a980',1,'RTC_BUS_CLK_FORCE_REG_s']]],
+  ['busy_43',['busy',['../group___u_a_r_t___s_t_s___r_e_g.html#a1bf4b17b29a08d60131b38d6231147bd',1,'UART_STS_REG_s']]]
 ];

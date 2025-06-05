@@ -11,7 +11,7 @@ var searchData=
   ['gf_5fwidth_8',['gf_width',['../group___i2_c___g_l_i_t_c_h___f_i_l_t_e_r___c_f_g___r_e_g.html#aef0c00d0569436f53b5c1d07a1214819',1,'I2C_GLITCH_FILTER_CFG_REG_s::gf_width'],['../group___u_a_r_t___g_f_c_t_l___r_e_g.html#a307d59bd34327481fd298a5517d3a44a',1,'UART_GFCTL_REG_s::gf_width']]],
   ['gfctl_9',['GFCTL',['../group___u_a_r_t___m_e_m_o_r_y___m_a_p.html#a6c765d97c53e8c6c4ec0294800f6912a',1,'UART_REGS_s']]],
   ['glitch_5ffilter_5fcfg_10',['GLITCH_FILTER_CFG',['../group___i2_c___m_e_m_o_r_y___m_a_p.html#aeb479c6b2e20c4f64c53b0211e2cee5d',1,'I2C_REGS_s']]],
-  ['glitch_5ffilter_5fwidth_11',['glitch_filter_width',['../uart_8h.html#a7debc4729ab6a68bd7f8603352ef3578',1,'uart_cfg_s']]],
+  ['glitch_5ffilter_5fwidth_11',['glitch_filter_width',['../group___u_a_r_t___h_a_l.html#a7debc4729ab6a68bd7f8603352ef3578',1,'uart_cfg_s']]],
   ['gpamp_5fcfg0_12',['gpamp_cfg0',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a7fc8e8f36f42de731dcddcda1971cd0d',1,'MCU_CTRL_GPAMPCTL_REG_s']]],
   ['gpamp_5fcfg1_13',['gpamp_cfg1',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#accfa15fdb2f89b2178b45c9dd4de99b4',1,'MCU_CTRL_GPAMPCTL_REG_s']]],
   ['gpamp_5fchop_5fclk_5ffreq_14',['gpamp_chop_clk_freq',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#af2a86478f3ef73dc8502d7e55f5c75a0',1,'MCU_CTRL_GPAMPCTL_REG_s']]],

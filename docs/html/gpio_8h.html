@@ -204,7 +204,7 @@ Functions</h2></td></tr>
 <p>This function configures the IOMUX. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iomux_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">iomux_cfg_struct</td><td>: IOMUX Configuration Struct </td></tr>
     <tr><td class="paramname">pin_num</td><td>: IOMUX pin to be configured</td></tr>
   </table>
@@ -274,7 +274,7 @@ Here is the caller graph for this function:</div>
 <p>This function writes the data at GPIO pin given in pin_num. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">pin_num</td><td>: GPIO pin to be configured </td></tr>
     <tr><td class="paramname">dout_pin_val</td><td>: Value to be written at the pin</td></tr>
   </table>
@@ -318,7 +318,7 @@ Here is the caller graph for this function:</div>
 <p>This function configures the glitch filter for the val provided in filt_width_val and at the pin given in pin_num. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">pin_num</td><td>: GPIO pin to be configured </td></tr>
     <tr><td class="paramname">filt_width_val</td><td>: GPIO glitch filter width</td></tr>
   </table>
@@ -362,7 +362,7 @@ Here is the caller graph for this function:</div>
 <p>This function configures the interrupt polarity for the val provided in intr_pol_val and at the pin given in pin_num. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">pin_num</td><td>: GPIO pin to be configured </td></tr>
     <tr><td class="paramname">intr_pol_val</td><td>: GPIO interrupt polarity. 0: No Intr, 1: Pos Edge, 2: Neg Edge, 3: Any Edge</td></tr>
   </table>
@@ -401,7 +401,7 @@ Here is the caller graph for this function:</div>
 <p>This function configures the dma_mask in GPIO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">dma_wr_mask</td><td>: GPIO DMA mask</td></tr>
   </table>
   </dd>
@@ -435,7 +435,7 @@ Here is the caller graph for this function:</div>
 <p>This function reads the input at the GPIO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -472,7 +472,7 @@ Here is the caller graph for this function:</div>
 <p>This function writes at the GPIO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -509,7 +509,7 @@ Here is the caller graph for this function:</div>
 <p>This function enables GPIO outputs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -546,7 +546,7 @@ Here is the caller graph for this function:</div>
 <p>This function enables GPIO outputs for value written in dout_set register. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">dout_en_set</td><td>: 32 bit reg. The bits set here enables the output for the bits in dout_set reg. </td></tr>
   </table>
   </dd>
@@ -584,7 +584,7 @@ Here is the caller graph for this function:</div>
 <p>This function enables GPIO outputs for value written in dout_clr register. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">dout_en_clr</td><td>: 32 bit reg. The bits set here enables the output for the bits in dout_clr reg. </td></tr>
   </table>
   </dd>
@@ -637,7 +637,7 @@ Here is the caller graph for this function:</div>
 <p>This function configures GPIO subscriber. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">sub_sel</td><td>: selects GPIO subscriber </td></tr>
     <tr><td class="paramname">sub_en</td><td>: enables subscriber </td></tr>
     <tr><td class="paramname">pin_action</td><td>: Pin action upon receiving published event on GPIO sub. 0: Nothing, 1: Set, 2: Clr, 3: Toggle</td></tr>
@@ -677,7 +677,7 @@ Here is the caller graph for this function:</div>
 <p>This function reads input at specific pin. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">pin_num</td><td>: GPIO pin to be read</td></tr>
   </table>
   </dd>
@@ -715,7 +715,7 @@ Here is the caller graph for this function:</div>
 <p>This function sets GPIO output. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">dout_set</td><td>: bits set high sets those GPIO pin.</td></tr>
   </table>
   </dd>
@@ -753,7 +753,7 @@ Here is the caller graph for this function:</div>
 <p>This function clears GPIO output. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">dout_set</td><td>: bits set high clears those GPIO pin.</td></tr>
   </table>
   </dd>
@@ -791,7 +791,7 @@ Here is the caller graph for this function:</div>
 <p>This function toggles GPIO output. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">dout_set</td><td>: bits set high toggles those GPIO pin.</td></tr>
   </table>
   </dd>
@@ -829,7 +829,7 @@ Here is the caller graph for this function:</div>
 <p>This function returns the GPIO glitch filter configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">pin_num</td><td>: GPIO pin for which gpio glitch filter configuration is required.</td></tr>
   </table>
   </dd>
@@ -867,7 +867,7 @@ Here is the caller graph for this function:</div>
 <p>This function returns the GPIO interrupt polarity configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">pin_num</td><td>: GPIO pin for which gpio interrupt polarity configuration is required.</td></tr>
   </table>
   </dd>
@@ -905,7 +905,7 @@ Here is the caller graph for this function:</div>
 <p>This function returns IOMUX configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">pin_num</td><td>: GPIO pin for which IOMUX configuration is required.</td></tr>
   </table>
   </dd>
@@ -954,7 +954,7 @@ Here is the call graph for this function:</div>
 <p>This function returns GPIO subscriber configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space </td></tr>
     <tr><td class="paramname">sub_sel</td><td>: Subscriber for which subscriber configuration is required.</td></tr>
   </table>
   </dd>
@@ -988,7 +988,7 @@ Here is the call graph for this function:</div>
 <p>This function returns GPIO DMA configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -1021,7 +1021,7 @@ Here is the call graph for this function:</div>
 <p>This function returns GPIO dout register values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -1058,7 +1058,7 @@ Here is the call graph for this function:</div>
 <p>This function returns GPIO dout pinwise register values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpio_regs</td><td>: pointer to the GPIO register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the GPIO register space</td></tr>
   </table>
   </dd>
 </dl>

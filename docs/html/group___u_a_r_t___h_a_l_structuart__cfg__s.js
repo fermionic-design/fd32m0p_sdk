@@ -1,0 +1,25 @@
+var group___u_a_r_t___h_a_l_structuart__cfg__s =
+[
+    [ "clk_sel", "group___u_a_r_t___h_a_l.html#aea17b14eeabf7146d56ae9c4ed4ebef9", null ],
+    [ "clk_div", "group___u_a_r_t___h_a_l.html#a9894141f440999ca74455959aa79cc27", null ],
+    [ "baud_rate", "group___u_a_r_t___h_a_l.html#a4f2cf3a9561ff90c3a1b9cbebe36dd1e", null ],
+    [ "clk_freq", "group___u_a_r_t___h_a_l.html#a0cd7c6d48053aad9adfdd733a83a9805", null ],
+    [ "oversampling", "group___u_a_r_t___h_a_l.html#a3802eed998d8bb644d76755a32ec1f26", null ],
+    [ "word_length", "group___u_a_r_t___h_a_l.html#a9bbb1ee31f4450924df6e4929d5df34c", null ],
+    [ "parity_en", "group___u_a_r_t___h_a_l.html#a04bf2f19f1404d770daae4fa41a0efab", null ],
+    [ "even_parity", "group___u_a_r_t___h_a_l.html#a597e59543d1d2ad468aa9f1daf5cf2cf", null ],
+    [ "stick_parity", "group___u_a_r_t___h_a_l.html#aa0c4fd893cccbb4e8d9c06762443cd9e", null ],
+    [ "num_stop_bits", "group___u_a_r_t___h_a_l.html#acb0a3f36effa0512810240fbae7ed14c", null ],
+    [ "msb_first", "group___u_a_r_t___h_a_l.html#aae1b7f497f8854de45f499e04254e6b1", null ],
+    [ "majority_voting_en", "group___u_a_r_t___h_a_l.html#a5b22efe72666740dac1d6ab7a385d5d6", null ],
+    [ "loopback_en", "group___u_a_r_t___h_a_l.html#aefa2d3927f3c96dbad30aaf5ec3c4d8f", null ],
+    [ "tx_en", "group___u_a_r_t___h_a_l.html#ab71a6feaa51781cc8e8abf38161df6c5", null ],
+    [ "rx_en", "group___u_a_r_t___h_a_l.html#aebc06a4473484c341d6d00f8e182e9fc", null ],
+    [ "tx_out_en", "group___u_a_r_t___h_a_l.html#ad5520ea6f6eaac38b62d0c9333e6f819", null ],
+    [ "tx_out_ctrl", "group___u_a_r_t___h_a_l.html#af5db69a487eaf5e77effeba9721eb1ba", null ],
+    [ "cts_en", "group___u_a_r_t___h_a_l.html#a56d7a211dd6135c72cf14ab5306f13b3", null ],
+    [ "rts_en", "group___u_a_r_t___h_a_l.html#a8c661ad1946340c8a307dc1c31cbb7f0", null ],
+    [ "rts_val", "group___u_a_r_t___h_a_l.html#a51ec8f9f6c16223b6f93b00eb3de2a03", null ],
+    [ "glitch_filter_width", "group___u_a_r_t___h_a_l.html#a7debc4729ab6a68bd7f8603352ef3578", null ],
+    [ "rx_timeout_val", "group___u_a_r_t___h_a_l.html#a4afd325811e0d966843d444c06b2e371", null ]
+];

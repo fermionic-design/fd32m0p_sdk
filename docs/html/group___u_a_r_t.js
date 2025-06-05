@@ -1,5 +1,6 @@
 var group___u_a_r_t =
 [
+    [ "UART_HAL", "group___u_a_r_t___h_a_l.html", "group___u_a_r_t___h_a_l" ],
     [ "UART_INTERRUPTS", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html", "group___u_a_r_t___i_n_t_e_r_r_u_p_t_s" ],
     [ "UART_KEY", "group___u_a_r_t___k_e_y.html", "group___u_a_r_t___k_e_y" ],
     [ "UART_MEMORY_MAP", "group___u_a_r_t___m_e_m_o_r_y___m_a_p.html", "group___u_a_r_t___m_e_m_o_r_y___m_a_p" ],
