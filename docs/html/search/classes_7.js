@@ -90,12 +90,11 @@ var searchData=
   ['i2c_5ftx_5fdma_5fevent_5fen_5f0_5fu_87',['I2C_TX_DMA_EVENT_EN_0_u',['../group___i2_c___t_x___d_m_a___e_v_e_n_t___e_n__0___r_e_g.html#union_i2_c___t_x___d_m_a___e_v_e_n_t___e_n__0__u',1,'']]],
   ['i2c_5ftx_5fdma_5fevent_5fen_5f1_5freg_5fs_88',['I2C_TX_DMA_EVENT_EN_1_REG_s',['../group___i2_c___t_x___d_m_a___e_v_e_n_t___e_n__1___r_e_g.html#struct_i2_c___t_x___d_m_a___e_v_e_n_t___e_n__1___r_e_g__s',1,'']]],
   ['i2c_5ftx_5fdma_5fevent_5fen_5f1_5fu_89',['I2C_TX_DMA_EVENT_EN_1_u',['../group___i2_c___t_x___d_m_a___e_v_e_n_t___e_n__1___r_e_g.html#union_i2_c___t_x___d_m_a___e_v_e_n_t___e_n__1__u',1,'']]],
-  ['i2c_5ftx_5ffifo_5fref_5fdata_5fs_90',['I2C_TX_FIFO_REF_DATA_s',['../i2c__structs_8h.html#struct_i2_c___t_x___f_i_f_o___r_e_f___d_a_t_a__s',1,'']]],
-  ['i2c_5ftxdata_5freg_5fs_91',['I2C_TXDATA_REG_s',['../group___i2_c___t_x_d_a_t_a___r_e_g.html#struct_i2_c___t_x_d_a_t_a___r_e_g__s',1,'']]],
-  ['i2c_5ftxdata_5fu_92',['I2C_TXDATA_u',['../group___i2_c___t_x_d_a_t_a___r_e_g.html#union_i2_c___t_x_d_a_t_a__u',1,'']]],
-  ['iomux_5fdummy_5freg_5fs_93',['IOMUX_DUMMY_REG_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___d_u_m_m_y___r_e_g__s',1,'']]],
-  ['iomux_5fdummy_5fu_94',['IOMUX_DUMMY_u',['../_i_o_m_u_x___r_e_g_s_8h.html#union_i_o_m_u_x___d_u_m_m_y__u',1,'']]],
-  ['iomux_5fpa_5freg_5fs_95',['IOMUX_PA_REG_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___p_a___r_e_g__s',1,'']]],
-  ['iomux_5fpa_5fu_96',['IOMUX_PA_u',['../_i_o_m_u_x___r_e_g_s_8h.html#union_i_o_m_u_x___p_a__u',1,'']]],
-  ['iomux_5fregs_5fs_97',['IOMUX_REGS_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___r_e_g_s__s',1,'']]]
+  ['i2c_5ftxdata_5freg_5fs_90',['I2C_TXDATA_REG_s',['../group___i2_c___t_x_d_a_t_a___r_e_g.html#struct_i2_c___t_x_d_a_t_a___r_e_g__s',1,'']]],
+  ['i2c_5ftxdata_5fu_91',['I2C_TXDATA_u',['../group___i2_c___t_x_d_a_t_a___r_e_g.html#union_i2_c___t_x_d_a_t_a__u',1,'']]],
+  ['iomux_5fdummy_5freg_5fs_92',['IOMUX_DUMMY_REG_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___d_u_m_m_y___r_e_g__s',1,'']]],
+  ['iomux_5fdummy_5fu_93',['IOMUX_DUMMY_u',['../_i_o_m_u_x___r_e_g_s_8h.html#union_i_o_m_u_x___d_u_m_m_y__u',1,'']]],
+  ['iomux_5fpa_5freg_5fs_94',['IOMUX_PA_REG_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___p_a___r_e_g__s',1,'']]],
+  ['iomux_5fpa_5fu_95',['IOMUX_PA_u',['../_i_o_m_u_x___r_e_g_s_8h.html#union_i_o_m_u_x___p_a__u',1,'']]],
+  ['iomux_5fregs_5fs_96',['IOMUX_REGS_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___r_e_g_s__s',1,'']]]
 ];

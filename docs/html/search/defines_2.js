@@ -171,6 +171,5 @@ var searchData=
   ['cortexm0dap_5fjtag_5ftapid_168',['CORTEXM0DAP_JTAG_TAPID',['../config__id_8h.html#a95b38d3b00846f379080c7784a015fe6',1,'config_id.h']]],
   ['cortexm0dap_5fsw_5fdpidr_169',['CORTEXM0DAP_SW_DPIDR',['../config__id_8h.html#a203ef2f71912ee8a821369a7d35069d1',1,'config_id.h']]],
   ['cortexm0plus_5fcpuid_170',['CORTEXM0PLUS_CPUID',['../config__id_8h.html#a64dd160d0dc87f33c7a286a720acf52f',1,'config_id.h']]],
-  ['crc_5fcfg_5fdefault_171',['CRC_CFG_DEFAULT',['../crc_8h.html#a8db7f47f489d6f974e475913792cb407',1,'crc.h']]],
-  ['cs_5fcti_5fpart_172',['CS_CTI_PART',['../config__id_8h.html#a701e9550f3e3340aefa4e7d9bca94f82',1,'config_id.h']]]
+  ['cs_5fcti_5fpart_171',['CS_CTI_PART',['../config__id_8h.html#a701e9550f3e3340aefa4e7d9bca94f82',1,'config_id.h']]]
 ];

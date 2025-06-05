@@ -9,11 +9,9 @@ var dir_52c912f73dac9c4c0e442232e1b2bd80 =
     [ "flash", "dir_fe38757d1dc43c250bb0c0e94a6d9f51.html", "dir_fe38757d1dc43c250bb0c0e94a6d9f51" ],
     [ "gpio", "dir_d99fac070ea182e23c23361eb70ddce1.html", "dir_d99fac070ea182e23c23361eb70ddce1" ],
     [ "i2c", "dir_48ffc3d774503ebe7981ef37eacbd47e.html", "dir_48ffc3d774503ebe7981ef37eacbd47e" ],
-    [ "mcu_ctrl", "dir_5c36032813fe1bebfa96ada1ddb44bd5.html", "dir_5c36032813fe1bebfa96ada1ddb44bd5" ],
     [ "rtc", "dir_4192d87eb37f086aa0e4ad1bdf7ee62c.html", "dir_4192d87eb37f086aa0e4ad1bdf7ee62c" ],
     [ "spi", "dir_371ec092f6df28856f1ba13f6a56e338.html", "dir_371ec092f6df28856f1ba13f6a56e338" ],
     [ "timer", "dir_6a5961d681a2e02989781a4d3df2e186.html", "dir_6a5961d681a2e02989781a4d3df2e186" ],
-    [ "top", "dir_57404a4179451de13d04ebd0f03b1f6c.html", "dir_57404a4179451de13d04ebd0f03b1f6c" ],
     [ "uart", "dir_a4ab23da4032b59b24534cec82511569.html", "dir_a4ab23da4032b59b24534cec82511569" ],
     [ "vref", "dir_092ad0cef8775fbc2f7ca97491326b5f.html", "dir_092ad0cef8775fbc2f7ca97491326b5f" ]
 ];

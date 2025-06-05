@@ -16,8 +16,6 @@ var searchData=
   ['data_5fchnl_5f7_13',['DATA_CHNL_7',['../adc_8h.html#a165d27109b3eed1be2da60b484ac565f',1,'adc.h']]],
   ['data_5fchnl_5f8_14',['DATA_CHNL_8',['../adc_8h.html#a54c72dcd3c7d8fad2694f949ad0f5683',1,'adc.h']]],
   ['data_5fchnl_5f9_15',['DATA_CHNL_9',['../adc_8h.html#ab0b9b433a4329446ed14dc805089a3ca',1,'adc.h']]],
-  ['dma_5fchannels_16',['DMA_CHANNELS',['../event__fabric_8h.html#a0d6fb71e74f8864162d14233ce5bc95e',1,'event_fabric.h']]],
-  ['dma_5ffabric_17',['DMA_FABRIC',['../event__fabric_8h.html#a25e21f4f4641f453ddfe9924efe3aa56',1,'event_fabric.h']]],
-  ['dma_5fstride_5fmode_5flookup_5fdst_5faddr_18',['DMA_STRIDE_MODE_LOOKUP_DST_ADDR',['../dma_8h.html#a4c073885315118553c1710579675d143',1,'dma.h']]],
-  ['dma_5fstride_5fmode_5flookup_5fsrc_5faddr_19',['DMA_STRIDE_MODE_LOOKUP_SRC_ADDR',['../dma_8h.html#abe7bf4514548e8436864779a6fc0bb52',1,'dma.h']]]
+  ['dma_5fstride_5fmode_5flookup_5fdst_5faddr_16',['DMA_STRIDE_MODE_LOOKUP_DST_ADDR',['../dma_8h.html#a4c073885315118553c1710579675d143',1,'dma.h']]],
+  ['dma_5fstride_5fmode_5flookup_5fsrc_5faddr_17',['DMA_STRIDE_MODE_LOOKUP_SRC_ADDR',['../dma_8h.html#abe7bf4514548e8436864779a6fc0bb52',1,'dma.h']]]
 ];

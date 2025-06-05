@@ -45,6 +45,5 @@ var searchData=
   ['adc_5ftimer_5fconversion_5fwrite_42',['ADC_TIMER_CONVERSION_WRITE',['../_a_d_c___r_w___a_p_i_8h.html#ae4517bd2a9b27ad7db301f116da8f1b5',1,'ADC_RW_API.h']]],
   ['adc_5ftimer_5fsample_5fwrite_43',['ADC_TIMER_SAMPLE_WRITE',['../_a_d_c___r_w___a_p_i_8h.html#abf2fd62d3789658815025e8abf9571fd',1,'ADC_RW_API.h']]],
   ['adc_5ftimer_5fstart_5fwrite_44',['ADC_TIMER_START_WRITE',['../_a_d_c___r_w___a_p_i_8h.html#a039e6523f8b5cbcef6917985d09192fe',1,'ADC_RW_API.h']]],
-  ['adc_5fwindow_5fcomp_5fwrite_45',['ADC_WINDOW_COMP_WRITE',['../_a_d_c___r_w___a_p_i_8h.html#ac8860539a1c32837963c29221865824c',1,'ADC_RW_API.h']]],
-  ['apb_5fdiv_5fcfg_46',['apb_div_cfg',['../mcu__ctrl__cfg__reg_8c.html#a906401b29b9dfcd92cce7eb3cde08fe5',1,'mcu_ctrl_cfg_reg.c']]]
+  ['adc_5fwindow_5fcomp_5fwrite_45',['ADC_WINDOW_COMP_WRITE',['../_a_d_c___r_w___a_p_i_8h.html#ac8860539a1c32837963c29221865824c',1,'ADC_RW_API.h']]]
 ];

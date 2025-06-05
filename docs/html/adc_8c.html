@@ -141,7 +141,7 @@ Include dependency graph for adc.c:</div>
 Functions</h2></td></tr>
 <tr class="memitem:ad818ba45e82cf3c0774b63bb1ea3bf4e" id="r_ad818ba45e82cf3c0774b63bb1ea3bf4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad818ba45e82cf3c0774b63bb1ea3bf4e">adc_clk_cfg</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *regs, <a class="el" href="adc_8h.html#structadc__clk__cfg__s">adc_clk_cfg_s</a> clk_cfg)</td></tr>
 <tr class="memdesc:ad818ba45e82cf3c0774b63bb1ea3bf4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function configures the ADC clock.  <br /></td></tr>
-<tr class="memitem:a9b494014e2faeec82abf9e490af1d66b" id="r_a9b494014e2faeec82abf9e490af1d66b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b494014e2faeec82abf9e490af1d66b">adc_chnl_cfg</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *regs, <a class="el" href="adc_8h.html#structadc__chnl__cfg__s">adc_chnl_cfg_s</a> <a class="el" href="event__fabric_8h.html#structchnl__cfg">chnl_cfg</a>)</td></tr>
+<tr class="memitem:a9b494014e2faeec82abf9e490af1d66b" id="r_a9b494014e2faeec82abf9e490af1d66b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b494014e2faeec82abf9e490af1d66b">adc_chnl_cfg</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *regs, <a class="el" href="adc_8h.html#structadc__chnl__cfg__s">adc_chnl_cfg_s</a> <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html#structchnl__cfg">chnl_cfg</a>)</td></tr>
 <tr class="memdesc:a9b494014e2faeec82abf9e490af1d66b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function configures the ADC channel.  <br /></td></tr>
 <tr class="memitem:ae71cd53a6b23608a9dfa26f0d4211a18" id="r_ae71cd53a6b23608a9dfa26f0d4211a18"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae71cd53a6b23608a9dfa26f0d4211a18">adc_result</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *regs, uint32_t data_channel)</td></tr>
 <tr class="memdesc:ae71cd53a6b23608a9dfa26f0d4211a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function configures the ADC channel.  <br /></td></tr>
@@ -157,9 +157,9 @@ Functions</h2></td></tr>
 <tr class="memdesc:a8629199d86170424a05734b01cb1df25"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function configures ADC for multi channel operation.  <br /></td></tr>
 <tr class="memitem:af093bf10c419ec16651e69fc04beabca" id="r_af093bf10c419ec16651e69fc04beabca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af093bf10c419ec16651e69fc04beabca">adc_en_conv</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *regs, uint32_t en_conv)</td></tr>
 <tr class="memdesc:af093bf10c419ec16651e69fc04beabca"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function enables ADC conversion.  <br /></td></tr>
-<tr class="memitem:a895243e5bea518e3d1ab618675381d71" id="r_a895243e5bea518e3d1ab618675381d71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a895243e5bea518e3d1ab618675381d71">adc_temp_cfg</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *adc_regs, <a class="el" href="_m_c_u___c_t_r_l___r_e_g_s_8h.html#struct_m_c_u___c_t_r_l___r_e_g_s__s">MCU_CTRL_REGS_s</a> *mcu_regs, <a class="el" href="group___v_r_e_f___m_e_m_o_r_y___m_a_p.html#struct_v_r_e_f___r_e_g_s__s">VREF_REGS_s</a> *vref_regs, <a class="el" href="adc_8h.html#structadc__single__ch__conv__cfg__s">adc_single_ch_conv_cfg_s</a> adc_single_ch, <a class="el" href="adc_8h.html#structadc__chnl__cfg__s">adc_chnl_cfg_s</a> <a class="el" href="event__fabric_8h.html#structchnl__cfg">chnl_cfg</a>)</td></tr>
+<tr class="memitem:a895243e5bea518e3d1ab618675381d71" id="r_a895243e5bea518e3d1ab618675381d71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a895243e5bea518e3d1ab618675381d71">adc_temp_cfg</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *adc_regs, <a class="el" href="_m_c_u___c_t_r_l___r_e_g_s_8h.html#struct_m_c_u___c_t_r_l___r_e_g_s__s">MCU_CTRL_REGS_s</a> *mcu_regs, <a class="el" href="group___v_r_e_f___m_e_m_o_r_y___m_a_p.html#struct_v_r_e_f___r_e_g_s__s">VREF_REGS_s</a> *vref_regs, <a class="el" href="adc_8h.html#structadc__single__ch__conv__cfg__s">adc_single_ch_conv_cfg_s</a> adc_single_ch, <a class="el" href="adc_8h.html#structadc__chnl__cfg__s">adc_chnl_cfg_s</a> <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html#structchnl__cfg">chnl_cfg</a>)</td></tr>
 <tr class="memdesc:a895243e5bea518e3d1ab618675381d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function configures ADC for temp sensor application.  <br /></td></tr>
-<tr class="memitem:aec5e2d236c031418b6e82abfbca53fbe" id="r_aec5e2d236c031418b6e82abfbca53fbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec5e2d236c031418b6e82abfbca53fbe">adc_batt_mon_cfg</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *adc_regs, <a class="el" href="_m_c_u___c_t_r_l___r_e_g_s_8h.html#struct_m_c_u___c_t_r_l___r_e_g_s__s">MCU_CTRL_REGS_s</a> *mcu_regs, <a class="el" href="group___v_r_e_f___m_e_m_o_r_y___m_a_p.html#struct_v_r_e_f___r_e_g_s__s">VREF_REGS_s</a> *vref_regs, <a class="el" href="adc_8h.html#structadc__single__ch__conv__cfg__s">adc_single_ch_conv_cfg_s</a> adc_single_ch, <a class="el" href="adc_8h.html#structadc__chnl__cfg__s">adc_chnl_cfg_s</a> <a class="el" href="event__fabric_8h.html#structchnl__cfg">chnl_cfg</a>)</td></tr>
+<tr class="memitem:aec5e2d236c031418b6e82abfbca53fbe" id="r_aec5e2d236c031418b6e82abfbca53fbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec5e2d236c031418b6e82abfbca53fbe">adc_batt_mon_cfg</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *adc_regs, <a class="el" href="_m_c_u___c_t_r_l___r_e_g_s_8h.html#struct_m_c_u___c_t_r_l___r_e_g_s__s">MCU_CTRL_REGS_s</a> *mcu_regs, <a class="el" href="group___v_r_e_f___m_e_m_o_r_y___m_a_p.html#struct_v_r_e_f___r_e_g_s__s">VREF_REGS_s</a> *vref_regs, <a class="el" href="adc_8h.html#structadc__single__ch__conv__cfg__s">adc_single_ch_conv_cfg_s</a> adc_single_ch, <a class="el" href="adc_8h.html#structadc__chnl__cfg__s">adc_chnl_cfg_s</a> <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html#structchnl__cfg">chnl_cfg</a>)</td></tr>
 <tr class="memdesc:aec5e2d236c031418b6e82abfbca53fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function configures ADC for battery monitor application.  <br /></td></tr>
 <tr class="memitem:a460e9a4ea4840f4defd438fd9bafea6d" id="r_a460e9a4ea4840f4defd438fd9bafea6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a460e9a4ea4840f4defd438fd9bafea6d">adc_samp_timer_cfg</a> (<a class="el" href="group___a_d_c___m_e_m_o_r_y___m_a_p.html#struct_a_d_c___r_e_g_s__s">ADC_REGS_s</a> *regs, uint32_t in_clk_freq, uint32_t exp_samp_rate)</td></tr>
 <tr class="memdesc:a460e9a4ea4840f4defd438fd9bafea6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function configures ADC sampling timer.  <br /></td></tr>
@@ -209,7 +209,7 @@ Functions</h2></td></tr>
 <p>This function configures the ADC clock. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">clk_cfg</td><td>: clock configuration struct</td></tr>
   </table>
   </dd>
@@ -247,8 +247,8 @@ Functions</h2></td></tr>
 <p>This function configures the ADC channel. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
-    <tr><td class="paramname"><a class="el" href="event__fabric_8h.html#structchnl__cfg">chnl_cfg</a></td><td>: channel configuration struct</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname"><a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html#structchnl__cfg" title="Event Fabric Channel Configuration Struct.">chnl_cfg</a></td><td>: channel configuration struct</td></tr>
   </table>
   </dd>
 </dl>
@@ -285,7 +285,7 @@ Functions</h2></td></tr>
 <p>This function configures the ADC channel. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">data_channel</td><td>: data channel register that contains ADC result</td></tr>
   </table>
   </dd>
@@ -323,7 +323,7 @@ Functions</h2></td></tr>
 <p>This function configures the ADC DMA. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">dma_cfg</td><td>: DMA configuration struct</td></tr>
   </table>
   </dd>
@@ -361,7 +361,7 @@ Functions</h2></td></tr>
 <p>This function configures the ADC Result registers for FIFO operation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">fifo_en</td><td>: enables FIFO mode.</td></tr>
   </table>
   </dd>
@@ -399,7 +399,7 @@ Functions</h2></td></tr>
 <p>This function generates software trig. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">sw_trig</td><td>: enables FIFO mode.</td></tr>
   </table>
   </dd>
@@ -449,7 +449,7 @@ Here is the caller graph for this function:</div>
 <p>This function configures ADC for single channel operation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">adc_single_ch</td><td>: ADC single channel configuration struct</td></tr>
   </table>
   </dd>
@@ -487,7 +487,7 @@ Here is the caller graph for this function:</div>
 <p>This function configures ADC for multi channel operation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">adc_multi_ch</td><td>: ADC single channel configuration struct</td></tr>
   </table>
   </dd>
@@ -525,7 +525,7 @@ Here is the caller graph for this function:</div>
 <p>This function enables ADC conversion. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">en_conv</td><td>: ADC single channel configuration struct</td></tr>
   </table>
   </dd>
@@ -680,7 +680,7 @@ Here is the caller graph for this function:</div>
 <p>This function configures ADC sampling timer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">in_clk_freq</td><td>: clock frequency to ADC' </td></tr>
     <tr><td class="paramname">exp_samp_rate</td><td>: desired sampling rate of ADC</td></tr>
   </table>
@@ -719,7 +719,7 @@ Here is the caller graph for this function:</div>
 <p>This function configures ADC for hardware averaging mode. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">adc_hw_cfg</td><td>: ADC hardware averaging configuration struct</td></tr>
   </table>
   </dd>
@@ -753,7 +753,7 @@ Here is the caller graph for this function:</div>
 <p>This function returns ADC clock configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -790,7 +790,7 @@ Here is the caller graph for this function:</div>
 <p>This function returns ADC channel configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space </td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space </td></tr>
     <tr><td class="paramname">data_channel</td><td>: data channel for which channel configuration is required.</td></tr>
   </table>
   </dd>
@@ -824,7 +824,7 @@ Here is the caller graph for this function:</div>
 <p>This function returns ADC DMA configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -857,7 +857,7 @@ Here is the caller graph for this function:</div>
 <p>This function returns ADC result register configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -890,7 +890,7 @@ Here is the caller graph for this function:</div>
 <p>This function returns ADC software trigger configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -933,7 +933,7 @@ Here is the call graph for this function:</div>
 <p>This function returns ADC single channel configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -966,7 +966,7 @@ Here is the call graph for this function:</div>
 <p>This function returns ADC multi channel configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -999,7 +999,7 @@ Here is the call graph for this function:</div>
 <p>This function returns ADC enable conversion status. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -1032,7 +1032,7 @@ Here is the call graph for this function:</div>
 <p>This function returns ADC timer configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>
@@ -1065,7 +1065,7 @@ Here is the call graph for this function:</div>
 <p>This function returns ADC hardware averaging configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">adc_regs</td><td>: pointer to the ADC register space</td></tr>
+    <tr><td class="paramname">regs</td><td>: pointer to the ADC register space</td></tr>
   </table>
   </dd>
 </dl>

@@ -55,11 +55,10 @@ var searchData=
   ['underflow_5ferr_5fen_52',['underflow_err_en',['../group___u_a_r_t___i_n_t_r___e_n0___r_e_g.html#a80335cff218b62e2df0744b227f0780d',1,'UART_INTR_EN0_REG_s']]],
   ['underflow_5ferr_5fnmi_5fen_53',['underflow_err_nmi_en',['../group___u_a_r_t___i_n_t_r___n_m_i___e_n0___r_e_g.html#acd7b7b8b493f6e9ba53671e6097417a5',1,'UART_INTR_NMI_EN0_REG_s']]],
   ['underflow_5ferr_5fsw_5fset_54',['underflow_err_sw_set',['../group___u_a_r_t___i_n_t_r___s_w___s_e_t___r_e_g.html#a3853a74d5ea6bd0441de1f7ba1220dae',1,'UART_INTR_SW_SET_REG_s']]],
-  ['unexpected_5fstop_55',['unexpected_stop',['../i2c__structs_8h.html#adfae2da29b659cccd24c477ceba5f372',1,'I2C_TX_FIFO_REF_DATA_s']]],
-  ['use_5fclk_5fpll_56',['use_clk_pll',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#aadc74f742b93acd0a73d6fc2642781f6',1,'MCU_CTRL_HF_CLK_CTRL_REG_s']]],
-  ['use_5fhf_5fosc_57',['use_hf_osc',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a4da80a1bc185d3d3d8253281f1101687',1,'MCU_CTRL_HF_CLK_CTRL_REG_s']]],
-  ['use_5flf_5fclk_58',['use_lf_clk',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a982c72e6f1ba548d56285ea2a9a035cc',1,'MCU_CTRL_AHB_HCLK_CTRL_REG_s']]],
-  ['use_5flf_5fclk_5fsm_5fovrd_5fen_59',['use_lf_clk_sm_ovrd_en',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#abbd396b9439fa8a9cc0e5573d8406768',1,'MCU_CTRL_PWR_SM_OVRD_CTL_REG_s']]],
-  ['use_5flf_5fclk_5fsm_5fovrd_5fval_60',['use_lf_clk_sm_ovrd_val',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a0b92d955ff90b5b8c1fe7ba511ed8a2f',1,'MCU_CTRL_PWR_SM_OVRD_CTL_REG_s']]],
-  ['use_5fprecision_5fclk_61',['use_precision_clk',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#adec67ca5d8882f0531b84de6c9bacc3d',1,'MCU_CTRL_HF_CLK_CTRL_REG_s']]]
+  ['use_5fclk_5fpll_55',['use_clk_pll',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#aadc74f742b93acd0a73d6fc2642781f6',1,'MCU_CTRL_HF_CLK_CTRL_REG_s']]],
+  ['use_5fhf_5fosc_56',['use_hf_osc',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a4da80a1bc185d3d3d8253281f1101687',1,'MCU_CTRL_HF_CLK_CTRL_REG_s']]],
+  ['use_5flf_5fclk_57',['use_lf_clk',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a982c72e6f1ba548d56285ea2a9a035cc',1,'MCU_CTRL_AHB_HCLK_CTRL_REG_s']]],
+  ['use_5flf_5fclk_5fsm_5fovrd_5fen_58',['use_lf_clk_sm_ovrd_en',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#abbd396b9439fa8a9cc0e5573d8406768',1,'MCU_CTRL_PWR_SM_OVRD_CTL_REG_s']]],
+  ['use_5flf_5fclk_5fsm_5fovrd_5fval_59',['use_lf_clk_sm_ovrd_val',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#a0b92d955ff90b5b8c1fe7ba511ed8a2f',1,'MCU_CTRL_PWR_SM_OVRD_CTL_REG_s']]],
+  ['use_5fprecision_5fclk_60',['use_precision_clk',['../_m_c_u___c_t_r_l___r_e_g_s_8h.html#adec67ca5d8882f0531b84de6c9bacc3d',1,'MCU_CTRL_HF_CLK_CTRL_REG_s']]]
 ];
