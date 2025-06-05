@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup VREF
  *  @{
  */
@@ -318,5 +321,5 @@ typedef enum {
 
 /** @} end of VREF */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

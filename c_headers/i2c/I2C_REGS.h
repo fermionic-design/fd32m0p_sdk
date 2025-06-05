@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup I2C
  *  @{
  */
@@ -1580,5 +1583,5 @@ typedef enum {
 
 /** @} end of I2C */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

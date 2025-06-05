@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup UART
  *  @{
  */
@@ -1368,5 +1371,5 @@ typedef enum {
 
 /** @} end of UART */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

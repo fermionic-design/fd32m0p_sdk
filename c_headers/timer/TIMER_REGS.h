@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup TIMER
  *  @{
  */
@@ -3285,5 +3288,5 @@ typedef enum {
 
 /** @} end of TIMER */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

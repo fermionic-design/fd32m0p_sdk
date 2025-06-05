@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup CRC
  *  @{
  */
@@ -215,5 +218,5 @@ typedef enum {
 
 /** @} end of CRC */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

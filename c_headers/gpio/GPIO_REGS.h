@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup GPIO
  *  @{
  */
@@ -1905,5 +1908,5 @@ typedef enum {
 
 /** @} end of GPIO */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup DAC
  *  @{
  */
@@ -690,5 +693,5 @@ typedef enum {
 
 /** @} end of DAC */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup FLASH
  *  @{
  */
@@ -370,5 +373,5 @@ typedef enum {
 
 /** @} end of FLASH */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

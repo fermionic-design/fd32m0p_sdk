@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup DMA
  *  @{
  */
@@ -1841,5 +1844,5 @@ typedef enum {
 
 /** @} end of DMA */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

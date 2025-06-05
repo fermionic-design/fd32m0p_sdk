@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup EVENT_FABRIC
  *  @{
  */
@@ -291,5 +294,5 @@ typedef enum {
 
 /** @} end of EVENT_FABRIC */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif

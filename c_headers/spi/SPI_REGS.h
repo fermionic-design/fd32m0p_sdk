@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
 /** @defgroup SPI
  *  @{
  */
@@ -1070,5 +1073,5 @@ typedef enum {
 
 /** @} end of SPI */
 
-
+/** @} end of group FD32M0P_Peripherals */
 #endif
