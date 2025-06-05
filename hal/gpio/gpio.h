@@ -1,3 +1,11 @@
+/** @addtogroup GPIO
+ *  @{
+ */
+
+/** @defgroup GPIO_HAL
+ *  @{
+ */
+
 #ifndef gpio_h_include
 #define gpio_h_include
 
@@ -230,3 +238,6 @@ uint32_t get_gpio_dout(GPIO_REGS_s *regs);
 uint32_t get_gpio_dout_pinwise(GPIO_REGS_s *regs, uint32_t pin_num);
 
 #endif
+
+/** @} */
+/** @} */
