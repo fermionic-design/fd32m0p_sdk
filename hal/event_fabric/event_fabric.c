@@ -13,9 +13,6 @@ void event_fabric_pub_to_sub_channel_cfg(EVENT_FABRIC_REGS_s * registers, EVENT_
 
 
 void get_dma_full_chnl_cfg(EVENT_FABRIC_REGS_s * registers, chnl_cfg * chnl){
-        uint32_t    sub_chan_id;
-        uint32_t    pub_chan_id;
-
         for(int i=0; i<DMA_CHANNELS;i++){
             chnl[i].pub = registers->DMA_PUB[i].packed_w;
             chnl[i].sub = i; 

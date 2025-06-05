@@ -21,8 +21,15 @@
  *      Release Information : Cortex-M System Design Kit-r1p1-00rel0
  *-----------------------------------------------------------------------------
  */
-/* Functions for stdout during simulation */
-/* The functions are implemented in top/verification/c_api/event_fabric/event_fabric_CAPI.h */
+
+/** @addtogroup EVENT_FABRIC 
+ *  @{
+ */
+
+/** @defgroup EVENT_FABRIC_HAL
+ *  @{
+ */
+
 #ifndef event_h_include
 #define event_h_include
 #include "EVENT_FABRIC_REGS.h"
@@ -30,6 +37,9 @@
 
 #define EVENT_FABRIC_REGS   ((EVENT_FABRIC_REGS_s *)      0x3FFC3000)     // EVENT_FABRIC_REGS Common APB Address Space
 
+/*!
+ *  @brief Event Fabric Publisher ID Enum
+ */
 typedef enum {
     EVENT_FABRIC_PUB_ID_ADC_0       = 0,
     EVENT_FABRIC_PUB_ID_ADC_1       = 1,
@@ -55,6 +65,9 @@ typedef enum {
     EVENT_FABRIC_PUB1_ID_TIM_G_4    = 23,
 } EVENT_FABRIC_PUB_ID_E;
 
+/*!
+ *  @brief Event Fabric Subscriber ID Enum
+ */
 typedef enum {
     EVENT_FABRIC_SUB_ID_ADC_0       = 0,
     EVENT_FABRIC_SUB_ID_ADC_1       = 1,
@@ -82,7 +95,10 @@ typedef enum {
     EVENT_FABRIC_SUB0_ID_TIM_G_4    = 23,
     EVENT_FABRIC_SUB1_ID_TIM_G_4    = 24,
 } EVENT_FABRIC_SUB_ID_E;
-                             
+
+/*!
+ *  @brief Event Fabric Channel ID Enum 
+ */
 typedef enum {
 	EVENT_FABRIC_CHAN_ID_DISCONNECT = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_DISCONNECT,
 	EVENT_FABRIC_CHAN_ID_1          = 	EVENT_FABRIC_GEN_SUB_CHAN_ID_1,
@@ -106,23 +122,51 @@ typedef enum {
 #define DMA_FABRIC                      1
 
 #define DMA_CHANNELS                    16
-#define EVENT_FABRIC_CHANNELS           26
+#define EVENT_FABRIC_CHANNELS           15
 #define EVENT_FABRIC_NUMBER_OF_PUB      23
 #define EVENT_FABRIC_NUMBER_OF_SUB      24
 
 
+/*!
+ *  @brief Event Fabric Channel Configuration Struct
+ */
 typedef struct chnl_cfg {
-   uint8_t pub;
-   uint8_t sub;
+   EVENT_FABRIC_PUB_ID_E pub;
+   EVENT_FABRIC_SUB_ID_E sub;
 } chnl_cfg;
 
-
+/**
+ * @brief   Configures a Publisher to a specific DMA Channel
+ * @param   registers: pointer to the EVENT_FABRIC_REGS_s 
+ * @param   pub_id: Publisher ID needed to be configured 
+ * @param   chan_id: DMA Channel ID which you want the Publisher to publish an event to
+ */
 extern void event_fabric_pub_to_dma_channel_cfg     (EVENT_FABRIC_REGS_s * registers, EVENT_FABRIC_DMA_PUB_EVENT_ID_E pub_id, uint32_t chan_id);
 
+/**
+ * @brief   Configures an Event Channel to the specified Publisher and Subscriber Pair
+ * @param   registers: pointer to the EVENT_FABRIC_REGS_s 
+ * @param   pub_id: Publisher ID needed to be configured on specified Event Channel
+ * @param   sub_id: Subscriber ID needed to be configured on specified Event Channel
+ * @param   chan_id: Event Channel ID on which the Publisher Subscriber pair needs to be configured 
+ */
 extern void event_fabric_pub_to_sub_channel_cfg     (EVENT_FABRIC_REGS_s * registers, EVENT_FABRIC_PUB_ID_E pub_id, EVENT_FABRIC_SUB_ID_E sub_id, EVENT_FABRIC_CHAN_ID_E chan_id);
 
+/**
+ * @brief   Get the current configuration of all Event Channels  
+ * @param   registers: pointer to the EVENT_FABRIC_REGS_s 
+ * @param   chnl: channel configuration array of structs having the configuration of all Event channels 
+ */
 extern void get_event_fabric_full_chnl_cfg          (EVENT_FABRIC_REGS_s * registers, chnl_cfg* chnl);
 
+/**
+ * @brief   Get the current configuration of all DMA Channels  
+ * @param   registers: pointer to the EVENT_FABRIC_REGS_s 
+ * @param   chnl: channel configuration array of structs having the configuration of all DMA channels 
+ */
 extern void get_dma_full_chnl_cfg                   (EVENT_FABRIC_REGS_s * registers, chnl_cfg* chnl);
 
 #endif
+/** @} */
+/** @} */
+
