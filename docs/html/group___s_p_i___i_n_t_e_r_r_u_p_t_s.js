@@ -1,14 +1,16 @@
 var group___s_p_i___i_n_t_e_r_r_u_p_t_s =
 [
-    [ "SPI_INTR_EVENT_RX_FIFO_OVERFLOW_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga2d0c58fde9875394300c712093c0482e", null ],
-    [ "SPI_INTR_EVENT_PARITY_ERROR_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga249cd0d8044d2022835405abd02093c6", null ],
-    [ "SPI_INTR_EVENT_RX_TIMEOUT_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga4ddb712b707bd879367a92f135183273", null ],
-    [ "SPI_INTR_EVENT_RX_FIFO_TRG_LVL_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga4ade33ef935bafe70cd47171d1d8c847", null ],
-    [ "SPI_INTR_EVENT_TX_FIFO_TRG_LVL_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gacf5270b08640af112bc5518eb85a1d75", null ],
-    [ "SPI_INTR_EVENT_TX_FIFO_EMPTY_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga90e413919e44e90af1bbfb48b5484d24", null ],
-    [ "SPI_INTR_EVENT_IDLE_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga9096b10a64f5d8ce2b0872b3c0dd9637", null ],
-    [ "SPI_INTR_EVENT_RX_DMA_DONE_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga3403fe0d8caef5991388ec2a5e12b063", null ],
-    [ "SPI_INTR_EVENT_TX_DMA_DONE_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga7781ed812dcaa40baeebfa6accc3affb", null ],
-    [ "SPI_INTR_EVENT_TX_FIFO_UNDERFLOW_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga6155b8ecbfc5ad4bce52030c6eb024d4", null ],
-    [ "SPI_INTR_EVENT_RX_FIFO_FULL_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga08b9db601055074b2305beee23bac5c4", null ]
+    [ "SPI_INTR_EVENT_E", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#ga6f7a148e399a1c80836e1f6831671b56", [
+      [ "SPI_INTR_EVENT_RX_FIFO_OVERFLOW_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a0a5fffddf53671f873d05a19431baada", null ],
+      [ "SPI_INTR_EVENT_PARITY_ERROR_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a81ea14e4fec1e957755128a72a173806", null ],
+      [ "SPI_INTR_EVENT_RX_TIMEOUT_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56aea7ecadf7bfce08711fda223057ca8b1", null ],
+      [ "SPI_INTR_EVENT_RX_FIFO_TRG_LVL_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a58e9797d4abd1ea1c8ad08fc402bc0f4", null ],
+      [ "SPI_INTR_EVENT_TX_FIFO_TRG_LVL_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a853de50c24e1059fc0a418452db6306b", null ],
+      [ "SPI_INTR_EVENT_TX_FIFO_EMPTY_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a990c63908ebe40f75b2b84fee449135a", null ],
+      [ "SPI_INTR_EVENT_IDLE_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56adcc5c4d1339204b9c3e4b3741e3b3e53", null ],
+      [ "SPI_INTR_EVENT_RX_DMA_DONE_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a7bf39a5baa783b0a5be3cc474232b5eb", null ],
+      [ "SPI_INTR_EVENT_TX_DMA_DONE_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a239810e71720ee7d0a1187a66443ad5a", null ],
+      [ "SPI_INTR_EVENT_TX_FIFO_UNDERFLOW_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a39f19edcb894c9d0ac28546d33a324f3", null ],
+      [ "SPI_INTR_EVENT_RX_FIFO_FULL_IDX", "group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a0a46f847bc422c29ee9d433d168e70c1", null ]
+    ] ]
 ];

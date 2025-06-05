@@ -11,5 +11,6 @@ var searchData=
   ['uart_5fctrl_5fuart_5fmsb_5fe_8',['UART_CTRL_UART_MSB_E',['../group___u_a_r_t___c_t_r_l___r_e_g.html#gaf93cdb2eb483c7f6674b8743985e9f83',1,'UART_REGS.h']]],
   ['uart_5ffifols_5frx_5ffifo_5fls_5fe_9',['UART_FIFOLS_RX_FIFO_LS_E',['../group___u_a_r_t___f_i_f_o_l_s___r_e_g.html#ga1d908506b8f312472785cbaffec2c94b',1,'UART_REGS.h']]],
   ['uart_5ffifols_5ftx_5ffifo_5fls_5fe_10',['UART_FIFOLS_TX_FIFO_LS_E',['../group___u_a_r_t___f_i_f_o_l_s___r_e_g.html#ga5021431c8a67e0248501054aa7dc0bc0',1,'UART_REGS.h']]],
-  ['uart_5ffsm_5fsts_5ftx_5fstate_5fe_11',['UART_FSM_STS_TX_STATE_E',['../group___u_a_r_t___f_s_m___s_t_s___r_e_g.html#gac48ea8f2ec6a6d8899066080a8f6b887',1,'UART_REGS.h']]]
+  ['uart_5ffsm_5fsts_5ftx_5fstate_5fe_11',['UART_FSM_STS_TX_STATE_E',['../group___u_a_r_t___f_s_m___s_t_s___r_e_g.html#gac48ea8f2ec6a6d8899066080a8f6b887',1,'UART_REGS.h']]],
+  ['uart_5fintr_5fevent_5fe_12',['UART_INTR_EVENT_E',['../group___u_a_r_t___i_n_t_e_r_r_u_p_t_s.html#ga9364cbbbd07f611b2a0efbe5de285d92',1,'UART_REGS.h']]]
 ];

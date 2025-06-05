@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['zero_5fact_0',['zero_act',['../timer_8h.html#a206984d838c0c01b2acfe0b875cbfb53',1,'timer_pwm_output_channel_action_cfg_t']]],
-  ['zero_5fcond_1',['zero_cond',['../timer_8h.html#a5f1df3bb2238ddd286a3b6dc3e5b191d',1,'timer_capture_channel_ctrl_t']]],
-  ['zero_5fcond_5f0_2',['zero_cond_0',['../group___t_i_m_e_r___c_c0___c_a_p_t_u_r_e___c_t_r_l___r_e_g.html#a7394257405906b2e20786f52eeed8b17',1,'TIMER_CC0_CAPTURE_CTRL_REG_s::zero_cond_0'],['../_t_i_m_e_r___t_i_m_g___n_u_m___i_n_p_u_t2___r_e_g_s_8h.html#ac70d32ccbe6943c381950bd08eeb04aa',1,'TIMER_TIMG_NUM_INPUT2_CC0_CAPTURE_CTRL_REG_s::zero_cond_0']]],
-  ['zero_5fcond_5f1_3',['zero_cond_1',['../group___t_i_m_e_r___c_c1___c_a_p_t_u_r_e___c_t_r_l___r_e_g.html#ae1144ca03b4b592a15b0d2fc7ca21386',1,'TIMER_CC1_CAPTURE_CTRL_REG_s::zero_cond_1'],['../_t_i_m_e_r___t_i_m_g___n_u_m___i_n_p_u_t2___r_e_g_s_8h.html#aa0ad0393e6d3ca86c76835d3b0f48e37',1,'TIMER_TIMG_NUM_INPUT2_CC1_CAPTURE_CTRL_REG_s::zero_cond_1']]],
-  ['zero_5fcond_5f2_4',['zero_cond_2',['../group___t_i_m_e_r___c_c2___c_a_p_t_u_r_e___c_t_r_l___r_e_g.html#a7178c6d6414f5731785bfbd0a5ae70cb',1,'TIMER_CC2_CAPTURE_CTRL_REG_s']]],
-  ['zero_5fcond_5f3_5',['zero_cond_3',['../group___t_i_m_e_r___c_c3___c_a_p_t_u_r_e___c_t_r_l___r_e_g.html#a860e3f191bb4ad899d26fb70025ea51e',1,'TIMER_CC3_CAPTURE_CTRL_REG_s']]]
+  ['year_5fctl_0',['YEAR_CTL',['../_r_t_c___r_e_g_s_8h.html#a6b325b3f30bbc73a9fbab601bd3cca05',1,'RTC_REGS_s']]],
+  ['yr_5fbin_1',['yr_bin',['../_r_t_c___r_e_g_s_8h.html#ab177689bfa95bf2326606603ef21b82e',1,'RTC_YEAR_CTL_REG_s']]],
+  ['yr_5fcent_5fhigh_5fbcd_2',['yr_cent_high_bcd',['../_r_t_c___r_e_g_s_8h.html#a43d1c4737ed5f2a5ec92e439c252dd00',1,'RTC_YEAR_CTL_REG_s']]],
+  ['yr_5fcent_5flow_5fbcd_3',['yr_cent_low_bcd',['../_r_t_c___r_e_g_s_8h.html#ac239c65c8f65a68e92791ec940b70120',1,'RTC_YEAR_CTL_REG_s']]],
+  ['yr_5fdecade_5fbcd_4',['yr_decade_bcd',['../_r_t_c___r_e_g_s_8h.html#af6e8532d008299b957f75c8fc5932a03',1,'RTC_YEAR_CTL_REG_s']]],
+  ['yr_5flsb_5fbcd_5',['yr_lsb_bcd',['../_r_t_c___r_e_g_s_8h.html#a2b55a40a1722996fb5c4c707eae8c6cb',1,'RTC_YEAR_CTL_REG_s']]],
+  ['yr_5frtc_5frdy_6',['yr_rtc_rdy',['../_r_t_c___r_e_g_s_8h.html#a795e9fc2d38c49cf4c3ed3cdaf8689cd',1,'RTC_YEAR_CTL_REG_s']]]
 ];

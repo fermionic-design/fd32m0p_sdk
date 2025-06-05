@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['spi_5fclksel_5fclk_5fsel_5fclk_5f4mhz_0',['SPI_CLKSEL_CLK_SEL_CLK_4MHZ',['../group___s_p_i___c_l_k_s_e_l___r_e_g.html#ggad041789c3dec674762b52ea7cb641e6ea3fd4db57335b738d3d78b12950bf3c1f',1,'SPI_REGS.h']]],
+  ['spi_5fclksel_5fclk_5fsel_5fclk_5flf_1',['SPI_CLKSEL_CLK_SEL_CLK_LF',['../group___s_p_i___c_l_k_s_e_l___r_e_g.html#ggad041789c3dec674762b52ea7cb641e6eae11555614535789569902a6ea32c9a7d',1,'SPI_REGS.h']]],
+  ['spi_5fclksel_5fclk_5fsel_5fclk_5fspi_2',['SPI_CLKSEL_CLK_SEL_CLK_SPI',['../group___s_p_i___c_l_k_s_e_l___r_e_g.html#ggad041789c3dec674762b52ea7cb641e6ea2db05968e58a2d1f4d08ad5b334edb00',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5fidle_5fidx_3',['SPI_INTR_EVENT_IDLE_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56adcc5c4d1339204b9c3e4b3741e3b3e53',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5fparity_5ferror_5fidx_4',['SPI_INTR_EVENT_PARITY_ERROR_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a81ea14e4fec1e957755128a72a173806',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5frx_5fdma_5fdone_5fidx_5',['SPI_INTR_EVENT_RX_DMA_DONE_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a7bf39a5baa783b0a5be3cc474232b5eb',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5frx_5ffifo_5ffull_5fidx_6',['SPI_INTR_EVENT_RX_FIFO_FULL_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a0a46f847bc422c29ee9d433d168e70c1',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5frx_5ffifo_5foverflow_5fidx_7',['SPI_INTR_EVENT_RX_FIFO_OVERFLOW_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a0a5fffddf53671f873d05a19431baada',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5frx_5ffifo_5ftrg_5flvl_5fidx_8',['SPI_INTR_EVENT_RX_FIFO_TRG_LVL_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a58e9797d4abd1ea1c8ad08fc402bc0f4',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5frx_5ftimeout_5fidx_9',['SPI_INTR_EVENT_RX_TIMEOUT_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56aea7ecadf7bfce08711fda223057ca8b1',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5ftx_5fdma_5fdone_5fidx_10',['SPI_INTR_EVENT_TX_DMA_DONE_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a239810e71720ee7d0a1187a66443ad5a',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5ftx_5ffifo_5fempty_5fidx_11',['SPI_INTR_EVENT_TX_FIFO_EMPTY_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a990c63908ebe40f75b2b84fee449135a',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5ftx_5ffifo_5ftrg_5flvl_5fidx_12',['SPI_INTR_EVENT_TX_FIFO_TRG_LVL_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a853de50c24e1059fc0a418452db6306b',1,'SPI_REGS.h']]],
+  ['spi_5fintr_5fevent_5ftx_5ffifo_5funderflow_5fidx_13',['SPI_INTR_EVENT_TX_FIFO_UNDERFLOW_IDX',['../group___s_p_i___i_n_t_e_r_r_u_p_t_s.html#gga6f7a148e399a1c80836e1f6831671b56a39f19edcb894c9d0ac28546d33a324f3',1,'SPI_REGS.h']]],
+  ['spi_5firqn_14',['SPI_IRQn',['../group___f_d32_m0_p___c_m_s_i_s.html#gga7e1129cd8a196f4284d41db3e82ad5c8a8f5f99956cf9765f17bcba6865b93ce2',1,'FD32M0P.h']]],
+  ['spi_5fmode_5fctrl_5fframe_5fformat_5fmotorola_15',['SPI_MODE_CTRL_FRAME_FORMAT_MOTOROLA',['../group___s_p_i___m_o_d_e___c_t_r_l___r_e_g.html#gga24c6b489f73727283185b4c1908396b6a67e212ee0d28f27e0eeed2db0efc325a',1,'SPI_REGS.h']]],
+  ['spi_5fmode_5fctrl_5fframe_5fformat_5fti_16',['SPI_MODE_CTRL_FRAME_FORMAT_TI',['../group___s_p_i___m_o_d_e___c_t_r_l___r_e_g.html#gga24c6b489f73727283185b4c1908396b6a441d5ebcf46cd15bba9f040267f71559',1,'SPI_REGS.h']]],
+  ['spi_5fmode_5fctrl_5fperipheral_5fmode_5fcontroller_17',['SPI_MODE_CTRL_PERIPHERAL_MODE_CONTROLLER',['../group___s_p_i___m_o_d_e___c_t_r_l___r_e_g.html#gga1e32835732352b8c962820ed77d6f25aaf62aed1cc89178140e452eb1e1f4be58',1,'SPI_REGS.h']]],
+  ['spi_5fmode_5fctrl_5fperipheral_5fmode_5fperipheral_18',['SPI_MODE_CTRL_PERIPHERAL_MODE_PERIPHERAL',['../group___s_p_i___m_o_d_e___c_t_r_l___r_e_g.html#gga1e32835732352b8c962820ed77d6f25aa1adec42264296105867802f9780c32dd',1,'SPI_REGS.h']]],
+  ['spi_5fmot_5fmod_5fcntrl_5fclock_5fphase_5fleading_19',['SPI_MOT_MOD_CNTRL_CLOCK_PHASE_LEADING',['../group___s_p_i___m_o_t___m_o_d___c_n_t_r_l___r_e_g.html#gga4a0f15d6355da727a1424e11dda40a4dafe18c03c70af65e49ed23022c1a2cec2',1,'SPI_REGS.h']]],
+  ['spi_5fmot_5fmod_5fcntrl_5fclock_5fphase_5ftrailing_20',['SPI_MOT_MOD_CNTRL_CLOCK_PHASE_TRAILING',['../group___s_p_i___m_o_t___m_o_d___c_n_t_r_l___r_e_g.html#gga4a0f15d6355da727a1424e11dda40a4dacbc4415f43da0f4bc579868a249006de',1,'SPI_REGS.h']]],
+  ['spi_5fmot_5fmod_5fcntrl_5fclock_5fpolarity_5fhigh_21',['SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_HIGH',['../group___s_p_i___m_o_t___m_o_d___c_n_t_r_l___r_e_g.html#gga147fd3c062dbb24b79fc56f4fccfc238a03910d910ddf817af1959014e5949eeb',1,'SPI_REGS.h']]],
+  ['spi_5fmot_5fmod_5fcntrl_5fclock_5fpolarity_5flow_22',['SPI_MOT_MOD_CNTRL_CLOCK_POLARITY_LOW',['../group___s_p_i___m_o_t___m_o_d___c_n_t_r_l___r_e_g.html#gga147fd3c062dbb24b79fc56f4fccfc238adfab706f397c235d92241c7f0a958c04',1,'SPI_REGS.h']]],
+  ['svcall_5firqn_23',['SVCall_IRQn',['../group___f_d32_m0_p___c_m_s_i_s.html#gga7e1129cd8a196f4284d41db3e82ad5c8a4ce820b3cc6cf3a796b41aadc0cf1237',1,'FD32M0P.h']]],
+  ['systick_5firqn_24',['SysTick_IRQn',['../group___f_d32_m0_p___c_m_s_i_s.html#gga7e1129cd8a196f4284d41db3e82ad5c8a6dbff8f8543325f3474cbae2446776e7',1,'FD32M0P.h']]]
+];

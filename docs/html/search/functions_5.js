@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['flash_5fclk_5fctrl_5fwrite_0',['FLASH_CLK_CTRL_WRITE',['../_f_l_a_s_h___r_w___a_p_i_8h.html#ae83b9a266cf587554f445bc7d178c9fe',1,'FLASH_RW_API.h']]],
-  ['flash_5fconfig_1',['flash_config',['../flash_8c.html#a0e5091b9a0f432cab6136b28bd0bf3db',1,'flash_config(FLASH_REGS_s *FLASH_REGS, flash_setting_cfg_e flash_setting_cfg):&#160;flash.c'],['../flash_8h.html#a0e5091b9a0f432cab6136b28bd0bf3db',1,'flash_config(FLASH_REGS_s *FLASH_REGS, flash_setting_cfg_e flash_setting_cfg):&#160;flash.c']]],
-  ['flash_5fctrl_5fwrite_2',['FLASH_CTRL_WRITE',['../_f_l_a_s_h___r_w___a_p_i_8h.html#a1511fcb46ff73e8e7715748a8c3762e3',1,'FLASH_RW_API.h']]],
-  ['flash_5ffactory_5frestore_3',['flash_factory_restore',['../flash_8c.html#a3459d1e6fe739287fddc733a3d3e5280',1,'flash_factory_restore(FLASH_REGS_s *FLASH_REGS):&#160;flash.c'],['../flash_8h.html#a3459d1e6fe739287fddc733a3d3e5280',1,'flash_factory_restore(FLASH_REGS_s *FLASH_REGS):&#160;flash.c']]],
-  ['flash_5fhsize_5fctrl_5fwrite_4',['FLASH_HSIZE_CTRL_WRITE',['../_f_l_a_s_h___r_w___a_p_i_8h.html#a69ac9208f4bbae0ee5e2d4f93584b7fe',1,'FLASH_RW_API.h']]],
-  ['flash_5ftime_5fctrl_5f1_5fwrite_5',['FLASH_TIME_CTRL_1_WRITE',['../_f_l_a_s_h___r_w___a_p_i_8h.html#a4732d9e150bb2f3c7d8ceac9156f0148',1,'FLASH_RW_API.h']]],
-  ['flash_5ftime_5fctrl_5f2_5fwrite_6',['FLASH_TIME_CTRL_2_WRITE',['../_f_l_a_s_h___r_w___a_p_i_8h.html#aa239d20a95fd39eb8dfefd0d6c348638',1,'FLASH_RW_API.h']]],
-  ['flash_5ftime_5fctrl_5fwrite_7',['FLASH_TIME_CTRL_WRITE',['../_f_l_a_s_h___r_w___a_p_i_8h.html#a3e645590075348698c040cfb636a2efd',1,'FLASH_RW_API.h']]],
-  ['flash_5ftime_5fuptd_5fwrite_8',['FLASH_TIME_UPTD_WRITE',['../_f_l_a_s_h___r_w___a_p_i_8h.html#af8f08fdd5f3151d64a80aa5d2183f23e',1,'FLASH_RW_API.h']]]
+  ['event_5ffabric_5fclk_5fctrl_5fwrite_0',['EVENT_FABRIC_CLK_CTRL_WRITE',['../_e_v_e_n_t___f_a_b_r_i_c___r_w___a_p_i_8h.html#a4740a04c227b1395abec2e740403c851',1,'EVENT_FABRIC_RW_API.h']]],
+  ['event_5ffabric_5fdma_5fpub_5fn_5fwrite_1',['EVENT_FABRIC_DMA_PUB_N_WRITE',['../_e_v_e_n_t___f_a_b_r_i_c___r_w___a_p_i_8h.html#a35c516101805e7fa7616ca682f1db9fa',1,'EVENT_FABRIC_RW_API.h']]],
+  ['event_5ffabric_5fgen_5fpub_5fn_5fwrite_2',['EVENT_FABRIC_GEN_PUB_N_WRITE',['../_e_v_e_n_t___f_a_b_r_i_c___r_w___a_p_i_8h.html#ada0f6814112fc3c0584ee31c29dd4035',1,'EVENT_FABRIC_RW_API.h']]],
+  ['event_5ffabric_5fgen_5fsub_5fn_5fwrite_3',['EVENT_FABRIC_GEN_SUB_N_WRITE',['../_e_v_e_n_t___f_a_b_r_i_c___r_w___a_p_i_8h.html#a937835a7e1b66967c8130c5f9a2e96e7',1,'EVENT_FABRIC_RW_API.h']]],
+  ['event_5ffabric_5fpub_5fto_5fdma_5fchannel_5fcfg_4',['event_fabric_pub_to_dma_channel_cfg',['../group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html#ga2d6c178f00beb8a11158c50a0d8f1f39',1,'event_fabric_pub_to_dma_channel_cfg(EVENT_FABRIC_REGS_s *registers, EVENT_FABRIC_DMA_PUB_EVENT_ID_E pub_id, uint32_t chan_id):&#160;event_fabric.c'],['../group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html#ga2d6c178f00beb8a11158c50a0d8f1f39',1,'event_fabric_pub_to_dma_channel_cfg(EVENT_FABRIC_REGS_s *registers, EVENT_FABRIC_DMA_PUB_EVENT_ID_E pub_id, uint32_t chan_id):&#160;event_fabric.c']]],
+  ['event_5ffabric_5fpub_5fto_5fsub_5fchannel_5fcfg_5',['event_fabric_pub_to_sub_channel_cfg',['../group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html#gafe4a7d20a72830767bb4440dd6b13625',1,'event_fabric_pub_to_sub_channel_cfg(EVENT_FABRIC_REGS_s *registers, EVENT_FABRIC_PUB_ID_E pub_id, EVENT_FABRIC_SUB_ID_E sub_id, EVENT_FABRIC_CHAN_ID_E chan_id):&#160;event_fabric.c'],['../group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html#gafe4a7d20a72830767bb4440dd6b13625',1,'event_fabric_pub_to_sub_channel_cfg(EVENT_FABRIC_REGS_s *registers, EVENT_FABRIC_PUB_ID_E pub_id, EVENT_FABRIC_SUB_ID_E sub_id, EVENT_FABRIC_CHAN_ID_E chan_id):&#160;event_fabric.c']]],
+  ['event_5ffabric_5fpwr_5fen_5fwrite_6',['EVENT_FABRIC_PWR_EN_WRITE',['../_e_v_e_n_t___f_a_b_r_i_c___r_w___a_p_i_8h.html#a0ffe568586f1527aac7d1b9eac7482a1',1,'EVENT_FABRIC_RW_API.h']]],
+  ['event_5ffabric_5frst_5fctrl_5fwrite_7',['EVENT_FABRIC_RST_CTRL_WRITE',['../_e_v_e_n_t___f_a_b_r_i_c___r_w___a_p_i_8h.html#a2eec41b2efdea6710c3a0e0d8b920f99',1,'EVENT_FABRIC_RW_API.h']]]
 ];

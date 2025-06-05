@@ -3,14 +3,6 @@ var _d_a_c___r_e_g_s_8h =
     [ "DAC_PWR_EN_PWR_EN_KEY", "group___d_a_c___k_e_y.html#ga3b0dede38891c4246380a094be58b51a", null ],
     [ "DAC_RST_CTRL_RST_KEY", "group___d_a_c___k_e_y.html#gaaaa3adf79568aef45b8b435cacdb7a42", null ],
     [ "DAC_RST_CTRL_RST_STS_CLR_KEY", "group___d_a_c___k_e_y.html#gab61600b0ec5d32cf45ae3f4fa782de64", null ],
-    [ "DAC_INTR_EVENT_DAC_RDY_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#gad5618e34b654d0028fbd88e8c405bc7d", null ],
-    [ "DAC_INTR_EVENT_FIFO_FULL_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ga32115686a4d5b02384c1e3cf53f6a680", null ],
-    [ "DAC_INTR_EVENT_FIFO_ALMOST_FULL_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ga4685d08924c5f51e5d9625f9c5be80e2", null ],
-    [ "DAC_INTR_EVENT_FIFO_EMPTY_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ga5c39a4798d2967dfb57ac26fca82645b", null ],
-    [ "DAC_INTR_EVENT_FIFO_ALMOST_EMPTY_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ga35a58b5407e536dc3f2fd4ff9f5d2ff5", null ],
-    [ "DAC_INTR_EVENT_FIFO_OVERFLOW_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#gab0bb0f405325f8f26e362a52f316bf71", null ],
-    [ "DAC_INTR_EVENT_FIFO_UNDERFLOW_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ga7103ad033579dccd47b686873aa75fe0", null ],
-    [ "DAC_INTR_EVENT_DMA_DONE_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#gaa7308887a36329ab86ef6ca27a2b3b78", null ],
     [ "DAC_DESC_MODULE_TYPE_OFS", "group___d_a_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga9d2c88c155e0e6a71b57c42f43731dcc", null ],
     [ "DAC_DESC_MODULE_TYPE_MASK", "group___d_a_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga58721704d6345e05c8e11744d199624e", null ],
     [ "DAC_DESC_MODUE_SUBTYPE_OFS", "group___d_a_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gaa8f36a35d532ce0e68eda26dd588248d", null ],
@@ -161,6 +153,16 @@ var _d_a_c___r_e_g_s_8h =
     [ "DAC_SPARE_STS_STS0_MASK", "group___d_a_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gac8ff3728f696f672d7f83eb763dcf56d", null ],
     [ "DAC_SPARE_STS_STS1_OFS", "group___d_a_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga578ad8154544a7c3cbb165281b40e77f", null ],
     [ "DAC_SPARE_STS_STS1_MASK", "group___d_a_c___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga15b8d38e605cdc2a19acb572a5526afb", null ],
+    [ "DAC_INTR_EVENT_E", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#gacbca52ebb4eb3d7c996d1db7d5a6174b", [
+      [ "DAC_INTR_EVENT_DAC_RDY_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ggacbca52ebb4eb3d7c996d1db7d5a6174ba8552bcb6e01fc59107e113a3179ff4e2", null ],
+      [ "DAC_INTR_EVENT_FIFO_FULL_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ggacbca52ebb4eb3d7c996d1db7d5a6174ba2f6aa3a0a0ba7aafdf9a22a536021976", null ],
+      [ "DAC_INTR_EVENT_FIFO_ALMOST_FULL_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ggacbca52ebb4eb3d7c996d1db7d5a6174ba672b6f87633b373a5ad2b5c6f34e1b40", null ],
+      [ "DAC_INTR_EVENT_FIFO_EMPTY_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ggacbca52ebb4eb3d7c996d1db7d5a6174baa2f1f40c3eb672c491dd457bcce95ed1", null ],
+      [ "DAC_INTR_EVENT_FIFO_ALMOST_EMPTY_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ggacbca52ebb4eb3d7c996d1db7d5a6174baaac0dd91ad41c2e06ece57ce4694a402", null ],
+      [ "DAC_INTR_EVENT_FIFO_OVERFLOW_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ggacbca52ebb4eb3d7c996d1db7d5a6174ba65730d03137721fe7ae42ecfc972c99a", null ],
+      [ "DAC_INTR_EVENT_FIFO_UNDERFLOW_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ggacbca52ebb4eb3d7c996d1db7d5a6174bae493239ceb15be71dcf9179eea3bc343", null ],
+      [ "DAC_INTR_EVENT_DMA_DONE_IDX", "group___d_a_c___i_n_t_e_r_r_u_p_t_s.html#ggacbca52ebb4eb3d7c996d1db7d5a6174ba0f7d770eacfee4e478924c8b0eecf53f", null ]
+    ] ],
     [ "DAC_CTRL0_RES_E", "group___d_a_c___c_t_r_l0___r_e_g.html#ga1aa130e200b7db22b2285dfb8f79944a", [
       [ "DAC_CTRL0_RES_8BIT", "group___d_a_c___c_t_r_l0___r_e_g.html#gga1aa130e200b7db22b2285dfb8f79944aa1b26b7b9e7a0f3c284434087a59ec94f", null ],
       [ "DAC_CTRL0_RES_13BIT", "group___d_a_c___c_t_r_l0___r_e_g.html#gga1aa130e200b7db22b2285dfb8f79944aa245f02538d40cda8183cbf763a281a1b", null ]

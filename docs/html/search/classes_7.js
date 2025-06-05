@@ -96,5 +96,7 @@ var searchData=
   ['iomux_5fdummy_5fu_93',['IOMUX_DUMMY_u',['../_i_o_m_u_x___r_e_g_s_8h.html#union_i_o_m_u_x___d_u_m_m_y__u',1,'']]],
   ['iomux_5fpa_5freg_5fs_94',['IOMUX_PA_REG_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___p_a___r_e_g__s',1,'']]],
   ['iomux_5fpa_5fu_95',['IOMUX_PA_u',['../_i_o_m_u_x___r_e_g_s_8h.html#union_i_o_m_u_x___p_a__u',1,'']]],
-  ['iomux_5fregs_5fs_96',['IOMUX_REGS_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___r_e_g_s__s',1,'']]]
+  ['iomux_5fregs_5fs_96',['IOMUX_REGS_s',['../_i_o_m_u_x___r_e_g_s_8h.html#struct_i_o_m_u_x___r_e_g_s__s',1,'']]],
+  ['ipsr_5ftype_97',['IPSR_Type',['../group___c_m_s_i_s___c_o_r_e.html#union_i_p_s_r___type',1,'']]],
+  ['ipsr_5ftype_2eb_98',['IPSR_Type.b',['../group___c_m_s_i_s___c_o_r_e.html#struct_i_p_s_r___type_8b',1,'']]]
 ];

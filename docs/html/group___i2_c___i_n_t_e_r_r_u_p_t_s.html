@@ -88,320 +88,95 @@ $(function(){initNavTree('group___i2_c___i_n_t_e_r_r_u_p_t_s.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">I2C_INTERRUPTS <div class="ingroups"><a class="el" href="group___i2_c.html">I2C</a></div></div></div>
+  <div class="headertitle"><div class="title">I2C_INTERRUPTS <div class="ingroups"><a class="el" href="group___f_d32_m0_p___definitions.html">FD32M0P Definitions</a> &raquo; <a class="el" href="group___f_d32_m0_p___peripherals.html">FD32M0P Peripherals</a> &raquo; <a class="el" href="group___i2_c.html">I2C</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:gaab0a26ffd242a438e2b09e8a59b283d4" id="r_gaab0a26ffd242a438e2b09e8a59b283d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaab0a26ffd242a438e2b09e8a59b283d4">I2C_INTR_EVENT_ARB_LOST_IDX</a>&#160;&#160;&#160;(0)</td></tr>
-<tr class="memitem:gaee50dcce00c5f2d4147d4c4cf9d1e4c9" id="r_gaee50dcce00c5f2d4147d4c4cf9d1e4c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaee50dcce00c5f2d4147d4c4cf9d1e4c9">I2C_INTR_EVENT_SLV_GENCALL_INTR_IDX</a>&#160;&#160;&#160;(1)</td></tr>
-<tr class="memitem:ga87009e4ba41fc98feaa8d3c206458421" id="r_ga87009e4ba41fc98feaa8d3c206458421"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga87009e4ba41fc98feaa8d3c206458421">I2C_INTR_EVENT_SLV_START_IDX</a>&#160;&#160;&#160;(2)</td></tr>
-<tr class="memitem:ga2075afdbda57c31aac9d2ffe57e06c7f" id="r_ga2075afdbda57c31aac9d2ffe57e06c7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2075afdbda57c31aac9d2ffe57e06c7f">I2C_INTR_EVENT_SLV_STOP_IDX</a>&#160;&#160;&#160;(3)</td></tr>
-<tr class="memitem:gac86c75139f79e4fc9db4d06d7ebda812" id="r_gac86c75139f79e4fc9db4d06d7ebda812"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac86c75139f79e4fc9db4d06d7ebda812">I2C_INTR_EVENT_TX_DONE_IDX</a>&#160;&#160;&#160;(4)</td></tr>
-<tr class="memitem:gac99b6cf79a67983c0290f4bd912e056d" id="r_gac99b6cf79a67983c0290f4bd912e056d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac99b6cf79a67983c0290f4bd912e056d">I2C_INTR_EVENT_RX_DONE_IDX</a>&#160;&#160;&#160;(5)</td></tr>
-<tr class="memitem:ga5f160d0bcb1c7d7bbc3f07d8e942afd0" id="r_ga5f160d0bcb1c7d7bbc3f07d8e942afd0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5f160d0bcb1c7d7bbc3f07d8e942afd0">I2C_INTR_EVENT_SMBUS_TIMEOUT_IDX</a>&#160;&#160;&#160;(6)</td></tr>
-<tr class="memitem:gad5caa8e4c461981779df21531493c4c7" id="r_gad5caa8e4c461981779df21531493c4c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad5caa8e4c461981779df21531493c4c7">I2C_INTR_EVENT_CLKSTRETCH_TIMEOUT_IDX</a>&#160;&#160;&#160;(7)</td></tr>
-<tr class="memitem:ga8994ba19f66811a097944f8f847fb43f" id="r_ga8994ba19f66811a097944f8f847fb43f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga8994ba19f66811a097944f8f847fb43f">I2C_INTR_EVENT_PEC_ERR_IDX</a>&#160;&#160;&#160;(8)</td></tr>
-<tr class="memitem:gafd0c33923a57a1f722f9cd95be8a1be1" id="r_gafd0c33923a57a1f722f9cd95be8a1be1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafd0c33923a57a1f722f9cd95be8a1be1">I2C_INTR_EVENT_TXFIFO_EMPTY_IDX</a>&#160;&#160;&#160;(9)</td></tr>
-<tr class="memitem:ga5d13cc0a3026212d08c775334b0de514" id="r_ga5d13cc0a3026212d08c775334b0de514"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5d13cc0a3026212d08c775334b0de514">I2C_INTR_EVENT_RXFIFO_FULL_IDX</a>&#160;&#160;&#160;(10)</td></tr>
-<tr class="memitem:gac2de922dc587c4431537a995ab1a7bc0" id="r_gac2de922dc587c4431537a995ab1a7bc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac2de922dc587c4431537a995ab1a7bc0">I2C_INTR_EVENT_TXFIFO_HALF_FULL_IDX</a>&#160;&#160;&#160;(11)</td></tr>
-<tr class="memitem:gaf702eb3b3bbce7e3bc3b6d729cb15340" id="r_gaf702eb3b3bbce7e3bc3b6d729cb15340"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf702eb3b3bbce7e3bc3b6d729cb15340">I2C_INTR_EVENT_RXFIFO_HALF_FULL_IDX</a>&#160;&#160;&#160;(12)</td></tr>
-<tr class="memitem:ga9813a2c4c3d0c9f2923392e69eb08ef7" id="r_ga9813a2c4c3d0c9f2923392e69eb08ef7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9813a2c4c3d0c9f2923392e69eb08ef7">I2C_INTR_EVENT_MST_STOP_INTR_IDX</a>&#160;&#160;&#160;(13)</td></tr>
-<tr class="memitem:gac73eb5535ff0440164f948632bcaa185" id="r_gac73eb5535ff0440164f948632bcaa185"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac73eb5535ff0440164f948632bcaa185">I2C_INTR_EVENT_MST_START_INTR_IDX</a>&#160;&#160;&#160;(14)</td></tr>
-<tr class="memitem:ga824da02a18572a2487b1037446790296" id="r_ga824da02a18572a2487b1037446790296"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga824da02a18572a2487b1037446790296">I2C_INTR_EVENT_MST_NACK_IDX</a>&#160;&#160;&#160;(15)</td></tr>
-<tr class="memitem:gaf8787282fac537cddb43af2b57f1bcf3" id="r_gaf8787282fac537cddb43af2b57f1bcf3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf8787282fac537cddb43af2b57f1bcf3">I2C_INTR_EVENT_DMA_DONE_RX_IDX</a>&#160;&#160;&#160;(16)</td></tr>
-<tr class="memitem:ga23f306204e01b781f0bb38805754d3f7" id="r_ga23f306204e01b781f0bb38805754d3f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga23f306204e01b781f0bb38805754d3f7">I2C_INTR_EVENT_DMA_DONE_TX_IDX</a>&#160;&#160;&#160;(17)</td></tr>
-<tr class="memitem:gabd5963d02e2ba8b710a6f6854a2b7755" id="r_gabd5963d02e2ba8b710a6f6854a2b7755"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gabd5963d02e2ba8b710a6f6854a2b7755">I2C_INTR_EVENT_TXFIFO_ALMOST_EMPTY_INTR_IDX</a>&#160;&#160;&#160;(18)</td></tr>
-<tr class="memitem:gac2994ce18ee1bc432fcd671d1860da78" id="r_gac2994ce18ee1bc432fcd671d1860da78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac2994ce18ee1bc432fcd671d1860da78">I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_IDX</a>&#160;&#160;&#160;(19)</td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga5b75932ddeff8faec7e00c9f0b5aea1f" id="r_ga5b75932ddeff8faec7e00c9f0b5aea1f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5b75932ddeff8faec7e00c9f0b5aea1f">I2C_INTR_EVENT_E</a> { <br />
+&#160;&#160;<a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fabe44b5e419baa5e6bebb0370a60e6d1c">I2C_INTR_EVENT_ARB_LOST_IDX</a> = 0
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa3aed3c3f5bd654b60cc8d8b58e1287b3">I2C_INTR_EVENT_SLV_GENCALL_INTR_IDX</a> = 1
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fac80f4f49aa933fec9003974b29e1726a">I2C_INTR_EVENT_SLV_START_IDX</a> = 2
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa847dc3ab7bdc58fd8ec332cbcb0a82b7">I2C_INTR_EVENT_SLV_STOP_IDX</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa63d50416f12fd3462e28bc5edabf3b07">I2C_INTR_EVENT_TX_DONE_IDX</a> = 4
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa0d508931e64b6b25c946d93cdff26dec">I2C_INTR_EVENT_RX_DONE_IDX</a> = 5
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa9482926dc80de32ee0c654cec5b7f608">I2C_INTR_EVENT_SMBUS_TIMEOUT_IDX</a> = 6
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa581644f6cdfc1e6b6b9fb1ecde24e9dd">I2C_INTR_EVENT_CLKSTRETCH_TIMEOUT_IDX</a> = 7
+, <br />
+&#160;&#160;<a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa9b8de7578239fe2351689da7a40cfdf3">I2C_INTR_EVENT_PEC_ERR_IDX</a> = 8
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa69a3d90e794b215dbb73f4b4a8b34641">I2C_INTR_EVENT_TXFIFO_EMPTY_IDX</a> = 9
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fae44d420a6dd36bf0a1d0aaa64be1fbe0">I2C_INTR_EVENT_RXFIFO_FULL_IDX</a> = 10
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa4523a33340ae5ef124a40ecf5597b519">I2C_INTR_EVENT_TXFIFO_HALF_FULL_IDX</a> = 11
+, <br />
+&#160;&#160;<a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa8f67bd81e3a755bd3f28a3dce0a05cd3">I2C_INTR_EVENT_RXFIFO_HALF_FULL_IDX</a> = 12
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa4403b446c31e3d56fcc57e4c7fb54882">I2C_INTR_EVENT_MST_STOP_INTR_IDX</a> = 13
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa6b6a10c62b00f8b438b553c3c0cc418e">I2C_INTR_EVENT_MST_START_INTR_IDX</a> = 14
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa5943ace12c0281bc2dc4abb57901dc50">I2C_INTR_EVENT_MST_NACK_IDX</a> = 15
+, <br />
+&#160;&#160;<a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa7dd8bbd8fd011ede88075a4bec6bdfb2">I2C_INTR_EVENT_DMA_DONE_RX_IDX</a> = 16
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fada5191a71b11031d89fd2ec6b3aaa287">I2C_INTR_EVENT_DMA_DONE_TX_IDX</a> = 17
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1faf944f5dc5ca85d8fb15fd11cbe0b1253">I2C_INTR_EVENT_TXFIFO_ALMOST_EMPTY_INTR_IDX</a> = 18
+, <a class="el" href="#gga5b75932ddeff8faec7e00c9f0b5aea1fa45a29eed0281a19323a32143e878dab6">I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_IDX</a> = 19
+<br />
+ }</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="gaab0a26ffd242a438e2b09e8a59b283d4" name="gaab0a26ffd242a438e2b09e8a59b283d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaab0a26ffd242a438e2b09e8a59b283d4">&#9670;&#160;</a></span>I2C_INTR_EVENT_ARB_LOST_IDX</h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga5b75932ddeff8faec7e00c9f0b5aea1f" name="ga5b75932ddeff8faec7e00c9f0b5aea1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5b75932ddeff8faec7e00c9f0b5aea1f">&#9670;&#160;</a></span>I2C_INTR_EVENT_E</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define I2C_INTR_EVENT_ARB_LOST_IDX&#160;&#160;&#160;(0)</td>
+          <td class="memname">enum <a class="el" href="#ga5b75932ddeff8faec7e00c9f0b5aea1f">I2C_INTR_EVENT_E</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="gaee50dcce00c5f2d4147d4c4cf9d1e4c9" name="gaee50dcce00c5f2d4147d4c4cf9d1e4c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaee50dcce00c5f2d4147d4c4cf9d1e4c9">&#9670;&#160;</a></span>I2C_INTR_EVENT_SLV_GENCALL_INTR_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_SLV_GENCALL_INTR_IDX&#160;&#160;&#160;(1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ga87009e4ba41fc98feaa8d3c206458421" name="ga87009e4ba41fc98feaa8d3c206458421"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga87009e4ba41fc98feaa8d3c206458421">&#9670;&#160;</a></span>I2C_INTR_EVENT_SLV_START_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_SLV_START_IDX&#160;&#160;&#160;(2)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="i2c_8c.html#ab31b5824e79d63e5d982ca61b48eba52">i2c_wait_for_slv_start()</a>.</p>
-
-</div>
-</div>
-<a id="ga2075afdbda57c31aac9d2ffe57e06c7f" name="ga2075afdbda57c31aac9d2ffe57e06c7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2075afdbda57c31aac9d2ffe57e06c7f">&#9670;&#160;</a></span>I2C_INTR_EVENT_SLV_STOP_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_SLV_STOP_IDX&#160;&#160;&#160;(3)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="i2c_8c.html#a6c002936a4c93c5f0e02b28704b70913">i2c_poll_for_slv_stop()</a>.</p>
-
-</div>
-</div>
-<a id="gac86c75139f79e4fc9db4d06d7ebda812" name="gac86c75139f79e4fc9db4d06d7ebda812"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac86c75139f79e4fc9db4d06d7ebda812">&#9670;&#160;</a></span>I2C_INTR_EVENT_TX_DONE_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_TX_DONE_IDX&#160;&#160;&#160;(4)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="i2c_8c.html#a9f716c1f16fd5723a0ad45791b8f3bdd">i2c_wait_for_tx_done()</a>.</p>
-
-</div>
-</div>
-<a id="gac99b6cf79a67983c0290f4bd912e056d" name="gac99b6cf79a67983c0290f4bd912e056d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac99b6cf79a67983c0290f4bd912e056d">&#9670;&#160;</a></span>I2C_INTR_EVENT_RX_DONE_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_RX_DONE_IDX&#160;&#160;&#160;(5)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="i2c_8c.html#ae24d961ffa3b99068be5a95334ccf725">i2c_wait_for_rx_done()</a>.</p>
-
-</div>
-</div>
-<a id="ga5f160d0bcb1c7d7bbc3f07d8e942afd0" name="ga5f160d0bcb1c7d7bbc3f07d8e942afd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5f160d0bcb1c7d7bbc3f07d8e942afd0">&#9670;&#160;</a></span>I2C_INTR_EVENT_SMBUS_TIMEOUT_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_SMBUS_TIMEOUT_IDX&#160;&#160;&#160;(6)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gad5caa8e4c461981779df21531493c4c7" name="gad5caa8e4c461981779df21531493c4c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad5caa8e4c461981779df21531493c4c7">&#9670;&#160;</a></span>I2C_INTR_EVENT_CLKSTRETCH_TIMEOUT_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_CLKSTRETCH_TIMEOUT_IDX&#160;&#160;&#160;(7)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ga8994ba19f66811a097944f8f847fb43f" name="ga8994ba19f66811a097944f8f847fb43f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8994ba19f66811a097944f8f847fb43f">&#9670;&#160;</a></span>I2C_INTR_EVENT_PEC_ERR_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_PEC_ERR_IDX&#160;&#160;&#160;(8)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gafd0c33923a57a1f722f9cd95be8a1be1" name="gafd0c33923a57a1f722f9cd95be8a1be1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafd0c33923a57a1f722f9cd95be8a1be1">&#9670;&#160;</a></span>I2C_INTR_EVENT_TXFIFO_EMPTY_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_TXFIFO_EMPTY_IDX&#160;&#160;&#160;(9)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ga5d13cc0a3026212d08c775334b0de514" name="ga5d13cc0a3026212d08c775334b0de514"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5d13cc0a3026212d08c775334b0de514">&#9670;&#160;</a></span>I2C_INTR_EVENT_RXFIFO_FULL_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_RXFIFO_FULL_IDX&#160;&#160;&#160;(10)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gac2de922dc587c4431537a995ab1a7bc0" name="gac2de922dc587c4431537a995ab1a7bc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac2de922dc587c4431537a995ab1a7bc0">&#9670;&#160;</a></span>I2C_INTR_EVENT_TXFIFO_HALF_FULL_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_TXFIFO_HALF_FULL_IDX&#160;&#160;&#160;(11)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gaf702eb3b3bbce7e3bc3b6d729cb15340" name="gaf702eb3b3bbce7e3bc3b6d729cb15340"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf702eb3b3bbce7e3bc3b6d729cb15340">&#9670;&#160;</a></span>I2C_INTR_EVENT_RXFIFO_HALF_FULL_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_RXFIFO_HALF_FULL_IDX&#160;&#160;&#160;(12)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ga9813a2c4c3d0c9f2923392e69eb08ef7" name="ga9813a2c4c3d0c9f2923392e69eb08ef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9813a2c4c3d0c9f2923392e69eb08ef7">&#9670;&#160;</a></span>I2C_INTR_EVENT_MST_STOP_INTR_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_MST_STOP_INTR_IDX&#160;&#160;&#160;(13)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gac73eb5535ff0440164f948632bcaa185" name="gac73eb5535ff0440164f948632bcaa185"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac73eb5535ff0440164f948632bcaa185">&#9670;&#160;</a></span>I2C_INTR_EVENT_MST_START_INTR_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_MST_START_INTR_IDX&#160;&#160;&#160;(14)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ga824da02a18572a2487b1037446790296" name="ga824da02a18572a2487b1037446790296"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga824da02a18572a2487b1037446790296">&#9670;&#160;</a></span>I2C_INTR_EVENT_MST_NACK_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_MST_NACK_IDX&#160;&#160;&#160;(15)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gaf8787282fac537cddb43af2b57f1bcf3" name="gaf8787282fac537cddb43af2b57f1bcf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf8787282fac537cddb43af2b57f1bcf3">&#9670;&#160;</a></span>I2C_INTR_EVENT_DMA_DONE_RX_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_DMA_DONE_RX_IDX&#160;&#160;&#160;(16)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ga23f306204e01b781f0bb38805754d3f7" name="ga23f306204e01b781f0bb38805754d3f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga23f306204e01b781f0bb38805754d3f7">&#9670;&#160;</a></span>I2C_INTR_EVENT_DMA_DONE_TX_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_DMA_DONE_TX_IDX&#160;&#160;&#160;(17)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gabd5963d02e2ba8b710a6f6854a2b7755" name="gabd5963d02e2ba8b710a6f6854a2b7755"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabd5963d02e2ba8b710a6f6854a2b7755">&#9670;&#160;</a></span>I2C_INTR_EVENT_TXFIFO_ALMOST_EMPTY_INTR_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_TXFIFO_ALMOST_EMPTY_INTR_IDX&#160;&#160;&#160;(18)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="gac2994ce18ee1bc432fcd671d1860da78" name="gac2994ce18ee1bc432fcd671d1860da78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac2994ce18ee1bc432fcd671d1860da78">&#9670;&#160;</a></span>I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_IDX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_IDX&#160;&#160;&#160;(19)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fabe44b5e419baa5e6bebb0370a60e6d1c" name="gga5b75932ddeff8faec7e00c9f0b5aea1fabe44b5e419baa5e6bebb0370a60e6d1c"></a>I2C_INTR_EVENT_ARB_LOST_IDX&#160;</td><td class="fielddoc"><p>0x0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa3aed3c3f5bd654b60cc8d8b58e1287b3" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa3aed3c3f5bd654b60cc8d8b58e1287b3"></a>I2C_INTR_EVENT_SLV_GENCALL_INTR_IDX&#160;</td><td class="fielddoc"><p>0x1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fac80f4f49aa933fec9003974b29e1726a" name="gga5b75932ddeff8faec7e00c9f0b5aea1fac80f4f49aa933fec9003974b29e1726a"></a>I2C_INTR_EVENT_SLV_START_IDX&#160;</td><td class="fielddoc"><p>0x2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa847dc3ab7bdc58fd8ec332cbcb0a82b7" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa847dc3ab7bdc58fd8ec332cbcb0a82b7"></a>I2C_INTR_EVENT_SLV_STOP_IDX&#160;</td><td class="fielddoc"><p>0x3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa63d50416f12fd3462e28bc5edabf3b07" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa63d50416f12fd3462e28bc5edabf3b07"></a>I2C_INTR_EVENT_TX_DONE_IDX&#160;</td><td class="fielddoc"><p>0x4 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa0d508931e64b6b25c946d93cdff26dec" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa0d508931e64b6b25c946d93cdff26dec"></a>I2C_INTR_EVENT_RX_DONE_IDX&#160;</td><td class="fielddoc"><p>0x5 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa9482926dc80de32ee0c654cec5b7f608" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa9482926dc80de32ee0c654cec5b7f608"></a>I2C_INTR_EVENT_SMBUS_TIMEOUT_IDX&#160;</td><td class="fielddoc"><p>0x6 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa581644f6cdfc1e6b6b9fb1ecde24e9dd" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa581644f6cdfc1e6b6b9fb1ecde24e9dd"></a>I2C_INTR_EVENT_CLKSTRETCH_TIMEOUT_IDX&#160;</td><td class="fielddoc"><p>0x7 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa9b8de7578239fe2351689da7a40cfdf3" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa9b8de7578239fe2351689da7a40cfdf3"></a>I2C_INTR_EVENT_PEC_ERR_IDX&#160;</td><td class="fielddoc"><p>0x8 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa69a3d90e794b215dbb73f4b4a8b34641" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa69a3d90e794b215dbb73f4b4a8b34641"></a>I2C_INTR_EVENT_TXFIFO_EMPTY_IDX&#160;</td><td class="fielddoc"><p>0x9 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fae44d420a6dd36bf0a1d0aaa64be1fbe0" name="gga5b75932ddeff8faec7e00c9f0b5aea1fae44d420a6dd36bf0a1d0aaa64be1fbe0"></a>I2C_INTR_EVENT_RXFIFO_FULL_IDX&#160;</td><td class="fielddoc"><p>0xa </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa4523a33340ae5ef124a40ecf5597b519" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa4523a33340ae5ef124a40ecf5597b519"></a>I2C_INTR_EVENT_TXFIFO_HALF_FULL_IDX&#160;</td><td class="fielddoc"><p>0xb </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa8f67bd81e3a755bd3f28a3dce0a05cd3" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa8f67bd81e3a755bd3f28a3dce0a05cd3"></a>I2C_INTR_EVENT_RXFIFO_HALF_FULL_IDX&#160;</td><td class="fielddoc"><p>0xc </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa4403b446c31e3d56fcc57e4c7fb54882" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa4403b446c31e3d56fcc57e4c7fb54882"></a>I2C_INTR_EVENT_MST_STOP_INTR_IDX&#160;</td><td class="fielddoc"><p>0xd </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa6b6a10c62b00f8b438b553c3c0cc418e" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa6b6a10c62b00f8b438b553c3c0cc418e"></a>I2C_INTR_EVENT_MST_START_INTR_IDX&#160;</td><td class="fielddoc"><p>0xe </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa5943ace12c0281bc2dc4abb57901dc50" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa5943ace12c0281bc2dc4abb57901dc50"></a>I2C_INTR_EVENT_MST_NACK_IDX&#160;</td><td class="fielddoc"><p>0xf </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa7dd8bbd8fd011ede88075a4bec6bdfb2" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa7dd8bbd8fd011ede88075a4bec6bdfb2"></a>I2C_INTR_EVENT_DMA_DONE_RX_IDX&#160;</td><td class="fielddoc"><p>0x10 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fada5191a71b11031d89fd2ec6b3aaa287" name="gga5b75932ddeff8faec7e00c9f0b5aea1fada5191a71b11031d89fd2ec6b3aaa287"></a>I2C_INTR_EVENT_DMA_DONE_TX_IDX&#160;</td><td class="fielddoc"><p>0x11 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1faf944f5dc5ca85d8fb15fd11cbe0b1253" name="gga5b75932ddeff8faec7e00c9f0b5aea1faf944f5dc5ca85d8fb15fd11cbe0b1253"></a>I2C_INTR_EVENT_TXFIFO_ALMOST_EMPTY_INTR_IDX&#160;</td><td class="fielddoc"><p>0x12 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga5b75932ddeff8faec7e00c9f0b5aea1fa45a29eed0281a19323a32143e878dab6" name="gga5b75932ddeff8faec7e00c9f0b5aea1fa45a29eed0281a19323a32143e878dab6"></a>I2C_INTR_EVENT_RXFIFO_ALMOST_FULL_INTR_IDX&#160;</td><td class="fielddoc"><p>0x13 </p>
+</td></tr>
+</table>
 
 </div>
 </div>
