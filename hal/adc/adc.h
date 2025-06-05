@@ -132,7 +132,7 @@ typedef struct {
 /**
  * @brief   This function configures the ADC clock.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   clk_cfg  : clock configuration struct
  *
  * @retval  void
@@ -142,7 +142,7 @@ void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg);
 /**
  * @brief   This function configures the ADC channel.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   chnl_cfg : channel configuration struct
  * 
  * @retval  void
@@ -152,7 +152,7 @@ void adc_chnl_cfg(ADC_REGS_s *regs, adc_chnl_cfg_s chnl_cfg);
 /**
  * @brief   This function configures the ADC channel.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   data_channel : data channel register that contains ADC result
  * 
  * @retval  ADC result
@@ -162,7 +162,7 @@ uint32_t adc_result(ADC_REGS_s *regs, uint32_t data_channel);
 /**
  * @brief   This function configures the ADC DMA.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   dma_cfg : DMA configuration struct
  * 
  * @retval  void
@@ -172,7 +172,7 @@ void adc_dma_cfg(ADC_REGS_s *regs, adc_dma_cfg_s dma_cfg);
 /**
  * @brief   This function configures the ADC Result registers for FIFO operation.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   fifo_en : enables FIFO mode.
  * 
  * @retval  void
@@ -182,7 +182,7 @@ void adc_result_cfg(ADC_REGS_s *regs, uint32_t fifo_en);
 /**
  * @brief   This function generates software trig.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   sw_trig : enables FIFO mode.
  * 
  * @retval  void
@@ -192,7 +192,7 @@ void adc_sw_trig(ADC_REGS_s *regs, uint32_t sw_trig);
 /**
  * @brief   This function configures ADC for single channel operation.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   adc_single_ch : ADC single channel configuration struct
  * 
  * @retval  void
@@ -202,7 +202,7 @@ void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_singl
 /**
  * @brief   This function configures ADC for multi channel operation.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   adc_multi_ch : ADC single channel configuration struct
  * 
  * @retval  void
@@ -212,7 +212,7 @@ void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_c
 /**
  * @brief   This function enables ADC conversion.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   en_conv : ADC single channel configuration struct
  * 
  * @retval  void
@@ -248,7 +248,7 @@ void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS
 /**
  * @brief   This function configures ADC sampling timer.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   in_clk_freq : clock frequency to ADC'
  * @param   exp_samp_rate : desired sampling rate of ADC
  * 
@@ -259,7 +259,7 @@ void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_sam
 /**
  * @brief   This function configures ADC for hardware averaging mode.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   adc_hw_cfg : ADC hardware averaging configuration struct
  * 
  * @retval  void
@@ -269,7 +269,7 @@ void adc_hw_avg_cfg(ADC_REGS_s *regs, adc_hw_avg_cfg_s adc_hw_cfg);
 /**
  * @brief   This function returns ADC clock configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * 
  * @retval  ADC clock configuration
  */
@@ -278,7 +278,7 @@ adc_clk_cfg_s get_adc_clk_cfg(ADC_REGS_s *regs);
 /**
  * @brief   This function returns ADC channel configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  * @param   data_channel : data channel for which channel configuration is required.
  * 
  * @retval  ADC channel configuration
@@ -288,7 +288,7 @@ adc_chnl_cfg_s get_adc_chnl_cfg(ADC_REGS_s *regs, uint32_t data_channel);
 /**
  * @brief   This function returns ADC DMA configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  *  
  * @retval  ADC DMA configuration
  */
@@ -297,7 +297,7 @@ adc_dma_cfg_s get_adc_dma_cfg(ADC_REGS_s *regs);
 /**
  * @brief   This function returns ADC result register configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  *  
  * @retval  ADC result register configuration
  */
@@ -306,7 +306,7 @@ uint32_t get_adc_result_cfg(ADC_REGS_s *regs);
 /**
  * @brief   This function returns ADC software trigger configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  *  
  * @retval  ADC software trigger configuration
  */
@@ -315,7 +315,7 @@ adc_sw_trig_cfg_s get_adc_sw_trig(ADC_REGS_s *regs);
 /**
  * @brief   This function returns ADC single channel configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  *  
  * @retval  ADC single channel configuration
  */
@@ -324,7 +324,7 @@ adc_single_ch_conv_cfg_s get_adc_single_ch_conv_cfg(ADC_REGS_s *regs);
 /**
  * @brief   This function returns ADC multi channel configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  *  
  * @retval  ADC multi channel configuration
  */
@@ -333,7 +333,7 @@ adc_multi_ch_conv_cfg_s get_adc_multi_ch_conv_cfg(ADC_REGS_s *regs);
 /**
  * @brief   This function returns ADC enable conversion status.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  *  
  * @retval  ADC enable conversion status
  */
@@ -342,7 +342,7 @@ uint32_t get_adc_en_conv(ADC_REGS_s *regs);
 /**
  * @brief   This function returns ADC timer configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  *  
  * @retval  ADC timer configuration
  */
@@ -351,7 +351,7 @@ adc_timer_cfg_s get_adc_timer_cfg(ADC_REGS_s *regs);
 /**
  * @brief   This function returns ADC hardware averaging configuration.
  *
- * @param   adc_regs : pointer to the ADC register space
+ * @param   regs : pointer to the ADC register space
  *  
  * @retval  ADC hardware averaging configuration
  */

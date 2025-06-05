@@ -38,7 +38,7 @@ typedef struct {
 /**
  * @brief   This function configures DAC
  *
- * @param   dac_regs : pointer to the DAC register space
+ * @param   regs : pointer to the DAC register space
  * @param   dac_cfg_struct : DAC configuration struct
  *  
  * @retval  void
@@ -48,7 +48,7 @@ void dac_cfg(DAC_REGS_s *regs, dac_cfg_s dac_cfg_struct);
 /**
  * @brief   This function configures DAC for DMA application
  *
- * @param   dac_regs : pointer to the DAC register space
+ * @param   regs : pointer to the DAC register space
  * @param   dac_dma_cfg_struct : DAC DMA configuration struct
  *  
  * @retval  void
@@ -58,7 +58,7 @@ void dac_dma_cfg(DAC_REGS_s *regs, dac_dma_cfg_s dac_dma_cfg_struct);
 /**
  * @brief   This function writes DAC code in DAC.
  *
- * @param   dac_regs : pointer to the DAC register space
+ * @param   regs : pointer to the DAC register space
  * @param   dac_code : DAC code
  *  
  * @retval  void
@@ -68,7 +68,7 @@ void dac_wr_code(DAC_REGS_s *regs, uint32_t dac_code);
 /**
  * @brief   This function returns DAC configuration.
  *
- * @param   dac_regs : pointer to the DAC register space
+ * @param   regs : pointer to the DAC register space
  *  
  * @retval  DAC configuration
  */
@@ -77,7 +77,7 @@ dac_cfg_s get_dac_cfg(DAC_REGS_s *regs);
 /**
  * @brief   This function returns DAC DMA configuration.
  *
- * @param   dac_regs : pointer to the DAC register space
+ * @param   regs : pointer to the DAC register space
  *  
  * @retval  DAC DMA configuration
  */
@@ -86,7 +86,7 @@ dac_dma_cfg_s get_dac_dma_cfg(DAC_REGS_s *regs);
 /**
  * @brief   This function returns DAC code.
  *
- * @param   dac_regs : pointer to the DAC register space
+ * @param   regs : pointer to the DAC register space
  *  
  * @retval  DAC code
  */
