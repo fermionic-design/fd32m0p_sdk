@@ -50,7 +50,7 @@ int main(void){
     single_ch_cfg.fifo_en           = 0;
 
     chnl_cfg.data_channel   = start_addr;
-    chnl_cfg.channel_sel    = ADC_CHNL_15;
+    chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON;
     chnl_cfg.vref_sel       = 1;
     chnl_cfg.hw_avg_en      = 0;
     chnl_cfg.bcs_en         = 0;
