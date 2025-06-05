@@ -35,8 +35,6 @@
 #include "EVENT_FABRIC_REGS.h"
 #include "EVENT_FABRIC_RW_API.h"
 
-#define EVENT_FABRIC_REGS   ((EVENT_FABRIC_REGS_s *)      0x3FFC3000)     // EVENT_FABRIC_REGS Common APB Address Space
-
 /*!
  *  @brief Event Fabric Publisher ID Enum
  */
