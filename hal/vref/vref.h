@@ -24,21 +24,21 @@ typedef struct {
 /**
  * @brief   This function configures VREF
  *
- * @param   vref_regs : pointer to the DAC register space
- * @param   iomux_regs : pointer to the DAC register space
- * @param   mcu_regs : pointer to the DAC register space
+ * @param   vref_regs : pointer to the VREF register space
+ * @param   iomux_regs : pointer to the IOMUX register space
+ * @param   mcu_regs : pointer to the MCU register space
  * @param   iomux_cfg_struct : IOMUX configuration struct
  * @param   vref_cfg_struct : VREF configuration struct
  * @param   temp_sense_en : does Temperature sensor configuration
  *  
  * @retval  void
  */
-void vref_cfg(VREF_REGS_s *regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s *mcu_regs, IOMUX_PA_REG_s iomux_cfg_struct, vref_cfg_s vref_cfg_struct, uint32_t temp_sense_en);
+void vref_cfg(VREF_REGS_s *vref_regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s *mcu_regs, IOMUX_PA_REG_s iomux_cfg_struct, vref_cfg_s vref_cfg_struct, uint32_t temp_sense_en);
 
 /**
  * @brief   This function returns VREF configuration
  *
- * @param   vref_regs : pointer to the DAC register space
+ * @param   regs : pointer to the DAC register space
  *  
  * @retval  void
  */
