@@ -16,7 +16,7 @@
 #include "FD32M0P.h"
 #include "gpio.h" 
 #include "adc.h"
-
+#include "flash.h"
 
 int main(void) {
     uint32_t start_addr = DATA_CHNL_0;
@@ -32,6 +32,8 @@ int main(void) {
     adc_chnl_cfg_s              chnl_cfg;
     IOMUX_PA_REG_s              iomux_cfg_struct;
     
+    flash_config(FLASH_APB_REGS, FLASH_SETTING_CFG_32MHZ_HIGH_SPEED_3V);
+
     UartStdOutInit();
     UartPuts("ADC Basic Test\n");
 
@@ -78,7 +80,7 @@ int main(void) {
     iomux_cfg_struct.input_en         = 0;
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 27);
 
-    single_ch_cfg.repeat            = 1;
+    single_ch_cfg.repeat            = 0;
     single_ch_cfg.start_addr        = start_addr;
     single_ch_cfg.trig_src          = ADC_CONV_CFG_TRIGGER_SOURCE_SW;
     single_ch_cfg.adc_res           = ADC_CONV_CFG_ADC_RES_12_BIT;
