@@ -169,11 +169,6 @@ typedef struct {
 /** @} end of CRC_KEY*/ 
 
 
-/** @defgroup CRC_INTERRUPTS 
- *  @{
- */
-/** @} end of CRC_INTERRUPTS */ 
-
 /** @addtogroup CRC_CRCCONFIG_REG  
  *  @{
  */
