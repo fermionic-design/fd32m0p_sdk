@@ -19,7 +19,7 @@
 #include "flash.h"
 
 int main(void) {
-    uint32_t start_addr = DATA_CHNL_0;
+    uint32_t start_addr = ADC_RESULT_DATA_CHNL_0;
     volatile uint32_t intr_sts;
     uint32_t sw_trig;
     uint32_t read_en_conv;

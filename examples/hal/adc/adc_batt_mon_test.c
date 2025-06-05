@@ -31,7 +31,7 @@ int main(void){
     adc_chnl_cfg_s              chnl_cfg; 
     IOMUX_PA_REG_s              iomux_cfg_struct;    
 
-    start_addr          = DATA_CHNL_0;
+    start_addr          = ADC_RESULT_DATA_CHNL_0;
 
     UartStdOutInit();
     UartPuts("ADC Battery Monitor Test\n");

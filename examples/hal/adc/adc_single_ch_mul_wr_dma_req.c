@@ -48,7 +48,7 @@ int main(void) {
     IOMUX_PA_REG_s              iomux_cfg_struct;
     adc_dma_cfg_s               dma_cfg;
 
-    start_addr          = DATA_CHNL_0;
+    start_addr          = ADC_RESULT_DATA_CHNL_0;
     analog_adc_channel  = ADC_CHNL_CFG_CHANNEL_SEL_CH0_PA27;
     dma_src_addr        = 0x40040094 + (start_addr*4);
 
