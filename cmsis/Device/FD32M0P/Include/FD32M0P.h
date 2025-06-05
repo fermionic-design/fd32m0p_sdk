@@ -113,7 +113,7 @@ typedef enum IRQn
 #define __MPU_PRESENT             1         /*!< MPU present or not                               */
 #define __VTOR_PRESENT            1         /*!< Cortex-M0+ can support the VTOR                  */
 
-/*@}*/ /* end of group FD32M0P_CMSIS */
+/** @}*/ /* end of group FD32M0P_CMSIS */
 
 
 #include "core_cm0plus.h"             /* Cortex-M0+ processor and core peripherals         */
@@ -134,9 +134,12 @@ typedef enum IRQn
 
 
 /*------------- System Control (SYSCTRL) --------------------------------------*/
-/** @addtogroup SYSCTRL System Control
+/** @addtogroup SYSCTRL System Control (SYSCTRL)
   @{
 */
+/** @defgroup SYSCTRL_MEMORY_MAP 
+ *  @{
+ */
 typedef struct
 {
   __IO   uint32_t  REMAP;          /*!< Offset: 0x000 Remap Control Register (R/W) */
@@ -146,6 +149,11 @@ typedef struct
   __IO   uint32_t  RSTINFO;        /*!< Offset: 0x010 Reset Information Register (R/W) */
 } SYSCTRL_REGS_s;
 
+/** @} end of SYSCTRL_MEMORY_MAP */ 
+
+/** @defgroup SYSCTRL_REGISTER_FLAGS 
+ *  @{
+ */
 #define SYSCTRL_REMAP_OFS                 0
 #define SYSCTRL_REMAP_MASK                 (0x01ul << SYSCTRL_REMAP_OFS)               /*!< SYSCTRL MEME_CTRL: REMAP Mask */
 
@@ -175,36 +183,57 @@ typedef struct
 
 #define SYSCTRL_RSTINFO_LOCKUPRESET_OFS   2
 #define SYSCTRL_RSTINFO_LOCKUPRESET_MASK   (0x00001ul << SYSCTRL_RSTINFO_LOCKUPRESET_OFS) /*!< SYSCTRL RSTINFO: LOCKUPRESET Mask */
+/** @} end of SYSCTRL_REGISTER_FLAGS */ 
 
-/*@}*/ /* end of group SYSCTRL */
+/** @}*/ /* end of group SYSCTRL */
 
+/** @defgroup ADC Analog to Digital Convertor (ADC) */
 #include "ADC_REGS.h"
+/** @defgroup COMP Comparator (COMP) */
 #include "COMP_REGS.h"
+/** @defgroup CRC Cyclic Redundancy Check (CRC) */
 #include "CRC_REGS.h"
+/** @defgroup DAC Digital to Analog Convertor (DAC) */
 #include "DAC_REGS.h"
+/** @defgroup DMA Direct Memory Access (DMA) */
 #include "DMA_REGS.h"
+/** @defgroup EVENT_FABRIC Event Fabric */
 #include "EVENT_FABRIC_REGS.h"
+/** @defgroup FLASH Flash Memory (FLASH) */
 #include "FLASH_REGS.h"
+/** @defgroup GPIO General Purpose IO (GPIO) */
 #include "GPIO_REGS.h"
+/** @defgroup I2C I2C */
 #include "I2C_REGS.h"
+/** @defgroup IOMUX IOMUX */
 #include "IOMUX_REGS.h"
 #include "IOMUX_PIN_SEL.h"
+/** @defgroup MCU_CTRL MCU_CTRL */
 #include "MCU_CTRL_REGS.h"
+/** @defgroup OPAMP Operational Amplifier (OPAMP) */
 #include "OPAMP_REGS.h"
+/** @defgroup OTP One Time Programmable (OTP) */
 #include "OTP_REGS.h"
+/** @defgroup PL230 ARM DMA IP (PL230) */
 #include "PL230_REGS.h"
+/** @defgroup RTC Real Time Clock (RTC) */
 #include "RTC_REGS.h"
+/** @defgroup SPI SPI */
 #include "SPI_REGS.h"
+/** @defgroup TIMER Timers */
 #include "TIMER_REGS.h"
 //#include "TIMER_TIMG_NUM_INPUT2_REGS.h"
+/** @defgroup UART UART */
 #include "UART_REGS.h"
+/** @defgroup VREF VREF */
 #include "VREF_REGS.h"
+
 
 #if defined ( __CC_ARM   )
 #pragma no_anon_unions
 #endif
 
-/*@}*/ /* end of group FD32M0P_Peripherals */
+/** @}*/ /* end of group FD32M0P_Peripherals */
 
 
 /******************************************************************************/
@@ -263,7 +292,7 @@ typedef struct
 #define ADC1_BASE           (AHB_BASE + 0x50000UL)
 #define GPIO_ALIAS_BASE     (AHB_BASE + 0x60000UL)
 
-/*@}*/ /* end of group FD32M0P_MemoryMap */
+/** @}*/ /* end of group FD32M0P_MemoryMap */
 
 
 /******************************************************************************/
@@ -312,9 +341,9 @@ typedef struct
 #define GPIO_ALIAS_REGS     ((GPIO_REGS_s*)         GPIO_ALIAS_BASE)   
 
 
-/*@}*/ /* end of group FD32M0P_PeripheralDecl */
+/** @}*/ /* end of group FD32M0P_PeripheralDecl */
 
-/*@}*/ /* end of group FD32M0P_Definitions */
+/** @}*/ /* end of group FD32M0P_Definitions */
 
 #ifdef __cplusplus
 }

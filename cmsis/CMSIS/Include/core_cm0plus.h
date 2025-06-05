@@ -63,7 +63,7 @@
 /*******************************************************************************
  *                 CMSIS definitions
  ******************************************************************************/
-/** \ingroup Cortex-M0+
+/** \defgroup Cortex-M0Plus Cortex-M0+ CMSIS Definitions
   @{
  */
 
@@ -165,7 +165,7 @@
 /* IO definitions (access restrictions to peripheral registers) */
 /**
     \defgroup CMSIS_glob_defs CMSIS Global Defines
-
+    @{
     <strong>IO Type Qualifiers</strong> are used
     \li to specify the access to peripheral variables.
     \li for automatic generation of peripheral register debug information.
@@ -177,6 +177,7 @@
 #endif
 #define     __O     volatile             /*!< Defines 'write only' permissions                */
 #define     __IO    volatile             /*!< Defines 'read / write' permissions              */
+/*@} end of group CMSIS_glob_defs */
 
 /*@} end of group Cortex-M0+ */
 
