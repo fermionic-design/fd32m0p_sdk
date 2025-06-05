@@ -1,3 +1,10 @@
+/** @addtogroup CRC
+ *  @{
+ */
+
+/** @defgroup CRC_HAL
+ *  @{
+ */
 #ifndef crc_h_include
 #define crc_h_include
 
@@ -90,7 +97,7 @@ void crc_feed_8bit_data(CRC_REGS_s *regs, const uint8_t *buffer, uint32_t length
  *
  * @param   crc_regs : pointer to the CRC register space
  *
- * @retval  crc result
+ * @retval  crc_result
  */
 uint32_t crc_get_result(CRC_REGS_s *regs);
 
@@ -104,7 +111,7 @@ uint32_t crc_get_result(CRC_REGS_s *regs);
  * @param   buffer : pointer to the 32-bit data buffer
  * @param   seed : seed value
  *
- * @retval  crc result
+ * @retval  crc_result
  */
 uint32_t crc_compute_32bit_block(CRC_REGS_s *regs, uint32_t length, const uint32_t *buffer, uint32_t seed);
 
@@ -118,7 +125,7 @@ uint32_t crc_compute_32bit_block(CRC_REGS_s *regs, uint32_t length, const uint32
  * @param   buffer : pointer to the 16-bit data buffer
  * @param   seed : seed value
  *
- * @retval  crc result
+ * @retval  crc_result
  */
 uint32_t crc_compute_16bit_block(CRC_REGS_s *regs, uint32_t length, const uint16_t *buffer, uint32_t seed);
 
@@ -132,7 +139,7 @@ uint32_t crc_compute_16bit_block(CRC_REGS_s *regs, uint32_t length, const uint16
  * @param   buffer : pointer to the 8-bit data buffer
  * @param   seed : seed value
  *
- * @retval  crc result
+ * @retval  crc_result
  */
 uint32_t crc_compute_8bit_block(CRC_REGS_s *regs, uint32_t length, const uint8_t *buffer, uint32_t seed);
 
@@ -145,7 +152,7 @@ uint32_t crc_compute_8bit_block(CRC_REGS_s *regs, uint32_t length, const uint8_t
  * @param   seed : seed value
  * @param   start_addr : pointer to the start of the 32-bit word aligned memory region
  *
- * @retval  crc result
+ * @retval  crc_result
  */
 uint32_t crc_compute_32bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t seed, const uint32_t *start_addr);
 
@@ -158,7 +165,7 @@ uint32_t crc_compute_32bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t
  * @param   seed : seed value
  * @param   start_addr : pointer to the start of the 16-bit word aligned memory region
  *
- * @retval  crc result
+ * @retval  crc_result
  */
 uint32_t crc_compute_16bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t seed, const uint16_t *start_addr);
 
@@ -171,7 +178,7 @@ uint32_t crc_compute_16bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t
  * @param   seed : seed value
  * @param   start_addr : pointer to the start of the 8-bit word aligned memory region
  *
- * @retval  crc result
+ * @retval  crc_result
  */
 uint32_t crc_compute_8bit_mem_range(CRC_REGS_s *regs, uint32_t length, uint32_t seed, const uint8_t *start_addr);
 
@@ -188,3 +195,5 @@ void crc_read_cfg(CRC_REGS_s *regs, crc_cfg_s *rd_cfg);
 
 #endif
 
+/** @} */
+/** @} */

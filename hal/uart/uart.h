@@ -1,3 +1,10 @@
+/** @addtogroup UART
+ *  @{
+ */
+
+/** @defgroup UART_HAL
+ *  @{
+ */
 #ifndef uart_h_include
 #define uart_h_include
 
@@ -171,7 +178,7 @@ uint32_t uart_txfifo_fill_nonblocking(UART_REGS_s *regs, const uint8_t *buffer, 
  * @param   num_bytes : number of bytes to be written to the transmit fifo
  * @param   rst_int_ctr : reset the internal counter once transaction is done
  *
- * @retval  txn_done status 
+ * @retval  txn_done_status 
  */
 bool uart_txfifo_fill_static_nonblocking(UART_REGS_s *regs, const uint8_t *buffer, uint32_t num_bytes, uint32_t rst_int_ctr);
 
@@ -201,9 +208,9 @@ void uart_puts(UART_REGS_s *regs, const char * data_char_arr);
  *          returns the character written
  *
  * @param   uart_regs : pointer to the UART register space
- * @param   data_char_arr: character input
+ * @param   data_char: character input
  *
- * @retval  written charcter
+ * @retval  data_char
  */
 static inline uint8_t uart_putc(UART_REGS_s *regs, const unsigned char data_char)
 {
@@ -234,7 +241,7 @@ uint32_t uart_rxfifo_drain_nonblocking(UART_REGS_s *regs, uint8_t *buffer, uint3
  * @param   num_bytes : number of bytes to be read from receive fifo
  * @param   rst_int_ctr : reset the internal counter once transaction is done
  *
- * @retval  txn_done status
+ * @retval  txn_done_status
  */
 bool uart_rxfifo_drain_static_nonblocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num_bytes, uint32_t rst_int_ctr);
 
@@ -254,7 +261,7 @@ void uart_rxfifo_drain_blocking(UART_REGS_s *regs, uint8_t *buffer, uint32_t num
  *
  * @param   uart_regs : pointer to the UART register space
  *
- * @retval  charcter to be read
+ * @retval  uart_result
  */
 static inline uint8_t uart_getc(UART_REGS_s *regs)
 {
@@ -274,3 +281,5 @@ void uart_read_cfg(UART_REGS_s *regs, uart_cfg_s *rd_cfg);
 
 #endif
 
+/** @} */
+/** @} */
