@@ -8,7 +8,7 @@ DEADCODESTRIP = -Wl,-static  -fdata-sections -ffunction-sections -Wl,--gc-sectio
 
 PRJ_DIR = ./
 
-SOFTWARE_DIR= $(PRJ_DIR)/
+SOFTWARE_DIR= $(PRJ_DIR)
 
 TOOLS_DIR = ./tools
 
@@ -19,8 +19,8 @@ PYTHON_PATH ?= C:/Users/deepe/Documents/GitHub/fd32m0p/venv/Scripts/python
 COM_PORT ?= COM10
 BAUD_RATE ?= 9600
 
-PRJ_CHEADER_DIR = $(SOFTWARE_DIR)/c_headers/
-PRJ_HAL_DIR = $(SOFTWARE_DIR)/hal/
+PRJ_CHEADER_DIR = $(SOFTWARE_DIR)/c_headers
+PRJ_HAL_DIR = $(SOFTWARE_DIR)/hal
 
 CMSIS_DIR   = $(SOFTWARE_DIR)/cmsis
 CORE_DIR    = $(CMSIS_DIR)/CMSIS/Include
@@ -75,32 +75,9 @@ C_HEADER_INCDIR = -I $(PRJ_CHEADER_DIR)/crc/ \
 				  -I $(PRJ_CHEADER_DIR)/usb2/ \
 				  -I $(PRJ_CHEADER_DIR)/common/ 
 
-HAL_SRC_FILES = $(PRJ_HAL_DIR)/gpio/gpio.c \
-				$(PRJ_HAL_DIR)/adc/adc.c \
-				$(PRJ_HAL_DIR)/vref/vref.c \
-				$(PRJ_HAL_DIR)/dac/dac.c \
-				$(PRJ_HAL_DIR)/dma/dma.c \
-				$(PRJ_HAL_DIR)/event_fabric/event_fabric.c \
-				$(PRJ_HAL_DIR)/uart/uart.c \
-				$(PRJ_HAL_DIR)/timer/timer.c \
-				$(PRJ_HAL_DIR)/flash/flash.c \
-				$(PRJ_HAL_DIR)/spi/spi.c \
-				$(PRJ_HAL_DIR)/crc/crc.c \
-				$(PRJ_HAL_DIR)/i2c/i2c.c
-
-HAL_INCDIR =-I $(PRJ_HAL_DIR)/common/ \
-			-I $(PRJ_HAL_DIR)/gpio/ \
-			-I $(PRJ_HAL_DIR)/dma/ \
-			-I $(PRJ_HAL_DIR)/adc/ \
-			-I $(PRJ_HAL_DIR)/vref/ \
-			-I $(PRJ_HAL_DIR)/dac/ \
-			-I $(PRJ_HAL_DIR)/event_fabric/ \
-			-I $(PRJ_HAL_DIR)/uart/ \
-			-I $(PRJ_HAL_DIR)/timer/ \
-			-I $(PRJ_HAL_DIR)/crc/ \
-			-I $(PRJ_HAL_DIR)/flash/ \
-			-I $(PRJ_HAL_DIR)/spi/ \
-			-I $(PRJ_HAL_DIR)/i2c/
+HAL_SRC_FILES := $(wildcard $(PRJ_HAL_DIR)/*/*.c)
+INCLUDE_DIRS := $(wildcard $(PRJ_HAL_DIR)/*/)
+HAL_INCDIR := $(addprefix -I,$(INCLUDE_DIRS))
 
 test:
 ifeq ($(TESTFOLDER),)
@@ -118,8 +95,6 @@ endif
 	-I $(TESTFOLDER)/ \
 	$(SOFTWARE_DIR)/common/retarget/retarget.c \
 	$(SOFTWARE_DIR)/common/retarget/uart_stdout_mcu.c \
-	$(PRJ_HAL_DIR)/mcu_ctrl/mcu_ctrl_cfg_reg.c \
-	$(PRJ_HAL_DIR)/common/utils.c \
 	$(DEVICE_DIR)/Source/$(SYSTEM_FILE).c \
 	$(HAL_SRC_FILES) \
 	-I $(DEVICE_DIR)/Include -I $(CORE_DIR) \
