@@ -233,11 +233,6 @@ typedef struct {
 /** @} end of VREF_KEY*/ 
 
 
-/** @defgroup VREF_INTERRUPTS 
- *  @{
- */
-/** @} end of VREF_INTERRUPTS */ 
-
 /** @addtogroup VREF_CLK_CTRL_REG  
  *  @{
  */

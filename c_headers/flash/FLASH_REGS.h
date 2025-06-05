@@ -251,11 +251,6 @@ typedef struct {
 /** @} end of FLASH_KEY*/ 
 
 
-/** @defgroup FLASH_INTERRUPTS 
- *  @{
- */
-/** @} end of FLASH_INTERRUPTS */ 
-
 /** @addtogroup FLASH_CTRL_REG  
  *  @{
  */

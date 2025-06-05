@@ -188,11 +188,6 @@ typedef struct {
 /** @} end of EVENT_FABRIC_KEY*/ 
 
 
-/** @defgroup EVENT_FABRIC_INTERRUPTS 
- *  @{
- */
-/** @} end of EVENT_FABRIC_INTERRUPTS */ 
-
 /** @addtogroup EVENT_FABRIC_GEN_PUB_REG  
  *  @{
  */
