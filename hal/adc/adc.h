@@ -24,23 +24,6 @@
 #include "MCU_CTRL_REGS.h"
 #include "MCU_CTRL_RW_API.h"
 
-#define DATA_CHNL_0 0 
-#define DATA_CHNL_1 1
-#define DATA_CHNL_2 2
-#define DATA_CHNL_3 3
-#define DATA_CHNL_4 4
-#define DATA_CHNL_5 5
-#define DATA_CHNL_6 6
-#define DATA_CHNL_7 7
-#define DATA_CHNL_8 8
-#define DATA_CHNL_9 9
-#define DATA_CHNL_10 10 
-#define DATA_CHNL_11 11
-#define DATA_CHNL_12 12
-#define DATA_CHNL_13 13
-#define DATA_CHNL_14 14
-#define DATA_CHNL_15 15
-
 /*!
  *  @brief  ADC Clock Configuration Struct
  */
