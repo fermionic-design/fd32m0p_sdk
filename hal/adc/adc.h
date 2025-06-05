@@ -1,3 +1,11 @@
+/** @addtogroup ADC
+ *  @{
+ */
+
+/** @defgroup ADC_HAL
+ *  @{
+ */
+
 #ifndef adc_h_include
 #define adc_h_include
 
@@ -358,3 +366,6 @@ adc_timer_cfg_s get_adc_timer_cfg(ADC_REGS_s *regs);
 adc_hw_avg_cfg_s get_adc_hw_avg_cfg(ADC_REGS_s *regs);
 
 #endif
+
+/** @} */
+/** @} */

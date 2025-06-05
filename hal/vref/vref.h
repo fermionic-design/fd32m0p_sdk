@@ -1,3 +1,11 @@
+/** @addtogroup VREF
+ *  @{
+ */
+
+/** @defgroup VREF_HAL
+ *  @{
+ */
+
 #ifndef vref_h_include
 #define vref_h_include
 
@@ -45,3 +53,6 @@ void vref_cfg(VREF_REGS_s *vref_regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s 
 vref_cfg_s get_vref_cfg(VREF_REGS_s *regs);
 
 #endif
+
+/** @} */
+/** @} */
