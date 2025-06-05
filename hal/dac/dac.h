@@ -1,3 +1,11 @@
+/** @addtogroup DAC
+ *  @{
+ */
+
+/** @defgroup DAC_HAL
+ *  @{
+ */
+
 #ifndef dac_h_include
 #define dac_h_include
 
@@ -93,3 +101,6 @@ dac_dma_cfg_s get_dac_dma_cfg(DAC_REGS_s *regs);
 uint32_t get_dac_wr_code(DAC_REGS_s *regs);
 
 #endif
+
+/** @} */
+/** @} */
