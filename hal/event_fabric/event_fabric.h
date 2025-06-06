@@ -22,7 +22,7 @@
  *-----------------------------------------------------------------------------
  */
 
-/** @addtogroup EVENT_FABRIC 
+/** @addtogroup FD32M0P_HAL FD32M0P Hardware Abstraction Layer
  *  @{
  */
 
