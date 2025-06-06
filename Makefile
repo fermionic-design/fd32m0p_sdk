@@ -16,8 +16,8 @@ FLASHTOOL = $(TOOLS_DIR)/bootstrap_loader/flash_prog.py
 
 PYTHON_PATH ?= C:/Users/deepe/Documents/GitHub/fd32m0p/venv/Scripts/python
 
-COM_PORT ?= COM10
-BAUD_RATE ?= 9600
+FD32M0P_UART_COM_PORT ?= COM10
+FD32M0P_UART_BAUD_RATE ?= 9600
 
 PRJ_CHEADER_DIR = $(SOFTWARE_DIR)/c_headers
 PRJ_HAL_DIR = $(SOFTWARE_DIR)/hal
@@ -111,5 +111,7 @@ endif
 	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o --pad-to 32768 -O binary ${C_COMPILE_DIR}/$(TESTNAME)_32KB.bin
 	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o -O verilog ${C_COMPILE_DIR}/$(TESTNAME).hex
 
-flash: test
-	$(PYTHON_PATH) $(FLASHTOOL) -b $(C_COMPILE_DIR)/$(TESTNAME)_32KB.bin -p 1 -c $(COM_PORT) -r $(BAUD_RATE) 
+flash: 
+	$(PYTHON_PATH) $(FLASHTOOL) -b $(C_COMPILE_DIR)/$(TESTNAME)_32KB.bin -p 1 -c $(FD32M0P_UART_COM_PORT) -r $(FD32M0P_UART_BAUD_RATE) 
+
+test_flash: test flash
