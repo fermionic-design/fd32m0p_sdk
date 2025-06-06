@@ -30,10 +30,10 @@ var searchData=
   ['hr_5fmsb_5fbcd_27',['hr_msb_bcd',['../_r_t_c___r_e_g_s_8h.html#a11041d9f1a3d78e544974246821724d4',1,'RTC_HR_CTL_REG_s']]],
   ['hr_5frtc_5frdy_28',['hr_rtc_rdy',['../_r_t_c___r_e_g_s_8h.html#a4478405f513c79ac55d545aac254e2d0',1,'RTC_HR_CTL_REG_s']]],
   ['hsize_5fctrl_29',['HSIZE_CTRL',['../group___f_l_a_s_h___m_e_m_o_r_y___m_a_p.html#a37884f01c60892b37a40f9c7003e75d6',1,'FLASH_REGS_s']]],
-  ['hw_5favg_5fcfg_30',['HW_AVG_CFG',['../_a_d_c___r_e_g_s_8h.html#a50cea70533ff366f6f4efb30066fda59',1,'ADC_REGS_s']]],
-  ['hw_5favg_5fen_31',['hw_avg_en',['../_a_d_c___r_e_g_s_8h.html#affb68ddbf534e5a903c24af2d646e189',1,'ADC_CHNL_CFG_REG_s::hw_avg_en'],['../group___a_d_c___h_a_l.html#a6fa2f02633cb3be6c758ec0e8fbf2505',1,'adc_chnl_cfg_s::hw_avg_en']]],
-  ['hw_5favg_5fsample_5fdiv_32',['hw_avg_sample_div',['../_a_d_c___r_e_g_s_8h.html#a042cbceac76a70e103e11a10dfc7fdb9',1,'ADC_HW_AVG_CFG_REG_s::hw_avg_sample_div'],['../group___a_d_c___h_a_l.html#a012ac0ea75002025163befdd8126498b',1,'adc_hw_avg_cfg_s::hw_avg_sample_div']]],
-  ['hw_5fsample_5fcnt_33',['hw_sample_cnt',['../_a_d_c___r_e_g_s_8h.html#a4c71e2651f49062e6413b984f9116b6e',1,'ADC_HW_AVG_CFG_REG_s::hw_sample_cnt'],['../group___a_d_c___h_a_l.html#a4e93f5bb92b553003cf6ce102ec668e2',1,'adc_hw_avg_cfg_s::hw_sample_cnt']]],
+  ['hw_5favg_5fcfg_30',['HW_AVG_CFG',['../group___a_d_c___m_e_m_o_r_y___m_a_p.html#a50cea70533ff366f6f4efb30066fda59',1,'ADC_REGS_s']]],
+  ['hw_5favg_5fen_31',['hw_avg_en',['../group___a_d_c___c_h_n_l___c_f_g___r_e_g.html#affb68ddbf534e5a903c24af2d646e189',1,'ADC_CHNL_CFG_REG_s::hw_avg_en'],['../group___a_d_c___h_a_l.html#a6fa2f02633cb3be6c758ec0e8fbf2505',1,'adc_chnl_cfg_s::hw_avg_en']]],
+  ['hw_5favg_5fsample_5fdiv_32',['hw_avg_sample_div',['../group___a_d_c___h_w___a_v_g___c_f_g___r_e_g.html#a042cbceac76a70e103e11a10dfc7fdb9',1,'ADC_HW_AVG_CFG_REG_s::hw_avg_sample_div'],['../group___a_d_c___h_a_l.html#a012ac0ea75002025163befdd8126498b',1,'adc_hw_avg_cfg_s::hw_avg_sample_div']]],
+  ['hw_5fsample_5fcnt_33',['hw_sample_cnt',['../group___a_d_c___h_w___a_v_g___c_f_g___r_e_g.html#a4c71e2651f49062e6413b984f9116b6e',1,'ADC_HW_AVG_CFG_REG_s::hw_sample_cnt'],['../group___a_d_c___h_a_l.html#a4e93f5bb92b553003cf6ce102ec668e2',1,'adc_hw_avg_cfg_s::hw_sample_cnt']]],
   ['hyst_34',['hyst',['../_c_o_m_p___r_e_g_s_8h.html#ae8f03e6906cd813cbf3fae043310b1eb',1,'COMP_CTRL0_REG_s']]],
   ['hysteresis_35',['hysteresis',['../_i_o_m_u_x___r_e_g_s_8h.html#a71a72b4c1785cf1301b6d5233282f03d',1,'IOMUX_PA_REG_s']]]
 ];
