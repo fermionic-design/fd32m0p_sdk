@@ -1,5 +1,6 @@
 var NAVTREEINDEX59 =
 {
+"group___u_a_r_t___r_s_t___c_t_r_l___r_e_g.html#af372abafa1cebb2e19fa6763bcf2fc01":[1,2,1,17,0,2,1,2],
 "group___u_a_r_t___r_s_t___c_t_r_l___r_e_g.html#struct_u_a_r_t___r_s_t___c_t_r_l___r_e_g__s":[1,2,1,17,0,2,0],
 "group___u_a_r_t___r_s_t___c_t_r_l___r_e_g.html#union_u_a_r_t___r_s_t___c_t_r_l__u":[1,2,1,17,0,2,1],
 "group___u_a_r_t___r_s_t___s_t_s___r_e_g.html":[1,2,1,17,0,3],
@@ -86,12 +87,12 @@ var NAVTREEINDEX59 =
 "group___v_r_e_f___d_e_s_c___r_e_g.html#ae10ce3fded42f9ed1b91d81fdad50ebe":[1,2,1,18,0,0,0,3],
 "group___v_r_e_f___d_e_s_c___r_e_g.html#struct_v_r_e_f___d_e_s_c___r_e_g__s":[1,2,1,18,0,0,0],
 "group___v_r_e_f___d_e_s_c___r_e_g.html#union_v_r_e_f___d_e_s_c__u":[1,2,1,18,0,0,1],
-"group___v_r_e_f___h_a_l.html":[1,2,1,18,4],
-"group___v_r_e_f___h_a_l.html#a4f9ffefed040adea0edf1ada75d76fdd":[1,2,1,18,4,0,0],
-"group___v_r_e_f___h_a_l.html#a8b2d1b1aad80da9979e8d609a5e5028e":[1,2,1,18,4,0,1],
-"group___v_r_e_f___h_a_l.html#ga1c4f02f31f35b7dc15d23a07e16ac862":[1,2,1,18,4,2],
-"group___v_r_e_f___h_a_l.html#ga246cd4e32a10611881fc4981d5ae394a":[1,2,1,18,4,1],
-"group___v_r_e_f___h_a_l.html#structvref__cfg__s":[1,2,1,18,4,0],
+"group___v_r_e_f___h_a_l.html":[1,3,6],
+"group___v_r_e_f___h_a_l.html#a4f9ffefed040adea0edf1ada75d76fdd":[1,3,6,0,0],
+"group___v_r_e_f___h_a_l.html#a8b2d1b1aad80da9979e8d609a5e5028e":[1,3,6,0,1],
+"group___v_r_e_f___h_a_l.html#ga1c4f02f31f35b7dc15d23a07e16ac862":[1,3,6,2],
+"group___v_r_e_f___h_a_l.html#ga246cd4e32a10611881fc4981d5ae394a":[1,3,6,1],
+"group___v_r_e_f___h_a_l.html#structvref__cfg__s":[1,3,6,0],
 "group___v_r_e_f___k_e_y.html":[1,2,1,18,2],
 "group___v_r_e_f___k_e_y.html#ga3a1ca6f1fbf4f7f20a01e16681ed9571":[1,2,1,18,2,0],
 "group___v_r_e_f___k_e_y.html#ga674faf19e675393721f343566f00275a":[1,2,1,18,2,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX59 =
 "i2c_8h.html#a2ca3a331102bfb044a1aa97c34daf7e5":[3,0,3,8,1,1,4],
 "i2c_8h.html#a2e594c22f97773a62d4f7c9b2e268e6a":[3,0,3,8,1,4],
 "i2c_8h.html#a35623c11a0371c67375f5aeeb3ee6bb7":[3,0,3,8,1,5],
-"i2c_8h.html#a3728dd64e5e7d0ffbbff924139b9eee9":[3,0,3,8,1,1,0],
-"i2c_8h.html#a3878af442e80a0ffac33d0c6ffc2f0d4":[3,0,3,8,1,1,8]
+"i2c_8h.html#a3728dd64e5e7d0ffbbff924139b9eee9":[3,0,3,8,1,1,0]
 };
