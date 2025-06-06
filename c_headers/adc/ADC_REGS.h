@@ -3,94 +3,152 @@
 
 #include <stdint.h>
 
-typedef struct ADC_DESC_REG_s {
+/** @addtogroup FD32M0P_Peripherals FD32M0P Peripherals
+ *  @{
+ */
+/** @defgroup ADC
+ *  @{
+ */
+/** @defgroup ADC_REGISTERS 
+ *  @{
+ */
+/** @defgroup ADC_DESC_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int module_type:8; // 
     unsigned int module_subtype:8; // 
     unsigned int major_rev:4; // 
     unsigned int minor_rev:4; // 
 } ADC_DESC_REG_s;
 
-typedef union ADC_DESC_u {
+typedef union {
+    /** @ref ADC_DESC_REG_s */
     ADC_DESC_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DESC_u;
 
-typedef struct ADC_PWR_EN_REG_s {
+/** @} end of ADC_DESC_REG */ 
+
+/** @defgroup ADC_PWR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_en:1; // 
     unsigned int rsvd_0:23; // 
+    /** @ref ADC_PWR_EN_PWR_EN_KEY */
     unsigned int pwr_en_key:8; // 
 } ADC_PWR_EN_REG_s;
 
-typedef union ADC_PWR_EN_u {
+typedef union {
+    /** @ref ADC_PWR_EN_REG_s */
     ADC_PWR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_PWR_EN_u;
 
-typedef struct ADC_RST_CTRL_REG_s {
+/** @} end of ADC_PWR_EN_REG */ 
+
+/** @defgroup ADC_RST_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst:1; // 
     unsigned int rst_sts_clr:1; // 
     unsigned int rsvd_0:22; // 
+    /** @ref ADC_RST_CTRL_RST_STS_CLR_KEY */
     unsigned int rst_key:8; // 
 } ADC_RST_CTRL_REG_s;
 
-typedef union ADC_RST_CTRL_u {
+typedef union {
+    /** @ref ADC_RST_CTRL_REG_s */
     ADC_RST_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_RST_CTRL_u;
 
-typedef struct ADC_RST_STS_REG_s {
+/** @} end of ADC_RST_CTRL_REG */ 
+
+/** @defgroup ADC_RST_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int rst_sts:1; // 
 } ADC_RST_STS_REG_s;
 
-typedef union ADC_RST_STS_u {
+typedef union {
+    /** @ref ADC_RST_STS_REG_s */
     ADC_RST_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_RST_STS_u;
 
-typedef struct ADC_DBG_CTRL_REG_s {
+/** @} end of ADC_RST_STS_REG */ 
+
+/** @defgroup ADC_DBG_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int stop_on_halt:1; // 
     unsigned int soft_stop:1; // 
 } ADC_DBG_CTRL_REG_s;
 
-typedef union ADC_DBG_CTRL_u {
+typedef union {
+    /** @ref ADC_DBG_CTRL_REG_s */
     ADC_DBG_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DBG_CTRL_u;
 
-typedef struct ADC_CLK_CTRL_REG_s {
+/** @} end of ADC_DBG_CTRL_REG */ 
+
+/** @defgroup ADC_CLK_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int clk_en:1; // 
+    /** @ref ADC_CLK_CTRL_CLK_DIV_E */
     unsigned int clk_div:3; // 
 } ADC_CLK_CTRL_REG_s;
 
-typedef union ADC_CLK_CTRL_u {
+typedef union {
+    /** @ref ADC_CLK_CTRL_REG_s */
     ADC_CLK_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CLK_CTRL_u;
 
-typedef struct ADC_CLK_SEL_REG_s {
+/** @} end of ADC_CLK_CTRL_REG */ 
+
+/** @defgroup ADC_CLK_SEL_REG 
+ *  @{
+ */
+typedef struct {
+    /** @ref ADC_CLK_SEL_E */
     unsigned int clk_sel:2; // 
 } ADC_CLK_SEL_REG_s;
 
-typedef union ADC_CLK_SEL_u {
+typedef union {
+    /** @ref ADC_CLK_SEL_REG_s */
     ADC_CLK_SEL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CLK_SEL_u;
 
-typedef struct ADC_INTR_EVENT_REG_s {
+/** @} end of ADC_CLK_SEL_REG */ 
+
+/** @defgroup ADC_INTR_EVENT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_flag:1; // 
     unsigned int ov_flag:1; // 
     unsigned int seq_ov_flow:1; // 
@@ -117,14 +175,20 @@ typedef struct ADC_INTR_EVENT_REG_s {
     unsigned int result15_flag:1; // 
 } ADC_INTR_EVENT_REG_s;
 
-typedef union ADC_INTR_EVENT_u {
+typedef union {
+    /** @ref ADC_INTR_EVENT_REG_s */
     ADC_INTR_EVENT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_EVENT_u;
 
-typedef struct ADC_INTR_EN_0_REG_s {
+/** @} end of ADC_INTR_EVENT_REG */ 
+
+/** @defgroup ADC_INTR_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_flag_en:1; // 
     unsigned int ov_flag_en:1; // 
     unsigned int seq_ov_flow_en:1; // 
@@ -143,14 +207,20 @@ typedef struct ADC_INTR_EN_0_REG_s {
     unsigned int result7_flag_en:1; // 
 } ADC_INTR_EN_0_REG_s;
 
-typedef union ADC_INTR_EN_0_u {
+typedef union {
+    /** @ref ADC_INTR_EN_0_REG_s */
     ADC_INTR_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_EN_0_u;
 
-typedef struct ADC_INTR_EN_1_REG_s {
+/** @} end of ADC_INTR_EN_0_REG */ 
+
+/** @defgroup ADC_INTR_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result8_flag_en:1; // 
     unsigned int result9_flag_en:1; // 
     unsigned int result10_flag_en:1; // 
@@ -161,14 +231,20 @@ typedef struct ADC_INTR_EN_1_REG_s {
     unsigned int result15_flag_en:1; // 
 } ADC_INTR_EN_1_REG_s;
 
-typedef union ADC_INTR_EN_1_u {
+typedef union {
+    /** @ref ADC_INTR_EN_1_REG_s */
     ADC_INTR_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_EN_1_u;
 
-typedef struct ADC_DMA_EN_0_REG_s {
+/** @} end of ADC_INTR_EN_1_REG */ 
+
+/** @defgroup ADC_DMA_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_en:1; // 
     unsigned int ov_dma_en:1; // 
     unsigned int seq_ov_dma_en:1; // 
@@ -187,14 +263,20 @@ typedef struct ADC_DMA_EN_0_REG_s {
     unsigned int result7_dma_en:1; // 
 } ADC_DMA_EN_0_REG_s;
 
-typedef union ADC_DMA_EN_0_u {
+typedef union {
+    /** @ref ADC_DMA_EN_0_REG_s */
     ADC_DMA_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DMA_EN_0_u;
 
-typedef struct ADC_DMA_EN_1_REG_s {
+/** @} end of ADC_DMA_EN_0_REG */ 
+
+/** @defgroup ADC_DMA_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result8_dma_en:1; // 
     unsigned int result9_dma_en:1; // 
     unsigned int result10_dma_en:1; // 
@@ -205,14 +287,20 @@ typedef struct ADC_DMA_EN_1_REG_s {
     unsigned int result15_dma_en:1; // 
 } ADC_DMA_EN_1_REG_s;
 
-typedef union ADC_DMA_EN_1_u {
+typedef union {
+    /** @ref ADC_DMA_EN_1_REG_s */
     ADC_DMA_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DMA_EN_1_u;
 
-typedef struct ADC_EVENT_EN_0_REG_s {
+/** @} end of ADC_DMA_EN_1_REG */ 
+
+/** @defgroup ADC_EVENT_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_event_en:1; // 
     unsigned int ov_flag_event_en:1; // 
     unsigned int seq_ov_flow_event_en:1; // 
@@ -231,14 +319,20 @@ typedef struct ADC_EVENT_EN_0_REG_s {
     unsigned int result7_event_en:1; // 
 } ADC_EVENT_EN_0_REG_s;
 
-typedef union ADC_EVENT_EN_0_u {
+typedef union {
+    /** @ref ADC_EVENT_EN_0_REG_s */
     ADC_EVENT_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_EVENT_EN_0_u;
 
-typedef struct ADC_EVENT_EN_1_REG_s {
+/** @} end of ADC_EVENT_EN_0_REG */ 
+
+/** @defgroup ADC_EVENT_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result8_event_en:1; // 
     unsigned int result9_event_en:1; // 
     unsigned int result10_event_en:1; // 
@@ -249,14 +343,20 @@ typedef struct ADC_EVENT_EN_1_REG_s {
     unsigned int result15_event_en:1; // 
 } ADC_EVENT_EN_1_REG_s;
 
-typedef union ADC_EVENT_EN_1_u {
+typedef union {
+    /** @ref ADC_EVENT_EN_1_REG_s */
     ADC_EVENT_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_EVENT_EN_1_u;
 
-typedef struct ADC_INTR_NMI_EN_0_REG_s {
+/** @} end of ADC_EVENT_EN_1_REG */ 
+
+/** @defgroup ADC_INTR_NMI_EN_0_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_flag_nmi_en:1; // 
     unsigned int ov_flag_nmi_en:1; // 
     unsigned int seq_ov_flow_nmi_en:1; // 
@@ -275,14 +375,20 @@ typedef struct ADC_INTR_NMI_EN_0_REG_s {
     unsigned int result7_flag_nmi_en:1; // 
 } ADC_INTR_NMI_EN_0_REG_s;
 
-typedef union ADC_INTR_NMI_EN_0_u {
+typedef union {
+    /** @ref ADC_INTR_NMI_EN_0_REG_s */
     ADC_INTR_NMI_EN_0_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_NMI_EN_0_u;
 
-typedef struct ADC_INTR_NMI_EN_1_REG_s {
+/** @} end of ADC_INTR_NMI_EN_0_REG */ 
+
+/** @defgroup ADC_INTR_NMI_EN_1_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int result8_flag_nmi_en:1; // 
     unsigned int result9_flag_nmi_en:1; // 
     unsigned int result10_flag_nmi_en:1; // 
@@ -293,25 +399,37 @@ typedef struct ADC_INTR_NMI_EN_1_REG_s {
     unsigned int result15_flag_nmi_en:1; // 
 } ADC_INTR_NMI_EN_1_REG_s;
 
-typedef union ADC_INTR_NMI_EN_1_u {
+typedef union {
+    /** @ref ADC_INTR_NMI_EN_1_REG_s */
     ADC_INTR_NMI_EN_1_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_NMI_EN_1_u;
 
-typedef struct ADC_INTR_STS_REG_s {
+/** @} end of ADC_INTR_NMI_EN_1_REG */ 
+
+/** @defgroup ADC_INTR_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int intr_first:8; // 
 } ADC_INTR_STS_REG_s;
 
-typedef union ADC_INTR_STS_u {
+typedef union {
+    /** @ref ADC_INTR_STS_REG_s */
     ADC_INTR_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_STS_u;
 
-typedef struct ADC_INTR_SW_REG_s {
+/** @} end of ADC_INTR_STS_REG */ 
+
+/** @defgroup ADC_INTR_SW_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int trig_to_dma_flag_sw_set:1; // 
     unsigned int ov_flag_sw_set:1; // 
     unsigned int seq_ov_flow_sw_set:1; // 
@@ -338,455 +456,656 @@ typedef struct ADC_INTR_SW_REG_s {
     unsigned int result15_flag_sw_set:1; // 
 } ADC_INTR_SW_REG_s;
 
-typedef union ADC_INTR_SW_u {
+typedef union {
+    /** @ref ADC_INTR_SW_REG_s */
     ADC_INTR_SW_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_INTR_SW_u;
 
-typedef struct ADC_CONV_CFG_REG_s {
+/** @} end of ADC_INTR_SW_REG */ 
+
+/** @defgroup ADC_CONV_CFG_REG 
+ *  @{
+ */
+typedef struct {
+    /** @ref ADC_CONV_CFG_CONV_MODE_E */
     unsigned int conv_mode:2; // 
     unsigned int start_addr:4; // 
     unsigned int end_addr:4; // 
+    /** @ref ADC_CONV_CFG_TRIGGER_SOURCE_E */
     unsigned int trigger_source:1; // 
+    /** @ref ADC_CONV_CFG_ADC_RES_E */
     unsigned int adc_res:2; // 
     unsigned int en_conv:1; // 
 } ADC_CONV_CFG_REG_s;
 
-typedef union ADC_CONV_CFG_u {
+typedef union {
+    /** @ref ADC_CONV_CFG_REG_s */
     ADC_CONV_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CONV_CFG_u;
 
-typedef struct ADC_CHNL_CFG_REG_s {
+/** @} end of ADC_CONV_CFG_REG */ 
+
+/** @defgroup ADC_CHNL_CFG_REG 
+ *  @{
+ */
+typedef struct {
+    /** @ref ADC_CHNL_CFG_CHANNEL_SEL_E */
     unsigned int channel_sel:4; // 
+    /** @ref ADC_CHNL_CFG_VREF_SEL_E */
     unsigned int vref_sel:2; // 
     unsigned int hw_avg_en:1; // 
     unsigned int window_comp_en:1; // 
     unsigned int bcs_en:1; // 
 } ADC_CHNL_CFG_REG_s;
 
-typedef union ADC_CHNL_CFG_u {
+typedef union {
+    /** @ref ADC_CHNL_CFG_REG_s */
     ADC_CHNL_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CHNL_CFG_u;
 
-typedef struct ADC_RESULT_CFG_REG_s {
+/** @} end of ADC_CHNL_CFG_REG */ 
+
+/** @defgroup ADC_RESULT_CFG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int fifo_en:1; // 
 } ADC_RESULT_CFG_REG_s;
 
-typedef union ADC_RESULT_CFG_u {
+typedef union {
+    /** @ref ADC_RESULT_CFG_REG_s */
     ADC_RESULT_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_RESULT_CFG_u;
 
-typedef struct ADC_HW_AVG_CFG_REG_s {
+/** @} end of ADC_RESULT_CFG_REG */ 
+
+/** @defgroup ADC_HW_AVG_CFG_REG 
+ *  @{
+ */
+typedef struct {
+    /** @ref ADC_HW_AVG_CFG_HW_SAMPLE_CNT_E */
     unsigned int hw_sample_cnt:4; // 
+    /** @ref ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_E */
     unsigned int hw_avg_sample_div:4; // 
 } ADC_HW_AVG_CFG_REG_s;
 
-typedef union ADC_HW_AVG_CFG_u {
+typedef union {
+    /** @ref ADC_HW_AVG_CFG_REG_s */
     ADC_HW_AVG_CFG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_HW_AVG_CFG_u;
 
-typedef struct ADC_RESULT_REG_s {
+/** @} end of ADC_HW_AVG_CFG_REG */ 
+
+/** @defgroup ADC_RESULT_REG 
+ *  @{
+ */
+typedef struct {
+    /** @ref ADC_RESULT_E */
     unsigned int result:16; // 
 } ADC_RESULT_REG_s;
 
-typedef union ADC_RESULT_u {
+typedef union {
+    /** @ref ADC_RESULT_REG_s */
     ADC_RESULT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_RESULT_u;
 
-typedef struct ADC_TIMER_START_REG_s {
+/** @} end of ADC_RESULT_REG */ 
+
+/** @defgroup ADC_TIMER_START_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int timer_cnt_start:4; // 
 } ADC_TIMER_START_REG_s;
 
-typedef union ADC_TIMER_START_u {
+typedef union {
+    /** @ref ADC_TIMER_START_REG_s */
     ADC_TIMER_START_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_TIMER_START_u;
 
-typedef struct ADC_TIMER_SAMPLE_REG_s {
+/** @} end of ADC_TIMER_START_REG */ 
+
+/** @defgroup ADC_TIMER_SAMPLE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int timer_cnt_sample:5; // 
 } ADC_TIMER_SAMPLE_REG_s;
 
-typedef union ADC_TIMER_SAMPLE_u {
+typedef union {
+    /** @ref ADC_TIMER_SAMPLE_REG_s */
     ADC_TIMER_SAMPLE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_TIMER_SAMPLE_u;
 
-typedef struct ADC_TIMER_CONVERSION_REG_s {
+/** @} end of ADC_TIMER_SAMPLE_REG */ 
+
+/** @defgroup ADC_TIMER_CONVERSION_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int timer_cnt_conversion:8; // 
 } ADC_TIMER_CONVERSION_REG_s;
 
-typedef union ADC_TIMER_CONVERSION_u {
+typedef union {
+    /** @ref ADC_TIMER_CONVERSION_REG_s */
     ADC_TIMER_CONVERSION_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_TIMER_CONVERSION_u;
 
-typedef struct ADC_WINDOW_COMP_REG_s {
+/** @} end of ADC_TIMER_CONVERSION_REG */ 
+
+/** @defgroup ADC_WINDOW_COMP_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int window_comp_th_low:16; // 
     unsigned int window_comp_th_high:16; // 
 } ADC_WINDOW_COMP_REG_s;
 
-typedef union ADC_WINDOW_COMP_u {
+typedef union {
+    /** @ref ADC_WINDOW_COMP_REG_s */
     ADC_WINDOW_COMP_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_WINDOW_COMP_u;
 
-typedef struct ADC_STATUS_REG_s {
+/** @} end of ADC_WINDOW_COMP_REG */ 
+
+/** @defgroup ADC_STATUS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int adc_busy:1; // 
 } ADC_STATUS_REG_s;
 
-typedef union ADC_STATUS_u {
+typedef union {
+    /** @ref ADC_STATUS_REG_s */
     ADC_STATUS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_STATUS_u;
 
-typedef struct ADC_DMA_REG_REG_s {
+/** @} end of ADC_STATUS_REG */ 
+
+/** @defgroup ADC_DMA_REG_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_en:1; // 
 } ADC_DMA_REG_REG_s;
 
-typedef union ADC_DMA_REG_u {
+typedef union {
+    /** @ref ADC_DMA_REG_REG_s */
     ADC_DMA_REG_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DMA_REG_u;
 
-typedef struct ADC_POWER_DN_REG_s {
+/** @} end of ADC_DMA_REG_REG */ 
+
+/** @defgroup ADC_POWER_DN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pwr_dn:1; // 
 } ADC_POWER_DN_REG_s;
 
-typedef union ADC_POWER_DN_u {
+typedef union {
+    /** @ref ADC_POWER_DN_REG_s */
     ADC_POWER_DN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_POWER_DN_u;
 
-typedef struct ADC_SUBS_PORT_REG_s {
+/** @} end of ADC_POWER_DN_REG */ 
+
+/** @defgroup ADC_SUBS_PORT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int subs_port:4; // 
 } ADC_SUBS_PORT_REG_s;
 
-typedef union ADC_SUBS_PORT_u {
+typedef union {
+    /** @ref ADC_SUBS_PORT_REG_s */
     ADC_SUBS_PORT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SUBS_PORT_u;
 
-typedef struct ADC_PUBS_PORT_REG_s {
+/** @} end of ADC_SUBS_PORT_REG */ 
+
+/** @defgroup ADC_PUBS_PORT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int pubs_port:4; // 
 } ADC_PUBS_PORT_REG_s;
 
-typedef union ADC_PUBS_PORT_u {
+typedef union {
+    /** @ref ADC_PUBS_PORT_REG_s */
     ADC_PUBS_PORT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_PUBS_PORT_u;
 
-typedef struct ADC_CALIBRATION_REQ_REG_s {
+/** @} end of ADC_PUBS_PORT_REG */ 
+
+/** @defgroup ADC_CALIBRATION_REQ_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int cal_req:1; // 
     unsigned int cal_done:1; // 
     unsigned int cal_ctrl:18; // 
 } ADC_CALIBRATION_REQ_REG_s;
 
-typedef union ADC_CALIBRATION_REQ_u {
+typedef union {
+    /** @ref ADC_CALIBRATION_REQ_REG_s */
     ADC_CALIBRATION_REQ_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_CALIBRATION_REQ_u;
 
-typedef struct ADC_BLOCK_ASYNC_REQ_REG_s {
+/** @} end of ADC_CALIBRATION_REQ_REG */ 
+
+/** @defgroup ADC_BLOCK_ASYNC_REQ_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int block_async_req:1; // 
 } ADC_BLOCK_ASYNC_REQ_REG_s;
 
-typedef union ADC_BLOCK_ASYNC_REQ_u {
+typedef union {
+    /** @ref ADC_BLOCK_ASYNC_REQ_REG_s */
     ADC_BLOCK_ASYNC_REQ_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_BLOCK_ASYNC_REQ_u;
 
-typedef struct ADC_SW_TRIGGER_REG_s {
+/** @} end of ADC_BLOCK_ASYNC_REQ_REG */ 
+
+/** @defgroup ADC_SW_TRIGGER_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int sw_trigger:1; // 
     unsigned int sw_trigger_en:1; // 
 } ADC_SW_TRIGGER_REG_s;
 
-typedef union ADC_SW_TRIGGER_u {
+typedef union {
+    /** @ref ADC_SW_TRIGGER_REG_s */
     ADC_SW_TRIGGER_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SW_TRIGGER_u;
 
-typedef struct ADC_SPARE_CTRL_REG_s {
+/** @} end of ADC_SW_TRIGGER_REG */ 
+
+/** @defgroup ADC_SPARE_CTRL_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int adc_cfg0:8; // 
     unsigned int adc_cfg1:8; // 
     unsigned int adc_cfg2:8; // 
     unsigned int adc_cfg3:8; // 
 } ADC_SPARE_CTRL_REG_s;
 
-typedef union ADC_SPARE_CTRL_u {
+typedef union {
+    /** @ref ADC_SPARE_CTRL_REG_s */
     ADC_SPARE_CTRL_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SPARE_CTRL_u;
 
-typedef struct ADC_SPARE_STS_REG_s {
+/** @} end of ADC_SPARE_CTRL_REG */ 
+
+/** @defgroup ADC_SPARE_STS_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int adc_sts0:8; // 
     unsigned int adc_sts1:8; // 
     unsigned int adc_sts2:8; // 
     unsigned int adc_sts3:8; // 
 } ADC_SPARE_STS_REG_s;
 
-typedef union ADC_SPARE_STS_u {
+typedef union {
+    /** @ref ADC_SPARE_STS_REG_s */
     ADC_SPARE_STS_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SPARE_STS_u;
 
-typedef struct ADC_EOC_ANA_REG_s {
+/** @} end of ADC_SPARE_STS_REG */ 
+
+/** @defgroup ADC_EOC_ANA_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int eoc_ana:1; // 
 } ADC_EOC_ANA_REG_s;
 
-typedef union ADC_EOC_ANA_u {
+typedef union {
+    /** @ref ADC_EOC_ANA_REG_s */
     ADC_EOC_ANA_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_EOC_ANA_u;
 
-typedef struct ADC_TEMP_SENSOR_EN_REG_s {
+/** @} end of ADC_EOC_ANA_REG */ 
+
+/** @defgroup ADC_TEMP_SENSOR_EN_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int temp_sensor_en:1; // 
 } ADC_TEMP_SENSOR_EN_REG_s;
 
-typedef union ADC_TEMP_SENSOR_EN_u {
+typedef union {
+    /** @ref ADC_TEMP_SENSOR_EN_REG_s */
     ADC_TEMP_SENSOR_EN_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_TEMP_SENSOR_EN_u;
 
-typedef struct ADC_SM_STATE_REG_s {
+/** @} end of ADC_TEMP_SENSOR_EN_REG */ 
+
+/** @defgroup ADC_SM_STATE_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int curr_state:4; // 
 } ADC_SM_STATE_REG_s;
 
-typedef union ADC_SM_STATE_u {
+typedef union {
+    /** @ref ADC_SM_STATE_REG_s */
     ADC_SM_STATE_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_SM_STATE_u;
 
-typedef struct ADC_DMA_TRANSFER_CNT_REG_s {
+/** @} end of ADC_SM_STATE_REG */ 
+
+/** @defgroup ADC_DMA_TRANSFER_CNT_REG 
+ *  @{
+ */
+typedef struct {
     unsigned int dma_transfer_cnt:4; // 
 } ADC_DMA_TRANSFER_CNT_REG_s;
 
-typedef union ADC_DMA_TRANSFER_CNT_u {
+typedef union {
+    /** @ref ADC_DMA_TRANSFER_CNT_REG_s */
     ADC_DMA_TRANSFER_CNT_REG_s;
     uint8_t packed_byte[4];
     uint16_t packed_hw[2];
     uint32_t packed_w;
 } ADC_DMA_TRANSFER_CNT_u;
 
-typedef struct ADC_REGS_s{
-    volatile ADC_DESC_u DESC;
-    volatile ADC_PWR_EN_u PWR_EN;
-    volatile ADC_RST_CTRL_u RST_CTRL;
-    volatile ADC_RST_STS_u RST_STS;
-    volatile ADC_DBG_CTRL_u DBG_CTRL;
-    volatile ADC_CLK_CTRL_u CLK_CTRL;
-    volatile ADC_CLK_SEL_u CLK_SEL;
-    volatile ADC_INTR_EVENT_u INTR_EVENT;
-    volatile ADC_INTR_EN_0_u INTR_EN_0;
-    volatile ADC_INTR_EN_1_u INTR_EN_1;
-    volatile ADC_DMA_EN_0_u DMA_EN_0;
-    volatile ADC_DMA_EN_1_u DMA_EN_1;
-    volatile ADC_EVENT_EN_0_u EVENT_EN_0;
-    volatile ADC_EVENT_EN_1_u EVENT_EN_1;
-    volatile ADC_INTR_NMI_EN_0_u INTR_NMI_EN_0;
-    volatile ADC_INTR_NMI_EN_1_u INTR_NMI_EN_1;
-    volatile ADC_INTR_STS_u INTR_STS;
-    volatile ADC_INTR_SW_u INTR_SW;
-    volatile ADC_CONV_CFG_u CONV_CFG;
-    volatile ADC_CHNL_CFG_u CHNL_CFG[16];
-    volatile ADC_RESULT_CFG_u RESULT_CFG;
-    volatile ADC_HW_AVG_CFG_u HW_AVG_CFG;
-    volatile ADC_RESULT_u RESULT[16];
-    volatile ADC_TIMER_START_u TIMER_START;
-    volatile ADC_TIMER_SAMPLE_u TIMER_SAMPLE;
-    volatile ADC_TIMER_CONVERSION_u TIMER_CONVERSION;
-    volatile ADC_WINDOW_COMP_u WINDOW_COMP;
-    volatile ADC_STATUS_u STATUS;
-    volatile ADC_DMA_REG_u DMA_REG;
-    volatile ADC_POWER_DN_u POWER_DN;
-    volatile ADC_SUBS_PORT_u SUBS_PORT;
-    volatile ADC_PUBS_PORT_u PUBS_PORT;
-    volatile ADC_CALIBRATION_REQ_u CALIBRATION_REQ;
-    volatile ADC_BLOCK_ASYNC_REQ_u BLOCK_ASYNC_REQ;
-    volatile ADC_SW_TRIGGER_u SW_TRIGGER;
-    volatile ADC_SPARE_CTRL_u SPARE_CTRL;
-    volatile ADC_SPARE_STS_u SPARE_STS;
-    volatile ADC_EOC_ANA_u EOC_ANA;
-    volatile ADC_TEMP_SENSOR_EN_u TEMP_SENSOR_EN;
-    volatile ADC_SM_STATE_u SM_STATE;
-    volatile ADC_DMA_TRANSFER_CNT_u DMA_TRANSFER_CNT;
+/** @} end of ADC_DMA_TRANSFER_CNT_REG */ 
+
+/** @} end of ADC_REGISTERS */ 
+
+/** @defgroup ADC_MEMORY_MAP 
+ *  @{
+ */
+typedef struct {
+    volatile  ADC_DESC_u DESC; ///< 0x00000000
+    volatile  ADC_PWR_EN_u PWR_EN; ///< 0x00000004
+    volatile  ADC_RST_CTRL_u RST_CTRL; ///< 0x00000008
+    volatile  ADC_RST_STS_u RST_STS; ///< 0x0000000C
+    volatile  ADC_DBG_CTRL_u DBG_CTRL; ///< 0x00000010
+    volatile  ADC_CLK_CTRL_u CLK_CTRL; ///< 0x00000014
+    volatile  ADC_CLK_SEL_u CLK_SEL; ///< 0x00000018
+    volatile  ADC_INTR_EVENT_u INTR_EVENT; ///< 0x0000001C
+    volatile  ADC_INTR_EN_0_u INTR_EN_0; ///< 0x00000020
+    volatile  ADC_INTR_EN_1_u INTR_EN_1; ///< 0x00000024
+    volatile  ADC_DMA_EN_0_u DMA_EN_0; ///< 0x00000028
+    volatile  ADC_DMA_EN_1_u DMA_EN_1; ///< 0x0000002C
+    volatile  ADC_EVENT_EN_0_u EVENT_EN_0; ///< 0x00000030
+    volatile  ADC_EVENT_EN_1_u EVENT_EN_1; ///< 0x00000034
+    volatile  ADC_INTR_NMI_EN_0_u INTR_NMI_EN_0; ///< 0x00000038
+    volatile  ADC_INTR_NMI_EN_1_u INTR_NMI_EN_1; ///< 0x0000003C
+    volatile  ADC_INTR_STS_u INTR_STS; ///< 0x00000040
+    volatile  ADC_INTR_SW_u INTR_SW; ///< 0x00000044
+    volatile  ADC_CONV_CFG_u CONV_CFG; ///< 0x00000048
+    volatile  ADC_CHNL_CFG_u CHNL_CFG[16]; ///< 0x0000004C
+    volatile  ADC_RESULT_CFG_u RESULT_CFG; ///< 0x0000008C
+    volatile  ADC_HW_AVG_CFG_u HW_AVG_CFG; ///< 0x00000090
+    volatile  ADC_RESULT_u RESULT[16]; ///< 0x00000094
+    volatile  ADC_TIMER_START_u TIMER_START; ///< 0x000000D4
+    volatile  ADC_TIMER_SAMPLE_u TIMER_SAMPLE; ///< 0x000000D8
+    volatile  ADC_TIMER_CONVERSION_u TIMER_CONVERSION; ///< 0x000000DC
+    volatile  ADC_WINDOW_COMP_u WINDOW_COMP; ///< 0x000000E0
+    volatile  ADC_STATUS_u STATUS; ///< 0x000000E4
+    volatile  ADC_DMA_REG_u DMA_REG; ///< 0x000000E8
+    volatile  ADC_POWER_DN_u POWER_DN; ///< 0x000000EC
+    volatile  ADC_SUBS_PORT_u SUBS_PORT; ///< 0x000000F0
+    volatile  ADC_PUBS_PORT_u PUBS_PORT; ///< 0x000000F4
+    volatile  ADC_CALIBRATION_REQ_u CALIBRATION_REQ; ///< 0x000000F8
+    volatile  ADC_BLOCK_ASYNC_REQ_u BLOCK_ASYNC_REQ; ///< 0x000000FC
+    volatile  ADC_SW_TRIGGER_u SW_TRIGGER; ///< 0x00000100
+    volatile  ADC_SPARE_CTRL_u SPARE_CTRL; ///< 0x00000104
+    volatile  ADC_SPARE_STS_u SPARE_STS; ///< 0x00000108
+    volatile  ADC_EOC_ANA_u EOC_ANA; ///< 0x0000010C
+    volatile  ADC_TEMP_SENSOR_EN_u TEMP_SENSOR_EN; ///< 0x00000110
+    volatile  ADC_SM_STATE_u SM_STATE; ///< 0x00000114
+    volatile  ADC_DMA_TRANSFER_CNT_u DMA_TRANSFER_CNT; ///< 0x00000118
 } ADC_REGS_s;
 
+/** @} end of ADC_MEMORY_MAP */ 
+
+/** @defgroup ADC_KEY 
+ *  @{
+ */
 #define ADC_PWR_EN_PWR_EN_KEY ((uint32_t)0x000000ABU)
 #define ADC_RST_CTRL_RST_KEY ((uint32_t)0x000000ABU)
 #define ADC_RST_CTRL_RST_STS_CLR_KEY ((uint32_t)0x000000ABU)
+/** @} end of ADC_KEY*/ 
 
-#define ADC_INTR_EVENT_TRIG_TO_DMA_FLAG_IDX (0)
-#define ADC_INTR_EVENT_OV_FLAG_IDX (1)
-#define ADC_INTR_EVENT_SEQ_OV_FLOW_IDX (2)
-#define ADC_INTR_EVENT_WC_IN_FLAG_IDX (3)
-#define ADC_INTR_EVENT_WC_HIGH_FLAG_IDX (4)
-#define ADC_INTR_EVENT_WC_LOW_FLAG_IDX (5)
-#define ADC_INTR_EVENT_DMA_DONE_IDX (6)
-#define ADC_INTR_EVENT_UF_FLAG_IDX (7)
-#define ADC_INTR_EVENT_RESULT0_FLAG_IDX (8)
-#define ADC_INTR_EVENT_RESULT1_FLAG_IDX (9)
-#define ADC_INTR_EVENT_RESULT2_FLAG_IDX (10)
-#define ADC_INTR_EVENT_RESULT3_FLAG_IDX (11)
-#define ADC_INTR_EVENT_RESULT4_FLAG_IDX (12)
-#define ADC_INTR_EVENT_RESULT5_FLAG_IDX (13)
-#define ADC_INTR_EVENT_RESULT6_FLAG_IDX (14)
-#define ADC_INTR_EVENT_RESULT7_FLAG_IDX (15)
-#define ADC_INTR_EVENT_RESULT8_FLAG_IDX (16)
-#define ADC_INTR_EVENT_RESULT9_FLAG_IDX (17)
-#define ADC_INTR_EVENT_RESULT10_FLAG_IDX (18)
-#define ADC_INTR_EVENT_RESULT11_FLAG_IDX (19)
-#define ADC_INTR_EVENT_RESULT12_FLAG_IDX (20)
-#define ADC_INTR_EVENT_RESULT13_FLAG_IDX (21)
-#define ADC_INTR_EVENT_RESULT14_FLAG_IDX (22)
-#define ADC_INTR_EVENT_RESULT15_FLAG_IDX (23)
 
+/** @defgroup ADC_INTERRUPTS 
+ *  @{
+ */
 typedef enum {
-	ADC_CLK_CTRL_CLK_DIV_BY_1 = 0,
-	ADC_CLK_CTRL_CLK_DIV_BY_2 = 1,
-	ADC_CLK_CTRL_CLK_DIV_BY_3 = 2,
-	ADC_CLK_CTRL_CLK_DIV_BY_4 = 3,
-	ADC_CLK_CTRL_CLK_DIV_BY_5 = 4,
-	ADC_CLK_CTRL_CLK_DIV_BY_6 = 5,
-	ADC_CLK_CTRL_CLK_DIV_BY_7 = 6,
-	ADC_CLK_CTRL_CLK_DIV_BY_8 = 7,
+	ADC_INTR_EVENT_TRIG_TO_DMA_FLAG_IDX = 0, ///<0x0
+	ADC_INTR_EVENT_OV_FLAG_IDX = 1, ///<0x1
+	ADC_INTR_EVENT_SEQ_OV_FLOW_IDX = 2, ///<0x2
+	ADC_INTR_EVENT_WC_IN_FLAG_IDX = 3, ///<0x3
+	ADC_INTR_EVENT_WC_HIGH_FLAG_IDX = 4, ///<0x4
+	ADC_INTR_EVENT_WC_LOW_FLAG_IDX = 5, ///<0x5
+	ADC_INTR_EVENT_DMA_DONE_IDX = 6, ///<0x6
+	ADC_INTR_EVENT_UF_FLAG_IDX = 7, ///<0x7
+	ADC_INTR_EVENT_RESULT0_FLAG_IDX = 8, ///<0x8
+	ADC_INTR_EVENT_RESULT1_FLAG_IDX = 9, ///<0x9
+	ADC_INTR_EVENT_RESULT2_FLAG_IDX = 10, ///<0xa
+	ADC_INTR_EVENT_RESULT3_FLAG_IDX = 11, ///<0xb
+	ADC_INTR_EVENT_RESULT4_FLAG_IDX = 12, ///<0xc
+	ADC_INTR_EVENT_RESULT5_FLAG_IDX = 13, ///<0xd
+	ADC_INTR_EVENT_RESULT6_FLAG_IDX = 14, ///<0xe
+	ADC_INTR_EVENT_RESULT7_FLAG_IDX = 15, ///<0xf
+	ADC_INTR_EVENT_RESULT8_FLAG_IDX = 16, ///<0x10
+	ADC_INTR_EVENT_RESULT9_FLAG_IDX = 17, ///<0x11
+	ADC_INTR_EVENT_RESULT10_FLAG_IDX = 18, ///<0x12
+	ADC_INTR_EVENT_RESULT11_FLAG_IDX = 19, ///<0x13
+	ADC_INTR_EVENT_RESULT12_FLAG_IDX = 20, ///<0x14
+	ADC_INTR_EVENT_RESULT13_FLAG_IDX = 21, ///<0x15
+	ADC_INTR_EVENT_RESULT14_FLAG_IDX = 22, ///<0x16
+	ADC_INTR_EVENT_RESULT15_FLAG_IDX = 23, ///<0x17
+} ADC_INTR_EVENT_E;
+/** @} end of ADC_INTERRUPTS */ 
+
+/** @addtogroup ADC_CLK_CTRL_REG  
+ *  @{
+ */
+typedef enum {
+	ADC_CLK_CTRL_CLK_DIV_BY_1 = 0, ///< 0x0
+	ADC_CLK_CTRL_CLK_DIV_BY_2 = 1, ///< 0x1
+	ADC_CLK_CTRL_CLK_DIV_BY_3 = 2, ///< 0x2
+	ADC_CLK_CTRL_CLK_DIV_BY_4 = 3, ///< 0x3
+	ADC_CLK_CTRL_CLK_DIV_BY_5 = 4, ///< 0x4
+	ADC_CLK_CTRL_CLK_DIV_BY_6 = 5, ///< 0x5
+	ADC_CLK_CTRL_CLK_DIV_BY_7 = 6, ///< 0x6
+	ADC_CLK_CTRL_CLK_DIV_BY_8 = 7, ///< 0x7
 } ADC_CLK_CTRL_CLK_DIV_E;
-
+/** @} */
+/** @addtogroup ADC_CLK_SEL_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CLK_SEL_APB = 0,
-	ADC_CLK_SEL_AHB = 1,
-	ADC_CLK_SEL_HF = 2,
+	ADC_CLK_SEL_APB = 0, ///< 0x0
+	ADC_CLK_SEL_AHB = 1, ///< 0x1
+	ADC_CLK_SEL_HF = 2, ///< 0x2
 } ADC_CLK_SEL_E;
-
+/** @} */
+/** @addtogroup ADC_CONV_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CONV_CFG_CONV_MODE_SINGLE_CONV = 0,
-	ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV = 1,
-	ADC_CONV_CFG_CONV_MODE_MULTI_CH_CONV = 2,
-	ADC_CONV_CFG_CONV_MODE_MULTI_CH_RPT_CONV = 3,
+	ADC_CONV_CFG_CONV_MODE_SINGLE_CONV = 0, ///< 0x0
+	ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV = 1, ///< 0x1
+	ADC_CONV_CFG_CONV_MODE_MULTI_CH_CONV = 2, ///< 0x2
+	ADC_CONV_CFG_CONV_MODE_MULTI_CH_RPT_CONV = 3, ///< 0x3
 } ADC_CONV_CFG_CONV_MODE_E;
-
+/** @} */
+/** @addtogroup ADC_CONV_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CONV_CFG_TRIGGER_SOURCE_HW = 0,
-	ADC_CONV_CFG_TRIGGER_SOURCE_SW = 1,
+	ADC_CONV_CFG_TRIGGER_SOURCE_HW = 0, ///< 0x0
+	ADC_CONV_CFG_TRIGGER_SOURCE_SW = 1, ///< 0x1
 } ADC_CONV_CFG_TRIGGER_SOURCE_E;
-
+/** @} */
+/** @addtogroup ADC_CONV_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CONV_CFG_ADC_RES_8_BIT = 0,
-	ADC_CONV_CFG_ADC_RES_10_BIT = 1,
-	ADC_CONV_CFG_ADC_RES_12_BIT = 2,
+	ADC_CONV_CFG_ADC_RES_8_BIT = 0, ///< 0x0
+	ADC_CONV_CFG_ADC_RES_10_BIT = 1, ///< 0x1
+	ADC_CONV_CFG_ADC_RES_12_BIT = 2, ///< 0x2
 } ADC_CONV_CFG_ADC_RES_E;
-
+/** @} */
+/** @addtogroup ADC_CHNL_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CHNL_CFG_CHANNEL_SEL_CH0_PA27 = 0,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH1_PA26 = 1,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH2_PA25 = 2,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH3_PA24 = 3,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH4_PA22 = 4,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH5_PA21 = 5,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH6_PA20 = 6,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH7_PA18 = 7,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH8_PA16 = 8,
-	ADC_CHNL_CFG_CHANNEL_SEL_CH9_PA15 = 9,
-	ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR = 11,
-	ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON = 15,
+	ADC_CHNL_CFG_CHANNEL_SEL_CH0_PA27 = 0, ///< 0x0
+	ADC_CHNL_CFG_CHANNEL_SEL_CH1_PA26 = 1, ///< 0x1
+	ADC_CHNL_CFG_CHANNEL_SEL_CH2_PA25 = 2, ///< 0x2
+	ADC_CHNL_CFG_CHANNEL_SEL_CH3_PA24 = 3, ///< 0x3
+	ADC_CHNL_CFG_CHANNEL_SEL_CH4_PA22 = 4, ///< 0x4
+	ADC_CHNL_CFG_CHANNEL_SEL_CH5_PA21 = 5, ///< 0x5
+	ADC_CHNL_CFG_CHANNEL_SEL_CH6_PA20 = 6, ///< 0x6
+	ADC_CHNL_CFG_CHANNEL_SEL_CH7_PA18 = 7, ///< 0x7
+	ADC_CHNL_CFG_CHANNEL_SEL_CH8_PA16 = 8, ///< 0x8
+	ADC_CHNL_CFG_CHANNEL_SEL_CH9_PA15 = 9, ///< 0x9
+	ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR = 11, ///< 0xb
+	ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON = 15, ///< 0xf
 } ADC_CHNL_CFG_CHANNEL_SEL_E;
-
+/** @} */
+/** @addtogroup ADC_CHNL_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_CHNL_CFG_VREF_SEL_EXT = 0,
-	ADC_CHNL_CFG_VREF_SEL_INT = 1,
+	ADC_CHNL_CFG_VREF_SEL_EXT = 0, ///< 0x0
+	ADC_CHNL_CFG_VREF_SEL_INT = 1, ///< 0x1
 } ADC_CHNL_CFG_VREF_SEL_E;
-
+/** @} */
+/** @addtogroup ADC_HW_AVG_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_0 = 0,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_2 = 1,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_4 = 2,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_8 = 3,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_16 = 4,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_32 = 5,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_64 = 6,
-	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_128 = 7,
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_0 = 0, ///< 0x0
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_2 = 1, ///< 0x1
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_4 = 2, ///< 0x2
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_8 = 3, ///< 0x3
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_16 = 4, ///< 0x4
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_32 = 5, ///< 0x5
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_64 = 6, ///< 0x6
+	ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_128 = 7, ///< 0x7
 } ADC_HW_AVG_CFG_HW_SAMPLE_CNT_E;
-
+/** @} */
+/** @addtogroup ADC_HW_AVG_CFG_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_1 = 0,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_2 = 1,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_4 = 2,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_8 = 3,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_16 = 4,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_32 = 5,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_64 = 6,
-	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_128 = 7,
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_1 = 0, ///< 0x0
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_2 = 1, ///< 0x1
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_4 = 2, ///< 0x2
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_8 = 3, ///< 0x3
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_16 = 4, ///< 0x4
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_32 = 5, ///< 0x5
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_64 = 6, ///< 0x6
+	ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_128 = 7, ///< 0x7
 } ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_E;
-
+/** @} */
+/** @addtogroup ADC_RESULT_REG  
+ *  @{
+ */
 typedef enum {
-	ADC_RESULT_DATA_CHNL_0 = 0,
-	ADC_RESULT_DATA_CHNL_1 = 1,
-	ADC_RESULT_DATA_CHNL_2 = 2,
-	ADC_RESULT_DATA_CHNL_3 = 3,
-	ADC_RESULT_DATA_CHNL_4 = 4,
-	ADC_RESULT_DATA_CHNL_5 = 5,
-	ADC_RESULT_DATA_CHNL_6 = 6,
-	ADC_RESULT_DATA_CHNL_7 = 7,
-	ADC_RESULT_DATA_CHNL_8 = 8,
-	ADC_RESULT_DATA_CHNL_9 = 9,
-	ADC_RESULT_DATA_CHNL_10 = 10,
-	ADC_RESULT_DATA_CHNL_11 = 11,
-	ADC_RESULT_DATA_CHNL_12 = 12,
-	ADC_RESULT_DATA_CHNL_13 = 13,
-	ADC_RESULT_DATA_CHNL_14 = 14,
-	ADC_RESULT_DATA_CHNL_15 = 15,
+	ADC_RESULT_DATA_CHNL_0 = 0, ///< 0x0
+	ADC_RESULT_DATA_CHNL_1 = 1, ///< 0x1
+	ADC_RESULT_DATA_CHNL_2 = 2, ///< 0x2
+	ADC_RESULT_DATA_CHNL_3 = 3, ///< 0x3
+	ADC_RESULT_DATA_CHNL_4 = 4, ///< 0x4
+	ADC_RESULT_DATA_CHNL_5 = 5, ///< 0x5
+	ADC_RESULT_DATA_CHNL_6 = 6, ///< 0x6
+	ADC_RESULT_DATA_CHNL_7 = 7, ///< 0x7
+	ADC_RESULT_DATA_CHNL_8 = 8, ///< 0x8
+	ADC_RESULT_DATA_CHNL_9 = 9, ///< 0x9
+	ADC_RESULT_DATA_CHNL_10 = 10, ///< 0xa
+	ADC_RESULT_DATA_CHNL_11 = 11, ///< 0xb
+	ADC_RESULT_DATA_CHNL_12 = 12, ///< 0xc
+	ADC_RESULT_DATA_CHNL_13 = 13, ///< 0xd
+	ADC_RESULT_DATA_CHNL_14 = 14, ///< 0xe
+	ADC_RESULT_DATA_CHNL_15 = 15, ///< 0xf
 } ADC_RESULT_E;
+/** @} */
 
+/** @defgroup ADC_REGISTER_FLAGS 
+ *  @{
+ */
 #define ADC_DESC_MODULE_TYPE_OFS (0)
 #define ADC_DESC_MODULE_TYPE_MASK ((uint32_t)0x000000FFU)
 #define ADC_DESC_MODULE_SUBTYPE_OFS (8)
@@ -1193,5 +1512,9 @@ typedef enum {
 #define ADC_SM_STATE_CURR_STATE_MASK ((uint32_t)0x0000000FU)
 #define ADC_DMA_TRANSFER_CNT_DMA_TRANSFER_CNT_OFS (0)
 #define ADC_DMA_TRANSFER_CNT_DMA_TRANSFER_CNT_MASK ((uint32_t)0x0000000FU)
+/** @} end of ADC_REGISTER_FLAGS */ 
 
+/** @} end of ADC */
+
+/** @} end of group FD32M0P_Peripherals */
 #endif
