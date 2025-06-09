@@ -18,7 +18,7 @@
 /*!
  *  @brief  COMP CTRL0 Configuration Struct
  */
-typedef struct
+typedef struct {
     uint32_t enable;
     uint32_t speed;
     uint32_t hyst;
@@ -100,3 +100,4 @@ comp_input_ctrl0_cfg_s get_comp_input_ctrl0_cfg(COMP_REGS_s *regs);
  */
 comp_input_ctrl1_cfg_s get_comp_input_ctrl1_cfg(COMP_REGS_s *regs);
 
+#endif
