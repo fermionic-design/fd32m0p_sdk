@@ -72,6 +72,7 @@ C_HEADER_INCDIR = -I $(PRJ_CHEADER_DIR)/crc/ \
 				  -I $(PRJ_CHEADER_DIR)/iomux/ \
 				  -I $(PRJ_CHEADER_DIR)/mcu_ctrl/ \
 				  -I $(PRJ_CHEADER_DIR)/flash/ \
+				  -I $(PRJ_CHEADER_DIR)/vultan_flash/ \
 				  -I $(PRJ_CHEADER_DIR)/usb2/ \
 				  -I $(PRJ_CHEADER_DIR)/common/ 
 

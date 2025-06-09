@@ -97,6 +97,7 @@ SECTIONS
 		__data_start__ = .;
 		*(vtable)
 		*(.data*)
+        *(.sram_code)
 
 		. = ALIGN(4);
 		/* preinit data */
