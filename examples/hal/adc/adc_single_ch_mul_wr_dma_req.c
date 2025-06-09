@@ -18,7 +18,7 @@
 #include "vref.h"
 #include "gpio.h"
 #include "adc.h" 
-#include "../../hal/dma/dma.h"
+#include "dma.h"
 #include "event_fabric.h"
 
 typedef struct uart_sram_memory {
@@ -100,7 +100,7 @@ int main(void) {
 
     chnl_cfg.data_channel   = start_addr;
     chnl_cfg.channel_sel    = analog_adc_channel;
-    chnl_cfg.vref_sel       = 0;
+    chnl_cfg.vref_sel       = ADC_CHNL_CFG_VREF_SEL_EXT;
     chnl_cfg.hw_avg_en      = 1;
     chnl_cfg.bcs_en         = 0;
 
@@ -132,8 +132,7 @@ int main(void) {
 
     adc_en_conv(ADC0_REGS, 1);
 
-    //ADC_DMA_EN_0_WRITE(ADC0_REGS, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    ADC0_REGS->DMA_EN_0.packed_w = 0x00410041;
+    ADC_DMA_EN_0_WRITE(ADC0_REGS, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     
     iomux_cfg_struct.input_en = 0;
     iomux_cfg_struct.output_en = 0;
@@ -172,7 +171,6 @@ int main(void) {
     while(ADC0_REGS->INTR_STS.intr_first == ADC_INTR_EVENT_DMA_DONE_IDX);   
     int ii = 0;
     for(int cnt=0;cnt<128;cnt++){ 
-        
         obs_result[ii] = (sram_mem_s->mem[cnt]) & (0x0000FFFF);
         print_int_var("obs_result ", obs_result[ii], 0);
         obs_result[ii+1] = ((sram_mem_s->mem[cnt]) >>16) & (0x0000FFFF);

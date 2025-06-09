@@ -39,7 +39,7 @@ int main(void) {
 
     chnl_cfg.data_channel   = start_addr;
     chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_CH0_PA27;
-    chnl_cfg.vref_sel       = 0;
+    chnl_cfg.vref_sel       = ADC_CHNL_CFG_VREF_SEL_EXT;
     chnl_cfg.hw_avg_en      = 0;
     chnl_cfg.bcs_en         = 0;
     adc_chnl_cfg(ADC0_REGS, chnl_cfg);
@@ -57,10 +57,6 @@ int main(void) {
     clk_cfg.clk_en  = 1;
     clk_cfg.clk_div = ADC_CLK_CTRL_CLK_DIV_BY_8;
     clk_cfg.clk_sel = ADC_CLK_SEL_AHB;
-    print_int_var("before clk_en : ", clk_cfg.clk_en, 1);  
-    print_int_var("before clk_div : ",clk_cfg.clk_div, 1); 
-    print_int_var("before clk_sel : ", clk_cfg.clk_sel, 1);
-
     adc_clk_cfg(ADC0_REGS, clk_cfg);
     clk_cfg         = get_adc_clk_cfg(ADC0_REGS);
     print_int_var("clk_en : ", clk_cfg.clk_en, 1);  

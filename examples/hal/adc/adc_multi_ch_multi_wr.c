@@ -48,7 +48,7 @@ int main(void) {
     samples     = 90;
     
     UartStdOutInit();
-    UartPuts("ADC Basic Test\n");
+    UartPuts("ADC Multi Ch Rpt Test\n");
     
     if(hw_avg_en)
     {
@@ -56,7 +56,7 @@ int main(void) {
         {
             chnl_cfg.data_channel   = hw;
             chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_CH3_PA24;
-            chnl_cfg.vref_sel       = 0;
+            chnl_cfg.vref_sel       = ADC_CHNL_CFG_VREF_SEL_EXT;
             chnl_cfg.hw_avg_en      = 1;
             chnl_cfg.bcs_en         = 0;
             adc_chnl_cfg(ADC0_REGS, chnl_cfg);
@@ -71,7 +71,7 @@ int main(void) {
         {
             chnl_cfg.data_channel   = hw;
             chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_CH0_PA27;
-            chnl_cfg.vref_sel       = 0;
+            chnl_cfg.vref_sel       = ADC_CHNL_CFG_VREF_SEL_EXT;
             chnl_cfg.hw_avg_en      = 0;
             chnl_cfg.bcs_en         = 0;
             adc_chnl_cfg(ADC0_REGS, chnl_cfg);
@@ -167,7 +167,6 @@ int main(void) {
     {
         for(uint32_t ii=0; ii< (num_channel) ; ii=ii+1){      
             while ((ADC0_REGS->INTR_EVENT.packed_w & (1 << (ii + start_addr+8))) == 0);
-            print_int_var("CH: ", ii, 0);
             print_int_var("res : ", ADC0_REGS->RESULT[start_addr + ii].packed_w, 0);
             ADC0_REGS->INTR_EVENT.packed_w = (1 << (ii + start_addr+8));
             intr_sts = ADC0_REGS->INTR_EVENT.packed_w;
