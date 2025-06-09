@@ -1,3 +1,11 @@
+/** @addtogroup FD32M0P_HAL FD32M0P Hardware Abstraction Layer
+ *  @{
+ */
+
+/** @defgroup SPI_HAL
+ *  @{
+ */
+
 #ifndef HAL_SPI_H
 #define HAL_SPI_H
 
@@ -388,3 +396,6 @@ void spi_clr_soft_cs(SPI_REGS_s *SPI_REGS_PTR);
 bool spi_is_idle(SPI_REGS_s *SPI_REGS_PTR);
 
 #endif
+
+/** @} */
+/** @} */

@@ -1,3 +1,11 @@
+/** @addtogroup FD32M0P_HAL FD32M0P Hardware Abstraction Layer
+ *  @{
+ */
+
+/** @defgroup DMA_HAL
+ *  @{
+ */
+
 #ifndef HAL_DMA_H
 #define HAL_DMA_H
 
@@ -238,3 +246,6 @@ void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, DMA_ARBITRATION_DMA_RR_EN_E 
 bool dma_is_idle(PL230_REGS_s *PL230_REGS);
 
 #endif
+
+/** @} */
+/** @} */

@@ -1,3 +1,11 @@
+/** @addtogroup FD32M0P_HAL FD32M0P Hardware Abstraction Layer
+ *  @{
+ */
+
+/** @defgroup FLASH_HAL
+ *  @{
+ */
+
 #ifndef HAL_FLASH_H
 #define HAL_FLASH_H
 
@@ -550,3 +558,6 @@ void flash_config(FLASH_REGS_s *FLASH_REGS, flash_setting_cfg_e flash_setting_cf
 void flash_factory_restore(FLASH_REGS_s *FLASH_REGS);
 
 #endif
+
+/** @} */
+/** @} */
