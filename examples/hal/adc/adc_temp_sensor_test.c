@@ -49,7 +49,7 @@ int main(void){
 
     chnl_cfg.data_channel   = start_addr;
     chnl_cfg.channel_sel    = ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR;
-    chnl_cfg.vref_sel       = 1;
+    chnl_cfg.vref_sel       = ADC_CHNL_CFG_VREF_SEL_INT;
     chnl_cfg.hw_avg_en      = 0;
     chnl_cfg.bcs_en         = 0;
     
