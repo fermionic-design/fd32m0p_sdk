@@ -128,10 +128,10 @@ typedef enum {
 /*!
  *  @brief Event Fabric Channel Configuration Struct
  */
-typedef struct chnl_cfg {
+typedef struct {
    EVENT_FABRIC_PUB_ID_E pub;
    EVENT_FABRIC_SUB_ID_E sub;
-} chnl_cfg;
+} event_fabric_chnl_cfg;
 
 /**
  * @brief   Configures a Publisher to a specific DMA Channel
@@ -155,14 +155,14 @@ extern void event_fabric_pub_to_sub_channel_cfg     (EVENT_FABRIC_REGS_s * regis
  * @param   registers: pointer to the EVENT_FABRIC_REGS_s 
  * @param   chnl: channel configuration array of structs having the configuration of all Event channels 
  */
-extern void get_event_fabric_full_chnl_cfg          (EVENT_FABRIC_REGS_s * registers, chnl_cfg* chnl);
+extern void get_event_fabric_full_chnl_cfg          (EVENT_FABRIC_REGS_s * registers, event_fabric_chnl_cfg* chnl);
 
 /**
  * @brief   Get the current configuration of all DMA Channels  
  * @param   registers: pointer to the EVENT_FABRIC_REGS_s 
  * @param   chnl: channel configuration array of structs having the configuration of all DMA channels 
  */
-extern void get_dma_full_chnl_cfg                   (EVENT_FABRIC_REGS_s * registers, chnl_cfg* chnl);
+extern void get_dma_full_chnl_cfg                   (EVENT_FABRIC_REGS_s * registers, event_fabric_chnl_cfg* chnl);
 
 #endif
 /** @} */
