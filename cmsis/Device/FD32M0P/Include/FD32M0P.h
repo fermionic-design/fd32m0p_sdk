@@ -252,6 +252,8 @@ typedef struct
 #define RAM_BASE          (0x20000000UL)
 #define APB_BASE          (0x3FFC0000UL)
 #define AHB_BASE          (0x40000000UL)
+#define EEPROM_WRITE_BASE (0x00220000UL)
+#define EEPROM_READ_BASE  (0x00009000UL)
 
 /* APB peripherals                                                           */
 #define MCU_CTRL_BASE       (APB_BASE + 0x00000UL)
@@ -277,8 +279,8 @@ typedef struct
 #define TIMER_A1_BASE       (APB_BASE + 0x15000UL)
 #define TIMER_G0_BASE       (APB_BASE + 0x16000UL)
 #define TIMER_G1_BASE       (APB_BASE + 0x17000UL)
-#define FLASH_APB_BASE      (APB_BASE + 0x1B000UL)
-//#define FLASH_APB_BASE      (APB_BASE + 0x1C000UL)
+#define VULTAN_APB_BASE     (APB_BASE + 0x1B000UL)
+#define FLASH_APB_BASE      (APB_BASE + 0x1C000UL)
 #define OPA1_BASE           (APB_BASE + 0x1D000UL)
 #define SECURE_IP_BASE      (APB_BASE + 0x1E000UL)
 #define USB2_BASE           (APB_BASE + 0x1F000UL)
@@ -327,6 +329,7 @@ typedef struct
 #define TIMER_G0_REGS       ((TIMER_REGS_s*)        TIMER_G0_BASE)       
 #define TIMER_G1_REGS       ((TIMER_REGS_s*)        TIMER_G1_BASE)       
 #define FLASH_APB_REGS      ((FLASH_REGS_s*)        FLASH_APB_BASE)      
+#define VULTAN_APB_REGS     ((VULTAN_FLASH_REGS_s*) VULTAN_APB_BASE)      
 #define OPA1_REGS           ((OPA_REGS_s*)          OPA1_BASE)            
 #define SECURE_IP_REGS      ((SECURE_IP_REGS_s*)    SECURE_IP_BASE)      
 #define USB2_REGS           ((USB2_REGS_s*)         USB2_BASE)           
