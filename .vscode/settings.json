@@ -5,8 +5,12 @@
             "makeArgs": ["TESTNAME=helloworld", "TESTFOLDER=examples/hal/bringup"]
         },
         {
+            "name": "i2c_slave_hal_non_blocking",
+            "makeArgs": ["TESTNAME=i2c_slave_sw_non_blocking", "TESTFOLDER=examples/hal/i2c", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
             "name": "i2c_slave_hal_blocking",
-            "makeArgs": ["TESTNAME=i2c_slave_sw_blocking", "TESTFOLDER=examples/hal/i2c"]
+            "makeArgs": ["TESTNAME=i2c_slave_sw_blocking", "TESTFOLDER=examples/hal/i2c", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
             "name": "uart_hal_basic",
