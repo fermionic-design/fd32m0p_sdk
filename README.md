@@ -52,7 +52,7 @@ This SDK provides development tools, libraries, and examples for the FD32M0P mic
     ```
 
 4. **Flash the microcontroller**:\
-    If using VSCode, you can use Makefile Tools to build your project. Select the required `Configuration` and set `Build Target` as `flash`, then run the build.\
+    If using VSCode, you can use Makefile Tools to flash your project. Select the required `Configuration` and set `Build Target` as `flash`, then run the build.\
     If not using VSCode, you can use the provided Makefile and construct a make command as follows:
     ```bash
     make flash TESTFOLDER=examples/hal/bringup TESTNAME=helloworld
@@ -61,7 +61,7 @@ This SDK provides development tools, libraries, and examples for the FD32M0P mic
 
 ### Running Examples
 
-The SDK includes several example projects located in the `examples/` directory. Each example demonstrates different features of the FD32M0P microcontroller. Each example can be built and flashed to the microcontroller using the provided Makefile by selection the relevant `Configuration` and `Build Target` in VSCode, or by using the command line.
+The SDK includes several example projects located in the `examples/` directory. Each example demonstrates different features of the FD32M0P microcontroller. Each example can be built and flashed to the microcontroller using the provided Makefile by selecting the relevant `Configuration` and `Build Target` in VSCode, or by using the command line.
 
 To compile and flash an example:
 ```bash
@@ -70,7 +70,7 @@ make test_flash TESTFOLDER=examples/hal/bringup TESTNAME=helloworld
 
 ## Documentation
 
-- [API Reference]()
+- [API Reference](docs/html/index.html)
 - [Hardware Reference Manual]()
 - [Application Notes]()
 
