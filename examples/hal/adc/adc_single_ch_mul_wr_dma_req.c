@@ -132,8 +132,9 @@ int main(void) {
 
     adc_en_conv(ADC0_REGS, 1);
 
-    ADC_DMA_EN_0_WRITE(ADC0_REGS, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    
+    ADC_GENERIC_DMA_EVENT_EN_(ADC0_REGS, ADC_INTR_EVENT_TRIG_TO_DMA_FLAG_IDX);
+    ADC_GENERIC_DMA_EVENT_EN_(ADC0_REGS, ADC_INTR_EVENT_DMA_DONE_IDX);
+
     iomux_cfg_struct.input_en = 0;
     iomux_cfg_struct.output_en = 0;
     iomux_cfg_struct.pull_up = 0;

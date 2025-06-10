@@ -48,34 +48,20 @@ static inline void ADC_INTR_EVENT_DIS(ADC_REGS_s * registers, uint32_t intr_idx)
         registers->INTR_EN_1.packed_w = (1<<(intr_idx_mod_16+16));
 }
 
-static inline void ADC_DMA_EN_0_WRITE(ADC_REGS_s * registers, uint32_t trig_to_dma_en, uint32_t ov_dma_en, uint32_t seq_ov_dma_en, uint32_t wc_in_dma_en, uint32_t wc_high_dma_en, uint32_t wc_low_dma_en, uint32_t dma_done_dma_en, uint32_t uf_dma_en, uint32_t result0_dma_en, uint32_t result1_dma_en, uint32_t result2_dma_en, uint32_t result3_dma_en, uint32_t result4_dma_en, uint32_t result5_dma_en, uint32_t result6_dma_en, uint32_t result7_dma_en) {
-    registers->DMA_EN_0.packed_w = ((trig_to_dma_en<<ADC_DMA_EN_0_TRIG_TO_DMA_EN_OFS) & ADC_DMA_EN_0_TRIG_TO_DMA_EN_MASK)
-                                  +((ov_dma_en<<ADC_DMA_EN_0_OV_DMA_EN_OFS) & ADC_DMA_EN_0_OV_DMA_EN_MASK)
-                                  +((seq_ov_dma_en<<ADC_DMA_EN_0_SEQ_OV_DMA_EN_OFS) & ADC_DMA_EN_0_SEQ_OV_DMA_EN_MASK)
-                                  +((wc_in_dma_en<<ADC_DMA_EN_0_WC_IN_DMA_EN_OFS) & ADC_DMA_EN_0_WC_IN_DMA_EN_MASK)
-                                  +((wc_high_dma_en<<ADC_DMA_EN_0_WC_HIGH_DMA_EN_OFS) & ADC_DMA_EN_0_WC_HIGH_DMA_EN_MASK)
-                                  +((wc_low_dma_en<<ADC_DMA_EN_0_WC_LOW_DMA_EN_OFS) & ADC_DMA_EN_0_WC_LOW_DMA_EN_MASK)
-                                  +((dma_done_dma_en<<ADC_DMA_EN_0_DMA_DONE_DMA_EN_OFS) & ADC_DMA_EN_0_DMA_DONE_DMA_EN_MASK)
-                                  +((uf_dma_en<<ADC_DMA_EN_0_UF_DMA_EN_OFS) & ADC_DMA_EN_0_UF_DMA_EN_MASK)
-                                  +((result0_dma_en<<ADC_DMA_EN_0_RESULT0_DMA_EN_OFS) & ADC_DMA_EN_0_RESULT0_DMA_EN_MASK)
-                                  +((result1_dma_en<<ADC_DMA_EN_0_RESULT1_DMA_EN_OFS) & ADC_DMA_EN_0_RESULT1_DMA_EN_MASK)
-                                  +((result2_dma_en<<ADC_DMA_EN_0_RESULT2_DMA_EN_OFS) & ADC_DMA_EN_0_RESULT2_DMA_EN_MASK)
-                                  +((result3_dma_en<<ADC_DMA_EN_0_RESULT3_DMA_EN_OFS) & ADC_DMA_EN_0_RESULT3_DMA_EN_MASK)
-                                  +((result4_dma_en<<ADC_DMA_EN_0_RESULT4_DMA_EN_OFS) & ADC_DMA_EN_0_RESULT4_DMA_EN_MASK)
-                                  +((result5_dma_en<<ADC_DMA_EN_0_RESULT5_DMA_EN_OFS) & ADC_DMA_EN_0_RESULT5_DMA_EN_MASK)
-                                  +((result6_dma_en<<ADC_DMA_EN_0_RESULT6_DMA_EN_OFS) & ADC_DMA_EN_0_RESULT6_DMA_EN_MASK)
-                                  +((result7_dma_en<<ADC_DMA_EN_0_RESULT7_DMA_EN_OFS) & ADC_DMA_EN_0_RESULT7_DMA_EN_MASK);
+static inline void ADC_GENERIC_DMA_EVENT_EN_(ADC_REGS_s * registers, uint32_t intr_idx){
+    uint32_t intr_idx_mod_16 = intr_idx%16;
+    if(intr_idx<16)
+        registers->DMA_EVENT_EN_0.packed_w = (1<<intr_idx) + (1<<(intr_idx+16));
+    else if(intr_idx<32)
+        registers->DMA_EVENT_EN_1.packed_w = (1<<intr_idx_mod_16) + (1<<(intr_idx_mod_16+16));
 }
 
-static inline void ADC_DMA_EN_1_WRITE(ADC_REGS_s * registers, uint32_t result8_dma_en, uint32_t result9_dma_en, uint32_t result10_dma_en, uint32_t result11_dma_en, uint32_t result12_dma_en, uint32_t result13_dma_en, uint32_t result14_dma_en, uint32_t result15_dma_en) {
-    registers->DMA_EN_1.packed_w = ((result8_dma_en<<ADC_DMA_EN_1_RESULT8_DMA_EN_OFS) & ADC_DMA_EN_1_RESULT8_DMA_EN_MASK)
-                                  +((result9_dma_en<<ADC_DMA_EN_1_RESULT9_DMA_EN_OFS) & ADC_DMA_EN_1_RESULT9_DMA_EN_MASK)
-                                  +((result10_dma_en<<ADC_DMA_EN_1_RESULT10_DMA_EN_OFS) & ADC_DMA_EN_1_RESULT10_DMA_EN_MASK)
-                                  +((result11_dma_en<<ADC_DMA_EN_1_RESULT11_DMA_EN_OFS) & ADC_DMA_EN_1_RESULT11_DMA_EN_MASK)
-                                  +((result12_dma_en<<ADC_DMA_EN_1_RESULT12_DMA_EN_OFS) & ADC_DMA_EN_1_RESULT12_DMA_EN_MASK)
-                                  +((result13_dma_en<<ADC_DMA_EN_1_RESULT13_DMA_EN_OFS) & ADC_DMA_EN_1_RESULT13_DMA_EN_MASK)
-                                  +((result14_dma_en<<ADC_DMA_EN_1_RESULT14_DMA_EN_OFS) & ADC_DMA_EN_1_RESULT14_DMA_EN_MASK)
-                                  +((result15_dma_en<<ADC_DMA_EN_1_RESULT15_DMA_EN_OFS) & ADC_DMA_EN_1_RESULT15_DMA_EN_MASK);
+static inline void ADC_GENERIC_DMA_EVENT_DIS_(ADC_REGS_s * registers, uint32_t intr_idx){
+    uint32_t intr_idx_mod_16 = intr_idx%16;
+    if(intr_idx<16)
+        registers->DMA_EVENT_EN_0.packed_w = (1<<(intr_idx+16));
+    else if(intr_idx<32)
+        registers->DMA_EVENT_EN_1.packed_w = (1<<(intr_idx_mod_16+16));
 }
 
 static inline void ADC_GENERIC_EVENT_EN_(ADC_REGS_s * registers, uint32_t intr_idx){
