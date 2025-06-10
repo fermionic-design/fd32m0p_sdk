@@ -25,9 +25,9 @@ int main(void)
     //Set GPIO Configuration SCL
     iomux_cfg_struct_i2c.output_en = 0;              
     iomux_cfg_struct_i2c.input_en  = 1;
-    iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA1_I2C0_SCL;   
+    iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA11_I2C0_SCL;   
     
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_i2c, 1);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_i2c, 11);
     
     //Set GPIO Configuration SDA
     iomux_cfg_struct_i2c.output_en = 0;              
@@ -83,6 +83,7 @@ void I2C0_IRQ_Handler(void)
 {
     uint8_t intr_sts;
     intr_sts = I2C0_REGS->INTR_STS.packed_w;
+    print_int_var("if\n", intr_sts, 1);
 
     switch(intr_sts) 
     {

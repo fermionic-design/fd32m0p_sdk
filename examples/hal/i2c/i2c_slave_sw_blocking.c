@@ -8,6 +8,8 @@ uint8_t data_rx_arr[4];
 uint8_t mem_reg[255];
 uint8_t rcvd_reg_addr = 0;
 uint8_t byte_cnt = 0;
+uint8_t number_of_bytes_to_write_to_slave = 3;
+uint8_t number_of_bytes_to_read_from_slave = 3;
 
 int main(void) 
 {
@@ -21,9 +23,9 @@ int main(void)
     //Set GPIO Configuration SCL
     iomux_cfg_struct_i2c.output_en = 0;              
     iomux_cfg_struct_i2c.input_en  = 1;
-    iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA1_I2C0_SCL;   
+    iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA11_I2C0_SCL;   
     
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_i2c, 1);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_i2c, 11);
     
     //Set GPIO Configuration SDA
     iomux_cfg_struct_i2c.output_en = 0;              
@@ -75,8 +77,9 @@ int main(void)
                 byte_cnt++;
                 i2c_wait_for_tx_done(I2C0_REGS);
                 
-                if (i2c_poll_for_slv_stop(I2C0_REGS) == 1) 
+                if (byte_cnt == number_of_bytes_to_read_from_slave)
                 {
+                    i2c_wait_for_slv_stop(I2C0_REGS);
                     UartEndSimulation();
                     return 0;
                 }
@@ -91,9 +94,9 @@ int main(void)
                 mem_reg[byte_cnt] = data_rx_arr[0];
                 i2c_slv_ackval(I2C0_REGS, I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_ACK);
                 byte_cnt++;
-                
-                if (i2c_poll_for_slv_stop(I2C0_REGS) == 1) 
+                if (byte_cnt == number_of_bytes_to_write_to_slave)
                 {
+                    i2c_wait_for_slv_stop(I2C0_REGS);
                     break;
                 }
             }
