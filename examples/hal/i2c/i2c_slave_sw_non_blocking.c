@@ -83,7 +83,6 @@ void I2C0_IRQ_Handler(void)
 {
     uint8_t intr_sts;
     intr_sts = I2C0_REGS->INTR_STS.packed_w;
-    print_int_var("if\n", intr_sts, 1);
 
     switch(intr_sts) 
     {
