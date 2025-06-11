@@ -69,3 +69,12 @@ comp_out_cfg_s get_comp_out_cfg(COMP_REGS_s *regs){
     comp_out_cfg.samp_en = regs->OUT_CTRL0.samp_en;
     return comp_out_cfg;
 }
+
+/*
+ *  ======== get_comp_out_sts ========
+ */
+uint32_t get_comp_out_sts(COMP_REGS_s *regs){
+    uint32_t comp_sts;
+    comp_sts = regs->STS.comp_out_sts; 
+    return comp_sts;
+}

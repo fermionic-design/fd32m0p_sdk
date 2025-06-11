@@ -138,4 +138,13 @@ comp_win_comp_cfg_s get_comp_win_comp_cfg(COMP_REGS_s *regs);
  */
 comp_out_cfg_s get_comp_out_cfg(COMP_REGS_s *regs);
 
+/**
+ * @brief   This function returns output of comparator.
+ *
+ * @param   regs : pointer to the COMP register space
+ *
+ * @retval  Comparator output 
+ */
+uint32_t get_comp_out_sts(COMP_REGS_s *regs);
+
 #endif
