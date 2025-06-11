@@ -125,6 +125,18 @@
             "makeArgs": ["TESTNAME=dac_fifo_sine", "TESTFOLDER=examples/hal/dac", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
+            "name": "comp0_basic",
+            "makeArgs": ["TESTNAME=comp0_basic_test", "TESTFOLDER=examples/hal/comp" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "comp1_basic",
+            "makeArgs": ["TESTNAME=comp1_basic_test", "TESTFOLDER=examples/hal/comp" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "comp2_basic",
+            "makeArgs": ["TESTNAME=comp2_basic_test", "TESTFOLDER=examples/hal/comp" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
             "name": "adc_basic_test",
             "makeArgs": ["TESTNAME=adc_basic_test", "TESTFOLDER=examples/hal/adc", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
@@ -195,6 +207,8 @@
     ],
     "makefile.makePath": "C:\\Program Files (x86)\\GnuWin32\\bin",
     "files.associations": {
-        "fd32m0p.h": "c"
+        "fd32m0p.h": "c",
+        "cstddef": "c",
+        "type_traits": "c"
     },
 }
