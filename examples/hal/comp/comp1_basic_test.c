@@ -4,7 +4,7 @@
 ////       This is a basic comparator test case.                          ////
 ////                                                                      ////
 ////    Board Setup:                                                      ////
-////        PA11 - COMP INPUT                                             //// 
+////        PA12 - COMP INPUT                                             //// 
 ////        PA9 - COMP THRESHOLD INPUT                                    ////
 //////////////////////////////////////////////////////////////////////////////
 
@@ -29,7 +29,7 @@ int main(void){
     comp_cfg_struct.enable = 1;
     comp_cfg_struct.hyst = COMP_HYST_MEDIUM;
     comp_cfg_struct.in_p_en = 1;
-    comp_cfg_struct.in_p_sel = COMP_IN_P_SEL_COMP1_NON_INV_2;
+    comp_cfg_struct.in_p_sel = COMP_IN_P_SEL_NON_INV_1;
     comp_cfg_struct.in_m_en = 1;
     comp_cfg_struct.in_m_sel = COMP_IN_M_SEL_COMP1_INV_2;
     comp_cfg_struct.in_short = 0;
@@ -37,7 +37,7 @@ int main(void){
     comp_cfg(COMP1_REGS, comp_cfg_struct);
 
     iomux_cfg_struct.output_en        = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 11);
+    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 12);
     iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 9);
 
     while(COMP1_REGS->INTR_STS.intr_first == COMP_INTR_EVENT_COMP_OUT_IDX);
