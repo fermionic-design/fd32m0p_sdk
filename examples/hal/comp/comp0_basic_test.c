@@ -24,13 +24,12 @@ int main(void){
     UartPuts("COMP0 Basic Test.\n");
 
     comp_cfg_s          comp_cfg_struct;
-    comp_out_cfg_s      comp_out_cfg_struct;
+    comp_out_cfg_s      comp_out_cfg_struct, comp_out_cfg_struct2;
     IOMUX_PA_REG_s      iomux_cfg_struct;
     
     COMP_PWR_EN_WRITE(COMP0_REGS, 1, 0xAB);
     COMP_INTR_EVENT_EN(COMP0_REGS, COMP_INTR_EVENT_COMP_OUT_IDX);
     COMP_GENERIC_EVENT_EN(COMP0_REGS, COMP_INTR_EVENT_COMP_OUT_IDX);
-
 
     comp_cfg_struct.enable = 1;
     comp_cfg_struct.hyst = COMP_HYST_LOW;
@@ -45,6 +44,10 @@ int main(void){
     comp_out_cfg_struct.samp_en = 1;
     comp_out_cfg_struct.out_pol = 0;
     comp_out_cfg(COMP0_REGS, comp_out_cfg_struct);
+
+    comp_out_cfg_struct2 = get_comp_out_cfg(COMP0_REGS);
+    print_int_var("samp_en : ",comp_out_cfg_struct2.samp_en, 0);
+    print_int_var("out_pol : ", comp_out_cfg_struct2.out_pol, 0);
 
     EVENT_FABRIC_GEN_SUB_N_WRITE(EVENT_FABRIC_REGS, 4, 2);
     EVENT_FABRIC_GEN_PUB_N_WRITE(EVENT_FABRIC_REGS, 9, 2);
