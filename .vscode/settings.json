@@ -137,6 +137,10 @@
             "makeArgs": ["TESTNAME=comp2_basic_test", "TESTFOLDER=examples/hal/comp" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
+            "name": "comp0_win_comp",
+            "makeArgs": ["TESTNAME=comp0_win_comp_test", "TESTFOLDER=examples/hal/comp" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
             "name": "adc_basic_test",
             "makeArgs": ["TESTNAME=adc_basic_test", "TESTFOLDER=examples/hal/adc", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
