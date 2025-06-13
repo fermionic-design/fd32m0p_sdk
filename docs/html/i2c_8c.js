@@ -17,6 +17,6 @@ var i2c_8c =
     [ "i2c_wait_for_slv_start", "i2c_8c.html#ab31b5824e79d63e5d982ca61b48eba52", null ],
     [ "i2c_wait_for_rx_done", "i2c_8c.html#ae24d961ffa3b99068be5a95334ccf725", null ],
     [ "i2c_wait_for_tx_done", "i2c_8c.html#a9f716c1f16fd5723a0ad45791b8f3bdd", null ],
-    [ "i2c_poll_for_slv_stop", "i2c_8c.html#a6c002936a4c93c5f0e02b28704b70913", null ],
+    [ "i2c_wait_for_slv_stop", "i2c_8c.html#a62f19e69313c8220a8c62e1b3eeb570a", null ],
     [ "i2c_slv_ackval", "i2c_8c.html#aaae954e3156cad595f350ca0fc6d55e4", null ]
 ];

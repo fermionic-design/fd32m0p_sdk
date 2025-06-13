@@ -120,67 +120,19 @@ Include dependency graph for dma.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a888f06011959582a3aef567930487359" id="r_a888f06011959582a3aef567930487359"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a888f06011959582a3aef567930487359">dma_init</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, uint32_t base_ptr_address)</td></tr>
-<tr class="memdesc:a888f06011959582a3aef567930487359"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initalizes the dma, waits if there is any current transaction, set dma structure addressm disable all the channels and enables the controller.  <br /></td></tr>
-<tr class="memitem:a2fa87a41c72d6305f24f3fffd44105b5" id="r_a2fa87a41c72d6305f24f3fffd44105b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fa87a41c72d6305f24f3fffd44105b5">dma_channel_cfg</a> (<a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#struct_d_m_a___r_e_g_s__s">DMA_REGS_s</a> *DMA_REGS, <a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="dma_8h.html#structdma__channel__cfg__t">dma_channel_cfg_t</a> *dma_channel_cfg, <a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
-<tr class="memitem:aa19e32079f19e89973042cdb523d60ff" id="r_aa19e32079f19e89973042cdb523d60ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa19e32079f19e89973042cdb523d60ff">dma_channel_en_set</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
-<tr class="memitem:aafe9d5657fbfcdd93abfa7786222c4fb" id="r_aafe9d5657fbfcdd93abfa7786222c4fb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafe9d5657fbfcdd93abfa7786222c4fb">dma_channel_en_get</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
-<tr class="memitem:a302dcf138623a994227cc479879492ef" id="r_a302dcf138623a994227cc479879492ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a302dcf138623a994227cc479879492ef">dma_channel_sw_trig</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
-<tr class="memitem:ac3b3e66e571f4ee0d2f4c15a2ac0b22c" id="r_ac3b3e66e571f4ee0d2f4c15a2ac0b22c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3b3e66e571f4ee0d2f4c15a2ac0b22c">dma_channel_priority_cfg</a> (<a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#struct_d_m_a___r_e_g_s__s">DMA_REGS_s</a> *DMA_REGS, <a class="el" href="group___d_m_a___a_r_b_i_t_r_a_t_i_o_n___r_e_g.html#gac023b10957ddf257d742e41ac5cc5cdc">DMA_ARBITRATION_DMA_RR_EN_E</a> mode, uint16_t round_robin_mask)</td></tr>
-<tr class="memdesc:ac3b3e66e571f4ee0d2f4c15a2ac0b22c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function set the dma arbitration.  <br /></td></tr>
-<tr class="memitem:a2cce77fc2bf2229a3ab185b806067a11" id="r_a2cce77fc2bf2229a3ab185b806067a11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cce77fc2bf2229a3ab185b806067a11">dma_is_idle</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS)</td></tr>
-<tr class="memdesc:a2cce77fc2bf2229a3ab185b806067a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function check if dma fsm is in idle/stalled/done state.  <br /></td></tr>
-<tr class="memitem:ada5419bc8920ffe47b48af4c58b018b3" id="r_ada5419bc8920ffe47b48af4c58b018b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada5419bc8920ffe47b48af4c58b018b3">dma_channel_en_clr</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
+<tr class="memitem:ga888f06011959582a3aef567930487359" id="r_ga888f06011959582a3aef567930487359"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___h_a_l.html#ga888f06011959582a3aef567930487359">dma_init</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, uint32_t base_ptr_address)</td></tr>
+<tr class="memdesc:ga888f06011959582a3aef567930487359"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initalizes the dma, waits if there is any current transaction, set dma structure addressm disable all the channels and enables the controller.  <br /></td></tr>
+<tr class="memitem:a2fa87a41c72d6305f24f3fffd44105b5" id="r_a2fa87a41c72d6305f24f3fffd44105b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fa87a41c72d6305f24f3fffd44105b5">dma_channel_cfg</a> (<a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#struct_d_m_a___r_e_g_s__s">DMA_REGS_s</a> *DMA_REGS, <a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="group___d_m_a___h_a_l.html#structdma__channel__cfg__t">dma_channel_cfg_t</a> *dma_channel_cfg, <a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
+<tr class="memitem:aa19e32079f19e89973042cdb523d60ff" id="r_aa19e32079f19e89973042cdb523d60ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa19e32079f19e89973042cdb523d60ff">dma_channel_en_set</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
+<tr class="memitem:aafe9d5657fbfcdd93abfa7786222c4fb" id="r_aafe9d5657fbfcdd93abfa7786222c4fb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafe9d5657fbfcdd93abfa7786222c4fb">dma_channel_en_get</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
+<tr class="memitem:a302dcf138623a994227cc479879492ef" id="r_a302dcf138623a994227cc479879492ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a302dcf138623a994227cc479879492ef">dma_channel_sw_trig</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
+<tr class="memitem:gac3b3e66e571f4ee0d2f4c15a2ac0b22c" id="r_gac3b3e66e571f4ee0d2f4c15a2ac0b22c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___h_a_l.html#gac3b3e66e571f4ee0d2f4c15a2ac0b22c">dma_channel_priority_cfg</a> (<a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#struct_d_m_a___r_e_g_s__s">DMA_REGS_s</a> *DMA_REGS, <a class="el" href="group___d_m_a___a_r_b_i_t_r_a_t_i_o_n___r_e_g.html#gac023b10957ddf257d742e41ac5cc5cdc">DMA_ARBITRATION_DMA_RR_EN_E</a> mode, uint16_t round_robin_mask)</td></tr>
+<tr class="memdesc:gac3b3e66e571f4ee0d2f4c15a2ac0b22c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function set the dma arbitration.  <br /></td></tr>
+<tr class="memitem:ga2cce77fc2bf2229a3ab185b806067a11" id="r_ga2cce77fc2bf2229a3ab185b806067a11"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___h_a_l.html#ga2cce77fc2bf2229a3ab185b806067a11">dma_is_idle</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS)</td></tr>
+<tr class="memdesc:ga2cce77fc2bf2229a3ab185b806067a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function check if dma fsm is in idle/stalled/done state.  <br /></td></tr>
+<tr class="memitem:ada5419bc8920ffe47b48af4c58b018b3" id="r_ada5419bc8920ffe47b48af4c58b018b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada5419bc8920ffe47b48af4c58b018b3">dma_channel_en_clr</a> (<a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *PL230_REGS, <a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a> channel)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a888f06011959582a3aef567930487359" name="a888f06011959582a3aef567930487359"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a888f06011959582a3aef567930487359">&#9670;&#160;</a></span>dma_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dma_init </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *</td>          <td class="paramname"><span class="paramname"><em>PL230_REGS</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>base_ptr_address</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function initalizes the dma, waits if there is any current transaction, set dma structure addressm disable all the channels and enables the controller. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">base_ptr</td><td>: pointer to base address of the dma channel configration memory </td></tr>
-    <tr><td class="paramname">pl230_regs</td><td>: pointer to the pl230 register space</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">void</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="reference">References <a class="el" href="_p_l230___r_e_g_s_8h.html#a4f2904d729d60caab9b19ae83547ae6e">PL230_REGS_s::CHNL_ENABLE_CLR</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a8765c7ccd82b6cc4fd8d380fada6df45">PL230_REGS_s::CTRL_BASE_PTR</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a736cd9f1020019d7ac30f046a2f8ebb7">PL230_REGS_s::DMA_CFG</a>, <a class="el" href="#a2cce77fc2bf2229a3ab185b806067a11">dma_is_idle()</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#ab4e1922b88b48112137b7436eaef4a12">PL230_CHNL_ENABLE_CLR_u::packed_w</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a0ac1999939a07857360ea794cd92aada">PL230_CTRL_BASE_PTR_u::packed_w</a>, and <a class="el" href="_p_l230___r_e_g_s_8h.html#aeedf87f5f5677e43f7411606232fc215">PL230_CHNL_ENABLE_CLR_CHNL_ENABLE_CLR_MASK</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="dma_8c_a888f06011959582a3aef567930487359_cgraph.png" border="0" usemap="#adma_8c_a888f06011959582a3aef567930487359_cgraph" loading="lazy" alt=""/></div>
-<map name="adma_8c_a888f06011959582a3aef567930487359_cgraph" id="adma_8c_a888f06011959582a3aef567930487359_cgraph">
-<area shape="rect" title="This function initalizes the dma, waits if there is any current transaction, set dma structure addres..." alt="" coords="5,5,76,32"/>
-<area shape="rect" href="dma_8c.html#a2cce77fc2bf2229a3ab185b806067a11" title="This function check if dma fsm is in idle/stalled/done state." alt="" coords="124,5,214,32"/>
-<area shape="poly" title=" " alt="" coords="76,16,108,16,108,21,76,21"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a2fa87a41c72d6305f24f3fffd44105b5" name="a2fa87a41c72d6305f24f3fffd44105b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2fa87a41c72d6305f24f3fffd44105b5">&#9670;&#160;</a></span>dma_channel_cfg()</h2>
 
@@ -200,19 +152,19 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="dma_8h.html#structdma__channel__cfg__t">dma_channel_cfg_t</a> *</td>          <td class="paramname"><span class="paramname"><em>dma_channel_cfg</em></span>, </td>
+          <td class="paramtype"><a class="el" href="group___d_m_a___h_a_l.html#structdma__channel__cfg__t">dma_channel_cfg_t</a> *</td>          <td class="paramname"><span class="paramname"><em>dma_channel_cfg</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="_p_l230___r_e_g_s_8h.html#af18771aa6cc72af79275a5c09058d360">PL230_REGS_s::ALT_CTRL_BASE_PTR</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a51862fec3f7fdaa1704482d2a01ff0ff">DMA_REGS_s::CFG_0</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a77c4624c68970913015d9a0b0de5a97b">DMA_REGS_s::CFG_1</a>, <a class="el" href="dma_8h.html#a800f490ea46f90af633923ba955a2580">dma_mem_channel_cfg_t::ctrl</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a8765c7ccd82b6cc4fd8d380fada6df45">PL230_REGS_s::CTRL_BASE_PTR</a>, <a class="el" href="dma_8h.html#ab37925d0b6402e6bc5ce9f2d5972b7ac">dma_mem_ctrl_cfg_t::cycle_ctrl</a>, <a class="el" href="#a2fa87a41c72d6305f24f3fffd44105b5">dma_channel_cfg()</a>, <a class="el" href="dma_8h.html#a06e12ad14f712d276fa29a9bba5c827fa8df8c8a87d26f819c4392c61db20772b">DMA_SRC_INC_NO_INCR</a>, <a class="el" href="dma_8h.html#a4c073885315118553c1710579675d143">DMA_STRIDE_MODE_LOOKUP_DST_ADDR</a>, <a class="el" href="dma_8h.html#abe7bf4514548e8436864779a6fc0bb52">DMA_STRIDE_MODE_LOOKUP_SRC_ADDR</a>, <a class="el" href="dma_8h.html#aec08162ecf6cc786a92ef916b2b3e383">dma_mem_ctrl_cfg_t::dst_inc</a>, <a class="el" href="dma_8h.html#ae191cf171d64fb93c895a26010abe447">dma_mem_ctrl_cfg_t::dst_prot_ctrl</a>, <a class="el" href="dma_8h.html#a5929b308a86dae5138ceb57ce9e34b6c">dma_mem_ctrl_cfg_t::dst_size</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#ad6b3dae4e43b6a915cd110568cab0859">DMA_REGS_s::FILL_MODE</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a8993a26674bb219774e735811e17e720">DMA_REGS_s::FILL_MODE_CFG</a>, <a class="el" href="dma_8h.html#a4d3c8ebdd8611d68bf382fda691cd41c">dma_mem_ctrl_cfg_t::n_minus_1</a>, <a class="el" href="dma_8h.html#a9908b3523035376f745ac3ae6ff39f08">dma_mem_ctrl_cfg_t::next_useburst</a>, <a class="el" href="group___d_m_a___r_e_p_e_a_t_e_d___t_r_a_n_s_f_e_r___a_l_t_e_r_n_a_t_e___s_e_l___r_e_g.html#ae7bcca5a2616e0174f65300859a329d3">DMA_REPEATED_TRANSFER_ALTERNATE_SEL_u::packed_w</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#abf1b3313082077fba646b5f8f4c0bedd">PL230_ALT_CTRL_BASE_PTR_u::packed_w</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a0ac1999939a07857360ea794cd92aada">PL230_CTRL_BASE_PTR_u::packed_w</a>, <a class="el" href="dma_8h.html#a0215d1194ccd751390741724384c1e00">dma_mem_ctrl_cfg_t::r_power</a>, <a class="el" href="dma_8h.html#a56d9e33022a42f1f5613b617948f72d5">dma_mem_channel_cfg_t::rdp</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a337f8dcefd13533774718df86a732412">DMA_REGS_s::REPEATED_TRANSFER_ALTERNATE_SEL</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a953f36faba0952cd5d40024b25d2a019">DMA_REGS_s::REPEATED_TRANSFER_CHNL_0</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#acf6d1dd683551837ebacfe42b9107b2e">DMA_REGS_s::REPEATED_TRANSFER_EN</a>, <a class="el" href="dma_8h.html#aa1d7047ac5a488e8368bd58eed1678dc">dma_mem_channel_cfg_t::rsp</a>, <a class="el" href="dma_8h.html#a2ea98c472d92fb2848991442c0dab22e">dma_mem_ctrl_cfg_t::src_inc</a>, <a class="el" href="dma_8h.html#a547d4b661582bb9e9eff1195c801263a">dma_mem_ctrl_cfg_t::src_prot_ctrl</a>, <a class="el" href="dma_8h.html#af04a6cf39ca8cd9225ca9c3c8e77ba80">dma_mem_ctrl_cfg_t::src_size</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a12a518c38504be38b3d942f85da3a9f6">DMA_REGS_s::STRIDE_MODE</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#aa6ea4c62090c6dbf1fe69e297399299c">DMA_REGS_s::STRIDE_MODE_CFG_0</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a867c09fac6f581ad51fa4c625b7d11e4">DMA_REGS_s::STRIDE_MODE_CFG_1</a>, and <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a39bdafc060ce28cd2af19f11e4feae0a">DMA_REGS_s::STRIDE_MODE_CFG_2</a>.</p>
+<p class="reference">References <a class="el" href="_p_l230___r_e_g_s_8h.html#af18771aa6cc72af79275a5c09058d360">PL230_REGS_s::ALT_CTRL_BASE_PTR</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a51862fec3f7fdaa1704482d2a01ff0ff">DMA_REGS_s::CFG_0</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a77c4624c68970913015d9a0b0de5a97b">DMA_REGS_s::CFG_1</a>, <a class="el" href="group___d_m_a___h_a_l.html#a800f490ea46f90af633923ba955a2580">dma_mem_channel_cfg_t::ctrl</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a8765c7ccd82b6cc4fd8d380fada6df45">PL230_REGS_s::CTRL_BASE_PTR</a>, <a class="el" href="group___d_m_a___h_a_l.html#ab37925d0b6402e6bc5ce9f2d5972b7ac">dma_mem_ctrl_cfg_t::cycle_ctrl</a>, <a class="el" href="#a2fa87a41c72d6305f24f3fffd44105b5">dma_channel_cfg()</a>, <a class="el" href="group___d_m_a___h_a_l.html#gga06e12ad14f712d276fa29a9bba5c827fa8df8c8a87d26f819c4392c61db20772b">DMA_SRC_INC_NO_INCR</a>, <a class="el" href="group___d_m_a___h_a_l.html#ga4c073885315118553c1710579675d143">DMA_STRIDE_MODE_LOOKUP_DST_ADDR</a>, <a class="el" href="group___d_m_a___h_a_l.html#gabe7bf4514548e8436864779a6fc0bb52">DMA_STRIDE_MODE_LOOKUP_SRC_ADDR</a>, <a class="el" href="group___d_m_a___h_a_l.html#aec08162ecf6cc786a92ef916b2b3e383">dma_mem_ctrl_cfg_t::dst_inc</a>, <a class="el" href="group___d_m_a___h_a_l.html#ae191cf171d64fb93c895a26010abe447">dma_mem_ctrl_cfg_t::dst_prot_ctrl</a>, <a class="el" href="group___d_m_a___h_a_l.html#a5929b308a86dae5138ceb57ce9e34b6c">dma_mem_ctrl_cfg_t::dst_size</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#ad6b3dae4e43b6a915cd110568cab0859">DMA_REGS_s::FILL_MODE</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a8993a26674bb219774e735811e17e720">DMA_REGS_s::FILL_MODE_CFG</a>, <a class="el" href="group___d_m_a___h_a_l.html#a4d3c8ebdd8611d68bf382fda691cd41c">dma_mem_ctrl_cfg_t::n_minus_1</a>, <a class="el" href="group___d_m_a___h_a_l.html#a9908b3523035376f745ac3ae6ff39f08">dma_mem_ctrl_cfg_t::next_useburst</a>, <a class="el" href="group___d_m_a___r_e_p_e_a_t_e_d___t_r_a_n_s_f_e_r___a_l_t_e_r_n_a_t_e___s_e_l___r_e_g.html#ae7bcca5a2616e0174f65300859a329d3">DMA_REPEATED_TRANSFER_ALTERNATE_SEL_u::packed_w</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#abf1b3313082077fba646b5f8f4c0bedd">PL230_ALT_CTRL_BASE_PTR_u::packed_w</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a0ac1999939a07857360ea794cd92aada">PL230_CTRL_BASE_PTR_u::packed_w</a>, <a class="el" href="group___d_m_a___h_a_l.html#a0215d1194ccd751390741724384c1e00">dma_mem_ctrl_cfg_t::r_power</a>, <a class="el" href="group___d_m_a___h_a_l.html#a56d9e33022a42f1f5613b617948f72d5">dma_mem_channel_cfg_t::rdp</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a337f8dcefd13533774718df86a732412">DMA_REGS_s::REPEATED_TRANSFER_ALTERNATE_SEL</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a953f36faba0952cd5d40024b25d2a019">DMA_REGS_s::REPEATED_TRANSFER_CHNL_0</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#acf6d1dd683551837ebacfe42b9107b2e">DMA_REGS_s::REPEATED_TRANSFER_EN</a>, <a class="el" href="group___d_m_a___h_a_l.html#aa1d7047ac5a488e8368bd58eed1678dc">dma_mem_channel_cfg_t::rsp</a>, <a class="el" href="group___d_m_a___h_a_l.html#a2ea98c472d92fb2848991442c0dab22e">dma_mem_ctrl_cfg_t::src_inc</a>, <a class="el" href="group___d_m_a___h_a_l.html#a547d4b661582bb9e9eff1195c801263a">dma_mem_ctrl_cfg_t::src_prot_ctrl</a>, <a class="el" href="group___d_m_a___h_a_l.html#af04a6cf39ca8cd9225ca9c3c8e77ba80">dma_mem_ctrl_cfg_t::src_size</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a12a518c38504be38b3d942f85da3a9f6">DMA_REGS_s::STRIDE_MODE</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#aa6ea4c62090c6dbf1fe69e297399299c">DMA_REGS_s::STRIDE_MODE_CFG_0</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a867c09fac6f581ad51fa4c625b7d11e4">DMA_REGS_s::STRIDE_MODE_CFG_1</a>, and <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a39bdafc060ce28cd2af19f11e4feae0a">DMA_REGS_s::STRIDE_MODE_CFG_2</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#a2fa87a41c72d6305f24f3fffd44105b5">dma_channel_cfg()</a>, and <a class="el" href="dma_8h.html#aef7c358b042472ba67e420142d95b833">dma_channel_cfg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#a2fa87a41c72d6305f24f3fffd44105b5">dma_channel_cfg()</a>, and <a class="el" href="group___d_m_a___h_a_l.html#gaef7c358b042472ba67e420142d95b833">dma_channel_cfg()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -229,7 +181,7 @@ Here is the caller graph for this function:</div>
 <map name="adma_8c_a2fa87a41c72d6305f24f3fffd44105b5_icgraph" id="adma_8c_a2fa87a41c72d6305f24f3fffd44105b5_icgraph">
 <area shape="rect" title=" " alt="" coords="177,29,300,56"/>
 <area shape="poly" title=" " alt="" coords="267,16,257,10,238,8,221,10,211,15,209,20,213,28,209,30,204,21,207,11,219,5,238,3,259,5,270,12"/>
-<area shape="rect" href="dma_8h.html#aef7c358b042472ba67e420142d95b833" title="This function configures the DMA channel with required configuration." alt="" coords="5,29,129,56"/>
+<area shape="rect" href="group___d_m_a___h_a_l.html#gaef7c358b042472ba67e420142d95b833" title="This function configures the DMA channel with required configuration." alt="" coords="5,29,129,56"/>
 <area shape="poly" title=" " alt="" coords="161,45,129,45,129,40,161,40"/>
 </map>
 </div>
@@ -250,7 +202,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -273,7 +225,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -296,100 +248,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="reference">References <a class="el" href="_p_l230___r_e_g_s_8h.html#ab670373106ee402e4f8b04ed2e84f94b">PL230_REGS_s::CHNL_SW_REQUEST</a>, and <a class="el" href="_p_l230___r_e_g_s_8h.html#adf3e7878147e9a42d9343ae93096fd79">PL230_CHNL_SW_REQUEST_u::packed_w</a>.</p>
-
-</div>
-</div>
-<a id="ac3b3e66e571f4ee0d2f4c15a2ac0b22c" name="ac3b3e66e571f4ee0d2f4c15a2ac0b22c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3b3e66e571f4ee0d2f4c15a2ac0b22c">&#9670;&#160;</a></span>dma_channel_priority_cfg()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dma_channel_priority_cfg </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#struct_d_m_a___r_e_g_s__s">DMA_REGS_s</a> *</td>          <td class="paramname"><span class="paramname"><em>DMA_REGS</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group___d_m_a___a_r_b_i_t_r_a_t_i_o_n___r_e_g.html#gac023b10957ddf257d742e41ac5cc5cdc">DMA_ARBITRATION_DMA_RR_EN_E</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>round_robin_mask</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function set the dma arbitration. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dma_regs</td><td>: pointer to the dma register space </td></tr>
-    <tr><td class="paramname">mode</td><td>: 1 for round robin, 0 for pl230 based arbitration</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="reference">References <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#a6b6f7a3a6334cf3a1146cfa6ff289e26">DMA_REGS_s::ARBITRATION</a>, <a class="el" href="group___d_m_a___m_e_m_o_r_y___m_a_p.html#aea4ab4d69c862fbfed6bafc0a009b237">DMA_REGS_s::ARBITRATION_MASK</a>, and <a class="el" href="group___d_m_a___a_r_b_i_t_r_a_t_i_o_n___r_e_g.html#ggac023b10957ddf257d742e41ac5cc5cdca6ff8821800f278ea0d3cbf5ca9db430b">DMA_ARBITRATION_DMA_RR_EN_SET</a>.</p>
-
-</div>
-</div>
-<a id="a2cce77fc2bf2229a3ab185b806067a11" name="a2cce77fc2bf2229a3ab185b806067a11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cce77fc2bf2229a3ab185b806067a11">&#9670;&#160;</a></span>dma_is_idle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dma_is_idle </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_p_l230___r_e_g_s_8h.html#struct_p_l230___r_e_g_s__s">PL230_REGS_s</a> *</td>          <td class="paramname"><span class="paramname"><em>PL230_REGS</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function check if dma fsm is in idle/stalled/done state. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pl230_regs</td><td>: pointer to the pl230 register space</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">status</td><td>of pl230 fsm </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="reference">References <a class="el" href="_p_l230___r_e_g_s_8h.html#aa4da48e7f29027ec986a71ad4de7a131">PL230_REGS_s::DMA_STATUS</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a0bff1112a027e96cbbf4d40b105da4bfa27d6af59b5a741716b1a294bebf0f2d3">PL230_DMA_STATUS_STATE_DONE</a>, <a class="el" href="_p_l230___r_e_g_s_8h.html#a0bff1112a027e96cbbf4d40b105da4bfad85744f6d593c23c2d80128aef31ef2b">PL230_DMA_STATUS_STATE_IDLE</a>, and <a class="el" href="_p_l230___r_e_g_s_8h.html#a0bff1112a027e96cbbf4d40b105da4bfae0224d9728564a373f7951b9bbee30f5">PL230_DMA_STATUS_STATE_STALLED</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="#a888f06011959582a3aef567930487359">dma_init()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="dma_8c_a2cce77fc2bf2229a3ab185b806067a11_icgraph.png" border="0" usemap="#adma_8c_a2cce77fc2bf2229a3ab185b806067a11_icgraph" loading="lazy" alt=""/></div>
-<map name="adma_8c_a2cce77fc2bf2229a3ab185b806067a11_icgraph" id="adma_8c_a2cce77fc2bf2229a3ab185b806067a11_icgraph">
-<area shape="rect" title="This function check if dma fsm is in idle/stalled/done state." alt="" coords="124,5,214,32"/>
-<area shape="rect" href="dma_8c.html#a888f06011959582a3aef567930487359" title="This function initalizes the dma, waits if there is any current transaction, set dma structure addres..." alt="" coords="5,5,76,32"/>
-<area shape="poly" title=" " alt="" coords="108,21,76,21,76,16,108,16"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -407,7 +271,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="dma_8h.html#a0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="group___d_m_a___h_a_l.html#ga0daf5ad80e382bd7d62fc7a191e02511">DMA_CHANNEL_E</a></td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

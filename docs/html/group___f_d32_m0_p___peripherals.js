@@ -1,7 +1,7 @@
 var group___f_d32_m0_p___peripherals =
 [
-    [ "Analog to Digital Convertor (ADC)", "group___a_d_c.html", "group___a_d_c" ],
-    [ "Comparator (COMP)", "group___c_o_m_p.html", null ],
+    [ "Analog to Digital Convertor (ADC)", "group___a_d_c.html", null ],
+    [ "Comparator (COMP)", "group___c_o_m_p.html", "group___c_o_m_p" ],
     [ "Cyclic Redundancy Check (CRC)", "group___c_r_c.html", "group___c_r_c" ],
     [ "Digital to Analog Convertor (DAC)", "group___d_a_c.html", "group___d_a_c" ],
     [ "Direct Memory Access (DMA)", "group___d_m_a.html", "group___d_m_a" ],

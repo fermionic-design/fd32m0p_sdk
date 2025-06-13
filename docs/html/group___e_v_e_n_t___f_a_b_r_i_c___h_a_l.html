@@ -94,8 +94,8 @@ $(function(){initNavTree('group___e_v_e_n_t___f_a_b_r_i_c___h_a_l.html','',''); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:chnl_5Fcfg_5Fstructchnl_5F_5Fcfg" id="r_chnl_5Fcfg_5Fstructchnl_5F_5Fcfg"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#structchnl__cfg">chnl_cfg</a></td></tr>
-<tr class="memdesc:structchnl__cfg"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event Fabric Channel Configuration Struct.  <a href="#structchnl__cfg">More...</a><br /></td></tr>
+<tr class="memitem:event_5Ffabric_5Fchnl_5Fcfg_5Fstructevent_5F_5Ffabric_5F_5Fchnl_5F_5Fcfg" id="r_event_5Ffabric_5Fchnl_5Fcfg_5Fstructevent_5F_5Ffabric_5F_5Fchnl_5F_5Fcfg"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#structevent__fabric__chnl__cfg">event_fabric_chnl_cfg</a></td></tr>
+<tr class="memdesc:structevent__fabric__chnl__cfg"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event Fabric Channel Configuration Struct.  <a href="#structevent__fabric__chnl__cfg">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -204,21 +204,21 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga2d6c178f00beb8a11158c50a0d8f1f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures a Publisher to a specific DMA Channel.  <br /></td></tr>
 <tr class="memitem:gafe4a7d20a72830767bb4440dd6b13625" id="r_gafe4a7d20a72830767bb4440dd6b13625"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafe4a7d20a72830767bb4440dd6b13625">event_fabric_pub_to_sub_channel_cfg</a> (<a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#struct_e_v_e_n_t___f_a_b_r_i_c___r_e_g_s__s">EVENT_FABRIC_REGS_s</a> *registers, <a class="el" href="#gac4c67553c775d7ea9e0f67c381062707">EVENT_FABRIC_PUB_ID_E</a> pub_id, <a class="el" href="#gaa64421ee4079482e9371443f9f249ea4">EVENT_FABRIC_SUB_ID_E</a> sub_id, <a class="el" href="#ga16264aeea9210c10ad6c4c48b8e877d5">EVENT_FABRIC_CHAN_ID_E</a> chan_id)</td></tr>
 <tr class="memdesc:gafe4a7d20a72830767bb4440dd6b13625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures an Event Channel to the specified Publisher and Subscriber Pair.  <br /></td></tr>
-<tr class="memitem:gaec4602b82bcf15efc248262670b738dd" id="r_gaec4602b82bcf15efc248262670b738dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaec4602b82bcf15efc248262670b738dd">get_event_fabric_full_chnl_cfg</a> (<a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#struct_e_v_e_n_t___f_a_b_r_i_c___r_e_g_s__s">EVENT_FABRIC_REGS_s</a> *registers, <a class="el" href="#structchnl__cfg">chnl_cfg</a> *chnl)</td></tr>
-<tr class="memdesc:gaec4602b82bcf15efc248262670b738dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current configuration of all Event Channels.  <br /></td></tr>
-<tr class="memitem:gaa64b7b8f646fa1f32de6a038a271525d" id="r_gaa64b7b8f646fa1f32de6a038a271525d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa64b7b8f646fa1f32de6a038a271525d">get_dma_full_chnl_cfg</a> (<a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#struct_e_v_e_n_t___f_a_b_r_i_c___r_e_g_s__s">EVENT_FABRIC_REGS_s</a> *registers, <a class="el" href="#structchnl__cfg">chnl_cfg</a> *chnl)</td></tr>
-<tr class="memdesc:gaa64b7b8f646fa1f32de6a038a271525d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current configuration of all DMA Channels.  <br /></td></tr>
+<tr class="memitem:gaec7481b3f425697febac0a5f0bf5c196" id="r_gaec7481b3f425697febac0a5f0bf5c196"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaec7481b3f425697febac0a5f0bf5c196">get_event_fabric_full_chnl_cfg</a> (<a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#struct_e_v_e_n_t___f_a_b_r_i_c___r_e_g_s__s">EVENT_FABRIC_REGS_s</a> *registers, <a class="el" href="#structevent__fabric__chnl__cfg">event_fabric_chnl_cfg</a> *chnl)</td></tr>
+<tr class="memdesc:gaec7481b3f425697febac0a5f0bf5c196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current configuration of all Event Channels.  <br /></td></tr>
+<tr class="memitem:gaba42cca38974d6a91f29034f58d900b3" id="r_gaba42cca38974d6a91f29034f58d900b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaba42cca38974d6a91f29034f58d900b3">get_dma_full_chnl_cfg</a> (<a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#struct_e_v_e_n_t___f_a_b_r_i_c___r_e_g_s__s">EVENT_FABRIC_REGS_s</a> *registers, <a class="el" href="#structevent__fabric__chnl__cfg">event_fabric_chnl_cfg</a> *chnl)</td></tr>
+<tr class="memdesc:gaba42cca38974d6a91f29034f58d900b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current configuration of all DMA Channels.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <hr/><h2 id="header-inline_5Fclasses" class="groupheader">Data Structure Documentation</h2>
-<a name="structchnl__cfg" id="structchnl__cfg"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structchnl__cfg">&#9670;&#160;</a></span>chnl_cfg</h2>
+<a name="structevent__fabric__chnl__cfg" id="structevent__fabric__chnl__cfg"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structevent__fabric__chnl__cfg">&#9670;&#160;</a></span>event_fabric_chnl_cfg</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct chnl_cfg</td>
+          <td class="memname">struct event_fabric_chnl_cfg</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -226,13 +226,13 @@ Functions</h2></td></tr>
 </div><table class="fieldtable">
 <tr><th colspan="3">Data Fields</th></tr>
 <tr><td class="fieldtype">
-<a id="a62ea1eed353e2f56bf498fb7a77cc41d" name="a62ea1eed353e2f56bf498fb7a77cc41d"></a><a class="el" href="#gac4c67553c775d7ea9e0f67c381062707">EVENT_FABRIC_PUB_ID_E</a></td>
+<a id="a69f59ecd6300636df9aa5877464a6878" name="a69f59ecd6300636df9aa5877464a6878"></a><a class="el" href="#gac4c67553c775d7ea9e0f67c381062707">EVENT_FABRIC_PUB_ID_E</a></td>
 <td class="fieldname">
 pub</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a id="ada2edd1e36b8f4773ab72f729c8de7c0" name="ada2edd1e36b8f4773ab72f729c8de7c0"></a><a class="el" href="#gaa64421ee4079482e9371443f9f249ea4">EVENT_FABRIC_SUB_ID_E</a></td>
+<a id="ada978f689095a1f347372880f04c3edd" name="ada978f689095a1f347372880f04c3edd"></a><a class="el" href="#gaa64421ee4079482e9371443f9f249ea4">EVENT_FABRIC_SUB_ID_E</a></td>
 <td class="fieldname">
 sub</td>
 <td class="fielddoc">
@@ -282,7 +282,7 @@ sub</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="#gaa64b7b8f646fa1f32de6a038a271525d">get_dma_full_chnl_cfg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#gaba42cca38974d6a91f29034f58d900b3">get_dma_full_chnl_cfg()</a>.</p>
 
 </div>
 </div>
@@ -298,7 +298,7 @@ sub</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="#gaec4602b82bcf15efc248262670b738dd">get_event_fabric_full_chnl_cfg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#gaec7481b3f425697febac0a5f0bf5c196">get_event_fabric_full_chnl_cfg()</a>.</p>
 
 </div>
 </div>
@@ -314,7 +314,7 @@ sub</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="#gaec4602b82bcf15efc248262670b738dd">get_event_fabric_full_chnl_cfg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#gaec7481b3f425697febac0a5f0bf5c196">get_event_fabric_full_chnl_cfg()</a>.</p>
 
 </div>
 </div>
@@ -330,7 +330,7 @@ sub</td>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="#gaec4602b82bcf15efc248262670b738dd">get_event_fabric_full_chnl_cfg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#gaec7481b3f425697febac0a5f0bf5c196">get_event_fabric_full_chnl_cfg()</a>.</p>
 
 </div>
 </div>
@@ -636,8 +636,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="gaec4602b82bcf15efc248262670b738dd" name="gaec4602b82bcf15efc248262670b738dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaec4602b82bcf15efc248262670b738dd">&#9670;&#160;</a></span>get_event_fabric_full_chnl_cfg()</h2>
+<a id="gaec7481b3f425697febac0a5f0bf5c196" name="gaec7481b3f425697febac0a5f0bf5c196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec7481b3f425697febac0a5f0bf5c196">&#9670;&#160;</a></span>get_event_fabric_full_chnl_cfg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -653,7 +653,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#structchnl__cfg">chnl_cfg</a> *</td>          <td class="paramname"><span class="paramname"><em>chnl</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#structevent__fabric__chnl__cfg">event_fabric_chnl_cfg</a> *</td>          <td class="paramname"><span class="paramname"><em>chnl</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -672,12 +672,12 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="#gabae93dbe3cbf61de7b697e4b386021e1">EVENT_FABRIC_CHANNELS</a>, <a class="el" href="#gaf4506645fe540dcc425d49864a28762a">EVENT_FABRIC_NUMBER_OF_PUB</a>, <a class="el" href="#ga67114bc31bfb454164c299657af29d19">EVENT_FABRIC_NUMBER_OF_SUB</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#a825fce65d2851aa4035c3d82fd0c904b">EVENT_FABRIC_REGS_s::GEN_PUB</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#ad01d307426e8e684c1e0a88f00c1c7d6">EVENT_FABRIC_REGS_s::GEN_SUB</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___g_e_n___p_u_b___r_e_g.html#a37ceb240725a47373256fbb684178d4b">EVENT_FABRIC_GEN_PUB_u::packed_w</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___g_e_n___s_u_b___r_e_g.html#adba17d5578494109a46ee22f6d691138">EVENT_FABRIC_GEN_SUB_u::packed_w</a>, <a class="el" href="#a62ea1eed353e2f56bf498fb7a77cc41d">chnl_cfg::pub</a>, and <a class="el" href="#ada2edd1e36b8f4773ab72f729c8de7c0">chnl_cfg::sub</a>.</p>
+<p class="reference">References <a class="el" href="#gabae93dbe3cbf61de7b697e4b386021e1">EVENT_FABRIC_CHANNELS</a>, <a class="el" href="#gaf4506645fe540dcc425d49864a28762a">EVENT_FABRIC_NUMBER_OF_PUB</a>, <a class="el" href="#ga67114bc31bfb454164c299657af29d19">EVENT_FABRIC_NUMBER_OF_SUB</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#a825fce65d2851aa4035c3d82fd0c904b">EVENT_FABRIC_REGS_s::GEN_PUB</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#ad01d307426e8e684c1e0a88f00c1c7d6">EVENT_FABRIC_REGS_s::GEN_SUB</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___g_e_n___p_u_b___r_e_g.html#a37ceb240725a47373256fbb684178d4b">EVENT_FABRIC_GEN_PUB_u::packed_w</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___g_e_n___s_u_b___r_e_g.html#adba17d5578494109a46ee22f6d691138">EVENT_FABRIC_GEN_SUB_u::packed_w</a>, <a class="el" href="#a69f59ecd6300636df9aa5877464a6878">event_fabric_chnl_cfg::pub</a>, and <a class="el" href="#ada978f689095a1f347372880f04c3edd">event_fabric_chnl_cfg::sub</a>.</p>
 
 </div>
 </div>
-<a id="gaa64b7b8f646fa1f32de6a038a271525d" name="gaa64b7b8f646fa1f32de6a038a271525d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa64b7b8f646fa1f32de6a038a271525d">&#9670;&#160;</a></span>get_dma_full_chnl_cfg()</h2>
+<a id="gaba42cca38974d6a91f29034f58d900b3" name="gaba42cca38974d6a91f29034f58d900b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaba42cca38974d6a91f29034f58d900b3">&#9670;&#160;</a></span>get_dma_full_chnl_cfg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -693,7 +693,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#structchnl__cfg">chnl_cfg</a> *</td>          <td class="paramname"><span class="paramname"><em>chnl</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#structevent__fabric__chnl__cfg">event_fabric_chnl_cfg</a> *</td>          <td class="paramname"><span class="paramname"><em>chnl</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -712,7 +712,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="reference">References <a class="el" href="#ga0d6fb71e74f8864162d14233ce5bc95e">DMA_CHANNELS</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#ab34e1dd5a58ff94416702e86191348d6">EVENT_FABRIC_REGS_s::DMA_PUB</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___d_m_a___p_u_b___r_e_g.html#abc054764dd63ed6e23684c3f9b818a33">EVENT_FABRIC_DMA_PUB_u::packed_w</a>, <a class="el" href="#a62ea1eed353e2f56bf498fb7a77cc41d">chnl_cfg::pub</a>, and <a class="el" href="#ada2edd1e36b8f4773ab72f729c8de7c0">chnl_cfg::sub</a>.</p>
+<p class="reference">References <a class="el" href="#ga0d6fb71e74f8864162d14233ce5bc95e">DMA_CHANNELS</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___m_e_m_o_r_y___m_a_p.html#ab34e1dd5a58ff94416702e86191348d6">EVENT_FABRIC_REGS_s::DMA_PUB</a>, <a class="el" href="group___e_v_e_n_t___f_a_b_r_i_c___d_m_a___p_u_b___r_e_g.html#abc054764dd63ed6e23684c3f9b818a33">EVENT_FABRIC_DMA_PUB_u::packed_w</a>, <a class="el" href="#a69f59ecd6300636df9aa5877464a6878">event_fabric_chnl_cfg::pub</a>, and <a class="el" href="#ada978f689095a1f347372880f04c3edd">event_fabric_chnl_cfg::sub</a>.</p>
 
 </div>
 </div>
