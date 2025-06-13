@@ -20,8 +20,8 @@ void get_dma_full_chnl_cfg(EVENT_FABRIC_REGS_s * registers, event_fabric_chnl_cf
 }
 
 void get_event_fabric_full_chnl_cfg(EVENT_FABRIC_REGS_s * registers, event_fabric_chnl_cfg * chnl){
-        uint8_t    sub_chan_id;
-        uint8_t    pub_chan_id;
+        EVENT_FABRIC_SUB_ID_E    sub_chan_id;
+        EVENT_FABRIC_PUB_ID_E    pub_chan_id;
         uint8_t    max_of_pub_sub;
        
         
