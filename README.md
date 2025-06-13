@@ -1,4 +1,5 @@
 # FD32M0P Microcontroller SDK
+\mainpage Getting Started
 
 ## Overview
 This SDK provides development tools, libraries, and examples for the FD32M0P microcontroller.

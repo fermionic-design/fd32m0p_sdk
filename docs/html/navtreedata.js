@@ -24,7 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "My Project", "index.html", [
+  [ "FD32M0P Microcontroller SDK", "index.html", [
+    [ "Getting Started", "index.html", "index" ],
     [ "MISRA-C:2004 Compliance Exceptions", "_c_m_s_i_s__m_i_s_r_a__exceptions.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
@@ -113,7 +114,7 @@ var NAVTREEINDEX =
 "group___u_a_r_t___r_e_g_i_s_t_e_r___f_l_a_g_s.html#ga150e2b54f83e1019d27aedf4a5a4d406",
 "group___u_a_r_t___r_e_g_i_s_t_e_r___f_l_a_g_s.html#gaa81b724ea366324d0d12d8051e6ed78b",
 "group___v_r_e_f___p_w_r___e_n___r_e_g.html#struct_v_r_e_f___p_w_r___e_n___r_e_g__s",
-"spi_8c.html"
+"rtc__structs_8h.html#a4bbe721c0d36e2b42b0f84ddee104b42"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

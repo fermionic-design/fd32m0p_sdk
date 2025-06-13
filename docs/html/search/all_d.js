@@ -179,5 +179,6 @@ var searchData=
   ['overflow_5ferr_5fen_176',['overflow_err_en',['../group___u_a_r_t___i_n_t_r___e_n0___r_e_g.html#a2d56b271013ba164edc3ab4f7a7d4e3c',1,'UART_INTR_EN0_REG_s']]],
   ['overflow_5ferr_5fnmi_5fen_177',['overflow_err_nmi_en',['../group___u_a_r_t___i_n_t_r___n_m_i___e_n0___r_e_g.html#a084efd367e0782db69175f9d800e453c',1,'UART_INTR_NMI_EN0_REG_s']]],
   ['overflow_5ferr_5fsw_5fset_178',['overflow_err_sw_set',['../group___u_a_r_t___i_n_t_r___s_w___s_e_t___r_e_g.html#a5d1a1f640f2160b85fa12c019b871d23',1,'UART_INTR_SW_SET_REG_s']]],
-  ['oversampling_179',['oversampling',['../group___u_a_r_t___h_a_l.html#a3802eed998d8bb644d76755a32ec1f26',1,'uart_cfg_s']]]
+  ['oversampling_179',['oversampling',['../group___u_a_r_t___h_a_l.html#a3802eed998d8bb644d76755a32ec1f26',1,'uart_cfg_s']]],
+  ['overview_180',['Overview',['../index.html#autotoc_md1',1,'']]]
 ];
