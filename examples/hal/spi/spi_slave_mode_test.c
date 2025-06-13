@@ -1,3 +1,23 @@
+/*
+ * SPI Slave Configuration: MCU as SPI Slave, connected to a SPIDriver (SPI master)
+ *
+ * Connections:
+ * -------------------------------------------------------------
+ * MCU Pin   | SPI Function | Direction      | Connects To (SPIDriver Pin)
+ * ----------|--------------|----------------|---------------------------------------
+ * PA2       | SPI0_CS0     | Input          | SPIDriver CS  (Yellow)
+ * PA6       | SPI0_SCK     | Input          | SPIDriver SCK (Orange)
+ * PA5       | SPI0_MOSI    | Input          | SPIDriver MOSI (Blue)
+ * PA4       | SPI0_MISO    | Output         | SPIDriver MISO (Green)
+ * GND       | -            | -              | SPIDriver GND (Black)
+ * VCC       | -            | -              | Optional: SPIDriver VCC (Red) for powering
+ *
+ * Notes:
+ * - SPIDriver acts as the SPI master, sending data over MOSI and receiving on MISO.
+ * - The MCU (slave) responds only when CS (PA2) is asserted low.
+ * - Ensure MCU is ready and SPI slave is properly initialized before SPIDriver sends data.
+ */
+
 #include "FD32M0P.h"
 #include"uart_stdout_mcu.h"
 #include "spi.h"

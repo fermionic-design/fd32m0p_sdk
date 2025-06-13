@@ -1,3 +1,14 @@
+/*
+ * SPI Master Pin Configuration for W25Q Flash (e.g., W25Q32, W25Q64)
+ *
+ * MCU Pin     → W25Q Pin    | Function
+ * --------------------------------------------
+ * PA2         → Pin 1 (CS)  | Chip Select (active low)
+ * PA6         → Pin 6 (CLK) | SPI Clock
+ * PA5         → Pin 5 (DI)  | Master Out → Slave In (MOSI)
+ * PA4         → Pin 2 (DO)  | Slave Out → Master In (MISO)
+ */
+
 #include "FD32M0P.h"
 #include"uart_stdout_mcu.h"
 #include "spi.h"
