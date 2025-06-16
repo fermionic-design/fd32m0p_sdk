@@ -24,6 +24,7 @@ var group___f_d32_m0_p___peripheral_decl =
     [ "TIMER_G0_REGS", "group___f_d32_m0_p___peripheral_decl.html#ga08662537823ba730224fced1aa1d7292", null ],
     [ "TIMER_G1_REGS", "group___f_d32_m0_p___peripheral_decl.html#ga0df47c07ce7bf519f74a9adb4b1bf76a", null ],
     [ "FLASH_APB_REGS", "group___f_d32_m0_p___peripheral_decl.html#ga9ca78f0de01f2f3b67adab43a20453b8", null ],
+    [ "VULTAN_APB_REGS", "group___f_d32_m0_p___peripheral_decl.html#ga69ea88bc81c35faa62ae36b082ab2ec1", null ],
     [ "OPA1_REGS", "group___f_d32_m0_p___peripheral_decl.html#ga6853076f1cad33e57624f289f66ee854", null ],
     [ "SECURE_IP_REGS", "group___f_d32_m0_p___peripheral_decl.html#ga4e758bf864789a115677b0fb239b7153", null ],
     [ "USB2_REGS", "group___f_d32_m0_p___peripheral_decl.html#ga0e7f97356178207a21b8179e7df8caaf", null ],

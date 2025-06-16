@@ -166,8 +166,8 @@ typedef struct dma_mem_channel_cfg_t {
  * @brief   This function initalizes the dma, waits if there is any current transaction,
  *          set dma structure addressm disable all the channels and enables the controller
  *
- * @param   base_ptr : pointer to base address of the dma channel configration memory
- * @param   pl230_regs : pointer to the pl230 register space
+ * @param   base_ptr_address : pointer to base address of the dma channel configration memory
+ * @param   PL230_REGS : pointer to the pl230 register space
  *
  * @retval  void
  */
@@ -176,10 +176,10 @@ void dma_init(PL230_REGS_s *PL230_REGS, uint32_t base_ptr_address);
 /**
  * @brief   This function configures the DMA channel with required configuration
  *
- * @param   channel_transfer_cfg: struct containing all the required configuration
+ * @param   dma_channel_cfg: struct containing all the required configuration
  * @param   channel : the channel id for which the configuration is being done
- * @param   pl230_regs : pointer to the pl230 register space
- * @param   dma_regs : pointer to the dma register space
+ * @param   PL230_REGS : pointer to the pl230 register space
+ * @param   DMA_REGS : pointer to the dma register space
  *
  * @retval  void
  */
@@ -188,9 +188,8 @@ void dma_channel_cfg(DMA_REGS_s *DMA_REGS, PL230_REGS_s *PL230_REGS, dma_channel
 /**
  * @brief   This function enables a particular dma channel 
  *
- * @param   enable : set this value to enable the channel
  * @param   channel : channel id
- * @param   pl230_regs : pointer to the pl230 register space
+ * @param   PL230_REGS : pointer to the pl230 register space
  *
  * @retval  void
  */
@@ -200,7 +199,7 @@ void dma_channel_en_set(PL230_REGS_s *PL230_REGS, uint8_t channel);
  * @brief   This function returns status of channel enable of a given channel 
  *
  * @param   channel : channel id 
- * @param   pl230_regs : pointer to the pl230 register space
+ * @param   PL230_REGS : pointer to the pl230 register space
  *
  * @retval  channel enable status
  */
@@ -210,7 +209,7 @@ uint8_t dma_channel_en_get(PL230_REGS_s *PL230_REGS, uint8_t channel);
  * @brief   This function clear a particular dma channel   
  *
  * @param   channel : channel id 
- * @param   pl230_regs : pointer to the pl230 register space
+ * @param   PL230_REGS : pointer to the pl230 register space
  *
  * @retval   
  */
@@ -220,7 +219,7 @@ void dma_channel_en_clr(PL230_REGS_s *PL230_REGS, uint8_t channel);
  * @brief   This function generate a SW trigger for a given channel    
  *
  * @param   channel : channel id 
- * @param   pl230_regs : pointer to the pl230 register space
+ * @param   PL230_REGS : pointer to the pl230 register space
  *
  * @retval   
  */
@@ -229,8 +228,9 @@ void dma_channel_sw_trig(PL230_REGS_s *PL230_REGS, uint8_t channel);
 /**
  * @brief    This function set the dma arbitration
  *
- * @param   dma_regs : pointer to the dma register space
+ * @param   DMA_REGS : pointer to the dma register space
  * @param   mode : 1 for round robin, 0 for pl230 based arbitration
+ * @param   round_robin_mask : round robin mask to mask of the req to be considered in the arbitration process
  *
  * @retval   
  */
@@ -239,7 +239,7 @@ void dma_channel_priority_cfg(DMA_REGS_s *DMA_REGS, DMA_ARBITRATION_DMA_RR_EN_E 
 /**
  * @brief   This function check if dma fsm is in idle/stalled/done state   
  *
- * @param   pl230_regs : pointer to the pl230 register space
+ * @param   PL230_REGS : pointer to the pl230 register space
  *
  * @retval  status of pl230 fsm   
  */

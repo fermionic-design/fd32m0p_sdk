@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Main Page</title>
+<title>FD32M0P Microcontroller SDK: Getting Started</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">FD32M0P Microcontroller SDK
    </div>
   </td>
  </tr>
@@ -87,10 +87,79 @@ $(function(){initNavTree('index.html','',''); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">My Project Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Getting Started </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Overview</h1>
+<p>This SDK provides development tools, libraries, and examples for the FD32M0P microcontroller.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Prerequisites</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Hardware Requirements</h2>
+<ul>
+<li>FD32M0P development board</li>
+<li>Power Supply or USB Cable (for power)</li>
+<li>1 x UART Probe for Flash Programmming (In Boot Strap Loader mode)</li>
+<li>1 x UART Probe for Standard Input/Output (STDIO/prints)</li>
+<li>1 x SWD Probe (for Serial Wire Debug: <a href="https://developer.arm.com/documentation/ihi0031/a/The-Serial-Wire-Debug-Port--SW-DP-/Introduction-to-the-ARM-Serial-Wire-Debug--SWD--protocol">ARM Debug Interface v5 Architecture Specification</a>)</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Software Requirements</h2>
+<ul>
+<li><a href="https://developer.arm.com/downloads/-/gnu-rm">GNU Arm Embedded Toolchain 10-2020-q4-major</a></li>
+<li><a href="https://www.gnu.org/software/make/">GNU Make</a> (for building projects)</li>
+<li><a href="https://gnuwin32.sourceforge.net/packages/make.htm">GNU Make: Windows</a> (for building projects)</li>
+<li><a href="http://openocd.org/">OpenOCD</a> (for flashing and debugging)</li>
+<li><a href="https://code.visualstudio.com/">VSCode</a> (Optional, but recommended for development)</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Installation</h1>
+<ol type="1">
+<li><b>Clone the repository</b>: <div class="fragment"><div class="line">git clone https://github.com/fermionic-design/fd32m0p_sdk.git</div>
+<div class="line">cd fd32m0p_sdk</div>
+</div><!-- fragment --></li>
+<li><b>Set up environment variables</b>: <div class="fragment"><div class="line">export PYTHON_PATH=/path/to/python</div>
+<div class="line">export FD32M0P_UART_COM_PORT=COMXX # Replace COMXX with your actual COM port to Flash the microcontroller</div>
+<div class="line">export FD32M0P_UART_BAUD_RATE=9600 # Replace with your desired baud rate</div>
+</div><!-- fragment --></li>
+</ol>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Getting Started</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Basic Project Setup</h2>
+<ol type="1">
+<li><b>Create a new project</b>:\ Take a look at the <span class="tt">examples/</span> directory for existing projects. You can copy one of these as a starting point for your own project.</li>
+<li><b>Configure the project</b>:\ If using VSCode, update the <span class="tt">vscode/settings.json</span> file to add the necessary configurations for your project. Refer to the example configurations in the same file.</li>
+<li><b>Build the project</b>:\ If using VSCode, you can use Makefile Tools to build your project. Select the required <span class="tt">Configuration</span> and set <span class="tt">Build Target</span> as <span class="tt">test</span>, then run the build.\ If not using VSCode, you can use the provided Makefile and construct a make command as follows: <div class="fragment"><div class="line">make test TESTFOLDER=examples/hal/bringup TESTNAME=helloworld</div>
+</div><!-- fragment --></li>
+<li><b>Flash the microcontroller</b>:\ If using VSCode, you can use Makefile Tools to flash your project. Select the required <span class="tt">Configuration</span> and set <span class="tt">Build Target</span> as <span class="tt">flash</span>, then run the build.\ If not using VSCode, you can use the provided Makefile and construct a make command as follows: <div class="fragment"><div class="line">make flash TESTFOLDER=examples/hal/bringup TESTNAME=helloworld</div>
+</div><!-- fragment --> Note: Make sure your UART probe is connected to the correct COM port specified in the environment variable <span class="tt">FD32M0P_UART_COM_PORT</span> and that the baud rate is set correctly in <span class="tt">FD32M0P_UART_BAUD_RATE</span>.</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Running Examples</h2>
+<p>The SDK includes several example projects located in the <span class="tt">examples/</span> directory. Each example demonstrates different features of the FD32M0P microcontroller. Each example can be built and flashed to the microcontroller using the provided Makefile by selecting the relevant <span class="tt">Configuration</span> and <span class="tt">Build Target</span> in VSCode, or by using the command line.</p>
+<p>To compile and flash an example: </p><div class="fragment"><div class="line">make test_flash TESTFOLDER=examples/hal/bringup TESTNAME=helloworld</div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Documentation</h1>
+<ul>
+<li><a href="docs/html/index.html">API Reference</a></li>
+<li>[Hardware Reference Manual]()</li>
+<li>[Application Notes]()</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Support</h1>
+<p>For issues and support:</p><ul>
+<li>Contact: <a href="#" onclick="location.href='mai'+'lto:'+'sup'+'po'+'rt@'+'fe'+'rmi'+'on'+'ic.'+'de'+'sig'+'n'; return false;">support@fermionic.design</a></li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+License</h1>
+<p>[Specify license, e.g., MIT, Apache, etc.]</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+Contributing</h1>
+<p>[Brief contribution guidelines if applicable] </p>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->

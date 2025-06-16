@@ -11,7 +11,8 @@
                 "_UNICODE"
             ],
             "configurationProvider": "ms-vscode.makefile-tools",
-            "compilerPath": "\"C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2020-q4-major\\bin\\arm-none-eabi-gcc.exe\""
+            "compilerPath": "\"C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2020-q4-major\\bin\\arm-none-eabi-gcc.exe\"",
+            "compilerArgs": ["-fms-extensions"]
         }
     ],
     "version": 4

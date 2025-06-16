@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: FD32M0P Memory Mapping</title>
+<title>FD32M0P Microcontroller SDK: FD32M0P Memory Mapping</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">FD32M0P Microcontroller SDK
    </div>
   </td>
  </tr>
@@ -101,6 +101,8 @@ Macros</h2></td></tr>
 <tr class="memitem:gad35c1036b7f001b47306c58a18329400" id="r_gad35c1036b7f001b47306c58a18329400"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad35c1036b7f001b47306c58a18329400">RAM_BASE</a>&#160;&#160;&#160;(0x20000000UL)</td></tr>
 <tr class="memitem:ga472669244df0de2a902cadce8f3dbb8a" id="r_ga472669244df0de2a902cadce8f3dbb8a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a>&#160;&#160;&#160;(0x3FFC0000UL)</td></tr>
 <tr class="memitem:gafb5e7316af2fd186bb966f980d64742b" id="r_gafb5e7316af2fd186bb966f980d64742b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafb5e7316af2fd186bb966f980d64742b">AHB_BASE</a>&#160;&#160;&#160;(0x40000000UL)</td></tr>
+<tr class="memitem:ga01c5f5d6ea93a80608e1f4a44edc6559" id="r_ga01c5f5d6ea93a80608e1f4a44edc6559"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga01c5f5d6ea93a80608e1f4a44edc6559">EEPROM_WRITE_BASE</a>&#160;&#160;&#160;(0x00220000UL)</td></tr>
+<tr class="memitem:ga0fac845530998c4f811cd851a986c5e8" id="r_ga0fac845530998c4f811cd851a986c5e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0fac845530998c4f811cd851a986c5e8">EEPROM_READ_BASE</a>&#160;&#160;&#160;(0x00009000UL)</td></tr>
 <tr class="memitem:ga63af30a8d166ad59af9b5f49bcda81f2" id="r_ga63af30a8d166ad59af9b5f49bcda81f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga63af30a8d166ad59af9b5f49bcda81f2">MCU_CTRL_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x00000UL)</td></tr>
 <tr class="memitem:ga3888e4b0285393449b067286d746acd7" id="r_ga3888e4b0285393449b067286d746acd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3888e4b0285393449b067286d746acd7">DMA_PL230_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x01000UL)</td></tr>
 <tr class="memitem:gad40513b343516b1031435b5b5e036770" id="r_gad40513b343516b1031435b5b5e036770"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad40513b343516b1031435b5b5e036770">DMA_MCU_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x02000UL)</td></tr>
@@ -124,7 +126,8 @@ Macros</h2></td></tr>
 <tr class="memitem:gaec263795fe53ff1b8ed4d03b8530c163" id="r_gaec263795fe53ff1b8ed4d03b8530c163"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaec263795fe53ff1b8ed4d03b8530c163">TIMER_A1_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x15000UL)</td></tr>
 <tr class="memitem:gafe08a0e8e07922a99837cf42b0b4eff6" id="r_gafe08a0e8e07922a99837cf42b0b4eff6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gafe08a0e8e07922a99837cf42b0b4eff6">TIMER_G0_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x16000UL)</td></tr>
 <tr class="memitem:ga9446d8ec31393db2025202a51e10ed4a" id="r_ga9446d8ec31393db2025202a51e10ed4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9446d8ec31393db2025202a51e10ed4a">TIMER_G1_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x17000UL)</td></tr>
-<tr class="memitem:gacc5eb84758b1146eae9f5f524f9e55a1" id="r_gacc5eb84758b1146eae9f5f524f9e55a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacc5eb84758b1146eae9f5f524f9e55a1">FLASH_APB_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1B000UL)</td></tr>
+<tr class="memitem:gade97add67126fb57744104edd5d47cae" id="r_gade97add67126fb57744104edd5d47cae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gade97add67126fb57744104edd5d47cae">VULTAN_APB_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1B000UL)</td></tr>
+<tr class="memitem:gacc5eb84758b1146eae9f5f524f9e55a1" id="r_gacc5eb84758b1146eae9f5f524f9e55a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gacc5eb84758b1146eae9f5f524f9e55a1">FLASH_APB_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1C000UL)</td></tr>
 <tr class="memitem:ga551109e827b2d923eb60609381359ec2" id="r_ga551109e827b2d923eb60609381359ec2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga551109e827b2d923eb60609381359ec2">OPA1_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1D000UL)</td></tr>
 <tr class="memitem:gac28e115862d5acffa4eac166011bf77d" id="r_gac28e115862d5acffa4eac166011bf77d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac28e115862d5acffa4eac166011bf77d">SECURE_IP_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1E000UL)</td></tr>
 <tr class="memitem:gaa600a5d2b0afd664620032082595a1f4" id="r_gaa600a5d2b0afd664620032082595a1f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa600a5d2b0afd664620032082595a1f4">USB2_BASE</a>&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1F000UL)</td></tr>
@@ -234,6 +237,34 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define AHB_BASE&#160;&#160;&#160;(0x40000000UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga01c5f5d6ea93a80608e1f4a44edc6559" name="ga01c5f5d6ea93a80608e1f4a44edc6559"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga01c5f5d6ea93a80608e1f4a44edc6559">&#9670;&#160;</a></span>EEPROM_WRITE_BASE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EEPROM_WRITE_BASE&#160;&#160;&#160;(0x00220000UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga0fac845530998c4f811cd851a986c5e8" name="ga0fac845530998c4f811cd851a986c5e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0fac845530998c4f811cd851a986c5e8">&#9670;&#160;</a></span>EEPROM_READ_BASE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EEPROM_READ_BASE&#160;&#160;&#160;(0x00009000UL)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -562,6 +593,20 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="gade97add67126fb57744104edd5d47cae" name="gade97add67126fb57744104edd5d47cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gade97add67126fb57744104edd5d47cae">&#9670;&#160;</a></span>VULTAN_APB_BASE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VULTAN_APB_BASE&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1B000UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="gacc5eb84758b1146eae9f5f524f9e55a1" name="gacc5eb84758b1146eae9f5f524f9e55a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gacc5eb84758b1146eae9f5f524f9e55a1">&#9670;&#160;</a></span>FLASH_APB_BASE</h2>
 
@@ -569,7 +614,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FLASH_APB_BASE&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1B000UL)</td>
+          <td class="memname">#define FLASH_APB_BASE&#160;&#160;&#160;(<a class="el" href="#ga472669244df0de2a902cadce8f3dbb8a">APB_BASE</a> + 0x1C000UL)</td>
         </tr>
       </table>
 </div><div class="memdoc">

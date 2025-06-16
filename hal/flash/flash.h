@@ -50,7 +50,7 @@ typedef enum {
 typedef struct flash_timing_regs_cfg_t {
     uint16_t    tcsctrls;                   /*! cs to read / wr_setup time */    
     uint16_t    tras;                       /*! read to address setup time */ 
-    uint16_t    eeprom_tras;                /*! read to address setup time @eeprom */
+    uint16_t    eeprom_tras;                /*! read to address setup time eeprom */
     uint16_t    trc;                        /*! read cycle time */
     uint16_t    eeprom_trc;                 /*! read cycle time @eeprom */
     uint16_t    tadhr;                      /*! address hold time to read */
@@ -541,19 +541,19 @@ typedef struct flash_timing_regs_cfg_t {
 /**
  * @brief   This function updates flash configuration based on the settings
  *
- * @param   flash_regs : pointer to flash register space
- * @param   flash_settings_cfg : settings with which flash needs to be updated with
+ * @param   FLASH_REGS : pointer to flash register space
+ * @param   flash_setting_cfg : settings with which flash needs to be updated with
  *
- * @retval  void
+ * @retval  
  */
 void flash_config(FLASH_REGS_s *FLASH_REGS, flash_setting_cfg_e flash_setting_cfg);
 
 /**
  * @brief   This function resets the flash to the factory setting (High speed, 1.8 < VDD < 3.0)
  *
- * @param   flash_regs : pointer to flash register space
+ * @param   FLASH_REGS : pointer to flash register space
  *
- * @retval  void
+ * @retval  
  */
 void flash_factory_restore(FLASH_REGS_s *FLASH_REGS);
 

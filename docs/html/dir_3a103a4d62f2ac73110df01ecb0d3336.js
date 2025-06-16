@@ -21,5 +21,6 @@ var dir_3a103a4d62f2ac73110df01ecb0d3336 =
     [ "timer_timg_num_input2", "dir_9c6af36e25682e3744f51fdff28bcd90.html", "dir_9c6af36e25682e3744f51fdff28bcd90" ],
     [ "uart", "dir_c9c4ba175c0b5ab54de630482f64fccb.html", "dir_c9c4ba175c0b5ab54de630482f64fccb" ],
     [ "vref", "dir_fdc65684840e0775e5b1e9a1d123e235.html", "dir_fdc65684840e0775e5b1e9a1d123e235" ],
+    [ "vultan_flash", "dir_2aced332ddd393b79a2a2d322dea1350.html", "dir_2aced332ddd393b79a2a2d322dea1350" ],
     [ "watchdog", "dir_965be7f98f893ef6c4896a9aad4b900d.html", "dir_965be7f98f893ef6c4896a9aad4b900d" ]
 ];

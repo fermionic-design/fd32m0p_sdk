@@ -137,6 +137,10 @@
             "makeArgs": ["TESTNAME=comp2_basic_test", "TESTFOLDER=examples/hal/comp" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
+            "name": "comp0_win_comp",
+            "makeArgs": ["TESTNAME=comp0_win_comp_test", "TESTFOLDER=examples/hal/comp" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
             "name": "adc_basic_test",
             "makeArgs": ["TESTNAME=adc_basic_test", "TESTFOLDER=examples/hal/adc", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
@@ -199,6 +203,42 @@
         {
             "name": "gpio_dma",
             "makeArgs": ["TESTNAME=gpio_mask_dma", "TESTFOLDER=examples/hal/gpio" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000 -DGPIO_DMA_MASK_EN"]
+        },
+        {
+            "name": "dma_base_test",
+            "makeArgs": ["TESTNAME=dma_base_test", "TESTFOLDER=examples/hal/dma" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "dma_fill_mode_test",
+            "makeArgs": ["TESTNAME=dma_fill_mode_test", "TESTFOLDER=examples/hal/dma" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "dma_intr_test",
+            "makeArgs": ["TESTNAME=dma_intr_test", "TESTFOLDER=examples/hal/dma" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "dma_rep_tr_test",
+            "makeArgs": ["TESTNAME=dma_rep_tr_test", "TESTFOLDER=examples/hal/dma" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "dma_stride_mode_test",
+            "makeArgs": ["TESTNAME=dma_stride_mode_test", "TESTFOLDER=examples/hal/dma" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "flash_eeprom_rd_wr",
+            "makeArgs": ["TESTNAME=flash_eeprom_rd_wr", "TESTFOLDER=examples/hal/flash" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "flash_timing_change",
+            "makeArgs": ["TESTNAME=flash_timing_change", "TESTFOLDER=examples/hal/flash" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "spi_master_flash_test",
+            "makeArgs": ["TESTNAME=spi_master_flash_test", "TESTFOLDER=examples/hal/spi" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "spi_slave_mode_test",
+            "makeArgs": ["TESTNAME=spi_slave_mode_test", "TESTFOLDER=examples/hal/spi" , "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
             "name": "Print make version",
