@@ -14,7 +14,7 @@ TOOLS_DIR = ./tools
 
 FLASHTOOL = $(TOOLS_DIR)/bootstrap_loader/flash_prog.py
 
-PYTHON_PATH ?= C:/Users/deepe/Documents/GitHub/fd32m0p/venv/Scripts/python
+PYTHON_PATH ?= .
 
 FD32M0P_UART_COM_PORT ?= COM10
 FD32M0P_UART_BAUD_RATE ?= 9600
@@ -38,12 +38,6 @@ LINKER_SCRIPT_PATH	= $(SOFTWARE_DIR)/common/scripts
 LINKER_SCRIPT		= $(LINKER_SCRIPT_PATH)/fd32m0p.ld
 
 LINKER_SCRIPT_BOOTLOADER = $(LINKER_SCRIPT_PATH)/fd32m0p_bootloader.ld
-
-
-TB_TOP = tb_dtop
-SIM_OPTS ?= 
-COVERAGE ?= 0
-TINYUSB_LIB ?= 0
 
 C_COMPILE_DIR = build
 
@@ -113,6 +107,6 @@ endif
 	$(GNU_OBJCOPY) -S ${C_COMPILE_DIR}/$(TESTNAME).o -O verilog ${C_COMPILE_DIR}/$(TESTNAME).hex
 
 flash: 
-	$(PYTHON_PATH) $(FLASHTOOL) -b $(C_COMPILE_DIR)/$(TESTNAME)_32KB.bin -p 1 -c $(FD32M0P_UART_COM_PORT) -r $(FD32M0P_UART_BAUD_RATE) 
+	$(PYTHON_PATH)/python $(FLASHTOOL) -b $(C_COMPILE_DIR)/$(TESTNAME)_32KB.bin -p 1 -c $(FD32M0P_UART_COM_PORT) -r $(FD32M0P_UART_BAUD_RATE) 
 
 test_flash: test flash
