@@ -1,3 +1,15 @@
+# Detect OS
+
+ifeq ($(OS),Windows_NT)
+	MKDIR_P = if not exist "$(subst /,\,$(@D))" mkdir "$(subst /,\,$(@D))"
+	PYTHON_CMD = python
+	SLASH = \\
+else
+	MKDIR_P = mkdir -p $(@D)
+	PYTHON_CMD = python3
+	SLASH = /
+endif
+
 GNU_CC        = arm-none-eabi-gcc
 GNU_OBJDUMP   = arm-none-eabi-objdump
 GNU_OBJCOPY   = arm-none-eabi-objcopy
@@ -35,10 +47,6 @@ LINKER_SCRIPT_BOOTLOADER = $(LINKER_SCRIPT_PATH)/fd32m0p_bootloader.ld
 BUILD_DIR = build
 OBJ_DIR = $(BUILD_DIR)/obj
 BIN_DIR = $(BUILD_DIR)
-
-# Create directories if they don't exist
-$(shell mkdir -p $(OBJ_DIR))
-$(shell mkdir -p $(BIN_DIR))
 
 # Include directories
 C_HEADER_INCDIR = -I $(PRJ_CHEADER_DIR)/crc/ \
@@ -97,16 +105,16 @@ LDFLAGS = $(DEADCODESTRIP) -T $(LINKER_SCRIPT) -L $(LINKER_SCRIPT_PATH) -Wl,--pr
 
 # Rule to compile .c files to .o files
 $(OBJ_DIR)/%.o: $(PRJ_HAL_DIR)/%.c
-	@mkdir -p $(@D)
+	$(MKDIR_P)
 	$(GNU_CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SOFTWARE_DIR)/%.c
-	@mkdir -p $(@D)
+	$(MKDIR_P)
 	$(GNU_CC) $(CFLAGS) -c $< -o $@
 
 # Rule to assemble startup file
 $(STARTUP_OBJ): $(STARTUP_DIR)/$(STARTUP_FILE).s
-	@mkdir -p $(@D)
+	$(MKDIR_P)
 	$(GNU_CC) $(CFLAGS) -c $< -o $@
 
 test:
@@ -130,11 +138,11 @@ $(BIN_DIR)/$(TESTNAME).bin: $(STARTUP_OBJ) $(COMMON_OBJ_FILES) $(HAL_OBJ_FILES) 
 
 # Rule to compile test file
 $(OBJ_DIR)/$(TESTNAME).o: $(TESTFOLDER)/$(TESTNAME).c
-	@mkdir -p $(@D)
+	$(MKDIR_P)
 	$(GNU_CC) $(CFLAGS) -I $(TESTFOLDER) -c $< -o $@
 
 flash: 
-	$(PYTHON_PATH)/python $(FLASHTOOL) -b $(BIN_DIR)/$(TESTNAME)_32KB.bin -p 1 -c $(FD32M0P_UART_COM_PORT) -r $(FD32M0P_UART_BAUD_RATE)
+	$(PYTHON_CMD) $(FLASHTOOL) -b $(BIN_DIR)/$(TESTNAME)_32KB.bin -p 1 -c $(FD32M0P_UART_COM_PORT) -r $(FD32M0P_UART_BAUD_RATE)
 
 test_flash: $(BIN_DIR)/$(TESTNAME).bin flash
 
