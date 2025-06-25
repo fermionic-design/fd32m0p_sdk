@@ -71,7 +71,7 @@ make test_flash TESTFOLDER=examples/hal/bringup TESTNAME=helloworld
 
 ## Documentation
 
-- [API Reference](docs/html/index.html)
+- [API Reference](https://fermionic-design.github.io/fd32m0p_sdk/html/index.html)
 - [Hardware Reference Manual]()
 - [Application Notes]()
 
