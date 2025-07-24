@@ -89,7 +89,7 @@ typedef struct {
  *
  * @retval  void
  */
-void comp_cfg(COMP_REGS_s *regs, comp_cfg_s comp_cfg);
+void comp_cfg(COMP_REGS_s *regs, comp_cfg_s *comp_cfg);
 
 /**
  * @brief   This function configures window comparator operation in comparator.
@@ -99,7 +99,7 @@ void comp_cfg(COMP_REGS_s *regs, comp_cfg_s comp_cfg);
  *
  * @retval  void
  */
-void comp_win_comp_cfg(COMP_REGS_s *regs,comp_win_comp_cfg_s win_comp_cfg);
+void comp_win_comp_cfg(COMP_REGS_s *regs,comp_win_comp_cfg_s *win_comp_cfg);
 
 /**
  * @brief   This function configures output of comparator.
@@ -109,7 +109,7 @@ void comp_win_comp_cfg(COMP_REGS_s *regs,comp_win_comp_cfg_s win_comp_cfg);
  *
  * @retval  void
  */
-void comp_out_cfg(COMP_REGS_s *regs, comp_out_cfg_s comp_out_cfg);
+void comp_out_cfg(COMP_REGS_s *regs, comp_out_cfg_s *comp_out_cfg);
 
 /**
  * @brief   This function returns comparator configuration.

@@ -24,7 +24,7 @@
  *
  * @retval  void
  */
-void iomux_cfg(IOMUX_REGS_s *regs, IOMUX_PA_REG_s iomux_cfg_struct,  uint32_t pin_num);
+void iomux_cfg(IOMUX_REGS_s *regs, IOMUX_PA_REG_s *iomux_cfg_struct,  uint32_t pin_num);
 
 /**
  * @brief   This function writes the data at GPIO pin given in pin_num.

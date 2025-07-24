@@ -3,9 +3,9 @@
 /*
  *  ======== iomux_cfg ========
  */
-void iomux_cfg(IOMUX_REGS_s *regs, IOMUX_PA_REG_s iomux_cfg,  uint32_t pin_num)/*{{{*/{
+void iomux_cfg(IOMUX_REGS_s *regs, IOMUX_PA_REG_s *iomux_cfg,  uint32_t pin_num)/*{{{*/{
     IOMUX_PA_u temp;
-    *(IOMUX_PA_REG_s *)&temp = iomux_cfg;
+    *(IOMUX_PA_REG_s *)&temp = *iomux_cfg;
     regs->PA[pin_num].packed_w = temp.packed_w;   
 }/*}}}*/
 

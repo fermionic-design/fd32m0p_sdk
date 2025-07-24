@@ -51,7 +51,7 @@ typedef struct {
  *  
  * @retval  void
  */
-void dac_cfg(DAC_REGS_s *regs, dac_cfg_s dac_cfg_struct);
+void dac_cfg(DAC_REGS_s *regs, dac_cfg_s *dac_cfg_struct);
 
 /**
  * @brief   This function configures DAC for DMA application
@@ -61,7 +61,7 @@ void dac_cfg(DAC_REGS_s *regs, dac_cfg_s dac_cfg_struct);
  *  
  * @retval  void
  */
-void dac_dma_cfg(DAC_REGS_s *regs, dac_dma_cfg_s dac_dma_cfg_struct);
+void dac_dma_cfg(DAC_REGS_s *regs, dac_dma_cfg_s *dac_dma_cfg_struct);
 
 /**
  * @brief   This function writes DAC code in DAC.

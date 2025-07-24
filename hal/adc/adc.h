@@ -128,7 +128,7 @@ typedef struct {
  *
  * @retval  void
  */
-void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg);
+void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s *clk_cfg);
 
 /**
  * @brief   This function configures the ADC channel.
@@ -138,7 +138,7 @@ void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg);
  * 
  * @retval  void
  */
-void adc_chnl_cfg(ADC_REGS_s *regs, adc_chnl_cfg_s chnl_cfg);
+void adc_chnl_cfg(ADC_REGS_s *regs, adc_chnl_cfg_s *chnl_cfg);
 
 /**
  * @brief   This function configures the ADC channel.
@@ -158,7 +158,7 @@ uint32_t adc_result(ADC_REGS_s *regs, uint32_t data_channel);
  * 
  * @retval  void
  */
-void adc_dma_cfg(ADC_REGS_s *regs, adc_dma_cfg_s dma_cfg);
+void adc_dma_cfg(ADC_REGS_s *regs, adc_dma_cfg_s *dma_cfg);
 
 /**
  * @brief   This function configures the ADC Result registers for FIFO operation.
@@ -188,7 +188,7 @@ void adc_sw_trig(ADC_REGS_s *regs, uint32_t sw_trig);
  * 
  * @retval  void
  */
-void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_single_ch);
+void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s *adc_single_ch);
 
 /**
  * @brief   This function configures ADC for multi channel operation.
@@ -198,7 +198,7 @@ void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_singl
  * 
  * @retval  void
  */
-void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_ch);
+void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s *adc_multi_ch);
 
 /**
  * @brief   This function enables ADC conversion.
@@ -221,7 +221,7 @@ void adc_en_conv(ADC_REGS_s *regs, uint32_t en_conv);
  * 
  * @retval  void
  */
-void adc_temp_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs, adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s adc_chnl_cfg);
+void adc_temp_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs, adc_single_ch_conv_cfg_s *adc_single_ch, adc_chnl_cfg_s *adc_chnl_cfg);
 
 /**
  * @brief   This function configures ADC for battery monitor application.
@@ -234,7 +234,7 @@ void adc_temp_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *
  * 
  * @retval  void
  */
-void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg);
+void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s *adc_single_ch, adc_chnl_cfg_s *chnl_cfg);
 
 /**
  * @brief   This function configures ADC sampling timer.
@@ -255,7 +255,7 @@ void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_sam
  * 
  * @retval  void
  */
-void adc_hw_avg_cfg(ADC_REGS_s *regs, adc_hw_avg_cfg_s adc_hw_cfg);
+void adc_hw_avg_cfg(ADC_REGS_s *regs, adc_hw_avg_cfg_s *adc_hw_cfg);
 
 /**
  * @brief   This function returns ADC clock configuration.

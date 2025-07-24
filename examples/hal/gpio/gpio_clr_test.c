@@ -45,7 +45,7 @@ int main(void) {
 
     for (i=0;i<28;i=i+1)
     {
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, i);
         
     }
     iomux_cfg_struct = get_gpio_iomux_cfg(IOMUX_REGS, 5);

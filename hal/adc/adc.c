@@ -4,21 +4,21 @@
 /*
  *  ======== adc_clk_cfg ========
  */
-void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s clk_cfg){
-    regs->CLK_CTRL.clk_en  = clk_cfg.clk_en;
-    regs->CLK_CTRL.clk_div = clk_cfg.clk_div;
-    regs->CLK_SEL.packed_w  = (ADC_CLK_SEL_CLK_SEL_MASK<<16 | clk_cfg.clk_sel);
+void adc_clk_cfg(ADC_REGS_s *regs, adc_clk_cfg_s *clk_cfg){
+    regs->CLK_CTRL.clk_en  = clk_cfg->clk_en;
+    regs->CLK_CTRL.clk_div = clk_cfg->clk_div;
+    regs->CLK_SEL.packed_w  = (ADC_CLK_SEL_CLK_SEL_MASK<<16 | clk_cfg->clk_sel);
 }
 
 
 /*
  *  ======== adc_chnl_cfg ========
  */
-void adc_chnl_cfg(ADC_REGS_s *regs, adc_chnl_cfg_s chnl_cfg){
-    regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel  = chnl_cfg.channel_sel;
-    regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel     = chnl_cfg.vref_sel;
-    regs->CHNL_CFG[chnl_cfg.data_channel].hw_avg_en    = chnl_cfg.hw_avg_en;
-    regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en       = chnl_cfg.bcs_en;
+void adc_chnl_cfg(ADC_REGS_s *regs, adc_chnl_cfg_s *chnl_cfg){
+    regs->CHNL_CFG[chnl_cfg->data_channel].channel_sel  = chnl_cfg->channel_sel;
+    regs->CHNL_CFG[chnl_cfg->data_channel].vref_sel     = chnl_cfg->vref_sel;
+    regs->CHNL_CFG[chnl_cfg->data_channel].hw_avg_en    = chnl_cfg->hw_avg_en;
+    regs->CHNL_CFG[chnl_cfg->data_channel].bcs_en       = chnl_cfg->bcs_en;
 }
 
 /*
@@ -33,9 +33,9 @@ uint32_t adc_result(ADC_REGS_s *regs, uint32_t data_channel){
 /*
  *  ======== adc_dma_cfg ========
  */
-void adc_dma_cfg(ADC_REGS_s *regs, adc_dma_cfg_s dma_cfg){
-    regs->DMA_REG.dma_en                       = dma_cfg.dma_en;
-    regs->DMA_TRANSFER_CNT.dma_transfer_cnt    = dma_cfg.dma_transfer_cnt;
+void adc_dma_cfg(ADC_REGS_s *regs, adc_dma_cfg_s *dma_cfg){
+    regs->DMA_REG.dma_en                       = dma_cfg->dma_en;
+    regs->DMA_TRANSFER_CNT.dma_transfer_cnt    = dma_cfg->dma_transfer_cnt;
 }
 
 /*
@@ -55,8 +55,8 @@ void adc_sw_trig(ADC_REGS_s *regs, uint32_t sw_trig){
 /*
  *  ======== adc_single_ch_conv_cfg ========
  */
-void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_single_ch)/*{{{*/{
-    if(adc_single_ch.repeat == 1)
+void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s *adc_single_ch)/*{{{*/{
+    if(adc_single_ch->repeat == 1)
     {
         regs->CONV_CFG.conv_mode               = ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV;                 // Single Channel Repeat
     }
@@ -64,21 +64,21 @@ void adc_single_ch_conv_cfg(ADC_REGS_s *regs, adc_single_ch_conv_cfg_s adc_singl
     {
         regs->CONV_CFG.conv_mode               = ADC_CONV_CFG_CONV_MODE_SINGLE_CONV;                 // Single Channel Single Conv
     }
-    regs->CONV_CFG.start_addr                  = adc_single_ch.start_addr;               
+    regs->CONV_CFG.start_addr                  = adc_single_ch->start_addr;               
     regs->CONV_CFG.end_addr                    = 0;
-    regs->CONV_CFG.adc_res                     = adc_single_ch.adc_res;
-    regs->CONV_CFG.trigger_source              = adc_single_ch.trig_src;
-    regs->DMA_REG.dma_en                       = adc_single_ch.dma_en;
-    regs->DMA_TRANSFER_CNT.dma_transfer_cnt    = adc_single_ch.dma_transfer_cnt;
-    regs->RESULT_CFG.fifo_en                   = adc_single_ch.fifo_en;
+    regs->CONV_CFG.adc_res                     = adc_single_ch->adc_res;
+    regs->CONV_CFG.trigger_source              = adc_single_ch->trig_src;
+    regs->DMA_REG.dma_en                       = adc_single_ch->dma_en;
+    regs->DMA_TRANSFER_CNT.dma_transfer_cnt    = adc_single_ch->dma_transfer_cnt;
+    regs->RESULT_CFG.fifo_en                   = adc_single_ch->fifo_en;
     regs->BLOCK_ASYNC_REQ.block_async_req      = 1;
 }/*}}}*/
 
 /*
  *  ======== adc_multi_ch_conv_cfg ========
  */
-void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_ch)/*{{{*/{
-    if(adc_multi_ch.repeat == 1)
+void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s *adc_multi_ch)/*{{{*/{
+    if(adc_multi_ch->repeat == 1)
     {
         regs->CONV_CFG.conv_mode               = ADC_CONV_CFG_CONV_MODE_MULTI_CH_RPT_CONV;
     }
@@ -86,13 +86,13 @@ void adc_multi_ch_conv_cfg(ADC_REGS_s *regs, adc_multi_ch_conv_cfg_s adc_multi_c
     {
         regs->CONV_CFG.conv_mode               = ADC_CONV_CFG_CONV_MODE_MULTI_CH_CONV;
     }
-    regs->CONV_CFG.start_addr                  = adc_multi_ch.start_addr;               
-    regs->CONV_CFG.end_addr                    = adc_multi_ch.end_addr;
-    regs->CONV_CFG.adc_res                     = adc_multi_ch.adc_res;
-    regs->CONV_CFG.trigger_source              = adc_multi_ch.trig_src;
-    regs->DMA_REG.dma_en                       = adc_multi_ch.dma_en;
-    regs->DMA_TRANSFER_CNT.dma_transfer_cnt    = adc_multi_ch.dma_transfer_cnt;
-    regs->RESULT_CFG.fifo_en                   = adc_multi_ch.fifo_en;
+    regs->CONV_CFG.start_addr                  = adc_multi_ch->start_addr;               
+    regs->CONV_CFG.end_addr                    = adc_multi_ch->end_addr;
+    regs->CONV_CFG.adc_res                     = adc_multi_ch->adc_res;
+    regs->CONV_CFG.trigger_source              = adc_multi_ch->trig_src;
+    regs->DMA_REG.dma_en                       = adc_multi_ch->dma_en;
+    regs->DMA_TRANSFER_CNT.dma_transfer_cnt    = adc_multi_ch->dma_transfer_cnt;
+    regs->RESULT_CFG.fifo_en                   = adc_multi_ch->fifo_en;
     regs->BLOCK_ASYNC_REQ.block_async_req      = 1;
 }/*}}}*/
 
@@ -106,8 +106,8 @@ void adc_en_conv(ADC_REGS_s *regs, uint32_t en_conv){
 /*
  *  ======== adc_temp_cfg ========
  */
-void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs, adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg)/*{{{*/{
-    if(adc_single_ch.repeat == 1)
+void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs, adc_single_ch_conv_cfg_s *adc_single_ch, adc_chnl_cfg_s *chnl_cfg)/*{{{*/{
+    if(adc_single_ch->repeat == 1)
     {
         adc_regs->CONV_CFG.conv_mode                       = ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV;
     }
@@ -115,17 +115,17 @@ void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s 
     {
         adc_regs->CONV_CFG.conv_mode                       = ADC_CONV_CFG_CONV_MODE_SINGLE_CONV;
     }
-    adc_regs->CONV_CFG.start_addr                          = adc_single_ch.start_addr;               
+    adc_regs->CONV_CFG.start_addr                          = adc_single_ch->start_addr;               
     adc_regs->CONV_CFG.end_addr                            = 0;
-    adc_regs->CONV_CFG.adc_res                             = adc_single_ch.adc_res;
-    adc_regs->CONV_CFG.trigger_source                      = adc_single_ch.trig_src;
-    adc_regs->DMA_REG.dma_en                               = adc_single_ch.dma_en;
-    adc_regs->DMA_TRANSFER_CNT.dma_transfer_cnt            = adc_single_ch.dma_transfer_cnt;
-    adc_regs->RESULT_CFG.fifo_en                           = adc_single_ch.dma_en;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel  = ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR; // Ch 11 used for Temp Sensor
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel     = chnl_cfg.vref_sel;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].hw_avg_en    = chnl_cfg.hw_avg_en;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en       = 0;
+    adc_regs->CONV_CFG.adc_res                             = adc_single_ch->adc_res;
+    adc_regs->CONV_CFG.trigger_source                      = adc_single_ch->trig_src;
+    adc_regs->DMA_REG.dma_en                               = adc_single_ch->dma_en;
+    adc_regs->DMA_TRANSFER_CNT.dma_transfer_cnt            = adc_single_ch->dma_transfer_cnt;
+    adc_regs->RESULT_CFG.fifo_en                           = adc_single_ch->dma_en;
+    adc_regs->CHNL_CFG[chnl_cfg->data_channel].channel_sel  = ADC_CHNL_CFG_CHANNEL_SEL_TEMP_SENSOR; // Ch 11 used for Temp Sensor
+    adc_regs->CHNL_CFG[chnl_cfg->data_channel].vref_sel     = chnl_cfg->vref_sel;
+    adc_regs->CHNL_CFG[chnl_cfg->data_channel].hw_avg_en    = chnl_cfg->hw_avg_en;
+    adc_regs->CHNL_CFG[chnl_cfg->data_channel].bcs_en       = 0;
     adc_regs->BLOCK_ASYNC_REQ.block_async_req              = 1;
     mcu_regs->ANA_SPARE_OUT0.spare_out_0                   = 0x00000000; // Enables Temp Sensor (active low)
     vref_regs->CTRL.enable                                 = 1;
@@ -135,11 +135,11 @@ void adc_temp_cfg(ADC_REGS_s * adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s 
 /*
  *  ======== adc_batt_mon_cfg ========
  */
-void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s adc_single_ch, adc_chnl_cfg_s chnl_cfg)/*{{{*/{
+void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS_s *vref_regs,adc_single_ch_conv_cfg_s *adc_single_ch, adc_chnl_cfg_s *chnl_cfg)/*{{{*/{
     vref_regs->CTRL.enable                                  = 1;
     vref_regs->CTRL.vref_mode                               = VREF_CTRL_VREF_MODE_2P5V;            // 0: 1p4v 1:2p5v
     mcu_regs->ANA_SPARE_OUT0.spare_out_0                    = 0x09800000;   // disables temp sensor through spare out regs.
-    if(adc_single_ch.repeat == 1)
+    if(adc_single_ch->repeat == 1)
     {
         adc_regs->CONV_CFG.conv_mode                        = ADC_CONV_CFG_CONV_MODE_SINGLE_RPT_CONV;            // Single Channel Repeat
     }
@@ -147,17 +147,17 @@ void adc_batt_mon_cfg(ADC_REGS_s *adc_regs, MCU_CTRL_REGS_s *mcu_regs, VREF_REGS
     {
         adc_regs->CONV_CFG.conv_mode                        = ADC_CONV_CFG_CONV_MODE_SINGLE_CONV;            // Single Channel Single Conv 
     }
-    adc_regs->CONV_CFG.start_addr                           = adc_single_ch.start_addr;               
+    adc_regs->CONV_CFG.start_addr                           = adc_single_ch->start_addr;               
     adc_regs->CONV_CFG.end_addr                             = 0;            // Not needed in single channel.
-    adc_regs->CONV_CFG.adc_res                              = adc_single_ch.adc_res;
-    adc_regs->CONV_CFG.trigger_source                       = adc_single_ch.trig_src;
-    adc_regs->DMA_REG.dma_en                                = adc_single_ch.dma_en;
-    adc_regs->DMA_TRANSFER_CNT.dma_transfer_cnt             = adc_single_ch.dma_transfer_cnt;
-    adc_regs->RESULT_CFG.fifo_en                            = adc_single_ch.fifo_en;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].channel_sel   = ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON;           // Ch 15 for Batt Mon
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].vref_sel      = chnl_cfg.vref_sel;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].hw_avg_en     = chnl_cfg.hw_avg_en;
-    adc_regs->CHNL_CFG[chnl_cfg.data_channel].bcs_en        = 0;            //Burnout Current Source enable set to 0
+    adc_regs->CONV_CFG.adc_res                              = adc_single_ch->adc_res;
+    adc_regs->CONV_CFG.trigger_source                       = adc_single_ch->trig_src;
+    adc_regs->DMA_REG.dma_en                                = adc_single_ch->dma_en;
+    adc_regs->DMA_TRANSFER_CNT.dma_transfer_cnt             = adc_single_ch->dma_transfer_cnt;
+    adc_regs->RESULT_CFG.fifo_en                            = adc_single_ch->fifo_en;
+    adc_regs->CHNL_CFG[chnl_cfg->data_channel].channel_sel   = ADC_CHNL_CFG_CHANNEL_SEL_BATT_MON;           // Ch 15 for Batt Mon
+    adc_regs->CHNL_CFG[chnl_cfg->data_channel].vref_sel      = chnl_cfg->vref_sel;
+    adc_regs->CHNL_CFG[chnl_cfg->data_channel].hw_avg_en     = chnl_cfg->hw_avg_en;
+    adc_regs->CHNL_CFG[chnl_cfg->data_channel].bcs_en        = 0;            //Burnout Current Source enable set to 0
 }/*}}}*/
 
 /*
@@ -221,9 +221,9 @@ void adc_samp_timer_cfg(ADC_REGS_s *regs, uint32_t in_clk_freq, uint32_t exp_sam
 /*
  *  ======== adc_hw_avg_cfg ========
  */
-void adc_hw_avg_cfg(ADC_REGS_s *regs, adc_hw_avg_cfg_s adc_hw_cfg){
-    regs->HW_AVG_CFG.hw_sample_cnt     = adc_hw_cfg.hw_sample_cnt;
-    regs->HW_AVG_CFG.hw_avg_sample_div = adc_hw_cfg.hw_avg_sample_div;
+void adc_hw_avg_cfg(ADC_REGS_s *regs, adc_hw_avg_cfg_s *adc_hw_cfg){
+    regs->HW_AVG_CFG.hw_sample_cnt     = adc_hw_cfg->hw_sample_cnt;
+    regs->HW_AVG_CFG.hw_avg_sample_div = adc_hw_cfg->hw_avg_sample_div;
 }
 
 /*
