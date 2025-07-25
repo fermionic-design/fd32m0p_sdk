@@ -21,7 +21,7 @@ int main(void) {
         srand(SEED);
     #endif
     uint32_t gpio_outs;
-    uint32_t i, sub_cfg_reg, sub_en, action, bit_num, dout;
+    uint32_t sub_en, action, bit_num, dout;
     GPIO_SUB_CFG_REG_s sub_cfg_val;
     IOMUX_PA_REG_s iomux_cfg_struct;
     UartStdOutInit();
@@ -52,8 +52,8 @@ int main(void) {
     GPIO_GENERIC_EVENT_EN(GPIO_REGS, 10);
     GPIO_GENERIC_EVENT_EN(GPIO_REGS, 24);
     UartPuts("event en \n");
-    dout = 0x00000400;
-    gpio_dout(GPIO_REGS, dout);
+    //dout = 0x00000400;
+    //gpio_dout(GPIO_REGS, dout);
     
     sub_en      =   1;
     action      =   0;
