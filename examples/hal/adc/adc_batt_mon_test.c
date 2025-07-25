@@ -39,7 +39,7 @@ int main(void){
     clk_cfg.clk_en                  = 1;
     clk_cfg.clk_div                 = ADC_CLK_CTRL_CLK_DIV_BY_7;
     clk_cfg.clk_sel                 = ADC_CLK_SEL_APB;
-    adc_clk_cfg(ADC0_REGS, clk_cfg);
+    adc_clk_cfg(ADC0_REGS, &clk_cfg);
 
     single_ch_cfg.repeat            = 0;
     single_ch_cfg.start_addr        = start_addr;
@@ -55,7 +55,7 @@ int main(void){
     chnl_cfg.hw_avg_en      = 0;
     chnl_cfg.bcs_en         = 0;
 
-    adc_batt_mon_cfg(ADC0_REGS, MCU_CTRL_REGS, VREF_REGS, single_ch_cfg, chnl_cfg);
+    adc_batt_mon_cfg(ADC0_REGS, MCU_CTRL_REGS, VREF_REGS, &single_ch_cfg, &chnl_cfg);
 
     ADC0_REGS->INTR_EN_0.packed_w = 0xFFFFFFFF; 
     ADC0_REGS->INTR_EN_1.packed_w = 0x7FFFFFFF;
@@ -63,7 +63,7 @@ int main(void){
 
     iomux_cfg_struct.output_en = 0;
     iomux_cfg_struct.input_en  = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct,  23);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct,  23);
      
     adc_samp_timer_cfg(ADC0_REGS,/*IN CLK FREQ*/ 32000000, /*Desired Sampling Rate*/ 85106);
 
