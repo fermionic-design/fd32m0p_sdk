@@ -34,11 +34,11 @@ int main(void){
     comp_cfg_struct.in_m_sel = COMP_IN_M_SEL_COMP1_INV_2;
     comp_cfg_struct.in_short = 0;
     comp_cfg_struct.in_swap = 0;
-    comp_cfg(COMP1_REGS, comp_cfg_struct);
+    comp_cfg(COMP1_REGS, &comp_cfg_struct);
 
     iomux_cfg_struct.output_en        = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 12);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 9);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 12);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 9);
 
     while(COMP1_REGS->INTR_STS.intr_first == COMP_INTR_EVENT_COMP_OUT_IDX);
     comp_sts = get_comp_out_sts(COMP1_REGS);

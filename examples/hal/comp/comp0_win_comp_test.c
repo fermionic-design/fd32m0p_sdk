@@ -41,7 +41,7 @@ int main(void){
     comp_cfg_struct.in_m_sel    = COMP_IN_M_SEL_COMP0_INV_2;
     comp_cfg_struct.in_short    = 0;
     comp_cfg_struct.in_swap     = 0;
-    comp_cfg(COMP0_REGS, comp_cfg_struct);
+    comp_cfg(COMP0_REGS, &comp_cfg_struct);
 
     COMP_PWR_EN_WRITE(COMP1_REGS, 1, 0xAB);
     COMP_INTR_EVENT_EN(COMP1_REGS, COMP_INTR_EVENT_COMP_OUT_IDX);
@@ -53,11 +53,11 @@ int main(void){
     comp_cfg_struct.in_m_sel    = COMP_IN_M_SEL_COMP1_INV_2;
     comp_cfg_struct.in_short    = 0;
     comp_cfg_struct.in_swap     = 0;
-    comp_cfg(COMP1_REGS, comp_cfg_struct);
+    comp_cfg(COMP1_REGS, &comp_cfg_struct);
 
     win_comp_cfg.enable         = 1;
     win_comp_cfg.win_comp_sel   = COMP_WIN_COMP_SEL_1;
-    comp_win_comp_cfg(COMP0_REGS, win_comp_cfg);
+    comp_win_comp_cfg(COMP0_REGS, &win_comp_cfg);
     win_comp_cfg2 = get_comp_win_comp_cfg(COMP0_REGS);
     print_int_var("enable : ",win_comp_cfg2.enable, 0);
     print_int_var("win_comp_sel : ",win_comp_cfg2.win_comp_sel, 0);

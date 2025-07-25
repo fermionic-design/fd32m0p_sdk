@@ -34,7 +34,7 @@ int main(void){
     comp_cfg_struct.in_m_sel = COMP_IN_M_SEL_INV_0;
     comp_cfg_struct.in_short = 0;
     comp_cfg_struct.in_swap = 0;
-    comp_cfg(COMP2_REGS, comp_cfg_struct);
+    comp_cfg(COMP2_REGS, &comp_cfg_struct);
     comp_cfg_struct2 = get_comp_cfg(COMP2_REGS);
     print_int_var("enable : ", comp_cfg_struct2.enable, 0);
     print_int_var("hyst : ", comp_cfg_struct2.hyst, 0);
@@ -46,8 +46,8 @@ int main(void){
     print_int_var("in_swap : ", comp_cfg_struct2.in_swap, 0);
 
     iomux_cfg_struct.output_en        = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 26);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 20);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 26);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 20);
 
     while(COMP2_REGS->INTR_STS.intr_first == COMP_INTR_EVENT_COMP_OUT_IDX);
     comp_sts = get_comp_out_sts(COMP2_REGS);

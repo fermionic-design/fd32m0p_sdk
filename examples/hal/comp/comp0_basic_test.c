@@ -39,11 +39,11 @@ int main(void){
     comp_cfg_struct.in_m_sel = COMP_IN_M_SEL_COMP0_INV_2;
     comp_cfg_struct.in_short = 0;
     comp_cfg_struct.in_swap = 0;
-    comp_cfg(COMP0_REGS, comp_cfg_struct);
+    comp_cfg(COMP0_REGS, &comp_cfg_struct);
     
     comp_out_cfg_struct.samp_en = 1;
     comp_out_cfg_struct.out_pol = 0;
-    comp_out_cfg(COMP0_REGS, comp_out_cfg_struct);
+    comp_out_cfg(COMP0_REGS, &comp_out_cfg_struct);
 
     comp_out_cfg_struct2 = get_comp_out_cfg(COMP0_REGS);
     print_int_var("samp_en : ",comp_out_cfg_struct2.samp_en, 0);
@@ -56,8 +56,8 @@ int main(void){
     DAC_REGS->INTR_SW_SET.packed_w = 2; //setting DAC interrupt
 
     iomux_cfg_struct.output_en        = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 20);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 13);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 20);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 13);
 
     comp_sts = get_comp_out_sts(COMP0_REGS);
     print_int_var("COMP0_STS : ", comp_sts, 0);
