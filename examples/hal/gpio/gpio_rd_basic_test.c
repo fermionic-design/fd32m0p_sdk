@@ -38,8 +38,8 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 4);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 24);
     iomux_cfg_struct.input_en         = 0;
     for (i=0;i<28;i=i+1)
     {
@@ -47,7 +47,7 @@ int main(void) {
         if(i == 4) continue;
         if(i == 24) continue;
         
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, i);
     }
     UartPuts("All Pins are enabled on GPIO.\n");
     UartPuts("Waiting for DIN\n");  
