@@ -73,7 +73,7 @@ int main(void) {
     clk_cfg.clk_div = ADC_CLK_CTRL_CLK_DIV_BY_2;
     clk_cfg.clk_sel = ADC_CLK_SEL_APB;
 
-    adc_clk_cfg(ADC0_REGS, clk_cfg);
+    adc_clk_cfg(ADC0_REGS, &clk_cfg);
     clk_cfg         = get_adc_clk_cfg(ADC0_REGS);
     print_int_var("clk_en : ", clk_cfg.clk_en, 1);  
     print_int_var("clk_div : ",clk_cfg.clk_div, 1); 
@@ -87,7 +87,7 @@ int main(void) {
     single_ch_cfg.dma_transfer_cnt  = 8;
     single_ch_cfg.fifo_en           = 1;
 
-    adc_single_ch_conv_cfg(ADC0_REGS, single_ch_cfg);
+    adc_single_ch_conv_cfg(ADC0_REGS, &single_ch_cfg);
 
     single_ch_cfg = get_adc_single_ch_conv_cfg(ADC0_REGS);
 
@@ -104,7 +104,7 @@ int main(void) {
     chnl_cfg.hw_avg_en      = 1;
     chnl_cfg.bcs_en         = 0;
 
-    adc_chnl_cfg(ADC0_REGS, chnl_cfg);
+    adc_chnl_cfg(ADC0_REGS, &chnl_cfg);
 
     data_channel    = chnl_cfg.data_channel;
     chnl_cfg = get_adc_chnl_cfg(ADC0_REGS, data_channel);
@@ -118,7 +118,7 @@ int main(void) {
     hw_avg_cfg.hw_sample_cnt        = ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_4;
     hw_avg_cfg.hw_avg_sample_div    = ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_2;
 
-    adc_hw_avg_cfg(ADC0_REGS, hw_avg_cfg);
+    adc_hw_avg_cfg(ADC0_REGS, &hw_avg_cfg);
     hw_avg_cfg = get_adc_hw_avg_cfg(ADC0_REGS);
     print_int_var("hw_sample_cnt : ", hw_avg_cfg.hw_sample_cnt, 0);     
     print_int_var("hw_avg_sample_div : ", hw_avg_cfg.hw_avg_sample_div, 0);
@@ -138,7 +138,7 @@ int main(void) {
     iomux_cfg_struct.input_en = 0;
     iomux_cfg_struct.output_en = 0;
     iomux_cfg_struct.pull_up = 0;
-    iomux_cfg(IOMUX_REGS,iomux_cfg_struct, 27);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 27);
 
     EVENT_FABRIC_DMA_PUB_N_WRITE(EVENT_FABRIC_REGS, 0, 2);
 
