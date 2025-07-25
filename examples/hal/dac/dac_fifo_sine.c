@@ -44,7 +44,7 @@ int main(void) {
     dac_dma_cfg_struct.fifo_en = 1;
     dac_dma_cfg_struct.fifo_trig_sel = DAC_CTRL2_FIFO_TRIG_SEL_FIFO_EMPTY;
     dac_dma_cfg_struct.dma_trig_en = 1;
-    dac_dma_cfg(DAC_REGS, dac_dma_cfg_struct);
+    dac_dma_cfg(DAC_REGS, &dac_dma_cfg_struct);
     dac_dma_cfg_struct = get_dac_dma_cfg(DAC_REGS);
     print_int_var("fifo_th ", dac_dma_cfg_struct.fifo_th, 0);
     print_int_var("fifo_en ", dac_dma_cfg_struct.fifo_en, 0);
@@ -58,7 +58,7 @@ int main(void) {
     dac_cfg_struct.out_en           = 1;
     dac_cfg_struct.vrefp_sel        = DAC_CTRL1_VREFP_SEL_EXT;
     dac_cfg_struct.samp_tim_en      = 1;
-    dac_cfg(DAC_REGS, dac_cfg_struct);
+    dac_cfg(DAC_REGS, &dac_cfg_struct);
 
     EVENT_FABRIC_DMA_PUB_N_WRITE(EVENT_FABRIC_REGS, 8, 1);
     // PRIMARY CHANNEL CONFIG

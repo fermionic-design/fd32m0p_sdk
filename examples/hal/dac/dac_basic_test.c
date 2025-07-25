@@ -28,7 +28,7 @@ int main(void) {
 
     iomux_cfg_struct.output_en        = 0;
     iomux_cfg_struct.input_en         = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 15);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 15);
 
     dac_cfg_struct.data_fmt         = DAC_CTRL0_DATA_FMT_BINARY;
     dac_cfg_struct.enable           = 1;
@@ -37,7 +37,7 @@ int main(void) {
     dac_cfg_struct.amp_hiz          = 1;
     dac_cfg_struct.out_en           = 1;
     dac_cfg_struct.vrefp_sel        = DAC_CTRL1_VREFP_SEL_EXT;
-    dac_cfg(DAC_REGS, dac_cfg_struct);
+    dac_cfg(DAC_REGS, &dac_cfg_struct);
     dac_cfg_struct = get_dac_cfg(DAC_REGS);
     print_int_var("data_fmt ", dac_cfg_struct.data_fmt, 0);
     print_int_var("enable ", dac_cfg_struct.enable, 0);
