@@ -32,8 +32,8 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = 1;
     iomux_cfg_struct.input_val        = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 4);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 4);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 24);
 
     GPIO_PWR_EN_WRITE(GPIO_REGS, 1, GPIO_PWR_EN_PWR_EN_KEY);
     UartPuts("Power EN Reg Written.\n");
