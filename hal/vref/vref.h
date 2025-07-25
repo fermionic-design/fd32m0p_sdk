@@ -41,7 +41,7 @@ typedef struct {
  *  
  * @retval  void
  */
-void vref_cfg(VREF_REGS_s *vref_regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s *mcu_regs, IOMUX_PA_REG_s iomux_cfg_struct, vref_cfg_s *vref_cfg_struct, uint32_t temp_sense_en);
+void vref_cfg(VREF_REGS_s *vref_regs, IOMUX_REGS_s *iomux_regs, MCU_CTRL_REGS_s *mcu_regs, IOMUX_PA_REG_s *iomux_cfg_struct, vref_cfg_s *vref_cfg_struct, uint32_t temp_sense_en);
 
 /**
  * @brief   This function returns VREF configuration
