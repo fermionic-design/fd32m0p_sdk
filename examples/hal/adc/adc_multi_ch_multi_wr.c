@@ -59,11 +59,11 @@ int main(void) {
             chnl_cfg.vref_sel       = ADC_CHNL_CFG_VREF_SEL_EXT;
             chnl_cfg.hw_avg_en      = 1;
             chnl_cfg.bcs_en         = 0;
-            adc_chnl_cfg(ADC0_REGS, chnl_cfg);
+            adc_chnl_cfg(ADC0_REGS, &chnl_cfg);
         }
         hw_avg_cfg.hw_sample_cnt        = ADC_HW_AVG_CFG_HW_SAMPLE_CNT_ACCU_64;
         hw_avg_cfg.hw_avg_sample_div    = ADC_HW_AVG_CFG_HW_AVG_SAMPLE_DIV_ACCU_BY_8;
-        adc_hw_avg_cfg(ADC0_REGS, hw_avg_cfg);  
+        adc_hw_avg_cfg(ADC0_REGS, &hw_avg_cfg);  
     }
     else 
     {
@@ -74,7 +74,7 @@ int main(void) {
             chnl_cfg.vref_sel       = ADC_CHNL_CFG_VREF_SEL_EXT;
             chnl_cfg.hw_avg_en      = 0;
             chnl_cfg.bcs_en         = 0;
-            adc_chnl_cfg(ADC0_REGS, chnl_cfg);
+            adc_chnl_cfg(ADC0_REGS, &chnl_cfg);
         }
     }
     data_channel = chnl_cfg.data_channel;
@@ -93,7 +93,7 @@ int main(void) {
     print_int_var("before clk_en : ", clk_cfg.clk_en, 1);  
     print_int_var("before clk_div : ",clk_cfg.clk_div, 1); 
     print_int_var("before clk_sel : ", clk_cfg.clk_sel, 1);
-    adc_clk_cfg(ADC0_REGS, clk_cfg);
+    adc_clk_cfg(ADC0_REGS, &clk_cfg);
     clk_cfg         = get_adc_clk_cfg(ADC0_REGS);
     print_int_var("clk_en : ", clk_cfg.clk_en, 1);  
     print_int_var("clk_div : ",clk_cfg.clk_div, 1); 
@@ -111,9 +111,9 @@ int main(void) {
 
     iomux_cfg_struct.output_en        = 0;
     iomux_cfg_struct.input_en         = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 25);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 24);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 22);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 25);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 24);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 22);
 
     multi_ch_cfg.repeat            =    1;
     multi_ch_cfg.start_addr        =    start_addr;
@@ -123,7 +123,7 @@ int main(void) {
     multi_ch_cfg.dma_en            =    0;
     multi_ch_cfg.dma_transfer_cnt  =    0;
     multi_ch_cfg.fifo_en           =    0;
-    adc_multi_ch_conv_cfg(ADC0_REGS, multi_ch_cfg);
+    adc_multi_ch_conv_cfg(ADC0_REGS, &multi_ch_cfg);
     multi_ch_cfg = get_adc_multi_ch_conv_cfg(ADC0_REGS);
     print_int_var("repeat: ", multi_ch_cfg.repeat,0);
     print_int_var("start_addr ", multi_ch_cfg.start_addr,0);
@@ -139,13 +139,13 @@ int main(void) {
 
     dma_cfg.dma_en = 1;
     dma_cfg.dma_transfer_cnt = 8;
-    adc_dma_cfg(ADC0_REGS, dma_cfg);
+    adc_dma_cfg(ADC0_REGS, &dma_cfg);
     dma_cfg = get_adc_dma_cfg(ADC0_REGS);
     print_int_var("dma_en : ", dma_cfg.dma_en, 0);     
     print_int_var("dma_transfer_cnt : ", dma_cfg.dma_transfer_cnt, 0);
     dma_cfg.dma_en = 0;
     dma_cfg.dma_transfer_cnt = 0;
-    adc_dma_cfg(ADC0_REGS, dma_cfg);
+    adc_dma_cfg(ADC0_REGS, &dma_cfg);
     dma_cfg = get_adc_dma_cfg(ADC0_REGS);
     print_int_var("dma_en : ", dma_cfg.dma_en, 0);     
     print_int_var("dma_transfer_cnt : ", dma_cfg.dma_transfer_cnt, 0);
