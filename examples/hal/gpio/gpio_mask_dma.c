@@ -50,7 +50,7 @@ int main(void) {
     for (i=0;i<28;i=i+1)
     {
         if(i == 17) continue;
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, i);
         
     }
 

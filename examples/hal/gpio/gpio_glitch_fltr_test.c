@@ -37,7 +37,7 @@ int main(void) {
     iomux_cfg_struct.hysteresis       = 0;
     iomux_cfg_struct.sel              = IOMUX_PIN_SEL_PA6_GPIO;
     iomux_cfg_struct.input_val        = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 6);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 6);
 
     GPIO_INTR_EVENT_EN(GPIO_REGS, 6);
 
