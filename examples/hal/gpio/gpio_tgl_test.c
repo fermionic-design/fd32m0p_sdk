@@ -52,7 +52,7 @@ int main(void) {
     for (i=0;i<28;i=i+1)
     {
         if (i == 17) continue; // skipping UART TX IO MUX cfg.
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, i);
     }
 
     iomux_val = 0x05555555;
