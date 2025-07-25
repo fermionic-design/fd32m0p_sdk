@@ -63,10 +63,10 @@ int main(void){
     print_int_var("win_comp_sel : ",win_comp_cfg2.win_comp_sel, 0);
 
     iomux_cfg_struct.output_en        = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 12);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 9);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 20);
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 13);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 12);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 9);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 20);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 13);
 
     comp_sts = get_comp_out_sts(COMP0_REGS);
     print_int_var("COMP0_STS : ", comp_sts, 0);
