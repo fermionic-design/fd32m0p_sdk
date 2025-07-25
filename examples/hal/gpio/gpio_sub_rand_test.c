@@ -14,7 +14,7 @@
 #include "uart_stdout_mcu.h"
 #include "FD32M0P.h"
 #include "gpio.h"
-#include "event.h"
+#include "event_fabric.h"
 
 int main(void) {
     #if SEED
@@ -43,7 +43,7 @@ int main(void) {
     for (int i=0;i<28;i=i+1)
     {
         if (i == 17) continue; // skipping UART TX IO MUX cfg.
-        iomux_cfg(IOMUX_REGS, iomux_cfg_struct, i);
+        iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, i);
         
     }
     UartPuts("IO MUX CFG\n");
