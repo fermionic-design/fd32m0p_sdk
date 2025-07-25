@@ -42,7 +42,7 @@ int main(void) {
     chnl_cfg.vref_sel       = ADC_CHNL_CFG_VREF_SEL_EXT;
     chnl_cfg.hw_avg_en      = 0;
     chnl_cfg.bcs_en         = 0;
-    adc_chnl_cfg(ADC0_REGS, chnl_cfg);
+    adc_chnl_cfg(ADC0_REGS, &chnl_cfg);
     data_channel = chnl_cfg.data_channel;
 
     chnl_cfg = get_adc_chnl_cfg(ADC0_REGS, data_channel); 
@@ -57,7 +57,7 @@ int main(void) {
     clk_cfg.clk_en  = 1;
     clk_cfg.clk_div = ADC_CLK_CTRL_CLK_DIV_BY_8;
     clk_cfg.clk_sel = ADC_CLK_SEL_AHB;
-    adc_clk_cfg(ADC0_REGS, clk_cfg);
+    adc_clk_cfg(ADC0_REGS, &clk_cfg);
     clk_cfg         = get_adc_clk_cfg(ADC0_REGS);
     print_int_var("clk_en : ", clk_cfg.clk_en, 1);  
     print_int_var("clk_div : ",clk_cfg.clk_div, 1); 
@@ -74,7 +74,7 @@ int main(void) {
 
     iomux_cfg_struct.output_en        = 0;
     iomux_cfg_struct.input_en         = 0;
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct, 27);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct, 27);
 
     single_ch_cfg.repeat            = 0;
     single_ch_cfg.start_addr        = start_addr;
@@ -84,7 +84,7 @@ int main(void) {
     single_ch_cfg.dma_transfer_cnt  = 0;
     single_ch_cfg.fifo_en           = 0;
 
-    adc_single_ch_conv_cfg(ADC0_REGS, single_ch_cfg);
+    adc_single_ch_conv_cfg(ADC0_REGS, &single_ch_cfg);
 
     single_ch_cfg = get_adc_single_ch_conv_cfg(ADC0_REGS);
 
