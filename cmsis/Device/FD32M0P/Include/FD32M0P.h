@@ -222,7 +222,7 @@ typedef struct
 #include "SPI_REGS.h"
 /** @defgroup TIMER Timers */
 #include "TIMER_REGS.h"
-//#include "TIMER_TIMG_NUM_INPUT2_REGS.h"
+#include "TIMER_TIMG_NUM_INPUT2_REGS.h"
 /** @defgroup UART UART */
 #include "UART_REGS.h"
 /** @defgroup VREF VREF */
@@ -326,8 +326,8 @@ typedef struct
 #define UART1_REGS          ((UART_REGS_s*)         UART1_BASE)          
 #define TIMER_A0_REGS       ((TIMER_REGS_s*)        TIMER_A0_BASE)       
 #define TIMER_A1_REGS       ((TIMER_REGS_s*)        TIMER_A1_BASE)       
-#define TIMER_G0_REGS       ((TIMER_REGS_s*)        TIMER_G0_BASE)       
-#define TIMER_G1_REGS       ((TIMER_REGS_s*)        TIMER_G1_BASE)       
+#define TIMER_G0_REGS       ((TIMER_TIMG_NUM_INPUT2_REGS_s*)        TIMER_G0_BASE)       
+#define TIMER_G1_REGS       ((TIMER_TIMG_NUM_INPUT2_REGS_s*)        TIMER_G1_BASE)       
 #define FLASH_APB_REGS      ((FLASH_REGS_s*)        FLASH_APB_BASE)      
 #define VULTAN_APB_REGS     ((VULTAN_FLASH_REGS_s*) VULTAN_APB_BASE)      
 #define OPA1_REGS           ((OPA_REGS_s*)          OPA1_BASE)            
