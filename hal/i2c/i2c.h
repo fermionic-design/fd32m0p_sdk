@@ -95,6 +95,35 @@ typedef struct i2c_slv_cfg {
 }
 
 /*!
+ *  @brief  I2C Configuration in Master Mode 
+ *
+ *  @note   This struct contains parameters required as I2C configurations when its in
+ *          master mode
+ */
+typedef struct i2c_mst_cfg {  
+    I2C_MASTER_CFG_MST_ADDR_MODE_E              mst_addr_mode;
+    bool                                        mst_clkstretch_en;
+    bool                                        mst_auto_ack_en;
+    I2C_MASTER_CFG_LPBK_MODE_E                  lpbk_mode;
+    bool                                        i2c_pec_en;
+    bool                                        rxfifo_en;
+    bool                                        txfifo_en;
+} i2c_mst_cfg_t;
+
+/*!
+ *  @brief  Default Values for I2C Slave Configurations
+ */
+#define I2C_MASTER_CFG_DEFAULT {                                         \
+    .mst_addr_mode = I2C_MASTER_CFG_MST_ADDR_MODE_7_BIT,                 \
+    .mst_clkstretch_en = 1,                                              \
+    .mst_auto_ack_en = 1,                                                \
+    .lpbk_mode = I2C_MASTER_CFG_LPBK_MODE_DISABLE,                       \
+    .i2c_pec_en = 0,                                                     \
+    .rxfifo_en = 0,                                                      \
+    .txfifo_en = 1                                                       \
+}
+
+/*!
  *  @brief  I2C Slave status register struct 
  *
  *  @note   This struct contains Read only register data, for I2C Slave 
@@ -179,6 +208,16 @@ void i2c_counter_cfg_set(I2C_REGS_s *regs, i2c_counter_cfg_t *i2c_counter_cfg);
  * @retval  void
  */
 void i2c_slv_cfg_set(I2C_REGS_s *regs, i2c_slv_cfg_t *i2c_slv_cfg);
+
+/**
+ * @brief	This function configures I2C master   
+ *
+ * @param   regs : pointer to the i2c register space
+ * @param   i2c_mst_cfg : pointer to the struct containing i2c master config 
+ *
+ * @retval  void
+ */
+void i2c_mst_cfg_set(I2C_REGS_s *regs, i2c_mst_cfg_t *i2c_mst_cfg);
 
 /**
  * @brief	This function sets the glitch width for the glitch filter   
@@ -297,5 +336,18 @@ void i2c_wait_for_slv_stop(I2C_REGS_s *regs);
  * @retval  void
  */
 void i2c_slv_ackval(I2C_REGS_s *regs, I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_E ackval);
+
+void i2c_mst_byte_lvl_transfer_addr_rdwr(I2C_REGS_s *regs, uint8_t slv_addr_cfg, I2C_MASTER_CTRL_MST_DIR_E direction, uint8_t burst_len);
+
+void i2c_wait_for_mst_stop(I2C_REGS_s *regs);
+
+void i2c_wait_for_mst_start(I2C_REGS_s *regs);
+
+void i2c_mst_byte_lvl_transfer_stop (I2C_REGS_s *regs);
+
+void i2c_mst_cmd_vld (I2C_REGS_s *regs);
+
+void i2c_mst_byte_lvl_transfer_ackval (I2C_REGS_s *regs, I2C_MASTER_ACK_VAL_MST_ACKVAL_E ackval);
+
 
 #endif

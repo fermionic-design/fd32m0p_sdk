@@ -76,6 +76,19 @@ void i2c_slv_cfg_set(I2C_REGS_s *regs, i2c_slv_cfg_t *i2c_slv_cfg){
     regs->FIFO_CTRL.rxfifo_en = i2c_slv_cfg->rxfifo_en;
     regs->FIFO_CTRL.txfifo_en = i2c_slv_cfg->txfifo_en;
 }
+/*
+ *  ======== i2c_mst_cfg_set ========
+ */
+void i2c_mst_cfg_set(I2C_REGS_s *regs, i2c_mst_cfg_t *i2c_mst_cfg){
+
+    regs->MASTER_CFG.mst_addr_mode = i2c_mst_cfg->mst_addr_mode;
+    regs->MASTER_CFG.mst_clkstretch_en = i2c_mst_cfg->mst_clkstretch_en;
+    regs->MASTER_CFG.mst_auto_ack_en = i2c_mst_cfg->mst_auto_ack_en;
+    regs->MASTER_CFG.lpbk_mode = i2c_mst_cfg->lpbk_mode;
+    regs->PEC_CTRL.pec_en = i2c_mst_cfg->i2c_pec_en;    
+    regs->FIFO_CTRL.rxfifo_en = i2c_mst_cfg->rxfifo_en;
+    regs->FIFO_CTRL.txfifo_en = i2c_mst_cfg->txfifo_en;
+}
 
 /*
  *  ======== i2c_glitch_width_cfg_set ========
@@ -194,9 +207,56 @@ void i2c_wait_for_slv_stop(I2C_REGS_s *regs){
 }
 
 /*
+ *  ======== i2c_wait_for_mst_stop ========
+ */
+void i2c_wait_for_mst_stop(I2C_REGS_s *regs){
+    while(regs->INTR_EVENT.mst_stop_intr != 1){
+        __asm("NOP");
+    }
+    I2C_INTR_EVENT_CLEAR(regs, I2C_INTR_EVENT_MST_STOP_INTR_IDX);
+}
+
+
+/*
  *  ======== i2c_slv_ackval ========
  */
 void i2c_slv_ackval(I2C_REGS_s *regs, I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_E ackval){
     regs->SLAVE_BYTE_ACK.slv_ackval = ackval;
 }
 
+/*
+ *  ======== i2c_mst_byte_lvl_transfer_addr_rdwr ========
+ */
+void i2c_mst_byte_lvl_transfer_addr_rdwr(I2C_REGS_s *regs, uint8_t slv_addr_cfg, I2C_MASTER_CTRL_MST_DIR_E direction, uint8_t burst_len){ 
+    regs->MASTER_CTRL.mst_start = 1;
+    regs->MASTER_CFG.mst_slv_addr_cfg = slv_addr_cfg;
+    regs->MASTER_CTRL.mst_dir = direction;
+    regs->MASTER_CTRL.mst_burst_len = burst_len;
+    regs->MASTER_CTRL.mst_cmd_vld = 1;
+    i2c_mst_cmd_vld(I2C0_REGS);
+}
+
+/*
+ *  ======== i2c_wait_for_mst_start ========
+ */
+void i2c_wait_for_mst_start(I2C_REGS_s *regs){
+    while(regs->INTR_EVENT.mst_start_intr != 1){
+        __asm("NOP");
+    }
+    I2C_INTR_EVENT_CLEAR(regs, I2C_INTR_EVENT_MST_START_INTR_IDX);
+}
+
+/*
+ *  ======== i2c_mst_byte_lvl_transfer_stop ========
+ */
+void i2c_mst_byte_lvl_transfer_stop (I2C_REGS_s *regs){ 
+    regs->MASTER_CTRL.mst_stop = 1;
+}
+
+void i2c_mst_cmd_vld (I2C_REGS_s *regs){ 
+    regs->MASTER_CTRL.mst_cmd_vld = 1;
+}
+
+void i2c_mst_byte_lvl_transfer_ackval (I2C_REGS_s *regs, I2C_MASTER_ACK_VAL_MST_ACKVAL_E ackval){ 
+    regs->MASTER_ACK_VAL.MASTER_ACK_VAL = ackval;
+}
