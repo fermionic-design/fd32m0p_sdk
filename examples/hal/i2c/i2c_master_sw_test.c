@@ -29,15 +29,19 @@ int main(void)
     iomux_cfg_struct_i2c.output_en = 0;              
     iomux_cfg_struct_i2c.input_en  = 1;
     iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA11_I2C0_SCL;   
+    iomux_cfg_struct_i2c.pull_up   = 1;   
+    iomux_cfg_struct_i2c.pull_down   = 0;   
     
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_i2c, 11);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct_i2c, 11);
     
     //Set GPIO Configuration SDA
     iomux_cfg_struct_i2c.output_en = 0;              
     iomux_cfg_struct_i2c.input_en  = 1;
     iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA0_I2C0_SDA;   
+    iomux_cfg_struct_i2c.pull_up   = 1;   
+    iomux_cfg_struct_i2c.pull_down   = 0;   
     
-    iomux_cfg(IOMUX_REGS, iomux_cfg_struct_i2c, 0);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct_i2c, 0);
 
     //I2C Power Enable
     I2C_PWR_EN_WRITE(I2C0_REGS, 1, I2C_PWR_EN_PWR_EN_KEY);
@@ -62,7 +66,7 @@ int main(void)
     
     //Functions to handle Master transfers (Blocking) 
     //Master Writes to slave
-    i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, 0xAB, I2C_MASTER_CTRL_MST_DIR_WRITE, 3)
+    i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, 0x71, I2C_MASTER_CTRL_MST_DIR_WRITE, 3);
     i2c_wait_for_mst_start(I2C0_REGS);
     i2c_wait_for_tx_done(I2C0_REGS);
 
@@ -83,73 +87,21 @@ int main(void)
 
     //Master Reads from slave
     //Master first writes register address
-    i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, 0xAB, I2C_MASTER_CTRL_MST_DIR_WRITE, 1)
+    i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, 0xAB, I2C_MASTER_CTRL_MST_DIR_WRITE, 1);
     i2c_wait_for_mst_start(I2C0_REGS);
     i2c_wait_for_tx_done(I2C0_REGS);
     i2c_txfifo_fill_blocking(I2C0_REGS, reg_addr, 1);
     i2c_wait_for_tx_done(I2C0_REGS);
     //Master then reads
-    i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, 0xAB, I2C_MASTER_CTRL_MST_DIR_READ, 1)
+    i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, 0xAB, I2C_MASTER_CTRL_MST_DIR_READ, 1);
     i2c_wait_for_rx_done(I2C0_REGS);
     i2c_rxfifo_drain_blocking(I2C0_REGS, data_rx_arr, 1);
     mem_reg[3] = data_rx_arr[0];
-    i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_ACK)
+    i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_ACK);
     i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
     i2c_mst_cmd_vld(I2C0_REGS);
     i2c_wait_for_mst_stop(I2C0_REGS);
     UartEndSimulation();
     return 0;
-
-
-    while (1)
-    {   
-        byte_cnt = 0;
-        i2c_wait_for_slv_start(I2C0_REGS);
-        i2c_wait_for_rx_done(I2C0_REGS); //Address and direction transaction
-        i2c_rxfifo_drain_blocking(I2C0_REGS, data_rx_arr, 1);
-        
-        //AddressCheck
-        if (data_rx_arr[0] == 0x55){
-            i2c_slv_ackval(I2C0_REGS, I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_ACK);
-        } 
-        else 
-        {
-            i2c_slv_ackval(I2C0_REGS, I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_NACK);
-        }
-        //Read/Write Check
-        if (i2c_slv_rd_wr_sts_get(I2C0_REGS)) //1 : Read transaction from Master
-        { 
-            while(1)
-            {
-                i2c_txfifo_fill_blocking(I2C0_REGS, &mem_reg[byte_cnt], 1);
-                byte_cnt++;
-                i2c_wait_for_tx_done(I2C0_REGS);
-                
-                if (byte_cnt == number_of_bytes_to_read_from_slave)
-                {
-                    i2c_wait_for_slv_stop(I2C0_REGS);
-                    UartEndSimulation();
-                    return 0;
-                }
-            }
-        }
-        else //0: Write transaction from Master
-        { 
-            while(1)
-            {
-                i2c_wait_for_rx_done(I2C0_REGS);
-                i2c_rxfifo_drain_blocking(I2C0_REGS, data_rx_arr, 1);
-                mem_reg[byte_cnt] = data_rx_arr[0];
-                i2c_slv_ackval(I2C0_REGS, I2C_SLAVE_BYTE_ACK_SLV_ACKVAL_ACK);
-                byte_cnt++;
-                if (byte_cnt == number_of_bytes_to_write_to_slave)
-                {
-                    i2c_wait_for_slv_stop(I2C0_REGS);
-                    break;
-                }
-            }
-        }
-    }
-    
 
 }

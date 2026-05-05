@@ -233,7 +233,7 @@ void i2c_mst_byte_lvl_transfer_addr_rdwr(I2C_REGS_s *regs, uint8_t slv_addr_cfg,
     regs->MASTER_CTRL.mst_dir = direction;
     regs->MASTER_CTRL.mst_burst_len = burst_len;
     regs->MASTER_CTRL.mst_cmd_vld = 1;
-    i2c_mst_cmd_vld(I2C0_REGS);
+    i2c_mst_cmd_vld(regs);
 }
 
 /*
@@ -258,5 +258,5 @@ void i2c_mst_cmd_vld (I2C_REGS_s *regs){
 }
 
 void i2c_mst_byte_lvl_transfer_ackval (I2C_REGS_s *regs, I2C_MASTER_ACK_VAL_MST_ACKVAL_E ackval){ 
-    regs->MASTER_ACK_VAL.MASTER_ACK_VAL = ackval;
+    regs->MASTER_ACK_VAL.mst_ackval = ackval;
 }
