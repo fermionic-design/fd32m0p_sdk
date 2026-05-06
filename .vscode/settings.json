@@ -9,6 +9,10 @@
             "makeArgs": ["TESTNAME=i2c_slave_sw_non_blocking", "TESTFOLDER=examples/hal/i2c", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
         {
+            "name": "i2c_master_hal",
+            "makeArgs": ["TESTNAME=i2c_master_sw_test", "TESTFOLDER=examples/hal/i2c"]
+        },
+        {
             "name": "i2c_slave_hal_blocking",
             "makeArgs": ["TESTNAME=i2c_slave_sw_blocking", "TESTFOLDER=examples/hal/i2c", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
         },
