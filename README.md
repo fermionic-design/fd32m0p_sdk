@@ -19,6 +19,8 @@ This SDK provides development tools, libraries, and examples for the FD32M0P mic
 - [GNU Make: Windows](https://gnuwin32.sourceforge.net/packages/make.htm) (for building projects)
 - [OpenOCD](http://openocd.org/) (for flashing and debugging)
 - [VSCode](https://code.visualstudio.com/) (Optional, but recommended for development)
+   - Extensions:
+      - Makefile tools 
 
 ## Installation
 
