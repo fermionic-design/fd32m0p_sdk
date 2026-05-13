@@ -71,6 +71,15 @@ To compile and flash an example:
 make test_flash TESTFOLDER=examples/hal/bringup TESTNAME=helloworld
 ```
 
+## PIN Connections needed for Flashing
+- PA0-VDD
+- PA2-GND
+- PA9-GND
+- PA11-VDD
+- PA14-RPI RX
+- PA22-RPI TX 
+- PA17-RPI RX (a different RPI debug probe)
+  
 ## Documentation
 
 - [API Reference](https://fermionic-design.github.io/fd32m0p_sdk/html/index.html)
