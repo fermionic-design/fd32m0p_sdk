@@ -99,9 +99,9 @@ def dict_to_bytes():
 
 #change into bytes and update crc
 def main():
-    bsl.BSL_IS_UART = '0'#sys.argv[1]
+    bsl.BSL_IS_UART = sys.argv[1]
     if bsl.BSL_IS_UART == '1': #uart
-        bsl.ser = bsl.serial.Serial("COM9", int(sys.argv[2]))
+        bsl.ser = bsl.serial.Serial("COM3", int(sys.argv[2]))
     elif bsl.BSL_IS_UART == '0': #i2c
         bsl.i2c = i2cdriver.I2CDriver("COM5")
     crc_got = 0xFFFFFFFF

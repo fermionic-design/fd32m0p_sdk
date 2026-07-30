@@ -95,7 +95,38 @@ typedef struct i2c_slv_cfg {
 }
 
 /*!
- *  @brief  I2C Configuration in Master Mode 
+ *  @brief  Values for I2C Slave Configuration in full-hardware mode (ack/nack and
+ *          address matching done entirely by hardware, CPU only services the FIFOs)
+ *
+ *  @note   Same as I2C_SLAVE_CFG_DEFAULT except slv_auto_ack_en, slv_addr_auto_ack_en,
+ *          rxfifo_en and txfifo_en are enabled, so no software ACK/NACK decision or
+ *          per-byte polling is required -- only I2C0_IRQ_Handler servicing the
+ *          RX/TX FIFOs is needed.
+ */
+#define I2C_SLAVE_CFG_HW_MODE {                                       \
+    .slv_addr_mode = I2C_SLAVE_CTRL_SLV_ADDR_MODE_7_BIT ,\
+    .slv_low_pwr_wakeup_en = 1                                                           ,\
+    .slv_def_dev_addr_en = 0                                                             ,\
+    .slv_alres_addr_en = 0                                                               ,\
+    .slv_def_host_addr_en = 0                                                            ,\
+    .slv_txtrig_at_txmode = 0                                                            ,\
+    .slv_clkstretch_en = 1                                                               ,\
+    .slv_gencall_en = 0                                                                  ,\
+    .slv_addr2_en = 0                                                                    ,\
+    .slv_addr2_mask = 0                                                                  ,\
+    .slv_txwait_stale_fifo = I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_NOT_TREATED_AS_EMPTY   ,\
+    .slv_txempty_intr_on_tx_req = I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_AGNOSTIC     ,\
+    .slv_addr1 = 0x55                                                                    ,\
+    .slv_addr2 = 0x52                                                                    ,\
+    .slv_auto_ack_en = 1                                                                 ,\
+    .slv_addr_auto_ack_en = 1                                                            ,\
+    .i2c_pec_en = 0                                                                      ,\
+    .rxfifo_en = 1                                                                       ,\
+    .txfifo_en = 1                                                                        \
+}
+
+/*!
+ *  @brief  I2C Configuration in Master Mode
  *
  *  @note   This struct contains parameters required as I2C configurations when its in
  *          master mode
@@ -124,7 +155,26 @@ typedef struct i2c_mst_cfg {
 }
 
 /*!
- *  @brief  I2C Slave status register struct 
+ *  @brief  Values for I2C Master Configuration in full-hardware mode (both FIFOs
+ *          enabled, CPU only services them via FIFO-level interrupts)
+ *
+ *  @note   Same as I2C_MASTER_CFG_DEFAULT except rxfifo_en is also enabled --
+ *          the default leaves it off since a purely byte-level (blocking or
+ *          tx_done-driven) master never needs it, but FIFO-level servicing
+ *          (rxfifo_full) does.
+ */
+#define I2C_MASTER_CFG_HW_MODE {                                        \
+    .mst_addr_mode = I2C_MASTER_CFG_MST_ADDR_MODE_7_BIT,                 \
+    .mst_clkstretch_en = 1,                                              \
+    .mst_auto_ack_en = 1,                                                \
+    .lpbk_mode = I2C_MASTER_CFG_LPBK_MODE_DISABLE,                       \
+    .i2c_pec_en = 0,                                                     \
+    .rxfifo_en = 1,                                                      \
+    .txfifo_en = 1                                                       \
+}
+
+/*!
+ *  @brief  I2C Slave status register struct
  *
  *  @note   This struct contains Read only register data, for I2C Slave 
  */

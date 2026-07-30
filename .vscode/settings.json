@@ -2,7 +2,11 @@
     "makefile.configurations": [
         {
             "name": "helloworld",
-            "makeArgs": ["TESTNAME=helloworld", "TESTFOLDER=examples/hal/bringup"]
+            "makeArgs": ["TESTNAME=helloworld", "TESTFOLDER=examples/hal/bringup", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1500000"]
+        },
+        {
+            "name": "pwm_pa5",
+            "makeArgs": ["TESTNAME=pwm_pa5", "TESTFOLDER=examples/hal/pwm", "TEST_DEFINE=-DSTDIO_BAUD_RATE=1562500"]
         },
         {
             "name": "i2c_slave_hal_non_blocking",

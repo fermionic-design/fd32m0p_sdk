@@ -1,0 +1,336 @@
+<title>I2C Controller — Functional Block Diagram</title>
+<style>
+  :root{
+    --bg:#F4F6F8;
+    --ink:#16212B;
+    --line:#5B6B7C;
+    --accent:#B5672E;
+    --accent-soft:#EFE1D3;
+    --card-bg:#FFFFFF;
+    --card-border:#D7DEE5;
+    --in-color:#2B5876;
+    --out-color:#B5672E;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.55;
+    padding:48px 24px 72px;
+  }
+  .page{
+    max-width:1300px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:36px;
+  }
+  header.title-block{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    border-bottom:1px solid var(--card-border);
+    padding-bottom:22px;
+  }
+  .eyebrow{
+    font-family:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",monospace;
+    font-size:12.5px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+  }
+  h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:700;
+    font-size:clamp(28px,3.6vw,40px);
+    margin:2px 0 0;
+    text-wrap:balance;
+    letter-spacing:0.2px;
+  }
+  .subtitle{
+    font-size:16px;
+    color:var(--line);
+    max-width:62ch;
+    margin-top:2px;
+  }
+  .meta-row{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    margin-top:12px;
+    font-family:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",monospace;
+    font-size:12.5px;
+    color:var(--line);
+  }
+  .meta-row span b{color:var(--ink);font-weight:600;}
+
+  section{display:flex;flex-direction:column;gap:16px;}
+  .section-head{display:flex;align-items:baseline;gap:12px;}
+  .section-head h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:21px;
+    font-weight:700;
+    margin:0;
+  }
+  .section-head .rule{flex:1;height:1px;background:var(--card-border);}
+
+  .diagram-card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 1px 2px rgba(22,33,43,0.05);
+  }
+  .diagram-scroll{
+    overflow-x:auto;
+    padding-bottom:6px;
+  }
+  .diagram-scroll svg{
+    display:block;
+    min-width:1200px;
+    width:100%;
+    height:auto;
+  }
+
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    font-size:13.5px;
+    color:var(--line);
+    padding-top:4px;
+  }
+  .legend-item{display:flex;align-items:center;gap:8px;}
+  .swatch{width:22px;height:2px;border-radius:2px;flex:none;}
+  .swatch.in{background:var(--in-color);}
+  .swatch.out{background:var(--out-color);}
+  .swatch.func{background:var(--line);height:2px;}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .dot.accent{background:var(--accent);}
+
+  .block-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:14px;
+  }
+  .block-card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-left:3px solid var(--line);
+    border-radius:8px;
+    padding:16px 18px;
+  }
+  .block-card.core{border-left-color:var(--accent);}
+  .block-card h3{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:16px;
+    margin:0 0 6px;
+    font-weight:700;
+  }
+  .block-card p{
+    margin:0;
+    font-size:13.5px;
+    color:var(--line);
+  }
+
+  footer{
+    font-size:12.5px;
+    color:var(--line);
+    border-top:1px solid var(--card-border);
+    padding-top:18px;
+  }
+</style>
+
+<div class="page">
+
+  <header class="title-block">
+    <div class="eyebrow">Preliminary &middot; For Customer Reference</div>
+    <h1>I2C Controller IP</h1>
+    <div class="subtitle">Functional block diagram — top-level architecture, external interface signals, and the major functional units. Intended for datasheet / integration-guide use; internal micro-architecture is intentionally not shown.</div>
+    <div class="meta-row">
+      <span>Modes: <b>Master &amp; Slave</b></span>
+      <span>Register access: <b>APB</b></span>
+      <span>Addressing: <b>7-bit &amp; 10-bit</b></span>
+      <span>Data movement: <b>Programmed I/O or DMA</b></span>
+      <span>Interrupts: <b>Standard + NMI</b></span>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-head"><h2>Block Diagram</h2><div class="rule"></div></div>
+    <div class="diagram-card">
+      <div class="diagram-scroll">
+        <svg viewBox="0 0 1800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="I2C controller functional block diagram">
+
+<defs>
+  <marker id="arrIn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#2B5876"/>
+  </marker>
+  <marker id="arrOut" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#B5672E"/>
+  </marker>
+  <marker id="arrNeutral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#5B6B7C"/>
+  </marker>
+</defs>
+
+<rect x="270" y="70" width="1244" height="692" rx="14" fill="none" stroke="#8CA0B3" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+<text x="290" y="58" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="15" letter-spacing="2" fill="#5B6B7C">I2C CONTROLLER IP BOUNDARY</text>
+<polyline points="580,171 720,171" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="596" y="141" width="107" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="650" y="156" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">Config & Status</text>
+<polyline points="580,365 720,365" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="603" y="335" width="95" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="650" y="350" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">Clock & Reset</text>
+<polyline points="580,205 640,205 640,590 720,590" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="599" y="387" width="82" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="640" y="402" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">Data Access</text>
+<polyline points="580,405 665,405 665,648 720,648" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="618" y="509" width="95" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="665" y="524" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">Clock & Reset</text>
+<polyline points="440,112 440,90 1340,90 1340,112" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="833" y="61" width="113" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="890" y="76" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">Interrupt Config</text>
+<polyline points="888,480 888,560" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="844" y="509" width="88" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="888" y="524" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">TX / RX Data</text>
+<polyline points="1056,437 1196,437" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="1069" y="408" width="113" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="1126" y="423" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">Internal I2C Bus</text>
+<polyline points="1056,220 1126,220 1126,282 1340,282" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="1085" y="240" width="82" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="1126" y="255" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">Event Flags</text>
+<polyline points="1056,600 1141,600 1141,240 1196,240" fill="none" stroke="#5B6B7C" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrNeutral)"/>
+<rect x="1100" y="489" width="82" height="18" fill="#F4F6F8" opacity="0.97"/>
+<text x="1141" y="504" text-anchor="middle" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="11.5" fill="#16212B">FIFO Status</text>
+<rect x="300" y="112" width="280" height="118" rx="10" fill="#FFFFFF" stroke="#33414F" stroke-width="1.6"/>
+<text x="440" y="159" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:700;" font-size="17" fill="#16212B">Register Interface</text>
+<text x="440" y="181" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:500;" font-size="13.5" fill="#5B6B7C">(APB CSR)</text>
+<rect x="300" y="306" width="280" height="118" rx="10" fill="#FFFFFF" stroke="#33414F" stroke-width="1.6"/>
+<text x="440" y="353" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:700;" font-size="17" fill="#16212B">Clock & Reset</text>
+<text x="440" y="375" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:500;" font-size="13.5" fill="#5B6B7C">Manager</text>
+<rect x="720" y="140" width="336" height="340" rx="10" fill="#FFFFFF" stroke="#B5672E" stroke-width="2.6"/>
+<rect x="720" y="140" width="336" height="10" rx="10" fill="#B5672E"/>
+<rect x="720" y="144" width="336" height="6" fill="#B5672E"/>
+<text x="888" y="312" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:700;" font-size="18" fill="#16212B">I2C Core</text>
+<text x="888" y="334" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:500;" font-size="13.5" fill="#5B6B7C">Master & Slave Engine</text>
+<rect x="720" y="560" width="336" height="118" rx="10" fill="#FFFFFF" stroke="#33414F" stroke-width="1.6"/>
+<text x="888" y="619" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:700;" font-size="17" fill="#16212B">TX / RX FIFO</text>
+<rect x="1196" y="112" width="288" height="170" rx="10" fill="#FFFFFF" stroke="#33414F" stroke-width="1.6"/>
+<text x="1340" y="185" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:700;" font-size="17" fill="#16212B">Interrupt & DMA</text>
+<text x="1340" y="207" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:500;" font-size="13.5" fill="#5B6B7C">Controller</text>
+<rect x="1196" y="352" width="288" height="170" rx="10" fill="#FFFFFF" stroke="#33414F" stroke-width="1.6"/>
+<text x="1340" y="425" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:700;" font-size="17" fill="#16212B">I2C Bus Interface</text>
+<text x="1340" y="447" text-anchor="middle" style="font-family:Georgia,'Times New Roman',serif;font-weight:500;" font-size="13.5" fill="#5B6B7C">(Master/Slave/Loopback Mux)</text>
+<text x="20" y="49" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="12.5" letter-spacing="1.5" font-weight="700" fill="#16212B">APB REGISTER BUS</text>
+<text x="196" y="75" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">PSEL</text>
+<line x1="205" y1="71" x2="300" y2="171" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="100" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">PENABLE</text>
+<line x1="205" y1="96" x2="300" y2="171" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="125" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">PWRITE</text>
+<line x1="205" y1="121" x2="300" y2="171" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="150" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">PADDR[11:0]</text>
+<line x1="205" y1="146" x2="300" y2="171" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="175" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">PSTRB[3:0]</text>
+<line x1="205" y1="171" x2="300" y2="171" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="200" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">PWDATA[31:0]</text>
+<line x1="205" y1="196" x2="300" y2="171" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="225" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">PRDATA[31:0]</text>
+<line x1="300" y1="171" x2="205" y2="221" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="196" y="250" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">PREADY</text>
+<line x1="300" y1="171" x2="205" y2="246" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="196" y="275" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">PSLVERR</text>
+<line x1="300" y1="171" x2="205" y2="271" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="20" y="256" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="12.5" letter-spacing="1.5" font-weight="700" fill="#16212B">CLOCK & RESET</text>
+<text x="196" y="282" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">clk_apb</text>
+<line x1="205" y1="278" x2="300" y2="365" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="306" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">arst_n</text>
+<line x1="205" y1="302" x2="300" y2="365" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="332" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">clk_ahb</text>
+<line x1="205" y1="328" x2="300" y2="365" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="356" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">clk_4mhz</text>
+<line x1="205" y1="352" x2="300" y2="365" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="382" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">test_mode</text>
+<line x1="205" y1="378" x2="300" y2="365" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="406" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">clk_32mhz_vld</text>
+<line x1="205" y1="402" x2="300" y2="365" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="196" y="432" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">clk_32mhz_req</text>
+<line x1="300" y1="365" x2="205" y2="428" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="196" y="456" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">halted</text>
+<line x1="205" y1="452" x2="300" y2="365" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="1764" y="116" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="12.5" letter-spacing="1.5" font-weight="700" fill="#16212B">INTERRUPTS</text>
+<text x="1588" y="142" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">intr</text>
+<line x1="1484" y1="150" x2="1579" y2="138" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="1588" y="166" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">intr_nmi</text>
+<line x1="1484" y1="150" x2="1579" y2="162" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="1764" y="148" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="12.5" letter-spacing="1.5" font-weight="700" fill="#16212B">DMA INTERFACE</text>
+<text x="1588" y="174" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">req_dma_rx</text>
+<line x1="1484" y1="232" x2="1579" y2="170" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="1588" y="198" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">req_dma_tx</text>
+<line x1="1484" y1="232" x2="1579" y2="194" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="1588" y="224" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">ack_dma_rx</text>
+<line x1="1579" y1="220" x2="1484" y2="232" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="1588" y="248" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">ack_dma_tx</text>
+<line x1="1579" y1="244" x2="1484" y2="232" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="1588" y="274" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">dma_done_rx</text>
+<line x1="1579" y1="270" x2="1484" y2="232" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="1588" y="298" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">dma_done_tx</text>
+<line x1="1579" y1="294" x2="1484" y2="232" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="1764" y="378" text-anchor="end" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="12.5" letter-spacing="1.5" font-weight="700" fill="#16212B">I2C BUS</text>
+<text x="1588" y="404" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">SCL_out</text>
+<line x1="1484" y1="437" x2="1579" y2="400" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="1588" y="428" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">SCL_in</text>
+<line x1="1579" y1="424" x2="1484" y2="437" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+<text x="1588" y="454" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#B5672E">SDA_out</text>
+<line x1="1484" y1="437" x2="1579" y2="450" stroke="#B5672E" stroke-width="1.4" marker-end="url(#arrOut)"/>
+<text x="1588" y="478" text-anchor="start" style="font-family:ui-monospace,'Cascadia Mono',Consolas,'SF Mono',monospace;" font-size="13" fill="#2B5876">SDA_in</text>
+<line x1="1579" y1="474" x2="1484" y2="437" stroke="#2B5876" stroke-width="1.4" marker-end="url(#arrIn)"/>
+        </svg>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="swatch in"></span> Input to IP</div>
+        <div class="legend-item"><span class="swatch out"></span> Output from IP</div>
+        <div class="legend-item"><span class="swatch func"></span> Internal functional connection</div>
+        <div class="legend-item"><span class="dot accent"></span> Protocol engine (core)</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Functional Blocks</h2><div class="rule"></div></div>
+    <div class="block-grid">
+      <div class="block-card">
+        <h3>Register Interface (APB CSR)</h3>
+        <p>Exposes every configuration, status, and data register to the system over a standard APB slave port.</p>
+      </div>
+      <div class="block-card">
+        <h3>Clock &amp; Reset Manager</h3>
+        <p>Generates the internal functional clock, synchronizes reset domains, and requests the high-speed clock only when the bus actually needs it.</p>
+      </div>
+      <div class="block-card core">
+        <h3>I2C Core — Master &amp; Slave Engine</h3>
+        <p>Implements the I2C protocol state machines for both roles: addressing, clock stretching, arbitration, and SMBus timeout handling.</p>
+      </div>
+      <div class="block-card">
+        <h3>TX / RX FIFO</h3>
+        <p>Buffers outbound and inbound data bytes between the register interface and the protocol engine.</p>
+      </div>
+      <div class="block-card">
+        <h3>Interrupt &amp; DMA Controller</h3>
+        <p>Aggregates protocol events into maskable interrupts (standard and NMI) and runs the request/acknowledge handshake for TX and RX DMA.</p>
+      </div>
+      <div class="block-card">
+        <h3>I2C Bus Interface (Loopback Mux)</h3>
+        <p>Drives the external SCL/SDA lines from whichever engine is active, and supports internal loopback for self-test.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Signal names and directions reflect the IP's top-level port list. Internal net names, FSM states, and register bit-fields are omitted by design — this view describes function, not implementation.
+  </footer>
+
+</div>

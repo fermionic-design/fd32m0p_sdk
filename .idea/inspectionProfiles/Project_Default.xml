@@ -1,0 +1,51 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="autocommand" />
+          <option value="backports.tarfile" />
+          <option value="certifi" />
+          <option value="charset-normalizer" />
+          <option value="colorama" />
+          <option value="contourpy" />
+          <option value="cycler" />
+          <option value="fonttools" />
+          <option value="gnumpy" />
+          <option value="idna" />
+          <option value="importlib_metadata" />
+          <option value="importlib_resources" />
+          <option value="inflect" />
+          <option value="jaraco.context" />
+          <option value="jaraco.functools" />
+          <option value="jaraco.text" />
+          <option value="joblib" />
+          <option value="kiwisolver" />
+          <option value="llvmlite" />
+          <option value="matplotlib" />
+          <option value="more-itertools" />
+          <option value="narwhals" />
+          <option value="numba" />
+          <option value="numpy" />
+          <option value="packaging" />
+          <option value="pillow" />
+          <option value="platformdirs" />
+          <option value="plotly" />
+          <option value="pyparsing" />
+          <option value="python-constraint" />
+          <option value="python-dateutil" />
+          <option value="requests" />
+          <option value="scipy" />
+          <option value="six" />
+          <option value="tomli" />
+          <option value="tqdm" />
+          <option value="typeguard" />
+          <option value="typing_extensions" />
+          <option value="urllib3" />
+          <option value="zipp" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

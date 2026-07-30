@@ -1,0 +1,233 @@
+reg_array,field_array,reg_name,field_name,bits,addr,type,rst_val,attr,description
+,,DESC,module_type,7:00,0,ro,'0,,
+,,DESC,modue_subtype,15:08,0,ro,'0,,
+,,DESC,major_rev,19:16,0,ro,'0,,
+,,DESC,minor_rev,23:20,0,ro,'0,,
+,,PWR_EN,pwr_en,0:00,4,rw,'0,::locked[pwr_en_key==8'hAB],Enables power to the I2C core; effective only when written together with pwr_en_key = 0xAB in the same access.
+,,PWR_EN,pwr_en_key,31:24:00,4,rw,'0,::key,Write-protect key for pwr_en; must equal 0xAB in the same write for pwr_en to take effect.
+,,RST_CTRL,rst,0:00,8,rw,'0,::locked[rst_key==8'hAB],Issues a software reset to the I2C core; effective only when written together with rst_key = 0xAB in the same access.
+,,RST_CTRL,rst_sts_clr,1:01,8,rw_pulse,'0,::locked[rst_key==8'hAB],Pulse to clear RST_STS.rst_sts once reset has completed; effective only when written together with rst_key = 0xAB.
+,,RST_CTRL,rst_key,31:24:00,8,rw,'0,::key,Write-protect key for rst and rst_sts_clr; must equal 0xAB in the same write for those bits to take effect.
+,,RST_STS,rst_sts,0:00,12,ro,'0,,
+,,CLK_CTRL,en_async_clk_req,0:00,16,rw,'0,,Enables the clk_32mhz_req/clk_32mhz_vld handshake used to request the high-speed AHB clock before clksel switches the functional clock to the AHB domain.
+,,CLK_CTRL,clksel,1:01,16,rw,'0,,"0:4Mhz, 1:ahb"
+,,CLK_CTRL,clkdiv,4:02,16,rw,'0,,Divides the clock selected by clksel to generate the internal I2C functional clock: f_func = f_selected_clock / clkdiv.
+,,CLK_CTRL,hold_cnt,7:05,16,rw,7,,Additional functional-clock-cycle hold margin applied alongside setup_cnt for slave-mode ACK/NACK timing; not required to change for a standard speed/clock reconfiguration.
+,,CLK_CTRL,setup_cnt,10:08,16,rw,2,,"Max for 32Mhz clk 250ns in standard mode.
+0 : invalid
+1 : scl released at same clk cycle as ack/nack generated
+2 : scl released 1 clk cycle after ack/nack generated and so on"
+,,DBG_CTRL,run_on_halt,0:00,20,rw,'0,,"When set, keeps the I2C core state machine running while the CPU/debugger is halted, instead of freezing it together with the core."
+,,DBG_CTRL,soft_stop,1:01,20,rw,'0,,"Forces the I2C core to idle gracefully under software control, without a hardware reset, for debug or controlled shutdown."
+,,MASTER_SCL_GEN,mst_scl_cnt_high_val,7:00,24,rw,16,,"Functional-clock cycles SCL is held HIGH per bit (I2C-bus spec t_HIGH minimum). For 100kHz with a 32MHz AHB input clock and clkdiv=2 (16MHz/62.5ns functional clock), program 64 (t_HIGH=4000ns min)."
+,,MASTER_SCL_GEN,mst_scl_cnt_low_val,15:08,24,rw,16,,"Functional-clock cycles SCL is held LOW per bit (I2C-bus spec t_LOW minimum). For 100kHz with a 32MHz AHB input clock and clkdiv=2 (16MHz/62.5ns functional clock), program 76 (t_LOW=4700ns min)."
+,,MASTER_TIMING_CONSTRAINT,mst_scl_start_cnt,7:00,28,rw,16,,"START condition hold time (t_HD;STA), in functional-clock cycles. For 100kHz with a 32MHz AHB input clock and clkdiv=2, program 64 (4000ns min)."
+,,MASTER_TIMING_CONSTRAINT,mst_sda_stop_cnt,15:08,28,rw,16,,"STOP condition setup time (t_SU;STO), in functional-clock cycles. For 100kHz with a 32MHz AHB input clock and clkdiv=2, program 64 (4000ns min)."
+,,MASTER_TIMING_CONSTRAINT,mst_stop_start_buffer_cnt,23:16,28,rw,16,,"Minimum bus-free time between a STOP and the next START (t_BUF), in functional-clock cycles. For 100kHz with a 32MHz AHB input clock and clkdiv=2, program 76 (4700ns min)."
+,,MASTER_TIMING_CONSTRAINT,mst_restart_setup_cnt,31:24:00,28,rw,16,,"Repeated-START setup time (t_SU;STA), in functional-clock cycles. For 100kHz with a 32MHz AHB input clock and clkdiv=2, program 76 (4700ns min)."
+,,MASTER_CLKSTRETCH_CNT,mst_max_clkstretch_cnt,31:00:00,32,rw,40000,,"Maximum functional-clock cycles the master allows a slave to stretch SCL before flagging clkstretch_timeout. Independent of I2C_SPEED -- leave at reset default (40000 cycles) for 100kHz/32MHz-AHB/clkdiv=2, or size to a desired timeout via ceil(timeout_us*1000/T_func_ns)."
+,,SLAVE_CLKSTRETCH_CNT,slv_max_clkstretch_cnt,31:00:00,36,rw,100000,,"Maximum functional-clock cycles this slave may itself stretch SCL before flagging clkstretch_timeout. Independent of I2C_SPEED -- leave at reset default (100000 cycles) for 100kHz/32MHz-AHB/clkdiv=2, sized the same way as mst_max_clkstretch_cnt."
+,,SMBUS_TIMEOUT_CNT,smbus_timeout_cnt,31:00:00,40,rw,140000,,"Maximum functional-clock cycles SCL may be held low by an external device before flagging smbus_timeout. Independent of I2C_SPEED -- leave at reset default (140000 cycles) for 100kHz/32MHz-AHB/clkdiv=2, or size to the desired SMBus timeout (e.g. 25-35ms) via ceil(timeout_us*1000/T_func_ns)."
+,,INTR_STS,intr_first,5:00,44,ro,'0,,
+,,INTR_EVENT,arb_lost,0:00,48,rw_w1c,'0,,Set when the master loses bus arbitration to another master; write 1 to clear.
+,,INTR_EVENT,slv_gencall_intr,1:01,48,rw_w1c,'0,,Set when the slave receives a General Call address (0x00); write 1 to clear.
+,,INTR_EVENT,slv_start,2:02,48,rw_w1c,'0,,Set when a START condition addressed to this slave is detected; write 1 to clear.
+,,INTR_EVENT,slv_stop,3:03,48,rw_w1c,'0,,Set when a STOP condition ends a transaction addressed to this slave; write 1 to clear.
+,,INTR_EVENT,tx_done,4:04,48,rw_w1c,'0,,1 byte transmission done
+,,INTR_EVENT,rx_done,5:05,48,rw_w1c,'0,,1 byte recieve done
+,,INTR_EVENT,smbus_timeout,6:06,48,rw_w1c,'0,,Set when the SMBus clock-low timeout (SMBUS_TIMEOUT_CNT) expires; write 1 to clear.
+,,INTR_EVENT,clkstretch_timeout,7:07,48,rw_w1c,'0,,Set when a clock-stretch exceeds its configured maximum duration (MASTER_/SLAVE_CLKSTRETCH_CNT); write 1 to clear.
+,,INTR_EVENT,pec_err,8:08,48,rw_w1c,'0,,Set when a received PEC/CRC byte does not match the calculated value; write 1 to clear.
+,,INTR_EVENT,txfifo_empty,9:09,48,rw_w1c,'0,,Set when the TX FIFO becomes empty; write 1 to clear.
+,,INTR_EVENT,rxfifo_full,10:10,48,rw_w1c,'0,,Set when the RX FIFO becomes full; write 1 to clear.
+,,INTR_EVENT,txfifo_half_full,11:11,48,rw_w1c,'0,,Set when the TX FIFO level drops to half-full or below; write 1 to clear.
+,,INTR_EVENT,rxfifo_half_full,12:12,48,rw_w1c,'0,,Set when the RX FIFO level reaches half-full or above; write 1 to clear.
+,,INTR_EVENT,mst_stop_intr,13:13,48,rw_w1c,'0,,"Set when the master generates a STOP condition, completing a master transaction; write 1 to clear."
+,,INTR_EVENT,mst_start_intr,14:14,48,rw_w1c,'0,,"Set when the master generates a START condition, beginning a master transaction; write 1 to clear."
+,,INTR_EVENT,mst_nack,15:15,48,rw_w1c,'0,,Set when the master receives a NACK from the addressed slave; write 1 to clear.
+,,INTR_EVENT,dma_done_rx,16:16,48,rw_w1c,'0,,Set when an RX DMA transfer completes; write 1 to clear.
+,,INTR_EVENT,dma_done_tx,17:17,48,rw_w1c,'0,,Set when a TX DMA transfer completes; write 1 to clear.
+,,INTR_EVENT,txfifo_almost_empty_intr,18:18,48,rw_w1c,'0,,Set when the TX FIFO reaches its almost-empty threshold; write 1 to clear.
+,,INTR_EVENT,rxfifo_almost_full_intr,19:19,48,rw_w1c,'0,,Set when the RX FIFO reaches its almost-full threshold; write 1 to clear.
+,,INTR_EN_0,arb_lost_en,0:00,52,rw_me,'0,,Enables the bus arbitration loss event to assert the standard interrupt output (intr).
+,,INTR_EN_0,slv_gencall_intr_en,1:01,52,rw_me,'0,,Enables the slave General Call match event to assert the standard interrupt output (intr).
+,,INTR_EN_0,slv_start_en,2:02,52,rw_me,'0,,Enables the slave-addressed START condition event to assert the standard interrupt output (intr).
+,,INTR_EN_0,slv_stop_en,3:03,52,rw_me,'0,,Enables the slave-addressed STOP condition event to assert the standard interrupt output (intr).
+,,INTR_EN_0,tx_done_en,4:04,52,rw_me,'0,,Enables the single-byte transmit completion event to assert the standard interrupt output (intr).
+,,INTR_EN_0,rx_done_en,5:05,52,rw_me,'0,,Enables the single-byte receive completion event to assert the standard interrupt output (intr).
+,,INTR_EN_0,smbus_timeout_en,6:06,52,rw_me,'0,,Enables the SMBus clock-low timeout event to assert the standard interrupt output (intr).
+,,INTR_EN_0,clkstretch_timeout_en,7:07,52,rw_me,'0,,Enables the clock-stretch timeout event to assert the standard interrupt output (intr).
+,,INTR_EN_0,pec_err_en,8:08,52,rw_me,'0,,Enables the PEC/CRC error event to assert the standard interrupt output (intr).
+,,INTR_EN_0,txfifo_empty_en,9:09,52,rw_me,'0,,Enables the TX FIFO empty event to assert the standard interrupt output (intr).
+,,INTR_EN_0,rxfifo_full_en,10:10,52,rw_me,'0,,Enables the RX FIFO full event to assert the standard interrupt output (intr).
+,,INTR_EN_0,txfifo_half_full_en,11:11,52,rw_me,'0,,Enables the TX FIFO half-full event to assert the standard interrupt output (intr).
+,,INTR_EN_0,rxfifo_half_full_en,12:12,52,rw_me,'0,,Enables the RX FIFO half-full event to assert the standard interrupt output (intr).
+,,INTR_EN_0,mst_stop_intr_en,13:13,52,rw_me,'0,,Enables the master-generated STOP condition event to assert the standard interrupt output (intr).
+,,INTR_EN_0,mst_start_intr_en,14:14,52,rw_me,'0,,Enables the master-generated START condition event to assert the standard interrupt output (intr).
+,,INTR_EN_0,mst_nack_en,15:15,52,rw_me,'0,,Enables the master received NACK event to assert the standard interrupt output (intr).
+,,INTR_EN_1,dma_done_rx_en,0:00,56,rw_me,'0,,Enables the RX DMA transfer completion event to assert the standard interrupt output (intr).
+,,INTR_EN_1,dma_done_tx_en,1:01,56,rw_me,'0,,Enables the TX DMA transfer completion event to assert the standard interrupt output (intr).
+,,INTR_EN_1,txfifo_almost_empty_intr_en,2:02,56,rw_me,'0,,Enables the TX FIFO almost-empty threshold event to assert the standard interrupt output (intr).
+,,INTR_EN_1,rxfifo_almost_full_intr_en,3:03,56,rw_me,'0,,Enables the RX FIFO almost-full threshold event to assert the standard interrupt output (intr).
+,,INTR_NMI_EN_0,arb_lost_nmi_en,0:00,60,rw_me,'0,,Enables the bus arbitration loss event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,slv_gencall_intr_nmi_en,1:01,60,rw_me,'0,,Enables the slave General Call match event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,slv_start_nmi_en,2:02,60,rw_me,'0,,Enables the slave-addressed START condition event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,slv_stop_nmi_en,3:03,60,rw_me,'0,,Enables the slave-addressed STOP condition event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,tx_done_nmi_en,4:04,60,rw_me,'0,,Enables the single-byte transmit completion event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,rx_done_nmi_en,5:05,60,rw_me,'0,,Enables the single-byte receive completion event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,smbus_timeout_nmi_en,6:06,60,rw_me,'0,,Enables the SMBus clock-low timeout event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,clkstretch_timeout_nmi_en,7:07,60,rw_me,'0,,Enables the clock-stretch timeout event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,pec_err_nmi_en,8:08,60,rw_me,'0,,Enables the PEC/CRC error event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,txfifo_empty_nmi_en,9:09,60,rw_me,'0,,Enables the TX FIFO empty event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,rxfifo_full_nmi_en,10:10,60,rw_me,'0,,Enables the RX FIFO full event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,txfifo_half_full_nmi_en,11:11,60,rw_me,'0,,Enables the TX FIFO half-full event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,rxfifo_half_full_nmi_en,12:12,60,rw_me,'0,,Enables the RX FIFO half-full event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,mst_stop_intr_nmi_en,13:13,60,rw_me,'0,,Enables the master-generated STOP condition event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,mst_start_intr_nmi_en,14:14,60,rw_me,'0,,Enables the master-generated START condition event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_0,mst_nack_nmi_en,15:15,60,rw_me,'0,,Enables the master received NACK event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_1,dma_done_rx_nmi_en,0:00,64,rw_me,'0,,Enables the RX DMA transfer completion event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_1,dma_done_tx_nmi_en,1:01,64,rw_me,'0,,Enables the TX DMA transfer completion event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_1,txfifo_almost_empty_intr_nmi_en,2:02,64,rw_me,'0,,Enables the TX FIFO almost-empty threshold event to assert the non-maskable interrupt output (intr_nmi).
+,,INTR_NMI_EN_1,rxfifo_almost_full_intr_nmi_en,3:03,64,rw_me,'0,,Enables the RX FIFO almost-full threshold event to assert the non-maskable interrupt output (intr_nmi).
+,,RX_DMA_EVENT_EN_0,rx_dma_arb_lost_en,0:00,68,rw_me,'0,,Enables the bus arbitration loss event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_slv_gencall_intr_en,1:01,68,rw_me,'0,,Enables the slave General Call match event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_slv_start_en,2:02,68,rw_me,'0,,Enables the slave-addressed START condition event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_slv_stop_en,3:03,68,rw_me,'0,,Enables the slave-addressed STOP condition event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_tx_done_en,4:04,68,rw_me,'0,,Enables the single-byte transmit completion event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_rx_done_en,5:05,68,rw_me,'0,,Enables the single-byte receive completion event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_smbus_timeout_en,6:06,68,rw_me,'0,,Enables the SMBus clock-low timeout event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_clkstretch_timeout_en,7:07,68,rw_me,'0,,Enables the clock-stretch timeout event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_pec_err_en,8:08,68,rw_me,'0,,Enables the PEC/CRC error event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_txfifo_empty_en,9:09,68,rw_me,'0,,Enables the TX FIFO empty event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_rxfifo_full_en,10:10,68,rw_me,'0,,Enables the RX FIFO full event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_txfifo_half_full_en,11:11,68,rw_me,'0,,Enables the TX FIFO half-full event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_rxfifo_half_full_en,12:12,68,rw_me,'0,,Enables the RX FIFO half-full event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_mst_stop_intr_en,13:13,68,rw_me,'0,,Enables the master-generated STOP condition event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_mst_start_intr_en,14:14,68,rw_me,'0,,Enables the master-generated START condition event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_0,rx_dma_mst_nack_en,15:15,68,rw_me,'0,,Enables the master received NACK event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_1,rx_dma_dma_done_rx_en,0:00,72,rw_me,'0,,Enables the RX DMA transfer completion event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_1,rx_dma_dma_done_tx_en,1:01,72,rw_me,'0,,Enables the TX DMA transfer completion event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_1,rx_dma_txfifo_almost_empty_intr_en,2:02,72,rw_me,'0,,Enables the TX FIFO almost-empty threshold event to trigger an RX DMA request (req_dma_rx).
+,,RX_DMA_EVENT_EN_1,rx_dma_rxfifo_almost_full_intr_en,3:03,72,rw_me,'0,,Enables the RX FIFO almost-full threshold event to trigger an RX DMA request (req_dma_rx).
+,,TX_DMA_EVENT_EN_0,tx_dma_arb_lost_en,0:00,76,rw_me,'0,,Enables the bus arbitration loss event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_slv_gencall_intr_en,1:01,76,rw_me,'0,,Enables the slave General Call match event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_slv_start_en,2:02,76,rw_me,'0,,Enables the slave-addressed START condition event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_slv_stop_en,3:03,76,rw_me,'0,,Enables the slave-addressed STOP condition event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_tx_done_en,4:04,76,rw_me,'0,,Enables the single-byte transmit completion event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_rx_done_en,5:05,76,rw_me,'0,,Enables the single-byte receive completion event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_smbus_timeout_en,6:06,76,rw_me,'0,,Enables the SMBus clock-low timeout event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_clkstretch_timeout_en,7:07,76,rw_me,'0,,Enables the clock-stretch timeout event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_pec_err_en,8:08,76,rw_me,'0,,Enables the PEC/CRC error event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_txfifo_empty_en,9:09,76,rw_me,'0,,Enables the TX FIFO empty event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_rxfifo_full_en,10:10,76,rw_me,'0,,Enables the RX FIFO full event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_txfifo_half_full_en,11:11,76,rw_me,'0,,Enables the TX FIFO half-full event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_rxfifo_half_full_en,12:12,76,rw_me,'0,,Enables the RX FIFO half-full event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_mst_stop_intr_en,13:13,76,rw_me,'0,,Enables the master-generated STOP condition event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_mst_start_intr_en,14:14,76,rw_me,'0,,Enables the master-generated START condition event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_0,tx_dma_mst_nack_en,15:15,76,rw_me,'0,,Enables the master received NACK event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_1,tx_dma_dma_done_rx_en,0:00,80,rw_me,'0,,Enables the RX DMA transfer completion event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_1,tx_dma_dma_done_tx_en,1:01,80,rw_me,'0,,Enables the TX DMA transfer completion event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_1,tx_dma_txfifo_almost_empty_intr_en,2:02,80,rw_me,'0,,Enables the TX FIFO almost-empty threshold event to trigger a TX DMA request (req_dma_tx).
+,,TX_DMA_EVENT_EN_1,tx_dma_rxfifo_almost_full_intr_en,3:03,80,rw_me,'0,,Enables the RX FIFO almost-full threshold event to trigger a TX DMA request (req_dma_tx).
+,,INTR_SW_SET_0,arb_lost_sw_set,0:00,84,rw_pulse,'0,,"Software-pulse to force-set the bus arbitration loss bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,slv_gencall_intr_sw_set,1:01,84,rw_pulse,'0,,"Software-pulse to force-set the slave General Call match bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,slv_start_sw_set,2:02,84,rw_pulse,'0,,"Software-pulse to force-set the slave-addressed START condition bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,slv_stop_sw_set,3:03,84,rw_pulse,'0,,"Software-pulse to force-set the slave-addressed STOP condition bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,tx_done_sw_set,4:04,84,rw_pulse,'0,,"Software-pulse to force-set the single-byte transmit completion bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,rx_done_sw_set,5:05,84,rw_pulse,'0,,"Software-pulse to force-set the single-byte receive completion bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,smbus_timeout_sw_set,6:06,84,rw_pulse,'0,,"Software-pulse to force-set the SMBus clock-low timeout bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,clkstretch_timeout_sw_set,7:07,84,rw_pulse,'0,,"Software-pulse to force-set the clock-stretch timeout bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,pec_err_sw_set,8:08,84,rw_pulse,'0,,"Software-pulse to force-set the PEC/CRC error bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,txfifo_empty_sw_set,9:09,84,rw_pulse,'0,,"Software-pulse to force-set the TX FIFO empty bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,rxfifo_full_sw_set,10:10,84,rw_pulse,'0,,"Software-pulse to force-set the RX FIFO full bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,txfifo_half_full_sw_set,11:11,84,rw_pulse,'0,,"Software-pulse to force-set the TX FIFO half-full bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,rxfifo_half_full_sw_set,12:12,84,rw_pulse,'0,,"Software-pulse to force-set the RX FIFO half-full bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,mst_stop_intr_sw_set,13:13,84,rw_pulse,'0,,"Software-pulse to force-set the master-generated STOP condition bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,mst_start_intr_sw_set,14:14,84,rw_pulse,'0,,"Software-pulse to force-set the master-generated START condition bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_0,mst_nack_sw_set,15:15,84,rw_pulse,'0,,"Software-pulse to force-set the master received NACK bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_1,dma_done_rx_sw_set,0:00,88,rw_pulse,'0,,"Software-pulse to force-set the RX DMA transfer completion bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_1,dma_done_tx_sw_set,1:01,88,rw_pulse,'0,,"Software-pulse to force-set the TX DMA transfer completion bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_1,txfifo_almost_empty_intr_sw_set,2:02,88,rw_pulse,'0,,"Software-pulse to force-set the TX FIFO almost-empty threshold bit in INTR_EVENT, for test/debug use."
+,,INTR_SW_SET_1,rxfifo_almost_full_intr_sw_set,3:03,88,rw_pulse,'0,,"Software-pulse to force-set the RX FIFO almost-full threshold bit in INTR_EVENT, for test/debug use."
+,,SPARE_CTRL,cfg0,7:00,92,rw,'0,,"General-purpose spare configuration byte; no fixed hardware function, available for software/debug use."
+,,SPARE_CTRL,cfg1,15:08,92,rw,'0,,"General-purpose spare configuration byte; no fixed hardware function, available for software/debug use."
+,,SPARE_STS,sts0,7:00,96,ro,'0,,
+,,SPARE_STS,sts1,15:08,96,ro,'0,,
+,,GLITCH_FILTER_CFG,gf_width,2:00,100,rw,2,,Glitch filter width
+,,SLAVE_CTRL,slv_addr_mode,0:00,104,rw,'0,,"0 : 7 bit addressing
+1 : 10 bit addressing"
+,,SLAVE_CTRL,slv_low_pwr_wakeup_en,1:01,104,rw,'0,,Enables wakeup from low power mode
+,,SLAVE_CTRL,slv_def_dev_addr_en,2:02,104,rw,'0,,Enables default device address matching
+,,SLAVE_CTRL,slv_alres_addr_en,3:03,104,rw,'0,,enables alert response addr match
+,,SLAVE_CTRL,slv_def_host_addr_en,4:04,104,rw,'0,,enables default host address match
+,,SLAVE_CTRL,slv_txtrig_at_txmode,5:05,104,rw,'0,,Tx trigger is generated only when fsm is in tx mode
+,,SLAVE_CTRL,slv_clkstretch_en,6:06,104,rw,'0,,Enables clk stretch feature
+,,SLAVE_CTRL,slv_gencall_en,7:07,104,rw,'0,,Enables the slave to respond to the I2C General Call address (0x00).
+,,SLAVE_CTRL,slv_enable,8:08,104,rw,'0,,Enables the slave
+,,SLAVE_CTRL,slv_addr2_en,9:09,104,rw,'0,,Enables matching with addr2
+,,SLAVE_CTRL,slv_addr2_mask,16:10,104,rw,127,,"0 : Disables bit checking for particular bit
+1 : Enables bit checking for particular bit"
+,,SLAVE_CTRL,slv_txwait_stale_fifo,17:17,104,rw,'0,,"1 : Gives tx fifo empty notification to fsm even if fifo is not actually empty, but the data is stale"
+,,SLAVE_CTRL,slv_txempty_intr_on_tx_req,18:18,104,rw,'0,,"1, generates txempty intr when tx is empty and clk stretching is taking place.
+0, generates tx empty intr whenever fifo is empty"
+,,SLAVE_ADDR,slv_addr1,9:00,108,rw,'0,,"Primary slave address the core matches on the bus (7-bit or 10-bit, per slv_addr_mode)."
+,,SLAVE_ADDR,slv_addr2,25:16:00,108,rw,'0,,"Secondary slave address the core matches when slv_addr2_en is set, letting the slave respond to two distinct addresses."
+,,SLAVE_STS,slv_rx_req,0:00,112,ro,'0,,Clk stretching is going on and slave is waiting for rx fifo to be cleared
+,,SLAVE_STS,slv_tx_req,1:01,112,ro,'0,,clk stetching is going on and slv is waiting for data to be written into tx fifo
+,,SLAVE_STS,slv_addr2_sel,2:02,112,ro,'0,,addr matched with addr2
+,,SLAVE_STS,quick_cmd_sts,3:03,112,ro,'0,,quick command detected
+,,SLAVE_STS,quick_cmd_rw,4:04,112,ro,'0,,quick command r/w deteced
+,,SLAVE_STS,slv_addr_match,5:05,112,ro,'0,,
+,,SLAVE_STS,slv_stale_txfifo,6:06,112,ro,'0,,tx fifo is stale
+,,SLAVE_STS,slv_txmode,7:07,112,ro,'0,,slv is in tx mode
+,,SLAVE_STS,slv_rxmode,8:08,112,ro,'0,,slv is in rx mode
+,,SLAVE_STS,slv_busbsy,9:09,112,ro,'0,,slv is busy
+,,SLAVE_ACK_CFG,slv_auto_ack_en,0:00,116,rw,1,,Enables automatic ack for rx data
+,,SLAVE_ACK_CFG,slv_addr_auto_ack_en,1:01,116,rw,1,,Enables automatic ack for slv addr
+,,SLAVE_BYTE_ACK,slv_ackval,0:00,120,rw,'0,::write,Sw writes the ack val 0 or 1 in this register for addr and data
+,,FIFO_CTRL,rxfifo_en,0:00,124,rw,'0,,Enables rx fifo
+,,FIFO_CTRL,txfifo_en,1:01,124,rw,'0,,enables tx fifo
+,,FIFO_CTRL,rxfifo_flush,8:08,124,rw,'0,,flushes rx fifo
+,,FIFO_CTRL,txfifo_flush,16:16,124,rw,'0,,flushes tx fifo
+,,RXDATA[2],rxdata,9:00,128,ro,'0,::extern,
+,,TXDATA[2],txdata,7:00,136,rw,'0,::extern,Byte to transmit; each write pushes one byte into the TX FIFO for the master or slave engine to shift out.
+,,FIFO_STS,txfifo_flush_sts,0:00,144,ro,'0,,
+,,FIFO_STS,rxfifo_flush_sts,1:01,144,ro,'0,,
+,,FIFO_STS,txfifo_empty_sts,2:02,144,ro,'0,,
+,,FIFO_STS,txfifo_almost_empty,3:03,144,ro,'0,,
+,,FIFO_STS,txfifo_full,4:04,144,ro,'0,,
+,,FIFO_STS,rxfifo_empty,5:05,144,ro,'0,,
+,,FIFO_STS,rxfifo_almost_full,6:06,144,ro,'0,,
+,,FIFO_STS,rxfifo_full_sts,7:07,144,ro,'0,,
+,,PEC_CTRL,pec_en,0:00,148,rw,'0,,Enables PEC (Packet Error Check / CRC-8) generation and checking for master and slave transactions.
+,,PEC_STS,pec_error,0:00,152,ro,'0,,
+,,CRC_OUT_BYTE,slv_crc_out_byte,7:00,156,ro,'0,,
+,,CRC_OUT_BYTE,mst_crc_out_byte,15:08,156,ro,'0,,
+,,MASTER_CFG,mst_enable,0:00,160,rw,'0,,Enables the master
+,,MASTER_CFG,mst_clkstretch_en,1:01,160,rw,'0,,enables clk stretch feature in master
+,,MASTER_CFG,lpbk_mode,2:02,160,rw,'0,,"enables loopback mode. 0:disable, 1:enable"
+,,MASTER_CFG,mst_auto_ack_en,3:03,160,rw,'0,,"1 : Automatically Acknowledges the last rx byte based on what value is there in mst_Ackval
+0 : Manually acknowledge the last byte based on what value is written to mst_Ackval register at the ack state, clk stretchong ios done till sw doesnt write onto this register"
+,,MASTER_CFG,mst_addr_mode,4:04,160,rw,'0,,"0 : 7 bit addressing
+1: 10 bit addrresssing"
+,,MASTER_CFG,mst_slv_addr_cfg,14:05,160,rw,'0,,Configure the slave addr in which master wants to send data
+,,MASTER_CTRL,mst_cmd_vld,0:00,164,rw_pulse,'0,::write,"Valid for the master ctrl register, sw have to write this bit to indicate a start of new transaction"
+,,MASTER_CTRL,mst_burst_len,19:08,164,rw,'0,::write,Total bytes to be transfered
+,,MASTER_CTRL,mst_start,24:24:00,164,rw,'0,,1 : Generates start condition
+,,MASTER_CTRL,mst_dir,25:25:00,164,rw,'0,,0 : write 1 : Read
+,,MASTER_CTRL,mst_stop,26:26:00,164,rw,'0,,1 : Generates stop condition after burst length is transfered
+,,MASTER_CTRL,mst_rd_on_txempty,27:27:00,164,rw,'0,,1 : Enables tx transfers till tx fifo is emoty then does repeat start with read for the burst length specified
+,,MASTER_ACK_VAL,mst_ackval,0:00,168,rw,'0,::write,"Ack val for last rx byte. 0:ack, 1:nack"
+,,MASTER_STS,mst_busbsy,0:00,172,ro,'0,,
+,,MASTER_STS,mst_idle,1:01,172,ro,'0,,
+,,MASTER_STS,mst_arblost,2:02,172,ro,'0,,
+,,MASTER_STS,mst_tx_data_ack,3:03,172,ro,'0,,
+,,MASTER_STS,mst_tx_addr_ack,4:04,172,ro,'0,,
+,,MASTER_STS,mst_tx_nack,5:05,172,ro,'0,,
+,,MASTER_STS,mst_fsm_busy,6:06,172,ro,'0,,
+,,MASTER_STS,mst_word_cnt,18:07,172,ro,'0,,
+,,MASTER_MON,mst_sda_state,0:00,176,ro,'0,,
+,,MASTER_MON,mst_scl_state,1:01,176,ro,'0,,
+,,FSM_STATUS,mst_state,3:00,180,ro,'0,,
+,,FSM_STATUS,slv_state,7:04,180,ro,'0,,
+,,FSM_STATUS,slv_quick_cmd_state,10:08,180,ro,'0,,

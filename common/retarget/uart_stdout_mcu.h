@@ -35,7 +35,7 @@
 
 //define this to set a custom baud rate else it will be zero (ie highest baud rate supported by the system)
 #ifndef STDIO_BAUD_RATE 
-#define STDIO_BAUD_RATE 0
+#define STDIO_BAUD_RATE 1562500
 #endif
 
 //#define UartPuts(x) uart_puts(UART_STDIO, x)
