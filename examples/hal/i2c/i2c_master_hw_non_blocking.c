@@ -51,16 +51,24 @@
 ////        the address byte), the write phase is complete and the ISR     ////
 ////        pre-loads MASTER_ACK_VAL = NACK (auto-ack then applies it to    ////
 ////        the last RX byte with no further software timing needed).      ////
-////        What happens next depends on this build flag:                  ////
+////        What happens next depends on this build flag. In BOTH cases, the  ////
+////        READ command pre-arms mst_stop together with mst_dir=READ and     ////
+////        mst_burst_len, all set before i2c_mst_cmd_vld() latches (calling  ////
+////        i2c_mst_byte_lvl_transfer_stop() before ..._addr_rdwr() achieves   ////
+////        this) -- hardware then autonomously completes the entire          ////
+////        (repeated-)START -> read M bytes -> STOP sequence on its own,     ////
+////        with no further software intervention needed once that one        ////
+////        command is issued:                                               ////
 ////          undefined/0 (default) -- write -> STOP -> read -> STOP: the  ////
 ////            write phase's own STOP is asserted here, and the READ      ////
-////            command (a fresh START) is only issued from the            ////
-////            mst_stop_intr handler once that STOP has actually landed   ////
-////            and the bus is free again -- two separate transactions.   ////
+////            command (a fresh START, with its own STOP pre-armed) is    ////
+////            only issued from the mst_stop_intr handler once that       ////
+////            STOP has actually landed and the bus is free again --      ////
+////            two separate transactions.                                 ////
 ////          -DREPEATED_START_TEST=1 -- write -> repeated START -> read -> ////
-////            STOP: the READ command is issued immediately, right here,  ////
-////            with no STOP for the write at all -- one transaction, one   ////
-////            start/stop bracket.                                        ////
+////            STOP: the READ command (STOP pre-armed) is issued           ////
+////            immediately, right here, with no STOP for the write at     ////
+////            all -- one transaction, one start/stop bracket.             ////
 ////        write_stop_seen (below) distinguishes the two STOPs that occur ////
 ////        in the default framing so the mst_stop_intr handler knows      ////
 ////        whether to kick off the read phase or end the test.             ////
@@ -70,7 +78,9 @@
 ////        draining into rx_capture[] happens on rxfifo_full (again the   ////
 ////        "hardest" threshold, for the same clock-stretch reason as the  ////
 ////        write side). Once rx_done_cnt reaches MST_READ_BURST_LEN, the  ////
-////        ISR drains whatever's left, then issues STOP.                 ////
+////        ISR just picks up whatever's left -- STOP itself was already   ////
+////        pre-armed when the read command was issued (see above), so     ////
+////        hardware generates it on its own.                              ////
 ////                                                                      ////
 ////        MST_READ_BURST_LEN == 0 is a special case: no data byte ever   ////
 ////        arrives, so rx_done never fires at all. Completion instead     ////
@@ -209,6 +219,13 @@ static void drain_available_rx_bytes(void)
 //seen (read_addr_done) AND all data bytes counted -- needed as two separate
 //conditions because MST_READ_BURST_LEN == 0 never produces a data-byte rx_done at
 //all, so read_addr_done is the ONLY signal available in that case.
+//
+//No STOP is issued here: in both framings, mst_stop is pre-armed together with
+//mst_dir=READ and mst_burst_len in the very command that starts this read phase
+//(see the tx_done and mst_stop_intr handlers below), so hardware autonomously
+//completes read-M-bytes -> STOP entirely on its own once that command is issued --
+//this function only needs to pick up whatever tail-end bytes never triggered
+//rxfifo_full.
 static void finish_read_phase_if_done(void)
 {
     if (read_addr_done && rx_done_cnt == MST_READ_BURST_LEN)
@@ -379,8 +396,14 @@ void I2C0_IRQ_Handler(void)
                 //Whole write burst has physically shifted out.
 #if REPEATED_START_TEST
                 //Turn the bus around with a repeated START directly into the read
-                //phase -- no STOP is ever issued for the write.
+                //phase -- no STOP is issued for the write itself. STOP for the READ
+                //is pre-armed here too, in the SAME command as the direction and
+                //burst length (must be set before i2c_mst_cmd_vld() latches, hence
+                //calling stop() first): hardware then autonomously completes the
+                //entire repeated-START -> read M bytes -> STOP sequence with no
+                //further software intervention needed once this command is issued.
                 i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK);
+                i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
                 i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_READ, MST_READ_BURST_LEN);
 #else
                 //Close the write out with a real STOP; the read phase is kicked off
@@ -415,7 +438,7 @@ void I2C0_IRQ_Handler(void)
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_RX_DONE_IDX);
             //Whole read burst has arrived once this reaches MST_READ_BURST_LEN --
             //finish_read_phase_if_done() picks up any remainder that never triggered
-            //rxfifo_full, then closes the transaction with STOP.
+            //rxfifo_full (STOP itself was already pre-armed at command-issue time).
             finish_read_phase_if_done();
             break;
 
@@ -441,8 +464,13 @@ void I2C0_IRQ_Handler(void)
             {
                 //This STOP closed out the write phase -- the bus is free again, so
                 //start the read phase as a genuinely fresh START (not repeated).
+                //STOP for the READ is pre-armed in this SAME command (must be set
+                //before i2c_mst_cmd_vld() latches, hence calling stop() first), so
+                //hardware autonomously completes read M bytes -> STOP with no
+                //further software intervention needed.
                 write_stop_seen = true;
                 i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK);
+                i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
                 i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_READ, MST_READ_BURST_LEN);
             }
             else
