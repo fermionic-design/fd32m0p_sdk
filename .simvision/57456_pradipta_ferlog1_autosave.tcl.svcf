@@ -52,9 +52,9 @@ preferences set toolbar-TimeSearch-WatchWindow {
 #
 # Databases
 #
-database require waves -search {
-	../../../../../../../simulation1/digital/PHOENIX_1P7M_3p3V/deepesh/deepesh/waves.shm/waves.trn
-	/simulation1/digital/PHOENIX_1P7M_3p3V/deepesh/deepesh/waves.shm/waves.trn
+database require waves_i2c_mst_hw_dbg -search {
+	../../../../../../../simulation/digital/MCU_M0P_GF/pradipta/pradipta2/waves_i2c_mst_hw_dbg.shm/waves_i2c_mst_hw_dbg.trn
+	/simulation/digital/MCU_M0P_GF/pradipta/pradipta2/waves_i2c_mst_hw_dbg.shm/waves_i2c_mst_hw_dbg.trn
 }
 
 #
@@ -70,8 +70,8 @@ mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor or
 #
 # Waveform windows
 #
-if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1920x888+-1+27}] != ""} {
-    window geometry "Waveform 1" 1920x888+-1+27
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1920x906+-1+27}] != ""} {
+    window geometry "Waveform 1" 1920x906+-1+27
 }
 window target "Waveform 1" on
 waveform using {Waveform 1}
@@ -82,90 +82,39 @@ waveform set \
     -signalwidth 175 \
     -units ns \
     -valuewidth 75
-waveform baseline set -time 4,860,630,000fs
+waveform baseline set -time 0
 
 set id [waveform add -signals  {
-	waves::tb_osc_top.dut.OE
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_enable[0:0]}
 	} ]
 set id [waveform add -signals  {
-	waves::tb_osc_top.dut.CLKP
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.CLKM
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.clk_ref_intf
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.ana_osc_en
-	} ]
-set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.u_i2c_slave_pec.u_i2c_core.state[2:0]}
-	} ]
-set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.u_top_fsm.main_state_sts[2:0]}
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.u_top_fsm.FE_OFN80_arst_n
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_core.u_i2c_master.state[3:0]}
 	} ]
 set id [waveform add -cdivider divider]
 set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.otp_PDOUT[7:0]}
+	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.PA0
 	} ]
 set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.otp_PA[7:0]}
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.otp_PCE
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.otp_PCLK
-	} ]
-set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.otp_PDIN[7:0]}
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.otp_PPROG
-	} ]
-set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.otp_PTM[2:0]}
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.otp_PWE
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.u_clknrst.clk_dig
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.clk_ref
+	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.PA1
 	} ]
 set id [waveform add -cdivider divider]
 set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.otp_PA[7:0]}
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_burst_len[11:0]}
 	} ]
 set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.otp_PCE
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_start[0:0]}
 	} ]
 set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.otp_PCLK
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_stop[0:0]}
 	} ]
 set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.otp_PDIN[7:0]}
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_dir[0:0]}
 	} ]
 set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.otp_PDOUT[7:0]}
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.otp_PPROG
-	} ]
-set id [waveform add -signals  {
-	{waves::tb_osc_top.dut.u_dtop.otp_PTM[2:0]}
-	} ]
-set id [waveform add -signals  {
-	waves::tb_osc_top.dut.u_dtop.otp_PWE
+	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_core.u_i2c_master.scl_out
 	} ]
 
-waveform xview limits 2042.69864ns 8410.621378ns
+waveform xview limits 9420939.977ns 10999725.1ns
 
 #
 # Waveform Window Links

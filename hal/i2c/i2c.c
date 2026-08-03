@@ -250,6 +250,8 @@ void i2c_wait_for_mst_start(I2C_REGS_s *regs){
  *  ======== i2c_mst_byte_lvl_transfer_stop ========
  */
 void i2c_mst_byte_lvl_transfer_stop (I2C_REGS_s *regs){ 
+    regs->MASTER_CTRL.mst_start = 0;
+    regs->MASTER_CTRL.mst_burst_len = 0;
     regs->MASTER_CTRL.mst_stop = 1;
 }
 

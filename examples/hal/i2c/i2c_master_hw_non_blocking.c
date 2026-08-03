@@ -104,7 +104,14 @@
 #include "uart.h"
 
 #if UVM_TEST
-#include "i2c_cfg_reg.h"
+typedef struct I2C_TX_FIFO_REF_DATA_s {
+    volatile int      burst_len;
+    volatile uint32_t tx_data[20];
+    volatile uint32_t rx_data[20];
+    volatile uint32_t unexpected_stop;
+    volatile uint32_t slv_en;
+    volatile uint32_t mst_en;
+} I2C_TX_FIFO_REF_DATA_s;
 #define I2C_TX_FIFO_REF_DATA ((I2C_TX_FIFO_REF_DATA_s *) 0x20000C00)   // UVM VIP reference-data SRAM
 #endif
 
@@ -221,11 +228,11 @@ int main(void)
     //Set GPIO Configuration SCL
     iomux_cfg_struct_i2c.output_en = 0;
     iomux_cfg_struct_i2c.input_en  = 1;
-    iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA11_I2C0_SCL;
+    iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA1_I2C0_SCL;
     iomux_cfg_struct_i2c.pull_up   = 1;
     iomux_cfg_struct_i2c.pull_down = 0;
 
-    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct_i2c, 11);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct_i2c, 1);
 
     //Set GPIO Configuration SDA
     iomux_cfg_struct_i2c.output_en = 0;
