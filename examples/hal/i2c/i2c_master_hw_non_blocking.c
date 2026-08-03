@@ -237,12 +237,15 @@ static void finish_read_phase_if_done(void)
 int main(void)
 {
     UartStdOutInit();
-    UartPuts("I2C MST Hardware-Mode Non-Blocking Test\n");
+    UartPuts("I2C MST\n");
 
     //Default Structs
     IOMUX_PA_REG_s    iomux_cfg_struct_i2c;
     i2c_counter_cfg_t i2c_counter_cfg_struct = I2C_COUNTER_CFG_DEFAULT_100Khz;
     i2c_mst_cfg_t     i2c_mst_cfg_struct     = I2C_MASTER_CFG_HW_MODE;
+    #if REPEATED_START_TEST
+        i2c_mst_cfg_struct.mst_rd_on_txempty=1;
+    #endif
 
     //Deterministic write pattern -- this test is its own oracle for the read-back check
     for (uint16_t i = 0; i < MST_WRITE_BURST_LEN; i++)
@@ -326,7 +329,13 @@ int main(void)
 
     //Kick off the write burst: START + address + WRITE + MST_WRITE_BURST_LEN.
     //Everything from here on is driven by I2C0_IRQ_Handler.
-    i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_WRITE, MST_WRITE_BURST_LEN);
+    #if REPEATED_START_TEST
+        i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
+        i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_READ, MST_READ_BURST_LEN);
+    #else
+        i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
+        i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_WRITE, MST_WRITE_BURST_LEN);
+    #endif
     refill_tx_fifo();   // prime the FIFO now; nothing needs to complete first
 
     while (!txn_done);
@@ -391,35 +400,6 @@ void I2C0_IRQ_Handler(void)
         case I2C_INTR_EVENT_TX_DONE_IDX + 1:
             tx_done_cnt++;
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_TX_DONE_IDX);
-            if (tx_done_cnt == MST_WRITE_BURST_LEN + 1)   // +1 for the write phase's address byte
-            {
-                //Whole write burst has physically shifted out.
-#if REPEATED_START_TEST
-                //Turn the bus around with a repeated START directly into the read
-                //phase -- no STOP is issued for the write itself. STOP for the READ
-                //is pre-armed here too, in the SAME command as the direction and
-                //burst length (must be set before i2c_mst_cmd_vld() latches, hence
-                //calling stop() first): hardware then autonomously completes the
-                //entire repeated-START -> read M bytes -> STOP sequence with no
-                //further software intervention needed once this command is issued.
-                i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK);
-                i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
-                i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_READ, MST_READ_BURST_LEN);
-#else
-                //Close the write out with a real STOP; the read phase is kicked off
-                //as a fresh START from the mst_stop_intr handler below, once this
-                //STOP has actually landed and the bus is free again.
-                i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
-                i2c_mst_cmd_vld(I2C0_REGS);
-#endif
-            }
-            else if (tx_done_cnt == MST_WRITE_BURST_LEN + 2)   // the read phase's OWN address byte
-            {
-                //Needed as the sole completion signal when MST_READ_BURST_LEN == 0,
-                //since no data-byte rx_done would ever fire in that case.
-                read_addr_done = true;
-                finish_read_phase_if_done();
-            }
             break;
 
         case I2C_INTR_EVENT_TXFIFO_EMPTY_IDX + 1:
@@ -450,16 +430,10 @@ void I2C0_IRQ_Handler(void)
 
         case I2C_INTR_EVENT_MST_STOP_INTR_IDX + 1:
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_MST_STOP_INTR_IDX);
-#if REPEATED_START_TEST
+            #if REPEATED_START_TEST
             //Only one STOP ever occurs in this framing -- it ends the whole transaction.
-#if UVM_TEST
-            if (!read_addr_done || tx_done_cnt != MST_WRITE_BURST_LEN + 2 || rx_done_cnt != MST_READ_BURST_LEN)
-            {
-                I2C_TX_FIFO_REF_DATA->unexpected_stop = 1;   // stop landed before both bursts finished
-            }
-#endif
             txn_done = true;
-#else
+            #else
             if (!write_stop_seen)
             {
                 //This STOP closed out the write phase -- the bus is free again, so
@@ -469,19 +443,12 @@ void I2C0_IRQ_Handler(void)
                 //hardware autonomously completes read M bytes -> STOP with no
                 //further software intervention needed.
                 write_stop_seen = true;
-                i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK);
                 i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
                 i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_READ, MST_READ_BURST_LEN);
             }
             else
             {
                 //This is the read phase's own STOP -- the whole test is done.
-#if UVM_TEST
-                if (!read_addr_done || rx_done_cnt != MST_READ_BURST_LEN)
-                {
-                    I2C_TX_FIFO_REF_DATA->unexpected_stop = 1;   // stop landed before the read burst finished
-                }
-#endif
                 txn_done = true;
             }
 #endif

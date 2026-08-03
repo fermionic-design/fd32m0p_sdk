@@ -114,10 +114,23 @@ set id [waveform add -signals  {
 	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_dir[0:0]}
 	} ]
 set id [waveform add -signals  {
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_ackval[0:0]}
+	} ]
+set id [waveform add -signals  {
 	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_core.u_i2c_master.scl_out
 	} ]
+set id [waveform add -signals  {
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_rd_on_txempty[0:0]}
+	} ]
+set id [waveform add -signals  {
+	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_core.u_i2c_master.tx_done_intr
+	} ]
+set id [waveform add -signals  {
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_intr.intr_event[19:0]}
+	} ]
+waveform hierarchy collapse $id
 
-waveform xview limits 8133446.022ns 9263027.96ns
+waveform xview limits 7437072.705ns 9688310.632ns
 
 #
 # Waveform Window Links

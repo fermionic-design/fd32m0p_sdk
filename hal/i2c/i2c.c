@@ -88,6 +88,7 @@ void i2c_mst_cfg_set(I2C_REGS_s *regs, i2c_mst_cfg_t *i2c_mst_cfg){
     regs->PEC_CTRL.pec_en = i2c_mst_cfg->i2c_pec_en;    
     regs->FIFO_CTRL.rxfifo_en = i2c_mst_cfg->rxfifo_en;
     regs->FIFO_CTRL.txfifo_en = i2c_mst_cfg->txfifo_en;
+    regs->MASTER_CTRL.mst_rd_on_txempty = i2c_mst_cfg->mst_rd_on_txempty;
 }
 
 /*

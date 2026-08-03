@@ -143,6 +143,7 @@ typedef struct i2c_mst_cfg {
     bool                                        i2c_pec_en;
     bool                                        rxfifo_en;
     bool                                        txfifo_en;
+    bool                                        mst_rd_on_txempty;
 } i2c_mst_cfg_t;
 
 /*!
@@ -174,7 +175,8 @@ typedef struct i2c_mst_cfg {
     .lpbk_mode = I2C_MASTER_CFG_LPBK_MODE_DISABLE,                       \
     .i2c_pec_en = 0,                                                     \
     .rxfifo_en = 1,                                                      \
-    .txfifo_en = 1                                                       \
+    .txfifo_en = 1,                                                       \
+    .mst_rd_on_txempty = 0  \
 }
 
 /*!
