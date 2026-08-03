@@ -7,8 +7,9 @@
 ////        (mst_auto_ack_en = 1) once software has pre-loaded             ////
 ////        MASTER_ACK_VAL. The CPU never polls a status register -- its  ////
 ////        only jobs are programming the APB registers once at startup,  ////
-////        then driving the whole write -> repeated-START -> read        ////
-////        sequence purely from I2C0_IRQ_Handler.                         ////
+////        then driving the whole write -> read sequence purely from     ////
+////        I2C0_IRQ_Handler (see the REPEATED_START_TEST knob below for   ////
+////        whether that sequence is one bracket or two).                  ////
 ////                                                                      ////
 ////    Board Setup:                                                      ////
 ////        PA11 = SCL, PA0 = SDA, driven against an external I2C slave    ////
@@ -45,13 +46,24 @@
 ////        threshold, so a long write genuinely clock-stretches instead   ////
 ////        of always staying topped up.                                  ////
 ////                                                                      ////
-////    Repeated START into the read phase:                                ////
+////    Framing knob -- REPEATED_START_TEST (default OFF):                 ////
 ////        Once tx_done_cnt reaches MST_WRITE_BURST_LEN + 1 (the "+1" is  ////
-////        the address byte), the ISR immediately pre-loads MASTER_ACK_   ////
-////        VAL = NACK (auto-ack then applies it to the last RX byte with  ////
-////        no further software timing needed) and issues the READ         ////
-////        command -- a repeated START, since no STOP was ever asserted   ////
-////        for the write.                                                 ////
+////        the address byte), the write phase is complete and the ISR     ////
+////        pre-loads MASTER_ACK_VAL = NACK (auto-ack then applies it to    ////
+////        the last RX byte with no further software timing needed).      ////
+////        What happens next depends on this build flag:                  ////
+////          undefined/0 (default) -- write -> STOP -> read -> STOP: the  ////
+////            write phase's own STOP is asserted here, and the READ      ////
+////            command (a fresh START) is only issued from the            ////
+////            mst_stop_intr handler once that STOP has actually landed   ////
+////            and the bus is free again -- two separate transactions.   ////
+////          -DREPEATED_START_TEST=1 -- write -> repeated START -> read -> ////
+////            STOP: the READ command is issued immediately, right here,  ////
+////            with no STOP for the write at all -- one transaction, one   ////
+////            start/stop bracket.                                        ////
+////        write_stop_seen (below) distinguishes the two STOPs that occur ////
+////        in the default framing so the mst_stop_intr handler knows      ////
+////        whether to kick off the read phase or end the test.             ////
 ////                                                                      ////
 ////    Read phase (slave -> master):                                      ////
 ////        rx_done is likewise used only to COUNT received bytes; bulk    ////
@@ -134,6 +146,13 @@ typedef struct I2C_TX_FIFO_REF_DATA_s {
 
 #define MST_READ_BURST_LEN MST_WRITE_BURST_LEN   // read back exactly what was written by default
 
+//Framing knob -- see header comment above. Default OFF: write -> STOP -> read -> STOP
+//(two separate transactions). -DREPEATED_START_TEST=1: write -> repeated START ->
+//read -> STOP (one transaction, no STOP between the write and read phases).
+#ifndef REPEATED_START_TEST
+#define REPEATED_START_TEST 0
+#endif
+
 //Fixed capacity, independent of the knob above, so MST_WRITE_BURST_LEN==0 never
 //produces a zero-length array; matches the UVM reference struct's own 20-entry bound.
 #define MST_BUF_CAP 20
@@ -149,6 +168,7 @@ volatile uint16_t rxfifo_full_event_count = 0;
 volatile uint16_t txfifo_empty_event_count = 0;
 volatile bool     mst_nack_seen          = false;
 volatile bool     read_addr_done         = false;   // read phase's own address byte tx_done seen
+volatile bool     write_stop_seen        = false;   // (default framing only) write phase's own STOP has landed
 volatile bool     txn_done               = false;
 
 static void refill_tx_fifo(void)
@@ -268,7 +288,10 @@ int main(void)
     //                      is fully done
     //  rxfifo_full     -- bulk-drains read data exactly when hardware is
     //                      clock-stretching on it
-    //  mst_stop_intr   -- marks the whole write->Sr->read transaction complete
+    //  mst_stop_intr   -- REPEATED_START_TEST: marks the whole transaction complete.
+    //                     Default framing: the FIRST one closes out the write phase
+    //                     and kicks off the read as a fresh START; the SECOND marks
+    //                     the whole test complete (see write_stop_seen).
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_TX_DONE_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_TXFIFO_EMPTY_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_MST_NACK_IDX);
@@ -355,10 +378,19 @@ void I2C0_IRQ_Handler(void)
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_TX_DONE_IDX);
             if (tx_done_cnt == MST_WRITE_BURST_LEN + 1)   // +1 for the write phase's address byte
             {
-                //Whole write burst has physically shifted out -- turn the bus around
-                //with a repeated START into the read phase (no STOP was ever issued).
+                //Whole write burst has physically shifted out.
+#if REPEATED_START_TEST
+                //Turn the bus around with a repeated START directly into the read
+                //phase -- no STOP is ever issued for the write.
                 i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK);
                 i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_READ, MST_READ_BURST_LEN);
+#else
+                //Close the write out with a real STOP; the read phase is kicked off
+                //as a fresh START from the mst_stop_intr handler below, once this
+                //STOP has actually landed and the bus is free again.
+                i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
+                i2c_mst_cmd_vld(I2C0_REGS);
+#endif
             }
             else if (tx_done_cnt == MST_WRITE_BURST_LEN + 2)   // the read phase's OWN address byte
             {
@@ -396,14 +428,37 @@ void I2C0_IRQ_Handler(void)
             break;
 
         case I2C_INTR_EVENT_MST_STOP_INTR_IDX + 1:
+            I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_MST_STOP_INTR_IDX);
+#if REPEATED_START_TEST
+            //Only one STOP ever occurs in this framing -- it ends the whole transaction.
 #if UVM_TEST
             if (!read_addr_done || tx_done_cnt != MST_WRITE_BURST_LEN + 2 || rx_done_cnt != MST_READ_BURST_LEN)
             {
                 I2C_TX_FIFO_REF_DATA->unexpected_stop = 1;   // stop landed before both bursts finished
             }
 #endif
-            I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_MST_STOP_INTR_IDX);
             txn_done = true;
+#else
+            if (!write_stop_seen)
+            {
+                //This STOP closed out the write phase -- the bus is free again, so
+                //start the read phase as a genuinely fresh START (not repeated).
+                write_stop_seen = true;
+                i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK);
+                i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_READ, MST_READ_BURST_LEN);
+            }
+            else
+            {
+                //This is the read phase's own STOP -- the whole test is done.
+#if UVM_TEST
+                if (!read_addr_done || rx_done_cnt != MST_READ_BURST_LEN)
+                {
+                    I2C_TX_FIFO_REF_DATA->unexpected_stop = 1;   // stop landed before the read burst finished
+                }
+#endif
+                txn_done = true;
+            }
+#endif
             break;
     }
 }
