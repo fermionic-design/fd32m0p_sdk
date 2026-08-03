@@ -101,7 +101,11 @@ typedef struct i2c_slv_cfg {
  *  @note   Same as I2C_SLAVE_CFG_DEFAULT except slv_auto_ack_en, slv_addr_auto_ack_en,
  *          rxfifo_en and txfifo_en are enabled, so no software ACK/NACK decision or
  *          per-byte polling is required -- only I2C0_IRQ_Handler servicing the
- *          RX/TX FIFOs is needed.
+ *          RX/TX FIFOs is needed. slv_txempty_intr_on_tx_req is also set to REQUIRED
+ *          (not the default's AGNOSTIC) so txfifo_empty only fires while genuinely
+ *          clock-stretching for TX data during a read -- under AGNOSTIC it would also
+ *          fire whenever the (unused) TX FIFO is simply empty during a write, which is
+ *          every write, since nothing is ever pushed to it in that direction.
  */
 #define I2C_SLAVE_CFG_HW_MODE {                                       \
     .slv_addr_mode = I2C_SLAVE_CTRL_SLV_ADDR_MODE_7_BIT ,\
@@ -115,7 +119,7 @@ typedef struct i2c_slv_cfg {
     .slv_addr2_en = 0                                                                    ,\
     .slv_addr2_mask = 0                                                                  ,\
     .slv_txwait_stale_fifo = I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_NOT_TREATED_AS_EMPTY   ,\
-    .slv_txempty_intr_on_tx_req = I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_AGNOSTIC     ,\
+    .slv_txempty_intr_on_tx_req = I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_REQUIRED     ,\
     .slv_addr1 = 0x55                                                                    ,\
     .slv_addr2 = 0x52                                                                    ,\
     .slv_auto_ack_en = 1                                                                 ,\

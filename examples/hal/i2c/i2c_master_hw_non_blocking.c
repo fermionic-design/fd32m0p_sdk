@@ -16,14 +16,22 @@
 ////        with (see i2c_slave_hw_non_blocking.c for the matching DUT-    ////
 ////        side echo behavior this test's self-check assumes of its peer).////
 ////                                                                      ////
-////    Burst-length knobs:                                                ////
-////        MST_WRITE_BURST_LEN / MST_READ_BURST_LEN below are plain       ////
-////        #defines -- set either one <= 8 (the FIFO depth) or > 8 to     ////
-////        choose which regime this run exercises. They default to 12    ////
-////        each so a stock build already drives both TX and RX through    ////
-////        at least one real clock-stretch cycle. Setting MST_READ_BURST_ ////
-////        LEN higher than MST_WRITE_BURST_LEN additionally exercises the ////
-////        peer's read-side wraparound (see tx_pattern indexing below).   ////
+////    Burst-length knob:                                                 ////
+////        Set -DBURST_LEN=<0|1|2|3> to choose MST_WRITE_BURST_LEN (and,   ////
+////        by default, MST_READ_BURST_LEN too):                           ////
+////          BURST_LEN == 0 -> 0-byte burst (address-only "quick command", ////
+////                            no data phase at all)                      ////
+////          BURST_LEN == 1 -> 1-byte burst                                ////
+////          BURST_LEN == 2 -> 2-byte burst                                ////
+////          BURST_LEN == 3 (default) -> a fixed value > 8 (the FIFO       ////
+////                            depth), to exercise clock-stretch on both   ////
+////                            TX and RX                                   ////
+////        tx_pattern[]/rx_capture[] are sized to a fixed MST_BUF_CAP      ////
+////        regardless of the knob, so BURST_LEN==0 never produces a       ////
+////        (non-standard) zero-length array. MST_READ_BURST_LEN can be    ////
+////        edited independently of MST_WRITE_BURST_LEN if you want to     ////
+////        additionally exercise the peer's read-side wraparound (see     ////
+////        tx_pattern indexing below).                                    ////
 ////                                                                      ////
 ////    Write phase (master -> slave):                                    ////
 ////        i2c_mst_byte_lvl_transfer_addr_rdwr() arms START+address+      ////
@@ -51,6 +59,18 @@
 ////        "hardest" threshold, for the same clock-stretch reason as the  ////
 ////        write side). Once rx_done_cnt reaches MST_READ_BURST_LEN, the  ////
 ////        ISR drains whatever's left, then issues STOP.                 ////
+////                                                                      ////
+////        MST_READ_BURST_LEN == 0 is a special case: no data byte ever   ////
+////        arrives, so rx_done never fires at all. Completion instead     ////
+////        falls back to the read phase's OWN address+R/W byte's tx_done  ////
+////        (tx_done_cnt reaching MST_WRITE_BURST_LEN + 2), tracked via     ////
+////        read_addr_done below. This assumes tx_done fires for a read-   ////
+////        direction address byte the same way it does for a write-       ////
+////        direction one -- inferred by symmetry of the underlying        ////
+////        hardware event, not independently confirmed, since the         ////
+////        original blocking-mode master example never needed to wait on  ////
+////        it for the read case. Worth confirming if you rely on          ////
+////        BURST_LEN==0 specifically.                                     ////
 ////                                                                      ////
 ////    Self-check:                                                       ////
 ////        Unlike the master-only and slave-only non-blocking tests in    ////
@@ -90,19 +110,38 @@
 
 #define SLV_ADDR 0x55   // must match whatever address the testbench's slave VIP responds to
 
-#define MST_WRITE_BURST_LEN 12   // > 8 (FIFO depth) by default -- exercises TX clock-stretch
-#define MST_READ_BURST_LEN  12   // > 8 (FIFO depth) by default -- exercises RX clock-stretch
+//Burst-length knob -- see header comment above for the BURST_LEN -> length mapping
+#ifndef BURST_LEN
+#define BURST_LEN 3
+#endif
 
-uint8_t tx_pattern[MST_WRITE_BURST_LEN];
-uint8_t rx_capture[MST_READ_BURST_LEN];
+#if   BURST_LEN == 0
+#define MST_WRITE_BURST_LEN 0
+#elif BURST_LEN == 1
+#define MST_WRITE_BURST_LEN 1
+#elif BURST_LEN == 2
+#define MST_WRITE_BURST_LEN 2
+#else
+#define MST_WRITE_BURST_LEN 12   // > 8 (FIFO depth)
+#endif
+
+#define MST_READ_BURST_LEN MST_WRITE_BURST_LEN   // read back exactly what was written by default
+
+//Fixed capacity, independent of the knob above, so MST_WRITE_BURST_LEN==0 never
+//produces a zero-length array; matches the UVM reference struct's own 20-entry bound.
+#define MST_BUF_CAP 20
+
+uint8_t tx_pattern[MST_BUF_CAP];
+uint8_t rx_capture[MST_BUF_CAP];
 
 volatile uint16_t tx_push_idx            = 0;   // bytes handed to the TX FIFO so far
-volatile uint16_t tx_done_cnt            = 0;   // tx_done events seen (address byte + data)
+volatile uint16_t tx_done_cnt            = 0;   // tx_done events seen (both address bytes + write data)
 volatile uint16_t rx_pop_idx             = 0;   // bytes drained from the RX FIFO so far
 volatile uint16_t rx_done_cnt            = 0;   // rx_done events seen (data bytes only)
 volatile uint16_t rxfifo_full_event_count = 0;
 volatile uint16_t txfifo_empty_event_count = 0;
 volatile bool     mst_nack_seen          = false;
+volatile bool     read_addr_done         = false;   // read phase's own address byte tx_done seen
 volatile bool     txn_done               = false;
 
 static void refill_tx_fifo(void)
@@ -137,6 +176,20 @@ static void drain_available_rx_bytes(void)
         I2C_TX_FIFO_REF_DATA->rx_data[i] = rx_capture[i];
     }
 #endif
+}
+
+//Completion for the read phase is gated on BOTH its own address byte having been
+//seen (read_addr_done) AND all data bytes counted -- needed as two separate
+//conditions because MST_READ_BURST_LEN == 0 never produces a data-byte rx_done at
+//all, so read_addr_done is the ONLY signal available in that case.
+static void finish_read_phase_if_done(void)
+{
+    if (read_addr_done && rx_done_cnt == MST_READ_BURST_LEN)
+    {
+        drain_available_rx_bytes();
+        i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
+        i2c_mst_cmd_vld(I2C0_REGS);
+    }
 }
 
 int main(void)
@@ -245,12 +298,22 @@ int main(void)
     }
 
     uint16_t mismatch_count = 0;
-    for (uint16_t i = 0; i < rx_pop_idx; i++)
+    if (MST_WRITE_BURST_LEN > 0)
     {
-        if (rx_capture[i] != tx_pattern[i % MST_WRITE_BURST_LEN])
+        for (uint16_t i = 0; i < rx_pop_idx; i++)
         {
-            mismatch_count++;
+            if (rx_capture[i] != tx_pattern[i % MST_WRITE_BURST_LEN])
+            {
+                mismatch_count++;
+            }
         }
+    }
+    else
+    {
+        //Nothing was ever written to echo from -- any byte received here at all
+        //(only possible if MST_READ_BURST_LEN was overridden independently to be
+        //nonzero) is itself a mismatch, and would otherwise be a modulo-by-zero above.
+        mismatch_count = rx_pop_idx;
     }
 
     print_int_var("mismatch_count", mismatch_count, 0);
@@ -283,12 +346,19 @@ void I2C0_IRQ_Handler(void)
         case I2C_INTR_EVENT_TX_DONE_IDX + 1:
             tx_done_cnt++;
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_TX_DONE_IDX);
-            if (tx_done_cnt == MST_WRITE_BURST_LEN + 1)   // +1 for the address byte
+            if (tx_done_cnt == MST_WRITE_BURST_LEN + 1)   // +1 for the write phase's address byte
             {
                 //Whole write burst has physically shifted out -- turn the bus around
                 //with a repeated START into the read phase (no STOP was ever issued).
                 i2c_mst_byte_lvl_transfer_ackval(I2C0_REGS, I2C_MASTER_ACK_VAL_MST_ACKVAL_NACK);
                 i2c_mst_byte_lvl_transfer_addr_rdwr(I2C0_REGS, SLV_ADDR, I2C_MASTER_CTRL_MST_DIR_READ, MST_READ_BURST_LEN);
+            }
+            else if (tx_done_cnt == MST_WRITE_BURST_LEN + 2)   // the read phase's OWN address byte
+            {
+                //Needed as the sole completion signal when MST_READ_BURST_LEN == 0,
+                //since no data-byte rx_done would ever fire in that case.
+                read_addr_done = true;
+                finish_read_phase_if_done();
             }
             break;
 
@@ -306,14 +376,10 @@ void I2C0_IRQ_Handler(void)
         case I2C_INTR_EVENT_RX_DONE_IDX + 1:
             rx_done_cnt++;
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_RX_DONE_IDX);
-            if (rx_done_cnt == MST_READ_BURST_LEN)
-            {
-                //Whole read burst has arrived -- pick up any remainder that never
-                //triggered rxfifo_full, then close the transaction with STOP.
-                drain_available_rx_bytes();
-                i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
-                i2c_mst_cmd_vld(I2C0_REGS);
-            }
+            //Whole read burst has arrived once this reaches MST_READ_BURST_LEN --
+            //finish_read_phase_if_done() picks up any remainder that never triggered
+            //rxfifo_full, then closes the transaction with STOP.
+            finish_read_phase_if_done();
             break;
 
         case I2C_INTR_EVENT_RXFIFO_FULL_IDX + 1:
@@ -324,7 +390,7 @@ void I2C0_IRQ_Handler(void)
 
         case I2C_INTR_EVENT_MST_STOP_INTR_IDX + 1:
 #if UVM_TEST
-            if (tx_done_cnt != MST_WRITE_BURST_LEN + 1 || rx_done_cnt != MST_READ_BURST_LEN)
+            if (!read_addr_done || tx_done_cnt != MST_WRITE_BURST_LEN + 2 || rx_done_cnt != MST_READ_BURST_LEN)
             {
                 I2C_TX_FIFO_REF_DATA->unexpected_stop = 1;   // stop landed before both bursts finished
             }
