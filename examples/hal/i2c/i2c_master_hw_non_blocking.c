@@ -214,8 +214,6 @@ static void finish_read_phase_if_done(void)
     if (read_addr_done && rx_done_cnt == MST_READ_BURST_LEN)
     {
         drain_available_rx_bytes();
-        i2c_mst_byte_lvl_transfer_stop(I2C0_REGS);
-        i2c_mst_cmd_vld(I2C0_REGS);
     }
 }
 

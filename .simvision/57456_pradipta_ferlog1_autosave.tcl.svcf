@@ -108,13 +108,16 @@ set id [waveform add -signals  {
 	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_stop[0:0]}
 	} ]
 set id [waveform add -signals  {
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_cmd_vld[0:0]}
+	} ]
+set id [waveform add -signals  {
 	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_csr.mst_dir[0:0]}
 	} ]
 set id [waveform add -signals  {
 	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_core.u_i2c_master.scl_out
 	} ]
 
-waveform xview limits 9420939.977ns 10999725.1ns
+waveform xview limits 8133446.022ns 9263027.96ns
 
 #
 # Waveform Window Links
