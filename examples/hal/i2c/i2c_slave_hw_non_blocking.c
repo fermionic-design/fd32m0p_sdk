@@ -103,7 +103,20 @@
 #include "uart.h"
 
 #if UVM_TEST
-#include "i2c_cfg_reg.h"
+//#include "i2c_cfg_reg.h"
+//I2C_TX_FIFO_REF_DATA_s mirrors the layout the UVM verification environment expects
+//at this fixed SRAM address. Defined locally (not pulled from an external,
+//verification-only header like i2c_structs.h) because this SDK folder is handed to
+//customers standalone and must not depend on files that only exist in the UVM tree.
+//If the UVM side's own copy of this struct ever changes layout, update this one to match.
+typedef struct I2C_TX_FIFO_REF_DATA_s {
+    volatile int      burst_len;
+    volatile uint32_t tx_data[20];
+    volatile uint32_t rx_data[20];
+    volatile uint32_t unexpected_stop;
+    volatile uint32_t slv_en;
+    volatile uint32_t mst_en;
+} I2C_TX_FIFO_REF_DATA_s;
 #define I2C_TX_FIFO_REF_DATA ((I2C_TX_FIFO_REF_DATA_s *) 0x20000C00)   // UVM VIP reference-data SRAM
 #endif
 
@@ -115,7 +128,7 @@ volatile uint16_t write_len              = 0;       // valid byte count currentl
 volatile uint16_t cur_write_idx          = 0;       // write-in-progress cursor into echo_buf
 volatile uint16_t tx_echo_idx            = 0;       // read-in-progress cursor, wraps mod write_len
 volatile uint16_t rxfifo_full_event_count = 0;
-volatile bool     addr_byte_pending      = false;
+volatile bool     direction_known        = false;
 volatile bool     slv_read_active        = false;
 volatile bool     write_phase_active     = false;   // true while an uncommitted write phase is open
 volatile bool     overflow_detected      = false;
@@ -163,10 +176,49 @@ static void refill_tx_fifo(void)
     }
 }
 
+//Called from the first rx_done OR first txfifo_empty of a phase -- by that point the
+//address+R/W byte has definitely already resolved in hardware, so the status read is
+//valid. Latches direction_known so it only runs once per phase.
+static void establish_direction_if_unknown(void)
+{
+    if (direction_known)
+    {
+        return;
+    }
+    direction_known = true;
+
+    if (i2c_slv_rd_wr_sts_get(I2C0_REGS))
+    {
+        //Master wants to READ: echo from whatever the last completed write captured
+        slv_read_active = true;
+        tx_echo_idx     = 0;
+
+        if (write_phase_active)
+        {
+            //The write phase we're now leaving ended via a repeated START, not a
+            //STOP, so it never went through the slv_stop commit below. Drain any
+            //bytes hardware hasn't handed off yet, then commit, so this read
+            //echoes the bytes just written instead of missing the tail end.
+            drain_available_write_bytes();
+            write_len          = cur_write_idx;
+            write_seen         = true;
+            write_phase_active = false;
+        }
+    }
+    else
+    {
+        //Master wants to WRITE: start capturing fresh data at index 0
+        slv_read_active    = false;
+        write_phase_active = true;
+        cur_write_idx       = 0;
+        overflow_detected   = false;
+    }
+}
+
 int main(void)
 {
     UartStdOutInit();
-    UartPuts("I2C SLV Hardware-Mode Non-Blocking Test\n");
+    UartPuts("I2C SLV HW\n");
 
     //Default Structs
     IOMUX_PA_REG_s    iomux_cfg_struct_i2c;
@@ -186,9 +238,9 @@ int main(void)
     //Set GPIO Configuration SCL
     iomux_cfg_struct_i2c.output_en = 0;
     iomux_cfg_struct_i2c.input_en  = 1;
-    iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA11_I2C0_SCL;
+    iomux_cfg_struct_i2c.sel       = IOMUX_PIN_SEL_PA1_I2C0_SCL;
 
-    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct_i2c, 11);
+    iomux_cfg(IOMUX_REGS, &iomux_cfg_struct_i2c, 1);
 
     //Set GPIO Configuration SDA
     iomux_cfg_struct_i2c.output_en = 0;
@@ -267,54 +319,21 @@ int main(void)
 void I2C0_IRQ_Handler(void)
 {
     uint32_t intr_sts = I2C0_REGS->INTR_STS.packed_w;
-    uint8_t  addr_byte_discard;
 
     switch (intr_sts)
     {
         case I2C_INTR_EVENT_SLV_START_IDX + 1:
-            addr_byte_pending = true;
+            //Direction for the phase this START (initial or repeated) is opening
+            //isn't known yet -- it gets latched by establish_direction_if_unknown()
+            //from whichever of rx_done/txfifo_empty fires first below.
+            direction_known = false;
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_SLV_START_IDX);
             break;
 
         case I2C_INTR_EVENT_RX_DONE_IDX + 1:
-            if (addr_byte_pending)
-            {
-                //This rx_done is the address+R/W byte, not a data byte -- hardware
-                //has already ack'd it, so just discard it and learn the direction.
-                i2c_rxfifo_drain_nonblocking(I2C0_REGS, &addr_byte_discard, 1);
-                addr_byte_pending = false;
-
-                if (write_phase_active)
-                {
-                    //The write phase we're now leaving ended via a repeated START,
-                    //not a STOP, so it never went through the slv_stop commit below.
-                    //Drain any bytes hardware hasn't handed off yet, then commit,
-                    //before switching direction, so an immediately-following read
-                    //echoes the bytes just written instead of missing the tail end.
-                    drain_available_write_bytes();
-                    write_len          = cur_write_idx;
-                    write_seen         = true;
-                    write_phase_active = false;
-                }
-
-                if (i2c_slv_rd_wr_sts_get(I2C0_REGS))
-                {
-                    //Master wants to READ: prime TXDATA from the last write's echo_buf
-                    slv_read_active = true;
-                    tx_echo_idx     = 0;
-                    refill_tx_fifo();
-                }
-                else
-                {
-                    //Master wants to WRITE: start capturing fresh data at index 0
-                    slv_read_active    = false;
-                    write_phase_active = true;
-                    cur_write_idx      = 0;
-                    overflow_detected  = false;
-                }
-            }
-            //else: an ordinary data byte's rx_done -- rxfifo_full/slv_stop below
-            //already do the real draining, nothing further needed here.
+            //Only ever fires for a real data byte in HW mode (never the address+R/W
+            //byte), so its mere occurrence already confirms write direction.
+            establish_direction_if_unknown();
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_RX_DONE_IDX);
             break;
 
@@ -325,6 +344,9 @@ void I2C0_IRQ_Handler(void)
             break;
 
         case I2C_INTR_EVENT_TXFIFO_EMPTY_IDX + 1:
+            //With slv_txempty_intr_on_tx_req = REQUIRED, this only fires while
+            //genuinely clock-stretching for TX data, i.e. only during a real read.
+            establish_direction_if_unknown();
             refill_tx_fifo();   // relieves the clock-stretch hardware just engaged
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_TXFIFO_EMPTY_IDX);
             break;

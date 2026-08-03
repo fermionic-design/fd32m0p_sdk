@@ -115,7 +115,7 @@ typedef struct i2c_slv_cfg {
     .slv_addr2_en = 0                                                                    ,\
     .slv_addr2_mask = 0                                                                  ,\
     .slv_txwait_stale_fifo = I2C_SLAVE_CTRL_SLV_TXWAIT_STALE_FIFO_NOT_TREATED_AS_EMPTY   ,\
-    .slv_txempty_intr_on_tx_req = I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_AGNOSTIC     ,\
+    .slv_txempty_intr_on_tx_req = I2C_SLAVE_CTRL_SLV_TXEMPTY_INTR_ON_TX_REQ_REQUIRED     ,\
     .slv_addr1 = 0x55                                                                    ,\
     .slv_addr2 = 0x52                                                                    ,\
     .slv_auto_ack_en = 1                                                                 ,\
