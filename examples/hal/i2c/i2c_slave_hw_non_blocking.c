@@ -94,6 +94,30 @@
 ////        under this flag, a captured write_len or bytes_echoed_on_read  ////
 ////        shorter than the VIP's actual burst length is the EXPECTED     ////
 ////        result of those dropped/underrun bytes, not a bug in this file.////
+////                                                                      ////
+////    PEC_TEST build flag:                                               ////
+////        Compiling with -DPEC_TEST=1 sets i2c_slv_cfg_struct.i2c_pec_en ////
+////        = 1, overriding I2C_SLAVE_CFG_HW_MODE's default of 0, and       ////
+////        enables the pec_err interrupt. With PEC enabled, the master     ////
+////        VIP is expected to append one extra PEC (CRC-8) byte after the  ////
+////        declared burst on a write, and to expect one extra PEC byte     ////
+////        appended after the echoed data on a read. Both the computation  ////
+////        and the FIFO-vs-PEC-byte routing are entirely hardware's job,   ////
+////        so no logic elsewhere in this file changes for PEC to work:      ////
+////          - Write: hardware checks the trailing PEC byte itself and      ////
+////            never pushes it into the RX FIFO, so echo_buf/write_len      ////
+////            end up containing only the real data bytes either way --     ////
+////            drain_available_write_bytes() needs no PEC-awareness at all. ////
+////          - Read: after echo_buf's write_len bytes are exhausted,        ////
+////            hardware appends its own computed PEC byte on the wire       ////
+////            without pulling anything further from the TX FIFO, so        ////
+////            refill_tx_fifo() needs no PEC-awareness either.              ////
+////        A PEC mismatch raises pec_err (I2C_INTR_EVENT_PEC_ERR_IDX),      ////
+////        latched into pec_err_seen and treated as an outright test        ////
+////        failure -- unlike the protocol-level-only checks elsewhere in    ////
+////        this file, a PEC mismatch is something the slave itself can      ////
+////        legitimately detect, not something only the VIP scoreboard can   ////
+////        see.                                                            ////
 //////////////////////////////////////////////////////////////////////////////
 
 #include "FD32M0P.h"
@@ -134,6 +158,7 @@ volatile bool     write_phase_active     = false;   // true while an uncommitted
 volatile bool     overflow_detected      = false;
 volatile bool     write_seen             = false;
 volatile bool     read_seen              = false;
+volatile bool     pec_err_seen           = false;   // (PEC_TEST only) a PEC mismatch was flagged by hardware
 
 static void drain_available_write_bytes(void)
 {
@@ -235,6 +260,13 @@ int main(void)
     UartPuts("Negative test mode: slave clock stretch disabled\n");
 #endif
 
+#if PEC_TEST
+    //Master VIP appends/expects one extra PEC (CRC-8) byte per transaction; see the
+    //header comment above for why nothing else in this file needs to change for it.
+    i2c_slv_cfg_struct.i2c_pec_en = 1;
+    UartPuts("PEC test mode: slave PEC checking/generation enabled\n");
+#endif
+
     //Set GPIO Configuration SCL
     iomux_cfg_struct_i2c.output_en = 0;
     iomux_cfg_struct_i2c.input_en  = 1;
@@ -267,11 +299,15 @@ int main(void)
     //  txfifo_empty    -- refills echoed read data exactly when hardware is
     //                      clock-stretching waiting for the next byte to send
     //  slv_stop        -- closes out whichever direction was active
+    //  pec_err         -- (PEC_TEST only) flags a PEC/CRC mismatch hardware detected
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_SLV_START_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_RX_DONE_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_RXFIFO_FULL_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_TXFIFO_EMPTY_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_SLV_STOP_IDX);
+#if PEC_TEST
+    I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_PEC_ERR_IDX);
+#endif
 
     NVIC_ClearPendingIRQ(I2C0_IRQn);
     NVIC_EnableIRQ(I2C0_IRQn);
@@ -299,8 +335,9 @@ int main(void)
     print_int_var("write_len", write_len, 0);
     print_int_var("bytes_echoed_on_read", tx_echo_idx, 0);
     print_int_var("clock_stretch_events (rxfifo_full hits)", rxfifo_full_event_count, 0);
+    print_int_var("pec_err_seen", pec_err_seen, 0);
 
-    if (!overflow_detected && write_len > 0 && tx_echo_idx > 0)
+    if (!overflow_detected && write_len > 0 && tx_echo_idx > 0 && !pec_err_seen)
     {
         UartPuts("-- TEST PASSED --\n");
         UartPass();
@@ -366,6 +403,14 @@ void I2C0_IRQ_Handler(void)
                 write_phase_active = false;
             }
             I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_SLV_STOP_IDX);
+            break;
+
+        case I2C_INTR_EVENT_PEC_ERR_IDX + 1:
+            //(PEC_TEST only -- this event is never enabled otherwise) Hardware has
+            //already computed/checked the trailing PEC byte on its own; all this
+            //ISR needs to do is latch that it happened.
+            pec_err_seen = true;
+            I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_PEC_ERR_IDX);
             break;
     }
 }
