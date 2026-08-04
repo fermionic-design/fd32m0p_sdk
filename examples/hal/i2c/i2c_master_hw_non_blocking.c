@@ -117,6 +117,32 @@
 ////        before both burst counts have completed is flagged via         ////
 ////        ->unexpected_stop. This whole mechanism compiles out           ////
 ////        completely when UVM_TEST is left undefined.                    ////
+////                                                                      ////
+////    PEC_TEST build flag:                                               ////
+////        Compiling with -DPEC_TEST=1 sets i2c_mst_cfg_struct.i2c_pec_en ////
+////        = 1, overriding I2C_MASTER_CFG_HW_MODE's default of 0, and      ////
+////        enables the pec_err interrupt. With PEC enabled, this DUT       ////
+////        appends one extra PEC (CRC-8) byte after MST_WRITE_BURST_LEN    ////
+////        data bytes on the write (the slave VIP receives and checks      ////
+////        it), and expects one extra PEC byte after MST_READ_BURST_LEN    ////
+////        data bytes on the read (this DUT receives and checks it,       ////
+////        flagging pec_err on a mismatch). As on the slave DUT side,      ////
+////        the PEC byte's generation/checking is entirely hardware's job.  ////
+////                                                                      ////
+////        ASSUMPTION (not independently confirmed): the PEC byte is       ////
+////        transparent to tx_done_cnt/rx_done_cnt counting -- i.e. it       ////
+////        does NOT add an extra tx_done on the write or an extra rx_done   ////
+////        on the read, mirroring how it's transparent to the RX FIFO on    ////
+////        the slave DUT side. tx_done_cnt/rx_done_cnt completion targets   ////
+////        are therefore left unchanged (MST_WRITE_BURST_LEN + 1 /          ////
+////        MST_READ_BURST_LEN) under this flag. If that assumption is       ////
+////        wrong, PEC_TEST=1 would either turn the bus around one byte      ////
+////        early (extra tx_done exists) or hang waiting for one more        ////
+////        rx_done that never comes (extra rx_done exists) -- worth         ////
+////        confirming against the RTL/VIP before relying on this knob.      ////
+////        pec_err_seen is treated as an outright test failure, same as     ////
+////        on the slave DUT side, since it's something this DUT can         ////
+////        legitimately detect itself.                                     ////
 //////////////////////////////////////////////////////////////////////////////
 
 #include "FD32M0P.h"
@@ -163,6 +189,13 @@ typedef struct I2C_TX_FIFO_REF_DATA_s {
 #define REPEATED_START_TEST 0
 #endif
 
+//PEC knob -- see header comment above. Default OFF: i2c_pec_en stays 0 (whatever
+//I2C_MASTER_CFG_HW_MODE sets it to). -DPEC_TEST=1: i2c_mst_cfg_struct.i2c_pec_en is
+//forced to 1 and the pec_err interrupt is enabled.
+#ifndef PEC_TEST
+#define PEC_TEST 0
+#endif
+
 //Fixed capacity, independent of the knob above, so MST_WRITE_BURST_LEN==0 never
 //produces a zero-length array; matches the UVM reference struct's own 20-entry bound.
 #define MST_BUF_CAP 20
@@ -180,6 +213,7 @@ volatile bool     mst_nack_seen          = false;
 volatile bool     read_addr_done         = false;   // read phase's own address byte tx_done seen
 volatile bool     write_stop_seen        = false;   // (default framing only) write phase's own STOP has landed
 volatile bool     txn_done               = false;
+volatile bool     pec_err_seen           = false;   // (PEC_TEST only) a PEC mismatch was flagged by hardware
 
 static void refill_tx_fifo(void)
 {
@@ -246,6 +280,9 @@ int main(void)
     #if REPEATED_START_TEST
         i2c_mst_cfg_struct.mst_rd_on_txempty=1;
     #endif
+    #if PEC_TEST
+        i2c_mst_cfg_struct.i2c_pec_en = 1;
+    #endif
 
     //Deterministic write pattern -- this test is its own oracle for the read-back check
     for (uint16_t i = 0; i < MST_WRITE_BURST_LEN; i++)
@@ -310,12 +347,18 @@ int main(void)
     //                     Default framing: the FIRST one closes out the write phase
     //                     and kicks off the read as a fresh START; the SECOND marks
     //                     the whole test complete (see write_stop_seen).
+    //  pec_err         -- (PEC_TEST only) flags a PEC/CRC mismatch hardware detected,
+    //                      either on the extra byte the slave VIP checks (write) or
+    //                      the extra byte this DUT checks (read)
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_TX_DONE_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_TXFIFO_EMPTY_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_MST_NACK_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_RX_DONE_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_RXFIFO_FULL_IDX);
     I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_MST_STOP_INTR_IDX);
+    #if PEC_TEST
+        I2C_INTR_EVENT_EN(I2C0_REGS, I2C_INTR_EVENT_PEC_ERR_IDX);
+    #endif
 
     NVIC_ClearPendingIRQ(I2C0_IRQn);
     NVIC_EnableIRQ(I2C0_IRQn);
@@ -373,8 +416,9 @@ int main(void)
     print_int_var("mismatch_count", mismatch_count, 0);
     print_int_var("clock_stretch_events_tx (txfifo_empty hits)", txfifo_empty_event_count, 0);
     print_int_var("clock_stretch_events_rx (rxfifo_full hits)", rxfifo_full_event_count, 0);
+    print_int_var("pec_err_seen", pec_err_seen, 0);
 
-    if (!mst_nack_seen && mismatch_count == 0 &&
+    if (!mst_nack_seen && !pec_err_seen && mismatch_count == 0 &&
         tx_push_idx == MST_WRITE_BURST_LEN && rx_pop_idx == MST_READ_BURST_LEN)
     {
         UartPuts("-- TEST PASSED --\n");
@@ -453,5 +497,12 @@ void I2C0_IRQ_Handler(void)
             }
 #endif
             break;
+
+#if PEC_TEST
+        case I2C_INTR_EVENT_PEC_ERR_IDX + 1:
+            pec_err_seen = true;
+            I2C_INTR_EVENT_CLEAR(I2C0_REGS, I2C_INTR_EVENT_PEC_ERR_IDX);
+            break;
+#endif
     }
 }
