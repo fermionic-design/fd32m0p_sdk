@@ -80,7 +80,7 @@ waveform set \
     -primarycursor TimeA \
     -signalnames name \
     -signalwidth 175 \
-    -units ns \
+    -units us \
     -valuewidth 75
 waveform baseline set -time 0
 
@@ -129,8 +129,25 @@ set id [waveform add -signals  {
 	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_intr.intr_event[19:0]}
 	} ]
 waveform hierarchy collapse $id
+set id [waveform add -cdivider divider]
+set id [waveform add -signals  {
+	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_cmn_fifo.u_txfifo.push_req_n
+	} ]
+set id [waveform add -signals  {
+	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_cmn_fifo.u_txfifo.push_empty
+	} ]
+set id [waveform add -signals  {
+	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_core.u_i2c_master.tx_fifo_empty
+	} ]
+set id [waveform add -signals  {
+	waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_i2c_top_0.u_i2c_core.u_i2c_master.txempty_done
+	} ]
+set id [waveform add -signals  {
+	{waves_i2c_mst_hw_dbg::tb_dtop.u_die_top.ICHIP.DTOP.u_sram.u_sram_wrap.mem_array[1023:0]}
+	} ]
+waveform hierarchy expand $id
 
-waveform xview limits 7437072.705ns 9688310.632ns
+waveform xview limits 0 20000us
 
 #
 # Waveform Window Links

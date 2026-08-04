@@ -167,6 +167,7 @@ static void drain_available_write_bytes(void)
         overflow_detected = true;
         return;
     }
+   UartPuts("Read dly for clkstretch\n"); 
 
     uint16_t start = cur_write_idx;
     cur_write_idx += i2c_rxfifo_drain_nonblocking(I2C0_REGS, &echo_buf[cur_write_idx], sizeof(echo_buf) - cur_write_idx);
@@ -190,6 +191,7 @@ static void refill_tx_fifo(void)
     {
         return;   // nothing has ever been written yet -- nothing to echo
     }
+   UartPuts("Write dly for clkstretch\n"); 
     while (!I2C0_REGS->FIFO_STS.txfifo_full)
     {
         uint8_t byte_to_send = echo_buf[tx_echo_idx % write_len];
