@@ -327,7 +327,6 @@ int main(void)
     I2C_TX_FIFO_REF_DATA->slv_en = 0x1;   // tells the UVM master VIP the DUT is ready
 #endif
 
-    while (!(write_seen && read_seen));
 
     UartPuts("-- echo_buf captured from the master's write --\n");
     for (uint16_t i = 0; i < write_len; i++)
@@ -349,9 +348,11 @@ int main(void)
         UartPuts("** TEST FAILED **\n");
         UartFail();
     }
+    int ctr=0;
+    while(ctr++!=100000);
 
     UartPuts("** End of Simulation **\n");
-    UartEndSimulation();
+    //UartEndSimulation();
     return 0;
 }
 

@@ -283,6 +283,8 @@ int main(void)
     #if PEC_TEST
         i2c_mst_cfg_struct.i2c_pec_en = 1;
     #endif
+        
+    i2c_mst_cfg_struct.mst_auto_ack_en = 0;
 
     //Deterministic write pattern -- this test is its own oracle for the read-back check
     for (uint16_t i = 0; i < MST_WRITE_BURST_LEN; i++)
@@ -430,7 +432,9 @@ int main(void)
         UartFail();
     }
 
-    UartPuts("** End of Simulation **\n");
+    int ctr=0;
+    while(ctr++!=100000);
+    //UartPuts("** End of Simulation **\n");
     UartEndSimulation();
     return 0;
 }
